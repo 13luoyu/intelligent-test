@@ -1,5 +1,5 @@
 from transformers import AutoModelForTokenClassification, AutoTokenizer, Trainer
-from utils.data_loader import DefaultDataset, DataCollatorForTokenClassification, read_json, read_dict
+from utils.data_loader import DefaultDataset, DataCollatorForTokenClassification, read_json_for_token_classification, read_dict
 from utils.training_arguments import get_training_arguments
 from utils.arguments import arg_parser
 import torch
@@ -10,11 +10,15 @@ import time
 
 def train_model(train_dataset: str, eval_dataset: str, class_dict: str, model_path: str, training_args = {}):
 
-    model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=121)
+    with open(class_dict, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+        num_labels = len(lines) - 1
+
+    model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=num_labels)
     tokenizer = AutoTokenizer.from_pretrained(model_path)
 
-    train_dataset = DefaultDataset(read_json(train_dataset, istrain=True))
-    eval_dataset = DefaultDataset(read_json(eval_dataset))
+    train_dataset = DefaultDataset(read_json_for_token_classification(train_dataset, istrain=True))
+    eval_dataset = DefaultDataset(read_json_for_token_classification(eval_dataset))
     collator = DataCollatorForTokenClassification(tokenizer, class_dict, split = training_args["split"])
 
     saved_path = training_args["output_dir"]
@@ -29,7 +33,11 @@ def train_model(train_dataset: str, eval_dataset: str, class_dict: str, model_pa
 
 def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_args = {}):
 
-    model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=121)
+    with open(class_dict, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+        num_labels = len(lines) - 1
+
+    model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=num_labels)
     tokenizer = AutoTokenizer.from_pretrained(model_path)
 
     def preprocess(items):
@@ -39,7 +47,7 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
             labels.append(item["label"].replace(training_args["split"], " "))
         return inputs, labels
 
-    eval_dataset = read_json(eval_dataset)
+    eval_dataset = read_json_for_token_classification(eval_dataset)
     inputs, labels = preprocess(eval_dataset)
 
     def predict(model, tokenizer, inputs, batch_size=8):
@@ -51,7 +59,7 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
             batch = tokenizer(batch, max_length=512, padding="max_length", truncation=True, return_tensors="pt")
             input_ids = batch.input_ids.cuda()
             attention_mask = batch.attention_mask
-            logits = model(input_ids=input_ids).logits  # (8, 512, 121)
+            logits = model(input_ids=input_ids).logits  # (8, 512, num_labels)
             _, outputs = torch.max(logits, dim=2)
             outputs = outputs.cpu().numpy()
             for i, output in enumerate(outputs):  # (8, 512)
@@ -89,5 +97,5 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_model("../data/our_data.json", "../data/our_data.json", "../data/our_data.dict", model, training_args)
-    eval_model("../data/our_data.json", "../data/our_data.dict", saved_path, training_args)
+    saved_path = train_model("../data/深交所业务规则/json/深圳证券交易所债券交易规则.json", "../data/深交所业务规则/json/深圳证券交易所债券交易规则.json", "../data/our_data.dict", model, training_args)
+    eval_model("../data/深交所业务规则/json/深圳证券交易所债券交易规则.json", "../data/our_data.dict", saved_path, training_args)

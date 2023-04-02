@@ -6,12 +6,13 @@ def generate_dict(data_file, data_dict):
     rules = json.load(open(data_file, "r", encoding="utf-8"))
     ds = []
     for rule in rules:
+        if rule["type"] != "1":
+            continue
         label = rule["label"]
         tokens = label.split(" ")
         for token in tokens:
             if token not in ds:
                 ds.append(token)
-                print(token, rule)
     with open(data_dict, "w+", encoding="utf-8") as f:
         for i, d in enumerate(ds):
             f.write(f"{i}\t{d}\n")
@@ -20,4 +21,4 @@ def generate_dict(data_file, data_dict):
 
 
 if __name__ == "__main__":
-    generate_dict("../data/our_data.json", "../data/our_data.dict")
+    generate_dict("../data/深交所业务规则/json/深圳证券交易所债券交易规则.json", "../data/our_data.dict")
