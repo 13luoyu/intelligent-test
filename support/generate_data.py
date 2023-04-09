@@ -5,7 +5,7 @@ import os
 
 def is_id(str):
     str = str.split(" ")[0]
-    if str[0]=="第" and str[-1] == "条":
+    if str[0]=="第" and "条" in str:
         return True
     if "." not in str:
         return False
@@ -30,7 +30,7 @@ def read_pdf_to_txt(pdf_file, txt_file):
             continue
         # 第几章，第几节
         if line[0] == "第" and " " in line and ("章" in line or "节" in line):
-            ts += "\n" + line
+            ts += "\n" + line + "\n"
         elif is_id(line) and last_line.strip()[-1] == "。":  # 遇到1.1.1这样的
             ts += "\n" + line
         elif line[0] == "—" and line[-1] == "—":
