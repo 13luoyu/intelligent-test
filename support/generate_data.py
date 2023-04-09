@@ -22,19 +22,22 @@ def read_pdf_to_txt(pdf_file, txt_file):
         for page in pdf.pages:
             s += f"{page.extract_text()}\n"
     ts = ""
+    last_line = ""
     for i, line in enumerate(s.split("\n")):
         if i == 0 or i == 1 and "附件" in ts or line == "":  # 附件名、标题、空行
             ts += line + "\n"
+            last_line = line
             continue
         # 第几章，第几节
         if line[0] == "第" and " " in line and ("章" in line or "节" in line):
             ts += "\n" + line
-        elif is_id(line):  # 遇到1.1.1这样的
+        elif is_id(line) and last_line.strip()[-1] == "。":  # 遇到1.1.1这样的
             ts += "\n" + line
         elif line[0] == "—" and line[-1] == "—":
             continue
         else:
             ts += line
+        last_line = line
 
     with open(txt_file, "w+", encoding="utf-8") as f:
         f.write(ts)
