@@ -83,8 +83,6 @@ def read_json_for_token_classification(file: str, istrain: bool = False):
     id_data = []
     ds = json.load(open(file, "r", encoding="utf-8"))
     for d in ds:
-        if d["type"] != "1":
-            continue
         x, y = d["text"], d["label"]
         id_data.append({"text":x, "label":y})
     if istrain:

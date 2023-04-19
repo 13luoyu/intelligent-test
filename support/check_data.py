@@ -7,14 +7,13 @@ import os
 def check_length(file):
     rules = json.load(open(file, "r", encoding="utf-8"))
     for rule in rules:
-        if rule["type"] == "1":
-            text_length = len(rule["text"])
-            label_length = len(rule["label"].split(" "))
-            if text_length != label_length:
-                print(text_length, label_length)
-                print(f"{rule['text']}\n")
+        text_length = len(rule["text"])
+        label_length = len(rule["label"].split(" "))
+        if text_length != label_length:
+            print(text_length, label_length)
+            print(f"{rule['text']}\n")
     print("Done!")
 
 
 if __name__ == "__main__":
-    check_length("../data/深交所业务规则/json/深圳证券交易所债券交易规则.json")
+    check_length("../data/our_data.json")
