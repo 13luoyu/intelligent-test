@@ -1,0 +1,1212 @@
+Some weights of the model checkpoint at ../model/mengzi-bert-base-fin were not used when initializing BertForTokenClassification: ['cls.predictions.decoder.bias', 'cls.predictions.transform.dense.bias', 'pos_head.weight', 'cls.predictions.decoder.weight', 'pos_transform.dense.weight', 'sop.cls.bias', 'pos_transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'sop.cls.weight', 'pos_head.bias', 'pos_transform.LayerNorm.weight', 'pos_transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/mengzi-bert-base-fin and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.9018, 'learning_rate': 1e-05, 'epoch': 3.85}
+{'loss': 0.3415, 'learning_rate': 1e-05, 'epoch': 7.69}
+{'loss': 0.2315, 'learning_rate': 1e-05, 'epoch': 11.54}
+{'loss': 0.1749, 'learning_rate': 1e-05, 'epoch': 15.38}
+{'loss': 0.1321, 'learning_rate': 1e-05, 'epoch': 19.23}
+{'eval_loss': 0.09635095298290253, 'eval_runtime': 1.5159, 'eval_samples_per_second': 132.59, 'eval_steps_per_second': 17.151, 'epoch': 19.23}
+{'loss': 0.1115, 'learning_rate': 1e-05, 'epoch': 23.08}
+{'loss': 0.0824, 'learning_rate': 1e-05, 'epoch': 26.92}
+{'loss': 0.0668, 'learning_rate': 1e-05, 'epoch': 30.77}
+{'loss': 0.0621, 'learning_rate': 1e-05, 'epoch': 34.62}
+{'loss': 0.0507, 'learning_rate': 1e-05, 'epoch': 38.46}
+{'eval_loss': 0.03604792058467865, 'eval_runtime': 1.5087, 'eval_samples_per_second': 133.227, 'eval_steps_per_second': 17.233, 'epoch': 38.46}
+{'loss': 0.0422, 'learning_rate': 1e-05, 'epoch': 42.31}
+{'loss': 0.0421, 'learning_rate': 1e-05, 'epoch': 46.15}
+{'loss': 0.0348, 'learning_rate': 1e-05, 'epoch': 50.0}
+{'loss': 0.0317, 'learning_rate': 1e-05, 'epoch': 53.85}
+{'loss': 0.029, 'learning_rate': 1e-05, 'epoch': 57.69}
+{'eval_loss': 0.019476663321256638, 'eval_runtime': 1.5065, 'eval_samples_per_second': 133.425, 'eval_steps_per_second': 17.259, 'epoch': 57.69}
+{'loss': 0.0245, 'learning_rate': 1e-05, 'epoch': 61.54}
+{'loss': 0.0246, 'learning_rate': 1e-05, 'epoch': 65.38}
+{'loss': 0.0212, 'learning_rate': 1e-05, 'epoch': 69.23}
+{'loss': 0.0195, 'learning_rate': 1e-05, 'epoch': 73.08}
+{'loss': 0.0188, 'learning_rate': 1e-05, 'epoch': 76.92}
+{'eval_loss': 0.011582311242818832, 'eval_runtime': 1.5038, 'eval_samples_per_second': 133.663, 'eval_steps_per_second': 17.29, 'epoch': 76.92}
+{'loss': 0.0159, 'learning_rate': 1e-05, 'epoch': 80.77}
+{'loss': 0.0138, 'learning_rate': 1e-05, 'epoch': 84.62}
+{'loss': 0.0158, 'learning_rate': 1e-05, 'epoch': 88.46}
+{'loss': 0.0122, 'learning_rate': 1e-05, 'epoch': 92.31}
+{'loss': 0.0109, 'learning_rate': 1e-05, 'epoch': 96.15}
+{'eval_loss': 0.006906340830028057, 'eval_runtime': 1.5191, 'eval_samples_per_second': 132.314, 'eval_steps_per_second': 17.115, 'epoch': 96.15}
+{'loss': 0.0108, 'learning_rate': 1e-05, 'epoch': 100.0}
+{'train_runtime': 491.9118, 'train_samples_per_second': 40.861, 'train_steps_per_second': 5.286, 'train_loss': 0.09705008217921623, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/mengzi-bert-base-fin were not used when initializing BertForTokenClassification: ['cls.predictions.transform.LayerNorm.bias', 'pos_transform.dense.weight', 'cls.predictions.transform.dense.weight', 'pos_transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'pos_head.weight', 'cls.predictions.transform.LayerNorm.weight', 'pos_transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias', 'pos_transform.LayerNorm.bias', 'pos_head.bias', 'cls.predictions.bias', 'sop.cls.bias', 'sop.cls.weight']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/mengzi-bert-base-fin and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.8466, 'learning_rate': 9.615384615384616e-06, 'epoch': 3.85}
+{'loss': 0.3414, 'learning_rate': 9.230769230769232e-06, 'epoch': 7.69}
+{'loss': 0.2381, 'learning_rate': 8.846153846153847e-06, 'epoch': 11.54}
+{'loss': 0.1721, 'learning_rate': 8.461538461538462e-06, 'epoch': 15.38}
+{'loss': 0.1395, 'learning_rate': 8.076923076923077e-06, 'epoch': 19.23}
+{'eval_loss': 0.10188037157058716, 'eval_runtime': 1.5269, 'eval_samples_per_second': 131.641, 'eval_steps_per_second': 17.028, 'epoch': 19.23}
+{'loss': 0.1116, 'learning_rate': 7.692307692307694e-06, 'epoch': 23.08}
+{'loss': 0.0941, 'learning_rate': 7.307692307692308e-06, 'epoch': 26.92}
+{'loss': 0.0762, 'learning_rate': 6.923076923076923e-06, 'epoch': 30.77}
+{'loss': 0.0665, 'learning_rate': 6.538461538461539e-06, 'epoch': 34.62}
+{'loss': 0.058, 'learning_rate': 6.153846153846155e-06, 'epoch': 38.46}
+{'eval_loss': 0.04264064505696297, 'eval_runtime': 1.4986, 'eval_samples_per_second': 134.128, 'eval_steps_per_second': 17.35, 'epoch': 38.46}
+{'loss': 0.0518, 'learning_rate': 5.769230769230769e-06, 'epoch': 42.31}
+{'loss': 0.0503, 'learning_rate': 5.384615384615385e-06, 'epoch': 46.15}
+{'loss': 0.0434, 'learning_rate': 5e-06, 'epoch': 50.0}
+{'loss': 0.0423, 'learning_rate': 4.615384615384616e-06, 'epoch': 53.85}
+{'loss': 0.0405, 'learning_rate': 4.230769230769231e-06, 'epoch': 57.69}
+{'eval_loss': 0.02815791219472885, 'eval_runtime': 1.4931, 'eval_samples_per_second': 134.615, 'eval_steps_per_second': 17.413, 'epoch': 57.69}
+{'loss': 0.0349, 'learning_rate': 3.846153846153847e-06, 'epoch': 61.54}
+{'loss': 0.034, 'learning_rate': 3.4615384615384617e-06, 'epoch': 65.38}
+{'loss': 0.0302, 'learning_rate': 3.0769230769230774e-06, 'epoch': 69.23}
+{'loss': 0.0322, 'learning_rate': 2.6923076923076923e-06, 'epoch': 73.08}
+{'loss': 0.0286, 'learning_rate': 2.307692307692308e-06, 'epoch': 76.92}
+{'eval_loss': 0.021080050617456436, 'eval_runtime': 1.4931, 'eval_samples_per_second': 134.622, 'eval_steps_per_second': 17.414, 'epoch': 76.92}
+{'loss': 0.0295, 'learning_rate': 1.9230769230769234e-06, 'epoch': 80.77}
+{'loss': 0.0273, 'learning_rate': 1.5384615384615387e-06, 'epoch': 84.62}
+{'loss': 0.0262, 'learning_rate': 1.153846153846154e-06, 'epoch': 88.46}
+{'loss': 0.0307, 'learning_rate': 7.692307692307694e-07, 'epoch': 92.31}
+{'loss': 0.0259, 'learning_rate': 3.846153846153847e-07, 'epoch': 96.15}
+{'eval_loss': 0.01875598169863224, 'eval_runtime': 1.4873, 'eval_samples_per_second': 135.144, 'eval_steps_per_second': 17.481, 'epoch': 96.15}
+{'loss': 0.0252, 'learning_rate': 0.0, 'epoch': 100.0}
+{'train_runtime': 471.5026, 'train_samples_per_second': 42.63, 'train_steps_per_second': 5.514, 'train_loss': 0.10373833041924696, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/mengzi-bert-base-fin were not used when initializing BertForTokenClassification: ['cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.bias', 'pos_transform.dense.bias', 'sop.cls.weight', 'pos_transform.dense.weight', 'pos_head.bias', 'cls.predictions.transform.LayerNorm.weight', 'pos_transform.LayerNorm.bias', 'pos_transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'pos_head.weight', 'cls.predictions.decoder.weight', 'sop.cls.bias', 'cls.predictions.decoder.bias']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/mengzi-bert-base-fin and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.8931, 'learning_rate': 9.96354437049027e-06, 'epoch': 3.85}
+{'loss': 0.3377, 'learning_rate': 9.854709087130261e-06, 'epoch': 7.69}
+{'loss': 0.2422, 'learning_rate': 9.675081213427076e-06, 'epoch': 11.54}
+{'loss': 0.1758, 'learning_rate': 9.427280128266049e-06, 'epoch': 15.38}
+{'loss': 0.1302, 'learning_rate': 9.114919329468283e-06, 'epoch': 19.23}
+{'eval_loss': 0.09724680334329605, 'eval_runtime': 1.4886, 'eval_samples_per_second': 135.025, 'eval_steps_per_second': 17.466, 'epoch': 19.23}
+{'loss': 0.1027, 'learning_rate': 8.742553740855507e-06, 'epoch': 23.08}
+{'loss': 0.0846, 'learning_rate': 8.315613291203977e-06, 'epoch': 26.92}
+{'loss': 0.0677, 'learning_rate': 7.84032373365578e-06, 'epoch': 30.77}
+{'loss': 0.0613, 'learning_rate': 7.323615860218844e-06, 'epoch': 34.62}
+{'loss': 0.0505, 'learning_rate': 6.773024435212678e-06, 'epoch': 38.46}
+{'eval_loss': 0.03920026496052742, 'eval_runtime': 1.4966, 'eval_samples_per_second': 134.303, 'eval_steps_per_second': 17.372, 'epoch': 38.46}
+{'loss': 0.0483, 'learning_rate': 6.1965783214377895e-06, 'epoch': 42.31}
+{'loss': 0.043, 'learning_rate': 5.6026834012766155e-06, 'epoch': 46.15}
+{'loss': 0.0389, 'learning_rate': 5e-06, 'epoch': 50.0}
+{'loss': 0.037, 'learning_rate': 4.397316598723385e-06, 'epoch': 53.85}
+{'loss': 0.0347, 'learning_rate': 3.803421678562213e-06, 'epoch': 57.69}
+{'eval_loss': 0.02524985373020172, 'eval_runtime': 1.5417, 'eval_samples_per_second': 130.377, 'eval_steps_per_second': 16.865, 'epoch': 57.69}
+{'loss': 0.0305, 'learning_rate': 3.226975564787322e-06, 'epoch': 61.54}
+{'loss': 0.0333, 'learning_rate': 2.6763841397811576e-06, 'epoch': 65.38}
+{'loss': 0.029, 'learning_rate': 2.159676266344222e-06, 'epoch': 69.23}
+{'loss': 0.0293, 'learning_rate': 1.6843867087960252e-06, 'epoch': 73.08}
+{'loss': 0.0272, 'learning_rate': 1.257446259144494e-06, 'epoch': 76.92}
+{'eval_loss': 0.020428910851478577, 'eval_runtime': 1.5392, 'eval_samples_per_second': 130.588, 'eval_steps_per_second': 16.892, 'epoch': 76.92}
+{'loss': 0.0293, 'learning_rate': 8.850806705317183e-07, 'epoch': 80.77}
+{'loss': 0.0268, 'learning_rate': 5.727198717339511e-07, 'epoch': 84.62}
+{'loss': 0.0256, 'learning_rate': 3.2491878657292643e-07, 'epoch': 88.46}
+{'loss': 0.0289, 'learning_rate': 1.4529091286973994e-07, 'epoch': 92.31}
+{'loss': 0.0258, 'learning_rate': 3.645562950973014e-08, 'epoch': 96.15}
+{'eval_loss': 0.01960708200931549, 'eval_runtime': 1.5273, 'eval_samples_per_second': 131.604, 'eval_steps_per_second': 17.023, 'epoch': 96.15}
+{'loss': 0.0256, 'learning_rate': 0.0, 'epoch': 100.0}
+{'train_runtime': 480.5615, 'train_samples_per_second': 41.826, 'train_steps_per_second': 5.41, 'train_loss': 0.10226621554448054, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/mengzi-bert-base-fin were not used when initializing BertForTokenClassification: ['sop.cls.bias', 'cls.predictions.decoder.bias', 'cls.predictions.decoder.weight', 'sop.cls.weight', 'cls.predictions.transform.dense.bias', 'pos_head.bias', 'pos_transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'pos_transform.dense.weight', 'pos_transform.LayerNorm.weight', 'cls.predictions.bias', 'pos_head.weight', 'pos_transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/mengzi-bert-base-fin and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.909, 'learning_rate': 9.96354437049027e-06, 'epoch': 3.85}
+{'loss': 0.3263, 'learning_rate': 9.854709087130261e-06, 'epoch': 7.69}
+{'loss': 0.225, 'learning_rate': 9.675081213427076e-06, 'epoch': 11.54}
+{'loss': 0.1664, 'learning_rate': 9.427280128266049e-06, 'epoch': 15.38}
+{'loss': 0.1275, 'learning_rate': 9.114919329468283e-06, 'epoch': 19.23}
+{'eval_loss': 0.09313225746154785, 'eval_runtime': 1.5232, 'eval_samples_per_second': 131.956, 'eval_steps_per_second': 17.069, 'epoch': 19.23}
+{'loss': 0.0995, 'learning_rate': 8.742553740855507e-06, 'epoch': 23.08}
+{'loss': 0.0819, 'learning_rate': 8.315613291203977e-06, 'epoch': 26.92}
+{'loss': 0.0699, 'learning_rate': 7.84032373365578e-06, 'epoch': 30.77}
+{'loss': 0.0592, 'learning_rate': 7.323615860218844e-06, 'epoch': 34.62}
+{'loss': 0.0544, 'learning_rate': 6.773024435212678e-06, 'epoch': 38.46}
+{'eval_loss': 0.0382268913090229, 'eval_runtime': 1.5035, 'eval_samples_per_second': 133.684, 'eval_steps_per_second': 17.292, 'epoch': 38.46}
+{'loss': 0.0496, 'learning_rate': 6.1965783214377895e-06, 'epoch': 42.31}
+{'loss': 0.0411, 'learning_rate': 5.6026834012766155e-06, 'epoch': 46.15}
+{'loss': 0.0385, 'learning_rate': 5e-06, 'epoch': 50.0}
+{'loss': 0.0355, 'learning_rate': 4.397316598723385e-06, 'epoch': 53.85}
+{'loss': 0.0371, 'learning_rate': 3.803421678562213e-06, 'epoch': 57.69}
+{'eval_loss': 0.023891804739832878, 'eval_runtime': 1.514, 'eval_samples_per_second': 132.758, 'eval_steps_per_second': 17.173, 'epoch': 57.69}
+{'loss': 0.0308, 'learning_rate': 3.226975564787322e-06, 'epoch': 61.54}
+{'loss': 0.0293, 'learning_rate': 2.6763841397811576e-06, 'epoch': 65.38}
+{'loss': 0.0305, 'learning_rate': 2.159676266344222e-06, 'epoch': 69.23}
+{'loss': 0.0279, 'learning_rate': 1.6843867087960252e-06, 'epoch': 73.08}
+{'loss': 0.0288, 'learning_rate': 1.257446259144494e-06, 'epoch': 76.92}
+{'eval_loss': 0.01969011314213276, 'eval_runtime': 1.5164, 'eval_samples_per_second': 132.548, 'eval_steps_per_second': 17.146, 'epoch': 76.92}
+{'loss': 0.0263, 'learning_rate': 8.850806705317183e-07, 'epoch': 80.77}
+{'loss': 0.0291, 'learning_rate': 5.727198717339511e-07, 'epoch': 84.62}
+{'loss': 0.0271, 'learning_rate': 3.2491878657292643e-07, 'epoch': 88.46}
+{'loss': 0.0237, 'learning_rate': 1.4529091286973994e-07, 'epoch': 92.31}
+{'loss': 0.0246, 'learning_rate': 3.645562950973014e-08, 'epoch': 96.15}
+{'eval_loss': 0.018975088372826576, 'eval_runtime': 1.5091, 'eval_samples_per_second': 133.19, 'eval_steps_per_second': 17.229, 'epoch': 96.15}
+{'loss': 0.0271, 'learning_rate': 0.0, 'epoch': 100.0}
+{'train_runtime': 474.5977, 'train_samples_per_second': 42.352, 'train_steps_per_second': 5.478, 'train_loss': 0.1010062983402839, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/mengzi-bert-base-fin were not used when initializing BertForTokenClassification: ['cls.predictions.transform.LayerNorm.bias', 'pos_transform.dense.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'pos_transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'pos_transform.LayerNorm.weight', 'pos_head.bias', 'sop.cls.bias', 'sop.cls.weight', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias', 'pos_head.weight', 'pos_transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/mengzi-bert-base-fin and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.8691, 'learning_rate': 9.61923076923077e-06, 'epoch': 3.85}
+{'loss': 0.3144, 'learning_rate': 9.23846153846154e-06, 'epoch': 7.69}
+{'loss': 0.227, 'learning_rate': 8.857692307692309e-06, 'epoch': 11.54}
+{'loss': 0.16, 'learning_rate': 8.476923076923078e-06, 'epoch': 15.38}
+{'loss': 0.1291, 'learning_rate': 8.096153846153848e-06, 'epoch': 19.23}
+{'eval_loss': 0.09526696056127548, 'eval_runtime': 1.5075, 'eval_samples_per_second': 133.336, 'eval_steps_per_second': 17.247, 'epoch': 19.23}
+{'loss': 0.0997, 'learning_rate': 7.715384615384615e-06, 'epoch': 23.08}
+{'loss': 0.0891, 'learning_rate': 7.3346153846153855e-06, 'epoch': 26.92}
+{'loss': 0.0744, 'learning_rate': 6.953846153846154e-06, 'epoch': 30.77}
+{'loss': 0.0649, 'learning_rate': 6.573076923076923e-06, 'epoch': 34.62}
+{'loss': 0.057, 'learning_rate': 6.192307692307693e-06, 'epoch': 38.46}
+{'eval_loss': 0.04239657521247864, 'eval_runtime': 1.5104, 'eval_samples_per_second': 133.08, 'eval_steps_per_second': 17.214, 'epoch': 38.46}
+{'loss': 0.0509, 'learning_rate': 5.81153846153846e-06, 'epoch': 42.31}
+{'loss': 0.046, 'learning_rate': 5.4307692307692306e-06, 'epoch': 46.15}
+{'loss': 0.0458, 'learning_rate': 5.050000000000001e-06, 'epoch': 50.0}
+{'loss': 0.0394, 'learning_rate': 4.669230769230769e-06, 'epoch': 53.85}
+{'loss': 0.0347, 'learning_rate': 4.288461538461539e-06, 'epoch': 57.69}
+{'eval_loss': 0.027142498642206192, 'eval_runtime': 1.5231, 'eval_samples_per_second': 131.967, 'eval_steps_per_second': 17.07, 'epoch': 57.69}
+{'loss': 0.0353, 'learning_rate': 3.907692307692307e-06, 'epoch': 61.54}
+{'loss': 0.0314, 'learning_rate': 3.5269230769230765e-06, 'epoch': 65.38}
+{'loss': 0.031, 'learning_rate': 3.1461538461538467e-06, 'epoch': 69.23}
+{'loss': 0.0294, 'learning_rate': 2.765384615384616e-06, 'epoch': 73.08}
+{'loss': 0.0274, 'learning_rate': 2.384615384615384e-06, 'epoch': 76.92}
+{'eval_loss': 0.020892679691314697, 'eval_runtime': 1.5194, 'eval_samples_per_second': 132.292, 'eval_steps_per_second': 17.112, 'epoch': 76.92}
+{'loss': 0.0261, 'learning_rate': 2.0038461538461535e-06, 'epoch': 80.77}
+{'loss': 0.0289, 'learning_rate': 1.6230769230769233e-06, 'epoch': 84.62}
+{'loss': 0.0251, 'learning_rate': 1.2423076923076927e-06, 'epoch': 88.46}
+{'loss': 0.0237, 'learning_rate': 8.615384615384611e-07, 'epoch': 92.31}
+{'loss': 0.0262, 'learning_rate': 4.807692307692305e-07, 'epoch': 96.15}
+{'eval_loss': 0.01837742328643799, 'eval_runtime': 1.5232, 'eval_samples_per_second': 131.955, 'eval_steps_per_second': 17.069, 'epoch': 96.15}
+{'loss': 0.0234, 'learning_rate': 1e-07, 'epoch': 100.0}
+{'train_runtime': 473.6733, 'train_samples_per_second': 42.434, 'train_steps_per_second': 5.489, 'train_loss': 0.10036033547841586, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/mengzi-bert-base-fin were not used when initializing BertForTokenClassification: ['pos_transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.bias', 'pos_transform.dense.bias', 'pos_transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'pos_head.bias', 'cls.predictions.decoder.weight', 'sop.cls.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.bias', 'pos_head.weight', 'cls.predictions.bias', 'pos_transform.LayerNorm.weight', 'sop.cls.weight', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/mengzi-bert-base-fin and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.873, 'learning_rate': 1e-05, 'epoch': 3.85}
+{'loss': 0.3125, 'learning_rate': 1e-05, 'epoch': 7.69}
+{'loss': 0.2143, 'learning_rate': 1e-05, 'epoch': 11.54}
+{'loss': 0.1606, 'learning_rate': 1e-05, 'epoch': 15.38}
+{'loss': 0.1233, 'learning_rate': 1e-05, 'epoch': 19.23}
+{'eval_loss': 0.08790569752454758, 'eval_runtime': 1.5273, 'eval_samples_per_second': 131.609, 'eval_steps_per_second': 17.024, 'epoch': 19.23}
+{'loss': 0.0956, 'learning_rate': 1e-05, 'epoch': 23.08}
+{'loss': 0.0758, 'learning_rate': 1e-05, 'epoch': 26.92}
+{'loss': 0.0632, 'learning_rate': 1e-05, 'epoch': 30.77}
+{'loss': 0.0543, 'learning_rate': 1e-05, 'epoch': 34.62}
+{'loss': 0.0486, 'learning_rate': 1e-05, 'epoch': 38.46}
+{'eval_loss': 0.03466789424419403, 'eval_runtime': 1.5182, 'eval_samples_per_second': 132.394, 'eval_steps_per_second': 17.126, 'epoch': 38.46}
+{'loss': 0.0475, 'learning_rate': 1e-05, 'epoch': 42.31}
+{'loss': 0.0384, 'learning_rate': 1e-05, 'epoch': 46.15}
+{'loss': 0.0334, 'learning_rate': 1e-05, 'epoch': 50.0}
+{'loss': 0.0319, 'learning_rate': 1e-05, 'epoch': 53.85}
+{'loss': 0.026, 'learning_rate': 1e-05, 'epoch': 57.69}
+{'eval_loss': 0.01949458383023739, 'eval_runtime': 1.5295, 'eval_samples_per_second': 131.412, 'eval_steps_per_second': 16.999, 'epoch': 57.69}
+{'loss': 0.0253, 'learning_rate': 1e-05, 'epoch': 61.54}
+{'loss': 0.0218, 'learning_rate': 1e-05, 'epoch': 65.38}
+{'loss': 0.0206, 'learning_rate': 1e-05, 'epoch': 69.23}
+{'loss': 0.019, 'learning_rate': 1e-05, 'epoch': 73.08}
+{'loss': 0.0203, 'learning_rate': 1e-05, 'epoch': 76.92}
+{'eval_loss': 0.011244278401136398, 'eval_runtime': 1.5253, 'eval_samples_per_second': 131.776, 'eval_steps_per_second': 17.046, 'epoch': 76.92}
+{'loss': 0.0159, 'learning_rate': 1e-05, 'epoch': 80.77}
+{'loss': 0.014, 'learning_rate': 1e-05, 'epoch': 84.62}
+{'loss': 0.0129, 'learning_rate': 1e-05, 'epoch': 88.46}
+{'loss': 0.0136, 'learning_rate': 1e-05, 'epoch': 92.31}
+{'loss': 0.0114, 'learning_rate': 1e-05, 'epoch': 96.15}
+{'eval_loss': 0.006324568763375282, 'eval_runtime': 1.5303, 'eval_samples_per_second': 131.346, 'eval_steps_per_second': 16.99, 'epoch': 96.15}
+{'loss': 0.0104, 'learning_rate': 1e-05, 'epoch': 100.0}
+{'train_runtime': 478.1738, 'train_samples_per_second': 42.035, 'train_steps_per_second': 5.437, 'train_loss': 0.09167871832847595, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/bert_FinBERT were not used when initializing BertForTokenClassification: ['cls.predictions.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/bert_FinBERT and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.6692, 'learning_rate': 1e-05, 'epoch': 3.85}
+{'loss': 0.2082, 'learning_rate': 1e-05, 'epoch': 7.69}
+{'loss': 0.1322, 'learning_rate': 1e-05, 'epoch': 11.54}
+{'loss': 0.0751, 'learning_rate': 1e-05, 'epoch': 15.38}
+{'loss': 0.0603, 'learning_rate': 1e-05, 'epoch': 19.23}
+{'eval_loss': 0.03806079924106598, 'eval_runtime': 1.5312, 'eval_samples_per_second': 131.273, 'eval_steps_per_second': 16.981, 'epoch': 19.23}
+{'loss': 0.0439, 'learning_rate': 1e-05, 'epoch': 23.08}
+{'loss': 0.0334, 'learning_rate': 1e-05, 'epoch': 26.92}
+{'loss': 0.0284, 'learning_rate': 1e-05, 'epoch': 30.77}
+{'loss': 0.0222, 'learning_rate': 1e-05, 'epoch': 34.62}
+{'loss': 0.0209, 'learning_rate': 1e-05, 'epoch': 38.46}
+{'eval_loss': 0.011583210900425911, 'eval_runtime': 1.5407, 'eval_samples_per_second': 130.461, 'eval_steps_per_second': 16.876, 'epoch': 38.46}
+{'loss': 0.0181, 'learning_rate': 1e-05, 'epoch': 42.31}
+{'loss': 0.0144, 'learning_rate': 1e-05, 'epoch': 46.15}
+{'loss': 0.011, 'learning_rate': 1e-05, 'epoch': 50.0}
+{'loss': 0.0089, 'learning_rate': 1e-05, 'epoch': 53.85}
+{'loss': 0.0085, 'learning_rate': 1e-05, 'epoch': 57.69}
+{'eval_loss': 0.003547206986695528, 'eval_runtime': 1.52, 'eval_samples_per_second': 132.236, 'eval_steps_per_second': 17.105, 'epoch': 57.69}
+{'loss': 0.0067, 'learning_rate': 1e-05, 'epoch': 61.54}
+{'loss': 0.0052, 'learning_rate': 1e-05, 'epoch': 65.38}
+{'loss': 0.0045, 'learning_rate': 1e-05, 'epoch': 69.23}
+{'loss': 0.0044, 'learning_rate': 1e-05, 'epoch': 73.08}
+{'loss': 0.0032, 'learning_rate': 1e-05, 'epoch': 76.92}
+{'eval_loss': 0.0010032247519120574, 'eval_runtime': 1.5283, 'eval_samples_per_second': 131.515, 'eval_steps_per_second': 17.012, 'epoch': 76.92}
+{'loss': 0.0028, 'learning_rate': 1e-05, 'epoch': 80.77}
+{'loss': 0.0031, 'learning_rate': 1e-05, 'epoch': 84.62}
+{'loss': 0.0022, 'learning_rate': 1e-05, 'epoch': 88.46}
+{'loss': 0.0026, 'learning_rate': 1e-05, 'epoch': 92.31}
+{'loss': 0.0023, 'learning_rate': 1e-05, 'epoch': 96.15}
+{'eval_loss': 0.0004901943611912429, 'eval_runtime': 1.5418, 'eval_samples_per_second': 130.371, 'eval_steps_per_second': 16.864, 'epoch': 96.15}
+{'loss': 0.0017, 'learning_rate': 1e-05, 'epoch': 100.0}
+{'train_runtime': 478.1242, 'train_samples_per_second': 42.039, 'train_steps_per_second': 5.438, 'train_loss': 0.0535962306192288, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/bert_FinBERT were not used when initializing BertForTokenClassification: ['cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/bert_FinBERT and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.6625, 'learning_rate': 9.615384615384616e-06, 'epoch': 3.85}
+{'loss': 0.2292, 'learning_rate': 9.230769230769232e-06, 'epoch': 7.69}
+{'loss': 0.1321, 'learning_rate': 8.846153846153847e-06, 'epoch': 11.54}
+{'loss': 0.0897, 'learning_rate': 8.461538461538462e-06, 'epoch': 15.38}
+{'loss': 0.0661, 'learning_rate': 8.076923076923077e-06, 'epoch': 19.23}
+{'eval_loss': 0.04370957985520363, 'eval_runtime': 1.5254, 'eval_samples_per_second': 131.768, 'eval_steps_per_second': 17.045, 'epoch': 19.23}
+{'loss': 0.0499, 'learning_rate': 7.692307692307694e-06, 'epoch': 23.08}
+{'loss': 0.0402, 'learning_rate': 7.307692307692308e-06, 'epoch': 26.92}
+{'loss': 0.0349, 'learning_rate': 6.923076923076923e-06, 'epoch': 30.77}
+{'loss': 0.0282, 'learning_rate': 6.538461538461539e-06, 'epoch': 34.62}
+{'loss': 0.0258, 'learning_rate': 6.153846153846155e-06, 'epoch': 38.46}
+{'eval_loss': 0.016601137816905975, 'eval_runtime': 1.5282, 'eval_samples_per_second': 131.528, 'eval_steps_per_second': 17.014, 'epoch': 38.46}
+{'loss': 0.0214, 'learning_rate': 5.769230769230769e-06, 'epoch': 42.31}
+{'loss': 0.0195, 'learning_rate': 5.384615384615385e-06, 'epoch': 46.15}
+{'loss': 0.0167, 'learning_rate': 5e-06, 'epoch': 50.0}
+{'loss': 0.0154, 'learning_rate': 4.615384615384616e-06, 'epoch': 53.85}
+{'loss': 0.0154, 'learning_rate': 4.230769230769231e-06, 'epoch': 57.69}
+{'eval_loss': 0.008452536538243294, 'eval_runtime': 1.5275, 'eval_samples_per_second': 131.584, 'eval_steps_per_second': 17.021, 'epoch': 57.69}
+{'loss': 0.0133, 'learning_rate': 3.846153846153847e-06, 'epoch': 61.54}
+{'loss': 0.0117, 'learning_rate': 3.4615384615384617e-06, 'epoch': 65.38}
+{'loss': 0.0119, 'learning_rate': 3.0769230769230774e-06, 'epoch': 69.23}
+{'loss': 0.0102, 'learning_rate': 2.6923076923076923e-06, 'epoch': 73.08}
+{'loss': 0.0092, 'learning_rate': 2.307692307692308e-06, 'epoch': 76.92}
+{'eval_loss': 0.005031226202845573, 'eval_runtime': 1.5314, 'eval_samples_per_second': 131.249, 'eval_steps_per_second': 16.977, 'epoch': 76.92}
+{'loss': 0.009, 'learning_rate': 1.9230769230769234e-06, 'epoch': 80.77}
+{'loss': 0.0079, 'learning_rate': 1.5384615384615387e-06, 'epoch': 84.62}
+{'loss': 0.0087, 'learning_rate': 1.153846153846154e-06, 'epoch': 88.46}
+{'loss': 0.0079, 'learning_rate': 7.692307692307694e-07, 'epoch': 92.31}
+{'loss': 0.0076, 'learning_rate': 3.846153846153847e-07, 'epoch': 96.15}
+{'eval_loss': 0.0038580703549087048, 'eval_runtime': 1.5374, 'eval_samples_per_second': 130.744, 'eval_steps_per_second': 16.912, 'epoch': 96.15}
+{'loss': 0.0075, 'learning_rate': 0.0, 'epoch': 100.0}
+{'train_runtime': 479.4457, 'train_samples_per_second': 41.923, 'train_steps_per_second': 5.423, 'train_loss': 0.059684105469630315, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/bert_FinBERT were not used when initializing BertForTokenClassification: ['cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/bert_FinBERT and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.6731, 'learning_rate': 9.96354437049027e-06, 'epoch': 3.85}
+{'loss': 0.2094, 'learning_rate': 9.854709087130261e-06, 'epoch': 7.69}
+{'loss': 0.1227, 'learning_rate': 9.675081213427076e-06, 'epoch': 11.54}
+{'loss': 0.0841, 'learning_rate': 9.427280128266049e-06, 'epoch': 15.38}
+{'loss': 0.0574, 'learning_rate': 9.114919329468283e-06, 'epoch': 19.23}
+{'eval_loss': 0.03859652951359749, 'eval_runtime': 1.5378, 'eval_samples_per_second': 130.706, 'eval_steps_per_second': 16.907, 'epoch': 19.23}
+{'loss': 0.045, 'learning_rate': 8.742553740855507e-06, 'epoch': 23.08}
+{'loss': 0.0395, 'learning_rate': 8.315613291203977e-06, 'epoch': 26.92}
+{'loss': 0.0308, 'learning_rate': 7.84032373365578e-06, 'epoch': 30.77}
+{'loss': 0.0255, 'learning_rate': 7.323615860218844e-06, 'epoch': 34.62}
+{'loss': 0.0216, 'learning_rate': 6.773024435212678e-06, 'epoch': 38.46}
+{'eval_loss': 0.013507470488548279, 'eval_runtime': 1.5361, 'eval_samples_per_second': 130.849, 'eval_steps_per_second': 16.926, 'epoch': 38.46}
+{'loss': 0.0212, 'learning_rate': 6.1965783214377895e-06, 'epoch': 42.31}
+{'loss': 0.0161, 'learning_rate': 5.6026834012766155e-06, 'epoch': 46.15}
+{'loss': 0.0171, 'learning_rate': 5e-06, 'epoch': 50.0}
+{'loss': 0.0119, 'learning_rate': 4.397316598723385e-06, 'epoch': 53.85}
+{'loss': 0.0121, 'learning_rate': 3.803421678562213e-06, 'epoch': 57.69}
+{'eval_loss': 0.006479931063950062, 'eval_runtime': 1.5441, 'eval_samples_per_second': 130.175, 'eval_steps_per_second': 16.839, 'epoch': 57.69}
+{'loss': 0.011, 'learning_rate': 3.226975564787322e-06, 'epoch': 61.54}
+{'loss': 0.0103, 'learning_rate': 2.6763841397811576e-06, 'epoch': 65.38}
+{'loss': 0.0092, 'learning_rate': 2.159676266344222e-06, 'epoch': 69.23}
+{'loss': 0.0086, 'learning_rate': 1.6843867087960252e-06, 'epoch': 73.08}
+{'loss': 0.0078, 'learning_rate': 1.257446259144494e-06, 'epoch': 76.92}
+{'eval_loss': 0.00400810269638896, 'eval_runtime': 1.5338, 'eval_samples_per_second': 131.05, 'eval_steps_per_second': 16.952, 'epoch': 76.92}
+{'loss': 0.0081, 'learning_rate': 8.850806705317183e-07, 'epoch': 80.77}
+{'loss': 0.0075, 'learning_rate': 5.727198717339511e-07, 'epoch': 84.62}
+{'loss': 0.007, 'learning_rate': 3.2491878657292643e-07, 'epoch': 88.46}
+{'loss': 0.0069, 'learning_rate': 1.4529091286973994e-07, 'epoch': 92.31}
+{'loss': 0.0073, 'learning_rate': 3.645562950973014e-08, 'epoch': 96.15}
+{'eval_loss': 0.003546255175024271, 'eval_runtime': 1.5314, 'eval_samples_per_second': 131.253, 'eval_steps_per_second': 16.978, 'epoch': 96.15}
+{'loss': 0.0066, 'learning_rate': 0.0, 'epoch': 100.0}
+{'train_runtime': 479.2253, 'train_samples_per_second': 41.943, 'train_steps_per_second': 5.425, 'train_loss': 0.05683745278761937, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/bert_FinBERT were not used when initializing BertForTokenClassification: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/bert_FinBERT and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.6083, 'learning_rate': 9.96354437049027e-06, 'epoch': 3.85}
+{'loss': 0.2086, 'learning_rate': 9.854709087130261e-06, 'epoch': 7.69}
+{'loss': 0.1223, 'learning_rate': 9.675081213427076e-06, 'epoch': 11.54}
+{'loss': 0.0817, 'learning_rate': 9.427280128266049e-06, 'epoch': 15.38}
+{'loss': 0.0579, 'learning_rate': 9.114919329468283e-06, 'epoch': 19.23}
+{'eval_loss': 0.04035315662622452, 'eval_runtime': 1.5408, 'eval_samples_per_second': 130.453, 'eval_steps_per_second': 16.875, 'epoch': 19.23}
+{'loss': 0.0455, 'learning_rate': 8.742553740855507e-06, 'epoch': 23.08}
+{'loss': 0.04, 'learning_rate': 8.315613291203977e-06, 'epoch': 26.92}
+{'loss': 0.0294, 'learning_rate': 7.84032373365578e-06, 'epoch': 30.77}
+{'loss': 0.0263, 'learning_rate': 7.323615860218844e-06, 'epoch': 34.62}
+{'loss': 0.0216, 'learning_rate': 6.773024435212678e-06, 'epoch': 38.46}
+{'eval_loss': 0.015099333599209785, 'eval_runtime': 1.5389, 'eval_samples_per_second': 130.615, 'eval_steps_per_second': 16.896, 'epoch': 38.46}
+{'loss': 0.0201, 'learning_rate': 6.1965783214377895e-06, 'epoch': 42.31}
+{'loss': 0.0198, 'learning_rate': 5.6026834012766155e-06, 'epoch': 46.15}
+{'loss': 0.0147, 'learning_rate': 5e-06, 'epoch': 50.0}
+{'loss': 0.0129, 'learning_rate': 4.397316598723385e-06, 'epoch': 53.85}
+{'loss': 0.0119, 'learning_rate': 3.803421678562213e-06, 'epoch': 57.69}
+{'eval_loss': 0.007232389412820339, 'eval_runtime': 1.5362, 'eval_samples_per_second': 130.844, 'eval_steps_per_second': 16.925, 'epoch': 57.69}
+{'loss': 0.0117, 'learning_rate': 3.226975564787322e-06, 'epoch': 61.54}
+{'loss': 0.0106, 'learning_rate': 2.6763841397811576e-06, 'epoch': 65.38}
+{'loss': 0.0093, 'learning_rate': 2.159676266344222e-06, 'epoch': 69.23}
+{'loss': 0.009, 'learning_rate': 1.6843867087960252e-06, 'epoch': 73.08}
+{'loss': 0.0083, 'learning_rate': 1.257446259144494e-06, 'epoch': 76.92}
+{'eval_loss': 0.004640110302716494, 'eval_runtime': 1.5457, 'eval_samples_per_second': 130.04, 'eval_steps_per_second': 16.821, 'epoch': 76.92}
+{'loss': 0.0081, 'learning_rate': 8.850806705317183e-07, 'epoch': 80.77}
+{'loss': 0.0081, 'learning_rate': 5.727198717339511e-07, 'epoch': 84.62}
+{'loss': 0.0076, 'learning_rate': 3.2491878657292643e-07, 'epoch': 88.46}
+{'loss': 0.0069, 'learning_rate': 1.4529091286973994e-07, 'epoch': 92.31}
+{'loss': 0.0078, 'learning_rate': 3.645562950973014e-08, 'epoch': 96.15}
+{'eval_loss': 0.004194211680442095, 'eval_runtime': 1.5394, 'eval_samples_per_second': 130.572, 'eval_steps_per_second': 16.89, 'epoch': 96.15}
+{'loss': 0.0075, 'learning_rate': 0.0, 'epoch': 100.0}
+{'train_runtime': 480.9984, 'train_samples_per_second': 41.788, 'train_steps_per_second': 5.405, 'train_loss': 0.05446400408561413, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/bert_FinBERT were not used when initializing BertForTokenClassification: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.seq_relationship.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/bert_FinBERT and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.7358, 'learning_rate': 9.61923076923077e-06, 'epoch': 3.85}
+{'loss': 0.2173, 'learning_rate': 9.23846153846154e-06, 'epoch': 7.69}
+{'loss': 0.137, 'learning_rate': 8.857692307692309e-06, 'epoch': 11.54}
+{'loss': 0.094, 'learning_rate': 8.476923076923078e-06, 'epoch': 15.38}
+{'loss': 0.0709, 'learning_rate': 8.096153846153848e-06, 'epoch': 19.23}
+{'eval_loss': 0.0439588762819767, 'eval_runtime': 1.5122, 'eval_samples_per_second': 132.917, 'eval_steps_per_second': 17.193, 'epoch': 19.23}
+{'loss': 0.051, 'learning_rate': 7.715384615384615e-06, 'epoch': 23.08}
+{'loss': 0.0442, 'learning_rate': 7.3346153846153855e-06, 'epoch': 26.92}
+{'loss': 0.0401, 'learning_rate': 6.953846153846154e-06, 'epoch': 30.77}
+{'loss': 0.0272, 'learning_rate': 6.573076923076923e-06, 'epoch': 34.62}
+{'loss': 0.0287, 'learning_rate': 6.192307692307693e-06, 'epoch': 38.46}
+{'eval_loss': 0.016334960237145424, 'eval_runtime': 1.5137, 'eval_samples_per_second': 132.79, 'eval_steps_per_second': 17.177, 'epoch': 38.46}
+{'loss': 0.0223, 'learning_rate': 5.81153846153846e-06, 'epoch': 42.31}
+{'loss': 0.0196, 'learning_rate': 5.4307692307692306e-06, 'epoch': 46.15}
+{'loss': 0.0199, 'learning_rate': 5.050000000000001e-06, 'epoch': 50.0}
+{'loss': 0.0158, 'learning_rate': 4.669230769230769e-06, 'epoch': 53.85}
+{'loss': 0.014, 'learning_rate': 4.288461538461539e-06, 'epoch': 57.69}
+{'eval_loss': 0.008098072372376919, 'eval_runtime': 1.5148, 'eval_samples_per_second': 132.692, 'eval_steps_per_second': 17.164, 'epoch': 57.69}
+{'loss': 0.0129, 'learning_rate': 3.907692307692307e-06, 'epoch': 61.54}
+{'loss': 0.0108, 'learning_rate': 3.5269230769230765e-06, 'epoch': 65.38}
+{'loss': 0.0113, 'learning_rate': 3.1461538461538467e-06, 'epoch': 69.23}
+{'loss': 0.0097, 'learning_rate': 2.765384615384616e-06, 'epoch': 73.08}
+{'loss': 0.0094, 'learning_rate': 2.384615384615384e-06, 'epoch': 76.92}
+{'eval_loss': 0.0050058020278811455, 'eval_runtime': 1.5129, 'eval_samples_per_second': 132.857, 'eval_steps_per_second': 17.186, 'epoch': 76.92}
+{'loss': 0.0085, 'learning_rate': 2.0038461538461535e-06, 'epoch': 80.77}
+{'loss': 0.0078, 'learning_rate': 1.6230769230769233e-06, 'epoch': 84.62}
+{'loss': 0.008, 'learning_rate': 1.2423076923076927e-06, 'epoch': 88.46}
+{'loss': 0.0071, 'learning_rate': 8.615384615384611e-07, 'epoch': 92.31}
+{'loss': 0.0074, 'learning_rate': 4.807692307692305e-07, 'epoch': 96.15}
+{'eval_loss': 0.0038416236639022827, 'eval_runtime': 1.5222, 'eval_samples_per_second': 132.044, 'eval_steps_per_second': 17.08, 'epoch': 96.15}
+{'loss': 0.0072, 'learning_rate': 1e-07, 'epoch': 100.0}
+{'train_runtime': 475.002, 'train_samples_per_second': 42.316, 'train_steps_per_second': 5.474, 'train_loss': 0.06300483687565876, 'epoch': 100.0}
+Some weights of the model checkpoint at ../model/bert_FinBERT were not used when initializing BertForTokenClassification: ['cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.bias', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/bert_FinBERT and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/optimization.py:391: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+0 0	O
+
+1 1	B-操作人
+
+2 2	I-操作人
+
+3 3	B-value
+
+4 4	I-value
+
+5 5	B-操作
+
+6 6	I-操作
+
+7 7	B-状态
+
+8 8	I-状态
+
+9 9	B-操作部分
+
+10 10	I-操作部分
+
+11 11	B-时间
+
+12 12	I-时间
+
+13 13	B-key
+
+14 14	I-key
+
+15 15	B-价格
+
+16 16	I-价格
+
+17 17	B-数量
+
+18 18	I-数量
+
+19 19	B-交易品种
+
+20 20	I-交易品种
+
+21 21	B-or
+
+22 22	I-or
+
+23 23	B-结果
+
+24 24	I-结果
+
+25 25	B-交易方式
+
+26 26	I-交易方式
+
+27 27	B-op
+
+28 28	I-op
+
+29 29	B-结合规则
+
+30 30	I-结合规则
+
+{'loss': 0.5892, 'learning_rate': 1e-05, 'epoch': 3.85}
+{'loss': 0.2092, 'learning_rate': 1e-05, 'epoch': 7.69}
+{'loss': 0.1159, 'learning_rate': 1e-05, 'epoch': 11.54}
+{'loss': 0.0794, 'learning_rate': 1e-05, 'epoch': 15.38}
+{'loss': 0.0604, 'learning_rate': 1e-05, 'epoch': 19.23}
+{'eval_loss': 0.039349548518657684, 'eval_runtime': 1.5132, 'eval_samples_per_second': 132.834, 'eval_steps_per_second': 17.182, 'epoch': 19.23}
+{'loss': 0.0477, 'learning_rate': 1e-05, 'epoch': 23.08}
+{'loss': 0.0361, 'learning_rate': 1e-05, 'epoch': 26.92}
+{'loss': 0.0314, 'learning_rate': 1e-05, 'epoch': 30.77}
+{'loss': 0.0268, 'learning_rate': 1e-05, 'epoch': 34.62}
+{'loss': 0.0205, 'learning_rate': 1e-05, 'epoch': 38.46}
+{'eval_loss': 0.013249034062027931, 'eval_runtime': 1.5188, 'eval_samples_per_second': 132.339, 'eval_steps_per_second': 17.119, 'epoch': 38.46}
+{'loss': 0.0181, 'learning_rate': 1e-05, 'epoch': 42.31}
+{'loss': 0.0155, 'learning_rate': 1e-05, 'epoch': 46.15}
+{'loss': 0.0127, 'learning_rate': 1e-05, 'epoch': 50.0}
+{'loss': 0.0102, 'learning_rate': 1e-05, 'epoch': 53.85}
+{'loss': 0.0084, 'learning_rate': 1e-05, 'epoch': 57.69}
+{'eval_loss': 0.004501548130065203, 'eval_runtime': 1.512, 'eval_samples_per_second': 132.939, 'eval_steps_per_second': 17.196, 'epoch': 57.69}
+{'loss': 0.0072, 'learning_rate': 1e-05, 'epoch': 61.54}
+{'loss': 0.0061, 'learning_rate': 1e-05, 'epoch': 65.38}
+{'loss': 0.005, 'learning_rate': 1e-05, 'epoch': 69.23}
+{'loss': 0.0044, 'learning_rate': 1e-05, 'epoch': 73.08}
+{'loss': 0.0037, 'learning_rate': 1e-05, 'epoch': 76.92}
+{'eval_loss': 0.001319401548244059, 'eval_runtime': 1.5175, 'eval_samples_per_second': 132.457, 'eval_steps_per_second': 17.134, 'epoch': 76.92}
+{'loss': 0.0035, 'learning_rate': 1e-05, 'epoch': 80.77}
+{'loss': 0.0026, 'learning_rate': 1e-05, 'epoch': 84.62}
+{'loss': 0.0024, 'learning_rate': 1e-05, 'epoch': 88.46}
+{'loss': 0.002, 'learning_rate': 1e-05, 'epoch': 92.31}
+{'loss': 0.0022, 'learning_rate': 1e-05, 'epoch': 96.15}
+{'eval_loss': 0.0005286263185553253, 'eval_runtime': 1.5146, 'eval_samples_per_second': 132.707, 'eval_steps_per_second': 17.166, 'epoch': 96.15}
+{'loss': 0.0022, 'learning_rate': 1e-05, 'epoch': 100.0}
+{'train_runtime': 473.0204, 'train_samples_per_second': 42.493, 'train_steps_per_second': 5.497, 'train_loss': 0.05086835026741028, 'epoch': 100.0}

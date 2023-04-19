@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# run command: nohup ./run.sh >../log/ours/run.log &
+# run command: nohup ./run_sequence_classification.sh >../log/ours/run_sequence_classification.log &
 
 
 python sequence_classification.py --output_dir ../model/ours --split \  --disable_tqdm True --model ../model/mengzi-bert-base-fin --num_train_epochs 100 --lr_scheduler_type constant 

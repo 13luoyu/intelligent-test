@@ -8,11 +8,19 @@ import time
 # run command: nohup python main.py --output_dir ../model/ours --split \  --disable_tqdm True >../log/ours/run.log &
 
 
+def printlog(s):
+    with open("run.log", "a+") as f:
+        f.write(str(s))
+        f.write("\n")
+
+
 def train_model(train_dataset: str, eval_dataset: str, class_dict: str, model_path: str, training_args = {}):
 
     with open(class_dict, "r", encoding="utf-8") as f:
         lines = f.readlines()
-        num_labels = len(lines) - 1
+        for i, e in enumerate(lines):
+            print(i, e)
+        num_labels = len(lines)
 
     model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=num_labels)
     tokenizer = AutoTokenizer.from_pretrained(model_path)
@@ -35,7 +43,7 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
 
     with open(class_dict, "r", encoding="utf-8") as f:
         lines = f.readlines()
-        num_labels = len(lines) - 1
+        num_labels = len(lines)
 
     model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=num_labels)
     tokenizer = AutoTokenizer.from_pretrained(model_path)
@@ -56,6 +64,7 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
         hats = []  # batch_size, sentence_length
         for start in range(0, len(inputs), batch_size):
             batch = inputs[start:start+batch_size]
+            input_copy = batch
             batch = tokenizer(batch, max_length=512, padding="max_length", truncation=True, return_tensors="pt")
             input_ids = batch.input_ids.cuda()
             attention_mask = batch.attention_mask
@@ -63,16 +72,13 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
             _, outputs = torch.max(logits, dim=2)
             outputs = outputs.cpu().numpy()
             for i, output in enumerate(outputs):  # (8, 512)
-                mask = attention_mask[i]
+                # mask = attention_mask[i]
                 h = []
-                for j, d in enumerate(mask):
-                    if d == 1:
-                        h.append(output[j])
-                    else:
-                        h.append(output[j])  # 因为h[0]是<cls>，所以这里要加一个
-                        break
-                hats.append(h[1:])  # h[0]是<cls>
-        
+                for j in range(min(len(input_copy[i]) + 2, 512)):
+                    h.append(output[j])
+                hats.append(h[1:-1])  # h[0]是<cls>
+            for i in range(len(input_copy)):
+                printlog(str(len(input_copy[i])) + " " + str(len(hats[start + i])))
         return hats
 
     hats = predict(model, tokenizer, inputs)
@@ -89,6 +95,8 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
         f.write("预测结果：\n")
         for i, data in enumerate(eval_dataset):
             f.write(f"id: {i}\ntext: {inputs[i]}\nir hat: {' '.join(class_hats[i])}\nir real: {labels[i]}\n")
+            if len(class_hats[i]) != len(labels[i]):
+                printlog(str(len(inputs[i])) + " " + str(len(' '.join(class_hats[i]).split(" "))) + " " + str(len(labels[i].split(" "))))
             f.write("----------------------------------------------------\n\n")
         f.write("\n\n\n\n\n\n\n\n\n\n")
 
@@ -97,5 +105,6 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_model("../data/深交所业务规则/json/深圳证券交易所债券交易规则.json", "../data/深交所业务规则/json/深圳证券交易所债券交易规则.json", "../data/our_data.dict", model, training_args)
-    eval_model("../data/深交所业务规则/json/深圳证券交易所债券交易规则.json", "../data/our_data.dict", saved_path, training_args)
+    saved_path = train_model("../data/our_data.json", "../data/our_data.json", "../data/our_data.dict", model, training_args)
+    # saved_path = "../model/ours/best_1681722948"
+    eval_model("../data/our_data.json", "../data/our_data.dict", saved_path, training_args)

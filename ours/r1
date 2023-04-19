@@ -1,0 +1,130 @@
+rule 3.1.5.1
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "匹配成交" and 开盘集合匹配时间 is "每个交易日的9:15至9:25"
+	then 结果 is 成功
+
+rule 3.1.5.2
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "匹配成交" and 连续匹配时间 is "9:30至11:30、13:00至15:30"
+	then 结果 is 成功
+
+rule 3.1.5.3
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "点击成交" and 交易时间 is "每个交易日的9:00至11:30、13:00至20:00"
+	then 结果 is 成功
+
+rule 3.1.5.4
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "询价成交" and 交易时间 is "每个交易日的9:00至11:30、13:00至20:00"
+	then 结果 is 成功
+
+rule 3.1.5.5
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "协商成交" and 交易时间 is "每个交易日的9:00至11:30、13:00至20:00"
+	then 结果 is 成功
+
+rule 3.1.5.6
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 卖方提交竞买发起申报时间 is "每个交易日的9:00至10:00"
+	then 结果 is 成功
+
+rule 3.1.5.7
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 应价方提交应价申报时间 is "10:00至11:30"
+	then 结果 is 成功
+
+rule 3.1.5.8
+focus: 时间
+	if 状态 is "停市" and 时间 is 交易时间内
+	then 结果 is 成功
+
+rule 3.1.5.9
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is 成功
+
+rule 3.3.4.1
+focus: 订单连续性操作
+	if 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报数量 is "10万元面额或者其整数倍,不足10万元面额部分" and 操作 is "卖出"
+	then 结果 is 成功
+
+rule 3.3.4.2
+focus: 订单连续性操作
+	if 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报数量 is "10万元面额或者其整数倍,不足10万元面额部分" and 操作 is "一次性申报"
+	then 结果 is 成功
+
+rule 3.3.4.3
+focus: 数量
+	if 交易方式 is "匹配成交" and 交易品种 is "债券通用质押式回购" and 申报数量 is "1000元面额或者其整数倍"
+	then 结果 is 成功
+
+rule 3.3.4.4
+focus: 数量
+	if 交易方式 is "点击成交" and 申报数量 is "10万元面额或者其整数倍"
+	then 结果 is 成功
+
+rule 3.3.4.5
+focus: 数量
+	if 交易方式 is "询价成交" and op is "不低于" and 申报数量 is "10万元面额,1000元面额整数倍"
+	then 结果 is 成功
+
+rule 3.3.4.6
+focus: 数量
+	if 交易方式 is "竞买成交" and op is "不低于" and 申报数量 is "10万元面额,1000元面额整数倍"
+	then 结果 is 成功
+
+rule 3.3.4.7
+focus: 数量
+	if 交易方式 is "协商成交" and 交易品种 is "债券现券" and op is "不低于" and 申报数量 is "1000元面额,100元面额整数倍"
+	then 结果 is 成功
+
+rule 3.3.4.8
+focus: 数量
+	if 交易方式 is "协商成交" and 交易品种 is "债券通用质押式回购" and 申报数量 is "1000元面额或者其整数倍"
+	then 结果 is 成功
+
+rule 3.3.4.9
+focus: 数量
+	if 交易品种 is "债券" and op is "不得超过" and 单笔最大申报数量 is "100亿元面额"
+	then 结果 is 成功
+
+rule 3.3.4.10
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is 成功
+
+rule 3.3.6.1
+focus: 价格
+	if 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报价格最小变动单位 is "0.001元"
+	then 结果 is 成功
+
+rule 3.3.6.2
+focus: 价格
+	if 交易方式 is "匹配成交" and 交易品种 is "债券通用质押式回购" and 申报价格最小变动单位 is "0.005元"
+	then 结果 is 成功
+
+rule 3.3.6.3
+focus: 价格
+	if 交易方式 is "其他交易方式" and 交易品种 is "债券" and 申报价格最小变动单位 is "0.0001元"
+	then 结果 is 成功
+
+rule 3.3.10.1
+focus: 订单连续性操作
+	if 交易方式 is "匹配成交" and 操作人 is "债券投资者" and 是否匿名 is "匿名方式" and 操作 is "申报"
+	then 结果 is 成功
+
+rule 3.3.10.2
+focus: 订单连续性操作
+	if 交易方式 is "协商成交" and 操作人 is "债券投资者" and 是否匿名 is "显名方式" and 操作 is "申报"
+	then 结果 is 成功
+
+rule 3.3.10.3
+focus: 订单连续性操作
+	if 交易方式 is "其他交易方式" and 操作人 is "债券投资者" and 是否匿名 is "匿名" and 操作 is "申报"
+	then 结果 is 成功
+
+rule 3.3.10.4
+focus: 订单连续性操作
+	if 交易方式 is "其他交易方式" and 操作人 is "债券投资者" and 是否匿名 is "显名方式" and 操作 is "申报"
+	then 结果 is 成功
+
