@@ -23,221 +23,268 @@ def read_knowledges(file):
     knowledge = json.load(open(file, "r", encoding="utf-8"))
     return knowledge
 
-def to_r1(file, knowledge_file):
-    fp_r1 = open('r1', "w", encoding="utf-8")
 
-    knowledge = read_knowledges(knowledge_file)
-    rules = json.load(open(file, "r", encoding="utf-8"))
-    for rule in rules:
-        id = rule["id"]
-        text = rule["text"]
-        label = rule["label"]
-        stack = []  # 存储已有的label
-        sentence_separate_1 = []  # ；
-        sentence_separate_2 = []  # 。
-        a, b = 0, 0
-        last_label = "O"
-        for i, l in enumerate(label.split(" ")):
-            if l == "O":  # O->O, B->O, I->O
-                if last_label != "O":  # B->O, I->O
+def read_OBI_to_rule(texts, labels):
+    """
+    读取模型输出的OBI文件，将其转化为key-value对的形式，存放在stack中。同时记录句子中的；和。并记录在sentence_separate_1和sentence_separate_2中
+
+    :param texts: 一段自然语言
+    :param labels: texts对应的标签序列，以空格分隔的字符串形式呈现
+    :return stack: 按照出现顺序记录text-label对的数组
+    :return sentence_separate_1: 记录；之后的下一个{label:text}在stack中的位置
+    :return sentence_separate_2: 记录。之后的下一个{label:text}在stack中的位置
+    """
+    stack = []  # 按顺序记录所有的label及其对应text为{label:text}
+    sentence_separate_1 = []  # 记录；之后的下一个{label:text}在stack中的位置
+    sentence_separate_2 = []  # 记录。之后的下一个{label:text}在stack中的位置
+    a, b = 0, 0  # a, b为一个text在句子中的开始和结束位置
+    last_label = "O"
+    for i, label in enumerate(labels.split(" ")):
+        if label == "O":  # O->O, B->O, I->O
+            if last_label != "O":  # B->O, I->O
+                b = i
+                # 记录到stack中
+                stack.append({last_label: texts[a:b]})
+            last_label = label
+        else:
+            l_content = label[2:]
+            if "B" == label[0]:  # O->B，I->B，B->B
+                # 处理旧标签
+                if last_label != "O":
                     b = i
                     # 记录到stack中
-                    stack.append({last_label: text[a:b]})
-                last_label = l
-            else:
-                l_content = l[2:]
-                if "B" == l[0]:  # O->B，I->B，B->B
-                    # 处理旧标签
-                    if last_label != "O":
-                        b = i
-                        # 记录到stack中
-                        stack.append({last_label: text[a:b]})
-                    # 记录新标签
-                    a = i
-                    last_label = l_content
-                else:  # 如果是... -> I
-                    ...
-            if text[i] == "；":
-                sentence_separate_1.append(len(stack))
-            elif text[i] == "。":
-                sentence_separate_2.append(len(stack))
-        sentence_separate_2.pop()
+                    stack.append({last_label: texts[a:b]})
+                # 记录新标签
+                a = i
+                last_label = l_content
+            else:  # 如果是... -> I
+                ...
+        if texts[i] == "；":
+            sentence_separate_1.append(len(stack))  # 记录；之后的下一个{label:text}在stack中的位置
+        elif texts[i] == "。":
+            sentence_separate_2.append(len(stack))  # 记录。之后的下一个{label:text}在stack中的位置
+    sentence_separate_2.pop()  # 句子的结尾一定是。而这个。无用
+    return stack, sentence_separate_1, sentence_separate_2
 
-        
-        # 将stack中的内容分成多个子句
-        ss = [OrderedDict()]
-        ss_now = 0
-        for cnt, kv in enumerate(stack):
-            key = list(kv.keys())[0]
-            value = kv[key]
-            # 如果上一个句子以句号结尾，直接分裂
-            if cnt in sentence_separate_2:
-                new_rule = OrderedDict()
-                new_rule[key] = value
-                ss_now = len(ss)
-                ss.append(new_rule)
-                continue
-            # 如果遇到or，分裂
-            if key == "or":
-                new_rule = OrderedDict()
-                for k in list(ss[-1].keys())[:-1]:
-                    if k == key:
-                        break
-                    new_rule[k] = ss[-1][k]
-                # new_rule[key] = value
-                ss.append(new_rule)
-                continue
-            if_add = False
-            for s in ss[ss_now:]:
-                if key in list(s.keys()):
-                    if key == "交易品种":
-                        if s[key] == "债券":
-                            del s[key]
-                            s[key] = value
-                            if_add = True
-                    elif key == "数量":
-                        s[key] = s[key] + "," + value
+
+def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2):
+    """
+    将stack中的内容分成多个子规则
+
+    :param stack: 按照出现顺序记录text-label对的数组
+    :param sentence_separate_1: 记录；之后的下一个{label:text}在stack中的位置
+    :param sentence_separate_2: 记录。之后的下一个{label:text}在stack中的位置
+    :return ss: 子规则数组，每个数组元素为一个子规则，子规则形式上为包含一系列key-value对的字典。
+    """
+    ss = [OrderedDict()]  # OrderedDict()按照插入的顺序排列键-值对
+    ss_now = 0  # 每次后面出现新的key，它的对应key-value会被添加到ss[ss_now:]的所有字典中
+    for cnt, kv in enumerate(stack):
+        key = list(kv.keys())[0]
+        value = kv[key]
+        # 如果上一个句子以句号结尾，直接分裂并更新ss_now，表示后面的规则和前面无关
+        if cnt in sentence_separate_2:
+            new_rule = OrderedDict()
+            new_rule[key] = value
+            ss_now = len(ss)
+            ss.append(new_rule)
+            continue
+        # 如果遇到or，分裂，但不更新ss_now，表示后面的规则和前面有关
+        if key == "or":
+            new_rule = OrderedDict()
+            # 将除了or之外的所有key-value对复制
+            for k in list(ss[-1].keys())[:-1]:
+                if k == key:
+                    break
+                new_rule[k] = ss[-1][k]
+            ss.append(new_rule)
+            continue
+        if_add = False  # 判断当前的key-value是否被添加到了某一个规则中，如果没有，就说明出现了冲突，需要分裂
+        for s in ss[ss_now:]:
+            if key in list(s.keys()):
+                # 前面写了{交易品种:债券}，后面出现了{交易品种:债券现券的情况}，这里后面要写的更通用TODO
+                if key == "交易品种":  
+                    if s[key] == "债券":
+                        del s[key]
+                        s[key] = value
                         if_add = True
-                elif key not in list(s.keys()):
-                    s[key] = value
+                elif key == "数量":  # 如果是数量约束，可能是一条规则中对数量有多条约束，就不分裂
+                    s[key] = s[key] + "," + value
                     if_add = True
-            if not if_add or cnt in sentence_separate_1:  # 分裂成两个规则
-                if cnt in sentence_separate_1:
-                    ss_now = len(ss)
-                new_rule = OrderedDict()
-                for k in list(ss[-1].keys()):
-                    if k == key:
-                        break
-                    new_rule[k] = ss[-1][k]
-                new_rule[key] = value
-                ss.append(new_rule)
-        
+            elif key not in list(s.keys()):  # 一条规则中没有找到key，就添加进去
+                s[key] = value
+                if_add = True
+        if not if_add or cnt in sentence_separate_1:  # 出现了冲突，分裂成两个规则
+            if cnt in sentence_separate_1:  # 上一个句子以分号结尾，更新ss_now，表示之前的规则不再修改和添加key-value
+                ss_now = len(ss)
+            new_rule = OrderedDict()
+            # 复制上一条规则的每个字段，直到遇见冲突
+            for k in list(ss[-1].keys()):
+                if k == key:
+                    break
+                new_rule[k] = ss[-1][k]
+            new_rule[key] = value
+            ss.append(new_rule)
+    return ss
 
-        for i, s in enumerate(ss):
-            key_to_use = {}
-            value_to_use = {}
-            new_id = id + "." + str(i+1)
-            r1 = "if "
-            focus = ""
-            result = "成功"
-            for i, key in enumerate(s):
-                value = s[key]
-                if key == "操作":
-                    focus = "订单连续性操作"
-                if key == "结果":
-                    result = value
-                    continue
-                if key not in ["时间", "价格", "数量", "key", "value"]:
-                    r1 += f"{key} is \"{value}\" and "
-                elif key == "时间":
-                    if focus != "订单连续性操作":
-                        focus = "时间"
-                    if not key_to_use:  # 为空
-                        if value_to_use:
-                            v1 = list(value_to_use.keys())[0]
-                            v2 = value_to_use[v1]
-                            r1 += f"{v1} is \"{v2}\" and "
-                        value_to_use = {key:value}
-                    else:
-                        k1 = list(key_to_use.keys())[0]
-                        v1 = key_to_use[k1]
-                        if is_time_key(v1):
-                            r1 += f"{v1} is \"{value}\" and "
-                        else:
-                            if value_to_use:
-                                v1 = list(value_to_use.keys())[0]
-                                v2 = value_to_use[v1]
-                                r1 += f"{v1} is \"{v2}\" and "
-                            value_to_use = {key:value}
-                elif key == "价格":
-                    if focus != "订单连续性操作":
-                        focus = "价格"
-                    if not key_to_use:  # 为空
-                        if value_to_use:
-                            v1 = list(value_to_use.keys())[0]
-                            v2 = value_to_use[v1]
-                            r1 += f"{v1} is \"{v2}\" and "
-                        value_to_use = {key:value}
-                    else:
-                        k1 = list(key_to_use.keys())[0]
-                        v1 = key_to_use[k1]
-                        if is_price_key(v1):
-                            r1 += f"{v1} is \"{value}\" and "
-                        else:
-                            if value_to_use:
-                                v1 = list(value_to_use.keys())[0]
-                                v2 = value_to_use[v1]
-                                r1 += f"{v1} is \"{v2}\" and "
-                            value_to_use = {key:value}
-                elif key == "数量":
-                    if focus != "订单连续性操作":
-                        focus = "数量"
-                    if not key_to_use:  # 为空
-                        if value_to_use:
-                            v1 = list(value_to_use.keys())[0]
-                            v2 = value_to_use[v1]
-                            r1 += f"{v1} is \"{v2}\" and "
-                        value_to_use = {key:value}
-                    else:
-                        k1 = list(key_to_use.keys())[0]
-                        v1 = key_to_use[k1]
-                        if is_num_key(v1):
-                            r1 += f"{v1} is \"{value}\" and "
-                        else:
-                            if value_to_use:
-                                v1 = list(value_to_use.keys())[0]
-                                v2 = value_to_use[v1]
-                                r1 += f"{v1} is \"{v2}\" and "
-                            value_to_use = {key:value}
-                elif key == "key":
-                    if not value_to_use:  # 空
-                        key_to_use = {key:value}
-                    else:
+def write_r1(fp_r1, ss, knowledge, id):
+    """
+    将ss中的所有子规则写成R1
+
+    :param fp_r1 R1的文件符指针
+    :param ss: 子规则数组
+    :param knowledge: 领域知识
+    :param id: 当前所有子规则的基准id
+    """
+    # 现在ss中存储了没每一条规则，这里将其写成R1
+    for i, s in enumerate(ss):
+        key_to_use = {}
+        value_to_use = {}
+        new_id = id + "." + str(i+1)
+        r1 = "if "
+        focus = ""
+        result = "成功"
+        for i, key in enumerate(s):
+            value = s[key]
+            if key == "操作":
+                focus = "订单连续性操作"
+            if key == "结果":
+                result = value
+                continue
+            if key not in ["时间", "价格", "数量", "key", "value"]:
+                r1 += f"{key} is \"{value}\" and "
+            elif key == "时间":
+                if focus != "订单连续性操作":
+                    focus = "时间"
+                if not key_to_use:  # 为空
+                    if value_to_use:
                         v1 = list(value_to_use.keys())[0]
                         v2 = value_to_use[v1]
-                        if is_time_key(value) and v1 == "时间":
-                            r1 += f"{value} is \"{v2}\" and "
-                            value_to_use = {}
-                        elif is_num_key(value) and v1 == "数量":
-                            r1 += f"{value} is \"{v2}\" and "
-                            value_to_use = {}
-                        elif is_price_key(value) and v1 == "价格":
-                            r1 += f"{value} is \"{v2}\" and "
-                            value_to_use = {}
-                        else:
-                            r1 += f"{value} is \"{v2}\" and "
-                            value_to_use = {}
-                else:  # value
-                    # 在领域知识中寻找value
-                    find = False
-                    for key_to_find in list(knowledge.keys()):
-                        value_to_find = knowledge[key_to_find]
-                        if isinstance(value_to_find, list):
-                            for v_to_find in value_to_find:
-                                if v_to_find == value:
-                                    r1 += f"{key_to_find} is \"{value}\" and "
-                                    find = True
-                                    break
-                        if find:
-                            break
-                    if not find:
-                        value_to_use = {key: value}
+                        r1 += f"{v1} is \"{v2}\" and "
+                    value_to_use = {key:value}
+                else:
+                    k1 = list(key_to_use.keys())[0]
+                    v1 = key_to_use[k1]
+                    if is_time_key(v1):
+                        r1 += f"{v1} is \"{value}\" and "
+                    else:
+                        if value_to_use:
+                            v1 = list(value_to_use.keys())[0]
+                            v2 = value_to_use[v1]
+                            r1 += f"{v1} is \"{v2}\" and "
+                        value_to_use = {key:value}
+            elif key == "价格":
+                if focus != "订单连续性操作":
+                    focus = "价格"
+                if not key_to_use:  # 为空
+                    if value_to_use:
+                        v1 = list(value_to_use.keys())[0]
+                        v2 = value_to_use[v1]
+                        r1 += f"{v1} is \"{v2}\" and "
+                    value_to_use = {key:value}
+                else:
+                    k1 = list(key_to_use.keys())[0]
+                    v1 = key_to_use[k1]
+                    if is_price_key(v1):
+                        r1 += f"{v1} is \"{value}\" and "
+                    else:
+                        if value_to_use:
+                            v1 = list(value_to_use.keys())[0]
+                            v2 = value_to_use[v1]
+                            r1 += f"{v1} is \"{v2}\" and "
+                        value_to_use = {key:value}
+            elif key == "数量":
+                if focus != "订单连续性操作":
+                    focus = "数量"
+                if not key_to_use:  # 为空
+                    if value_to_use:
+                        v1 = list(value_to_use.keys())[0]
+                        v2 = value_to_use[v1]
+                        r1 += f"{v1} is \"{v2}\" and "
+                    value_to_use = {key:value}
+                else:
+                    k1 = list(key_to_use.keys())[0]
+                    v1 = key_to_use[k1]
+                    if is_num_key(v1):
+                        r1 += f"{v1} is \"{value}\" and "
+                    else:
+                        if value_to_use:
+                            v1 = list(value_to_use.keys())[0]
+                            v2 = value_to_use[v1]
+                            r1 += f"{v1} is \"{v2}\" and "
+                        value_to_use = {key:value}
+            elif key == "key":
+                if not value_to_use:  # 空
+                    key_to_use = {key:value}
+                else:
+                    v1 = list(value_to_use.keys())[0]
+                    v2 = value_to_use[v1]
+                    if is_time_key(value) and v1 == "时间":
+                        r1 += f"{value} is \"{v2}\" and "
+                        value_to_use = {}
+                    elif is_num_key(value) and v1 == "数量":
+                        r1 += f"{value} is \"{v2}\" and "
+                        value_to_use = {}
+                    elif is_price_key(value) and v1 == "价格":
+                        r1 += f"{value} is \"{v2}\" and "
+                        value_to_use = {}
+                    else:
+                        r1 += f"{value} is \"{v2}\" and "
+                        value_to_use = {}
+            else:  # value
+                # 在领域知识中寻找value
+                find = False
+                for key_to_find in list(knowledge.keys()):
+                    value_to_find = knowledge[key_to_find]
+                    if isinstance(value_to_find, list):
+                        for v_to_find in value_to_find:
+                            if v_to_find == value:
+                                r1 += f"{key_to_find} is \"{value}\" and "
+                                find = True
+                                break
+                    if find:
+                        break
+                if not find:
+                    value_to_use = {key: value}
 
-            if value_to_use:
-                v1 = list(value_to_use.keys())[0]
-                v2 = value_to_use[v1]
-                r1 += f"{v1} is {v2} and "
-            
-            fp_r1.write("rule " + new_id + "\n")
-            fp_r1.write(f"focus: {focus}\n")
-            fp_r1.write(f"\t{r1[:-5]}\n")
-            fp_r1.write(f"\tthen 结果 is {result}\n")
-            fp_r1.write(f"\n")
+        if value_to_use:
+            v1 = list(value_to_use.keys())[0]
+            v2 = value_to_use[v1]
+            r1 += f"{v1} is {v2} and "
+        
+        fp_r1.write("rule " + new_id + "\n")
+        fp_r1.write(f"focus: {focus}\n")
+        fp_r1.write(f"\t{r1[:-5]}\n")
+        fp_r1.write(f"\tthen 结果 is {result}\n")
+        fp_r1.write(f"\n")
 
+
+
+
+def to_r1(input_file, output_file, knowledge_file):
+    """
+    将input_file文件的内容写成R1，存放在output_file文件中
+    :param input_file: 一个json文件，存放一或多篇文档中的按照id分好的自然语言text及其标签label
+    :param output_file: 写R1的文件
+    :param knowledge_file: 存储领域知识的文件
+    """
+    fp_r1 = open(output_file, "w", encoding="utf-8")
+    knowledge = read_knowledges(knowledge_file)
+    rules = json.load(open(input_file, "r", encoding="utf-8"))
+    for rule in rules:
+        id = rule["id"]
+        texts = rule["text"]
+        labels = rule["label"]
+        
+        stack, sentence_separate_1, sentence_separate_2 = read_OBI_to_rule(texts, labels)
+
+        ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2)
+        
+        write_r1(fp_r1, ss, knowledge, id)
 
     fp_r1.close()
 
 
 
+
 if __name__ == "__main__":
-    to_r1("rules.json", "../data/knowledge.json")
+    to_r1("rules.json", "r1.mydsl", "../data/knowledge.json")
