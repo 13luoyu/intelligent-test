@@ -18,8 +18,6 @@ def train_model(train_dataset: str, eval_dataset: str, class_dict: str, model_pa
 
     with open(class_dict, "r", encoding="utf-8") as f:
         lines = f.readlines()
-        for i, e in enumerate(lines):
-            print(i, e)
         num_labels = len(lines)
 
     model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=num_labels)

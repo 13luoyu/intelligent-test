@@ -1,6 +1,7 @@
 import json
 from collections import OrderedDict
 import copy
+from pprint import pprint
 
 
 def is_time_key(key):
@@ -76,7 +77,11 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2):
     :param sentence_separate_2: 记录。之后的下一个{label:text}在stack中的位置
     :return ss: 子规则数组，每个数组元素为一个子规则，子规则形式上为包含一系列key-value对的字典。
     """
-    ss = [OrderedDict()]  # OrderedDict()按照插入的顺序排列键-值对
+    # print(stack)
+    # print(sentence_separate_1)
+    # print(sentence_separate_2)
+    ss = []
+    ss.append(OrderedDict())  # OrderedDict()按照插入的顺序排列键-值对
     ss_now = 0  # 每次后面出现新的key，它的对应key-value会被添加到ss[ss_now:]的所有字典中
     for cnt, kv in enumerate(stack):
         key = list(kv.keys())[0]
@@ -91,17 +96,15 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2):
         # 如果遇到or，分裂，但不更新ss_now，表示后面的规则和前面有关
         if key == "or":
             new_rule = OrderedDict()
-            # 将除了or之外的所有key-value对复制
+            # 将除了or对应的键之外的所有key-value对复制
             for k in list(ss[-1].keys())[:-1]:
-                if k == key:
-                    break
                 new_rule[k] = ss[-1][k]
             ss.append(new_rule)
             continue
         if_add = False  # 判断当前的key-value是否被添加到了某一个规则中，如果没有，就说明出现了冲突，需要分裂
         for s in ss[ss_now:]:
             if key in list(s.keys()):
-                # 前面写了{交易品种:债券}，后面出现了{交易品种:债券现券的情况}，这里后面要写的更通用TODO
+                # 前面写了{交易品种:债券}，后面出现了{交易品种:债券现券}的情况，这里后面要写的更通用 TODO
                 if key == "交易品种":  
                     if s[key] == "债券":
                         del s[key]
@@ -135,7 +138,8 @@ def write_r1(fp_r1, ss, knowledge, id):
     :param knowledge: 领域知识
     :param id: 当前所有子规则的基准id
     """
-    # 现在ss中存储了没每一条规则，这里将其写成R1
+    pprint(ss)
+    # 现在ss中存储了每一条规则，这里将其写成R1
     for i, s in enumerate(ss):
         key_to_use = {}
         value_to_use = {}
@@ -213,8 +217,8 @@ def write_r1(fp_r1, ss, knowledge, id):
                             r1 += f"{v1} is \"{v2}\" and "
                         value_to_use = {key:value}
             elif key == "key":
-                if not value_to_use:  # 空
-                    key_to_use = {key:value}
+                if not value_to_use:  # 空，当前读到的key没有对应的value
+                    key_to_use = {key:value}  # {"key":"开盘集合匹配时间"}
                 else:
                     v1 = list(value_to_use.keys())[0]
                     v2 = value_to_use[v1]
@@ -227,11 +231,13 @@ def write_r1(fp_r1, ss, knowledge, id):
                     elif is_price_key(value) and v1 == "价格":
                         r1 += f"{value} is \"{v2}\" and "
                         value_to_use = {}
-                    else:
+                    else:  # BUG，有些value其实是对应了key的
                         r1 += f"{value} is \"{v2}\" and "
                         value_to_use = {}
+                        key_to_use = {key:value}
             else:  # value
                 # 在领域知识中寻找value
+                # BUG 除了查找领域知识，还应该查找key_to_use
                 find = False
                 for key_to_find in list(knowledge.keys()):
                     value_to_find = knowledge[key_to_find]
@@ -244,6 +250,7 @@ def write_r1(fp_r1, ss, knowledge, id):
                     if find:
                         break
                 if not find:
+                    # BUG，如果value_to_use不为空
                     value_to_use = {key: value}
 
         if value_to_use:
