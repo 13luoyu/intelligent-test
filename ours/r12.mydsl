@@ -1,0 +1,1520 @@
+rule 1.1.1
+focus: 
+	if 操作人 is "债券投资者" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 1.2.1
+focus: 
+	if 交易品种 is "资产支持证券"
+	then 结果 is "成功"
+
+rule 1.2.2
+focus: 
+	if 交易品种 is "其他具有固定收益特征产品"
+	then 结果 is "成功"
+
+rule 1.2.3
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 1.2.4
+focus: 
+	if 交易品种 is "可转换公司债券"
+	then 结果 is "成功"
+
+rule 1.2.5
+focus: 
+	if 债券交易类型 is "债券现券交易"
+	then 结果 is "成功"
+
+rule 1.2.6
+focus: 
+	if 债券交易类型 is "债券回购交易"
+	then 结果 is "成功"
+
+rule 1.2.7
+focus: 
+	if 债券交易类型 is "债券预发行交易"
+	then 结果 is "成功"
+
+rule 1.2.8
+focus: 
+	if 债券交易类型 is "本所认可的其他交易类型"
+	then 结果 is "成功"
+
+rule 1.3.1
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 1.3.2
+focus: 
+	if 操作人 is "债券投资者" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 1.3.3
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 1.3.4
+focus: 
+	if 操作人 is "其他债券投资者" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 1.4.1
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 1.4.2
+focus: 
+	if 操作人 is "债券投资者" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 1.4.3
+focus: 
+	if 操作人 is "为债券交易提供专业服务的机构及其相关人员" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 1.5.1
+focus: 
+	if 交易品种 is "债券" and 操作人 is "登记结算机构"
+	then 结果 is "成功"
+
+rule 10.1.1
+focus: 
+	if 约束 is "基准做市品种" and 交易品种 is "关键期限政府债券"
+	then 结果 is "成功"
+
+rule 10.1.2
+focus: 
+	if 约束 is "基准做市品种" and 交易品种 is "公司债券"
+	then 结果 is "成功"
+
+rule 10.1.3
+focus: 订单连续性操作
+	if 操作人 is "交易双方" and value is "现券交易" and 操作 is "转让" and 操作部分 is "证券所有权" and 价格 is "一定的价格"
+	then 结果 is "成功"
+
+rule 10.1.4
+focus: 订单连续性操作
+	if 债券交易类型 is "债券回购交易" and 操作人 is "资金融入方" and 操作部分 is "债券" and 操作 is "出质" and 时间 is "到期"
+	then 结果 is "成功"
+
+rule 10.1.5
+focus: 订单连续性操作
+	if 债券交易类型 is "债券回购交易" and 操作人 is "资金融入方" and 操作部分 is "债券" and 操作 is "转让" and 时间 is "到期"
+	then 结果 is "成功"
+
+rule 10.1.6
+focus: 订单连续性操作
+	if 债券交易类型 is "债券回购交易" and 操作人 is "资金融出方" and 操作 is "融入" and 操作部分 is "资金" and 时间 is "到期"
+	then 结果 is "成功"
+
+rule 10.1.7
+focus: 订单连续性操作
+	if 债券交易类型 is "债券回购交易" and 操作人 is "资金融出方" and 操作 is "融入" and 操作部分 is "资金" and 时间 is "到期"
+	then 结果 is "成功"
+
+rule 10.1.8
+focus: 订单连续性操作
+	if 债券交易类型 is "债券回购交易" and 操作人 is "资金融出方" and 操作 is "返还" and 操作部分 is "资金"
+	then 结果 is "成功"
+
+rule 10.1.9
+focus: 订单连续性操作
+	if 债券交易类型 is "债券回购交易" and 操作人 is "资金融出方" and 操作 is "解除" and 操作部分 is "质押"
+	then 结果 is "成功"
+
+rule 10.1.10
+focus: 订单连续性操作
+	if 债券交易类型 is "债券回购交易" and 操作人 is "资金融出方" and 操作 is "解除" and 操作部分 is "相应债券"
+	then 结果 is "成功"
+
+rule 10.1.11
+focus: 订单连续性操作
+	if 债券交易类型 is "债券回购交易" and 操作人 is "资金融出方" and 操作 is "购回" and 操作部分 is "相应债券"
+	then 结果 is "成功"
+
+rule 10.1.12
+focus: 订单连续性操作
+	if 操作人 is "资金融入方" and 交易品种 is "债券" and 操作 is "申报质押" and value is "债券通用质押式回购交易" and 价格 is "以相应折算率计算出的质押券价值" and 操作部分 is "资金" and 时间 is "回购期满后"
+	then 结果 is "成功"
+
+rule 10.1.13
+focus: 订单连续性操作
+	if 操作人 is "资金融入方" and 交易品种 is "债券" and 操作 is "质押融资" and value is "债券通用质押式回购交易" and 操作部分 is "资金" and 时间 is "回购期满后"
+	then 结果 is "成功"
+
+rule 10.1.14
+focus: 订单连续性操作
+	if 操作人 is "交易双方" and value is "债券通用质押式回购交易" and 操作 is "返还" and 操作部分 is "资金" and 时间 is "回购期满后"
+	then 结果 is "成功"
+
+rule 10.1.15
+focus: 订单连续性操作
+	if 操作人 is "交易双方" and value is "债券通用质押式回购交易" and 操作 is "解除" and 操作部分 is "债券质押" and 时间 is "回购期满后"
+	then 结果 is "成功"
+
+rule 10.1.16
+focus: 
+	if 交易品种 is "质押券指" and 约束 is "债券通用质押式回购交易担保品"
+	then 结果 is "成功"
+
+rule 10.1.17
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 10.1.18
+focus: 
+	if 约束 is "债券通用质押式回购交易"
+	then 结果 is "成功"
+
+rule 10.1.19
+focus: 订单连续性操作
+	if 债券交易类型 is "债券预发行交易" and 操作 is "交易" and 交易品种 is "债券" and 时间 is "发行前特定期间"
+	then 结果 is "成功"
+
+rule 10.1.20
+focus: 订单连续性操作
+	if 债券交易类型 is "债券预发行交易" and 操作 is "交收" and 交易品种 is "债券" and 时间 is "发行完成后"
+	then 结果 is "成功"
+
+rule 10.1.21
+focus: 时间
+	if 交易品种 is "债券" and value is "应计利息" and 时间 is "自本次起息日至债券过户日"
+	then 结果 is "成功"
+
+rule 10.1.22
+focus: 时间
+	if 交易品种 is "债券" and value is "应计利息" and 时间 is "债券过户日"
+	then 结果 is "成功"
+
+rule 10.1.23
+focus: 
+	if 约束 is "面额" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 10.1.24
+focus: 
+	if 约束 is "发行时的面额"
+	then 结果 is "成功"
+
+rule 10.1.25
+focus: 
+	if 约束 is "回购金额"
+	then 结果 is "成功"
+
+rule 10.1.26
+focus: 
+	if 状态 is "以人民币计价" and 约束 is "元"
+	then 结果 is "成功"
+
+rule 10.1.27
+focus: 
+	if 状态 is "以外币计价" and 约束 is "人民币元"
+	then 结果 is "成功"
+
+rule 10.1.28
+focus: 
+	if 状态 is "以外币计价" and 约束 is "人民币元"
+	then 结果 is "成功"
+
+rule 10.1.29
+focus: 
+	if 约束 is "外币计价单位"
+	then 结果 is "成功"
+
+rule 10.1.30
+focus: 时间
+	if 价格 is "集合匹配参考价" and 时间 is "截至揭示时"
+	then 结果 is "成功"
+
+rule 10.1.31
+focus: 时间
+	if 数量 is "匹配量" and 时间 is "截至揭示时"
+	then 结果 is "成功"
+
+rule 10.1.32
+focus: 价格
+	if 数量 is "未匹配量" and 时间 is "截至揭示时" and 状态 is "不能按照集合匹配参考价虚拟成交" and 操作人 is "买方" and op is "或者" and 价格 is "集合匹配参考价位上"
+	then 结果 is "成功"
+
+rule 10.1.33
+focus: 价格
+	if 数量 is "未匹配量" and 时间 is "截至揭示时" and 状态 is "不能按照集合匹配参考价虚拟成交" and 操作人 is "卖方" and 价格 is "集合匹配参考价位上"
+	then 结果 is "成功"
+
+rule 10.2.1
+focus: 
+	if 操作人 is "投资者" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 10.3.1
+focus: 
+	if 交易品种 is "其他证券"
+	then 结果 is "成功"
+
+rule 10.3.2
+focus: 
+	if 交易品种 is "交易品种"
+	then 结果 is "成功"
+
+rule 10.4.1
+focus: 
+	if 操作人 is "债券交易参与人"
+	then 结果 is "成功"
+
+rule 10.5.1
+focus: 时间
+	if 时间 is "交易系统的时间"
+	then 结果 is "成功"
+
+rule 10.6.1
+focus: 
+	if op is "超过"
+	then 结果 is "成功"
+
+rule 10.6.2
+focus: 
+	if op is "高于"
+	then 结果 is "成功"
+
+rule 10.6.3
+focus: 
+	if op is "低于"
+	then 结果 is "成功"
+
+rule 10.6.4
+focus: 
+	if op is "优于"
+	then 结果 is "成功"
+
+rule 10.6.5
+focus: 
+	if op is "不足"
+	then 结果 is "成功"
+
+rule 10.6.6
+focus: 
+	if op is "达到"
+	then 结果 is "成功"
+
+rule 10.6.7
+focus: 
+	if op is "以上"
+	then 结果 is "成功"
+
+rule 10.6.8
+focus: 
+	if op is "上下"
+	then 结果 is "成功"
+
+rule 10.6.9
+focus: 
+	if op is "以内"
+	then 结果 is "成功"
+
+rule 10.9.1
+focus: 时间
+	if 时间 is "2022年4月25日起"
+	then 结果 is "成功"
+
+rule 10.9.2
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.1.1
+focus: 
+	if 操作人 is "会员"
+	then 结果 is "成功"
+
+rule 2.1.1.2
+focus: 
+	if 操作人 is "债券交易参与人"
+	then 结果 is "成功"
+
+rule 2.1.1.3
+focus: 
+	if 操作人 is "非会员机构"
+	then 结果 is "成功"
+
+rule 2.1.1.4
+focus: 
+	if 操作人 is "债券交易参与人"
+	then 结果 is "成功"
+
+rule 2.1.10.1
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.10.2
+focus: 
+	if 操作人 is "债券交易参与人"
+	then 结果 is "成功"
+
+rule 2.1.11.1
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.11.2
+focus: 
+	if 操作人 is "债券交易人员"
+	then 结果 is "成功"
+
+rule 2.1.12.1
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.12.2
+focus: 
+	if 操作人 is "债券交易业务相关联络人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.12.3
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.13.1
+focus: 
+	if 操作人 is "债券交易参与人及其相关人员" and 交易品种 is "债券"
+	then 结果 is "不得"
+
+rule 2.1.13.2
+focus: 
+	if 操作人 is "债券交易参与人及其相关人员" and 交易品种 is "债券"
+	then 结果 is "不得"
+
+rule 2.1.13.3
+focus: 
+	if 操作人 is "债券交易参与人及其相关人员" and 交易品种 is "债券"
+	then 结果 is "不得"
+
+rule 2.1.13.4
+focus: 
+	if 操作人 is "债券交易参与人及其相关人员" and 交易品种 is "债券"
+	then 结果 is "不得"
+
+rule 2.1.13.5
+focus: 
+	if 操作人 is "债券交易参与人及其相关人员" and 交易品种 is "债券"
+	then 结果 is "不得"
+
+rule 2.1.14.1
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.14.2
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.15.1
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.2.1
+focus: 
+	if 操作人 is "非会员机构" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.2.2
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.2.3
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.2.4
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.2.5
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.2.6
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.3.1
+focus: 
+	if 操作人 is "非会员机构"
+	then 结果 is "成功"
+
+rule 2.1.3.2
+focus: 
+	if 操作人 is "债券交易参与人"
+	then 结果 is "成功"
+
+rule 2.1.3.3
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.3.4
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.3.5
+focus: 时间
+	if 交易品种 is "债券" and 时间 is "近2年"
+	then 结果 is "成功"
+
+rule 2.1.3.6
+focus: 时间
+	if 交易品种 is "债券" and 时间 is "近2年"
+	then 结果 is "成功"
+
+rule 2.1.3.7
+focus: 时间
+	if 操作人 is "非会员机构" and 结合规则 is "第2.1.2条" and 时间 is "10个交易日以内"
+	then 结果 is "成功"
+
+rule 2.1.3.8
+focus: 
+	if 操作人 is "债券交易参与人"
+	then 结果 is "成功"
+
+rule 2.1.4.1
+focus: 
+	if 操作人 is "债券交易参与人"
+	then 结果 is "成功"
+
+rule 2.1.4.2
+focus: 
+	if 操作人 is "债券交易参与人"
+	then 结果 is "成功"
+
+rule 2.1.4.3
+focus: 
+	if 操作人 is "债券交易参与人"
+	then 结果 is "成功"
+
+rule 2.1.4.4
+focus: 
+	if 操作人 is "债券交易参与人"
+	then 结果 is "成功"
+
+rule 2.1.5.1
+focus: 
+	if 操作人 is "债券交易参与人" and 约束 is "寻找交易对手"
+	then 结果 is "成功"
+
+rule 2.1.5.2
+focus: 
+	if 操作人 is "债券交易参与人" and 约束 is "促进达成交易"
+	then 结果 is "成功"
+
+rule 2.1.6.1
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "决策"
+	then 结果 is "成功"
+
+rule 2.1.6.2
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "执行"
+	then 结果 is "成功"
+
+rule 2.1.6.3
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "清算交收"
+	then 结果 is "成功"
+
+rule 2.1.6.4
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "财务核算"
+	then 结果 is "成功"
+
+rule 2.1.6.5
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "债券交易业务管理"
+	then 结果 is "成功"
+
+rule 2.1.6.6
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "合规管理"
+	then 结果 is "成功"
+
+rule 2.1.6.7
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "风险管理"
+	then 结果 is "成功"
+
+rule 2.1.7.1
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "自营"
+	then 结果 is "成功"
+
+rule 2.1.7.2
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "做市"
+	then 结果 is "成功"
+
+rule 2.1.7.3
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "资产管理"
+	then 结果 is "成功"
+
+rule 2.1.7.4
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "投资顾问"
+	then 结果 is "成功"
+
+rule 2.1.8.1
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.8.2
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.1.9.1
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "信用风险"
+	then 结果 is "成功"
+
+rule 2.1.9.2
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "市场风险"
+	then 结果 is "成功"
+
+rule 2.1.9.3
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券" and 约束 is "流动性风险"
+	then 结果 is "成功"
+
+rule 2.2.1.1
+focus: 
+	if 操作人 is "债券做市商" and 交易品种 is "债券" and 约束 is "做市业务"
+	then 结果 is "成功"
+
+rule 2.2.1.2
+focus: 
+	if 操作人 is "做市商" and 交易品种 is "债券" and 约束 is "做市业务"
+	then 结果 is "成功"
+
+rule 2.2.1.3
+focus: 
+	if 操作人 is "主做市商"
+	then 结果 is "成功"
+
+rule 2.2.1.4
+focus: 
+	if 操作人 is "一般做市商"
+	then 结果 is "成功"
+
+rule 2.2.1.5
+focus: 
+	if 操作人 is "主做市商" and 约束 is "基准做市业务"
+	then 结果 is "成功"
+
+rule 2.2.1.6
+focus: 
+	if 操作人 is "一般做市商" and 约束 is "一般做市业务"
+	then 结果 is "成功"
+
+rule 2.2.1.7
+focus: 
+	if 操作人 is "主做市商" and 约束 is "一般做市业务"
+	then 结果 is "成功"
+
+rule 2.2.1.8
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.2.2.1
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 操作 is "做市" and 操作人 is "债券投资者" and 价格 is "双边买卖报价"
+	then 结果 is "成功"
+
+rule 2.2.2.2
+focus: 订单连续性操作
+	if 操作 is "做市" and 操作人 is "债券投资者" and 操作部分 is "询价请求" and 交易品种 is "债券" and 价格 is "双边买卖报价"
+	then 结果 is "成功"
+
+rule 2.2.2.3
+focus: 订单连续性操作
+	if 操作 is "回复" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.2.2.4
+focus: 订单连续性操作
+	if 操作 is "回复" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.2.2.5
+focus: 订单连续性操作
+	if 操作 is "做市"
+	then 结果 is "成功"
+
+rule 2.2.3.1
+focus: 
+	if 操作人 is "债券交易参与人" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.2.3.2
+focus: 
+	if 操作人 is "主做市商" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.2.4.1
+focus: 
+	if 操作人 is "拟开展基准做市业务的债券交易参与人" and 做市方案 is "机构基本情况"
+	then 结果 is "成功"
+
+rule 2.2.4.2
+focus: 
+	if 操作人 is "拟开展基准做市业务的债券交易参与人" and 做市方案 is "近2年债券投资交易情况"
+	then 结果 is "成功"
+
+rule 2.2.4.3
+focus: 
+	if 操作人 is "拟开展基准做市业务的债券交易参与人" and 做市方案 is "做市相关部门设置及业务人员配备情况"
+	then 结果 is "成功"
+
+rule 2.2.4.4
+focus: 
+	if 操作人 is "拟开展基准做市业务的债券交易参与人" and 做市方案 is "拟做市品种、做市证券账户安排"
+	then 结果 is "成功"
+
+rule 2.2.4.5
+focus: 
+	if 操作人 is "拟开展基准做市业务的债券交易参与人" and 做市方案 is "做市相关风险控制安排"
+	then 结果 is "成功"
+
+rule 2.2.4.6
+focus: 
+	if 操作人 is "拟开展基准做市业务的债券交易参与人" and 做市方案 is "本所要求说明的其他情况"
+	then 结果 is "成功"
+
+rule 2.2.5.1
+focus: 
+	if 操作人 is "拟开展一般做市业务的债券交易参与人" and 约束 is "拟做市的债券品种"
+	then 结果 is "成功"
+
+rule 2.2.5.2
+focus: 
+	if 操作人 is "拟开展一般做市业务的债券交易参与人" and 约束 is "做市证券账户安排"
+	then 结果 is "成功"
+
+rule 2.2.5.3
+focus: 
+	if 约束 is "一般做市商"
+	then 结果 is "成功"
+
+rule 2.2.5.4
+focus: 
+	if 约束 is "做市品种"
+	then 结果 is "成功"
+
+rule 2.2.6.1
+focus: 订单连续性操作
+	if 约束 is "第一项" and 操作人 is "做市商" and 操作 is "暂停" and 操作部分 is "对应债券品种的做市业务" and 状态 is "停牌"
+	then 结果 is "成功"
+
+rule 2.2.6.2
+focus: 订单连续性操作
+	if 约束 is "第二项" and 操作人 is "做市商" and 操作 is "暂停" and 操作部分 is "对应债券品种的做市业务" and 状态 is "停牌"
+	then 结果 is "成功"
+
+rule 2.2.6.3
+focus: 订单连续性操作
+	if 约束 is "第三项" and 操作人 is "做市商" and 操作 is "暂停开展" and 操作部分 is "做市业务" and 状态 is "停牌"
+	then 结果 is "成功"
+
+rule 2.2.6.4
+focus: 订单连续性操作
+	if 约束 is "第四项" and 操作人 is "做市商" and 操作 is "暂停开展" and 操作部分 is "做市业务" and 状态 is "停牌"
+	then 结果 is "成功"
+
+rule 2.2.6.5
+focus: 订单连续性操作
+	if 约束 is "第四项" and 操作人 is "做市商" and 操作 is "暂停开展" and 操作部分 is "做市业务" and 状态 is "交易价格出现异常波动"
+	then 结果 is "成功"
+
+rule 2.2.6.6
+focus: 订单连续性操作
+	if 约束 is "第四项" and 操作人 is "做市商" and 操作 is "暂停开展" and 操作部分 is "做市业务" and 状态 is "无法正常开展做市业务"
+	then 结果 is "成功"
+
+rule 2.2.6.7
+focus: 订单连续性操作
+	if 操作人 is "做市商" and 操作 is "恢复做市"
+	then 结果 is "成功"
+
+rule 2.2.7.1
+focus: 
+	if 操作人 is "做市商" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.2.8.1
+focus: 
+	if 操作人 is "债券发行人"
+	then 结果 is "成功"
+
+rule 2.2.9.1
+focus: 
+	if 操作人 is "做市商"
+	then 结果 is "成功"
+
+rule 2.2.9.2
+focus: 
+	if 操作人 is "做市商"
+	then 结果 is "成功"
+
+rule 2.3.1.1
+focus: 订单连续性操作
+	if 操作人 is "债券交易参与人以外的其他债券投资者" and 操作 is "委托" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.3.1.2
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作 is "委托" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.3.1.3
+focus: 
+	if 操作人 is "会员" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.3.2.1
+focus: 时间
+	if 操作人 is "会员" and 时间 is "接受经纪客户委托前"
+	then 结果 is "成功"
+
+rule 2.3.2.2
+focus: 
+	if 操作人 is "经纪客户"
+	then 结果 is "成功"
+
+rule 2.3.2.3
+focus: 
+	if 操作人 is "经纪客户"
+	then 结果 is "成功"
+
+rule 2.3.2.4
+focus: 
+	if 操作人 is "经纪客户"
+	then 结果 is "成功"
+
+rule 2.3.2.5
+focus: 
+	if 操作人 is "会员"
+	then 结果 is "成功"
+
+rule 2.3.2.6
+focus: 订单连续性操作
+	if 状态 is "拒绝提供或者未按照要求提供信息" and 操作人 is "会员" and 操作 is "接受" and 操作部分 is "委托"
+	then 结果 is "拒绝"
+
+rule 2.3.3.1
+focus: 
+	if 操作人 is "经纪客户" and 交易品种 is "证券"
+	then 结果 is "成功"
+
+rule 2.3.3.2
+focus: 
+	if 操作人 is "会员" and 交易品种 is "证券"
+	then 结果 is "成功"
+
+rule 2.3.3.3
+focus: 订单连续性操作
+	if 操作人 is "会员" and 操作部分 is "资料" and 操作 is "提供"
+	then 结果 is "成功"
+
+rule 2.3.3.4
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作部分 is "资料" and 操作 is "提供"
+	then 结果 is "成功"
+
+rule 2.3.3.5
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作部分 is "资料" and 操作 is "提供"
+	then 结果 is "成功"
+
+rule 2.3.3.6
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作部分 is "账户交易权限" and 操作 is "管理"
+	then 结果 is "成功"
+
+rule 2.3.3.7
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作部分 is "委托交易指令" and 操作 is "核查"
+	then 结果 is "成功"
+
+rule 2.3.3.8
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作部分 is "异常交易行为" and 操作 is "处理"
+	then 结果 is "成功"
+
+rule 2.3.3.9
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作部分 is "异常交易行为" and 操作 is "拒绝"
+	then 结果 is "成功"
+
+rule 2.3.3.10
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作部分 is "经纪客户委托" and 操作 is "解除"
+	then 结果 is "成功"
+
+rule 2.3.3.11
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作部分 is "委托关系" and 操作 is "解除"
+	then 结果 is "成功"
+
+rule 2.3.4.1
+focus: 
+	if 操作人 is "经纪客户" and 交易品种 is "债券" and 结合规则 is "本规则第2.1.6至2.1.11条"
+	then 结果 is "成功"
+
+rule 2.3.4.2
+focus: 
+	if 操作人 is "经纪客户" and 交易品种 is "债券" and 结合规则 is "第2.1.13条"
+	then 结果 is "成功"
+
+rule 2.3.4.3
+focus: 
+	if 操作人 is "个人经纪客户" and 交易品种 is "债券" and 结合规则 is "本规则第2.1.10条第二款"
+	then 结果 is "成功"
+
+rule 2.3.4.4
+focus: 
+	if 操作人 is "个人经纪客户" and 交易品种 is "债券" and 结合规则 is "第2.1.13条"
+	then 结果 is "成功"
+
+rule 2.4.1.1
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 操作人 is "客户" and 操作 is "委托"
+	then 结果 is "成功"
+
+rule 2.4.1.2
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.4.2.1
+focus: 
+	if 操作人 is "债券估值机构" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.4.3.1
+focus: 
+	if 操作人 is "债券指数编制机构" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.4.4.1
+focus: 
+	if 操作人 is "从事债券交易信息服务的机构" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 2.4.5.1
+focus: 
+	if 操作人 is "从事债券交易技术服务的机构" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.1.1.1
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.1.2.1
+focus: 
+	if 交易品种 is "债券" and 交易方式 is "匹配成交"
+	then 结果 is "成功"
+
+rule 3.1.2.2
+focus: 
+	if 交易品种 is "债券" and 交易方式 is "点击成交"
+	then 结果 is "成功"
+
+rule 3.1.2.3
+focus: 
+	if 交易品种 is "债券" and 交易方式 is "询价成交"
+	then 结果 is "成功"
+
+rule 3.1.2.4
+focus: 
+	if 交易品种 is "债券" and 交易方式 is "竞买成交"
+	then 结果 is "成功"
+
+rule 3.1.2.5
+focus: 
+	if 交易品种 is "债券" and 交易方式 is "协商成交"
+	then 结果 is "成功"
+
+rule 3.1.3.1
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.1.3.2
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.1.4.1
+focus: 时间
+	if 交易品种 is "债券" and 交易日 is "每周一至周五"
+	then 结果 is "成功"
+
+rule 3.1.4.2
+focus: 时间
+	if 交易品种 is "债券" and 状态 is "休市" and 时间 is "国家法定假日"
+	then 结果 is "成功"
+
+rule 3.1.4.3
+focus: 时间
+	if 交易品种 is "债券" and 状态 is "休市" and 时间 is "本所公告的休市日"
+	then 结果 is "成功"
+
+rule 3.1.5.1
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "匹配成交" and 开盘集合匹配时间 is "每个交易日的9:15至9:25"
+	then 结果 is "成功"
+
+rule 3.1.5.2
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "匹配成交" and 连续匹配时间 is "9:30至11:30、13:00至15:30"
+	then 结果 is "成功"
+
+rule 3.1.5.3
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "点击成交" and 交易时间 is "每个交易日的9:00至11:30、13:00至20:00"
+	then 结果 is "成功"
+
+rule 3.1.5.4
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "询价成交" and 交易时间 is "每个交易日的9:00至11:30、13:00至20:00"
+	then 结果 is "成功"
+
+rule 3.1.5.5
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "协商成交" and 交易时间 is "每个交易日的9:00至11:30、13:00至20:00"
+	then 结果 is "成功"
+
+rule 3.1.5.6
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 卖方提交竞买发起申报时间 is "每个交易日的9:00至10:00"
+	then 结果 is "成功"
+
+rule 3.1.5.7
+focus: 时间
+	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 应价方提交应价申报时间 is "10:00至11:30"
+	then 结果 is "成功"
+
+rule 3.1.5.8
+focus: 时间
+	if 状态 is "停市" and 时间 is "交易时间内"
+	then 结果 is "成功"
+
+rule 3.1.5.9
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.1.6.1
+focus: 
+	if 操作人 is "债券投资者" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.1.6.2
+focus: 
+	if 操作人 is "投资者" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.1.7.1
+focus: 
+	if 操作人 is "投资者" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.1.8.1
+focus: 订单连续性操作
+	if 交易品种 is "债券现券" and 交易制度 is "当日回转交易" and 操作人 is "投资者" and 操作部分 is "当日买入的债券" and 操作 is "卖出" and 时间 is "当日"
+	then 结果 is "成功"
+
+rule 3.2.1.1
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作 is "委托" and 操作部分 is "债券交易"
+	then 结果 is "成功"
+
+rule 3.2.1.2
+focus: 订单连续性操作
+	if 操作人 is "会员" and 操作 is "参与" and 操作部分 is "债券交易"
+	then 结果 is "成功"
+
+rule 3.2.2.1
+focus: 
+	if 操作人 is "经纪客户" and 交易方式 is "匹配成交" and 委托指令内容 is "证券账户号码"
+	then 结果 is "成功"
+
+rule 3.2.2.2
+focus: 
+	if 操作人 is "经纪客户" and 交易方式 is "匹配成交" and 委托指令内容 is "证券代码"
+	then 结果 is "成功"
+
+rule 3.2.2.3
+focus: 数量
+	if 操作人 is "经纪客户" and 交易方式 is "匹配成交" and 委托指令内容 is "交易方向" and 数量 is "委托数量"
+	then 结果 is "成功"
+
+rule 3.2.2.4
+focus: 价格
+	if 操作人 is "经纪客户" and 交易方式 is "匹配成交" and 委托指令内容 is "交易方向" and 数量 is "委托数量" and 价格 is "委托价格"
+	then 结果 is "成功"
+
+rule 3.2.2.5
+focus: 价格
+	if 操作人 is "经纪客户" and 交易方式 is "匹配成交" and 委托指令内容 is "交易方向" and 数量 is "委托数量" and 价格 is "委托价格"
+	then 结果 is "成功"
+
+rule 3.2.2.6
+focus: 
+	if 操作人 is "经纪客户" and 交易方式 is "匹配成交" and 委托指令内容 is "本所及会员要求的其他内容"
+	then 结果 is "成功"
+
+rule 3.2.2.7
+focus: 
+	if 操作人 is "经纪客户" and 交易方式 is "点击成交"
+	then 结果 is "成功"
+
+rule 3.2.2.8
+focus: 
+	if 操作人 is "经纪客户" and 交易方式 is "询价成交"
+	then 结果 is "成功"
+
+rule 3.2.2.9
+focus: 
+	if 操作人 is "经纪客户" and 交易方式 is "竞买成交"
+	then 结果 is "成功"
+
+rule 3.2.2.10
+focus: 
+	if 操作人 is "经纪客户" and 交易方式 is "协商成交"
+	then 结果 is "成功"
+
+rule 3.2.3.1
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作 is "委托" and 状态 is "达成债券交易" and 操作部分 is "相应的债券或者资金"
+	then 结果 is "成功"
+
+rule 3.2.3.2
+focus: 订单连续性操作
+	if 操作人 is "会员" and 操作 is "申报" and 状态 is "达成债券交易" and 操作部分 is "相应的债券或者资金"
+	then 结果 is "成功"
+
+rule 3.2.3.3
+focus: 订单连续性操作
+	if 操作人 is "会员" and 操作 is "交付" and 操作部分 is "相应的债券或者资金"
+	then 结果 is "成功"
+
+rule 3.2.4.1
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作 is "撤销" and 操作部分 is "委托的未成交部分"
+	then 结果 is "成功"
+
+rule 3.2.5.1
+focus: 订单连续性操作
+	if 状态 is "委托指令被撤销和失效" and 操作人 is "会员" and 操作 is "返还" and 操作部分 is "相应的资金或者债券"
+	then 结果 is "成功"
+
+rule 3.2.5.2
+focus: 订单连续性操作
+	if 状态 is "委托指令被撤销和失效" and 操作人 is "经纪客户" and 操作 is "返还" and 操作部分 is "相应的资金或者债券"
+	then 结果 is "成功"
+
+rule 3.2.6.1
+focus: 
+	if 操作人 is "会员" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.2.6.2
+focus: 
+	if 操作人 is "经纪客户" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.2.6.3
+focus: 订单连续性操作
+	if 操作人 is "会员" and 操作 is "接收" and 操作部分 is "其委托"
+	then 结果 is "拒绝"
+
+rule 3.2.6.4
+focus: 订单连续性操作
+	if 操作人 is "客户" and 操作 is "接收" and 操作部分 is "其委托"
+	then 结果 is "拒绝"
+
+rule 3.3.1.1
+focus: 订单连续性操作
+	if 操作人 is "债券交易参与人" and 操作 is "发送" and 操作部分 is "债券交易申报指令"
+	then 结果 is "成功"
+
+rule 3.3.1.2
+focus: 订单连续性操作
+	if 操作人 is "本所认可的其他机构" and 操作 is "发送" and 操作部分 is "债券交易申报指令"
+	then 结果 is "成功"
+
+rule 3.3.1.3
+focus: 订单连续性操作
+	if 操作人 is "会员" and 操作 is "提交" and 操作部分 is "各种交易方式的申报指令"
+	then 结果 is "成功"
+
+rule 3.3.1.4
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作 is "提交" and 操作部分 is "各种交易方式的申报指令"
+	then 结果 is "成功"
+
+rule 3.3.1.5
+focus: 
+	if 操作人 is "会员" and 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.3.10.1
+focus: 订单连续性操作
+	if 交易方式 is "匹配成交" and 操作人 is "债券投资者" and 是否匿名 is "匿名方式" and 操作 is "申报"
+	then 结果 is "成功"
+
+rule 3.3.10.2
+focus: 订单连续性操作
+	if 交易方式 is "协商成交" and 操作人 is "债券投资者" and 是否匿名 is "显名方式" and 操作 is "申报"
+	then 结果 is "成功"
+
+rule 3.3.10.3
+focus: 订单连续性操作
+	if 交易方式 is "其他交易方式" and 操作人 is "债券投资者" and 是否匿名 is "匿名" and 操作 is "申报"
+	then 结果 is "成功"
+
+rule 3.3.10.4
+focus: 订单连续性操作
+	if 交易方式 is "其他交易方式" and 操作人 is "债券投资者" and 是否匿名 is "显名方式" and 操作 is "申报"
+	then 结果 is "成功"
+
+rule 3.3.11.1
+focus: 订单连续性操作
+	if 操作 is "提交" and 操作部分 is "债券交易申报" and 时间 is "当日"
+	then 结果 is "有效"
+
+rule 3.3.11.2
+focus: 时间
+	if 时间 is "当日"
+	then 结果 is "有效"
+
+rule 3.3.11.3
+focus: 时间
+	if 交易方式 is "匹配成交" and 操作部分 is "债券交易申报" and 状态 is "不能一次全部成交" and 时间 is "当日"
+	then 结果 is "继续有效"
+
+rule 3.3.11.4
+focus: 时间
+	if 交易方式 is "点击成交" and 操作部分 is "债券交易申报" and 状态 is "不能一次全部成交" and 时间 is "当日"
+	then 结果 is "继续有效"
+
+rule 3.3.11.5
+focus: 时间
+	if 交易方式 is "点击成交" and 操作部分 is "未成交的部分" and 时间 is "当日"
+	then 结果 is "继续有效"
+
+rule 3.3.12.1
+focus: 订单连续性操作
+	if 操作部分 is "未成交的申报" and 操作 is "撤销" and 状态 is "部分达成成交" and 时间 is "除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内"
+	then 结果 is "成功"
+
+rule 3.3.12.2
+focus: 订单连续性操作
+	if 操作部分 is "未成交的申报" and 操作 is "撤销" and 状态 is "部分达成成交" and 时间 is "除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内"
+	then 结果 is "成功"
+
+rule 3.3.12.3
+focus: 订单连续性操作
+	if 操作部分 is "未成交的部分" and 操作 is "撤销" and 时间 is "除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内"
+	then 结果 is "成功"
+
+rule 3.3.2.1
+focus: 订单连续性操作
+	if 结合规则 is "本规则第3.1.5条" and 交易品种 is "债券" and 操作 is "申报"
+	then 结果 is "成功"
+
+rule 3.3.3.1
+focus: 订单连续性操作
+	if 操作人 is "会员" and 操作 is "申报" and 约束 is "时间先后顺序"
+	then 结果 is "成功"
+
+rule 3.3.3.2
+focus: 订单连续性操作
+	if 操作人 is "经纪客户" and 操作 is "申报" and 约束 is "时间先后顺序"
+	then 结果 is "成功"
+
+rule 3.3.3.3
+focus: 订单连续性操作
+	if 操作 is "买卖申报" and 状态 is "经本所交易系统确认后"
+	then 结果 is "成功"
+
+rule 3.3.3.4
+focus: 订单连续性操作
+	if 操作 is "撤销申报" and 状态 is "经本所交易系统确认后"
+	then 结果 is "成功"
+
+rule 3.3.4.1
+focus: 数量
+	if 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报数量 is "10万元面额或者其整数倍"
+	then 结果 is "成功"
+
+rule 3.3.4.2
+focus: 订单连续性操作
+	if 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报数量 is "不足10万元面额部分" and 操作 is "一次性申报卖出"
+	then 结果 is "成功"
+
+rule 3.3.4.3
+focus: 数量
+	if 交易方式 is "匹配成交" and 交易品种 is "债券通用质押式回购" and 申报数量 is "1000元面额或者其整数倍"
+	then 结果 is "成功"
+
+rule 3.3.4.4
+focus: 数量
+	if 交易方式 is "点击成交" and 申报数量 is "10万元面额或者其整数倍"
+	then 结果 is "成功"
+
+rule 3.3.4.5
+focus: 数量
+	if 交易方式 is "询价成交" and op is "不低于" and 申报数量 is "10万元面额,1000元面额整数倍"
+	then 结果 is "成功"
+
+rule 3.3.4.6
+focus: 数量
+	if 交易方式 is "竞买成交" and op is "不低于" and 申报数量 is "10万元面额,1000元面额整数倍"
+	then 结果 is "成功"
+
+rule 3.3.4.7
+focus: 数量
+	if 交易方式 is "协商成交" and 交易品种 is "债券现券" and op is "不低于" and 申报数量 is "1000元面额,100元面额整数倍"
+	then 结果 is "成功"
+
+rule 3.3.4.8
+focus: 数量
+	if 交易方式 is "协商成交" and 交易品种 is "债券通用质押式回购" and 申报数量 is "1000元面额或者其整数倍"
+	then 结果 is "成功"
+
+rule 3.3.4.9
+focus: 数量
+	if 交易品种 is "债券" and op is "不得超过" and 单笔最大申报数量 is "100亿元面额"
+	then 结果 is "成功"
+
+rule 3.3.4.10
+focus: 
+	if 交易品种 is "债券"
+	then 结果 is "成功"
+
+rule 3.3.5.1
+focus: 价格
+	if 交易品种 is "债券现券" and 价格单位 is "每百元面额债券的价格"
+	then 结果 is "成功"
+
+rule 3.3.5.2
+focus: 价格
+	if 交易品种 is "债券通用质押式回购" and 价格单位 is "每百元资金到期年收益"
+	then 结果 is "成功"
+
+rule 3.3.6.1
+focus: 价格
+	if 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报价格最小变动单位 is "0.001元"
+	then 结果 is "成功"
+
+rule 3.3.6.2
+focus: 价格
+	if 交易方式 is "匹配成交" and 交易品种 is "债券通用质押式回购" and 申报价格最小变动单位 is "0.005元"
+	then 结果 is "成功"
+
+rule 3.3.6.3
+focus: 价格
+	if 交易方式 is "其他交易方式" and 交易品种 is "债券" and 申报价格最小变动单位 is "0.0001元"
+	then 结果 is "成功"
+
+rule 3.3.7.1
+focus: 订单连续性操作
+	if 交易品种 is "债券现券" and 操作 is "申报" and 价格 is "净价价格"
+	then 结果 is "除外"
+
+rule 3.3.7.2
+focus: 订单连续性操作
+	if 交易品种 is "债券现券" and 操作 is "申报" and 价格 is "全价价格"
+	then 结果 is "除外"
+
+rule 3.3.7.3
+focus: 价格
+	if 价格 is "净价价格"
+	then 结果 is "成功"
+
+rule 3.3.7.4
+focus: 价格
+	if 价格 is "全价价格"
+	then 结果 is "成功"
+
+rule 3.3.8.1
+focus: 
+	if 交易品种 is "债券" and 约束 is "价格涨跌幅限制"
+	then 结果 is "不实行"
+
+rule 3.3.9.1
+focus: 
+	if 交易品种 is "债券" and 结算方式 is "多边净额结算"
+	then 结果 is "成功"
+
+rule 3.3.9.2
+focus: 
+	if 交易品种 is "债券" and 结算方式 is "逐笔全额结算"
+	then 结果 is "成功"
+
+rule 3.3.9.3
+focus: 订单连续性操作
+	if 操作人 is "债券投资者" and 操作 is "选择" and 操作部分 is "结算方式及结算周期"
+	then 结果 is "成功"
+
+rule 3.3.9.4
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 结算方式 is "逐笔全额结算" and 操作人 is "债券投资者" and 操作 is "选择"
+	then 结果 is "成功"
+
+rule 3.3.9.5
+focus: 
+	if 交易品种 is "债券" and 报价方发出报价的申报要素 is "结算周期"
+	then 结果 is "成功"
+
+rule 3.3.9.6
+focus: 时间
+	if op is "不得晚于" and 时间 is "债券现券交易结算日"
+	then 结果 is "成功"
+
+rule 3.3.9.7
+focus: 时间
+	if op is "不得晚于" and 时间 is "债券回购交易的首次结算日"
+	then 结果 is "成功"
+
+rule 3.3.9.8
+focus: 时间
+	if 时间 is "交易当日后的第三个交易日（含）"
+	then 结果 is "成功"
+
+rule 3.3.9.9
+focus: 订单连续性操作
+	if 操作 is "申报" and 交易品种 is "债券" and 时间 is "15:30至20:00" and 结算方式 is "逐笔全额结算" and op is "不得为"
+	then 结果 is "成功"
+
+rule 3.3.9.10
+focus: 时间
+	if op is "不得为" and 时间 is "债券现券交易结算日"
+	then 结果 is "成功"
+
+rule 3.3.9.11
+focus: 时间
+	if op is "不得为" and 时间 is "债券回购交易的首次结算日"
+	then 结果 is "成功"
+
+rule 3.3.9.12
+focus: 时间
+	if 时间 is "交易当日"
+	then 结果 is "成功"
+
+rule 3.4.1.1
+focus: 
+	if 交易品种 is "债券" and 操作人 is "债券投资者" and 约束 is "价格竞争性"
+	then 结果 is "成功"
+
+rule 3.4.1.2
+focus: 
+	if 交易品种 is "债券" and 操作人 is "债券投资者" and 约束 is "数量匹配性"
+	then 结果 is "成功"
+
+rule 3.4.1.3
+focus: 
+	if 交易品种 is "债券" and 操作人 is "债券投资者" and 约束 is "时间优先性"
+	then 结果 is "成功"
+
+rule 3.4.2.1
+focus: 订单连续性操作
+	if 操作 is "申报" and 状态 is "经交易系统达成成交后"
+	then 结果 is "成功"
+
+rule 3.4.2.2
+focus: 时间
+	if 时间 is "成立时"
+	then 结果 is "成功"
+
+rule 3.4.2.3
+focus: 
+	if 操作人 is "交易双方"
+	then 结果 is "成功"
+
+rule 3.4.3.1
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 状态 is "交易系统确认成交后" and 操作 is "解除" and 操作部分 is "交易" and 结合规则 is "本规则第8.1条" and 约束 is "多边净额结算方式"
+	then 结果 is "不得"
+
+rule 3.4.3.2
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 状态 is "交易系统确认成交后" and 操作 is "解除" and 操作部分 is "交易" and 结合规则 is "本规则第8.1条" and 约束 is "多边净额结算方式"
+	then 结果 is "不得"
+
+rule 3.4.3.3
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 状态 is "交易系统确认成交后" and 操作 is "解除" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 约束 is "多边净额结算方式"
+	then 结果 is "不得"
+
+rule 3.4.3.4
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 状态 is "交易系统确认成交后" and 操作 is "改变" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 约束 is "多边净额结算方式"
+	then 结果 is "不得"
+
+rule 3.4.3.5
+focus: 
+	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 状态 is "交易系统确认成交后" and 约束 is "多边净额结算方式"
+	then 结果 is "除外"
+
+rule 3.4.3.6
+focus: 订单连续性操作
+	if 交易方式 is "点击成交" and value is "逐笔全额结算方式" and 状态 is "交易双方协商一致后" and 操作 is "解除" and 操作部分 is "相关交易" and 时间 is "交收开始前"
+	then 结果 is "成功"
+
+rule 3.4.3.7
+focus: 订单连续性操作
+	if 交易方式 is "询价成交" and value is "逐笔全额结算方式" and 状态 is "交易双方协商一致后" and 操作 is "解除" and 操作部分 is "相关交易" and 时间 is "交收开始前"
+	then 结果 is "成功"
+
+rule 3.4.3.8
+focus: 订单连续性操作
+	if 交易方式 is "协商成交" and value is "逐笔全额结算方式" and 状态 is "交易双方协商一致后" and 操作 is "解除" and 操作部分 is "相关交易" and 时间 is "交收开始前"
+	then 结果 is "成功"
+
+rule 3.4.4.1
+focus: 订单连续性操作
+	if 交易品种 is "非公开发行债券" and 操作 is "转让" and 操作人 is "持有同次发行债券的投资者" and op is "超过" and 约束 is "法律、行政法规、部门规章或者本所业务规则规定的人数"
+	then 结果 is "不得"
+
+rule 3.4.5.1
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 操作人 is "债券投资者" and 操作 is "设置" and 操作部分 is "交易对手范围" and 状态 is "交易一方不在交易对手范围内" and 约束 is "逐笔全额结算方式"
+	then 结果 is "不予"
+
+rule 3.4.5.2
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 操作人 is "债券投资者" and 操作 is "确认" and 约束 is "逐笔全额结算方式"
+	then 结果 is "成功"
+
