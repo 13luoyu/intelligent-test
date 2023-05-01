@@ -219,6 +219,7 @@ def list_conditions(defines, vars, rules):
                 elif len(value) == 6:  # a%100000==b%100000
                     key = c["key"]
                     op1, value1, op2, value2, op3, value3 = c["value"]
+                    print(c["value"])
                     if not isnumber(value1):
                         if value1 in defines:
                             vars[rule_id][value1] = []

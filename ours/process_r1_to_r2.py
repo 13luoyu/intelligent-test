@@ -12,14 +12,14 @@ def preprocess(rules):
         constraints = rule["constraints"]
         saved_op = ""
         to_add = []
-        del_op = False
-        for constraint in constraints:
+        del_op = -1
+        for pl, constraint in enumerate(constraints):
             key = constraint["key"]
             value = constraint["value"]
             # 时间
             if key == "op":
                 saved_op = value
-                del_op = True
+                del_op = pl
                 continue
             if is_time_key(key):
                 valid, new_value = time_preprocess(value)
@@ -53,11 +53,13 @@ def preprocess(rules):
                 if valid:
                     constraint["value"] = new_value
                     constraint["operation"] = "compute"
-                    continue
+                else:
+                    raise ValueError(f"数据非法，无法识别  rule_id: {rule_id}, 句子\"{value}\"中有多个数字")
             else:
                 constraint["operation"] = "is"
         constraints += to_add
-        # if "op" in 
+        if del_op != -1:
+            del constraints[del_op]
     return rules
 
 
@@ -163,8 +165,12 @@ def num_preprocess(value):
 
 
 def price_preprocess(value):
-    # 目前无需处理
-    return True, value
+    price_re = r"\d+(.\d+)?"
+    price_vals = re.findall(price_re, value)
+    if len(price_vals) == 1:
+        return True, ["==", price_vals[0]]
+    else:
+        return False, ""
 
 
 

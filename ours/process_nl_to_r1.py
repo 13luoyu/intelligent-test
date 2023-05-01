@@ -389,4 +389,4 @@ def to_r1(input_file, output_file, knowledge_file):
 
 
 if __name__ == "__main__":
-    to_r1("rules2.json", "r12.mydsl", "../data/knowledge.json")
+    to_r1("rules.json", "r1.mydsl", "../data/knowledge.json")
