@@ -632,7 +632,7 @@
     {
         "id": "5.2.4",
         "text": "采用全价价格交易的债券发生付息的，本所在权益登记日次一交易日对该债券作除息处理。本所另有规定的除外。除息日即时行情中显示的该债券的前收盘价为除息参考价，其中除息参考价=前收盘价-本次支付的利息。",
-        "label": "O O B-value I-value I-value I-value O O O B-交易品种 I-交易品种 O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-交易品种 I-交易品种 O O O O O O B-交易品种 I-交易品种 O O O O O O O O B-时间 I-时间 I-时间 O O O O O O O O O O O O B-价格 I-价格 I-价格 I-价格 O B-key I-key I-key I-key I-key O O O B-key I-key I-key I-key I-key B-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O"
+        "label": "O O B-value I-value I-value I-value O O O B-交易品种 I-交易品种 B-状态 I-状态 I-状态 I-状态 O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-交易品种 I-交易品种 O B-结果 I-结果 O O O O O O O O O O O O O B-时间 I-时间 I-时间 B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key I-key I-key O O O B-key I-key I-key I-key I-key B-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O"
     },
     {
         "id": "5.2.5",
