@@ -39,7 +39,7 @@ focus: 时间
 	then 结果 is "成功"
 
 rule 3.1.5.9
-focus: 
+focus: 时间
 	if 交易品种 is "债券"
 	then 结果 is "成功"
 
@@ -89,7 +89,7 @@ focus: 数量
 	then 结果 is "成功"
 
 rule 3.3.4.10
-focus: 
+focus: 数量
 	if 交易品种 is "债券"
 	then 结果 is "成功"
 
