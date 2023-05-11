@@ -1,5 +1,7 @@
 import os
 
+# 计算token_classification任务中模型的预测效果
+
 def statistic(file):
     with open(file, "r", encoding="utf-8") as f:
         lines = f.readlines()

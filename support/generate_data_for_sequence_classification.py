@@ -54,10 +54,15 @@ def read_txt_to_json(txt_file, json_file):
         id = line.split(" ")[0]
         if is_id(id):
             text = "".join(line.split(" ")[1:])
-            d = {"text": text.strip(), "label": "", "type": "", "id": id}
+            text = text.replace("。", "。\n")
+            texts = text.split("\n")
+            for index, text in enumerate(texts):
+                if text.strip() != "":
+                    d = {"text": text.strip(), "label": "", "type": "", "id": f"{id}_{index}"}
+                    data.append(d)
         else:
             d = {"text": line.strip(), "label": "", "type": ""}
-        data.append(d)
+            data.append(d)
     json.dump(data, open(json_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
 
@@ -71,7 +76,6 @@ if __name__ == "__main__":
     for file in os.listdir("../data/深交所业务规则/origin"):
         if "pdf" in file:
             read_pdf_to_txt(f"../data/深交所业务规则/origin/{file}", f"../data/深交所业务规则/txt/{file[:-4]}.txt")
-            read_txt_to_json(f"../data/深交所业务规则/txt/{file[:-4]}.txt", f"../data/深交所业务规则/json/{file[:-4]}.json")
+            read_txt_to_json(f"../data/深交所业务规则/txt/{file[:-4]}.txt", f"../data/深交所业务规则/json_for_sequence_classification/{file[:-4]}.json")
         else:  # "docx"
             ...
-        # read_txt_to_json(f"../data/深交所业务规则/txt/{file[:-4]}.txt", f"../data/深交所业务规则/json/{file[:-4]}.json")

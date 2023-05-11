@@ -21,33 +21,6 @@
                 "key": "开盘集合匹配时间",
                 "value": "{[9:15-9:25]}",
                 "operation": "in"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "else": "不成功"
-            }
-        ]
-    },
-    "3.1.5.2": {
-        "rule_class": [
-            "3.1.5"
-        ],
-        "focus": [
-            "时间"
-        ],
-        "constraints": [
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "交易方式",
-                "value": "匹配成交",
-                "operation": "is"
             },
             {
                 "key": "连续匹配时间",
@@ -63,7 +36,7 @@
             }
         ]
     },
-    "3.1.5.3": {
+    "3.1.5.2": {
         "rule_class": [
             "3.1.5"
         ],
@@ -95,7 +68,7 @@
             }
         ]
     },
-    "3.1.5.4": {
+    "3.1.5.3": {
         "rule_class": [
             "3.1.5"
         ],
@@ -127,7 +100,7 @@
             }
         ]
     },
-    "3.1.5.5": {
+    "3.1.5.4": {
         "rule_class": [
             "3.1.5"
         ],
@@ -159,7 +132,7 @@
             }
         ]
     },
-    "3.1.5.6": {
+    "3.1.5.5": {
         "rule_class": [
             "3.1.5"
         ],
@@ -181,87 +154,11 @@
                 "key": "卖方提交竞买发起申报时间",
                 "value": "{[9:00-10:00]}",
                 "operation": "in"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "else": "不成功"
-            }
-        ]
-    },
-    "3.1.5.7": {
-        "rule_class": [
-            "3.1.5"
-        ],
-        "focus": [
-            "时间"
-        ],
-        "constraints": [
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "交易方式",
-                "value": "竞买成交",
-                "operation": "is"
             },
             {
                 "key": "应价方提交应价申报时间",
                 "value": "{[10:00-11:30]}",
                 "operation": "in"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "else": "不成功"
-            }
-        ]
-    },
-    "3.1.5.8": {
-        "rule_class": [
-            "3.1.5"
-        ],
-        "focus": [
-            "时间"
-        ],
-        "constraints": [
-            {
-                "key": "状态",
-                "value": "停市",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "交易时间内",
-                "operation": "in"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "else": "不成功"
-            }
-        ]
-    },
-    "3.1.5.9": {
-        "rule_class": [
-            "3.1.5"
-        ],
-        "focus": [
-            "时间"
-        ],
-        "constraints": [
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
             }
         ],
         "results": [
@@ -594,34 +491,12 @@
                 "operation": "is"
             },
             {
-                "key": "单笔最大申报数量",
+                "key": "申报数量",
                 "value": [
-                    ">",
+                    "<=",
                     "10000000000"
                 ],
                 "operation": "compute"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "else": "不成功"
-            }
-        ]
-    },
-    "3.3.4.10": {
-        "rule_class": [
-            "3.3.4"
-        ],
-        "focus": [
-            "数量"
-        ],
-        "constraints": [
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
             }
         ],
         "results": [
@@ -655,6 +530,14 @@
                 "value": [
                     "==",
                     ".001"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "申报价格最小变动单位",
+                "value": [
+                    "==",
+                    ".005"
                 ],
                 "operation": "compute"
             }

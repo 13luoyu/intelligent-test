@@ -2,7 +2,7 @@ import copy
 import pprint
 from transfer import mydsl_to_rules
 import re
-from process_nl_to_r1 import is_num_key, is_price_key, is_time_key
+from ours.process_tco_to_r1 import is_num_key, is_price_key, is_time_key
 
 
 def preprocess(rules):
@@ -120,7 +120,8 @@ def time_preprocess(value):
     return False, "Not Time"
 
 def judge_op(value):
-    value.replace("得", "")
+    value = value.replace("得", "")
+    
     if "不低于" in value or "达到" in value or "以上" in value:
         return ">="
     if "不高于" in value or "以下" in value or "不超过" in value:
@@ -159,7 +160,7 @@ def num_preprocess(value):
         if "整数倍" in v:
             t.append(["%", num_val, "==", "0"])
     if len(t) == 0:
-        return False, "句子{v}中没有约束"
+        return False, f"句子{v}中没有约束"
     return True, t
 
 

@@ -1,5 +1,7 @@
 import json
 
+# 输出一个json规则文件中有多少条规则
+
 def count(file):
     rules = json.load(open(file, "r", encoding="utf-8"))
     print(len(rules))

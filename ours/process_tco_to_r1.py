@@ -15,7 +15,7 @@ def is_num_key(key):
     return False
 
 def is_price_key(key):
-    if "价" in key:
+    if "价" in key or "基准" == key:
         return True
     return False
 
@@ -95,92 +95,124 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
     # print(sentence_separate_1)
     # print(sentence_separate_2)
     ss = []
-    ss.append(OrderedDict())  # OrderedDict()按照插入的顺序排列键-值对
+    last_or = False
+    ss.append([])  # 按照插入的顺序排列键-值对
     ss_now = 0  # 每次后面出现新的key，它的对应key-value会被添加到ss[ss_now:]的所有字典中
     for cnt, kv in enumerate(stack):
         key = list(kv.keys())[0]
         value = kv[key]
         # 如果上一个句子以句号结尾，直接分裂并更新ss_now，表示后面的规则和前面无关
         if cnt in sentence_separate_2:
-            new_rule = OrderedDict()
-            new_rule[key] = value
+            new_rule = []
+            new_rule.append({key:value})
             ss_now = len(ss)
             ss.append(new_rule)
             continue
         # 如果遇到or，分裂，但不更新ss_now，表示后面的规则和前面有关
         if key == "or":
-            new_rule = OrderedDict()
+            new_rule = []
             # 将除了or对应的键之外的所有key-value对复制
-            for k in list(ss[-1].keys())[:-1]:
-                new_rule[k] = ss[-1][k]
+            for k in ss[-1][:-1]:
+                new_rule.append(k)
             ss.append(new_rule)
+            last_or = True
             continue
         if_add = False  # 判断当前的key-value是否被添加到了某一个规则中，如果没有，就说明出现了冲突，需要分裂
         for s in ss[ss_now:]:
-            if key in list(s.keys()):
+            find = False
+            for i, si in enumerate(s):
+                if list(si.keys())[0] == key:
+                    find = True
+                    find_value = si[key]
+                    break
+            if find:
                 # 前面写了{交易品种:债券}，后面出现了{交易品种:债券现券}的情况，这里后面要写的更通用 TODO
                 if key == "交易品种":  
-                    if s[key] == "债券":
-                        del s[key]
-                        s[key] = value
+                    if find_value == "债券":
+                        del s[i]
+                        s.append({key:value})
                         if_add = True
                 elif key == "数量":  # 如果是数量约束，可能是一条规则中对数量有多条约束
-                    if cnt in sentence_and:  # 对数量多条约束
-                        s[key] = s[key] + "," + value
+                    if last_or:
+                        last_or = False
+                        ss[-1].append({key:value})
+                        if_add = True
+                        break
+                    elif cnt in sentence_and:  # 对数量多条约束
+                        s[i][key] += ","+value
                         if_add = True
                     else:
                         # 特殊处理，卖出时不足10万元面额部分，一次性申报
                         # 创建新规则
-                        new_rule = OrderedDict()
+                        new_rule = []
                         # 复制上一条规则的每个字段，直到遇见冲突
-                        for i, k in enumerate(list(ss[-1].keys())):
-                            if k == key:
+                        for i, k in enumerate(ss[-1]):
+                            if list(k.keys())[0] == key:
                                 break
-                            new_rule[k] = ss[-1][k]
+                            new_rule.append(k)
                         # 找到>i的最小的新标点开始
                         min_index = len(stack)
                         for index in sentence_separate_1 + sentence_separate_2 + sentence_separate_3:
-                            if index <= cnt - (len(list(ss[-1].keys())) - i):
+                            if index <= cnt - (len(ss[-1]) - i):
                                 continue
                             min_index = min(min_index, index)
                         # 将min_index之后的测试点都从ss[-1]移到new_rule上
                         # print(stack[min_index])
                         tk = list(stack[min_index].keys())[0]
-                        for i, k in enumerate(list(ss[-1].keys())):
-                            if k == tk:
+                        for i, k in enumerate(ss[-1]):
+                            if list(k.keys())[0] == tk:
                                 break
-                        for k in list(ss[-1].keys())[i:]:
-                            new_rule[k] = ss[-1][k]
-                            del ss[-1][k]
+                        for j, k in enumerate(ss[-1][i:]):
+                            new_rule.append(k)
+                            del ss[-1][j+i]
                         # 更新ss_now，之后只更新new_rule，前面的不再更新
                         ss_now = len(ss)
-                        new_rule[key] = value  # 将新的数量-value写入new_rule
+                        new_rule.append({key:value})  # 将新的数量-value写入new_rule
                         ss.append(new_rule)
                         if_add = True  # 不冲突，无需分裂
                         break
                 elif key == "操作":
                     # 有些操作可以合并
                     op1 = value
-                    op2 = s[key]
+                    op2 = find_value
                     can_compose, op = judge_compose(op1, op2)  # 一次性申报卖出
                     if can_compose:
-                        del ss[-1][key]
-                        ss[-1][key] = op
+                        del s[i]
+                        s.append({key:op})
                         if_add = True
                         break
-            elif key not in list(s.keys()):  # 一条规则中没有找到key，就添加进去
-                s[key] = value
+                elif key == "key":
+                    if_add = True
+                    s.append({key:value})
+                elif key == "价格":
+                    if_add = True
+                    if last_or:
+                        last_or = False
+                        ss[-1].append({key:value})
+                        break
+                    else:
+                        s.append({key:value})
+                elif key == "时间":
+                    if_add = True
+                    if last_or:
+                        last_or = False
+                        ss[-1].append({key:value})
+                        break
+                    else:
+                        s.append({key:value})
+            else:  # 一条规则中没有找到key，就添加进去
+                s.append({key:value})
                 if_add = True
         if not if_add or cnt in sentence_separate_1:  # 出现了冲突，分裂成两个规则
             if cnt in sentence_separate_1:  # 上一个句子以分号结尾，更新ss_now，表示之前的规则不再修改和添加key-value
                 ss_now = len(ss)
-            new_rule = OrderedDict()
+            new_rule = []
             # 复制上一条规则的每个字段，直到遇见冲突
-            for k in list(ss[-1].keys()):
-                if k == key:
+            for k in ss[-1]:
+                if list(k.keys())[0] == key:
                     break
-                new_rule[k] = ss[-1][k]
-            new_rule[key] = value
+                new_rule.append(k)
+            new_rule.append({key:value})
             ss.append(new_rule)
     return ss
 
@@ -198,19 +230,23 @@ def write_r1(fp_r1, ss, knowledge, id):
     for i, s in enumerate(ss):
         key_to_use = {}
         value_to_use = {}
+        op_to_use = ""
         new_id = id + "." + str(i+1)
         r1 = "if "
         focus = ""
         result = "成功"
-        for i, key in enumerate(s):
-            value = s[key]
+        for i, si in enumerate(s):
+            key = list(si.keys())[0]
+            value = si[key]
             if key == "操作":
                 focus = "订单连续性操作"
             if key == "结果":
                 result = value
                 continue
-            if key not in ["时间", "价格", "数量", "key", "value"]:
+            if key not in ["时间", "价格", "数量", "key", "value", "op"]:
                 r1 += f"{key} is \"{value}\" and "
+            elif key == "op":
+                op_to_use = value
             elif key == "时间":
                 if focus != "订单连续性操作":
                     focus = "时间"
@@ -218,18 +254,36 @@ def write_r1(fp_r1, ss, knowledge, id):
                     if value_to_use:
                         v1 = list(value_to_use.keys())[0]
                         v2 = value_to_use[v1]
-                        r1 += f"{v1} is \"{v2}\" and "
+                        if v1 != "value":
+                            op = "is"
+                            if op_to_use != "":
+                                op = op_to_use
+                                op_to_use = ""
+                            r1 += f"{v1} {op} \"{v2}\" and "
+                        else:
+                            r1 += f"约束 is \"v2\" and "
                     value_to_use = {key:value}
                 else:
                     k1 = list(key_to_use.keys())[0]
                     v1 = key_to_use[k1]
                     if is_time_key(v1):
-                        r1 += f"{v1} is \"{value}\" and "
+                        op = "is"
+                        if op_to_use != "":
+                            op = op_to_use
+                            op_to_use = ""
+                        r1 += f"{v1} {op} \"{value}\" and "
                     else:
                         if value_to_use:
                             v1 = list(value_to_use.keys())[0]
                             v2 = value_to_use[v1]
-                            r1 += f"{v1} is \"{v2}\" and "
+                            if v1 != "value":
+                                op = "is"
+                                if op_to_use != "":
+                                    op = op_to_use
+                                    op_to_use = ""
+                                r1 += f"{v1} {op} \"{v2}\" and "
+                            else:
+                                r1 += f"约束 is \"v2\" and "
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "价格":
@@ -239,18 +293,36 @@ def write_r1(fp_r1, ss, knowledge, id):
                     if value_to_use:
                         v1 = list(value_to_use.keys())[0]
                         v2 = value_to_use[v1]
-                        r1 += f"{v1} is \"{v2}\" and "
+                        if v1 != "value":
+                            op = "is"
+                            if op_to_use != "":
+                                op = op_to_use
+                                op_to_use = ""
+                            r1 += f"{v1} {op} \"{v2}\" and "
+                        else:
+                            r1 += f"约束 is \"v2\" and "
                     value_to_use = {key:value}
                 else:
                     k1 = list(key_to_use.keys())[0]
                     v1 = key_to_use[k1]
                     if is_price_key(v1):
-                        r1 += f"{v1} is \"{value}\" and "
+                        op = "is"
+                        if op_to_use != "":
+                            op = op_to_use
+                            op_to_use = ""
+                        r1 += f"{v1} {op} \"{value}\" and "
                     else:
                         if value_to_use:
                             v1 = list(value_to_use.keys())[0]
                             v2 = value_to_use[v1]
-                            r1 += f"{v1} is \"{v2}\" and "
+                            if v1 != "value":
+                                op = "is"
+                                if op_to_use != "":
+                                    op = op_to_use
+                                    op_to_use = ""
+                                r1 += f"{v1} {op} \"{v2}\" and "
+                            else:
+                                r1 += f"约束 is \"v2\" and "
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "数量":
@@ -260,18 +332,36 @@ def write_r1(fp_r1, ss, knowledge, id):
                     if value_to_use:
                         v1 = list(value_to_use.keys())[0]
                         v2 = value_to_use[v1]
-                        r1 += f"{v1} is \"{v2}\" and "
+                        if v1 != "value":
+                            op = "is"
+                            if op_to_use != "":
+                                op = op_to_use
+                                op_to_use = ""
+                            r1 += f"{v1} {op} \"{v2}\" and "
+                        else:
+                            r1 += f"约束 is \"v2\" and "
                     value_to_use = {key:value}
                 else:
                     k1 = list(key_to_use.keys())[0]
                     v1 = key_to_use[k1]
                     if is_num_key(v1):
-                        r1 += f"{v1} is \"{value}\" and "
+                        op = "is"
+                        if op_to_use != "":
+                            op = op_to_use
+                            op_to_use = ""
+                        r1 += f"{v1} {op} \"{value}\" and "
                     else:
                         if value_to_use:
                             v1 = list(value_to_use.keys())[0]
                             v2 = value_to_use[v1]
-                            r1 += f"{v1} is \"{v2}\" and "
+                            if v1 != "value":
+                                op = "is"
+                                if op_to_use != "":
+                                    op = op_to_use
+                                    op_to_use = ""
+                                r1 += f"{v1} {op} \"{v2}\" and "
+                            else:
+                                r1 += f"约束 is \"v2\" and "
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "key":
@@ -281,22 +371,37 @@ def write_r1(fp_r1, ss, knowledge, id):
                     v1 = list(value_to_use.keys())[0]
                     v2 = value_to_use[v1]
                     if v1 == "时间":
+                        op = "is"
+                        if op_to_use != "":
+                            op = op_to_use
+                            op_to_use = ""
                         if is_time_key(value):
-                            r1 += f"{value} is \"{v2}\" and "
+                            r1 += f"{value} {op} \"{v2}\" and "
                         else:
-                            r1 += f"{v1} is \"{v2}\" and "
+                            r1 += f"{v1} {op} \"{v2}\" and "
+                            key_to_use = {key:value}
                         value_to_use = {}
                     elif v1 == "数量":
+                        op = "is"
+                        if op_to_use != "":
+                            op = op_to_use
+                            op_to_use = ""
                         if is_num_key(value):
-                            r1 += f"{value} is \"{v2}\" and "
+                            r1 += f"{value} {op} \"{v2}\" and "
                         else:
-                            r1 += f"{v1} is \"{v2}\" and "
+                            r1 += f"{v1} {op} \"{v2}\" and "
+                            key_to_use = {key:value}
                         value_to_use = {}
                     elif v1 == "价格":
+                        op = "is"
+                        if op_to_use != "":
+                            op = op_to_use
+                            op_to_use = ""
                         if is_price_key(value):
-                            r1 += f"{value} is \"{v2}\" and "
+                            r1 += f"{value} {op} \"{v2}\" and "
                         else:
-                            r1 += f"{v1} is \"{v2}\" and "
+                            r1 += f"{v1} {op} \"{v2}\" and "
+                            key_to_use = {key:value}
                         value_to_use = {}
                     else:  # v1 == "value"，查找领域知识判断是否配对
                         find = False
@@ -333,8 +438,12 @@ def write_r1(fp_r1, ss, knowledge, id):
                         k1 = list(key_to_use.keys())[0]
                         v1 = key_to_use[k1]
                         配对 = True  # TODO，在领域知识中找不到时，key-value是否配对
+                        op = "is"
+                        if op_to_use != "":
+                            op = op_to_use
+                            op_to_use = ""
                         if 配对:
-                            r1 += f"{v1} is \"{value}\" and "
+                            r1 += f"{v1} {op} \"{value}\" and "
                             key_to_use = {}
                             find = True
                     if not find:
@@ -342,14 +451,25 @@ def write_r1(fp_r1, ss, knowledge, id):
                             # 如果value_to_use不为空
                             v1 = list(value_to_use.keys())[0]
                             v2 = value_to_use[v1]
-                            r1 += f"{v1} is \"{v2}\" and "
+                            op = "is"
+                            if op_to_use != "":
+                                op = op_to_use
+                                op_to_use = ""
+                            if v1 != "value":
+                                r1 += f"{v1} {op} \"{v2}\" and "
+                            else:
+                                r1 += f"约束 is \"{v2}\" and "
                         value_to_use = {key: value}
 
         if value_to_use:
             v1 = list(value_to_use.keys())[0]
             v2 = value_to_use[v1]
+            op = "is"
+            if op_to_use != "":
+                op = op_to_use
+                op_to_use = ""
             if v1 == "时间" or v1 == "数量" or v1 == "价格":
-                r1 += f"{v1} is \"{v2}\" and "
+                r1 += f"{v1} {op} \"{v2}\" and "
             else:
                 r1 += f"约束 is \"{v2}\" and "
         
@@ -389,4 +509,4 @@ def to_r1(input_file, output_file, knowledge_file):
 
 
 if __name__ == "__main__":
-    to_r1("rules.json", "r1.mydsl", "../data/knowledge.json")
+    to_r1("rules_深圳证券交易所债券交易规则.json", "r1.mydsl", "../data/knowledge.json")
