@@ -48,10 +48,16 @@ def read_file(file_name):
             i = 1
             while i < len(l):
                 constraint = dict()
-                vars[rule_id][l[i]] = []
+                
                 constraint["key"] = l[i]
+                if l[i] == "单笔最大申报数量":
+                    constraint["key"] = "申报数量"
+                    l[i] = "申报数量"
                 constraint["value"] = l[i + 2][1:-1]
+                if l[i+1] != "is":
+                    constraint["value"] = str(l[i+1]) + str(l[i + 2][1:-1])
                 constraints.append(constraint)
+                vars[rule_id][l[i]] = []
                 i = i + 4
             
             rules[rule_id]["constraints"] = constraints
