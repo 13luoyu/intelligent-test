@@ -1,6 +1,8 @@
 # token classification任务
 
 import json
+from token_classification import eval_model
+from utils.arguments import arg_parser
 
 def token_classification_with_algorithm(rule, knowledge):
     # For Show
@@ -13,7 +15,8 @@ def token_classification_with_algorithm(rule, knowledge):
     elif rule["id"] == "3.3.10":
         rule["label"] = "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-value I-value I-value I-value O O B-操作 I-操作 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-value I-value I-value I-value O O B-操作 I-操作 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O B-value I-value B-or I-or B-value I-value I-value I-value O O B-操作 I-操作 O"
 
-def token_classification_with_model_and_algorithm(rule, model_path, knowledge):
+def token_classification_with_model_and_algorithm(eval_dataset, model_path, knowledge):
+    eval_model("../data/our_data.json", "../data/our_data.dict", "../model/ours/best_1682677585", arg_parser())
     ...
 
 def token_classification(in_file: str, out_file: str, knowledge_file: str, mode: int = 0):
@@ -25,7 +28,7 @@ def token_classification(in_file: str, out_file: str, knowledge_file: str, mode:
             token_classification_with_algorithm(rule, knowledge)
         json.dump(tci, open(out_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     elif mode == 1:
-        ...
+        token_classification_with_model_and_algorithm(in_file, None, knowledge)
     else:
         raise ValueError(f"mode应该设置为0或1，不支持的值：mode = {mode}")
 

@@ -22,10 +22,14 @@ def nlp_process(input_file, sci_file, sco_file, tci_file, tco_file, r1_file, kno
     sequence_classification(sci_file, sco_file)
     # 将句子按照id组合
     sco_to_tci(sco_file, tci_file)
+    print("句分类任务完成")
     # 标注句子中每个字的类别
+    token_classification(tci_file, tco_file, knowledge_file, 1)  # 模型
     token_classification(tci_file, tco_file, knowledge_file)
+    print("字分类任务完成")
     # 调用转R1
     to_r1(tco_file, r1_file, knowledge_file)
+    print("R1规则生成")
 
 def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_file):
     # 读文件
@@ -39,21 +43,22 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
     # R1->R2
     defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
     json.dump(rules, open(r2_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    print("R2规则生成")
 
     # R2->R3
     defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
     json.dump(rules, open(r3_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    print("R3规则生成")
 
     # 生成测试样例
     vars = testcase(defines, vars, rules)
     outputs = generate_dicts(vars, rules)
-    pprint(vars)
 
     # 保存结果
     out_num = 0
     for o in outputs:
         out_num += len(o)
-    print(f"testcase包含的规则数：{out_num}")
+    print(f"testcase生成，包含的规则数：{out_num}")
     json.dump(outputs, open(testcase_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
 
