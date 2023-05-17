@@ -7,4 +7,4 @@ def count(file):
     print(len(rules))
 
 
-count("../data/深交所业务规则/json/finished_v3_深圳证券交易所债券交易规则.json")
+count("../data/深交所业务规则/json_for_sequence_classification/深圳证券交易所债券交易规则.json")

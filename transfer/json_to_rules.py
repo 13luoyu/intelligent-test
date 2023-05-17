@@ -124,3 +124,6 @@ def json_to_r3(s):
     defines['持仓面额'] = ["100000"]
     
     return defines, vars, rules
+
+
+

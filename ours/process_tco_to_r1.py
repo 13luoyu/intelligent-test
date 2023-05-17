@@ -1,11 +1,13 @@
 import json
 from collections import OrderedDict
 import copy
-from pprint import pprint
+import pprint
+import os
+import re
 
 
 def is_time_key(key):
-    if "时" in key or "点" in key or "日" in key:
+    if "价" not in key and ("时" in key or "点" in key or "日" in key):
         return True
     return False
 
@@ -20,12 +22,27 @@ def is_price_key(key):
     return False
 
 def judge_compose(op1, op2):
-    if ("买入" in op1 or "卖出" in op1) and ("申报" in op2 or "撤销" in op2):
+    if ("买入" in op1 or "卖出" in op1 or "合并" in op1) and ("申报" in op2 or "撤销" in op2):
         return True, op2 + op1
-    elif ("申报" in op1 or "撤销" in op1) and ("买入" in op2 or "卖出" in op2):
+    elif ("申报" in op1 or "撤销" in op1) and ("买入" in op2 or "卖出" in op2 or "合并" in op2):
         return True, op1 + op2
     else:
         return False, ""
+
+def judge_in(op1, op2):
+    if op1 in op2:
+        return True, op2
+    elif op2 in op1:
+        return True, op1
+    else:
+        return False, ""
+
+def judge_time_compose(time1, time2):
+    time1_cnt = len(re.findall(r"\d+:\d+", time1))
+    time2_cnt = len(re.findall(r"\d+:\d+", time2))
+    if time1_cnt > 0 and time2_cnt == 0 or time2_cnt > 0 and time1_cnt == 0:
+        return True
+    return False
 
 
 def read_knowledges(file):
@@ -79,6 +96,9 @@ def read_OBI_to_rule(texts, labels):
         elif texts[i] == "且":
             sentence_and.append(len(stack))
     sentence_separate_2.pop()  # 句子的结尾一定是。而这个。无用
+    with open("r1_step1.txt", "a", encoding="utf-8") as f:
+        s = pprint.pformat(stack)
+        f.write(s + "\n\n")
     return stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and
 
 
@@ -91,21 +111,33 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
     :param sentence_separate_2: 记录。之后的下一个{label:text}在stack中的位置
     :return ss: 子规则数组，每个数组元素为一个子规则，子规则形式上为包含一系列key-value对的字典。
     """
-    # pprint(stack)
+    # pprint.pprint(stack)
     # print(sentence_separate_1)
     # print(sentence_separate_2)
     ss = []
     last_or = False
+    new_oppart = False
     ss.append([])  # 按照插入的顺序排列键-值对
     ss_now = 0  # 每次后面出现新的key，它的对应key-value会被添加到ss[ss_now:]的所有字典中
     for cnt, kv in enumerate(stack):
         key = list(kv.keys())[0]
         value = kv[key]
-        # 如果上一个句子以句号结尾，直接分裂并更新ss_now，表示后面的规则和前面无关
+        # 如果上一个句子以句号或分号结尾，直接分裂并更新ss_now，表示后面的规则和前面无关
         if cnt in sentence_separate_2:
             new_rule = []
             new_rule.append({key:value})
             ss_now = len(ss)
+            ss.append(new_rule)
+            continue
+        if cnt in sentence_separate_1:
+            ss_now = len(ss)
+            new_rule = []
+            # 复制上一条规则的每个字段，直到遇见冲突
+            for k in ss[-1]:
+                if list(k.keys())[0] == key:
+                    break
+                new_rule.append(k)
+            new_rule.append({key:value})
             ss.append(new_rule)
             continue
         # 如果遇到or，分裂，但不更新ss_now，表示后面的规则和前面有关
@@ -172,7 +204,16 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if_add = True  # 不冲突，无需分裂
                         break
                 elif key == "操作":
-                    # 有些操作可以合并
+                    if last_or:
+                        last_or = False
+                        for ii, si in enumerate(ss[-1]):
+                            if key in si:
+                                del ss[-1][ii]
+                                break
+                        ss[-1].append({key:value})
+                        if_add = True
+                        break
+                    # 合并操作
                     op1 = value
                     op2 = find_value
                     can_compose, op = judge_compose(op1, op2)  # 一次性申报卖出
@@ -181,39 +222,139 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         s.append({key:op})
                         if_add = True
                         break
+                    # 操作是同一个
+                    if_in, op = judge_in(op1, op2)
+                    if if_in:
+                        del s[i]
+                        s.append({key:op})
+                        if_add = True
+                        break
+                    # 新的操作部分在前面，新的操作在后面
+                    if new_oppart:
+                        new_oppart = False
+                        del ss[-1][i]
+                        ss[-1].append({key:value})
+                        if_add = True
+                        break
+                elif key == "操作部分":
+                    # 操作部分有时不冲突，有时隶属于一个操作，有时两个
+                    if last_or:
+                        last_or = False
+                        ss[-1].append({key:value})
+                        if_add = True
+                        break
+                    else:
+                        new_oppart = True
+                        ...
+                elif key == "操作人":
+                    if_add = True
+                    if last_or:
+                        last_or = False
+                        ss[-1].append({key:value})
+                        break
+                    else:
+                        s.append({key:value})
+                elif key == "结合规则":
+                    if_add = True
+                    find_state = False
+                    for si in s:
+                        if list(si.keys())[0] == key:
+                            si[key] += "," + value
+                            find_state = True
+                            break
+                    if not find_state:
+                        s.append({key:value})
+                elif key == "状态":
+                    if_add = True
+                    find_state = False
+                    for si in s:
+                        if list(si.keys())[0] == key:
+                            si[key] += "," + value
+                            find_state = True
+                            break
+                    if not find_state:
+                        s.append({key:value})
+                elif key == "事件":
+                    if_add = True
+                    find_state = False
+                    for si in s:
+                        if list(si.keys())[0] == key:
+                            si[key] += "," + value
+                            find_state = True
+                            break
+                    if not find_state:
+                        s.append({key:value})
                 elif key == "key":
-                    if_add = True
-                    s.append({key:value})
+                    # 如果两个key相同，则要分裂，否则不分裂
+                    if last_or:
+                        last_or = False
+                        ss[-1].append({key:value})
+                        if_add = True
+                        break
+                    else:
+                        find_conflict = False
+                        for si in s:
+                            if list(si.keys())[0] == key and si[key] == value:
+                                # 冲突
+                                find_conflict = True
+                                break
+                        if not find_conflict:
+                            s.append({key:value})
+                            if_add = True
                 elif key == "价格":
-                    if_add = True
                     if last_or:
                         last_or = False
                         ss[-1].append({key:value})
+                        if_add = True
                         break
                     else:
-                        s.append({key:value})
+                        # 如果读到一个价格时，上面的价格不是数值，则不冲突
+                        for si in s[::-1]:
+                            ki = list(si.keys())[0]
+                            vi = si[ki]
+                            if ki == "价格":
+                                if len(re.findall(r"\d+.\d+", vi)) == 0:
+                                    s.append({key:value})
+                                    if_add = True
                 elif key == "时间":
-                    if_add = True
                     if last_or:
+                        if_add = True
                         last_or = False
                         ss[-1].append({key:value})
                         break
                     else:
-                        s.append({key:value})
+                        # 判断拆不拆，方法是如果一个是具体时间，一个是日期，则不拆，否则拆
+                        time1 = s[i][key]
+                        time2 = value
+                        if judge_time_compose(time1, time2):
+                            s.append({key:value})
+                            if_add = True
             else:  # 一条规则中没有找到key，就添加进去
                 s.append({key:value})
                 if_add = True
-        if not if_add or cnt in sentence_separate_1:  # 出现了冲突，分裂成两个规则
-            if cnt in sentence_separate_1:  # 上一个句子以分号结尾，更新ss_now，表示之前的规则不再修改和添加key-value
-                ss_now = len(ss)
+        if not if_add:  # 出现了冲突，分裂成两个规则
+            # new_rule = []
+            # # 复制上一条规则的每个字段，直到遇见冲突
+            # for k in ss[-1]:
+            #     if list(k.keys())[0] == key:
+            #         break
+            #     new_rule.append(k)
+            # new：复制ss_now直到最后的每个字段，直到遇见冲突
             new_rule = []
-            # 复制上一条规则的每个字段，直到遇见冲突
-            for k in ss[-1]:
-                if list(k.keys())[0] == key:
-                    break
-                new_rule.append(k)
-            new_rule.append({key:value})
-            ss.append(new_rule)
+            new_rules = []
+            for s in ss[ss_now:]:
+                for k in s:
+                    if list(k.keys())[0] == key:
+                        break
+                    new_rule.append(k)
+                new_rule.append({key:value})
+                if new_rule not in new_rules:
+                    new_rules.append(new_rule)
+                new_rule = []
+            
+            ss += new_rules
+    with open("r1_step2.txt", "a", encoding="utf-8") as f:
+        f.write(pprint.pformat(ss) + "\n\n")
     return ss
 
 def write_r1(fp_r1, ss, knowledge, id):
@@ -492,6 +633,10 @@ def to_r1(input_file, output_file, knowledge_file):
     fp_r1 = open(output_file, "w", encoding="utf-8")
     knowledge = read_knowledges(knowledge_file)
     rules = json.load(open(input_file, "r", encoding="utf-8"))
+    if os.path.exists("r1_step1.txt"):
+        os.remove("r1_step1.txt")
+    if os.path.exists("r1_step2.txt"):
+        os.remove("r1_step2.txt")
     for rule in rules:
         id = rule["id"]
         texts = rule["text"]
@@ -510,3 +655,4 @@ def to_r1(input_file, output_file, knowledge_file):
 
 if __name__ == "__main__":
     to_r1("rules_深圳证券交易所债券交易规则.json", "r1.mydsl", "../data/knowledge.json")
+    # to_r1("test.json", "test.mydsl", "../data/knowledge.json")
