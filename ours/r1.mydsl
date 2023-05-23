@@ -445,13 +445,9 @@ focus: 订单连续性操作
 
 rule 4.4.3.1
 focus: 订单连续性操作
-	if 操作人 is "卖方" and 操作 is "预约" and 操作部分 is "竞买"
+	if 操作人 is "卖方" and 操作1 is "预约" and 操作部分1 is "竞买" and 操作2 is "确定" and 操作部分2 is "竞买日"
 	then 结果 is "成功"
 
-rule 4.4.3.2
-focus: 订单连续性操作
-	if 操作人 is "卖方" and 操作 is "确定" and 操作部分 is "竞买日"
-	then 结果 is "成功"
 
 rule 4.4.4.1
 focus: 订单连续性操作
