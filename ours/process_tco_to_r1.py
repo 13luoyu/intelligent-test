@@ -7,7 +7,7 @@ import re
 
 
 def is_time_key(key):
-    if "价" not in key and ("时" in key or "点" in key or "日" in key):
+    if key[-1] == "日" or key[-2:] == "时间":
         return True
     return False
 
@@ -21,7 +21,7 @@ def is_price_key(key):
         return True
     return False
 
-def judge_compose(op1, op2):
+def judge_operation_compose(op1, op2):
     if ("买入" in op1 or "卖出" in op1 or "合并" in op1) and ("申报" in op2 or "撤销" in op2):
         return True, op2 + op1
     elif ("申报" in op1 or "撤销" in op1) and ("买入" in op2 or "卖出" in op2 or "合并" in op2):
@@ -29,7 +29,7 @@ def judge_compose(op1, op2):
     else:
         return False, ""
 
-def judge_in(op1, op2):
+def judge_operation_in(op1, op2):
     if op1 in op2:
         return True, op2
     elif op2 in op1:
@@ -43,6 +43,21 @@ def judge_time_compose(time1, time2):
     if time1_cnt > 0 and time2_cnt == 0 or time2_cnt > 0 and time1_cnt == 0:
         return True
     return False
+
+def judge_tradetype_compose(t1, t2):
+    if t1 == "债券" and ("债券现券" in t2 or "债券通用质押式回购" in t2):
+        return True, t2
+    if t1 == "证券" and t2 != "证券":
+        return True, t2
+    if t2 == "债券" and ("债券现券" in t1 or "债券通用质押式回购" in t1):
+        return True, t1
+    if t2== "证券" and t1 != "证券":
+        return True, t1
+    if t1 in t2:
+        return True, t2
+    if t2 in t1:
+        return True, t1
+    return False, ""
 
 
 def read_knowledges(file):
@@ -115,8 +130,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
     # print(sentence_separate_1)
     # print(sentence_separate_2)
     ss = []
-    last_or = False
-    new_oppart = False
+    last_or = 0
     ss.append([])  # 按照插入的顺序排列键-值对
     ss_now = 0  # 每次后面出现新的key，它的对应key-value会被添加到ss[ss_now:]的所有字典中
     for cnt, kv in enumerate(stack):
@@ -142,12 +156,21 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
             continue
         # 如果遇到or，分裂，但不更新ss_now，表示后面的规则和前面有关
         if key == "or":
-            new_rule = []
-            # 将除了or对应的键之外的所有key-value对复制
-            for k in ss[-1][:-1]:
-                new_rule.append(k)
-            ss.append(new_rule)
-            last_or = True
+            new_rules = []
+            for rule_to_cp in ss[ss_now:]:
+                new_rule = []
+                # 将除了or对应的键之外的所有key-value对复制
+                # 如果or对应的键是操作、操作部分，则不复制这两个
+                if len(rule_to_cp) > 1 and ((list(rule_to_cp[-2].keys())[0] == "操作" and list(rule_to_cp[-1].keys())[0] == "操作部分") or (list(rule_to_cp[-1].keys())[0] == "操作" and list(rule_to_cp[-2].keys())[0] == "操作部分")):
+                    for k in rule_to_cp[:-2]:
+                        new_rule.append(k)
+                    last_or = 2
+                else:
+                    for k in rule_to_cp[:-1]:
+                        new_rule.append(k)
+                    last_or = 1
+                new_rules.append(new_rule)
+            ss += new_rules
             continue
         if_add = False  # 判断当前的key-value是否被添加到了某一个规则中，如果没有，就说明出现了冲突，需要分裂
         for s in ss[ss_now:]:
@@ -158,16 +181,20 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                     find_value = si[key]
                     break
             if find:
-                # 前面写了{交易品种:债券}，后面出现了{交易品种:债券现券}的情况，这里后面要写的更通用 TODO
                 if key == "交易品种":  
-                    if find_value == "债券":
+                    replace, v = judge_tradetype_compose(find_value, value)
+                    if replace:
                         del s[i]
-                        s.append({key:value})
+                        s.append({key:v})
                         if_add = True
+                    else:
+                        ...  # 冲突
                 elif key == "数量":  # 如果是数量约束，可能是一条规则中对数量有多条约束
-                    if last_or:
-                        last_or = False
-                        ss[-1].append({key:value})
+                    if last_or > 0:
+                        last_or = 0
+                        rule_num = len(ss[ss_now:])
+                        for rule_to_add in ss[int(ss_now + rule_num/2):]:
+                            rule_to_add.append({key:value})
                         if_add = True
                         break
                     elif cnt in sentence_and:  # 对数量多条约束
@@ -204,53 +231,53 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if_add = True  # 不冲突，无需分裂
                         break
                 elif key == "操作":
-                    if last_or:
-                        last_or = False
-                        for ii, si in enumerate(ss[-1]):
-                            if key in si:
-                                del ss[-1][ii]
-                                break
-                        ss[-1].append({key:value})
+                    if last_or > 0:
+                        last_or = last_or - 1
+                        rule_num = len(ss[ss_now:])
+                        for ii, si in enumerate(ss[int(ss_now + rule_num/2):]):
+                            si.append({key:value})
                         if_add = True
                         break
                     # 合并操作
                     op1 = value
                     op2 = find_value
-                    can_compose, op = judge_compose(op1, op2)  # 一次性申报卖出
+                    can_compose, op = judge_operation_compose(op1, op2)  # 一次性申报卖出
                     if can_compose:
                         del s[i]
                         s.append({key:op})
                         if_add = True
                         break
                     # 操作是同一个
-                    if_in, op = judge_in(op1, op2)
+                    if_in, op = judge_operation_in(op1, op2)
                     if if_in:
                         del s[i]
                         s.append({key:op})
                         if_add = True
                         break
-                    # 新的操作部分在前面，新的操作在后面
-                    if new_oppart:
-                        new_oppart = False
-                        del ss[-1][i]
-                        ss[-1].append({key:value})
-                        if_add = True
-                        break
+                    # 操作之间不冲突
+                    s.append({key:value})
+                    if_add = True
                 elif key == "操作部分":
                     # 操作部分有时不冲突，有时隶属于一个操作，有时两个
-                    if last_or:
-                        last_or = False
-                        ss[-1].append({key:value})
+                    if last_or > 0:
+                        last_or = last_or - 1
+                        rule_num = len(ss[ss_now:])
+                        for rule_to_add in ss[int(ss_now + rule_num/2):]:
+                            rule_to_add.append({key:value})
                         if_add = True
                         break
                     else:
-                        new_oppart = True
+                        # 操作部分不冲突
+                        s.append({key:value})
+                        if_add = True
                         ...
-                elif key == "操作人":
+                elif key == "操作人":  # 需要nlp  TODO
                     if_add = True
-                    if last_or:
-                        last_or = False
-                        ss[-1].append({key:value})
+                    if last_or > 0:
+                        last_or = 0
+                        rule_num = len(ss[ss_now:])
+                        for rule_to_add in ss[int(ss_now + rule_num/2):]:
+                            rule_to_add.append({key:value})
                         break
                     else:
                         s.append({key:value})
@@ -261,7 +288,6 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if list(si.keys())[0] == key:
                             si[key] += "," + value
                             find_state = True
-                            break
                     if not find_state:
                         s.append({key:value})
                 elif key == "状态":
@@ -271,9 +297,9 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if list(si.keys())[0] == key:
                             si[key] += "," + value
                             find_state = True
-                            break
                     if not find_state:
                         s.append({key:value})
+                    ss_now = len(ss) - 1
                 elif key == "事件":
                     if_add = True
                     find_state = False
@@ -281,17 +307,19 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if list(si.keys())[0] == key:
                             si[key] += "," + value
                             find_state = True
-                            break
                     if not find_state:
                         s.append({key:value})
+                    ss_now = len(ss) - 1
                 elif key == "key":
-                    # 如果两个key相同，则要分裂，否则不分裂
-                    if last_or:
-                        last_or = False
-                        ss[-1].append({key:value})
+                    if last_or > 0:
+                        last_or = 0
+                        rule_num = len(ss[ss_now:])
+                        for rule_to_add in ss[int(ss_now + rule_num/2):]:
+                            rule_to_add.append({key:value})
                         if_add = True
                         break
                     else:
+                        # 如果两个key相同，则要分裂
                         find_conflict = False
                         for si in s:
                             if list(si.keys())[0] == key and si[key] == value:
@@ -299,12 +327,16 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                                 find_conflict = True
                                 break
                         if not find_conflict:
+                            # key不冲突
                             s.append({key:value})
                             if_add = True
+                            
                 elif key == "价格":
-                    if last_or:
-                        last_or = False
-                        ss[-1].append({key:value})
+                    if last_or > 0:
+                        last_or = 0
+                        rule_num = len(ss[ss_now:])
+                        for rule_to_add in ss[int(ss_now + rule_num/2):]:
+                            rule_to_add.append({key:value})
                         if_add = True
                         break
                     else:
@@ -317,10 +349,12 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                                     s.append({key:value})
                                     if_add = True
                 elif key == "时间":
-                    if last_or:
+                    if last_or > 0:
                         if_add = True
-                        last_or = False
-                        ss[-1].append({key:value})
+                        last_or = 0
+                        rule_num = len(ss[ss_now:])
+                        for rule_to_add in ss[int(ss_now + rule_num/2):]:
+                            rule_to_add.append({key:value})
                         break
                     else:
                         # 判断拆不拆，方法是如果一个是具体时间，一个是日期，则不拆，否则拆
@@ -329,6 +363,29 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if judge_time_compose(time1, time2):
                             s.append({key:value})
                             if_add = True
+                elif key == "系统":
+                    if last_or > 0:
+                        if_add = True
+                        last_or = 0
+                        rule_num = len(ss[ss_now:])
+                        for rule_to_add in ss[int(ss_now + rule_num/2):]:
+                            rule_to_add.append({key:value})
+                        break
+                    else:
+                        s[i][key] = value
+                        if_add = True
+                elif key == "value":
+                    if last_or > 0:
+                        if_add = True
+                        last_or = 0
+                        rule_num = len(ss[ss_now:])
+                        for rule_to_add in ss[int(ss_now + rule_num/2):]:
+                            rule_to_add.append({key:value})
+                        break
+                    else:
+                        for rule_to_add in ss[ss_now:]:
+                            rule_to_add.append({key:value})
+                        if_add = True
             else:  # 一条规则中没有找到key，就添加进去
                 s.append({key:value})
                 if_add = True
@@ -402,7 +459,7 @@ def write_r1(fp_r1, ss, knowledge, id):
                                 op_to_use = ""
                             r1 += f"{v1} {op} \"{v2}\" and "
                         else:
-                            r1 += f"约束 is \"v2\" and "
+                            r1 += f"约束 is \"{v2}\" and "
                     value_to_use = {key:value}
                 else:
                     k1 = list(key_to_use.keys())[0]
@@ -424,7 +481,7 @@ def write_r1(fp_r1, ss, knowledge, id):
                                     op_to_use = ""
                                 r1 += f"{v1} {op} \"{v2}\" and "
                             else:
-                                r1 += f"约束 is \"v2\" and "
+                                r1 += f"约束 is \"{v2}\" and "
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "价格":
@@ -441,7 +498,7 @@ def write_r1(fp_r1, ss, knowledge, id):
                                 op_to_use = ""
                             r1 += f"{v1} {op} \"{v2}\" and "
                         else:
-                            r1 += f"约束 is \"v2\" and "
+                            r1 += f"约束 is \"{v2}\" and "
                     value_to_use = {key:value}
                 else:
                     k1 = list(key_to_use.keys())[0]
@@ -463,7 +520,7 @@ def write_r1(fp_r1, ss, knowledge, id):
                                     op_to_use = ""
                                 r1 += f"{v1} {op} \"{v2}\" and "
                             else:
-                                r1 += f"约束 is \"v2\" and "
+                                r1 += f"约束 is \"{v2}\" and "
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "数量":
@@ -480,7 +537,7 @@ def write_r1(fp_r1, ss, knowledge, id):
                                 op_to_use = ""
                             r1 += f"{v1} {op} \"{v2}\" and "
                         else:
-                            r1 += f"约束 is \"v2\" and "
+                            r1 += f"约束 is \"{v2}\" and "
                     value_to_use = {key:value}
                 else:
                     k1 = list(key_to_use.keys())[0]
@@ -502,7 +559,7 @@ def write_r1(fp_r1, ss, knowledge, id):
                                     op_to_use = ""
                                 r1 += f"{v1} {op} \"{v2}\" and "
                             else:
-                                r1 += f"约束 is \"v2\" and "
+                                r1 += f"约束 is \"{v2}\" and "
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "key":
@@ -656,3 +713,4 @@ def to_r1(input_file, output_file, knowledge_file):
 if __name__ == "__main__":
     to_r1("rules_深圳证券交易所债券交易规则.json", "r1.mydsl", "../data/knowledge.json")
     # to_r1("test.json", "test.mydsl", "../data/knowledge.json")
+    # 4.3.5, 5.2.1, 5.2.2
