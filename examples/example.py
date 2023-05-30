@@ -48,7 +48,7 @@ class DataCollatorForSeq2Seq:
         input_tensor = self.tokenizer(inputs,
                                       truncation=True,  # 截断
                                       padding=True,  # 填充
-                                      max_length=self.max_length,
+                                      max_length=self.max_length,  # 最大长度
                                       return_tensors="pt",  # pytorch模型 或 "tf" tensorflow模型
                                       )
 
@@ -80,7 +80,7 @@ def predict(model, tokenizer, sources, batch_size=8):
     for start in tqdm(range(0, len(sources), batch_size)):
         batch = sources[start:start+batch_size]
         input_tensor = tokenizer(batch, return_tensors="pt", truncation=True, padding=True, max_length=512).input_ids.cuda()
-        outputs.extend(model.generate(input_ids=input_tensor, **kwargs))
+        outputs.extend(model.generate(input_ids=input_tensor, **kwargs))  # 生成模型调用model.generate(input_tensor)，分类模型调用model(input_tensor)
     return tokenizer.batch_decode(outputs, skip_special_tokens=True)
 
 

@@ -5,6 +5,8 @@ import pprint
 import os
 import re
 
+# 4.3.5(双操作人，互相无关), 4.3.6(向)
+# 做法是在分规则后进行一步处理，依据原文中的关键字处理两个操作人。两个操作人的情况总共以上三种，向（与、给）、作为与无关。在第一步处理模型结果时要找到这个关系，传给第二步。
 
 def is_time_key(key):
     if key[-1] == "日" or key[-2:] == "时间":
@@ -80,14 +82,28 @@ def read_OBI_to_rule(texts, labels):
     sentence_separate_2 = []  # 记录。之后的下一个{label:text}在stack中的位置
     sentence_separate_3 = []  # 记录，之后的下一个{label:text}在stack中的位置
     sentence_and = []  # 记录"且"之后的下一个{label:text}在stack中的位置
+    operator_relation = []  # 0 无关，1 向（给），2 与，3 作为，记录所有向（与，作为）操作人的信息
     a, b = 0, 0  # a, b为一个text在句子中的开始和结束位置
     last_label = "O"
+    operator_count = 0
     for i, label in enumerate(labels.split(" ")):
         if label == "O":  # O->O, B->O, I->O
             if last_label != "O":  # B->O, I->O
                 b = i
                 # 记录到stack中
                 stack.append({last_label: texts[a:b]})
+                if last_label == "操作人":
+                    operator_count += 1
+                    if a == 0:
+                        ...
+                    elif texts[a-1] == "向" or texts[a-1] == "给":
+                        operator_relation.append(1)
+                    elif texts[a-1] == "与":
+                        operator_relation.append(2)
+                    elif a-2 >= 0 and texts[a-2] == "作" and texts[a-1] == "为":
+                        operator_relation.append(3)
+                    elif operator_count >= 2 and texts[a-1] == "，":
+                        operator_relation.append(0)
             last_label = label
         else:
             l_content = label[2:]
@@ -97,6 +113,18 @@ def read_OBI_to_rule(texts, labels):
                     b = i
                     # 记录到stack中
                     stack.append({last_label: texts[a:b]})
+                    if last_label == "操作人":
+                        operator_count += 1
+                        if a == 0:
+                            ...
+                        elif texts[a-1] == "向" or texts[a-1] == "给":
+                            operator_relation.append(1)
+                        elif texts[a-1] == "与":
+                            operator_relation.append(2)
+                        elif a-2 >= 0 and texts[a-2] == "作" and texts[a-1] == "为":
+                            operator_relation.append(3)
+                        elif operator_count >= 2 and texts[a-1] == "，":
+                            operator_relation.append(0)
                 # 记录新标签
                 a = i
                 last_label = l_content
@@ -114,10 +142,10 @@ def read_OBI_to_rule(texts, labels):
     with open("r1_step1.txt", "a", encoding="utf-8") as f:
         s = pprint.pformat(stack)
         f.write(s + "\n\n")
-    return stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and
+    return stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation
 
 
-def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and):
+def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation):
     """
     将stack中的内容分成多个子规则
 
@@ -161,7 +189,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                 new_rule = []
                 # 将除了or对应的键之外的所有key-value对复制
                 # 如果or对应的键是操作、操作部分，则不复制这两个
-                if len(rule_to_cp) > 1 and ((list(rule_to_cp[-2].keys())[0] == "操作" and list(rule_to_cp[-1].keys())[0] == "操作部分") or (list(rule_to_cp[-1].keys())[0] == "操作" and list(rule_to_cp[-2].keys())[0] == "操作部分")):
+                if len(rule_to_cp) > 1 and cnt+2 < len(stack) and ((list(rule_to_cp[-2].keys())[0] == "操作" and list(rule_to_cp[-1].keys())[0] == "操作部分") or (list(rule_to_cp[-1].keys())[0] == "操作" and list(rule_to_cp[-2].keys())[0] == "操作部分")) and (list(stack[cnt+1].keys())[0] == "操作" and list(stack[cnt+2].keys())[0] == "操作部分" or list(stack[cnt+1].keys())[0] == "操作部分" and list(stack[cnt+2].keys())[0] == "操作"):
                     for k in rule_to_cp[:-2]:
                         new_rule.append(k)
                     last_or = 2
@@ -271,7 +299,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         s.append({key:value})
                         if_add = True
                         ...
-                elif key == "操作人":  # 需要nlp  TODO
+                elif key == "操作人":
                     if_add = True
                     if last_or > 0:
                         last_or = 0
@@ -280,7 +308,17 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                             rule_to_add.append({key:value})
                         break
                     else:
-                        s.append({key:value})
+                        if 0 in operator_relation and cnt in sentence_separate_3:
+                            new_rule = []
+                            for k in ss[-1]:
+                                if list(k.keys())[0] == key:
+                                    break
+                                new_rule.append(k)
+                            new_rule.append({key:value})
+                            ss_now = len(ss)
+                            ss.append(new_rule)
+                        else:
+                            s.append({key:value})
                 elif key == "结合规则":
                     if_add = True
                     find_state = False
@@ -299,7 +337,8 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                             find_state = True
                     if not find_state:
                         s.append({key:value})
-                    ss_now = len(ss) - 1
+                    ss_now = len(ss)-1
+                    break
                 elif key == "事件":
                     if_add = True
                     find_state = False
@@ -309,7 +348,8 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                             find_state = True
                     if not find_state:
                         s.append({key:value})
-                    ss_now = len(ss) - 1
+                    ss_now = len(ss)-1
+                    break
                 elif key == "key":
                     if last_or > 0:
                         last_or = 0
@@ -410,6 +450,34 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                 new_rule = []
             
             ss += new_rules
+    
+    # 依据operator_relation处理操作人
+    operator_index = 0
+    use_index = False
+    for s_index, s in enumerate(ss):
+        # 如果s和上一个s不相似，则更新operator_index
+        if use_index and s_index > 0:
+            l1, l2 = len(s), len(ss[s_index-1])
+            if l1 != l2:
+                operator_index += 1
+                use_index = False
+        operator_count = 0
+        for si in s:
+            key = list(si.keys())[0]
+            value = si[key]
+            if key == "操作人":
+                operator_count += 1
+                if operator_count % 2 == 0:
+                    if operator_relation[operator_index] == 1:
+                        del si[key]
+                        si["操作对象"] = value
+                    elif operator_relation[operator_index] == 2:
+                        del si[key]
+                        si["关联操作人"] = value
+                    elif operator_relation[operator_index] == 3:
+                        del si[key]
+                        si["操作角色"] = value
+                    use_index = True
     with open("r1_step2.txt", "a", encoding="utf-8") as f:
         f.write(pprint.pformat(ss) + "\n\n")
     return ss
@@ -423,7 +491,7 @@ def write_r1(fp_r1, ss, knowledge, id):
     :param knowledge: 领域知识
     :param id: 当前所有子规则的基准id
     """
-    # pprint(ss)
+    # pprint.pprint(ss)
     # 现在ss中存储了每一条规则，这里将其写成R1
     for i, s in enumerate(ss):
         key_to_use = {}
@@ -699,9 +767,9 @@ def to_r1(input_file, output_file, knowledge_file):
         texts = rule["text"]
         labels = rule["label"]
         
-        stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and = read_OBI_to_rule(texts, labels)
+        stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation = read_OBI_to_rule(texts, labels)
 
-        ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and)
+        ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation)
         
         write_r1(fp_r1, ss, knowledge, id)
 
