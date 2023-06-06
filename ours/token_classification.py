@@ -75,8 +75,6 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
                 for j in range(min(len(input_copy[i]) + 2, 512)):
                     h.append(output[j])
                 hats.append(h[1:-1])  # h[0]是<cls>
-            for i in range(len(input_copy)):
-                printlog(str(len(input_copy[i])) + " " + str(len(hats[start + i])))
         return hats
 
     hats = predict(model, tokenizer, inputs)
@@ -93,8 +91,6 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
         f.write("预测结果：\n")
         for i, data in enumerate(eval_dataset):
             f.write(f"id: {i}\ntext: {inputs[i]}\nir hat: {' '.join(class_hats[i])}\nir real: {labels[i]}\n")
-            if len(class_hats[i]) != len(labels[i]):
-                printlog(str(len(inputs[i])) + " " + str(len(' '.join(class_hats[i]).split(" "))) + " " + str(len(labels[i].split(" "))))
             f.write("----------------------------------------------------\n\n")
         f.write("\n\n\n\n\n\n\n\n\n\n")
 
@@ -103,6 +99,6 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    # saved_path = train_model("../data/our_data.json", "../data/our_data.json", "../data/our_data.dict", model, training_args)
-    saved_path = "../model/ours/best_1682316452"
+    saved_path = train_model("../data/our_data.json", "../data/our_data.json", "../data/our_data.dict", model, training_args)
+    # saved_path = "../model/ours/best_1682316452"
     eval_model("../data/our_data.json", "../data/our_data.dict", saved_path, training_args)

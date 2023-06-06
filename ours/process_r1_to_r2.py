@@ -27,10 +27,8 @@ def preprocess(rules):
                     constraint["value"] = new_value
                     constraint["operation"] = "in"
                 else:
-                    if new_value != "Not Time":
-                        raise ValueError(f"数据非法，无法识别  rule_id: {rule_id}, value: {value}")
-                    else:
-                        constraint["operation"] = "in"
+                    constraint["value"] = value
+                    constraint["operation"] = "is"
             elif is_num_key(key):
                 # 数量
                 if saved_op != "":
@@ -46,7 +44,8 @@ def preprocess(rules):
                             new_constraint = {"key":key, "operation":"compute", "value":v}
                             to_add.append(new_constraint)
                 else:
-                    raise ValueError(f"数据非法，无法识别  rule_id: {rule_id}, {new_value}")
+                    constraint["value"] = value
+                    constraint["operation"] = "is"
             elif is_price_key(key):
                 # 价格
                 valid, new_value = price_preprocess(value)
@@ -54,7 +53,8 @@ def preprocess(rules):
                     constraint["value"] = new_value
                     constraint["operation"] = "compute"
                 else:
-                    raise ValueError(f"数据非法，无法识别  rule_id: {rule_id}, 句子\"{value}\"中有多个数字")
+                    constraint["value"] = value
+                    constraint["operation"] = "is"
             else:
                 constraint["operation"] = "is"
         constraints += to_add
@@ -144,7 +144,7 @@ def num_preprocess(value):
     for v in vs:  # 一个v中只能有一个数字，不然报错
         num_vals = re.findall(num_re, v)
         if len(num_vals) != 1:
-            return False, f"句子{v}中数字不是一个"
+            return False, f"句子\"{v}\"中数字不是一个"
         num_val = num_vals[0]
         val_loc = v.find(num_val)
         unit_loc = val_loc + len(num_val)
@@ -160,7 +160,7 @@ def num_preprocess(value):
         if "整数倍" in v:
             t.append(["%", num_val, "==", "0"])
     if len(t) == 0:
-        return False, f"句子{v}中没有约束"
+        return False, f"句子\"{v}\"中没有约束"
     return True, t
 
 

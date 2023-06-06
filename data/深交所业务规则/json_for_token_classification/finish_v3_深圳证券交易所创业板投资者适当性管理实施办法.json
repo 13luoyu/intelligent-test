@@ -1,0 +1,77 @@
+[
+    {
+        "id": "第二条",
+        "text": "创业板实行投资者适当性管理制度。投资者参与创业板股票、存托凭证申购、交易（以下统称创业板交易）的适当性管理适用本办法。本办法未作规定的，适用本所其他有关规定。",
+        "label": "O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-操作 I-操作 O B-操作 I-操作 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O"
+    },
+    {
+        "id": "第三条",
+        "text": "会员应当切实履行适当性管理职责，建立健全适当性管理的业务制度和操作流程，加强系统建设和业务人员培训，充分了解投资者信息，有针对性的进行风险揭示，引导投资者在充分了解创业板特性的基础上审慎参与创业板交易。",
+        "label": "B-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第四条",
+        "text": "投资者应当充分知悉和了解创业板的风险事项、法律法规和本所业务规则，客观评估自身的风险认知和承受能力，审慎决定是否参与创业板交易。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第五条",
+        "text": "投资者参与创业板交易应当符合本办法相关规定。个人投资者还应当符合下列条件：（一）申请权限开通前20个交易日证券账户及资金账户内的资产日均不低于人民币10万元（不包括该投资者通过融资融券融入的资金和证券）；（二）参与证券交易24个月以上。本所可以根据市场情况对前款所述条件作出调整。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O B-价格 I-价格 I-价格 I-价格 B-op I-op I-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O O O B-操作人 I-操作人 I-操作人 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O B-交易品种 I-交易品种 O O O O O O O B-交易品种 I-交易品种 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第六条",
+        "text": "会员应当充分了解投资者的基本信息、财务状况、证券投资经验、交易需求、风险偏好等相关信息，对其风险认知与承受能力进行评估，并对个人投资者是否符合条件进行核查。评估结果及适当性匹配意见应当告知投资者。",
+        "label": "B-操作人 I-操作人 O O O O O O B-操作人 I-操作人 I-操作人 O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-key I-key I-key I-key O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-操作 I-操作 B-操作人 I-操作人 I-操作人 O"
+    },
+    {
+        "id": "第七条",
+        "text": "普通投资者首次参与创业板交易的，会员应当要求其签署《创业板投资风险揭示书》。《创业板投资风险揭示书》可以以纸面或电子方式签署。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第八条",
+        "text": "会员应当通过严格的内部制度及系统前端控制等手段，确保参与创业板交易的投资者符合适当性管理要求。",
+        "label": "B-操作人 I-操作人 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-操作人 I-操作人 I-操作人 O O O O O O O O O O"
+    },
+    {
+        "id": "第九条",
+        "text": "投资者不配合适当性管理提供相关信息，提供信息不真实、不准确、不完整的，会员应当告知其后果，并拒绝为其开通创业板交易权限。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 O O O O O O O O O B-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 O"
+    },
+    {
+        "id": "第十条",
+        "text": "会员应当动态跟踪和持续了解投资者交易情况，至少每两年进行一次风险承受能力的后续评估。会员认为投资者信息已明显不准确的，应当及时督促其更新。",
+        "label": "B-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 O B-操作人 I-操作人 O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "第十一条",
+        "text": "会员应当妥善保管投资者适当性管理的全部记录，并依法对投资者信息承担保密义务。",
+        "label": "B-操作人 I-操作人 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第十二条",
+        "text": "会员应当采取多种有效方式和途径，及时向投资者发布本所有关创业板的风险提示信息，持续提醒其关注市场变化、交易和投资风险。",
+        "label": "B-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 B-系统 I-系统 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第十三条",
+        "text": "会员应当建立健全创业板投资者教育工作机制，结合创业板特点，从制度、组织、人员、流程、经费等方面保障投资者教育工作的有序开展，丰富投资者教育的内容和形式，并通过多种渠道向投资者告知适当性管理的具体要求，做好解释和宣传工作。",
+        "label": "B-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第十四条",
+        "text": "会员或相关人员违反本办法的，本所将依据《深圳证券交易所会员管理规则》等有关业务规则，采取自律监管措施或纪律处分。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-or B-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第十五条",
+        "text": "参与创业板可转换公司债券转股、可交换公司债券换股的投资者，参照适用创业板投资者适当性管理要求。",
+        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第十六条",
+        "text": "本办法由本所负责解释。",
+        "label": "O O O O B-系统 I-系统 O O O O O"
+    }
+]

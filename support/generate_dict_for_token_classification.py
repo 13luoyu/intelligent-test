@@ -19,4 +19,4 @@ def generate_dict(data_file, data_dict):
 
 
 if __name__ == "__main__":
-    generate_dict("../data/深交所业务规则/json/finished_v3_深圳证券交易所债券交易规则.json", "../data/our_data.dict")
+    generate_dict("../data/our_data.json", "../data/our_data.dict")

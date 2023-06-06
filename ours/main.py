@@ -39,16 +39,17 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
     # 文件预处理，将rules中某些自然语言描述的规则转换为数学表达式
     rules = preprocess(rules)
     json.dump(rules, open(r1_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    print(f"R1包含规则数：{len(rules)}")
 
     # R1->R2
     defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
     json.dump(rules, open(r2_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-    print("R2规则生成")
+    print(f"R2规则生成，包含规则数：{len(rules)}")
 
     # R2->R3
     defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
     json.dump(rules, open(r3_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-    print("R3规则生成")
+    print(f"R3规则生成，包含规则数：{len(rules)}")
 
     # 生成测试样例
     vars = testcase(defines, vars, rules)
@@ -58,11 +59,12 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
     out_num = 0
     for o in outputs:
         out_num += len(o)
-    print(f"testcase生成，包含的规则数：{out_num}")
+    print(f"testcase生成，数目为：{out_num}")
     json.dump(outputs, open(testcase_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
 
 
 if __name__ == "__main__":
-    nlp_process("rules_cache/input.txt", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json")
-    alg_process("rules_cache/r1.mydsl", "rules_cache/r1.txt", "rules_cache/r2.txt", "rules_cache/r3.txt", "rules_cache/testcase.txt", "../data/knowledge.json")
+    # nlp_process("rules_cache/input.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json")
+    print(len(json.load(open("rules_深圳证券交易所债券交易规则.json", "r", encoding="utf-8"))))
+    alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r3.json", "rules_cache/testcase.json", "../data/knowledge.json")
