@@ -65,12 +65,12 @@ focus: 订单连续性操作
 
 rule 3.2.5.1
 focus: 订单连续性操作
-	if 状态 is "委托指令被撤销和失效" and 操作人 is "会员" and 事件 is "确认后" and 操作对象 is "经纪客户" and 操作 is "返还" and 操作部分 is "相应的资金"
+	if 事件 is "委托指令被撤销和失效,确认后" and 操作人 is "会员" and 操作对象 is "经纪客户" and 操作 is "返还" and 操作部分 is "相应的资金"
 	then 结果 is "成功"
 
 rule 3.2.5.2
 focus: 订单连续性操作
-	if 状态 is "委托指令被撤销和失效" and 操作人 is "会员" and 事件 is "确认后" and 操作对象 is "经纪客户" and 操作 is "返还" and 操作部分 is "债券"
+	if 事件 is "委托指令被撤销和失效,确认后" and 操作人 is "会员" and 操作对象 is "经纪客户" and 操作 is "返还" and 操作部分 is "债券"
 	then 结果 is "成功"
 
 rule 3.3.10.1
@@ -193,20 +193,10 @@ focus: 价格
 	if 交易方式 is "其他交易方式" and 交易品种 is "债券" and 申报价格最小变动单位 is "0.0001元"
 	then 结果 is "成功"
 
-rule 3.3.6.4
-focus: 
-	if 系统 is "本所"
-	then 结果 is "成功"
-
 rule 3.3.6.5
 focus: 订单连续性操作
 	if 系统 is "本所" and 操作 is "调整" and 操作部分 is "申报价格最小变动单位"
 	then 结果 is "可以"
-
-rule 3.3.9.1
-focus: 
-	if 交易品种 is "债券" and 结算方式 is "多边净额结算" and 结算方式 is "逐笔全额结算"
-	then 结果 is "成功"
 
 rule 3.3.9.2
 focus: 订单连续性操作
@@ -221,11 +211,6 @@ focus: 订单连续性操作
 rule 3.3.9.4
 focus: 时间
 	if 债券现券交易结算日和债券回购交易的首次结算日 不得晚于 "交易当日后的第三个交易日（含）"
-	then 结果 is "成功"
-
-rule 3.3.9.5
-focus: 
-	if 系统 is "本所"
 	then 结果 is "成功"
 
 rule 3.3.9.6
@@ -328,11 +313,6 @@ focus: 价格
 	if 交易品种 is "债券通用质押式回购" and 时间 is "盘中临时停牌复牌集合匹配阶段" and 有效申报价格 不得高于 "匹配成交最近成交价的100个基点"
 	then 结果 is "成功"
 
-rule 4.1.5.16
-focus: 
-	if 系统 is "本所"
-	then 结果 is "成功"
-
 rule 4.1.5.17
 focus: 价格
 	if 状态 is "当日无交易的" and 最近成交价 is "前收盘价"
@@ -390,7 +370,7 @@ focus: 订单连续性操作
 
 rule 4.2.5.2
 focus: 订单连续性操作
-	if 状态 is "设置的显示数量完全成交后,直至申报数量完全显示并成交" and 操作 is "显示" and 操作部分 is "设置的显示数量和剩余申报数量的孰低值"
+	if 事件 is "设置的显示数量完全成交后,直至申报数量完全显示并成交" and 操作 is "显示" and 操作部分 is "设置的显示数量和剩余申报数量的孰低值"
 	then 结果 is "成功"
 
 rule 4.2.5.3
@@ -403,19 +383,9 @@ focus: 订单连续性操作
 	if 操作人 is "受价方" and 操作 is "输入" and 操作部分 is "拟接受的申报数量" and 约束 is "报价方报出的交易方向的相反方向"
 	then 结果 is "成功"
 
-rule 4.2.6.2
-focus: 
-	if 结合规则 is "本规则第3.3.4条,第4.2.4条,第4.2.5条"
-	then 结果 is "成功"
-
-rule 4.2.6.3
-focus: 
-	if 交易方式 is "点击成交" and 约束 is "受价方输入的数量" and 报价方发出报价的申报要素 is "结算方式" and 报价方发出报价的申报要素 is "结算周期" and 约束 is "报价方所报价格"
-	then 结果 is "成交"
-
 rule 4.2.7.1
 focus: 订单连续性操作
-	if 操作人 is "报价方" and 状态 is "发出报价后" and 操作部分 is "未成交部分" and 操作 is "修改" and 操作部分 is "价格和数量等报价要素"
+	if 操作人 is "报价方" and 事件 is "发出报价后" and 操作部分 is "未成交部分" and 操作 is "修改" and 操作部分 is "价格和数量等报价要素"
 	then 结果 is "可以"
 
 rule 4.3.2.1
@@ -445,7 +415,7 @@ focus: 订单连续性操作
 
 rule 4.3.5.3
 focus: 订单连续性操作
-	if 状态 is "询价请求被撤销后" and 操作部分 is "针对该询价的回复" and 操作 is "自动撤销"
+	if 事件 is "询价请求被撤销后" and 操作部分 is "针对该询价的回复" and 操作 is "自动撤销"
 	then 结果 is "成功"
 
 rule 4.3.6.1
@@ -475,7 +445,7 @@ focus: 订单连续性操作
 
 rule 4.4.10.1
 focus: 订单连续性操作
-	if 状态 is "应价方提交有效的应价申报前" and 操作人 is "卖方" and 事件 is "申请并经本所认可后" and 操作 is "撤销" and 操作部分 is "竞买发起申报"
+	if 事件 is "应价方提交有效的应价申报前,申请并经本所认可后" and 操作人 is "卖方" and 操作 is "撤销" and 操作部分 is "竞买发起申报"
 	then 结果 is "可以"
 
 rule 4.4.10.2
@@ -497,11 +467,6 @@ rule 4.4.11.2
 focus: 订单连续性操作
 	if 状态 is "本规则3.1.5条规定的竞买时间内债券停牌" and 交易品种 is "债券" and 操作 is "竞买" and 时间 is "当日"
 	then 结果 is "不再进行"
-
-rule 4.4.11.3
-focus: 
-	if 系统 is "本所"
-	then 结果 is "成功"
 
 rule 4.4.3.1
 focus: 订单连续性操作
@@ -686,11 +651,6 @@ focus: 订单连续性操作
 rule 5.2.4.1
 focus: 订单连续性操作
 	if 申报价格类型 is "全价价格" and 交易品种 is "债券" and 状态 is "发生付息" and 系统 is "本所" and 操作部分 is "该债券" and 操作 is "除息" and 时间 is "权益登记日次一交易日"
-	then 结果 is "成功"
-
-rule 5.2.4.2
-focus: 
-	if 系统 is "本所"
 	then 结果 is "成功"
 
 rule 5.2.4.3

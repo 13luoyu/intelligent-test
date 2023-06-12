@@ -1,34 +1,82 @@
-# import hanlp
+import hanlp
 
-# # print(hanlp.pretrained.mtl.ALL)
+def deal_with_event_precond(event):
+    HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_SMALL_ZH)
+    pos= HanLP(event,tasks='pos')
 
-# HanLP = hanlp.load(hanlp.pretrained.mtl.OPEN_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
+    tok = pos["tok/fine"]
+    ctb = pos["pos/ctb"]
 
-# doc = HanLP("报价方发出报价后，未成交部分，可以修改价格和数量等报价要素。", tasks="srl")
-# srl = doc["srl"]
-# print(srl)
-# doc.pretty_print()
+    keys, values = [], []
+    n, v = "", ""
+    last = ""
+    for i, c in enumerate(ctb):
+        t = tok[i]
+        if c == "VV":
+            if last == "VV":
+                v += t
+                continue
+            elif last == "NN":
+                if n == "本所":
+                    keys.append("系统")
+                elif n == "会员" or n == "对手方":
+                    keys.append("操作人")
+                else:
+                    keys.append("操作部分")
+                values.append(n)
+                n = ""
+            v += t
+        elif c == "NN":
+            if last == "DT":
+                n += tok[i-1]
+            if last == "NN":
+                n += t
+                continue
+            elif last == "VV":
+                keys.append("操作")
+                values.append(v)
+                v = ""
+            n += t
+        elif c != last:
+            if v != "":
+                if c != "DEC":
+                    keys.append("操作")
+                    values.append(v)
+                v = ""
+            if n != "":
+                if n == "本所":
+                    keys.append("系统")
+                elif n == "会员" or n == "对手方":
+                    keys.append("操作人")
+                else:
+                    keys.append("操作部分")
+                values.append(n)
+                n = ""
+        last = c
+    if n != "":
+        if n == "本所":
+            keys.append("系统")
+        elif n == "会员" or n == "对手方":
+            keys.append("操作人")
+        else:
+            keys.append("操作部分")
+        values.append(n)
+    if v != "":
+        keys.append("操作")
+        values.append(v)
+    return keys, values
 
-# doc = HanLP("在应价申报时间内，债券投资者可以作为应价方提交应价申报。", tasks="srl")
-# srl = doc["srl"]
-# print(srl)
-# doc.pretty_print()
 
-
-# doc = HanLP("经纪客户委托会员申报并达成债券交易的，应当及时向会员交付相应的债券或者资金。", tasks="srl")
-# srl = doc["srl"]
-# print(srl)
-# doc.pretty_print()
-
-
-# doc = HanLP("收到意向申报的债券投资者可以通过询价成交、协商成交等方式与意向申报发出方达成交易。", tasks="srl")
-# srl = doc["srl"]
-# print(srl)
-# doc.pretty_print()
-
-
-import json
-file = json.load(open("rules_深圳证券交易所债券交易规则.json", "r", encoding="utf-8"))
-for r in file:
-    if len(r["text"]) != len(r["label"].split(" ")):
-        print(r)
+texts = ["收到意向申报",
+"委托会员申报",
+"委托指令被撤销和失效",
+"确认后",
+"当日提交",
+"设置的显示数量完全成交后",  #
+"发出报价后",
+"询价请求被撤销后",
+"申请并经本所认可后",  #
+"经前述两笔交易的对手方分别确认后",
+"继续交易"]
+for content in texts:
+    print(deal_with_event_precond(content))

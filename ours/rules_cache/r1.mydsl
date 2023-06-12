@@ -65,12 +65,12 @@ focus: 订单连续性操作
 
 rule 3.2.5.1
 focus: 订单连续性操作
-	if 状态 is "委托指令被撤销和失效" and 操作人 is "会员" and 事件 is "确认后" and 操作对象 is "经纪客户" and 操作 is "返还" and 操作部分 is "相应的资金"
+	if 事件 is "委托指令被撤销和失效,确认后" and 操作人 is "会员" and 操作对象 is "经纪客户" and 操作 is "返还" and 操作部分 is "相应的资金"
 	then 结果 is "成功"
 
 rule 3.2.5.2
 focus: 订单连续性操作
-	if 状态 is "委托指令被撤销和失效" and 操作人 is "会员" and 事件 is "确认后" and 操作对象 is "经纪客户" and 操作 is "返还" and 操作部分 is "债券"
+	if 事件 is "委托指令被撤销和失效,确认后" and 操作人 is "会员" and 操作对象 is "经纪客户" and 操作 is "返还" and 操作部分 is "债券"
 	then 结果 is "成功"
 
 rule 3.3.10.1
@@ -370,7 +370,7 @@ focus: 订单连续性操作
 
 rule 4.2.5.2
 focus: 订单连续性操作
-	if 状态 is "设置的显示数量完全成交后,直至申报数量完全显示并成交" and 操作 is "显示" and 操作部分 is "设置的显示数量和剩余申报数量的孰低值"
+	if 事件 is "设置的显示数量完全成交后,直至申报数量完全显示并成交" and 操作 is "显示" and 操作部分 is "设置的显示数量和剩余申报数量的孰低值"
 	then 结果 is "成功"
 
 rule 4.2.5.3
@@ -383,14 +383,9 @@ focus: 订单连续性操作
 	if 操作人 is "受价方" and 操作 is "输入" and 操作部分 is "拟接受的申报数量" and 约束 is "报价方报出的交易方向的相反方向"
 	then 结果 is "成功"
 
-rule 4.2.6.3
-focus: 订单连续性操作
-	if 交易方式 is "点击成交" and 约束 is "受价方输入的数量" and 报价方发出报价的申报要素 is "结算方式" and 报价方发出报价的申报要素 is "结算周期" and 约束 is "报价方所报价格"
-	then 结果 is "成交"
-
 rule 4.2.7.1
 focus: 订单连续性操作
-	if 操作人 is "报价方" and 状态 is "发出报价后" and 操作部分 is "未成交部分" and 操作 is "修改" and 操作部分 is "价格和数量等报价要素"
+	if 操作人 is "报价方" and 事件 is "发出报价后" and 操作部分 is "未成交部分" and 操作 is "修改" and 操作部分 is "价格和数量等报价要素"
 	then 结果 is "可以"
 
 rule 4.3.2.1
@@ -420,7 +415,7 @@ focus: 订单连续性操作
 
 rule 4.3.5.3
 focus: 订单连续性操作
-	if 状态 is "询价请求被撤销后" and 操作部分 is "针对该询价的回复" and 操作 is "自动撤销"
+	if 事件 is "询价请求被撤销后" and 操作部分 is "针对该询价的回复" and 操作 is "自动撤销"
 	then 结果 is "成功"
 
 rule 4.3.6.1
@@ -450,7 +445,7 @@ focus: 订单连续性操作
 
 rule 4.4.10.1
 focus: 订单连续性操作
-	if 状态 is "应价方提交有效的应价申报前" and 操作人 is "卖方" and 事件 is "申请并经本所认可后" and 操作 is "撤销" and 操作部分 is "竞买发起申报"
+	if 事件 is "应价方提交有效的应价申报前,申请并经本所认可后" and 操作人 is "卖方" and 操作 is "撤销" and 操作部分 is "竞买发起申报"
 	then 结果 is "可以"
 
 rule 4.4.10.2

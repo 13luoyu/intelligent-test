@@ -738,11 +738,12 @@ def write_r1(fp_r1, ss, knowledge, id):
             else:
                 r1 += f"约束 is \"{v2}\" and "
         
-        fp_r1.write("rule " + new_id + "\n")
-        fp_r1.write(f"focus: {focus}\n")
-        fp_r1.write(f"\t{r1[:-5]}\n")
-        fp_r1.write(f"\tthen 结果 is \"{result}\"\n")
-        fp_r1.write(f"\n")
+        if focus != "":
+            fp_r1.write("rule " + new_id + "\n")
+            fp_r1.write(f"focus: {focus}\n")
+            fp_r1.write(f"\t{r1[:-5]}\n")
+            fp_r1.write(f"\tthen 结果 is \"{result}\"\n")
+            fp_r1.write(f"\n")
 
 
 

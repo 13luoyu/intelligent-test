@@ -50,7 +50,6 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
     defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
     json.dump(rules, open(r3_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     print(f"R3规则生成，包含规则数：{len(rules)}")
-
     # 生成测试样例
     vars = testcase(defines, vars, rules)
     outputs = generate_dicts(vars, rules)

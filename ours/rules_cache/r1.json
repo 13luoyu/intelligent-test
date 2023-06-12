@@ -504,18 +504,13 @@
         ],
         "constraints": [
             {
-                "key": "状态",
-                "value": "委托指令被撤销和失效",
+                "key": "事件",
+                "value": "委托指令被撤销和失效,确认后",
                 "operation": "is"
             },
             {
                 "key": "操作人",
                 "value": "会员",
-                "operation": "is"
-            },
-            {
-                "key": "事件",
-                "value": "确认后",
                 "operation": "is"
             },
             {
@@ -551,18 +546,13 @@
         ],
         "constraints": [
             {
-                "key": "状态",
-                "value": "委托指令被撤销和失效",
+                "key": "事件",
+                "value": "委托指令被撤销和失效,确认后",
                 "operation": "is"
             },
             {
                 "key": "操作人",
                 "value": "会员",
-                "operation": "is"
-            },
-            {
-                "key": "事件",
-                "value": "确认后",
                 "operation": "is"
             },
             {
@@ -2906,7 +2896,7 @@
         ],
         "constraints": [
             {
-                "key": "状态",
+                "key": "事件",
                 "value": "设置的显示数量完全成交后,直至申报数量完全显示并成交",
                 "operation": "is"
             },
@@ -2998,48 +2988,6 @@
             }
         ]
     },
-    "4.2.6.3": {
-        "rule_class": [
-            "4.2.6"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "交易方式",
-                "value": "点击成交",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "受价方输入的数量",
-                "operation": "is"
-            },
-            {
-                "key": "报价方发出报价的申报要素",
-                "value": "结算方式",
-                "operation": "is"
-            },
-            {
-                "key": "报价方发出报价的申报要素",
-                "value": "结算周期",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "报价方所报价格",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成交",
-                "else": "不成交"
-            }
-        ]
-    },
     "4.2.7.1": {
         "rule_class": [
             "4.2.7"
@@ -3054,7 +3002,7 @@
                 "operation": "is"
             },
             {
-                "key": "状态",
+                "key": "事件",
                 "value": "发出报价后",
                 "operation": "is"
             },
@@ -3271,7 +3219,7 @@
         ],
         "constraints": [
             {
-                "key": "状态",
+                "key": "事件",
                 "value": "询价请求被撤销后",
                 "operation": "is"
             },
@@ -3488,18 +3436,13 @@
         ],
         "constraints": [
             {
-                "key": "状态",
-                "value": "应价方提交有效的应价申报前",
+                "key": "事件",
+                "value": "应价方提交有效的应价申报前,申请并经本所认可后",
                 "operation": "is"
             },
             {
                 "key": "操作人",
                 "value": "卖方",
-                "operation": "is"
-            },
-            {
-                "key": "事件",
-                "value": "申请并经本所认可后",
                 "operation": "is"
             },
             {
