@@ -5,7 +5,7 @@ from utils.arguments import arg_parser
 import torch
 import time
 
-# run command: nohup python information_retrieval.py --output_dir ../model/ir --disable_tqdm True >../log/run_ir.log &
+# run command: python information_retrieval.py --disable_tqdm True --num_train_epochs 10 --model ../../model/mengzi-bert-base-fin --output_dir ir_mengzi_model
 
 
 def train_ir_model(train_dataset: str, eval_dataset: str, class_dict: str, model_path: str, training_args = {}):
@@ -15,7 +15,7 @@ def train_ir_model(train_dataset: str, eval_dataset: str, class_dict: str, model
 
     train_dataset = DefaultDataset(read_tsv(train_dataset, istrain=True))
     eval_dataset = DefaultDataset(read_tsv(eval_dataset))
-    collator = DataCollatorForTokenClassification(tokenizer, class_dict, training_args["split"])
+    collator = DataCollatorForTokenClassification(tokenizer, class_dict, split=training_args["split"])
 
     saved_path = training_args["output_dir"]
     training_args = get_training_arguments(training_args)
@@ -77,7 +77,7 @@ def eval_ir_model(eval_dataset: str, class_dict: str, model_path: str, training_
             class_hat.append(index_to_class[h])
         class_hats.append(class_hat)
     
-    with open(f"../log/eval_ir_{model_path.split('_')[-1]}.log", "a+", encoding="utf-8") as f:
+    with open(f"eval_result/eval_ir_{model_path.split('_')[-1]}.log", "a+", encoding="utf-8") as f:
         f.write("预测结果：\n")
         for i, data in enumerate(eval_dataset):
             f.write(f"id: {i}\ntext: {inputs[i]}\nir hat: {''.join(class_hats[i])}\nir real: {labels[i]}\n")
@@ -89,5 +89,5 @@ def eval_ir_model(eval_dataset: str, class_dict: str, model_path: str, training_
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_ir_model("../data/ir_train.tsv", "../data/ir_dev.tsv", "../data/ir.dict", model, training_args)
-    eval_ir_model("../data/ir_dev.tsv", "../data/ir.dict", saved_path, training_args)
+    saved_path = train_ir_model("data/ir_train.tsv", "data/ir_dev.tsv", "data/ir.dict", model, training_args)
+    eval_ir_model("data/ir_dev.tsv", "data/ir.dict", saved_path, training_args)

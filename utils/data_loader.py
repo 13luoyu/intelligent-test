@@ -184,9 +184,8 @@ def read_json_for_sequence_classification(file: str, istrain: bool = False):
     id_data = []
     ds = json.load(open(file, "r", encoding="utf-8"))
     for d in ds:
-        if d["type"] == "0" or d["type"] == "1":
-            x, y = d["text"], d["type"]
-            id_data.append({"text":x, "label":y})
+        x, y = d["text"], d["type"]
+        id_data.append({"text":x, "label":y})
     if istrain:
         random.shuffle(id_data)
     return id_data

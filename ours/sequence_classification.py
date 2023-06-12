@@ -74,5 +74,5 @@ def eval_model(eval_dataset: str, model_path: str, training_args = {}):
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_model("../data/深交所业务规则/json/深圳证券交易所债券交易规则.json", "../data/深交所业务规则/json/深圳证券交易所债券交易规则.json", model, training_args)
-    eval_model("../data/深交所业务规则/json/深圳证券交易所债券交易规则.json", saved_path, training_args)
+    saved_path = train_model("../data/sc_data.json", "../data/sc_data.json", model, training_args)
+    eval_model("../data/sc_data.json", saved_path, training_args)

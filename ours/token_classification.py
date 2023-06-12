@@ -99,6 +99,6 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_model("../data/our_data.json", "../data/our_data.json", "../data/our_data.dict", model, training_args)
+    saved_path = train_model("../data/tc_data.json", "../data/tc_data.json", "../data/tc_data.dict", model, training_args)
     # saved_path = "../model/ours/best_1682316452"
-    eval_model("../data/our_data.json", "../data/our_data.dict", saved_path, training_args)
+    eval_model("../data/tc_data.json", "../data/tc_data.dict", saved_path, training_args)
