@@ -31,9 +31,9 @@ def judge_operation_compose(op1, op2):
         return False, ""
 
 def judge_operation_in(op1, op2):
-    if op1 in op2:
+    if op1 in op2 and "不" not in op2:
         return True, op2
-    elif op2 in op1:
+    elif op2 in op1 and "不" not in op1:
         return True, op1
     else:
         return False, ""

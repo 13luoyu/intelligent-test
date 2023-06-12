@@ -37,7 +37,7 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
     # 领域知识
     knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
     # 文件预处理，将rules中某些自然语言描述的规则转换为数学表达式
-    rules = preprocess(rules)
+    rules, vars = preprocess(rules, vars)
     json.dump(rules, open(r1_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     print(f"R1包含规则数：{len(rules)}")
 
@@ -65,5 +65,4 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
 
 if __name__ == "__main__":
     # nlp_process("rules_cache/input.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json")
-    print(len(json.load(open("rules_深圳证券交易所债券交易规则.json", "r", encoding="utf-8"))))
     alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r3.json", "rules_cache/testcase.json", "../data/knowledge.json")

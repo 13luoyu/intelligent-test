@@ -5,7 +5,7 @@ import re
 from ours.process_tco_to_r1 import is_num_key, is_price_key, is_time_key
 
 
-def preprocess(rules):
+def preprocess(rules, vars):
 
     for rule_id in rules:
         rule = rules[rule_id]
@@ -60,7 +60,169 @@ def preprocess(rules):
         constraints += to_add
         if del_op != -1:
             del constraints[del_op]
-    return rules
+    
+    # 修改结果，将可以、不予、不可、有效、无效、不再进行等结果改为“成功”、“失败”
+    for rule_id in rules:
+        rule = rules[rule_id]
+        for r in rule["results"]:
+            if r["value"] != "成功" and r["value"] != "不成功":
+                if "不" in r["value"] or r["value"] == "无效":
+                    r["value"] = "不成功"
+                    r["else"] = "成功"
+                else:
+                    r["value"] = "成功"
+                    r["else"] = "不成功"
+    # 将系统“接受”、“不接受”一些操作部分改写成以会员为主语的规则
+    to_add = []
+    rule_id_to_add = []
+    for rule_id in rules:
+        rule = rules[rule_id]
+        op_num = 0
+        to_del = []
+        ac_or_not = False  # 是不是系统为主语的接受、不接受操作
+        for j, c in enumerate(rule["constraints"]):
+            if c["key"] == "系统" and j not in to_del:
+                to_del.append(j)
+            elif c["key"] == "操作":
+                op_num += 1
+                if op_num > 1 and j not in to_del:  # 多个操作，去掉后面的所有操作
+                    to_del.append(j)
+                new_rule = {}
+                if c["value"] == "不接受" or c["value"] == "拒绝接受":
+                    ac_or_not = True
+                    # 寻找对应的操作部分
+                    op_part_num = 0
+                    find = False
+                    for i, ci in enumerate(rule["constraints"]):
+                        if ci["key"] == "操作部分":
+                            op_part_num += 1
+                            if op_part_num == op_num:
+                                # 如果有两个以上的操作是接受/不接受，需要分裂规则
+                                if op_num > 1:
+                                    new_rule = copy.deepcopy(rule)
+                                    new_rule_id = ""
+                                    old = ".".join(rule_id.split(".")[:-1])
+                                    ind = int(rule_id.split(".")[-1])
+                                    step = 1
+                                    while step < 100000:
+                                        new_rule_id = old + "." + str(ind + step)
+                                        if new_rule_id not in rules and new_rule_id not in rule_id_to_add:
+                                            rule_id_to_add.append(new_rule_id)
+                                            break
+                                        step += 1
+
+                                    new_rule["constraints"] = []
+                                    for k, ck in enumerate(rule["constraints"]):
+                                        if ck["key"] == "系统" or ck["key"] == "操作" or ck["key"] == "操作部分":
+                                            continue
+                                        new_rule["constraints"].append(ck)
+                                    if "撤销" in ci["value"]:
+                                        new_rule["constraints"].append({
+                                            "key":"操作",
+                                            "operation":"is",
+                                            "value":"撤销"
+                                        })
+                                    elif "申报" in ci["value"]:
+                                        new_rule["constraints"].append({
+                                            "key":"操作",
+                                            "operation":"is",
+                                            "value":"申报"
+                                        })
+                                else:
+                                    if "撤销" in ci["value"]:
+                                        c["value"] = "撤销"
+                                    elif "申报" in ci["value"]:
+                                        c["value"] = "申报"
+                                find = True
+                                break
+                    if find and i not in to_del:
+                        # 删掉原来的操作部分
+                        to_del.append(i)
+                    # 修改result为不成功
+                    if op_num > 1:
+                        for r in new_rule["results"]:
+                            if r["key"] == "结果":
+                                r["value"] = "不成功"
+                                r["else"] = "成功"
+                    else:
+                        for r in rule["results"]:
+                            if r["key"] == "结果":
+                                r["value"] = "不成功"
+                                r["else"] = "成功"
+                elif c["value"] == "接受":
+                    ac_or_not = True
+                    # 寻找对应的操作部分
+                    op_part_num = 0
+                    find = False
+                    for i, ci in enumerate(rule["constraints"]):
+                        if ci["key"] == "操作部分":
+                            op_part_num += 1
+                            if op_part_num == op_num:
+                                # 如果有两个以上的操作是接受/不接受，需要分裂规则
+                                if op_num > 1:
+                                    new_rule = copy.deepcopy(rule)
+                                    new_rule_id = ""
+                                    old = ".".join(rule_id.split(".")[:-1])
+                                    ind = int(rule_id.split(".")[-1])
+                                    step = 1
+                                    while step < 100000:
+                                        new_rule_id = old + "." + str(ind + step)
+                                        if new_rule_id not in rules and new_rule_id not in rule_id_to_add:
+                                            rule_id_to_add.append(new_rule_id)
+                                            break
+                                        step += 1
+
+                                    new_rule["constraints"] = []
+                                    for k, ck in enumerate(rule["constraints"]):
+                                        if ck["key"] == "系统" or ck["key"] == "操作" or ck["key"] == "操作部分":
+                                            continue
+                                        new_rule["constraints"].append(ck)
+                                    if "撤销" in ci["value"]:
+                                        new_rule["constraints"].append({
+                                            "key":"操作",
+                                            "operation":"is",
+                                            "value":"撤销"
+                                        })
+                                    elif "申报" in ci["value"]:
+                                        new_rule["constraints"].append({
+                                            "key":"操作",
+                                            "operation":"is",
+                                            "value":"申报"
+                                        })
+                                else:
+                                    if "撤销" in ci["value"]:
+                                        c["value"] = "撤销"
+                                    elif "申报" in ci["value"]:
+                                        c["value"] = "申报"
+                                find = True
+                                break
+                    if find and i not in to_del:
+                        # 删掉原来的操作部分
+                        to_del.append(i)
+                    # 修改result为不成功
+                    if op_num > 1:
+                        for r in new_rule["results"]:
+                            if r["key"] == "结果":
+                                r["value"] = "成功"
+                                r["else"] = "不成功"
+                    else:
+                        for r in rule["results"]:
+                            if r["key"] == "结果":
+                                r["value"] = "成功"
+                                r["else"] = "不成功"
+                if new_rule != {}:
+                    to_add.append(new_rule)
+        if ac_or_not:
+            to_del = sorted(to_del, reverse=True)
+            for index in to_del:
+                del rule["constraints"][index]
+    for i, rule in enumerate(to_add):
+        rules[rule_id_to_add[i]] = rule
+        var = {}
+        for c in rule["constraints"]:
+            var[c["key"]] = []
+        vars[rule_id_to_add[i]] = var
+    return rules, vars
 
 
 def find_word(s, word):

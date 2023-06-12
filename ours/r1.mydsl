@@ -565,17 +565,17 @@ focus: 时间
 
 rule 5.1.4.7
 focus: 订单连续性操作
-	if 交易方式 is "点击成交" and 系统 is "本所" and 操作部分 is "相应的交易申报" and 操作 is "不接受" and 操作部分 is "符合要求的撤销申报" and 时间 is "临时停牌期间"
+	if 交易方式 is "点击成交" and 系统 is "本所" and 操作 is "不接受" and 操作部分 is "相应的交易申报" and 操作 is "接受" and 操作部分 is "符合要求的撤销申报" and 时间 is "临时停牌期间"
 	then 结果 is "成功"
 
 rule 5.1.4.8
 focus: 订单连续性操作
-	if 交易方式 is "询价成交" and 系统 is "本所" and 操作 is "不接受" and 操作部分 is "相应的交易申报" and 操作部分 is "符合要求的撤销申报" and 时间 is "临时停牌期间"
+	if 交易方式 is "询价成交" and 系统 is "本所" and 操作 is "不接受" and 操作部分 is "相应的交易申报" and 操作 is "接受" and 操作部分 is "符合要求的撤销申报" and 时间 is "临时停牌期间"
 	then 结果 is "成功"
 
 rule 5.1.4.9
 focus: 订单连续性操作
-	if 交易方式 is "协商成交" and 系统 is "本所" and 操作 is "不接受" and 操作部分 is "相应的交易申报" and 操作部分 is "符合要求的撤销申报" and 时间 is "临时停牌期间"
+	if 交易方式 is "协商成交" and 系统 is "本所" and 操作 is "不接受" and 操作部分 is "相应的交易申报" and 操作 is "接受" and 操作部分 is "符合要求的撤销申报" and 时间 is "临时停牌期间"
 	then 结果 is "成功"
 
 rule 5.1.5.1
@@ -630,13 +630,13 @@ focus: 订单连续性操作
 
 rule 5.2.2.6
 focus: 订单连续性操作
-	if 操作人 is "债券持有人" and 操作 is "未做" and 操作部分 is "回售申报" and 时间 is "回售申报期内"
-	then 结果 is "继续持有债券"
+	if 操作人 is "债券持有人" and 操作 is "未做" and 操作部分 is "回售申报" and 操作 is "继续持有" and 操作部分 is "债券" and 时间 is "回售申报期内"
+	then 结果 is "成功"
 
 rule 5.2.2.7
 focus: 订单连续性操作
-	if 操作人 is "债券持有人" and 操作 is "撤销" and 操作部分 is "回售申报" and 时间 is "回售申报期内"
-	then 结果 is "继续持有债券"
+	if 操作人 is "债券持有人" and 操作 is "撤销" and 操作部分 is "回售申报" and 操作 is "继续持有" and 操作部分 is "债券" and 时间 is "回售申报期内"
+	then 结果 is "成功"
 
 rule 5.2.2.8
 focus: 订单连续性操作

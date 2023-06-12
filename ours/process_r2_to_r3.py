@@ -12,11 +12,11 @@ def compose_rules_r2_r3(defines, vars, rules, preliminaries, rule_name = 'rule')
     2. 添加一些预定义的要素
     """
 
-    # 结合状态机
-    # vars, rules = compose_state_machine(vars, rules, preliminaries)
-
     # 处理事件
     vars, rules = deal_with_event(vars, rules)
+
+    # 结合状态机
+    vars, rules = compose_state_machine(vars, rules, preliminaries)
 
     # 添加一些预定义的要素
     vars, rules = add_elements(vars, rules, preliminaries)
@@ -221,7 +221,13 @@ def deal_with_event(vars, rules):
 
 
 
-
+def op_match(trigger, operation, op_part):
+    if trigger in operation or operation in trigger:
+        return True
+    elif "提交" in operation and trigger in op_part:
+        return True
+    else:
+        return False
 
 
 def compose_state_machine(vars, rules, preliminaries):
@@ -238,58 +244,53 @@ def compose_state_machine(vars, rules, preliminaries):
     for rule_id in keys:
         rule = rules[rule_id]
         operation = ""
-        transaction_mode = ""
-        transaction_variety = ""
+        op_part = ""
         for c in rule['constraints']:
             if c['key'] == '操作':
                 operation = c['value']
-            if c['key'] == "交易方式":
-                transaction_mode = c['value']
-            if c['key'] == "交易品种":
-                transaction_variety = c['value']
+            if c["key"] == "操作部分":
+                op_part = c["value"]
+            if operation != "" and op_part != "":
+                break
         if operation == "":
             continue
         new_rule_number = 1
         for state_machine in state_machines:
-            if transaction_mode in state_machine['name'] or transaction_variety in state_machine['name']:
-                key = state_machine['state_name']  # 要添加的key
-                cnts = state_machine['transition']
-                for x, cnt in enumerate(cnts):
-                    not_acc = ""
-                    trigger = cnt['trigger']
-                    if '失败' in cnt['trigger']:
-                        not_acc = cnt['trigger'][-2:]
-                        trigger = cnt['trigger'][:-2]
-                    if trigger == operation:  # 操作相同
-                        compose = False
-                        # 这里要特殊处理一种，就是操作不接受的情况
-                        if not_acc != "":
-                            for r in rule['results']:
-                                if r['value'] == not_acc:
-                                    compose = True
-                                    break
-                        else:
-                            # 这里是成功，所以result也必须是成功
-                            exist = False
-                            for r in rule['results']:
-                                if '不' in r['value']:
-                                    exist = True
-                                    break
-                            if not exist:
+            key = state_machine['state_name']  # 要添加的key
+            cnts = state_machine['transition']
+            for x, cnt in enumerate(cnts):
+                reject = False
+                trigger = cnt['trigger']
+                if '失败' in cnt['trigger']:
+                    reject = True
+                    trigger = cnt['trigger'][:-2]
+                if op_match(trigger, operation, op_part):  # 操作相同
+                    compose = False
+                    if reject:
+                        # 这里是失败，所以not_acc也必须是失败
+                        for r in rule['results']:
+                            if r["key"] == "结果" and r['value'] == "不成功":
                                 compose = True
-                        if not compose:
-                            continue
-                        # 添加状态机
-                        new_id = rule_id + "," + str(new_rule_number)
-                        new_rule_number += 1
-                        new_rule = copy.deepcopy(rule)
-                        new_rule['constraints'].append({"key":key,"operation":"is","value":cnt['from']})
-                        new_rule['results'].append({"key":key,"operation":"is","value":cnt['to']})
-                        to_add[new_id] = new_rule
-                        if rule_id not in to_delete:
-                            to_delete.append(rule_id)
-                        vars[new_id] = copy.deepcopy(vars[rule_id])
-                        vars[new_id][key] = []
+                                break
+                    else:
+                        # 这里是成功，所以result也必须是成功
+                        for r in rule['results']:
+                            if r["key"] == "结果" and r['value'] == "成功":
+                                compose = True
+                                break
+                    if not compose:
+                        continue
+                    # 添加状态机
+                    new_id = rule_id + "," + str(new_rule_number)
+                    new_rule_number += 1
+                    new_rule = copy.deepcopy(rule)
+                    new_rule['constraints'].append({"key":key,"operation":"is","value":cnt['from']})
+                    new_rule['results'].append({"key":key,"operation":"is","value":cnt['to']})
+                    to_add[new_id] = new_rule
+                    if rule_id not in to_delete:
+                        to_delete.append(rule_id)
+                    vars[new_id] = copy.deepcopy(vars[rule_id])
+                    vars[new_id][key] = []
 
     for id in to_delete:
         del vars[id]
