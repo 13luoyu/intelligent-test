@@ -2467,6 +2467,1390 @@
             }
         ]
     },
+    "3.1.5.1,3.3.2.1.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "开盘集合匹配时间",
+                "value": "{[9:15-9:25]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.1,3.3.2.1.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "开盘集合匹配时间",
+                "value": "{[9:15-9:25]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.2,3.3.2.1.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "连续匹配时间",
+                "value": "{[9:30-11:30],[13:00-15:30]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.2,3.3.2.1.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "连续匹配时间",
+                "value": "{[9:30-11:30],[13:00-15:30]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.3,3.3.2.1.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "点击成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易时间",
+                "value": "{[9:00-11:30],[13:00-20:00]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.3,3.3.2.1.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "点击成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易时间",
+                "value": "{[9:00-11:30],[13:00-20:00]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.4,3.3.2.1.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "询价成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易时间",
+                "value": "{[9:00-11:30],[13:00-20:00]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.4,3.3.2.1.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "询价成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易时间",
+                "value": "{[9:00-11:30],[13:00-20:00]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.5,3.3.2.1.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "协商成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易时间",
+                "value": "{[9:00-11:30],[13:00-20:00]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.5,3.3.2.1.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "协商成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易时间",
+                "value": "{[9:00-11:30],[13:00-20:00]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.6,3.3.2.1.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "竞买成交",
+                "operation": "is"
+            },
+            {
+                "key": "卖方提交竞买发起申报时间",
+                "value": "{[9:00-10:00]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.6,3.3.2.1.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "竞买成交",
+                "operation": "is"
+            },
+            {
+                "key": "卖方提交竞买发起申报时间",
+                "value": "{[9:00-10:00]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.7,3.3.2.1.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "竞买成交",
+                "operation": "is"
+            },
+            {
+                "key": "应价方提交应价申报时间",
+                "value": "{[10:00-11:30]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.7,3.3.2.1.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "竞买成交",
+                "operation": "is"
+            },
+            {
+                "key": "应价方提交应价申报时间",
+                "value": "{[10:00-11:30]}",
+                "operation": "in"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.3,4.2.5.3.1": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券通用质押式回购",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "%",
+                    "1000",
+                    "==",
+                    "0"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.3,4.2.5.3.2": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券通用质押式回购",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "%",
+                    "1000",
+                    "==",
+                    "0"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.5,4.2.5.3.1": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "询价成交",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    ">=",
+                    "100000"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "申报数量",
+                "operation": "compute",
+                "value": [
+                    "%",
+                    "1000",
+                    "==",
+                    "0"
+                ]
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.5,4.2.5.3.2": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "询价成交",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    ">=",
+                    "100000"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "申报数量",
+                "operation": "compute",
+                "value": [
+                    "%",
+                    "1000",
+                    "==",
+                    "0"
+                ]
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.6,4.2.5.3.1": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "竞买成交",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    ">=",
+                    "100000"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "申报数量",
+                "operation": "compute",
+                "value": [
+                    "%",
+                    "1000",
+                    "==",
+                    "0"
+                ]
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.6,4.2.5.3.2": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "竞买成交",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    ">=",
+                    "100000"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "申报数量",
+                "operation": "compute",
+                "value": [
+                    "%",
+                    "1000",
+                    "==",
+                    "0"
+                ]
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.7,4.2.5.3.1": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "协商成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券现券",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    ">=",
+                    "1000"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "申报数量",
+                "operation": "compute",
+                "value": [
+                    "%",
+                    "100",
+                    "==",
+                    "0"
+                ]
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.7,4.2.5.3.2": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "协商成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券现券",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    ">=",
+                    "1000"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "申报数量",
+                "operation": "compute",
+                "value": [
+                    "%",
+                    "100",
+                    "==",
+                    "0"
+                ]
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.8,4.2.5.3.1": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "协商成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券通用质押式回购",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "%",
+                    "1000",
+                    "==",
+                    "0"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.8,4.2.5.3.2": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "协商成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券通用质押式回购",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "%",
+                    "1000",
+                    "==",
+                    "0"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
     "3.3.10.3.1.1": {
         "rule_class": [
             "3.3.10"
@@ -49215,6 +50599,1076 @@
             }
         ]
     },
+    "3.1.5.8,3.3.2.1.1.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "停市",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "交易时间内",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "else": "成功"
+            }
+        ]
+    },
+    "3.1.5.8,3.3.2.1.1.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "停市",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "交易时间内",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "else": "成功"
+            }
+        ]
+    },
+    "3.1.5.8,3.3.2.1.2.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "停市",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "交易时间内",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "else": "成功"
+            }
+        ]
+    },
+    "3.1.5.8,3.3.2.1.2.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "停市",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "交易时间内",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "else": "成功"
+            }
+        ]
+    },
+    "3.1.5.8,3.3.2.1.3.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "停市",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "交易时间内",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "else": "成功"
+            }
+        ]
+    },
+    "3.1.5.8,3.3.2.1.3.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "停市",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "交易时间内",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "else": "成功"
+            }
+        ]
+    },
+    "3.1.5.8,3.3.2.1.4.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "停市",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "交易时间内",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "else": "成功"
+            }
+        ]
+    },
+    "3.1.5.8,3.3.2.1.4.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "停市",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "交易时间内",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "else": "成功"
+            }
+        ]
+    },
+    "3.1.5.8,3.3.2.1.5.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "停市",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "交易时间内",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "else": "成功"
+            }
+        ]
+    },
+    "3.1.5.8,3.3.2.1.5.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "时间",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "停市",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "交易时间内",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "else": "成功"
+            }
+        ]
+    },
+    "3.1.5.9,3.3.2.1.1.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "债券交易时间",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.9,3.3.2.1.1.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "债券交易时间",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.9,3.3.2.1.2.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "债券交易时间",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.9,3.3.2.1.2.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "债券交易时间",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.9,3.3.2.1.3.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "债券交易时间",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.9,3.3.2.1.3.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "债券交易时间",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.9,3.3.2.1.4.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "债券交易时间",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.9,3.3.2.1.4.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "债券交易时间",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.9,3.3.2.1.5.1": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "债券交易时间",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.1.5.9,3.3.2.1.5.2": {
+        "rule_class": [
+            "3.1.5",
+            "3.3.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "债券交易时间",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
     "3.3.4.1.1,3.3.4.2.1": {
         "rule_class": [
             "3.3.4"
@@ -49433,6 +51887,150 @@
                 "key": "交易方向",
                 "operation": "is",
                 "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.1,3.3.4.2,4.2.5.3.1": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券现券",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "%",
+                    "100000",
+                    "==",
+                    "0"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "<",
+                    "100000"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "操作",
+                "value": "一次性申报卖出",
+                "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.1,3.3.4.2,4.2.5.3.2": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券现券",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "%",
+                    "100000",
+                    "==",
+                    "0"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "<",
+                    "100000"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "操作",
+                "value": "一次性申报卖出",
+                "operation": "is"
             }
         ],
         "results": [
@@ -56380,6 +58978,160 @@
                     "==",
                     "0"
                 ]
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "申报数量要求",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "<=",
+                    "10000000000"
+                ],
+                "operation": "compute"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.10,3.3.4.4,3.3.4.9,4.2.5.3.1": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "点击成交",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "%",
+                    "100000",
+                    "==",
+                    "0"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "债券"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "操作",
+                "value": "调整",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "申报数量要求",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "<=",
+                    "10000000000"
+                ],
+                "operation": "compute"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.10,3.3.4.4,3.3.4.9,4.2.5.3.2": {
+        "rule_class": [
+            "3.3.4",
+            "4.2.5"
+        ],
+        "focus": [
+            "数量",
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "系统",
+                "value": "本所",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "点击成交",
+                "operation": "is"
+            },
+            {
+                "key": "申报数量",
+                "value": [
+                    "%",
+                    "100000",
+                    "==",
+                    "0"
+                ],
+                "operation": "compute"
+            },
+            {
+                "key": "数量",
+                "value": "显示数量",
+                "operation": "is"
             },
             {
                 "key": "交易市场",

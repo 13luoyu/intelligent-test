@@ -5,8 +5,6 @@ from utils.arguments import arg_parser
 import torch
 import time
 
-# run command: nohup python main.py --output_dir ../model/ours --split \  --disable_tqdm True >../log/ours/run.log &
-
 
 def printlog(s):
     with open("run.log", "a+") as f:
@@ -87,7 +85,7 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
             class_hat.append(index_to_class[h])
         class_hats.append(class_hat)
     
-    with open(f"../log/ours/tc_eval_{model_path.split('_')[-1]}.log", "w+", encoding="utf-8") as f:
+    with open(f"../log/tc_eval_{model_path.split('_')[-1]}.log", "w+", encoding="utf-8") as f:
         f.write("预测结果：\n")
         for i, data in enumerate(eval_dataset):
             f.write(f"id: {i}\ntext: {inputs[i]}\nir hat: {' '.join(class_hats[i])}\nir real: {labels[i]}\n")

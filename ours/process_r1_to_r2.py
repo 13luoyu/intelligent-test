@@ -447,7 +447,15 @@ def compose_nested_rules(vars, rules):
         for c in rule['constraints']:
             if c['key'] == "结合规则":
                 to_delete.append(rule_id)
-                target_id = c['value'][2:-2]
+                find = re.search(r"\d+\.\d+\.\d+", c["value"])
+                if find:
+                    target_id = find.group()
+                else:
+                    find = re.search(r"第.+条", c["value"])
+                    if find:
+                        target_id = find.group()
+                    else:
+                        continue
                 for trule_id in keys:
                     trule = rules[trule_id]
                     if target_id in trule_id:

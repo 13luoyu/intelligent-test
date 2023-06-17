@@ -36,11 +36,11 @@ def statistic(file):
 
 
 if __name__ == "__main__":
-    filelist = os.listdir("../log/ours/")
+    filelist = os.listdir("../log/")
     filelist.sort()
     for file in filelist:
         if "run" in file or "sc" in file:
             continue
-        statistic(f"../log/ours/{file}")
+        statistic(f"../log/{file}")
 
 

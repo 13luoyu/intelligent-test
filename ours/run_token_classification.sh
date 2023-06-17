@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# run command: nohup ./run_token_classification.sh >../log/ours/run_token_classification.log &
+# run command: nohup ./run_token_classification.sh >../log/run_token_classification.log &
 
 
 python token_classification.py --output_dir ../model/ours --split \  --disable_tqdm True --model ../model/mengzi-bert-base-fin --num_train_epochs 100 --lr_scheduler_type constant 

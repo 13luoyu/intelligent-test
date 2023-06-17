@@ -14,7 +14,7 @@
 >   - *finbert/*  存放ir/目录下的文件训练FinBERT模型的日志
 >   - *mengzi/*  存放ir/目录下的文件训练Mengzi模型的日志
 >   - *ours/*  存放ours/目录下的文件训练模型的日志
-> - **model/**  存储预训练模型和训练好的模型的目录，这里的模型需要自行下载，包含[*mengzi-bert-base-fin*](https://github.com/Langboat/Mengzi), [*FinBERT*](https://github.com/valuesimplex/FinBERT)（FinBERT需改名为bert_FinBERT并将目录下的json配置文件重命名为config.json）等
+> - **model/**  存储预训练模型和训练好的模型的目录，这里的模型需要自行下载，包含[*mengzi-bert-base-fin*](https://github.com/Langboat/Mengzi), [*FinBERT*](https://github.com/valuesimplex/FinBERT)(FinBERT需改名为bert_FinBERT并将目录下的json配置文件重命名为config.json)等
 > - **ours/**  适用于债券文档处理的，基于ir的训练和测试代码
 >   - *main.py*  使用ir方式训练和测试代码
 >   - *run.sh*  使用不同的超参数和模型调用main.py的脚本
@@ -31,3 +31,31 @@
 
 
 
+## 安装
+使用miniconda从头安装
+
+    conda create -n intelligent-test python=3.9
+    conda activate intelligent-test
+    pip install -r requirements.txt
+
+## 运行
+1. 为了训练规则筛选模型，运行
+
+        cd ours
+        nohup ./run_sequence_classification.sh >../log/run_sequence_classification.log &
+
+    结果存放在**log/**目录下，运行日志在**log/run_sequence_classification.log**，验证结果在**sc_eval_{timestamp}.log**中
+
+2. 为了训练信息抽取模型，运行
+
+        cd ours
+        nohup ./run_token_classification.sh >../log/run_token_classification.log &
+    
+    结果存放在**log/**目录下，运行日志在**log/run_token_classification.log**，验证结果在**tc_eval_{timestamp}.log**中
+
+3. 训练好后，完整的流程可以运行
+
+        cd ours
+        python main.py
+    
+    每步的结果存放在**ours/rules_cache/**中。在上述流程中，会对输入的规则分别执行预处理(输出到sci.json)、规则筛选(sco.json)、按照id整合(tci.json)、信息抽取(tco.json)、写成R规则(r1.mydsl)、规则补全(r1.json, r2.json)、规则间关系挖掘(r3.json)、生成测试用例(textcase.json)等多个步骤。
