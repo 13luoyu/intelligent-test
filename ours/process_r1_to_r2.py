@@ -328,9 +328,9 @@ def num_preprocess(value):
 
 
 def price_preprocess(value):
-    price_re = r"\d+(.\d+)?"
+    price_re = r"\d+\.\d+|\d+"
     price_vals = re.findall(price_re, value)
-    if len(price_vals) == 1:
+    if len(price_vals) == 1 and value.find(price_vals[0]) == 0:
         return True, ["==", price_vals[0]]
     else:
         return False, ""

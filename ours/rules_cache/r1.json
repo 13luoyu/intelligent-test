@@ -1408,7 +1408,7 @@
                 "key": "申报价格最小变动单位",
                 "value": [
                     "==",
-                    ".001"
+                    "0.001"
                 ],
                 "operation": "compute"
             }
@@ -1443,7 +1443,7 @@
                 "key": "申报价格最小变动单位",
                 "value": [
                     "==",
-                    ".005"
+                    "0.005"
                 ],
                 "operation": "compute"
             }
@@ -1478,7 +1478,7 @@
                 "key": "申报价格最小变动单位",
                 "value": [
                     "==",
-                    ".0001"
+                    "0.0001"
                 ],
                 "operation": "compute"
             }
@@ -1839,11 +1839,8 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "前收盘价的上下30%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -1874,19 +1871,13 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下10%",
+                "operation": "is"
             },
             {
                 "key": "价格",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下20%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -1917,19 +1908,13 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下10%",
+                "operation": "is"
             },
             {
                 "key": "价格",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下20%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -1960,19 +1945,13 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下10%",
+                "operation": "is"
             },
             {
                 "key": "价格",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下20%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -2003,19 +1982,13 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下10%",
+                "operation": "is"
             },
             {
                 "key": "价格",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下20%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -2046,19 +2019,13 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下10%",
+                "operation": "is"
             },
             {
                 "key": "价格",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下20%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -2089,19 +2056,13 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下10%",
+                "operation": "is"
             },
             {
                 "key": "价格",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下20%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -2132,19 +2093,13 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下10%",
+                "operation": "is"
             },
             {
                 "key": "价格",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下20%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -2175,19 +2130,13 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下10%",
+                "operation": "is"
             },
             {
                 "key": "价格",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下20%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -2218,11 +2167,8 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下20%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -2253,11 +2199,8 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "匹配成交最近成交价的上下20%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -2320,11 +2263,8 @@
             },
             {
                 "key": "有效申报价格范围",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "前收盘价的上下100%",
+                "operation": "is"
             }
         ],
         "results": [
@@ -2355,11 +2295,8 @@
             },
             {
                 "key": "有效申报价格",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "不得高于匹配成交最近成交价的100个基点",
+                "operation": "is"
             }
         ],
         "results": [
@@ -2390,11 +2327,8 @@
             },
             {
                 "key": "有效申报价格",
-                "value": [
-                    "==",
-                    ""
-                ],
-                "operation": "compute"
+                "value": "不得高于匹配成交最近成交价的100个基点",
+                "operation": "is"
             }
         ],
         "results": [
