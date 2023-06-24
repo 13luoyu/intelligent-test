@@ -16,4 +16,4 @@ def check_length(file):
 
 
 if __name__ == "__main__":
-    check_length("../data/our_data.json")
+    check_length("../data/tc_train_data_full.json")

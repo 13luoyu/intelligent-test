@@ -37,6 +37,7 @@
     conda create -n intelligent-test python=3.9
     conda activate intelligent-test
     pip install -r requirements.txt
+    pip install -e .
 
 ## 运行
 1. 为了训练规则筛选模型，运行

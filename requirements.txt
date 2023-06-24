@@ -18,7 +18,6 @@ hanlp-downloader==0.0.25
 hanlp-trie==0.0.5
 huggingface-hub==0.13.2
 idna==3.4
-Intelligent-Test==1.0
 ipykernel==6.15.0
 ipython==8.13.2
 jedi==0.18.2

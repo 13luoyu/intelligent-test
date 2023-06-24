@@ -12,6 +12,21 @@ def printlog(s):
         f.write("\n")
 
 
+class CustomTrainer(Trainer):
+    def compute_loss(self, model, inputs, return_outputs=False):
+        # inputs.input_ids, inputs.labels: (batch_size, sentence_length)
+        # inputs.logits: (batch_size, sentence_length, label_num)
+        labels = inputs.get("labels")
+        # forward pass
+        outputs = model(**inputs)
+        logits = outputs.get("logits")
+        # compute custom loss (suppose one has 3 labels with different weights)
+        # loss_fct = torch.nn.CrossEntropyLoss(weight=torch.tensor([1.0, 2.0, 3.0], device=model.device))
+        loss_fct = torch.nn.CrossEntropyLoss()
+        loss = loss_fct(logits.view(-1, self.model.config.num_labels), labels.view(-1))
+        return (loss, outputs) if return_outputs else loss
+
+
 def train_model(train_dataset: str, eval_dataset: str, class_dict: str, model_path: str, training_args = {}):
 
     with open(class_dict, "r", encoding="utf-8") as f:
@@ -27,7 +42,7 @@ def train_model(train_dataset: str, eval_dataset: str, class_dict: str, model_pa
 
     saved_path = training_args["output_dir"]
     training_args = get_training_arguments(training_args)
-    trainer = Trainer(model, training_args, collator, train_dataset, eval_dataset, tokenizer)
+    trainer = CustomTrainer(model, training_args, collator, train_dataset, eval_dataset, tokenizer)
     trainer.train()
 
     saved_path = f"{saved_path}/best_{int(time.time())}"
@@ -97,6 +112,6 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_model("../data/tc_data.json", "../data/tc_data.json", "../data/tc_data.dict", model, training_args)
+    saved_path = train_model("../data/tc_train_data_full.json", "../data/tc_validate_data.json", "../data/tc_data.dict", model, training_args)
     # saved_path = "../model/ours/best_1682316452"
-    eval_model("../data/tc_data.json", "../data/tc_data.dict", saved_path, training_args)
+    eval_model("../data/tc_validate_data.json", "../data/tc_data.dict", saved_path, training_args)

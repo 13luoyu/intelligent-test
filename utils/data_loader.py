@@ -155,14 +155,19 @@ class DataCollatorForTokenClassification:
                                       max_length=self.max_length,
                                       return_tensors="pt",  # pytorch模型 或 "tf" tensorflow模型
                                       )
+        # 规则是这样的，在开头加上[CLS]，然后是正文，然后是[SEP]，最后是[PAD]
+        # 如果正文过长，则为[CLS]+正文+[SEP]
+        # 无论如何，都是max_length长度
         labels = []
         for target in targets:
-            label = [self.class_to_index["O"]]  # <cls>对应的是"O"
+            label = [-100]  # <cls>对应的是-100
             for y in target:
                 label.append(self.class_to_index[y])
             if self.max_length - len(label) > 0:
-                label += [self.class_to_index["O"]] * (self.max_length - len(label))
+                # label += [-100] * (self.max_length - len(label))  # [PAD]和[SEP]对应-100
+                label += [self.class_to_index['O']] * (self.max_length - len(label))  # [PAD]和[SEP]对应O
             label = label[:self.max_length]
+            label[-1] = -100  # 最后一个一定是[PAD]或[SEP]，对应-100
             labels.append(label)
         
         input_tensor["labels"] = torch.tensor(labels)

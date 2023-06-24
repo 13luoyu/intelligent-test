@@ -1,0 +1,17 @@
+深	O
+股	O
+通	O
+标	O
+的	O
+证	B-交易品种
+券	I-交易品种
+以	O
+人	B-value
+民	I-value
+币	I-value
+报	B-操作
+价	I-操作
+和	O
+交	B-操作
+易	I-操作
+。	O

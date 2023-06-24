@@ -1,0 +1,127 @@
+[
+    {
+        "id": "第一条",
+        "text": "为规范资产管理计划份额转让业务，维护正常市场秩序和投资者合法权益，根据中国证监会《证券公司客户资产管理业务管理办法》和《基金管理公司特定客户资产管理业务试点办法》等有关规定以及深圳证券交易所（以下简称“本所”）相关业务规则，制定本指引。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第二条",
+        "text": "证券公司或其资产管理子公司、基金管理公司或其资产管理子公司设立资产管理计划（以下简称“资管计划”）并担任管理人（以下统称“管理人”），申请资管计划份额在本所转让的，适用本指引。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O"
+    },
+    {
+        "id": "第三条",
+        "text": "资管计划份额在本所转让，并不表明本所对资管计划的投资风险或收益作出判断或保证。资管计划的投资风险由投资者自行承担。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O O O O O"
+    },
+    {
+        "id": "第四条",
+        "text": "资管计划的登记、托管、结算等业务，由中国证券登记结算有限公司或者本所认可的机构按照其规则办理。",
+        "label": "O O O O O O O O O O O O O O O O O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 B-or I-or B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O O O"
+    },
+    {
+        "id": "第五条",
+        "text": "管理人申请资管计划份额在本所转让，应当提交下列文件：（一）申请书；（二）资产管理计划信息申报表；（三）资产管理计划核准文件或者备案完成证明文件；（四）资产管理合同；（五）登记托管文件；（六）本所要求的其他文件。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O B-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value O O O O B-系统 I-系统 O O O O O O O O"
+    },
+    {
+        "id": "第七条",
+        "text": "本所同意提供转让服务的，与管理人签订转让服务协议。",
+        "label": "B-系统 I-系统 O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O O O O O O O O O"
+    },
+    {
+        "id": "第八条",
+        "text": "资管计划展期且份额拟继续在本所转让的，管理人应当于资管计划到期前一个月向本所提交展期相关材料及继续提供转让服务的申请。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 I-操作人 O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第九条",
+        "text": "出现下列情况之一的，本所可以暂停提供转让服务。相关情形消除后，本所可以视情况恢复提供转让服务：（一）资管计划出现重大异常情况；（二）违反法律法规、中国证监会或者本所相关规定；（三）本所认定的其他情形。",
+        "label": "O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O"
+    },
+    {
+        "id": "第十条",
+        "text": "出现下列情况之一的，本所可以终止提供转让服务：（一）管理人向本所申请终止转让服务；（二）资管计划存续期届满且未展期；（三）依据法律法规、中国证监会相关规定或者合同约定提前终止；（四）严重违反法律法规、中国证监会或者本所相关规定；（五）本所认定的其他情形。",
+        "label": "O O O O O O O O O O B-系统 I-系统 O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O"
+    },
+    {
+        "id": "第十一条",
+        "text": "管理人应当建立客户适当性管理制度，确保参与转让的客户、单个客户的参与金额和单只资管计划持有人数符合中国证监会相关规定的要求。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第十二条",
+        "text": "客户通过转让首次参与资管计划的，应当按照中国证监会的要求签署资产管理合同和风险揭示书，未签署的不得参与。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 O B-结果 I-结果 I-结果 I-结果 O"
+    },
+    {
+        "id": "第十三条",
+        "text": "资管计划份额的转让时间为每个交易日的9︰15至11︰30，13︰00至15︰30。",
+        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O"
+    },
+    {
+        "id": "第十四条",
+        "text": "资管计划单笔申报最小数量应为1000份；申报数量最小变动单位为1份；申报价格最小变动单位为0.001元人民币。本所可以根据市场需要，对申报数量或其最小变动单位、申报价格最小变动单位予以调整。",
+        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O B-数量 I-数量 I-数量 I-数量 I-数量 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-数量 I-数量 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-系统 I-系统 O O O O O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O"
+    },
+    {
+        "id": "第十五条",
+        "text": "转让申报指令应当包括账户号码、证券代码、数量、价格等。",
+        "label": "B-key I-key I-key I-key I-key I-key O O O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O O"
+    },
+    {
+        "id": "第十六条",
+        "text": "本所对符合条件的转让申报进行成交确认。确认后，转让生效。",
+        "label": "B-系统 I-系统 O O O O O O O O O O O O O O O O O B-状态 I-状态 I-状态 O B-结果 I-结果 I-结果 I-结果 O"
+    },
+    {
+        "id": "第十七条",
+        "text": "资管计划份额的转让可以当日回转。",
+        "label": "B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "第十八条",
+        "text": "管理人应当确保参与转让的客户持有足额的资金或者份额。符合本指引达成的转让，转让双方必须承认转让结果，并履行交收义务。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 O O B-结果 I-结果 I-结果 I-结果 I-结果 I-结果 O O O O O O O O O"
+    },
+    {
+        "id": "第十九条",
+        "text": "管理人应当及时向客户披露与转让相关的信息。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O B-操作人 I-操作人 O O O O O O O O O O O"
+    },
+    {
+        "id": "第二十条",
+        "text": "管理人、托管人应当按照中国证监会的规定，履行资管计划的信息披露职责。",
+        "label": "B-操作人 I-操作人 I-操作人 O B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第二十一条",
+        "text": "本所暂停、恢复、终止提供转让服务的，管理人应当及时向客户披露该信息。",
+        "label": "B-系统 I-系统 O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O O O O O B-操作人 I-操作人 O O O O O O"
+    },
+    {
+        "id": "第二十二条",
+        "text": "本所可以通过本所网站等渠道，披露提供转让服务的资管计划相关信息。",
+        "label": "B-系统 I-系统 O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第二十三条",
+        "text": "本所对资管计划转让收取转让经手费，收费标准为100万以下每笔0.1元人民币，超过100万的每笔10元人民币。",
+        "label": "B-系统 I-系统 O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-key I-key I-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "第二十四条",
+        "text": "本指引所称“以下”含本数，“超过”不含本数。",
+        "label": "O O O O O O B-key I-key O B-value I-value I-value O O B-key I-key O B-value I-value I-value I-value O"
+    },
+    {
+        "id": "第二十六条",
+        "text": "本指引由本所负责解释。",
+        "label": "O O O O B-系统 I-系统 O O O O O"
+    },
+    {
+        "id": "第二十七条",
+        "text": "本指引自发布之日起施行。本所于2013年8月20日发布的《深圳证券交易所资产管理计划份额转让业务指引》（深证会〔2013〕78号）同时废止。",
+        "label": "O O O O O O O O O O O O B-系统 I-系统 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    }
+]

@@ -78,9 +78,9 @@ if __name__ == "__main__":
     # read_pdf_to_txt(f"../data/上海证券交易所债券交易规则.pdf", f"../data/上海证券交易所债券交易规则.txt")
     # read_txt_to_json(f"../data/上海证券交易所债券交易规则.txt", f"../data/上海证券交易所债券交易规则.json")
     # exit(0)
-    for file in os.listdir("../data/深交所业务规则/origin"):
+    for file in os.listdir("../data/业务规则/origin"):
         if "pdf" in file:
-            read_pdf_to_txt(f"../data/深交所业务规则/origin/{file}", f"../data/深交所业务规则/txt/{file[:-4]}.txt")
-            read_txt_to_json(f"../data/深交所业务规则/txt/{file[:-4]}.txt", f"../data/深交所业务规则/json_for_token_classification/{file[:-4]}.json")
+            read_pdf_to_txt(f"../data/业务规则/origin/{file}", f"../data/业务规则/txt/{file[:-4]}.txt")
+            read_txt_to_json(f"../data/业务规则/txt/{file[:-4]}.txt", f"../data/业务规则/json_for_token_classification/{file[:-4]}.json")
         else:  # "docx"
             ...

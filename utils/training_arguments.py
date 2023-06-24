@@ -7,7 +7,7 @@ def get_training_arguments(training_args):
     per_device_eval_batch_size = training_args["per_device_eval_batch_size"]
     logging_step = training_args["logging_step"]
     evaluation_strategy = training_args["evaluation_strategy"]
-    eval_steps = training_args["eval_steps"]
+    # eval_steps = training_args["eval_steps"]
     load_best_model_at_end = training_args["load_best_model_at_end"]
     learning_rate = training_args["learning_rate"]
     output_dir = training_args["output_dir"]
@@ -19,6 +19,7 @@ def get_training_arguments(training_args):
     logging_dir = training_args["logging_dir"]
     save_strategy = training_args["save_strategy"]
     disable_tqdm = training_args["disable_tqdm"]
+    weight_decay = training_args["weight_decay"]
 
     training_args = TrainingArguments(
         num_train_epochs=num_train_epochs,
@@ -26,7 +27,7 @@ def get_training_arguments(training_args):
         per_device_eval_batch_size=per_device_eval_batch_size,
         logging_steps=logging_step,
         evaluation_strategy=evaluation_strategy,
-        eval_steps=eval_steps,
+        # eval_steps=eval_steps,
         load_best_model_at_end=load_best_model_at_end,
         learning_rate=learning_rate,
         output_dir=output_dir,
@@ -37,7 +38,8 @@ def get_training_arguments(training_args):
         remove_unused_columns=remove_unused_columns,
         logging_dir=logging_dir,
         save_strategy=save_strategy,
-        disable_tqdm=disable_tqdm
+        disable_tqdm=disable_tqdm,
+        weight_decay=weight_decay
     )
     return training_args
 
