@@ -25,6 +25,8 @@ def arg_parser():
     parser.add_argument("--disable_tqdm", type=bool, default=False)
     parser.add_argument("--split", type=str, default="\x02")
     parser.add_argument("--weight_decay", type=float, default=0.0)
+    parser.add_argument("--sentence_max_length", type=int, default=512)
+    parser.add_argument("--train_dataset", type=str, default="full")
     paras = parser.parse_args()
     paras_dict = vars(paras)
     return paras_dict

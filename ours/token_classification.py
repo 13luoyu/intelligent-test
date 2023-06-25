@@ -38,11 +38,11 @@ def train_model(train_dataset: str, eval_dataset: str, class_dict: str, model_pa
 
     train_dataset = DefaultDataset(read_json_for_token_classification(train_dataset, istrain=True))
     eval_dataset = DefaultDataset(read_json_for_token_classification(eval_dataset))
-    collator = DataCollatorForTokenClassification(tokenizer, class_dict, split = training_args["split"])
+    collator = DataCollatorForTokenClassification(tokenizer, class_dict, max_length=training_args["sentence_max_length"], split = training_args["split"])
 
     saved_path = training_args["output_dir"]
     training_args = get_training_arguments(training_args)
-    trainer = CustomTrainer(model, training_args, collator, train_dataset, eval_dataset, tokenizer)
+    trainer = Trainer(model, training_args, collator, train_dataset, eval_dataset, tokenizer)
     trainer.train()
 
     saved_path = f"{saved_path}/best_{int(time.time())}"
@@ -76,16 +76,16 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
         for start in range(0, len(inputs), batch_size):
             batch = inputs[start:start+batch_size]
             input_copy = batch
-            batch = tokenizer(batch, max_length=512, padding="max_length", truncation=True, return_tensors="pt")
+            batch = tokenizer(batch, max_length=training_args["sentence_max_length"], padding="max_length", truncation=True, return_tensors="pt")
             input_ids = batch.input_ids.cuda()
             attention_mask = batch.attention_mask
-            logits = model(input_ids=input_ids).logits  # (8, 512, num_labels)
+            logits = model(input_ids=input_ids).logits  # (8, training_args["sentence_max_length"], num_labels)
             _, outputs = torch.max(logits, dim=2)
             outputs = outputs.cpu().numpy()
-            for i, output in enumerate(outputs):  # (8, 512)
+            for i, output in enumerate(outputs):  # (8, training_args["sentence_max_length"])
                 # mask = attention_mask[i]
                 h = []
-                for j in range(min(len(input_copy[i]) + 2, 512)):
+                for j in range(min(len(input_copy[i]) + 2, training_args["sentence_max_length"])):
                     h.append(output[j])
                 hats.append(h[1:-1])  # h[0]是<cls>
         return hats
@@ -112,6 +112,9 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_model("../data/tc_train_data_full.json", "../data/tc_validate_data.json", "../data/tc_data.dict", model, training_args)
+    if training_args["train_dataset"] == "full":
+        saved_path = train_model("../data/tc_train_data_full.json", "../data/tc_validate_data.json", "../data/tc_data.dict", model, training_args)
+    else:
+        saved_path = train_model("../data/tc_train_data_base.json", "../data/tc_validate_data.json", "../data/tc_data.dict", model, training_args)
     # saved_path = "../model/ours/best_1682316452"
     eval_model("../data/tc_validate_data.json", "../data/tc_data.dict", saved_path, training_args)
