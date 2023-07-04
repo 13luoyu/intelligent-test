@@ -16,4 +16,7 @@ def check_length(file):
 
 
 if __name__ == "__main__":
-    check_length("../data/tc_train_data_full.json")
+    for file in os.listdir("../data/"):
+        if "tc" in file and ".json" in file:
+            print(f"Checking ../data/{file}")
+            check_length(f"../data/{file}")

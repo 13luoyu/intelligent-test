@@ -26,7 +26,8 @@ def arg_parser():
     parser.add_argument("--split", type=str, default="\x02")
     parser.add_argument("--weight_decay", type=float, default=0.0)
     parser.add_argument("--sentence_max_length", type=int, default=512)
-    parser.add_argument("--train_dataset", type=str, default="full")
+    parser.add_argument("--train_dataset", type=str, default="../data/tc_train_data_rules_base.json")
+    parser.add_argument("--validate_dataset", type=str, default="../data/tc_validate_data_rules.json")
     paras = parser.parse_args()
     paras_dict = vars(paras)
     return paras_dict
