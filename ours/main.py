@@ -14,22 +14,32 @@ import json
 from pprint import pprint
 
 
-def nlp_process(input_file, sci_file, sco_file, tci_file, tco_file, r1_file, knowledge_file):
+def nlp_process(input_file: str, 
+                sci_file: str, 
+                sco_file: str, 
+                tci_file: str, 
+                tco_file: str, 
+                r1_file: str, 
+                knowledge_file: str, 
+                sc_model: str,
+                tc_model: str, 
+                tc_dict: str, 
+                batch_size: int = 8,
+                sentence_max_length: int = 512):
     # 获取输入，转换为句分类的输入格式
     nl_to_sci(input_file, sci_file)
     # 句分类任务
     # 标注每个句子的类别：0为无法测试的自然语言，1为可测试的规则，2为领域知识
-    sequence_classification(sci_file, sco_file)
+    sequence_classification(sci_file, sco_file, sc_model, batch_size, sentence_max_length)
     # 将句子按照id组合
     sco_to_tci(sco_file, tci_file)
     print("句分类任务完成")
     # 标注句子中每个字的类别
-    token_classification(tci_file, tco_file, knowledge_file, 1)  # 模型
-    token_classification(tci_file, tco_file, knowledge_file)
+    token_classification(tci_file, tco_file, knowledge_file, tc_model, tc_dict, batch_size, sentence_max_length)
     print("字分类任务完成")
     # 调用转R1
     to_r1(tco_file, r1_file, knowledge_file)
-    print("R1规则生成")
+    print("R规则生成")
 
 def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_file):
     # 读文件

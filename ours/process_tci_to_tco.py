@@ -3,35 +3,71 @@
 import json
 from token_classification import eval_model
 from utils.arguments import arg_parser
+from transformers import AutoModelForTokenClassification, AutoTokenizer
+import torch
+from utils.data_loader import read_dict
 
-def token_classification_with_algorithm(rule, knowledge):
-    # For Show
-    if rule["id"] == "3.1.5":
-        rule["label"] = "O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 O O O O O O O O O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O"
-    elif rule["id"] == "3.3.4":
-        rule["label"] = "O O O O O O O O O B-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-操作 I-操作 O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O B-操作 I-操作 I-操作 I-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-key I-key I-key I-key O O B-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-key I-key I-key I-key O O B-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O O B-交易品种 I-交易品种 O O O B-key I-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O"
-    elif rule["id"] == "3.3.6":
-        rule["label"] = "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-交易品种 I-交易品种 O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O"
-    elif rule["id"] == "3.3.10":
-        rule["label"] = "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-value I-value I-value I-value O O B-操作 I-操作 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-value I-value I-value I-value O O B-操作 I-操作 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O B-value I-value B-or I-or B-value I-value I-value I-value O O B-操作 I-操作 O"
+def token_classification_with_algorithm(tco, knowledge):
+    return tco
 
-def token_classification_with_model_and_algorithm(eval_dataset, model_path, knowledge):
-    eval_model("../data/our_data.json", "../data/our_data.dict", "../model/ours/best_1682677585", arg_parser())
-    ...
-
-def token_classification(in_file: str, out_file: str, knowledge_file: str, mode: int = 0):
+def token_classification(in_file: str, out_file: str, knowledge_file: str, model_path: str, dict_file: str, batch_size: int = 8, sentence_max_length: int = 512):
     tci = json.load(open(in_file, "r", encoding="utf-8"))
-    tco = []
     knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
-    if mode == 0:
-        for rule in tci:
-            token_classification_with_algorithm(rule, knowledge)
-        json.dump(tci, open(out_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-    elif mode == 1:
-        token_classification_with_model_and_algorithm(in_file, None, knowledge)
-    else:
-        raise ValueError(f"mode应该设置为0或1，不支持的值：mode = {mode}")
+    
+    with open(dict_file, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+        num_labels = len(lines)
+
+    model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=num_labels)
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+
+    def preprocess(items):
+        inputs = []
+        for item in items:
+            inputs.append(item["text"].replace(" ", ""))
+        return inputs
+
+    inputs = preprocess(tci)
+
+    def predict(model, tokenizer, inputs):
+        model.eval()
+        model = model.cuda()
+        hats = []
+        for start in range(0, len(inputs), batch_size):
+            batch = inputs[start:start+batch_size]
+            input_copy = batch.copy()
+            batch = tokenizer(batch, max_length=sentence_max_length, padding="max_length", truncation=True, return_tensors="pt")
+            input_ids = batch.input_ids.cuda()
+            logits = model(input_ids=input_ids).logits
+            _, outputs = torch.max(logits, dim=2)
+            outputs = outputs.cpu().numpy()
+            for i, output in enumerate(outputs):
+                h = []
+                for j in range(min(len(input_copy[i])+2), sentence_max_length):
+                    h.append(output[j])
+                hats.append(h[1:-1])
+        return hats
+    
+    hats = predict(model, tokenizer, inputs)
+
+    index_to_class, _ = read_dict(dict_file)
+    class_hats = []
+    for hat in hats:
+        class_hat = []
+        for h in hat:
+            class_hat.append(index_to_class[h])
+        class_hats.append(class_hat)
+    
+    tco = tci.copy()
+    for i, rule in enumerate(tco):
+        rule["label"] = " ".join(class_hats[i])
+    
+    # 使用算法修复
+    tco = token_classification_with_algorithm(tco, knowledge)
+    
+    json.dump(tco, open(out_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+
 
 
 if __name__ == "__main__":
-    token_classification("rules_cache/tci.json", "rules_cache/tco.json", "../data/knowledge.json")
+    token_classification("rules_cache/tci.json", "rules_cache/tco.json", "../data/knowledge.json", "../model/ours/...", "../data/tc_data.dict")

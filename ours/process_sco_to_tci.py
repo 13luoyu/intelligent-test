@@ -9,7 +9,9 @@ def sco_to_tci(sco_file: str, tci_file: str):
     tci = []
     t = {}
     for rule in sco:
-        rule["id"] = rule["id"][:-2]
+        if "id" not in rule:
+            continue
+        rule["id"] = rule["id"].split("_")[0]
         # 如果id相同且不为""
         if rule["id"] == last_id and last_id != "":
             # 如果type="1"，合并

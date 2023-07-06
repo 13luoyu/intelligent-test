@@ -73,7 +73,7 @@ def data_augment_nlpcda():
 # 同义词替换
 # 替换一个语句中的n个单词为其同义词
 ########################################################################
-def synonym_replacement(words, label, stop_words, n):
+def synonym_replacement_tc(words, label, stop_words, n):
     new_words = words.copy()
     new_label = []
     random_word_list = list(set([word for word in words if word not in stop_words]))     
@@ -120,13 +120,13 @@ def get_synonyms(word):
 # 随机插入
 # 随机在语句中插入n个词
 ########################################################################
-def random_insertion(words, label, n):
+def random_insertion_tc(words, label, n):
     new_words = words.copy()
     for _ in range(n):
-        label = add_word(new_words, label)
+        label = add_word_tc(new_words, label)
     return new_words, label
 
-def add_word(new_words, label):
+def add_word_tc(new_words, label):
     synonyms = []
     counter = 0    
     while len(synonyms) < 1:
@@ -160,13 +160,13 @@ def add_word(new_words, label):
 # Randomly swap two words in the sentence n times
 ########################################################################
 
-def random_swap(words,label, n):
+def random_swap_tc(words,label, n):
     new_words = words.copy()
     for _ in range(n):
-        new_words, label = swap_word(new_words, label)
+        new_words, label = swap_word_tc(new_words, label)
     return new_words, label
 
-def swap_word(new_words, label):
+def swap_word_tc(new_words, label):
     random_idx_1 = random.randint(0, len(new_words)-1)
     random_idx_2 = random_idx_1
     counter = 0
@@ -195,7 +195,7 @@ def swap_word(new_words, label):
 # 随机删除
 # 以概率p删除语句中的词
 ########################################################################
-def random_deletion(words, label, p):
+def random_deletion_tc(words, label, p):
 
     if len(words) == 1:
         return words, label
@@ -223,7 +223,8 @@ def random_deletion(words, label, p):
 
 ########################################################################
 #EDA函数
-def eda(sentence, label, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug=20):
+########################################################################
+def eda_tc(sentence, label, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug=20):
     seg_list = jieba.cut(sentence)
     label_cp = label
     seg_list = " ".join(seg_list)
@@ -288,21 +289,21 @@ def eda(sentence, label, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p
     
     #同义词替换sr
     for _ in range(num_new_per_technique):
-        a_words, a_label = synonym_replacement(words, label.copy(), stop_words, n_sr)
+        a_words, a_label = synonym_replacement_tc(words, label.copy(), stop_words, n_sr)
         augmented_sentences.append(''.join(a_words))
         augmented_labels.append(" ".join(a_label))
         # print(len("".join(a_words)), len(a_label))
 
     #随机插入ri
     for _ in range(num_new_per_technique):
-        a_words, a_label = random_insertion(words, label.copy(), n_ri)
+        a_words, a_label = random_insertion_tc(words, label.copy(), n_ri)
         augmented_sentences.append(''.join(a_words))
         augmented_labels.append(" ".join(a_label))
         # print(len("".join(a_words)), len(a_label))
     
     #随机交换rs
     for _ in range(num_new_per_technique):
-        a_words, a_label = random_swap(words, label.copy(), n_rs)
+        a_words, a_label = random_swap_tc(words, label.copy(), n_rs)
         augmented_sentences.append(''.join(a_words))
         augmented_labels.append(" ".join(a_label))
         # print(len("".join(a_words)), len(a_label))
@@ -310,7 +311,7 @@ def eda(sentence, label, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p
    
     # #随机删除rd
     for _ in range(num_new_per_technique):
-        a_words, a_label = random_deletion(words, label.copy(), p_rd)
+        a_words, a_label = random_deletion_tc(words, label.copy(), p_rd)
         augmented_sentences.append(''.join(a_words))
         augmented_labels.append(" ".join(a_label))
         # print(len("".join(a_words)), len(a_label))
@@ -323,7 +324,7 @@ def eda(sentence, label, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p
     return augmented_sentences, augmented_labels
 
 
-def data_augment_eda():
+def data_augment_eda_for_tc():
     #停用词列表，默认使用哈工大停用词表
     f = open('stopwords/hit_stopwords.txt')
     stop_words = list()
@@ -333,7 +334,7 @@ def data_augment_eda():
     augmented_data = []
     datas = json.load(open("../data/tc_train_data_all_base.json", "r", encoding="utf-8"))
     for data in datas:
-        texts, labels = eda(sentence=data["text"], label=data["label"], stop_words=stop_words)
+        texts, labels = eda_tc(sentence=data["text"], label=data["label"], stop_words=stop_words)
         id = data["id"] if "id" in data else ""
         augmented_data.append(data)
         for i, text in enumerate(texts):
@@ -350,7 +351,7 @@ def data_augment_eda():
     augmented_data = []
     datas = json.load(open("../data/tc_train_data_rules_base.json", "r", encoding="utf-8"))
     for data in datas:
-        texts, labels = eda(sentence=data["text"], label=data["label"], stop_words=stop_words)
+        texts, labels = eda_tc(sentence=data["text"], label=data["label"], stop_words=stop_words)
         id = data["id"] if "id" in data else ""
         augmented_data.append(data)
         for i, text in enumerate(texts):
@@ -367,6 +368,176 @@ def data_augment_eda():
 
 
 
+
+
+
+
+########################################################################
+# 同义词替换
+# 替换一个语句中的n个单词为其同义词
+########################################################################
+def synonym_replacement_sc(words, n, stop_words):
+    new_words = words.copy()
+    random_word_list = list(set([word for word in words if word not in stop_words]))     
+    random.shuffle(random_word_list)
+    num_replaced = 0  
+    for random_word in random_word_list:          
+        synonyms = get_synonyms(random_word)
+        if len(synonyms) >= 1:
+            synonym = random.choice(synonyms)   
+            new_words = [synonym if word == random_word else word for word in new_words]   
+            num_replaced += 1
+        if num_replaced >= n: 
+            break
+
+    sentence = ' '.join(new_words)
+    new_words = sentence.split(' ')
+
+    return new_words
+
+
+########################################################################
+# 随机插入
+# 随机在语句中插入n个词
+########################################################################
+def random_insertion_sc(words, n):
+    new_words = words.copy()
+    for _ in range(n):
+        add_word_sc(new_words)
+    return new_words
+
+def add_word_sc(new_words):
+    synonyms = []
+    counter = 0    
+    while len(synonyms) < 1:
+        random_word = new_words[random.randint(0, len(new_words)-1)]
+        synonyms = get_synonyms(random_word)
+        counter += 1
+        if counter >= 10:
+            return
+    random_synonym = random.choice(synonyms)
+    random_idx = random.randint(0, len(new_words)-1)
+    new_words.insert(random_idx, random_synonym)
+
+
+########################################################################
+# Random swap
+# Randomly swap two words in the sentence n times
+########################################################################
+
+def random_swap_sc(words, n):
+    new_words = words.copy()
+    for _ in range(n):
+        new_words = swap_word_sc(new_words)
+    return new_words
+
+def swap_word_sc(new_words):
+    random_idx_1 = random.randint(0, len(new_words)-1)
+    random_idx_2 = random_idx_1
+    counter = 0
+    while random_idx_2 == random_idx_1:
+        random_idx_2 = random.randint(0, len(new_words)-1)
+        counter += 1
+        if counter > 3:
+            return new_words
+    new_words[random_idx_1], new_words[random_idx_2] = new_words[random_idx_2], new_words[random_idx_1] 
+    return new_words
+
+########################################################################
+# 随机删除
+# 以概率p删除语句中的词
+########################################################################
+def random_deletion_sc(words, p):
+
+    if len(words) == 1:
+        return words
+
+    new_words = []
+    for word in words:
+        r = random.uniform(0, 1)
+        if r > p:
+            new_words.append(word)
+
+    if len(new_words) == 0:
+        rand_int = random.randint(0, len(words)-1)
+        return [words[rand_int]]
+
+    return new_words
+
+
+########################################################################
+#EDA函数
+def eda_sc(sentence, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug=9):
+    seg_list = jieba.cut(sentence)
+    seg_list = " ".join(seg_list)
+    words = list(seg_list.split())
+    num_words = len(words)
+
+    augmented_sentences = []
+    num_new_per_technique = int(num_aug/4)+1
+    n_sr = max(1, int(alpha_sr * num_words))
+    n_ri = max(1, int(alpha_ri * num_words))
+    n_rs = max(1, int(alpha_rs * num_words))
+
+    f = open('stopwords/hit_stopwords.txt')
+    stop_words = list()
+    for stop_word in f.readlines():
+        stop_words.append(stop_word[:-1])
+
+    
+    #同义词替换sr
+    for _ in range(num_new_per_technique):
+        a_words = synonym_replacement_sc(words, n_sr, stop_words)
+        augmented_sentences.append(' '.join(a_words))
+
+    #随机插入ri
+    for _ in range(num_new_per_technique):
+        a_words = random_insertion_sc(words, n_ri)
+        augmented_sentences.append(' '.join(a_words))
+    
+    #随机交换rs
+    for _ in range(num_new_per_technique):
+        a_words = random_swap_sc(words, n_rs)
+        augmented_sentences.append(' '.join(a_words))
+
+   
+    #随机删除rd
+    for _ in range(num_new_per_technique):
+        a_words = random_deletion_sc(words, p_rd)
+        augmented_sentences.append(' '.join(a_words))
+
+
+    if num_aug >= 1:
+        augmented_sentences = augmented_sentences[:num_aug]
+    else:
+        keep_prob = num_aug / len(augmented_sentences)
+        augmented_sentences = [s for s in augmented_sentences if random.uniform(0, 1) < keep_prob]
+
+    augmented_sentences.append(seg_list)
+
+    return augmented_sentences
+
+
+
+def data_augment_eda_for_sc():
+    augmented_data = []
+    datas = json.load(open("../data/sc_train_data_base.json", "r", encoding="utf-8"))
+    for data in datas:
+        texts = eda_sc(sentence=data["text"])
+        id = data["id"] if "id" in data else ""
+        augmented_data.append(data)
+        rule_type = data["type"]
+        for i, text in enumerate(texts):
+            if id != "":
+                new_id = f"{id}.augment_eda{i}"
+                augmented_data.append({"text":text, "type":rule_type, "id":new_id})
+            else:
+                augmented_data.append({"text":text, "type":rule_type})
+    json.dump(augmented_data, open("../data/sc_train_data_full.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+
+
+
 if __name__ == "__main__":
     data_augment_nlpcda()
-    data_augment_eda()
+    data_augment_eda_for_tc()
+    data_augment_eda_for_sc()
