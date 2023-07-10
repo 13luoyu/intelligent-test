@@ -6,6 +6,7 @@ import shutil
 import jieba
 import synonyms
 import random
+import argparse
 
 
 
@@ -20,12 +21,12 @@ def preprocess(input_file, output_dir):
         out_fp.close()
 
 
-def nlpcda_method(origin_file, input_dir, output_file):
+def nlpcda_method(origin_file, input_dir, output_file, augument_size):
     ner = Ner(ner_dir_name=input_dir,
             ignore_tag_list=['O'],
             # 不增强的标签有：结合规则、or、op、系统
             data_augument_tag_list=["key", "时间", "数量", "价格", "交易方式", "交易品种", "操作人", "操作", "操作部分", "结果", "状态","事件", "value"],
-            augument_size=10, seed=0)
+            augument_size=augument_size, seed=0)
     
     rules = json.load(open(origin_file, "r", encoding="utf-8"))
     new_rules = []
@@ -50,17 +51,17 @@ def nlpcda_method(origin_file, input_dir, output_file):
     rules += new_rules
     json.dump(rules, open(output_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
-def data_augment_nlpcda():
+def data_augment_nlpcda(augument_size=10):
     cache_dir = "../data/unaugment_data_cache/"
     if os.path.exists(cache_dir):
         shutil.rmtree(cache_dir)
     os.mkdir(cache_dir)
     preprocess("../data/tc_train_data_all_base.json", cache_dir)
-    nlpcda_method("../data/tc_train_data_all_base.json", cache_dir, "../data/tc_train_data_all_full.json")
+    nlpcda_method("../data/tc_train_data_all_base.json", cache_dir, "../data/tc_train_data_all_full.json", augument_size)
     shutil.rmtree(cache_dir)
     os.mkdir(cache_dir)
     preprocess("../data/tc_train_data_rules_base.json", cache_dir)
-    nlpcda_method("../data/tc_train_data_rules_base.json", cache_dir, "../data/tc_train_data_rules_full.json")
+    nlpcda_method("../data/tc_train_data_rules_base.json", cache_dir, "../data/tc_train_data_rules_full.json", augument_size)
     shutil.rmtree(cache_dir)
 
 
@@ -324,7 +325,7 @@ def eda_tc(sentence, label, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1
     return augmented_sentences, augmented_labels
 
 
-def data_augment_eda_for_tc():
+def data_augment_eda_for_tc(num_aug):
     #停用词列表，默认使用哈工大停用词表
     f = open('stopwords/hit_stopwords.txt')
     stop_words = list()
@@ -334,7 +335,7 @@ def data_augment_eda_for_tc():
     augmented_data = []
     datas = json.load(open("../data/tc_train_data_all_base.json", "r", encoding="utf-8"))
     for data in datas:
-        texts, labels = eda_tc(sentence=data["text"], label=data["label"], stop_words=stop_words)
+        texts, labels = eda_tc(sentence=data["text"], label=data["label"], stop_words=stop_words, num_aug=num_aug)
         id = data["id"] if "id" in data else ""
         augmented_data.append(data)
         for i, text in enumerate(texts):
@@ -351,7 +352,7 @@ def data_augment_eda_for_tc():
     augmented_data = []
     datas = json.load(open("../data/tc_train_data_rules_base.json", "r", encoding="utf-8"))
     for data in datas:
-        texts, labels = eda_tc(sentence=data["text"], label=data["label"], stop_words=stop_words)
+        texts, labels = eda_tc(sentence=data["text"], label=data["label"], stop_words=stop_words, num_aug=num_aug)
         id = data["id"] if "id" in data else ""
         augmented_data.append(data)
         for i, text in enumerate(texts):
@@ -519,11 +520,11 @@ def eda_sc(sentence, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug
 
 
 
-def data_augment_eda_for_sc():
+def data_augment_eda_for_sc(num_aug):
     augmented_data = []
     datas = json.load(open("../data/sc_train_data_base.json", "r", encoding="utf-8"))
     for data in datas:
-        texts = eda_sc(sentence=data["text"])
+        texts = eda_sc(sentence=data["text"], num_aug=num_aug)
         id = data["id"] if "id" in data else ""
         augmented_data.append(data)
         rule_type = data["type"]
@@ -538,6 +539,19 @@ def data_augment_eda_for_sc():
 
 
 if __name__ == "__main__":
-    data_augment_nlpcda()
-    data_augment_eda_for_tc()
-    data_augment_eda_for_sc()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--nlpcda_size", type=int, default=10)
+    parser.add_argument("--eda_tc_size", type=int, default=20)
+    parser.add_argument("--eda_sc_size", type=int, default=9)
+    parser.add_argument("--task", type=str, default="all")
+    paras = parser.parse_args()
+    task = paras.task
+    if task == "all":
+        data_augment_nlpcda(paras.nlpcda_size)
+        data_augment_eda_for_tc(paras.eda_tc_size)
+        data_augment_eda_for_sc(paras.eda_sc_size)
+    elif task == "tc":
+        data_augment_nlpcda(paras.nlpcda_size)
+        data_augment_eda_for_tc(paras.eda_tc_size)
+    elif task == "sc":
+        data_augment_eda_for_sc(paras.eda_sc_size)
