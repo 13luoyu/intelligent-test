@@ -45,7 +45,9 @@ def process_knowledge(input_file: str, output_file: str, todo_file: str):
                         content = content[:content.find("等")]
                     if "：" in content:
                         content = content[content.find("：") + 1:]
-                    if "、" in content:
+                    if "；" in content:
+                        contents = content.split("；")
+                    elif "、" in content:
                         contents = content.split("、")
                     else:
                         contents = content.split("和")
@@ -142,10 +144,15 @@ if __name__ == "__main__":
     # 算法处理后，需要人工核对
     # process_knowledge("rules_cache/sco.json", "rules_cache/knowledge.json", "rules_cache/todo_knowledge.json")
 
+    knowledge_file, todo_knowledge_file = "rules_cache/knowledge.json", "rules_cache/todo_knowledge.txt"
+    if os.path.exists(knowledge_file):
+        os.remove(knowledge_file)
+    if os.path.exists(todo_knowledge_file):
+        os.remove(todo_knowledge_file)
     a, b = 0, 0
     for file in os.listdir("../data/业务规则/json_for_sequence_classification/"):
         if "finish" in file:
-            knowledge_count, cannot_process = process_knowledge("../data/业务规则/json_for_sequence_classification/" + file, "rules_cache/knowledge.json", "rules_cache/todo_knowledge.json")
+            knowledge_count, cannot_process = process_knowledge("../data/业务规则/json_for_sequence_classification/" + file, knowledge_file, todo_knowledge_file)
             a += knowledge_count
             b += cannot_process
     print(f"所有领域知识数目：{a}, 能够处理的数目：{a-b}, 处理率为{round(float(a-b)/float(a)*100.0, 1)}%")

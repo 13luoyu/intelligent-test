@@ -65,9 +65,26 @@ def select_rule(seq_dir: str, tok_dir: str, rule_file: str):
     json.dump(rules, open(rule_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
 
+def integrate_all(sc_out_file: str, tc_out_file: str):
+    all = []
+    for file in os.listdir("../data/业务规则/json_for_sequence_classification/"):
+        if "finish" in file:
+            data = json.load(open("../data/业务规则/json_for_sequence_classification/" + file, "r", encoding="utf-8"))
+            all += data
+    json.dump(all, open(sc_out_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+
+    all = []
+    for file in os.listdir("../data/业务规则/json_for_token_classification/"):
+        if "finish" in file:
+            data = json.load(open("../data/业务规则/json_for_token_classification/" + file, "r", encoding="utf-8"))
+            all += data
+    json.dump(all, open(tc_out_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+
 
 if __name__ == "__main__":
-    integrate_dir("../data/业务规则/json_for_sequence_classification/", "../data/sc_train_data.json", "../data/sc_validate_data.json")
-    integrate_dir("../data/业务规则/json_for_token_classification/", "../data/tc_train_data_all_base.json", "../data/tc_validate_data_all.json")
-    select_rule("../data/业务规则/json_for_sequence_classification/", "../data/业务规则/json_for_token_classification/", "../data/rules.json")
-    integrate_file("../data/rules.json", "../data/tc_train_data_rules_base.json", "../data/tc_validate_data_rules.json")
+    # integrate_dir("../data/业务规则/json_for_sequence_classification/", "../data/sc_train_data.json", "../data/sc_validate_data.json")
+    # integrate_dir("../data/业务规则/json_for_token_classification/", "../data/tc_train_data_all_base.json", "../data/tc_validate_data_all.json")
+    # select_rule("../data/业务规则/json_for_sequence_classification/", "../data/业务规则/json_for_token_classification/", "../data/rules.json")
+    # integrate_file("../data/rules.json", "../data/tc_train_data_rules_base.json", "../data/tc_validate_data_rules.json")
+    
+    integrate_all("../data/sc_data.json", "../data/tc_data.json")

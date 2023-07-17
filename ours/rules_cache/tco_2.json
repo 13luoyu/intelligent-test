@@ -1,0 +1,7 @@
+[
+    {
+        "id": "3.2.5",
+        "text": "投资者可以采用限价委托或市价委托的方式委托会员买卖证券。限价委托，是指投资者委托会员按其限定的价格买卖证券，会员必须按限定的价格或低于限定的价格申报买入证券；按限定的价格或高于限定的价格申报卖出证券。市价委托，是指投资者委托会员按市场价格买卖证券。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O B-value I-value I-value I-value B-or B-value I-value I-value I-value O O O B-操作 I-操作 B-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 O B-value I-value I-value I-value O O O B-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作人 I-操作人 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 B-操作 I-操作 B-操作部分 I-操作部分 O B-操作人 I-操作人 O O O B-价格 I-价格 I-价格 I-价格 I-价格 B-or B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 O O B-价格 I-价格 I-价格 I-价格 I-价格 B-or B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 O B-value I-value I-value I-value O O O B-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作人 I-操作人 O B-价格 I-价格 I-价格 I-价格 B-操作 I-操作 B-操作部分 I-操作部分 O"
+    }
+]

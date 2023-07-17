@@ -95,7 +95,7 @@ def read_OBI_to_rule(texts, labels):
                     operator_count += 1
                     if a == 0:
                         ...
-                    elif texts[a-1] == "向" or texts[a-1] == "给":
+                    elif texts[a-1] == "向" or texts[a-1] == "给" or (a-2 >= 0 and texts[a-2] == "委" and texts[a-1] == "托"):
                         operator_relation.append(1)
                     elif texts[a-1] == "与":
                         operator_relation.append(2)
@@ -116,7 +116,7 @@ def read_OBI_to_rule(texts, labels):
                         operator_count += 1
                         if a == 0:
                             ...
-                        elif texts[a-1] == "向" or texts[a-1] == "给":
+                        elif texts[a-1] == "向" or texts[a-1] == "给" or (a-2 >= 0 and texts[a-2] == "委" and texts[a-1] == "托"):
                             operator_relation.append(1)
                         elif texts[a-1] == "与":
                             operator_relation.append(2)
@@ -467,6 +467,8 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
             if key == "操作人":
                 operator_count += 1
                 if operator_count % 2 == 0:
+                    print(ss)
+                    print(operator_relation, operator_index)
                     if operator_relation[operator_index] == 1:
                         del si[key]
                         si["操作对象"] = value
@@ -779,6 +781,6 @@ def to_r1(input_file, output_file, knowledge_file):
 
 
 if __name__ == "__main__":
-    to_r1("rules_深圳证券交易所债券交易规则.json", "r1.mydsl", "../data/knowledge.json")
-    # to_r1("test.json", "test.mydsl", "../data/knowledge.json")
-    # 4.3.5, 5.2.1, 5.2.2
+    to_r1("rules_cache/tco_1.json", "rules_cache/r1_1.mydsl", "../data/knowledge.json")
+    to_r1("rules_cache/tco_2.json", "rules_cache/r1_2.mydsl", "../data/knowledge.json")
+    to_r1("rules_cache/tco_3.json", "rules_cache/r1_3.mydsl", "../data/knowledge.json")
