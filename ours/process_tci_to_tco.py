@@ -1,7 +1,7 @@
 # token classification任务
 
 import json
-from token_classification import eval_model
+from ours.token_classification import eval_model
 from utils.arguments import arg_parser
 from transformers import AutoModelForTokenClassification, AutoTokenizer
 import torch
@@ -27,7 +27,8 @@ def token_classification_with_algorithm(tco, knowledge):
     # 所有可以补的标签：
     # 交易品种、交易方式、结合规则、结果、系统、or、时间、价格、数量、op
     # 还需要将标签修复完整
-    for rule in tco:
+    HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
+    for ri, rule in enumerate(tco):
         text, label = rule["text"], rule["label"].split(" ")
         # 交易品种
         types = []
@@ -56,9 +57,8 @@ def token_classification_with_algorithm(tco, knowledge):
         p3 = text.find("第", p2+1)
         p4 = text.find("条", p2+1)
 
-        while p1 != -1:
+        while p1 != -1 and p2 != -1:
             if p3>0 and p4>0 and p3-p2<=2:
-                p4 = p4 + p2 + 1
                 label = change(p1, p4+1, label, "结合规则")
             else:
                 label = change(p1, p2+1, label, "结合规则")
@@ -72,7 +72,6 @@ def token_classification_with_algorithm(tco, knowledge):
         p4 = text.find("条", p1+3)
         while p1 != -1:
             if p3>0 and p4>0 and p3-p2<=2:
-                p4 = p4 + p2 + 1
                 label = change(p1, p4+1, label, "结合规则")
             p1 = text.find("本规则", p1+3)
             p3 = text.find("第", p1+3)
@@ -80,7 +79,7 @@ def token_classification_with_algorithm(tco, knowledge):
 
         p1 = text.find("第")
         p2 = text.find("条")
-        while p1 != -1:
+        while p1 != -1 and p2 != -1:
             if "结合规则" in label[p1] and "结合规则" in label[p2]:
                 break
             label = change(p1, p2+1, label, "结合规则")
@@ -91,33 +90,33 @@ def token_classification_with_algorithm(tco, knowledge):
         p = text.find("可以")
         while p != -1:
             label = change(p, p+2, label, "结果")
-            p = text.find(t, p+2)
+            p = text.find("可以", p+2)
         p = text.find("不得")
         while p != -1:
             label = change(p, p+2, label, "结果")
-            p = text.find(t, p+2)
+            p = text.find("不得", p+2)
         p = text.find("不接受")
         while p != -1:
             label = change(p, p+3, label, "结果")
-            p = text.find(t, p+3)
+            p = text.find("不接受", p+3)
         p = text.find("有效")
         while p != -1:
             label = change(p, p+2, label, "结果")
-            p = text.find(t, p+2)
+            p = text.find("有效", p+2)
         # 系统
         p = text.find("本所")
         while p != -1:
             label = change(p, p+2, label, "系统")
-            p = text.find(t, p+2)
+            p = text.find("本所", p+2)
         # or
         p = text.find("或")
         while p != -1:
             label = change(p, p+1, label, "or")
-            p = text.find(t, p+1)
+            p = text.find("或", p+1)
         p = text.find("或者")
         while p != -1:
             label = change(p, p+2, label, "or")
-            p = text.find(t, p+2)
+            p = text.find("或者", p+2)
         # op
         types = []
         for key in knowledge:
@@ -132,10 +131,73 @@ def token_classification_with_algorithm(tco, knowledge):
 
 
         # 小修正，先分词，然后理论上同一组词应该具有相同的标签，如果连续不同的词具有相同的标签，应该是一个词
-        HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
+        
         doc = HanLP(text, tasks='srl')
-        print(doc["srl"])
-
+        words = doc["tok/fine"]
+        index = [0]
+        i = 0
+        for word in words:
+            i += len(word)
+            index.append(i)
+        srl = doc["srl"]
+        for ss in srl:
+            for si in ss:
+                tok, role, begin, end = si[0], si[1], si[2], si[3]
+                begin_index, end_index = index[begin], index[end]
+                lab = label[begin_index:end_index]
+                # 同一个token，修复步骤：1、统计出现最多的标签，如果它不是交易方式，就将它标记为这个词的正确标签。一个trick是单字为O
+                if end_index - begin_index == 1:
+                    label[begin_index] = "O"
+                    continue
+                kvs = {}
+                for l in lab:
+                    if l != "O":
+                        l = l[2:]
+                    if l not in kvs:
+                        kvs[l] = 1
+                    else:
+                        kvs[l] += 1
+                a, b, c = "", 0, 0
+                for k in list(kvs.keys()):
+                    if kvs[k] > b:
+                        a = k
+                        b = kvs[k]
+                        c = b
+                if c >= 3:  # 限定改变，防止改变太多丢失信息
+                    continue
+                if a == "O":
+                    for i in range(begin_index, end_index):
+                        if "交易方式" not in label[i] and "交易品种" not in label[i]:
+                            label[i] = "O"
+                elif a != "交易方式" and a != "交易品种":
+                    for i in range(begin_index, end_index):
+                        if "交易方式" in label[i] and "交易品种" in label[i]:
+                            continue
+                        if i == begin_index:
+                            label[i] = "B-" + a
+                        else:
+                            label[i] = "I-" + a
+        # 2、结束之后扫描一遍，如果改标签了，则将开始标签设为B-，中间设为I-
+        last = "O"
+        for i, l in enumerate(label):
+            if i > 0 and "B-" in label[i-1]:
+                if l == "O" or l[2:] != last:
+                    label[i-1] = "O"
+                    last = "O"
+            if l != "O":
+                l = l[2:]
+                if l != last:
+                    label[i] = "B-" + l
+                else:
+                    label[i] = "I-" + l
+            last = l
+        
+        
+        # 3、所有标点符号标为O
+        punctuation = [",", ".", ";", "!", "?", "，", "。", "；", "！", "？"]
+        for i, t in enumerate(text):
+            if t in punctuation:
+                label[i] = "O"
 
 
 

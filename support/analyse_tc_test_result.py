@@ -43,4 +43,3 @@ if __name__ == "__main__":
             continue
         statistic(f"../log/{file}")
 
-
