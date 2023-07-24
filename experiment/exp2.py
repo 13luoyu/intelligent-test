@@ -95,8 +95,8 @@ def compute_BR_precision(our_file, correct_file, out_file):
 if __name__ == "__main__":
     # 生成BR
     # to_r1("data/exp1_2_output.json", "data/exp1_3_r1.mydsl", "../data/knowledge.json")
-    # to_r1("../data/rules.json", "data/exp1_3_correct.mydsl", "../data/knowledge.json")
+    to_r1("../data/rules.json", "data/exp1_3_correct.mydsl", "../data/knowledge.json")
     # 计算BR的数目
-    compute_BR_num("data/exp1_3_r1.mydsl", "data/exp1_3_result.log")
+    # compute_BR_num("data/exp1_3_r1.mydsl", "data/exp1_3_result.log")
     # 将BR中的约束子句提取出来，并与正确的用例比较，看准确率是多少
-    compute_BR_precision("data/exp1_3_r1.mydsl", "data/exp1_3_correct.mydsl", "data/exp1_3_result.log")
+    # compute_BR_precision("data/exp1_3_r1.mydsl", "data/exp1_3_correct.mydsl", "data/exp1_3_result.log")

@@ -13,9 +13,11 @@ def rule_back(tok_dir: str, rule_file: str):
             for data in datas:
                 begin_index = data["text"].find(rule["text"])
                 if begin_index != -1:
-                    data["label"][begin_index:begin_index + len(rule["text"])] = rule["label"]
+                    data_label = data["label"].split(" ")
+                    data_label[begin_index:begin_index + len(rule["text"])] = rule["label"].split(" ")
+                    data["label"] = " ".join(data_label)
         json.dump(datas, open(tok_dir + file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     
 
 
-rule_back("../data/业务规则/json_for_token_classification", "../data/rules.json")
+rule_back("../data/业务规则/json_for_token_classification/", "../data/rules.json")

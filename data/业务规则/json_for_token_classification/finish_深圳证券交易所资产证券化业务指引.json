@@ -127,17 +127,17 @@
     {
         "id": "第二十六条",
         "text": "资产支持证券每份面值为100元，计价单位为每百元面值的价格，单笔申报数量为整数份且不低于10000份，申报价格最小变动单位为0.01元。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 B-op B-数量 I-数量 I-数量 O B-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 B-op B-数量 I-数量 I-数量 O B-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value I-value I-value O"
     },
     {
         "id": "第二十七条",
         "text": "资产支持证券采用全价转让的方式，转让价格由买卖双方自行协议确定。资产支持证券转让可以当日回转。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-交易方式 I-交易方式 B-结果 I-结果 B-时间 I-时间 B-操作 I-操作 O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 O"
     },
     {
         "id": "第二十八条",
         "text": "本所接受资产支持证券转让申报的时间为每个交易日9:15至11:30、13:00至15:30，转让申报当日有效。",
-        "label": "B-系统 I-系统 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-时间 I-时间 B-结果 I-结果 O"
+        "label": "B-系统 I-系统 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易方式 I-交易方式 O O O O O O O"
     },
     {
         "id": "第二十九条",
@@ -147,17 +147,17 @@
     {
         "id": "第三十条",
         "text": "意向申报指令应当包括证券账户号码、证券代码、买卖方向和本方交易单元代码等内容。意向申报不承担成交义务，意向申报指令可以撤销。",
-        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-结果 I-结果 B-操作 I-操作 O"
+        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O O O B-value I-value I-value I-value O O O O B-操作 I-操作 O"
     },
     {
         "id": "第三十一条",
         "text": "定价申报指令应当包括证券账户号码、证券代码、买卖方向、价格、数量和本方交易单元代码等内容。市场所有参与者可以提交成交申报，按指定的价格与定价申报全部或部分成交，本所按时间优先顺序进行成交确认。定价申报的未成交部分可以撤销。定价申报每笔成交的转让数量，应当满足资产支持证券转让的最低数量要求。",
-        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-系统 I-系统 O B-value I-value I-value I-value I-value I-value O O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O B-操作 I-操作 B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-价格 I-价格 I-价格 I-价格 I-价格 O B-value I-value I-value I-value B-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 O B-系统 I-系统 O B-value I-value I-value I-value O O O O O O O O O B-value I-value I-value I-value O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O B-操作 I-操作 B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
     },
     {
         "id": "第三十二条",
         "text": "成交申报指令当包括证券账户号码、证券代码、买卖方向、价格、数量、对手方交易单元代码、约定号等内容。成交申报要求明确指定价格和数量。成交申报可以撤销，但在对手方提交匹配的申报后不得撤销。本所对约定号、证券代码、买卖方向、价格、数量等各项要素均匹配的成交申报进行成交确认。",
-        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-结果 I-结果 B-操作 I-操作 O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 B-结果 I-结果 B-操作 I-操作 O B-系统 I-系统 B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O"
+        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-结果 I-结果 B-操作 I-操作 O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 B-结果 I-结果 B-操作 I-操作 O B-系统 I-系统 O I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O"
     },
     {
         "id": "第三十三条",
@@ -177,7 +177,7 @@
     {
         "id": "第三十六条",
         "text": "资产支持证券以当日该证券所有转让的成交量加权平均价为收盘价。当日无成交的，以前收盘价为当日收盘价。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key O B-状态 I-状态 I-状态 I-状态 I-状态 O O O B-价格 I-价格 I-价格 I-价格 O B-时间 I-时间 B-key I-key I-key O"
     },
     {
         "id": "第三十七条",

@@ -10,6 +10,7 @@ def check_length(file):
         text_length = len(rule["text"])
         label_length = len(rule["label"].split(" "))
         if text_length != label_length:
+            print(file)
             print(text_length, label_length)
             print(f"{rule['text']}\n")
     print("Done!")
@@ -17,3 +18,10 @@ def check_length(file):
 
 if __name__ == "__main__":
     check_length("../data/rules.json")
+    for file in os.listdir("../data/业务规则/json_for_token_classification/"):
+        if "finish" in file:
+            check_length("../data/业务规则/json_for_token_classification/" + file)
+    
+    for file in os.listdir("../data/"):
+        if "tc" in file and ".json" in file:
+            check_length("../data/" + file)

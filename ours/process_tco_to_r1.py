@@ -80,7 +80,7 @@ def read_OBI_to_rule(texts, labels):
     sentence_separate_1 = []  # 记录；之后的下一个{label:text}在stack中的位置
     sentence_separate_2 = []  # 记录。之后的下一个{label:text}在stack中的位置
     sentence_separate_3 = []  # 记录，之后的下一个{label:text}在stack中的位置
-    sentence_and = []  # 记录"且"之后的下一个{label:text}在stack中的位置
+    sentence_and = []  # 记录"且"、"但"之后的下一个{label:text}在stack中的位置
     operator_relation = []  # 0 无关，1 向（给），2 与，3 作为，记录所有向（与，作为）操作人的信息
     a, b = 0, 0  # a, b为一个text在句子中的开始和结束位置
     last_label = "O"
@@ -135,7 +135,7 @@ def read_OBI_to_rule(texts, labels):
             sentence_separate_2.append(len(stack))  # 记录。之后的下一个{label:text}在stack中的位置
         elif texts[i] == "，":
             sentence_separate_3.append(len(stack))  # 记录，之后的下一个{label:text}在stack中的位置
-        elif texts[i] == "且":
+        elif texts[i] == "且" or texts[i] == "但":
             sentence_and.append(len(stack))
     sentence_separate_2.pop()  # 句子的结尾一定是。而这个。无用
     with open("r1_step1.txt", "a", encoding="utf-8") as f:
@@ -217,6 +217,10 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                     else:
                         ...  # 冲突
                 elif key == "数量":  # 如果是数量约束，可能是一条规则中对数量有多条约束
+                    special = False
+                    for k in ss[-1]:
+                        if "一次性" in k[list(k.keys())[0]]:
+                            special = True
                     if last_or > 0:
                         last_or = 0
                         rule_num = len(ss[ss_now:])
@@ -227,7 +231,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                     elif cnt in sentence_and:  # 对数量多条约束
                         s[i][key] += ","+value
                         if_add = True
-                    else:
+                    elif special:
                         # 特殊处理，卖出时不足10万元面额部分，一次性申报
                         # 创建新规则
                         new_rule = []
@@ -257,6 +261,15 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         ss.append(new_rule)
                         if_add = True  # 不冲突，无需分裂
                         break
+                    else:
+                        # 如果读到一个数量时，上面的数量不是数值，则不冲突
+                        for si in s[::-1]:
+                            ki = list(si.keys())[0]
+                            vi = si[ki]
+                            if ki == "数量":
+                                if len(re.findall(r"\d+.\d+", vi)) == 0:
+                                    s.append({key:value})
+                                    if_add = True
                 elif key == "操作":
                     if last_or > 0:
                         last_or = last_or - 1
@@ -466,9 +479,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
             value = si[key]
             if key == "操作人":
                 operator_count += 1
-                if operator_count % 2 == 0:
-                    print(ss)
-                    print(operator_relation, operator_index)
+                if operator_count % 2 == 0 and operator_index in operator_relation:
                     if operator_relation[operator_index] == 1:
                         del si[key]
                         si["操作对象"] = value
@@ -764,8 +775,13 @@ def to_r1(input_file, output_file, knowledge_file):
         os.remove("r1_step1.txt")
     if os.path.exists("r1_step2.txt"):
         os.remove("r1_step2.txt")
+    unknown_id = 0
     for rule in rules:
-        id = rule["id"]
+        if 'id' in rule:
+            id = rule["id"]
+        else:
+            id = str(unknown_id)
+            unknown_id += 1
         texts = rule["text"]
         labels = rule["label"]
         

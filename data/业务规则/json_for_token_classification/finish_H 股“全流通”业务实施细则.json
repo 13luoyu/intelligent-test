@@ -32,7 +32,7 @@
     {
         "id": "第七条",
         "text": "投资者通过境内证券公司提交H股“全流通”股份的交易指令。境内证券公司应当选择一家香港证券公司，通过其将投资者的交易指令报送至联交所进行交易。境内未上市股份股东可增、减持本公司股份。交易达成后，中国结算及中国结算香港办理相关股份和资金的跨境清算交收。",
-        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 I-系统 I-系统 O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O O O O O O O O O O O O"
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-系统 I-系统 I-系统 O O B-操作 I-操作 O O O O O O O O O O O O O O O O O O O O O B-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 I-系统 I-系统 O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O O O O O O O O O O O O"
     },
     {
         "id": "第八条",
@@ -82,7 +82,7 @@
     {
         "id": "第十七条",
         "text": "深证通在深交所和联交所的共同交易且满足结算安排的日期（以下简称H股“全流通”交易日），提供交易委托指令传递等服务。每个交易日，投资者可在香港市场开市时向境内证券公司提交交易委托指令。其间，委托未成交部分可以撤销。",
-        "label": "B-系统 I-系统 I-系统 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-时间 I-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O"
+        "label": "B-系统 I-系统 I-系统 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-时间 I-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-结果 I-结果 B-操作 I-操作 O"
     },
     {
         "id": "第十八条",
@@ -112,7 +112,7 @@
     {
         "id": "第二十三条",
         "text": "中国结算接受境内证券公司的委托，通过中国结算香港完成与香港证券公司的证券和资金交收。中国结算根据中国结算香港的交收结果，与境内结算参与人完成结算。",
-        "label": "B-系统 I-系统 I-系统 I-系统 O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O O O O B-系统 I-系统 I-系统 I-系统 O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O"
+        "label": "B-系统 I-系统 I-系统 I-系统 O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O O O O B-系统 I-系统 I-系统 I-系统 O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 O"
     },
     {
         "id": "第二十四条",

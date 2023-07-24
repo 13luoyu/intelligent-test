@@ -27,22 +27,22 @@
     {
         "id": "第六条",
         "text": "封闭式基金、交易型开放式基金（以下简称“ETF”）、上市开放式基金（以下简称“LOF”）、分级基金及本所认可的其他基金品种，可以在本所上市交易。封闭式基金是指在本所上市交易、基金份额总额在基金合同期限内固定不变的基金。ETF是指在本所上市交易的开放式基金，其基金份额使用组合证券、现金或者基金合同约定的其他对价按照“份额申购、份额赎回”的方式进行申赎。LOF是指在本所上市交易的开放式基金，其基金份额使用现金按照“金额申购、份额赎回”的方式进行申赎。分级基金是指通过基金合同约定的风险收益分配方式，将基金份额分为预期风险收益不同的子份额，其中全部或者部分类别份额在本所上市交易或者申赎的基金。根据基金合同的约定，分级基金的基础份额和子份额之间可以通过分拆、合并进行配对转换，分拆、合并的具体规则由本所或者其他办理场所另行规定。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O B-交易品种 I-交易品种 I-交易品种 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O B-交易品种 I-交易品种 I-交易品种 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-op I-op I-op I-op O B-key I-key O B-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O B-key I-key I-key I-key I-key O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-value I-value I-value I-value O B-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-key I-key O O B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O B-key I-key I-key I-key I-key O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-key I-key O O B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 O O O B-数量 I-数量 B-or I-or B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O B-操作 I-操作 I-操作 I-操作 B-or I-or B-操作 I-操作 O B-key I-key O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-数量 I-数量 I-数量 I-数量 O B-数量 I-数量 I-数量 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O B-交易品种 I-交易品种 I-交易品种 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O B-交易品种 I-交易品种 I-交易品种 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-op I-op I-op I-op O B-key I-key O B-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O B-key I-key I-key I-key I-key O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-value I-value I-value I-value O B-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-key I-key O O B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O B-key I-key I-key I-key I-key O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-key I-key O O B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 O O O B-数量 I-数量 B-or I-or B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O B-操作 I-操作 I-操作 I-操作 B-or I-or B-操作 I-操作 O B-key I-key O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-数量 I-数量 I-数量 I-数量 O B-数量 I-数量 I-数量 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
     },
     {
         "id": "第七条",
         "text": "基金份额交易可以采用竞价交易、大宗交易等方式。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-key I-key O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-结果 I-结果 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O"
     },
     {
         "id": "第八条",
         "text": "基金份额交易的申报价格最小变动单位为0.001元。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value I-value I-value I-value O"
     },
     {
         "id": "第九条",
         "text": "基金份额上市首日，其即时行情显示的前收盘价为基金管理人最近公布并向本所提供的基金份额净值或者参考净值（四舍五入至0.001元），其准确性由基金管理人负责。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-时间 I-时间 I-时间 I-时间 O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-时间 I-时间 O O O O O O O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 B-or I-or B-价格 I-价格 I-价格 I-价格 O B-value I-value I-value I-value B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-时间 I-时间 I-时间 I-时间 O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-时间 I-时间 O O O O B-系统 I-系统 O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 B-or I-or B-价格 I-价格 I-价格 I-价格 O B-value I-value I-value I-value B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O"
     },
     {
         "id": "第十条",
@@ -77,7 +77,7 @@
     {
         "id": "第十六条",
         "text": "基金份额采用协议大宗交易方式的，本所接受申报时间为每个交易日9︰15至11︰30、13︰00至15︰30，成交确认时间为每个交易日15︰00至15︰30。基金份额采用盘后定价大宗交易方式的，本所接受申报时间为每个交易日15：05至15：30。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O B-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-系统 I-系统 O O B-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-系统 I-系统 B-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O"
     },
     {
         "id": "第十七条",
@@ -87,12 +87,12 @@
     {
         "id": "第十八条",
         "text": "ETF、LOF、挂牌申赎开放式基金及本所认可的其他基金品种可以通过本所认购和申赎，封闭式基金可以通过本所认购。挂牌申赎开放式基金是指通过本所办理申赎但不上市交易的开放式基金。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O B-操作 I-操作 O B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O B-操作 I-操作 O O B-操作 I-操作 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O B-操作 I-操作 O B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-系统 I-系统 B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O B-操作 I-操作 O O B-操作 I-操作 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O"
     },
     {
         "id": "第十九条",
         "text": "基金管理人通过本所办理基金份额认购和申赎业务的，应当向本所提交申请，并和本所签署协议。",
-        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 O B-操作 I-操作 O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 O O O O O B-操作 I-操作 B-操作部分 I-操作部分 O"
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-系统 I-系统 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 O B-操作 I-操作 O O O O O O O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 O O O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 O"
     },
     {
         "id": "第二十条",
@@ -132,7 +132,7 @@
     {
         "id": "第二十七条",
         "text": "投资者在本所认购基金份额应当使用现金。",
-        "label": "B-操作人 I-操作人 I-操作人 O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value O"
+        "label": "B-操作人 I-操作人 I-操作人 O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value O"
     },
     {
         "id": "第二十八条",
@@ -147,7 +147,7 @@
     {
         "id": "第三十条",
         "text": "基金管理人应当于每日开市前向本所提供ETF申赎清单。申赎清单的格式和内容应当符合本所相关规定，基金管理人应当保证申赎清单内容的真实、准确、完整。本所根据基金合同和基金招募说明书的规定，按照基金管理人提供的申赎清单，对符合要求的申赎申报予以办理；对不符合要求的申赎申报作无效申报处理。",
-        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O B-时间 I-时间 I-时间 I-时间 I-时间 O O O B-操作 I-操作 B-交易品种 I-交易品种 I-交易品种 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O B-时间 I-时间 I-时间 I-时间 I-时间 O B-系统 I-系统 B-操作 I-操作 B-交易品种 I-交易品种 I-交易品种 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
     },
     {
         "id": "第三十一条",
@@ -177,7 +177,7 @@
     {
         "id": "第三十六条",
         "text": "投资者当日通过竞价交易方式买入（以下简称“竞价买入”）的债券ETF份额、黄金ETF份额、上市交易的货币市场基金份额、跨境ETF份额、跨境LOF份额和商品期货ETF份额，当日可以卖出。投资者当日通过大宗交易方式买入（以下简称“大宗买入”）的债券ETF份额、黄金ETF份额、上市交易的货币市场基金份额、跨境ETF份额、跨境LOF份额和商品期货ETF份额，当日可以通过大宗交易方式卖出（以下简称“大宗卖出”），次一交易日可以通过竞价交易方式卖出（以下简称“竞价卖出”）。本条第一款、第二款所述跨境ETF份额和跨境LOF份额仅限于所跟踪指数成份证券或投资标的实施当日回转交易的开放式基金份额。投资者当日买入的其他基金份额，次一交易日可以卖出。",
-        "label": "B-操作人 I-操作人 I-操作人 O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作 I-操作 O O O O O O B-操作 I-操作 I-操作 I-操作 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-时间 I-时间 O O B-操作 I-操作 O B-操作人 I-操作人 I-操作人 B-时间 I-时间 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作 I-操作 O O O O O O B-操作 I-操作 I-操作 I-操作 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-时间 I-时间 O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 O O O O O O B-操作 I-操作 I-操作 I-操作 O O O B-时间 I-时间 I-时间 I-时间 I-时间 O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作 I-操作 O O O O O O B-操作 I-操作 I-操作 I-操作 O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结合规则 I-结合规则 I-结合规则 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O B-value I-value I-value I-value I-value I-value B-or B-value I-value I-value O O O B-value I-value I-value I-value O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-操作人 I-操作人 I-操作人 B-时间 I-时间 B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 O"
+        "label": "B-操作人 I-操作人 I-操作人 B-时间 I-时间 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作 I-操作 O O O O O O B-操作 I-操作 I-操作 I-操作 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-时间 I-时间 O O B-操作 I-操作 O B-操作人 I-操作人 I-操作人 B-时间 I-时间 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作 I-操作 O O O O O O B-操作 I-操作 I-操作 I-操作 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-时间 I-时间 O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 O O O O O O B-操作 I-操作 I-操作 I-操作 O O O B-时间 I-时间 I-时间 I-时间 I-时间 O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作 I-操作 O O O O O O B-操作 I-操作 I-操作 I-操作 O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结合规则 I-结合规则 I-结合规则 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O B-value I-value I-value I-value I-value I-value B-or B-value I-value I-value O O O B-value I-value I-value I-value O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-操作人 I-操作人 I-操作人 B-时间 I-时间 B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 O"
     },
     {
         "id": "第三十七条",
