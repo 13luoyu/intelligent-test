@@ -1,6 +1,6 @@
 import json
 from ours.process_tci_to_tco import token_classification
-import time
+from experiment.compare_BR import str_same
 
 # 将信息抽取任务的预测和真实值放在一个文件中
 def integrate_tc(real_file, hat_file, out_file):
@@ -23,19 +23,20 @@ def integrate_tc(real_file, hat_file, out_file):
 
 # 给定信息抽取模型的输出，计算正确标签的信息数、模型预测的信息数、正确的数目，
 # 并由此计算正确率、召回率以及F1分数。
-def evaluate(in_file, out_file):
+def evaluate(in_file, out_file, threshold=0.8):
     with open(in_file, "r", encoding="utf-8") as f:
         lines = f.readlines()
     # 该条正确的信息数、预测的信息数、正确的数目
     real_info, hat_info, correct_info = [], [], []
     for line in lines:
+        if "text" in line:
+            text = line[6:-1]
         if "ir hat" in line:
             line = line[8:-1]
             hats = line.split(" ")
         elif "ir real" in line:
             line = line[9:-1]
             reals = line.split(" ")
-            # 如果label、开始位置、结束位置、中间每个元素完全一样，视为信息正确
             # 首先从hats和reals中提取信息，存入数组。数组的每个元素为（信息，信息开始，信息结束）
 
             def compute_info(labels):
@@ -46,14 +47,14 @@ def evaluate(in_file, out_file):
                     if label == "O":
                         if last != "O":
                             b = i
-                            infos.append((last, a, b))
+                            infos.append((last, text[a:b]))
                         last = label
                     else:
                         l = label[2:]
                         if "B-" in label:
                             if last != "O":
                                 b = i
-                                infos.append((last, a, b))
+                                infos.append((last, text[a:b]))
                             a = i
                             last = l
                         else:
@@ -67,24 +68,32 @@ def evaluate(in_file, out_file):
 
             correct_num = 0
             for info in info_hats:
-                if info in info_reals:
-                    correct_num += 1
+                # 这是精确匹配
+                # if info in info_reals:
+                    # correct_num += 1
+                # 模糊匹配，信息只要大部分被抽取出来就认为正确
+                for info1 in info_reals:
+                    if str_same(info[1], info1[1], threshold):
+                        correct_num += 1
+                        break
             correct_info.append(correct_num)
     real_sum, hat_sum, correct_sum = sum(real_info), sum(hat_info), sum(correct_info)
     precision = correct_sum / hat_sum
     recall = correct_sum / real_sum
     F1 = 2 * precision * recall / (precision + recall)
     with open(out_file, "w", encoding="utf-8") as f:
-        f.write(f"真实信息总数：{hat_sum}，预测信息总数：{real_sum}，其中完全正确的信息数：{correct_sum}，正确率{round(precision, 3)}，召回率{round(recall, 3)}，F1分数{round(F1, 3)}。")
-    print(f"真实信息总数：{hat_sum}，预测信息总数：{real_sum}，其中完全正确的信息数：{correct_sum}，正确率{round(precision, 3)}，召回率{round(recall, 3)}，F1分数{round(F1, 3)}。")
+        f.write(f"真实信息总数：{hat_sum}，预测信息总数：{real_sum}，其中正确的信息数：{correct_sum}，正确率{round(precision, 4)}，召回率{round(recall, 4)}，F1分数{round(F1, 4)}。")
+    print(f"真实信息总数：{hat_sum}，预测信息总数：{real_sum}，其中完全正确的信息数：{correct_sum}，正确率{round(precision, 4)}，召回率{round(recall, 4)}，F1分数{round(F1, 4)}。")
 
 
 
 
 if __name__ == "__main__":
     # 执行信息抽取
-    token_classification("data/exp1_2_input.json", "data/exp1_2_output.json", "../data/knowledge.json", "../model/ours/best_1689080207", "../data/tc_data.dict")
+    rules = json.load(open("../data/rules.json", "r", encoding="utf-8"))
+    json.dump(rules, open("data/exp1_2_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    token_classification("data/exp1_2_input.json", "data/exp1_2_output.json", "../data/knowledge.json", "../model/ours/best_1690329462", "../data/tc_data.dict")
     # 整合预测与真实值
     integrate_tc("../data/rules.json", "data/exp1_2_output.json", "data/exp1_2_compare.log")
     # 评估
-    evaluate("data/exp1_2_compare.log", "data/exp1_2_result.log")
+    evaluate("data/exp1_2_compare.log", "data/exp1_2_result.log", threshold=0.6)
