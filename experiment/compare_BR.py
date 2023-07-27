@@ -1,5 +1,4 @@
 import nltk
-from transfer.mydsl_to_rules import read_file
 import pprint
 
 def edit_distance(s1, s2):
@@ -197,18 +196,81 @@ def read_correct_rules(correct_file):
 
 
 
+def read_our_rules(file):
+    with open(file, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    rules = []
+    ids = []
+    constraints = []
+    last_rule_id = ""
+    for line in lines:
+        l = line.strip().split()
+        if len(l) == 0:
+            continue
+        if l[0] == "rule":
+            rule_id = '.'.join(l[1].split(".")[:-1])
+            if rule_id != last_rule_id:
+                if last_rule_id != "":
+                    rules.append(constraints)
+                    constraints = []
+                ids.append(rule_id)
+                last_rule_id = rule_id
+        elif l[0] == "if":
+            i = 1
+            while i < len(l):
+                constraint = dict()
+                
+                constraint["key"] = l[i]
+                if l[i] == "单笔最大申报数量":
+                    constraint["key"] = "申报数量"
+                    l[i] = "申报数量"
+                constraint["value"] = l[i + 2][1:-1]
+                if l[i+1] != "is":
+                    constraint["value"] = str(l[i+1]) + str(l[i + 2][1:-1])
+                if constraint not in constraints:
+                    constraints.append(constraint)
+                i = i + 4
+        elif l[0] == "then":
+            i = 1
+            while i < len(l):
+                result = dict()
+                result["key"] = l[i]
+                result["value"] = l[i + 2][1:-1]
+                if "不" in result["value"]:  # 默认result["key"][0] == "不"
+                    result["else"] = result["value"][1:]
+                else: # then 结果 is "成功"
+                    result["else"] = "不" + result["value"]
+                if result not in constraints:
+                    constraints.append(result)
+                i += 4
+    
+    rules.append(constraints)
+    return ids, rules
+
+
 # 思路是这样的：
 # 对于一条自然语言规则，假设对于correct，它的if和then中有6个要素，对于other，它有3个要素，那么
 # 计算正确率时，正确率=正确要素数/6，
 # 如果某个标签具有多个取值，那么按比例计算，比如某标签可以取值a、b，测试用例中只有a，那么这里的要素数=0.5
 def compute_BR_precision(our_file, correct_file, fp):
-    correct_ids, correct_rules, correct_indexs = read_correct_rules(correct_file)
-    if "sage" in our_file or "claude" in our_file or "chatgpt" in our_file:
-        our_ids, our_rules, our_indexs = read_llm_result(our_file)
-    else:
-        _, _, our_rules = read_file(our_file)
+    if "exp1_3" in our_file:
+        if "sage" in our_file or "claude" in our_file or "chatgpt" in our_file:
+            our_ids, our_rules, our_indexs = read_llm_result(our_file)
+        else:
+            our_ids, our_rules = read_our_rules(our_file)
+        correct_ids, correct_rules= read_our_rules(correct_file)
+        correct_indexs = [0]
+    elif "exp2" in our_file:
+        if "sage" in our_file or "claude" in our_file or "chatgpt" in our_file:
+            our_ids, our_rules, our_indexs = read_llm_result(our_file)
+        else:
+            our_ids, our_rules = read_our_rules(our_file)
+        correct_ids, correct_rules, correct_indexs = read_correct_rules(correct_file)
+
     a, b = 0, 0
     total, correct = [], []
+    # print(len(correct_ids), len(correct_rules))
+    # print(len(our_ids), len(our_rules))
     # 将同一id的所有约束去重地混合在一起，然后比较是否缺失，是否正确
     while a < len(correct_rules):
         c_id = correct_ids[a]
@@ -220,8 +282,8 @@ def compute_BR_precision(our_file, correct_file, fp):
                 break
             b += 1
         
-        cconstraints = sorted(cconstraints, key=lambda a:a["key"])
-        oconstraints = sorted(oconstraints, key=lambda a:a["key"])
+        # cconstraints = sorted(cconstraints, key=lambda a:a["key"])
+        # oconstraints = sorted(oconstraints, key=lambda a:a["key"])
         # 比较cconstraints中的每个元素，oconstraints中是否有，是否正确，正确的话count+1
         count = 0
         total.append(len(cconstraints))
@@ -240,8 +302,9 @@ def compute_BR_precision(our_file, correct_file, fp):
             print(f"数据集{index}，约束数目：{c_num}，正确数目：{co_num}，正确率：{rate}")
             fp.write(f"数据集{index}，约束数目：{c_num}，正确数目：{co_num}，正确率：{rate}\n")
     
-    # print(f"约束数目：{sum(total)}，其中正确的数目：{sum(correct)}，正确率：{round(float(sum(correct))/float(sum(total)), 3)}")
-    # fp.write(f"约束数目：{sum(total)}，其中正确的数目：{sum(correct)}，正确率：{round(float(sum(correct))/float(sum(total)), 3)}")
+    # 全部
+    print(f"总约束数目：{sum(total)}，其中正确的数目：{sum(correct)}，正确率：{round(float(sum(correct))/float(sum(total)), 4)}")
+    fp.write(f"总约束数目：{sum(total)}，其中正确的数目：{sum(correct)}，正确率：{round(float(sum(correct))/float(sum(total)), 4)}")
 
 
 
@@ -249,6 +312,7 @@ def compute_BR_num(BR_file, fp):
     with open(BR_file, "r", encoding="utf-8") as f:
         lines = f.readlines()
     index = 0
+    count = 0
     for line in lines:
         if "数据集" in line or "dataset" in line:
             if index > 0:

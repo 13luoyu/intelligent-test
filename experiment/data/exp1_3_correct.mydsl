@@ -243,6 +243,16 @@ focus: 订单连续性操作
 	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 事件 is "经交易系统确认成交后" and 操作 is "改变" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 约束 is "多边净额结算方式"
 	then 结果 is "不得"
 
+rule 3.4.3_0.5
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 事件 is "经交易系统确认成交后" and 约束 is "多边净额结算方式"
+	then 结果 is "除外"
+
+rule 3.4.3_0.6
+focus: 订单连续性操作
+	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 事件 is "经交易系统确认成交后" and 约束 is "多边净额结算方式"
+	then 结果 is "除外"
+
 rule 4.1.2_3.1
 focus: 订单连续性操作
 	if 状态 is "未成交的" and 操作部分 is "交易申报" and 操作 is "自动进入" and 匹配成交方式 is "连续匹配" and 时间 is "集合匹配期间"
@@ -463,6 +473,16 @@ focus: 订单连续性操作
 	if 操作人 is "受价方" and 操作 is "输入" and 操作部分 is "拟接受的申报数量" and 约束 is "报价方报出的交易方向的相反方向"
 	then 结果 is "成功"
 
+rule 4.2.6_1.1
+focus: 订单连续性操作
+	if 结合规则 is "本规则第3.3.4条,第4.2.4条,第4.2.5条"
+	then 结果 is "成功"
+
+rule 4.2.6_2.1
+focus: 订单连续性操作
+	if 交易方式 is "点击成交" and 约束 is "受价方输入的数量" and 询价请求要素 is "结算方式" and 询价请求要素 is "结算周期" and 约束 is "报价方所报价格"
+	then 结果 is "成交"
+
 rule 4.2.7_0.1
 focus: 订单连续性操作
 	if 操作人 is "报价方" and 事件 is "发出报价后" and 操作部分 is "未成交部分" and 操作 is "修改" and 操作部分 is "价格和数量等报价要素"
@@ -483,6 +503,11 @@ focus: 订单连续性操作
 	if 债券交易的结算方式 is "多边净额结算" and 操作人 is "报价方" and 系统 is "本所" and 匹配成交方式 is "连续匹配" and 操作 is "未设置" and 操作部分 is "全额成交要求" and 时间 is "连续匹配阶段的整时点"
 	then 结果 is "可以"
 
+rule 4.2.8_0.4
+focus: 订单连续性操作
+	if 债券交易的结算方式 is "多边净额结算" and 操作人 is "报价方" and 系统 is "本所"
+	then 结果 is "可以"
+
 rule 4.3.2_0.1
 focus: 订单连续性操作
 	if 操作人 is "询价方" and 操作人 is "做市商" and 操作 is "发送" and 操作部分 is "询价请求"
@@ -497,6 +522,11 @@ rule 4.3.3_0.1
 focus: 订单连续性操作
 	if 操作人 is "被询价方" and 约束 is "询价请求要素" and 操作部分 is "询价请求" and 操作 is "回复" and 约束 is "询价请求交易方向的相反方向"
 	then 结果 is "成功"
+
+rule 4.3.4_0.1
+focus: 订单连续性操作
+	if 事件 is "询价方选择询价回复并确认后" and 约束 is "询价方确认的数量、价格、结算方式与结算周期"
+	then 结果 is "成交"
 
 rule 4.3.5_0.1
 focus: 订单连续性操作
@@ -588,6 +618,11 @@ focus: 数量
 	if 中标方式 is "单一主体中标" and 操作人 is "应价方" and 价格 is "最优出价" and 数量 is "该笔竞买的全部数量"
 	then 结果 is "成交"
 
+rule 4.4.8_2.1
+focus: 订单连续性操作
+	if 状态 is "最优出价存在多笔应价申报" and 约束 is "时间优先原则"
+	then 结果 is "成交"
+
 rule 4.4.8_3.1
 focus: 订单连续性操作
 	if 系统 is "交易系统" and 操作部分 is "有效应价申报按价格从优到劣" and 操作 is "排序" and 操作 is "汇总" and 操作部分 is "应价申报累计数量" and 约束 is "多主体中标方式"
@@ -627,6 +662,11 @@ rule 4.4.8_8.2
 focus: 数量
 	if 价格 等于 "边际价格" and 成交数量 is "以各应价申报数量为权重按舍去法进行边际中标量的初次分配"
 	then 结果 is "全部成交"
+
+rule 4.4.8_9.1
+focus: 订单连续性操作
+	if 事件 is "初次分配完成后" and 状态 is "有剩余尾量" and 约束 is "时间优先原则"
+	then 结果 is "成功"
 
 rule 4.4.10_0.1
 focus: 订单连续性操作
@@ -788,6 +828,21 @@ focus: 订单连续性操作
 	if 操作人 is "发行人" and 状态 is "拟开展债券回售后转售业务" and 约束 is "相关安排" and 操作 is "转售" and 约束 is "本所认可的其他方式"
 	then 结果 is "成功"
 
+rule 5.2.3_0.1
+focus: 订单连续性操作
+	if 约束 is "债券分期偿还" and 约束 is "减少实际面额"
+	then 结果 is "成功"
+
+rule 5.2.3_1.1
+focus: 订单连续性操作
+	if 系统 is "本所" and 约束 is "减少持仓"
+	then 结果 is "成功"
+
+rule 5.2.3_1.2
+focus: 订单连续性操作
+	if 系统 is "本所" and 约束 is "其他方式"
+	then 结果 is "成功"
+
 rule 5.2.3_2.1
 focus: 价格
 	if 约束 is "债券分期偿还" and 约束 is "减少实际面额" and 数量 不变 "债券持仓数量" and 价格 is "债券实际面额" and 价格 is "100元×未偿还比例"
@@ -938,6 +993,11 @@ focus: 数量
 	if 交易品种 is "资产支持证券" and 价格 is "计价单位为每百元面值的价格" and 数量 不低于 "单笔申报数量" and 数量 is "10000份" and 申报价格最小变动单位 is "0.01元"
 	then 结果 is "成功"
 
+rule 第二十七条_0.1
+focus: 订单连续性操作
+	if 交易品种 is "资产支持证券" and 交易方式 is "全价转让"
+	then 结果 is "成功"
+
 rule 第二十七条_1.1
 focus: 订单连续性操作
 	if 交易品种 is "资产支持证券" and 操作 is "当日回转"
@@ -946,6 +1006,11 @@ focus: 订单连续性操作
 rule 第二十八条_0.1
 focus: 时间
 	if 系统 is "本所" and 交易品种 is "资产支持证券" and 交易方式 is "转让申报" and 时间 is "每个交易日9:15至11:30、13:00至15:30"
+	then 结果 is "成功"
+
+rule 第二十八条_0.2
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易品种 is "资产支持证券" and 交易方式 is "转让"
 	then 结果 is "成功"
 
 rule 第三十条_1.1
@@ -968,10 +1033,20 @@ focus: 订单连续性操作
 	if 交易方式 is "定价申报" and 操作 is "满足" and 操作部分 is "最低数量要求" and 数量 is "每笔成交的转让数量"
 	then 结果 is "成功"
 
+rule 第三十一条_3.2
+focus: 订单连续性操作
+	if 交易方式 is "资产支持证券转让" and 操作部分 is "最低数量要求"
+	then 结果 is "成功"
+
 rule 第三十二条_2.1
 focus: 订单连续性操作
 	if 交易方式 is "成交申报" and 事件 is "对手方提交匹配的申报后" and 操作 is "撤销"
 	then 结果 is "可以"
+
+rule 第三十二条_2.2
+focus: 订单连续性操作
+	if 交易方式 is "成交申报"
+	then 结果 is "不得"
 
 rule 第三十二条_3.1
 focus: 订单连续性操作
@@ -1021,6 +1096,11 @@ focus: 订单连续性操作
 rule 第五条_0.4
 focus: 订单连续性操作
 	if 交易品种 is "可转债" and 操作 is "转让" and 申报价格类型 is "全价价格" and 操作 is "申报" and 操作 is "转让" and 约束 is "当日回转"
+	then 结果 is "成功"
+
+rule 第六条_1.1
+focus: 订单连续性操作
+	if 申报价格最小变动单位 is "0.001元"
 	then 结果 is "成功"
 
 rule 第九条_0.1
@@ -1106,6 +1186,11 @@ focus: 价格
 rule 第十四条_1.1
 focus: 订单连续性操作
 	if 状态 is "不能通过集合匹配产生" and 交易方式 is "连续匹配" and 操作 is "产生" and 连续匹配第一笔成交价 is "开盘价"
+	then 结果 is "成功"
+
+rule 第十四条_2.1
+focus: 订单连续性操作
+	if 交易方式 is "收盘集合匹配" and 状态 is "不能产生收盘价,未进行收盘集合匹配"
 	then 结果 is "成功"
 
 rule 第十四条_2.2
@@ -1378,6 +1463,11 @@ focus: 时间
 	if 交易方式 is "盘后定价成交方式" and 交易时间 is "每个交易日的15:05至15:30"
 	then 结果 is "成功"
 
+rule 第二十七条_3.1
+focus: 订单连续性操作
+	if 状态 is "当天全天停牌,停牌至收市"
+	then 结果 is "成功"
+
 rule 第二十七条_3.2
 focus: 订单连续性操作
 	if 交易品种 is "可转债" and 交易方式 is "盘后定价成交" and 操作 is "申报"
@@ -1432,6 +1522,11 @@ rule 第二十九条_6.1
 focus: 订单连续性操作
 	if 操作人 is "市场所有参与者" and 操作 is "提交成交申报" and 转让申报 is "定价申报" and 价格 is "指定的价格" and 约束 is "时间优先顺序" and 约束 is "时间优先顺序"
 	then 结果 is "可以"
+
+rule 第二十九条_6.2
+focus: 订单连续性操作
+	if 操作人 is "市场所有参与者" and 约束 is "时间优先顺序" and 约束 is "时间优先顺序"
+	then 结果 is "全部或者部分成交"
 
 rule 第二十九条_7.1
 focus: 价格
@@ -1503,6 +1598,21 @@ focus: 订单连续性操作
 	if 交易品种 is "向特定对象发行的可转债" and 操作部分 is "转让" and 操作 is "结算" and 约束 is "逐笔全额方式"
 	then 结果 is "成功"
 
+rule 第二十五条_0.1
+focus: 订单连续性操作
+	if 证券 is "深交所上市的A股股票或其他经深交所和中国结算认可的证券"
+	then 结果 is "成功"
+
+rule 第三十一条_1.1
+focus: 订单连续性操作
+	if 交易品种 is "补充质押的标的证券" and 交易品种 is "债券" and 证券上市交易品种 is "基金" and 约束 is "深交所上市的A股股票"
+	then 结果 is "成功"
+
+rule 第三十一条_1.2
+focus: 订单连续性操作
+	if 交易品种 is "补充质押的标的证券" and 交易品种 is "债券" and 约束 is "深交所上市的A股股票" and 约束 is "其他经深交所和中国结算认可的证券"
+	then 结果 is "成功"
+
 rule 第三十五条_0.1
 focus: 订单连续性操作
 	if 操作人 is "证券公司" and 系统 is "深交所交易系统" and 操作 is "提交" and 操作部分 is "交易申报" and 操作 is "即时确认成交" and 操作 is "发送" and 操作部分 is "成交回报" and 约束 is "融入方、融出方的委托"
@@ -1511,6 +1621,11 @@ focus: 订单连续性操作
 rule 第三十六条_0.1
 focus: 订单连续性操作
 	if 操作人 is "证券公司" and 操作 is "通过" and 操作部分 is "申请的指定交易单元申报股票质押回购交易指令"
+	then 结果 is "成功"
+
+rule 第四十三条_0.1
+focus: 订单连续性操作
+	if 交易品种 is "标的证券" and 状态 is "停牌" and 操作部分 is "股票质押回购交易"
 	then 结果 is "成功"
 
 rule 第四十四条_0.1
@@ -1613,6 +1728,26 @@ focus: 订单连续性操作
 	if 交易方式 is "购回交易" and 操作人 is "证券公司" and 操作部分 is "相应资金" and 操作 is "划入客户资金交收账户" and 时间 is "T日16:00前"
 	then 结果 is "成功"
 
+rule 第四十九条_0.1
+focus: 订单连续性操作
+	if 操作人 is "证券公司" and 事件 is "相关资金交收账户应付资金不足,可用质押证券不足的"
+	then 结果 is "成功"
+
+rule 第四十九条_0.2
+focus: 订单连续性操作
+	if 操作人 is "托管机构" and 事件 is "相关资金交收账户应付资金不足"
+	then 结果 is "成功"
+
+rule 第四十九条_0.3
+focus: 订单连续性操作
+	if 操作人 is "证券公司" and 操作人 is "融入方"
+	then 结果 is "成功"
+
+rule 第四十九条_0.4
+focus: 订单连续性操作
+	if 操作人 is "托管机构" and 操作人 is "融入方"
+	then 结果 is "成功"
+
 rule 第四十九条_0.5
 focus: 订单连续性操作
 	if 操作人 is "中国结算深圳分公司" and 操作 is "办理" and 操作部分 is "该笔交易的资金交收" and 操作部分 is "证券质押" and 操作部分 is "单笔交易" and 操作 is "部分交收处理"
@@ -1636,6 +1771,11 @@ focus: 订单连续性操作
 rule 第五十条_0.2
 focus: 订单连续性操作
 	if 交易方式 is "股票质押回购" and 操作人 is "中国结算深圳分公司" and 操作部分 is "融入方证券账户相应标的证券" and 操作 is "解除质押登记"
+	then 结果 is "成功"
+
+rule 第五十条_1.1
+focus: 订单连续性操作
+	if 事件 is "质押登记办理后" and 状态 is "质押不可卖出"
 	then 结果 is "成功"
 
 rule 第五十条_2.1
@@ -1773,6 +1913,11 @@ focus: 订单连续性操作
 	if 系统 is "深交所" and 每笔初始交易质押标的证券 is "面值1" and 操作 is "收取" and 操作部分 is "交易经手费" and 约束 is "100元人民币"
 	then 结果 is "成功"
 
+rule 第六条_0.1
+focus: 订单连续性操作
+	if 交易品种 is "约定股票质押回购" and 证券 is "深交所上市的A股股票或其他经深交所和中国结算认可的证券"
+	then 结果 is "成功"
+
 rule 第十五条_1.1
 focus: 订单连续性操作
 	if 交易品种 is "标的证券" and 时间 is "待购回期间" and 操作人 is "甲方" and 操作 is "提前购回" and 约束 is "跨市场吸收合并"
@@ -1781,6 +1926,11 @@ focus: 订单连续性操作
 rule 第十八条_2.1
 focus: 订单连续性操作
 	if 事件 is "解除限售条件满足时" and 操作人 is "甲方" and 操作 is "要求上市公司申请办理" and 交易品种 is "股票质押回购质押标的证券" and 操作部分 is "解除限售手续"
+	then 结果 is "成功"
+
+rule 第六条_0.1
+focus: 订单连续性操作
+	if 交易品种 is "约定股票质押回购" and 证券 is "深交所上市的A股股票或其他经深交所和中国结算认可的证券"
 	then 结果 is "成功"
 
 rule 第七条_0.1
@@ -1843,6 +1993,21 @@ focus: 订单连续性操作
 	if 事件 is "解除限售条件满足时" and 操作人 is "甲方" and 操作 is "要求上市公司申请办理" and 交易品种 is "股票质押回购质押标的证券" and 操作部分 is "解除限售手续"
 	then 结果 is "成功"
 
+rule 第十六条_0.1
+focus: 订单连续性操作
+	if 系统 is "深交所" and 交易品种 is "股票"
+	then 结果 is "成功"
+
+rule 第十六条_0.2
+focus: 订单连续性操作
+	if 系统 is "深交所" and 交易品种 is "基金"
+	then 结果 is "成功"
+
+rule 第十六条_0.3
+focus: 订单连续性操作
+	if 系统 is "深交所" and 交易品种 is "债券"
+	then 结果 is "成功"
+
 rule 第十六条_1.1
 focus: 订单连续性操作
 	if 交易品种 is "B股" and 操作人 is "持有该存量股的账户" and 操作 is "通过二级市场买入" and 交易方式 is "约定购回式证券交易"
@@ -1861,6 +2026,11 @@ focus: 订单连续性操作
 rule 第十六条_1.4
 focus: 订单连续性操作
 	if 交易品种 is "个人持有的解除限售存量股" and 操作人 is "持有该存量股的账户" and 操作 is "通过二级市场买入" and 交易方式 is "约定购回式证券交易"
+	then 结果 is "不得用于"
+
+rule 第十六条_1.5
+focus: 订单连续性操作
+	if 交易品种 is "该品种流通股" and 交易方式 is "约定购回式证券交易"
 	then 结果 is "不得用于"
 
 rule 第二十四条_0.1
@@ -2113,6 +2283,21 @@ focus: 订单连续性操作
 	if 操作人 is "证券公司与客户" and 操作 is "约定" and 约束 is "《客户协议》" and 交易品种 is "标的证券" and 操作人 is "客户" and 操作 is "提前购回" and 时间 is "待购回期间"
 	then 结果 is "成功"
 
+rule 第六条_0.1
+focus: 订单连续性操作
+	if 系统 is "深交所" and 交易品种 is "股票"
+	then 结果 is "成功"
+
+rule 第六条_0.2
+focus: 订单连续性操作
+	if 系统 is "深交所" and 交易品种 is "基金"
+	then 结果 is "成功"
+
+rule 第六条_0.3
+focus: 订单连续性操作
+	if 系统 is "深交所" and 交易品种 is "债券"
+	then 结果 is "成功"
+
 rule 第六条_1.1
 focus: 订单连续性操作
 	if 交易品种 is "B股" and 操作人 is "持有该存量股的账户" and 操作 is "通过二级市场买入" and 交易方式 is "约定购回式证券交易"
@@ -2131,6 +2316,11 @@ focus: 订单连续性操作
 rule 第六条_1.4
 focus: 订单连续性操作
 	if 交易品种 is "个人持有的解除限售存量股" and 操作人 is "持有该存量股的账户" and 操作 is "通过二级市场买入" and 交易方式 is "约定购回式证券交易"
+	then 结果 is "不得用于"
+
+rule 第六条_1.5
+focus: 订单连续性操作
+	if 交易品种 is "该品种流通股" and 交易方式 is "约定购回式证券交易"
 	then 结果 is "不得用于"
 
 rule 第六条_2.1
@@ -2177,6 +2367,11 @@ rule 第十二条_1.1
 focus: 订单连续性操作
 	if 操作人 is "乙方" and 操作 is "主动要求" and 操作部分 is "甲方提前购回" and 事件 is "发生标的证券涉及吸收合并、要约收购、权证发行、债转股、公司缩股或分立等事件" and 约束 is "客户协议约定的其他情形"
 	then 结果 is "不得"
+
+rule 第十二条_2.1
+focus: 订单连续性操作
+	if 事件 is "提前购回,延期购回"
+	then 结果 is "成功"
 
 rule 第十二条_2.2
 focus: 订单连续性操作
@@ -2242,6 +2437,11 @@ rule 第十四条_3.1
 focus: 订单连续性操作
 	if 需要返还的红利或利息金额 超过 "客户所有待购回交易金额" and 操作部分 is "超过部分" and 操作 is "通过调整购回交易金额实现返还" and 操作人 is "乙方" and 操作 is "通过其他途径返还"
 	then 结果 is "不再"
+
+rule 第十四条_4.1
+focus: 订单连续性操作
+	if 操作人 is "甲方"
+	then 结果 is "成功"
 
 rule 第十四条_5.1
 focus: 订单连续性操作
@@ -2318,6 +2518,11 @@ focus: 订单连续性操作
 	if 操作人 is "投资者" and 操作 is "使用" and 操作部分 is "中国结算为其开立的证券账户" and 交易品种 is "H股“全流通”"
 	then 结果 is "成功"
 
+rule 第七条_0.1
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易品种 is "H股“全流通”"
+	then 结果 is "成功"
+
 rule 第七条_1.1
 focus: 订单连续性操作
 	if 操作部分 is "投资者的交易指令报" and 系统 is "联交所" and 操作 is "交易"
@@ -2337,6 +2542,11 @@ rule 第十四条_1.3
 focus: 订单连续性操作
 	if 操作人 is "投资者" and 操作 is "办理" and 操作部分 is "股份的跨境转托管"
 	then 结果 is "不能"
+
+rule 第十六条_0.1
+focus: 订单连续性操作
+	if 操作人 is "投资者"
+	then 结果 is "成功"
 
 rule 第十六条_1.1
 focus: 订单连续性操作
@@ -2518,6 +2728,16 @@ focus: 订单连续性操作
 	if 事件 is "普通投资者首次认购或买入基础设施基金份额" and 操作人 is "基金管理人、本所会员" and 操作 is "签署" and 操作部分 is "风险揭示书" and 操作 is "确认" and 操作部分 is "其了解基础设施基金产品特征及主要风险"
 	then 结果 is "成功"
 
+rule 第三十三条_0.1
+focus: 订单连续性操作
+	if 交易方式 is "竞价" and 约束 is "委托" and 约束 is "申报" and 约束 is "申报" and 约束 is "成交" and 约束 is "成交" and 约束 is "交易时间" and 约束 is "交易时间"
+	then 结果 is "成功"
+
+rule 第三十三条_0.2
+focus: 订单连续性操作
+	if 交易方式 is "大宗" and 约束 is "委托" and 约束 is "申报" and 约束 is "申报" and 约束 is "成交" and 约束 is "成交" and 约束 is "交易时间" and 约束 is "交易时间"
+	then 结果 is "成功"
+
 rule 第三十六条_0.1
 focus: 订单连续性操作
 	if 事件 is "询价方选择询价回复并确认" and 操作 is "成交"
@@ -2543,6 +2763,16 @@ focus: 订单连续性操作
 	if 事件 is "询价请求部分成交" and 操作部分 is "未成交部分的询价请求及询价回复" and 操作 is "自动撤销"
 	then 结果 is "成功"
 
+rule 第三十八条_0.1
+focus: 订单连续性操作
+	if 状态 is "基础设施基金采用询价交易方式" and 申报价格最小变动单位 is "0.001元"
+	then 结果 is "成功"
+
+rule 第三十九条_0.1
+focus: 订单连续性操作
+	if 系统 is "本所"
+	then 结果 is "成功"
+
 rule 第四十条_0.1
 focus: 订单连续性操作
 	if 操作部分 is "基础设施基金询价交易的成交价格" and 操作 is "确定"
@@ -2561,6 +2791,26 @@ focus: 数量
 rule 第四十二条_0.2
 focus: 数量
 	if 状态 is "基础设施基金采用大宗或询价交易" and 数量 is "单笔申报数量应当为1000份或者其整数倍"
+	then 结果 is "成功"
+
+rule 第四十四条_0.1
+focus: 订单连续性操作
+	if 交易品种 is "基础设施基金" and 系统 is "本所"
+	then 结果 is "成功"
+
+rule 第四十四条_0.2
+focus: 订单连续性操作
+	if 交易品种 is "质押式协议回购"
+	then 结果 is "成功"
+
+rule 第四十四条_0.3
+focus: 订单连续性操作
+	if 交易品种 is "质押式三方回购"
+	then 结果 is "成功"
+
+rule 第四十四条_1.1
+focus: 订单连续性操作
+	if 操作人 is "原始权益人或其同一控制下的关联方" and 状态 is "限售届满后参与上述业务" and 质押的战略配售取得的基础设施基金份额 不得超过 "其所持全部该类份额的50%" and 系统 is "本所"
 	then 结果 is "成功"
 
 rule 第四十五条_0.1
@@ -2598,6 +2848,11 @@ focus: 订单连续性操作
 	if 操作人 is "投资者及其一致行动人" and 事件 is "拥有权益的基金份额达到基础设施基金份额的50%" and 状态 is "继续增持该基础设施基金份额" and 操作 is "参照" and 操作部分 is "《上市公司收购管理办法》" and 操作部分 is "其他有关上市公司收购及股份权益变动的有关规定" and 操作 is "采取" and 操作部分 is "要约方式" and 操作 is "进行并履行" and 操作部分 is "相应的程序或者义务" and 操作 is "可免除发出" and 操作 is "要约"
 	then 结果 is "成功"
 
+rule 第六十四条_1.1
+focus: 订单连续性操作
+	if 操作人 is "投资者及其一致行动人" and 状态 is "首次发售拥有权益的基金份额达到或超过基础设施基金份额50%,继续增持该基础设施基金份额"
+	then 结果 is "成功"
+
 rule 第六十四条_3.1
 focus: 订单连续性操作
 	if 状态 is "要约方式进行基础设施基金收购" and 事件 is "约收购期限届满至要约收购结果公告" and 交易品种 is "基础设施基金" and 操作 is "停牌"
@@ -2606,6 +2861,61 @@ focus: 订单连续性操作
 rule 第六十四条_4.1
 focus: 订单连续性操作
 	if 操作人 is "基金管理人" and 操作 is "披露" and 操作部分 is "要约收购结果公告日复牌" and 状态 is "复牌" and 时间 is "次一交易日起"
+	then 结果 is "成功"
+
+rule 第六十五条_1.1
+focus: 订单连续性操作
+	if 结合规则 is "本条第一款规定的条件,符合《上市公司收购管理办法》第六十三条列举情形之一,符合《上市公司收购管理办法》第六十三条列举情形之一" and 操作人 is "投资者及其一致行动人" and 拥有权益的基础设施基金份额 达到 "基础设施基金份额的50%"
+	then 结果 is "成功"
+
+rule 第六十五条_1.2
+focus: 订单连续性操作
+	if 结合规则 is "本条第一款规定的条件,符合《上市公司收购管理办法》第六十三条列举情形之一,符合《上市公司收购管理办法》第六十三条列举情形之一" and 操作人 is "投资者及其一致行动人" and 拥有权益的基础设施基金份额 超过 "基础设施基金份额的50%"
+	then 结果 is "成功"
+
+rule 第六条_0.1
+focus: 订单连续性操作
+	if 交易品种 is "封闭式基金" and 系统 is "本所"
+	then 结果 is "成功"
+
+rule 第六条_0.2
+focus: 订单连续性操作
+	if 交易品种 is "交易型开放式基金" and 系统 is "本所"
+	then 结果 is "成功"
+
+rule 第六条_0.3
+focus: 订单连续性操作
+	if 交易品种 is "ETF" and 系统 is "本所"
+	then 结果 is "成功"
+
+rule 第六条_0.4
+focus: 订单连续性操作
+	if 交易品种 is "上市开放式基金" and 系统 is "本所"
+	then 结果 is "成功"
+
+rule 第六条_0.5
+focus: 订单连续性操作
+	if 交易品种 is "LOF" and 系统 is "本所"
+	then 结果 is "成功"
+
+rule 第六条_0.6
+focus: 订单连续性操作
+	if 交易品种 is "分级基金" and 系统 is "本所"
+	then 结果 is "成功"
+
+rule 第七条_0.1
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 交易方式 is "竞价交易"
+	then 结果 is "可以"
+
+rule 第七条_0.2
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 交易方式 is "大宗交易"
+	then 结果 is "可以"
+
+rule 第八条_0.1
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 申报价格最小变动单位 is "0.001元"
 	then 结果 is "成功"
 
 rule 第九条_0.1
@@ -2736,6 +3046,11 @@ focus: 订单连续性操作
 rule 第十八条_0.4
 focus: 订单连续性操作
 	if 交易品种 is "本所认可的其他基金品种" and 操作 is "认购" and 操作 is "申赎" and 系统 is "本所"
+	then 结果 is "成功"
+
+rule 第十八条_0.5
+focus: 订单连续性操作
+	if 交易品种 is "封闭式基金" and 系统 is "本所"
 	then 结果 is "成功"
 
 rule 第十九条_0.1
@@ -3438,6 +3753,16 @@ focus: 订单连续性操作
 	if 操作人 is "投资者" and 操作 is "赎回" and 时间 is "交收前"
 	then 结果 is "不得"
 
+rule 2.4.1
+focus: 订单连续性操作
+	if 约束 is "未按照要求提供有关情况" and 约束 is "从事证券交易时间不足半年" and 约束 is "缺乏风险承担能力" and 约束 is "最近二十个交易日日均证券类资产低于50万元" and 约束 is "有重大违约记录的客户" and 约束 is "本会员股东、关联人，会员不得为其开立信用账户"
+	then 结果 is "成功"
+
+rule 2.7.1
+focus: 订单连续性操作
+	if 交易品种 is "融资融券交易" and 交易方式 is "竞价交易"
+	then 结果 is "成功"
+
 rule 2.9.1
 focus: 数量
 	if 状态 is "融资买入、融券卖出股票或者基金" and 数量 is "100股（份）或者其整数倍"
@@ -3465,7 +3790,22 @@ focus: 价格
 
 rule 2.10.1
 focus: 订单连续性操作
+	
+	then 结果 is "成功"
+
+rule 2.10.1
+focus: 订单连续性操作
 	if 操作人 is "投资者" and 操作 is "卖出" and 操作部分 is "通过其所有或者控制的证券账户所持有与其融入证券相同证券" and 时间 超出 "融券期间" and 数量 is "融券数量"
+	then 结果 is "成功"
+
+rule 2.10.1
+focus: 订单连续性操作
+	if 交易品种 is "交易型开放式基金" and 系统 is "经本"
+	then 结果 is "成功"
+
+rule 2.10.2
+focus: 订单连续性操作
+	if 系统 is "经本"
 	then 结果 is "成功"
 
 rule 2.11.1
@@ -3483,6 +3823,11 @@ focus: 订单连续性操作
 	if 操作人 is "投资者" and 事件 is "融资买入证券后" and 操作 is "卖券还款" and 操作人 is "会员" and 操作 is "偿还融入资金"
 	then 结果 is "可以"
 
+rule 2.12.1
+focus: 订单连续性操作
+	if 状态 is "以直接还款方式偿还融入资金" and 操作人 is "照会" and 操作人 is "与客"
+	then 结果 is "成功"
+
 rule 2.13.1
 focus: 订单连续性操作
 	if 操作人 is "投资者" and 事件 is "融券卖出后" and 操作 is "偿还" and 操作部分 is "融入证券" and 时间 is "自次一交易日起"
@@ -3495,12 +3840,32 @@ focus: 订单连续性操作
 
 rule 2.13.1
 focus: 订单连续性操作
+	if 状态 is "以直接还券方式偿还融入证券" and 操作人 is "会员" and 操作人 is "客户"
+	then 结果 is "成功"
+
+rule 2.13.1
+focus: 订单连续性操作
 	if 操作人 is "投资者" and 状态 is "融券卖出的证券暂停交易" and 约束 is "现金" and 操作人 is "会员" and 操作 is "偿还" and 操作部分 is "融入证券"
 	then 结果 is "成功"
 
 rule 2.14.1
 focus: 订单连续性操作
 	if 操作人 is "投资者" and 操作 is "偿还" and 操作部分 is "该投资者的融资欠款"
+	then 结果 is "成功"
+
+rule 2.15.1
+focus: 订单连续性操作
+	if 事件 is "未了结相关融券交易" and 用途 is "买券还券"
+	then 结果 is "成功"
+
+rule 2.15.1
+focus: 订单连续性操作
+	if 约束 is "偿还融资融券交易相关利息、费用或者融券交易相关权益现金补偿"
+	then 结果 is "成功"
+
+rule 2.15.1
+focus: 订单连续性操作
+	if 约束 is "买入或者申购证券公司现金管理产品、货币市场基金" and 约束 is "买入在本所上市的债券交易型开放式基金（跟踪指数成份证券含可转换公司债券的除外）、本所认可的其他高流动性证券"
 	then 结果 is "成功"
 
 rule 2.15.1
@@ -3530,12 +3895,22 @@ focus: 时间
 
 rule 2.16.1
 focus: 订单连续性操作
+	if 事件 is "合约到期" and 操作人 is "，会"
+	then 结果 is "员可"
+
+rule 2.16.1
+focus: 订单连续性操作
 	if 操作人 is "会员" and 事件 is "在为客户办理合约展期" and 操作部分 is "客户的信用状况、负债情况、维持担保比例水平等" and 操作 is "评估"
 	then 结果 is "成功"
 
 rule 2.17.1
 focus: 订单连续性操作
 	if 操作 is "证券买卖"
+	then 结果 is "成功"
+
+rule 2.18.1
+focus: 订单连续性操作
+	if 约束 is "买入或者转入除可充抵保证金证券范围以外的证券" and 约束 is "参与定向增发" and 约束 is "股票交易型开放式基金" and 约束 is "债券交易型开放式基金申购及赎回" and 约束 is "债券回购"
 	then 结果 is "成功"
 
 rule 2.19.1
@@ -3548,9 +3923,24 @@ focus: 时间
 	if 时间 is "自上市首日起"
 	then 结果 is "成功"
 
+rule 3.8.1
+focus: 订单连续性操作
+	if 操作人 is "会员"
+	then 结果 is "成功"
+
 rule 3.9.1
 focus: 订单连续性操作
 	if 交易品种 is "标的证券" and 状态 is "暂停交易" and 操作人 is "会员与其客户" and 操作 is "了结" and 操作部分 is "相关融资融券合约"
+	then 结果 is "成功"
+
+rule 3.9.1
+focus: 订单连续性操作
+	if 交易品种 is "标的证券" and 状态 is "暂停交易，且恢复交易日在融资融券债务到期日之后" and 操作人 is "会员与其客户" and 操作部分 is "自行约定"
+	then 结果 is "成功"
+
+rule 3.12.1
+focus: 订单连续性操作
+	if 状态 is "证券被调整出标的证券范围"
 	then 结果 is "成功"
 
 rule 3.12.1
@@ -3561,6 +3951,56 @@ focus: 订单连续性操作
 rule 4.1.1
 focus: 订单连续性操作
 	if 操作人 is "会员" and 操作人 is "客户" and 操作人 is "客户" and 操作 is "收取" and 操作部分 is "一定比例的保证金"
+	then 结果 is "成功"
+
+rule 4.2.1
+focus: 订单连续性操作
+	if 折算率 is "深证100指数成份股股票的折算率最高不超过70%"
+	then 结果 is "成功"
+
+rule 4.2.2
+focus: 订单连续性操作
+	if 折算率 is "深证100指数成份股股票的折算率最高不超过70%" and 约束 is "非深证100指数成份股股票的折算率最高不超过65%"
+	then 结果 is "成功"
+
+rule 4.2.3
+focus: 订单连续性操作
+	if 折算率 is "交易型开放式基金折算率最高不超过90%"
+	then 结果 is "成功"
+
+rule 4.2.4
+focus: 订单连续性操作
+	if 折算率 is "证券公司现金管理产品、货币市场基金、国债的折算率最高不超过95%"
+	then 结果 is "成功"
+
+rule 4.2.5
+focus: 订单连续性操作
+	if 折算率 is "实行风险警示或者进入退市整理期的证券" and 约束 is "静态市盈率在300倍以上或者为负数的A股股票" and 约束 is "权证的折算率为0%"
+	then 结果 is "成功"
+
+rule 4.2.6
+focus: 订单连续性操作
+	if 折算率 is "其他上市证券投资基金和债券折算率最高不超过80%"
+	then 结果 is "成功"
+
+rule 4.5.1
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 事件 is "融资买入证券" and 融资保证金比例 不得低于 "100%"
+	then 结果 is "成功"
+
+rule 4.5.1
+focus: 订单连续性操作
+	if 融资保证金比例 ＝ "保证金/（融资买入证券数量×买入价格）×100%" and 事件 is "投资者融券卖出" and 融券保证金比例 is "50%" and 约束 is "50%"
+	then 结果 is "成功"
+
+rule 4.5.2
+focus: 订单连续性操作
+	if 融资保证金比例 不得低于 "50%" and 约束 is "50%"
+	then 结果 is "成功"
+
+rule 4.5.1
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 事件 is "融资买入或者融券卖出" and 所使用的保证金 不得超过 "保证金可用余额"
 	then 结果 is "成功"
 
 rule 4.9.1
@@ -3606,6 +4046,21 @@ focus: 订单连续性操作
 rule 4.14.1
 focus: 订单连续性操作
 	if 操作人 is "会员" and 操作 is "公布" and 操作部分 is "融资" and 操作部分 is "融券保证金比例" and 操作部分 is "维持担保比例" and 约束 is "本所规定的标准"
+	then 结果 is "成功"
+
+rule 4.15.1
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 约束 is "已设定担保" and 约束 is "被采取查封、冻结等司法强制措施的证券" and 约束 is "被采取查封、冻结等司法强制措施的证券"
+	then 结果 is "成功"
+
+rule 4.15.2
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 约束 is "其他第三方权利" and 约束 is "被采取查封、冻结等司法强制措施的证券" and 约束 is "被采取查封、冻结等司法强制措施的证券"
+	then 结果 is "成功"
+
+rule 4.15.3
+focus: 订单连续性操作
+	if 操作人 is "会员"
 	then 结果 is "成功"
 
 rule 4.15.4
@@ -3673,6 +4128,11 @@ focus: 订单连续性操作
 	if 操作人 is "参与注册制下首次公开发行股票战略配售的投资者" and 操作人 is "关联方" and 操作 is "不得融券卖出" and 操作部分 is "该上市公司股票" and 系统 is "本所" and 时间 is "在参与战略配售的投资者承诺持有期限内"
 	then 结果 is "成功"
 
+rule 7.2.1
+focus: 订单连续性操作
+	if 操作人 is "会员"
+	then 结果 is "不得"
+
 rule 7.3.1
 focus: 订单连续性操作
 	if 状态 is "个人客户持有上市公司解除限售存量股份" and 操作人 is "会员" and 操作 is "不得接受" and 操作部分 is "其以普通证券账户持有的该上市公司股份充抵保证金"
@@ -3681,6 +4141,11 @@ focus: 订单连续性操作
 rule 7.4.1
 focus: 订单连续性操作
 	if 操作人 is "会员" and 操作 is "不得接受" and 约束 is "董事" and 约束 is "监事" and 约束 is "高级管理人员" and 操作部分 is "以该上市公司股票为标的证券的融资融券交易" and 约束 is "持股5%以上的股东"
+	then 结果 is "成功"
+
+rule 第四条_2.1
+focus: 订单连续性操作
+	if 约束 is "现金" and 标准券折算率 为 "1"
 	then 结果 is "成功"
 
 rule 第二十二条_0.1
@@ -3803,6 +4268,11 @@ focus: 订单连续性操作
 	if 交易方式 is "提前购回交易" and 操作人 is "证券公司" and 操作 is "向交易系统申报" and 操作部分 is "提前购回交易"
 	then 结果 is "成功"
 
+rule 第三十八条_1.1
+focus: 订单连续性操作
+	if 事件 is "证券公司提前购回申报经交易系统确认后" and 该日 is "提前购回日"
+	then 结果 is "成功"
+
 rule 第四十一条_1.1
 focus: 订单连续性操作
 	if 操作人 is "证券公司" and 操作 is "向深交所报备" and 证券公司报价回购额度 较小值 "报价回购交易的规模"
@@ -3812,6 +4282,16 @@ rule 第四十一条_1.2
 focus: 订单连续性操作
 	if 操作人 is "证券公司" and 操作 is "向深交所报备" and 证券公司报价回购额度 较小值 "报价回购交易的规模" and 操作部分 is "所有质押物" and 操作 is "折算后" and 约束 is "标准券总量所对应金额"
 	then 结果 is "未被司法冻结或其他原因冻结"
+
+rule 第四十二条_1.1
+focus: 订单连续性操作
+	if 证券公司报价回购可用额度 较小值 "质押库和担保资金账户中当日可用标准券总量所对应金额"
+	then 结果 is "成功"
+
+rule 第四十二条_1.2
+focus: 订单连续性操作
+	if 证券公司报价回购可用额度 较小值 "报价回购额度减去未到期回购金额的差"
+	then 结果 is "成功"
 
 rule 第四十三条_0.1
 focus: 订单连续性操作
@@ -3887,6 +4367,16 @@ rule 第五十条_0.3
 focus: 订单连续性操作
 	if 操作人 is "证券公司" and 操作 is "申请将超出部分的担保资金转出" and 操作部分 is "担保资金账户"
 	then 结果 is "成功"
+
+rule 第五十一条_0.1
+focus: 订单连续性操作
+	if 操作部分 is "质押券" and 事件 is "转出后" and 约束 is "证券公司报价回购交易履约担保的质押物"
+	then 结果 is "不再作为"
+
+rule 第五十一条_0.2
+focus: 订单连续性操作
+	if 操作部分 is "担保资金" and 事件 is "转出后" and 约束 is "证券公司报价回购交易履约担保的质押物"
+	then 结果 is "不再作为"
 
 rule 第五十二条_0.1
 focus: 订单连续性操作
@@ -3968,6 +4458,11 @@ focus: 时间
 	if 到期购回日 is "非交易日" and 时间 is "到期购回日后第一个交易日"
 	then 结果 is "成功"
 
+rule 第六十条_6.2
+focus: 订单连续性操作
+	
+	then 结果 is "成功"
+
 rule 第六十一条_0.1
 focus: 订单连续性操作
 	if 操作人 is "中国结算深圳分公司" and 时间 is "T+1日" and 操作部分 is "证券公司自营结算备付金账户和客户结算备付金账户之间" and 操作 is "办理资金划付" and 约束 is "报价回购交易清算结果"
@@ -3981,6 +4476,21 @@ focus: 时间
 rule 第六十二条_0.1
 focus: 订单连续性操作
 	if 操作人 is "证券公司" and 操作 is "确保" and 操作部分 is "应付资金的自营结算备付金账户或客户结算备付金账户" and 状态 is "资金足额" and 时间 is "T+1日资金划付时点"
+	then 结果 is "成功"
+
+rule 第六十二条_1.1
+focus: 订单连续性操作
+	if 操作人 is "证券公司" and 状态 is "应付资金不足" and 约束 is "自营结算备付金账户"
+	then 结果 is "成功"
+
+rule 第六十二条_1.2
+focus: 订单连续性操作
+	if 操作人 is "证券公司" and 状态 is "应付资金不足" and 约束 is "客户结算备付金账户"
+	then 结果 is "成功"
+
+rule 第六十二条_1.3
+focus: 订单连续性操作
+	if 操作人 is "中国结算深圳分公司"
 	then 结果 is "成功"
 
 rule 第六十二条_1.4
@@ -4118,6 +4628,11 @@ focus: 订单连续性操作
 	if 操作部分 is "报价回购交易" and 操作 is "购回清算" and 操作 is "依约向甲方支付" and 操作部分 is "收益"
 	then 结果 is "成功"
 
+rule 第十一条_3.1
+focus: 订单连续性操作
+	if 约束 is "现金" and 标准券折算率 为 "1"
+	then 结果 is "成功"
+
 rule 第十一条_5.1
 focus: 订单连续性操作
 	if 操作人 is "乙方" and 交易品种 is "自有证券" and 操作 is "转入" and 操作部分 is "中国结算深圳分公司设立的报价回购交易质押券保管库" and 约束 is "报价回购交易质押物"
@@ -4126,6 +4641,11 @@ focus: 订单连续性操作
 rule 第十一条_6.1
 focus: 订单连续性操作
 	if 交易品种 is "现金" and 操作 is "存入" and 操作部分 is "中国结算深圳分公司根据乙方申请为其开设的报价回购交易专用担保资金账户" and 约束 is "报价回购交易质押物"
+	then 结果 is "成功"
+
+rule 第十一条_7.1
+focus: 订单连续性操作
+	if 约束 is "转入质押券保管库中的证券" and 约束 is "转入担保资金账户中的现金"
 	then 结果 is "成功"
 
 rule 第十一条_8.1
@@ -4142,6 +4662,11 @@ rule 第十一条_9.1
 focus: 订单连续性操作
 	if 状态 is "初始交易未完成资金划付,购回交易完成资金划付" and 操作人 is "客户" and 操作 is "享有" and 操作部分 is "质权"
 	then 结果 is "不"
+
+rule 第十一条_10.1
+focus: 订单连续性操作
+	if 事件 is "质押券或担保资金转出后" and 约束 is "乙方报价回购交易履约担保的质押物"
+	then 结果 is "不再作为"
 
 rule 第十二条_2.1
 focus: 订单连续性操作
@@ -4283,6 +4808,11 @@ focus: 订单连续性操作
 	if 操作 is "取至价格最小变动单位" and 约束 is "有效竞价范围的计算结果"
 	then 结果 is "成功"
 
+rule 2.3_1.1
+focus: 订单连续性操作
+	if 事件 is "有效竞价范围上限或下限与基准价格之差的绝对值低于价格最小变动单位" and 约束 is "基准价格" and 约束 is "一个价格最小变动单位"
+	then 结果 is "成功"
+
 rule 2.5_0.1
 focus: 订单连续性操作
 	if 交易品种 is "创业板股票" and 状态 is "盘中异常波动,无价格涨跌幅限制" and 系统 is "本所" and 操作 is "实施" and 操作部分 is "盘中临时停牌" and 价格 is "股票盘中交易价格较当日开盘价格首次上涨或下跌达到或超过30%"
@@ -4328,6 +4858,31 @@ focus: 数量
 	if 交易品种 is "创业板股票" and 限价申报的单笔买卖申报数量 不得超过 "15万股"
 	then 结果 is "成功"
 
+rule 2.9_0.1
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易方式 is "基金竞价交易" and 涨跌幅限制比例 is "20%" and 交易品种 is "创业板股票"
+	then 结果 is "成功"
+
+rule 2.9_0.2
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易方式 is "基金竞价交易" and 涨跌幅限制比例 is "20%" and 交易品种 is "ETF"
+	then 结果 is "成功"
+
+rule 2.9_0.3
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易方式 is "基金竞价交易" and 涨跌幅限制比例 is "20%" and 交易品种 is "LOF"
+	then 结果 is "成功"
+
+rule 2.9_0.4
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易方式 is "基金竞价交易" and 涨跌幅限制比例 is "20%" and 交易品种 is "创业板股票"
+	then 结果 is "成功"
+
+rule 2.9_0.5
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易方式 is "基金竞价交易" and 涨跌幅限制比例 is "20%" and 交易品种 is "LOF"
+	then 结果 is "成功"
+
 rule 3.2_0.1
 focus: 时间
 	if 盘后定价交易时间 is "每个交易日"
@@ -4356,6 +4911,11 @@ focus: 订单连续性操作
 rule 3.2_4.1
 focus: 订单连续性操作
 	if 操作部分 is "未成交的申报" and 操作 is "撤销" and 时间 is "接受申报的时间内"
+	then 结果 is "成功"
+
+rule 3.2_6.1
+focus: 订单连续性操作
+	if 交易方式 is "盘后定价"
 	then 结果 is "成功"
 
 rule 3.3_0.1
@@ -4388,6 +4948,11 @@ focus: 时间
 	if 交易方式 is "盘后定价交易" and 事件 is "当日额度在本所盘后定价交易阶段使用完毕" and 系统 is "联交所证券交易服务公司" and 操作部分 is "后续的买入申报" and 操作部分 is "卖出申报" and 时间 is "当日"
 	then 结果 is "停止接受"
 
+rule 3.11_0.2
+focus: 订单连续性操作
+	if 交易方式 is "盘后定价交易" and 事件 is "当日额度在本所盘后定价交易阶段使用完毕" and 系统 is "联交所证券交易服务公司" and 操作部分 is "卖出申报"
+	then 结果 is "接受"
+
 rule 3.11_1.1
 focus: 时间
 	if 状态 is "停止接受买入申报" and 系统 is "本所" and 时间 is "当日"
@@ -4417,6 +4982,41 @@ rule 3.1.4_0.2
 focus: 时间
 	if 操作人 is "投资者" and 操作部分 is "买入的证券" and 时间 is "交收前"
 	then 结果 is "除外"
+
+rule 3.1.5_0.1
+focus: 订单连续性操作
+	if 交易制度 is "当日回转交易" and 交易品种 is "债券交易型开放式基金"
+	then 结果 is "成功"
+
+rule 3.1.5_0.2
+focus: 订单连续性操作
+	if 交易制度 is "当日回转交易" and 交易品种 is "上市交易的货币市场基金"
+	then 结果 is "成功"
+
+rule 3.1.5_0.3
+focus: 订单连续性操作
+	if 交易制度 is "当日回转交易" and 交易品种 is "黄金交易型开放式基金"
+	then 结果 is "成功"
+
+rule 3.1.5_0.4
+focus: 订单连续性操作
+	if 交易制度 is "当日回转交易" and 交易品种 is "跨境交易型开放式基金"
+	then 结果 is "成功"
+
+rule 3.1.5_0.5
+focus: 订单连续性操作
+	if 交易制度 is "当日回转交易" and 交易品种 is "跨境上市开放式基金"
+	then 结果 is "成功"
+
+rule 3.1.5_0.6
+focus: 订单连续性操作
+	if 交易制度 is "当日回转交易" and 交易品种 is "商品期货交易型开放式基金"
+	then 结果 is "成功"
+
+rule 3.1.5_2.1
+focus: 订单连续性操作
+	if 交易品种 is "B股" and 约束 is "次交易日起回转交易"
+	then 结果 is "成功"
 
 rule 3.2.5_0.1
 focus: 订单连续性操作
@@ -4653,6 +5253,11 @@ focus: 价格
 	if 有效申报价格范围上限或下限 低于 "申报价格最小变动单位" and 相应价格 is "申报价格最小变动单位"
 	then 结果 is "成功"
 
+rule 3.3.21_0.1
+focus: 订单连续性操作
+	
+	then 结果 is "成功"
+
 rule 3.3.21_1.1
 focus: 订单连续性操作
 	if 交易方式 is "竞价交易" and 状态 is "申报不能一次全部成交" and 操作部分 is "未成交部分" and 操作 is "竞价" and 结合规则 is "第3.3.4条第三项至第五项" and 时间 is "当日" and 约束 is "市价申报类型"
@@ -4823,15 +5428,35 @@ focus: 订单连续性操作
 	if 操作部分 is "未成交申报" and 操作 is "撤销" and 时间 is "接受申报的时间内"
 	then 结果 is "成功"
 
+rule 3.6.2_0.1
+focus: 订单连续性操作
+	if 约束 is "每个交易日的15：05至15：30"
+	then 结果 is "成功"
+
+rule 3.6.2_1.1
+focus: 订单连续性操作
+	if 盘后固定价格交易申报的时间 is "每个交易日9：15至11：30、13：00至15：30"
+	then 结果 is "成功"
+
 rule 3.6.2_2.1
 focus: 订单连续性操作
 	if 状态 is "开市期间停牌" and 操作 is "继续申报" and 时间 is "停牌期间"
 	then 结果 is "成功"
 
+rule 3.6.2_3.1
+focus: 订单连续性操作
+	if 状态 is "当日15：00仍处于停牌状态" and 交易方式 is "盘后固定价格交易"
+	then 结果 is "不进行"
+
 rule 3.6.2_4.1
 focus: 订单连续性操作
 	if 操作部分 is "未成交的申报" and 操作 is "撤销" and 时间 is "接受申报的时间内"
 	then 结果 is "成功"
+
+rule 3.6.2_6.1
+focus: 订单连续性操作
+	
+	then 结果 is "申报当日有效"
 
 rule 3.6.3_0.1
 focus: 订单连续性操作
@@ -4873,6 +5498,11 @@ focus: 订单连续性操作
 	if 交易方式 is "盘后固定价格交易" and 状态 is "当日额度在本所盘后固定价格交易阶段使用完毕" and 操作 is "买入申报卖出申报"
 	then 结果 is "停止接受"
 
+rule 3.6.11_0.2
+focus: 订单连续性操作
+	if 交易方式 is "盘后固定价格交易" and 状态 is "当日额度在本所盘后固定价格交易阶段使用完毕"
+	then 结果 is "接受"
+
 rule 4.2.1_0.1
 focus: 价格
 	if 交易品种 is "证券" and 开盘价 is "当日该证券的第一笔成交价"
@@ -4891,6 +5521,11 @@ focus: 价格
 rule 4.2.3_0.1
 focus: 价格
 	if 交易品种 is "证券" and 交易方式 is "集合竞价" and 价格 is "收盘价"
+	then 结果 is "成功"
+
+rule 4.2.3_1.1
+focus: 订单连续性操作
+	if 状态 is "收盘集合竞价不能产生收盘价,未进行收盘集合竞价"
 	then 结果 is "成功"
 
 rule 4.2.3_1.2
@@ -4978,9 +5613,19 @@ focus: 订单连续性操作
 	if 操作人 is "个人投资者" and 操作 is "参与" and 操作部分 is "中国存托凭证交易" and 事件 is "申请权限开通" and 时间 is "24个月以上" and 约束 is "境内法律、本所业务规则等规定的禁止或者限制参与证券交易的情形"
 	then 结果 is "成功"
 
+rule 第五十一条_2.1
+focus: 订单连续性操作
+	if 操作人 is "普通投资者" and 状态 is "未签署风险揭示书"
+	then 结果 is "成功"
+
 rule 第五十一条_2.2
 focus: 订单连续性操作
 	if 操作人 is "会员" and 操作 is "不得接受" and 操作部分 is "其申购或者买入委托"
+	then 结果 is "成功"
+
+rule 第五十三条_0.1
+focus: 订单连续性操作
+	if 人民币 is "计价货币" and 计价单位 is "“每份中国存托凭证价格”" and 申报价格最小变动单位 is "人民币0.01元"
 	then 结果 is "成功"
 
 rule 第五十三条_1.1
@@ -5006,6 +5651,11 @@ focus: 订单连续性操作
 rule 第五十四条_0.2
 focus: 订单连续性操作
 	if 操作人 is "投资者" and 操作 is "不得卖出" and 时间 is "当日"
+	then 结果 is "成功"
+
+rule 第五十六条_0.1
+focus: 订单连续性操作
+	if 状态 is "境外发行人以新增股票为基础证券首次在本所上市中国存托凭证" and 上市首日即时行情显示的前收盘价格 is "其发行价"
 	then 结果 is "成功"
 
 rule 第五十六条_1.1
@@ -5053,6 +5703,31 @@ focus: 订单连续性操作
 	if 操作人 is "单个境外投资者" and 状态 is "通过全球存托凭证、境内基础股票等方式拥有境内上市公司权益超过持股比例限制" and 操作部分 is "超出部分" and 操作 is "实施平仓" and 时间 is "在5个交易日内"
 	then 结果 is "成功"
 
+rule 第十六条_0.1
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易品种 is "股票"
+	then 结果 is "成功"
+
+rule 第十六条_0.2
+focus: 订单连续性操作
+	if 系统 is "本所" and 证券 is "股票ETF"
+	then 结果 is "成功"
+
+rule 第三十三条_0.1
+focus: 订单连续性操作
+	if 交易方式 is "竞价交易" and 系统 is "本所"
+	then 结果 is "成功"
+
+rule 第三十三条_1.1
+focus: 订单连续性操作
+	if 交易方式 is "限价申报"
+	then 结果 is "成功"
+
+rule 第三十四条_0.1
+focus: 订单连续性操作
+	if 深股通标的证券 is "创业板股票" and 交易方式 is "盘后固定价格申报"
+	then 结果 is "成功"
+
 rule 第三十六条_0.1
 focus: 订单连续性操作
 	if 结合规则 is "本办法第二十二条,第二十三条,第二十六条,第二十九条" and 系统 is "本所" and 交易品种 is "证券" and 操作 is "买入" and 操作 is "卖出"
@@ -5078,6 +5753,11 @@ focus: 订单连续性操作
 	if 操作人 is "联交所证券交易服务公司" and 操作 is "促使" and 状态 is "在未归还为担保卖空而借入的标的证券前" and 操作 is "卖出" and 交易品种 is "证券" and 约束 is "联交所参与者" and 结合规则 is "前款" and 数量 超出 "未归还标的证券数量的部分"
 	then 结果 is "成功"
 
+rule 第三十八条_3.1
+focus: 订单连续性操作
+	if 交易品种 is "深股通ETF" and 交易方式 is "担保卖空" and 结合规则 is "本条第二款,第三款"
+	then 结果 is "成功"
+
 rule 第三十九条_0.1
 focus: 时间
 	if 交易品种 is "证券" and 时间 is "单个深股通交易日" and 担保卖空比例 不得超过 "1%"
@@ -5091,6 +5771,11 @@ focus: 时间
 rule 第四十条_0.1
 focus: 订单连续性操作
 	if 交易品种 is "证券" and 系统 is "本所" and 交易方式 is "融资交易" and 融资监控指标 达到 "规定比例" and 操作人 is "联交所证券交易服务公司" and 操作部分 is "证券保证金交易" and 操作 is "申报融资买入"
+	then 结果 is "暂停"
+
+rule 第四十条_0.2
+focus: 订单连续性操作
+	if 交易品种 is "证券" and 系统 is "本所" and 交易方式 is "融资交易" and 融资监控指标 达到 "规定比例" and 操作部分 is "证券保证金交易"
 	then 结果 is "暂停"
 
 rule 第四十条_1.1
@@ -5263,6 +5948,16 @@ focus: 订单连续性操作
 	if 操作人 is "投资者" and 操作部分 is "超出部分" and 操作 is "平仓" and 时间 is "自接到通知之日起的五个深股通交易日内"
 	then 结果 is "成功"
 
+rule 第六十八条_0.1
+focus: 订单连续性操作
+	if 交易品种 is "证券" and 交易品种 is "股票"
+	then 结果 is "成功"
+
+rule 第六十八条_0.2
+focus: 订单连续性操作
+	if 交易品种 is "证券" and 证券 is "股票ETF"
+	then 结果 is "成功"
+
 rule 第八十三条_0.1
 focus: 订单连续性操作
 	if 交易方式 is "港股通交易" and 操作人 is "投资者" and 约束 is "港币" and 操作 is "交收" and 约束 is "人民币"
@@ -5393,6 +6088,11 @@ focus: 订单连续性操作
 	if 操作 is "买入申报" and 当日额度余额 大于 "零" and 操作人 is "本所证券交易服务公司" and 时间 is "在联交所持续交易时段开始时"
 	then 结果 is "成交"
 
+rule 第一百零二条_1.5
+focus: 订单连续性操作
+	
+	then 结果 is "恢复接受"
+
 rule 第一百零二条_1.6
 focus: 订单连续性操作
 	if 操作 is "买入申报"
@@ -5476,6 +6176,11 @@ focus: 数量
 rule 第三十七条_2.1
 focus: 订单连续性操作
 	if 操作部分 is "出余额" and 操作部分 is "100份的部" and 操作 is "卖出"
+	then 结果 is "成功"
+
+rule 第三十八条_0.1
+focus: 订单连续性操作
+	if 交易品种 is "司存托凭证" and 约束 is "价格涨跌幅限制" and 涨跌幅限制比例 is "10%"
 	then 结果 is "成功"
 
 rule 第三十八条_1.1

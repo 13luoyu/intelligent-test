@@ -751,12 +751,13 @@ def write_r1(fp_r1, ss, knowledge, id):
             else:
                 r1 += f"约束 is \"{v2}\" and "
         
-        if focus != "":
-            fp_r1.write("rule " + new_id + "\n")
-            fp_r1.write(f"focus: {focus}\n")
-            fp_r1.write(f"\t{r1[:-5]}\n")
-            fp_r1.write(f"\tthen 结果 is \"{result}\"\n")
-            fp_r1.write(f"\n")
+        if focus == "":
+            focus = "订单连续性操作"
+        fp_r1.write("rule " + new_id + "\n")
+        fp_r1.write(f"focus: {focus}\n")
+        fp_r1.write(f"\t{r1[:-5]}\n")
+        fp_r1.write(f"\tthen 结果 is \"{result}\"\n")
+        fp_r1.write(f"\n")
 
 
 
@@ -797,6 +798,4 @@ def to_r1(input_file, output_file, knowledge_file):
 
 
 if __name__ == "__main__":
-    to_r1("rules_cache/tco_1.json", "rules_cache/r1_1.mydsl", "../data/knowledge.json")
-    to_r1("rules_cache/tco_2.json", "rules_cache/r1_2.mydsl", "../data/knowledge.json")
-    to_r1("rules_cache/tco_3.json", "rules_cache/r1_3.mydsl", "../data/knowledge.json")
+    to_r1("rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json")

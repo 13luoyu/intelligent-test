@@ -10,6 +10,33 @@ from transfer.rules_to_json_and_mydsl import r2_to_json, r3_to_json, to_mydsl
 if __name__ == "__main__":
     fp = open("data/exp2_result.log", "w", encoding="utf-8")
 
+    # 统计专家用例的数量
+    print("Domain Expert: ")
+    fp.write("Domain Expert: \n")
+    compute_BR_num("data/exp2_expert.txt", fp)
+
+    # 统计非专家用例的数量和正确率
+
+
+    # # Sage
+    # print("Sage: ")
+    # fp.write("Sage: \n")
+    # compute_BR_num("data/exp2_QA_sage.txt", fp)
+    # compute_BR_precision("data/exp2_QA_sage.txt", "data/exp2_expert.txt", fp)
+
+    # # Claude
+    # print("Claude: ")
+    # fp.write("Claude: \n")
+    # compute_BR_num("data/exp2_QA_claude.txt", fp)
+    # compute_BR_precision("data/exp2_QA_claude.txt", "data/exp2_expert.txt", fp)
+
+    # # ChatGPT
+    # print("ChatGPT: ")
+    # fp.write("ChatGPT: \n")
+    # compute_BR_num("data/exp2_QA_chatgpt.txt", fp)
+    # compute_BR_precision("data/exp2_QA_chatgpt.txt", "data/exp2_expert.txt", fp)
+
+
     # print("我们的结果：")
     # fp.write("我们的结果：\n")
     # # 生成BR
@@ -27,22 +54,5 @@ if __name__ == "__main__":
     # # 将BR中的约束子句提取出来，并与正确的用例比较，看准确率是多少
     # compute_BR_precision("data/exp2_r3.mydsl", "data/exp2_expert.txt", fp)
 
-    # Sage
-    print("Sage: ")
-    fp.write("Sage: \n")
-    compute_BR_num("data/exp2_QA_sage.txt", fp)
-    compute_BR_precision("data/exp2_QA_sage.txt", "data/exp2_expert.txt", fp)
-
-    # Claude
-    print("Claude: ")
-    fp.write("Claude: \n")
-    compute_BR_num("data/exp2_QA_claude.txt", fp)
-    compute_BR_precision("data/exp2_QA_claude.txt", "data/exp2_expert.txt", fp)
-
-    # ChatGPT
-    print("ChatGPT: ")
-    fp.write("ChatGPT: \n")
-    compute_BR_num("data/exp2_QA_chatgpt.txt", fp)
-    compute_BR_precision("data/exp2_QA_chatgpt.txt", "data/exp2_expert.txt", fp)
 
     fp.close()
