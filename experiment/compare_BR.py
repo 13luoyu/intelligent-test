@@ -150,18 +150,25 @@ def read_correct_rules(correct_file):
     ids = []
     dataset_index = []
     constraints = []
+    last_rule_id = ""
     for line in lines:
         l = line.strip().split()
         if len(l) == 0:
             continue
         if "dataset" in l[0]:
             dataset_index.append(len(ids))
-        elif "." in l[0] or ("第" in l[0] and "条" in l[0]):
-            rule_id = l[0]
-            ids.append(rule_id)
-            if len(constraints) > 0:
-                rules.append(constraints)
-            constraints = []
+        elif l[0] == "rule":
+            rule_id = l[1]
+            if "_" in rule_id:
+                rule_id = rule_id.split("_")[0]
+            else:
+                rule_id = ".".join(rule_id.split(".")[:-1])
+            if rule_id != last_rule_id:
+                if last_rule_id != "":
+                    rules.append(constraints)
+                    constraints = []
+                ids.append(rule_id)
+                last_rule_id = rule_id
         elif l[0] == "if":
             i = 1
             while i < len(l):
@@ -208,7 +215,10 @@ def read_our_rules(file):
         if len(l) == 0:
             continue
         if l[0] == "rule":
-            rule_id = '.'.join(l[1].split(".")[:-1])
+            if "_" in l[1]:
+                rule_id = l[1].split("_")[0]
+            else:
+                rule_id = '.'.join(l[1].split(".")[:-1])
             if rule_id != last_rule_id:
                 if last_rule_id != "":
                     rules.append(constraints)
@@ -248,39 +258,153 @@ def read_our_rules(file):
     return ids, rules
 
 
+def read_1_3_llm_file(file):
+    with open(file, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    rules = []
+    ids = []
+    constraints = []
+    last_rule_id = ""
+    for line in lines:
+        l = line.strip().split()
+        if len(l) == 0:
+            continue
+        if l[0] == "rule":
+            if "_" in l[1]:
+                rule_id = l[1].split("_")[0]
+            else:
+                rule_id = '.'.join(l[1].split(".")[:-1])
+            if rule_id != last_rule_id:
+                if last_rule_id != "":
+                    rules.append(constraints)
+                    constraints = []
+                ids.append(rule_id)
+                last_rule_id = rule_id
+        elif l[0] == "if":
+            i = 1
+            while i < len(l):
+                constraint = dict()
+                
+                next_and = i + 1
+                while next_and < len(l) and l[next_and] != "and":
+                    next_and += 1
+                if next_and - i == 3:
+                    constraint["key"] = l[i]
+                    if l[i] == "单笔最大申报数量":
+                        constraint["key"] = "申报数量"
+                        l[i] = "申报数量"
+                    constraint["value"] = l[i + 2]
+                    if constraint["value"][0] == "\"":
+                        constraint["value"] = constraint["value"][1:]
+                    
+                    if constraint["value"][-1] == "\"":
+                        constraint["value"] = constraint["value"][:-1]
+                    if l[i+1] != "is":
+                        constraint["value"] = str(l[i+1]) + str(l[i + 2][1:-1])
+                    if constraint not in constraints:
+                        constraints.append(constraint)
+                    i = i + 4
+                elif next_and - i == 2:
+                    constraint["key"] = l[i]
+                    constraint["value"] = l[i+1]
+                    if constraint["value"][0] == "\"":
+                        constraint["value"] = constraint["value"][1:]
+                    if constraint["value"][-1] == "\"":
+                        constraint["value"] = constraint["value"][:-1]
+                    if constraint not in constraints:
+                        constraints.append(constraint)
+                    i = i + 3
+                else:
+                    i += 1
+        elif l[0] == "then":
+            i = 1
+            while i < len(l):
+                result = dict()
+                next_and = i + 1
+                while next_and < len(l) and l[next_and] != "and":
+                    next_and += 1
+                if next_and - i == 3:
+                    result["key"] = l[i]
+                    result["value"] = l[i + 2]
+                    if result["value"][0] == "\"":
+                        result["value"] = result["value"][1:]
+                    if result["value"][-1] == "\"":
+                        result["value"] = result["value"][:-1]
+
+                    if "不" in result["value"]:  # 默认result["key"][0] == "不"
+                        result["else"] = result["value"][1:]
+                    else: # then 结果 is "成功"
+                        result["else"] = "不" + result["value"]
+                    if result not in constraints:
+                        constraints.append(result)
+                    i += 4
+                elif next_and - i == 2:
+                    result["key"] = l[i]
+                    result["value"] = l[i + 1]
+                    if result["value"][0] == "\"":
+                        result["value"] = result["value"][1:]
+                    if result["value"][-1] == "\"":
+                        result["value"] = result["value"][:-1]
+                    if "不" in result["value"]:  # 默认result["key"][0] == "不"
+                        result["else"] = result["value"][1:]
+                    else: # then 结果 is "成功"
+                        result["else"] = "不" + result["value"]
+                    if result not in constraints:
+                        constraints.append(result)
+                    i += 3
+                else:
+                    i += 1
+    
+    rules.append(constraints)
+    return ids, rules
+
+
 # 思路是这样的：
 # 对于一条自然语言规则，假设对于correct，它的if和then中有6个要素，对于other，它有3个要素，那么
 # 计算正确率时，正确率=正确要素数/6，
 # 如果某个标签具有多个取值，那么按比例计算，比如某标签可以取值a、b，测试用例中只有a，那么这里的要素数=0.5
 def compute_BR_precision(our_file, correct_file, fp):
     if "exp1_3" in our_file:
+        correct_ids, correct_rules= read_our_rules(correct_file)
         if "sage" in our_file or "claude" in our_file or "chatgpt" in our_file:
-            our_ids, our_rules, our_indexs = read_llm_result(our_file)
+            our_ids, our_rules= read_1_3_llm_file(our_file)
+            our = list(zip(our_ids, our_rules))
+            our = sorted(our, key=lambda x:x[0])
+            our_ids, our_rules = [xi[0] for xi in our], [xi[1] for xi in our]
+            correct = list(zip(correct_ids, correct_rules))
+            correct = sorted(correct, key = lambda x:x[0])
+            correct_ids, correct_rules = [xi[0] for xi in correct], [xi[1] for xi in correct]
         else:
             our_ids, our_rules = read_our_rules(our_file)
-        correct_ids, correct_rules= read_our_rules(correct_file)
         correct_indexs = [0]
     elif "exp2" in our_file:
         if "sage" in our_file or "claude" in our_file or "chatgpt" in our_file:
             our_ids, our_rules, our_indexs = read_llm_result(our_file)
         else:
-            our_ids, our_rules = read_our_rules(our_file)
+            our_ids, our_rules, _ = read_correct_rules(our_file)
         correct_ids, correct_rules, correct_indexs = read_correct_rules(correct_file)
 
     a, b = 0, 0
     total, correct = [], []
     # print(len(correct_ids), len(correct_rules))
     # print(len(our_ids), len(our_rules))
+    # exit(0)
     # 将同一id的所有约束去重地混合在一起，然后比较是否缺失，是否正确
+    last_b = 0
     while a < len(correct_rules):
         c_id = correct_ids[a]
         cconstraints = correct_rules[a]
+        last_b = b
+        find = False
         while b < len(our_rules):
             o_id = our_ids[b]
             oconstraints = our_rules[b]
             if o_id == c_id:
+                find = True
                 break
             b += 1
+        if not find:
+            b = last_b
         
         # cconstraints = sorted(cconstraints, key=lambda a:a["key"])
         # oconstraints = sorted(oconstraints, key=lambda a:a["key"])

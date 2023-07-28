@@ -1544,7 +1544,8 @@
     {
         "text": "客户若为上市公司的董事、监事、高级管理人员或持有上市公司股份5%以上的股东，并其将持有的该上市公司股票进行约定购回式证券交易的，应确保购回交易的期限不低于6个月，且遵守法律法规有关短线交易和信息披露的规定。",
         "label": "B-操作人 I-操作人 O O O O O O O B-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-操作人 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-key I-key I-key I-key I-key I-key I-key B-op I-op I-op B-value I-value I-value O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
-        "type": "1"
+        "type": "1",
+        "id": "第六条_2"
     },
     {
         "text": "投资者使用中国结算为其开立的证券账户参与H股“全流通”业务，用于记录H股“全流通”股份持有及变动的具体情况。",

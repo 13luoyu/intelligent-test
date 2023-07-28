@@ -2743,12 +2743,12 @@ focus: 订单连续性操作
 	if 事件 is "终止购回后,发生司法等机关冻结或强制执行" and 操作人 is "乙方" and 系统 is "中国结算" and 操作 is "申请" and 操作部分 is "将相应证券划转" and 操作部分 is "用于处置的自营账户进行处置" and 约束 is "客户协议的约定"
 	then 结果 is "除外"
 
-rule 0.1
+rule 第六条_2.1
 focus: 订单连续性操作
 	if 操作人 is "客户" and 约束 is "上市" and 约束 is "董事" and 约束 is "监事" and 约束 is "高级管理人员" and 约束 is "持有上市公司股份5%" and 操作部分 is "持有的该上市公司" and 交易品种 is "股票" and 操作 is "进行约定购回式证券交易" and 操作 is "确保" and 约束 is "的股东" and 操作 is "遵守" and 操作部分 is "法律法规有关短线交易和信息披露的规定" and 时间 is "6个月"
 	then 结果 is "成功"
 
-rule 0.2
+rule 第六条_2.2
 focus: 订单连续性操作
 	if 操作人 is "客户" and 约束 is "上市" and 约束 is "董事" and 约束 is "监事" and 约束 is "高级管理人员" and 约束 is "持有上市公司股份5%" and 操作 is "遵守" and 操作部分 is "法律法规有关短线交易和信息披露的规定" and 时间 低于 "6个月"
 	then 结果 is "成功"

@@ -1,0 +1,300 @@
+rule 3.3.6_0.1.1
+focus: 价格
+	if 交易方式 is '匹配成交' and 交易品种 is '债券现券' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'  
+	constraint 申报价格最小变动单位 == 0 and 价格 == 0
+
+rule 3.3.6_0.1.2
+focus: 价格
+	if 交易方式 is '匹配成交' and 交易品种 is '债券现券' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'  
+	constraint 申报价格最小变动单位 == 0 and 价格 == 0
+
+rule 3.3.6_0.2.1
+focus: 价格
+	if 交易方式 is '匹配成交' and 交易品种 is '债券通用质押式回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'  
+	constraint 申报价格最小变动单位 == 0
+
+rule 3.3.6_0.2.2
+focus: 价格
+	if 交易方式 is '匹配成交' and 交易品种 is '债券通用质押式回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'  
+	constraint 申报价格最小变动单位 == 0
+
+rule 3.3.6_0.3.1
+focus: 订单连续性操作
+	if 交易方式 is '他交易方' and 交易品种 is '债券交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.3.6_0.3.2
+focus: 订单连续性操作
+	if 交易方式 is '他交易方' and 交易品种 is '债券交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 4.1.5_1.1.1
+focus: 价格
+	if 交易品种 is '国债' and 时间 is '连续匹配' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.1.2
+focus: 价格
+	if 交易品种 is '国债' and 时间 is '连续匹配' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.2.1
+focus: 价格
+	if 交易品种 is '国债' and 时间 is '盘中临时停牌复牌集合匹配阶段' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.2.2
+focus: 价格
+	if 交易品种 is '国债' and 时间 is '盘中临时停牌复牌集合匹配阶段' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.3.1
+focus: 价格
+	if 交易品种 is '地方政府债券' and 时间 is '连续匹配' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.3.2
+focus: 价格
+	if 交易品种 is '地方政府债券' and 时间 is '连续匹配' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.4.1
+focus: 价格
+	if 交易品种 is '地方政府债券' and 时间 is '盘中临时停牌复牌集合匹配阶段' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.4.2
+focus: 价格
+	if 交易品种 is '地方政府债券' and 时间 is '盘中临时停牌复牌集合匹配阶段' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.5.1
+focus: 价格
+	if 交易品种 is '政府支持债券' and 时间 is '连续匹配' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.5.2
+focus: 价格
+	if 交易品种 is '政府支持债券' and 时间 is '连续匹配' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.6.1
+focus: 价格
+	if 交易品种 is '政府支持债券' and 时间 is '盘中临时停牌复牌集合匹配阶段' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.6.2
+focus: 价格
+	if 交易品种 is '政府支持债券' and 时间 is '盘中临时停牌复牌集合匹配阶段' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.7.1
+focus: 价格
+	if 交易品种 is '政策性金融债' and 时间 is '连续匹配' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.7.2
+focus: 价格
+	if 交易品种 is '政策性金融债' and 时间 is '连续匹配' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.8.1
+focus: 价格
+	if 交易品种 is '政策性金融债' and 时间 is '盘中临时停牌复牌集合匹配阶段' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.8.2
+focus: 价格
+	if 交易品种 is '政策性金融债' and 时间 is '盘中临时停牌复牌集合匹配阶段' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下10%' and 价格 is '最近成交价的' and 价格 is '最近成交价的' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'  
+	constraint 价格 == 20 and 价格 == 20 and 价格 == 20 and 价格 == 20
+
+rule 4.1.5_1.9.1
+focus: 价格
+	if 交易品种 is '其他债券' and 时间 is '连续匹配' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下20' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 4.1.5_1.9.2
+focus: 价格
+	if 交易品种 is '其他债券' and 时间 is '连续匹配' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下20' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 4.1.5_1.10.1
+focus: 价格
+	if 交易品种 is '其他债券' and 时间 is '盘中临时停牌复牌集合匹配阶段' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下20' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 4.1.5_1.10.2
+focus: 价格
+	if 交易品种 is '其他债券' and 时间 is '盘中临时停牌复牌集合匹配阶段' and 交易方式 is '匹配成交' and 申报价格范围 is '最近成交价的' and 价格 is '上下20' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.1.1.1
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作部分 is '买入' and 交易品种 is '债券现券' and 操作 is '卖出' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.1.1.2
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作部分 is '买入' and 交易品种 is '债券现券' and 操作 is '卖出' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.1.2.1
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作部分 is '买入' and 交易品种 is '债券现券' and 操作 is '卖出' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.1.2.2
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作部分 is '买入' and 交易品种 is '债券现券' and 操作 is '卖出' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.1.3.1
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作部分 is '买入' and 交易品种 is '债券现券' and 操作 is '卖出' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.1.3.2
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作部分 is '买入' and 交易品种 is '债券现券' and 操作 is '卖出' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.1.4.1
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作部分 is '买入' and 交易品种 is '债券现券' and 操作 is '卖出' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.1.4.2
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作部分 is '买入' and 交易品种 is '债券现券' and 操作 is '卖出' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.1.5.1
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作部分 is '买入' and 交易品种 is '债券现券' and 操作 is '卖出' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.1.5.2
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作部分 is '买入' and 交易品种 is '债券现券' and 操作 is '卖出' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.2.1.1
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '债券' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.2.1.2
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '债券' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.2.2.1
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '债券' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.2.2.2
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '债券' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.2.3.1
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '债券' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.2.3.2
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '债券' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.2.4.1
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '债券' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.2.4.2
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '债券' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.2.5.1
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '债券' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 3.1.8_0.2.5.2
+focus: 订单连续性操作
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '债券' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 4.1.5_0.1.1.1
+focus: 价格
+	if 交易品种 is '债券现券' and 时间 is '开盘集合匹配阶段' and 申报价格范围 is '前收盘价的' and 价格 is '上下30' and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 4.1.5_0.1.1.2
+focus: 价格
+	if 交易品种 is '债券现券' and 时间 is '开盘集合匹配阶段' and 申报价格范围 is '前收盘价的' and 价格 is '上下30' and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 4.1.5_0.1.2.1
+focus: 价格
+	if 交易品种 is '债券现券' and 时间 is '开盘集合匹配阶段' and 申报价格范围 is '前收盘价的' and 价格 is '上下30' and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 4.1.5_0.1.2.2
+focus: 价格
+	if 交易品种 is '债券现券' and 时间 is '开盘集合匹配阶段' and 申报价格范围 is '前收盘价的' and 价格 is '上下30' and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 4.1.5_0.1.3.1
+focus: 价格
+	if 交易品种 is '债券现券' and 时间 is '开盘集合匹配阶段' and 申报价格范围 is '前收盘价的' and 价格 is '上下30' and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 4.1.5_0.1.3.2
+focus: 价格
+	if 交易品种 is '债券现券' and 时间 is '开盘集合匹配阶段' and 申报价格范围 is '前收盘价的' and 价格 is '上下30' and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 4.1.5_0.1.4.1
+focus: 价格
+	if 交易品种 is '债券现券' and 时间 is '开盘集合匹配阶段' and 申报价格范围 is '前收盘价的' and 价格 is '上下30' and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 4.1.5_0.1.4.2
+focus: 价格
+	if 交易品种 is '债券现券' and 时间 is '开盘集合匹配阶段' and 申报价格范围 is '前收盘价的' and 价格 is '上下30' and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+
+rule 4.1.5_0.1.5.1
+focus: 价格
+	if 交易品种 is '债券现券' and 时间 is '开盘集合匹配阶段' and 申报价格范围 is '前收盘价的' and 价格 is '上下30' and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易方向 is '买入' 
+	then 结果 = '成功'
+
+rule 4.1.5_0.1.5.2
+focus: 价格
+	if 交易品种 is '债券现券' and 时间 is '开盘集合匹配阶段' and 申报价格范围 is '前收盘价的' and 价格 is '上下30' and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易方向 is '卖出' 
+	then 结果 = '成功'
+

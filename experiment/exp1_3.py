@@ -12,20 +12,20 @@ if __name__ == "__main__":
     # Sage
     print("Sage: ")
     fp.write("Sage: \n")
-    compute_BR_num("data/exp1_3_QA_sage.txt", fp)
-    compute_BR_precision("data/exp1_3_QA_sage.txt", "data/exp1_3_correct.mydsl", fp)
+    compute_BR_num("data/exp1_3_sage.txt", fp)
+    compute_BR_precision("data/exp1_3_sage.txt", "data/exp1_3_correct.mydsl", fp)
 
     # Claude
     print("Claude: ")
     fp.write("Claude: \n")
-    compute_BR_num("data/exp1_3_QA_claude.txt", fp)
-    compute_BR_precision("data/exp1_3_QA_claude.txt", "data/exp1_3_correct.mydsl", fp)
+    compute_BR_num("data/exp1_3_claude.txt", fp)
+    compute_BR_precision("data/exp1_3_claude.txt", "data/exp1_3_correct.mydsl", fp)
 
     # ChatGPT
     print("ChatGPT: ")
     fp.write("ChatGPT: \n")
-    compute_BR_num("data/exp1_3_QA_chatgpt.txt", fp)
-    compute_BR_precision("data/exp1_3_QA_chatgpt.txt", "data/exp1_3_correct.mydsl", fp)
+    compute_BR_num("data/exp1_3_chatgpt.txt", fp)
+    compute_BR_precision("data/exp1_3_chatgpt.txt", "data/exp1_3_correct.mydsl", fp)
 
     print("我们的结果：")
     fp.write("我们的结果：\n")

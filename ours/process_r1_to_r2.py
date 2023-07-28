@@ -6,6 +6,14 @@ from ours.process_tco_to_r1 import is_num_key, is_price_key, is_time_key
 
 
 def preprocess(rules, vars):
+    to_del = []
+    for rule_id in rules:
+        rule = rules[rule_id]
+        if "constraints" not in rule or "results" not in rule:
+            to_del.append(rule_id)
+    for rule_id in to_del:
+        del rules[rule_id]
+        del vars[rule_id]
 
     for rule_id in rules:
         rule = rules[rule_id]
@@ -139,7 +147,7 @@ def preprocess(rules, vars):
                         # 删掉原来的操作部分
                         to_del.append(i)
                     # 修改result为不成功
-                    if op_num > 1:
+                    if "results" in new_rule and op_num > 1:
                         for r in new_rule["results"]:
                             if r["key"] == "结果":
                                 r["value"] = "不成功"
@@ -200,7 +208,7 @@ def preprocess(rules, vars):
                         # 删掉原来的操作部分
                         to_del.append(i)
                     # 修改result为不成功
-                    if op_num > 1:
+                    if "results" in new_rule and op_num > 1:
                         for r in new_rule["results"]:
                             if r["key"] == "结果":
                                 r["value"] = "成功"
@@ -310,7 +318,7 @@ def num_preprocess(value):
         num_val = num_vals[0]
         val_loc = v.find(num_val)
         unit_loc = val_loc + len(num_val)
-        while(v[unit_loc] == "亿" or v[unit_loc] == "万"):
+        while(unit_loc < len(v) and (v[unit_loc] == "亿" or v[unit_loc] == "万")):
             if v[unit_loc] == "万":
                 num_val += "0000"
             elif v[unit_loc] == "亿":
