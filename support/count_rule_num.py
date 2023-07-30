@@ -25,4 +25,14 @@ def count(dir):
 def count_file(file):
     print(len(json.load(open(file, "r", encoding="utf-8"))))
 
-count_file("../data/sc_train_data_full.json")
+# count_file("../data/sc_train_data_full.json")
+
+def count2(dir):
+    a = 0
+    for file in os.listdir(dir):
+        if "finish" in file:
+            data = json.load(open(f"{dir}{file}", "r", encoding="utf-8"))
+            a += len(data)
+    print(a)
+
+count2("../data/业务规则/json_for_token_classification/")

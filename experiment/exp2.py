@@ -7,6 +7,7 @@ import json
 from ours.process_r1_to_r2 import preprocess, compose_rules_r1_r2
 from ours.process_r2_to_r3 import compose_rules_r2_r3
 from transfer.rules_to_json_and_mydsl import r2_to_json, r3_to_json, to_mydsl
+import time
 
 if __name__ == "__main__":
     fp = open("data/exp2_result.log", "w", encoding="utf-8")
@@ -46,36 +47,39 @@ if __name__ == "__main__":
     fp.write("我们的结果：\n")
     output = open("data/exp2_output.txt", "w", encoding="utf-8")
     for file in sorted(os.listdir("data/")):
-        # if "exp2_input" in file and "r1" in file:
+        if "exp2_input" in file and "r1" in file:
+            # 生成BR
+            bt = time.time()
+            defines, vars, rules = mydsl_to_rules.read_file(f"data/{file}")
+            knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
+            rules, vars = preprocess(rules, vars)
+            defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
+            r2_json = r2_to_json(rules)
+            to_mydsl(r2_json, f"data/{file[:11]}_r2.mydsl")
+            defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
+            r3_json = r3_to_json(rules)
+            to_mydsl(r3_json, f"data/{file[:11]}_r3.mydsl")
+            with open(f"data/{file[:11]}_r3.mydsl", "r", encoding="utf-8") as f:
+                cnt = f.read()
+                output.write(f"dataset{file[10]}\n\n\n")
+                output.write(cnt + "\n\n\n\n\n\n\n\n\n")
+            tc = time.time() - bt
+            print(f"file {file}, time = {tc}")
+        # if "exp2_cinput" in file and "r1" in file:
         #     # 生成BR
         #     defines, vars, rules = mydsl_to_rules.read_file(f"data/{file}")
         #     knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
         #     rules, vars = preprocess(rules, vars)
         #     defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
         #     r2_json = r2_to_json(rules)
-        #     to_mydsl(r2_json, f"data/{file[:11]}_r2.mydsl")
+        #     to_mydsl(r2_json, f"data/{file[:12]}_r2.mydsl")
         #     defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
         #     r3_json = r3_to_json(rules)
-        #     to_mydsl(r3_json, f"data/{file[:11]}_r3.mydsl")
-        #     with open(f"data/{file[:11]}_r3.mydsl", "r", encoding="utf-8") as f:
+        #     to_mydsl(r3_json, f"data/{file[:12]}_r3.mydsl")
+        #     with open(f"data/{file[:12]}_r3.mydsl", "r", encoding="utf-8") as f:
         #         cnt = f.read()
-        #         output.write(f"dataset{file[10]}\n\n\n")
+        #         output.write(f"dataset{file[11]}\n\n\n")
         #         output.write(cnt + "\n\n\n\n\n\n\n\n\n")
-        if "exp2_cinput" in file and "r1" in file:
-            # 生成BR
-            defines, vars, rules = mydsl_to_rules.read_file(f"data/{file}")
-            knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
-            rules, vars = preprocess(rules, vars)
-            defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
-            r2_json = r2_to_json(rules)
-            to_mydsl(r2_json, f"data/{file[:12]}_r2.mydsl")
-            defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
-            r3_json = r3_to_json(rules)
-            to_mydsl(r3_json, f"data/{file[:12]}_r3.mydsl")
-            with open(f"data/{file[:12]}_r3.mydsl", "r", encoding="utf-8") as f:
-                cnt = f.read()
-                output.write(f"dataset{file[11]}\n\n\n")
-                output.write(cnt + "\n\n\n\n\n\n\n\n\n")
     output.close()
     # 计算BR的数目
     compute_BR_num("data/exp2_output.txt", fp)

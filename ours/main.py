@@ -12,6 +12,7 @@ from process_testcase_to_outputs import generate_dicts
 from transfer import mydsl_to_rules
 import json
 from pprint import pprint
+import time
 
 
 def nlp_process(input_file: str, 
@@ -74,5 +75,8 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
 
 
 if __name__ == "__main__":
-    # nlp_process("rules_cache/input.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json")
+    begin_time = time.time()
+    nlp_process("rules_cache/input.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "", "../model/ours/best_1690329462", "../data/tc_data.dict")
     alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r3.json", "rules_cache/testcase.json", "../data/knowledge.json")
+    time_consume = time.time() - begin_time
+    print(f"总共消耗时间: {time_consume}")

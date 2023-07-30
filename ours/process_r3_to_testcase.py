@@ -36,6 +36,8 @@ def list_conditions(defines, vars, rules):
         # 有些变量需要像sum(a)这样的求解之后才能赋值，这里记录下来(边界价格 = max()，需要先算max())
         wait_var_dic = {}  # wait_var_dic[条件名] = c
         for cnt, c in enumerate(constraints):
+            if "operation" not in c:
+                c["operation"] = "is"
             key = c["key"]
             op = c["operation"]
             value = c["value"]
