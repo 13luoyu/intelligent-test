@@ -1,3 +1,4 @@
+import pprint
 import re
 import json
 
@@ -33,7 +34,10 @@ def read_file(file_name):
         if len(l) == 0:
             continue
         if l[0] == "rule":
-            rule_class = '.'.join(l[1].split(".")[:-1])
+            if "_" in l[1]:
+                rule_class = l[1].split("_")[0]
+            else:
+                rule_class = '.'.join(l[1].split(".")[:-1])
             rule_id = l[1]
             rules[rule_id] = {}
             vars[rule_id] = {}
@@ -50,12 +54,18 @@ def read_file(file_name):
                 constraint = dict()
                 
                 constraint["key"] = l[i]
-                if l[i] == "单笔最大申报数量":
+                if l[i] == "单笔最大申报数量" or l[i] == "单笔申报最大数量":
                     constraint["key"] = "申报数量"
                     l[i] = "申报数量"
-                constraint["value"] = l[i + 2][1:-1]
-                if l[i+1] != "is":
-                    constraint["value"] = str(l[i+1]) + str(l[i + 2][1:-1])
+                if l[i+1] == "is":
+                    constraint["value"] = l[i + 2][1:-1]
+                elif l[i+1] == "in":
+                    constraint["value"] = l[i + 2]
+                else:
+                    constraint["value"] = l[i+1] + constraint["value"]
+                # if l[i+1] != "is":
+                #     constraint["value"] = str(l[i+1]) + str(l[i + 2][1:-1])
+                constraint["operation"] = l[i+1]
                 constraints.append(constraint)
                 vars[rule_id][l[i]] = []
                 i = i + 4
@@ -70,6 +80,7 @@ def read_file(file_name):
                 result = dict()
                 result["key"] = l[i]
                 result["value"] = l[i + 2][1:-1]
+                result["operation"] = "is"
                 if "不" in result["value"]:  # 默认result["key"][0] == "不"
                     result["else"] = result["value"][1:]
                 else: # then 结果 is "成功"
@@ -78,11 +89,27 @@ def read_file(file_name):
                 i += 4
             rules[rule_id]["results"] = results
         
-
-
+        elif l[0] == "constraint":
+            constraints = rules[rule_id]["constraints"]
+            i = 1
+            next_and = i + 1
+            while i < len(l):
+                next_and = i + 1
+                while next_and < len(l) and l[next_and] != "and":
+                    next_and += 1
+                constraint = dict()
+                
+                constraint["key"] = l[i]
+                constraint["value"] = l[i + 1:next_and]
+                constraint["operation"] = "compute"
+                constraints.append(constraint)
+                vars[rule_id][l[i]] = []
+                i = next_and + 1
+            
+            rules[rule_id]["constraints"] = constraints
 
     defines['交易市场'] = ["深圳证券交易所"]
-    defines['交易品种'] = ["债券"]
+    defines['交易品种'] = ["基金"]
     return defines, vars, rules
 
 

@@ -779,7 +779,6 @@ def supply_other_rules(vars, rules, preliminaries):
 def subrule_compose(vars, rules):
     # 同一rule下的subrule组合
     # 多组合
-
     to_delete = []
     while(1):
         keys = list(rules.keys())

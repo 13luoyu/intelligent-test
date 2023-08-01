@@ -20,7 +20,7 @@ focus: 时间
 
 rule 3.1.5_0.2
 focus: 时间
-	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "匹配成交" and 时间 is "9:30至11:30、13:00至15:"
+	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "匹配成交" and 连续匹配时间 is "9:30至11:30、13:00至15:30"
 	then 结果 is "成功"
 
 rule 3.2.5_0.1
@@ -30,32 +30,27 @@ focus: 订单连续性操作
 
 rule 3.3.8_0.1
 focus: 订单连续性操作
-	if 交易方式 is "竞价交易" and 操作 is "买入" and 操作部分 is "证券" and 申报数量 is "100股（份）"
-	then 结果 is "成功"
-
-rule 3.3.8_0.2
-focus: 订单连续性操作
-	if 交易方式 is "竞价交易" and 操作 is "买入" and 操作部分 is "证券" and 申报数量 is "其整数"
+	if 交易方式 is "竞价交易" and 操作 is "买入" and 操作部分 is "证券" and 申报数量 is "100股（份）或者其整数倍"
 	then 结果 is "成功"
 
 rule 3.3.8_1.1
 focus: 订单连续性操作
-	if 操作部分 is "余额" and 操作 is "当一次性申报卖出证券时" and 数量 不足 "100股（份）"
+	if 交易品种 is "证券" and 操作 is "一次性申报卖出" and 数量 is "不足100股（份）"
 	then 结果 is "成功"
 
 rule 3.3.11_0.1
 focus: 价格
-	if 交易品种 is "A股" and 申报价格最小变动单位 is "0"
+	if 交易品种 is "A股" and 申报价格最小变动单位 is "0.01元人民币"
 	then 结果 is "成功"
 
 rule 3.3.11_0.2
 focus: 价格
-	if 交易品种 is "基金" and 申报价格最小变动单位 is "0"
+	if 交易品种 is "基金" and 申报价格最小变动单位 is "0.001元人民币"
 	then 结果 is "成功"
 
 rule 3.3.11_0.3
 focus: 订单连续性操作
-	if 交易品种 is "基金"
+	if 交易品种 is "B股" and 申报价格最小变动单位 is "0.01港元"
 	then 结果 is "成功"
 
 rule 第十二条_0.1
@@ -65,41 +60,37 @@ focus: 订单连续性操作
 
 rule 第十二条_0.2
 focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 交易方式 is "竞价交易" and 约束 is "市价申报"
+	if 交易品种 is "基金份额" and 交易方式 is "竞价交易" and 申报类型 is "市价申报"
 	then 结果 is "成功"
 
 rule 第十二条_1.1
 focus: 时间
-	if 时间 is "每个交易日9︰15至9︰25" and 交易方式 is "集合竞价"
+	if 开盘集合竞价时间 is "每个交易日9:15至9:25"
 	then 结果 is "成功"
 
 rule 第十二条_1.2
 focus: 时间
-	if 时间 is "9︰30至11︰30、13︰00至14" and 交易方式 is "集合竞价"
+	if 连续竞价时间 is "9:30至11:30、13:00至14:57" and 交易方式 is "集合竞价"
 	then 结果 is "成功"
 
 rule 第十二条_1.3
 focus: 时间
-	if 交易方式 is "集合竞价" and 时间 is "时间"
+	if 收盘集合竞价时间 is "14:57至15:00"
 	then 结果 is "成功"
 
 rule 第八条_0.1
 focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 申报价格最小变动单位 is "0"
+	if 交易品种 is "基金份额" and 申报价格最小变动单位 is "0.001元"
 	then 结果 is "成功"
 
 rule 第二十五条_0.1
 focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 操作 is "认购" and 数量 is "1000份"
+	if 交易品种 is "基金份额" and 操作 is "认购" and 数量 is "1000份或者其整数倍"
 	then 结果 is "成功"
 
-rule 第二十五条_0.2
-focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 操作 is "认购" and 数量 is "其整数"
-	then 结果 is "成功"
 
 rule 第三十三条_0.1
 focus: 订单连续性操作
-	if 交易品种 is "LO" and 操作部分 is "F份" and 操作 is "的申赎申" and 操作 is "0前" and 时间 is "在当日15︰0"
+	if 交易品种 is "LOF" and 操作 is "申赎申报" and 时间 is "在当日15︰00前"
 	then 结果 is "可以"
 

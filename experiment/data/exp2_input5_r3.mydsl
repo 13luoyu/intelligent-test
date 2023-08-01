@@ -200,52 +200,52 @@ focus: 订单连续性操作
 
 rule 3.1.8_0.2.1.1
 focus: 订单连续性操作
-	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '债券' and 交易方向 is '买入' and 申报类型 is '限价申报' 
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '基金' and 交易方向 is '买入' and 申报类型 is '限价申报' 
 	then 结果 = '成功'
 
 rule 3.1.8_0.2.1.2
 focus: 订单连续性操作
-	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '债券' and 交易方向 is '卖出' and 申报类型 is '限价申报' 
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 申报类型 is '限价申报' 
 	then 结果 = '成功'
 
 rule 3.1.8_0.2.2.1
 focus: 订单连续性操作
-	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '债券' and 交易方向 is '买入' 
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '基金' and 交易方向 is '买入' 
 	then 结果 = '成功'
 
 rule 3.1.8_0.2.2.2
 focus: 订单连续性操作
-	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '债券' and 交易方向 is '卖出' 
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '基金' and 交易方向 is '卖出' 
 	then 结果 = '成功'
 
 rule 3.1.8_0.2.3.1
 focus: 订单连续性操作
-	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '债券' and 交易方向 is '买入' 
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '基金' and 交易方向 is '买入' 
 	then 结果 = '成功'
 
 rule 3.1.8_0.2.3.2
 focus: 订单连续性操作
-	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '债券' and 交易方向 is '卖出' 
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '基金' and 交易方向 is '卖出' 
 	then 结果 = '成功'
 
 rule 3.1.8_0.2.4.1
 focus: 订单连续性操作
-	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '债券' and 交易方向 is '买入' 
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '基金' and 交易方向 is '买入' 
 	then 结果 = '成功'
 
 rule 3.1.8_0.2.4.2
 focus: 订单连续性操作
-	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '债券' and 交易方向 is '卖出' 
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '基金' and 交易方向 is '卖出' 
 	then 结果 = '成功'
 
 rule 3.1.8_0.2.5.1
 focus: 订单连续性操作
-	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '债券' and 交易方向 is '买入' and 申报要素 is '证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期' 
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '基金' and 交易方向 is '买入' and 申报要素 is '证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期' 
 	then 结果 = '成功'
 
 rule 3.1.8_0.2.5.2
 focus: 订单连续性操作
-	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '债券' and 交易方向 is '卖出' and 申报要素 is '证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期' 
+	if 交易制度 is '当日回转交易' and 操作人 is '投资者' and 操作 is '卖出' and 时间 is '在当日' and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 申报要素 is '证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期' 
 	then 结果 = '成功'
 
 rule 4.1.5_0.1.1.1

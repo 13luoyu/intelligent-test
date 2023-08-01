@@ -1,0 +1,362 @@
+[
+    {
+        "id": "1.1",
+        "text": "为了规范融资融券交易行为，维护证券市场秩序，保护投资者的合法权益，根据《证券公司融资融券业务管理办法》《深圳证券交易所交易规则》及其他有关规定，制定本细则。",
+        "label": "O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "1.2",
+        "text": "本细则所称融资融券交易，是指投资者向具有深圳证券交易所（以下简称本所）会员资格的证券公司（以下简称会员）提供担保物，借入资金买入证券或者借入证券并卖出的行为。",
+        "label": "O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O B-操作人 I-操作人 I-操作人 O O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O B-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value B-or I-or B-value I-value I-value I-value I-value I-value I-value O B-key I-key O"
+    },
+    {
+        "id": "1.3",
+        "text": "在本所进行的融资融券交易，适用本细则。本细则未作规定的，适用《深圳证券交易所交易规则》和本所其他有关规定。",
+        "label": "O B-系统 I-系统 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "2.1",
+        "text": "会员申请本所融资融券交易权限的，应当向本所提交下列书面文件：（一）中国证券监督管理委员会（以下简称证监会）颁发的获准开展融资融券业务的《经营证券业务许可证》及其他有关批准文件；（二）融资融券业务实施方案、内部管理制度的相关文件；（三）负责融资融券业务的高级管理人员与业务人员名单及其联络方式；（四）本所要求提交的其他文件。",
+        "label": "B-操作人 I-操作人 B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "2.10",
+        "text": "融券卖出的申报价格不得低于该证券的最近成交价；当天还没有产生成交的，其申报价格不得低于前收盘价。低于上述价格的申报为无效申报。投资者在融券期间卖出通过其所有或者控制的证券账户所持有与其融入证券相同证券的，其申报卖出该证券的价格应当满足前款要求，但超出融券数量的部分除外。交易型开放式基金或者经本所认可的其他证券，其融券卖出不受本条前两款规定的限制。",
+        "label": "O O O O O B-价格 I-价格 I-价格 I-价格 O O B-op I-op O O O O B-价格 I-价格 I-价格 I-价格 I-价格 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O B-op I-op O O O O O B-op I-op O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O B-时间 I-时间 I-时间 I-时间 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O O O O B-op I-op B-数量 I-数量 I-数量 I-数量 O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-or I-or B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "2.11",
+        "text": "本所不接受融券卖出的市价申报。",
+        "label": "B-系统 I-系统 B-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "2.12",
+        "text": "投资者融资买入证券后，可以通过直接还款或者卖券还款的方式向会员偿还融入资金。以直接还款方式偿还融入资金的，按照会员与客户之间的约定办理。",
+        "label": "B-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-结果 I-结果 O O B-操作 I-操作 I-操作 I-操作 B-or I-or B-操作 I-操作 I-操作 I-操作 O O O O B-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O B-操作人 I-操作人 O B-操作人 I-操作人 O O O O O O O O O"
+    },
+    {
+        "id": "2.13",
+        "text": "投资者融券卖出后，自次一交易日起可以通过直接还券或者买券还券的方式向会员偿还融入证券。以直接还券方式偿还融入证券的，按照会员与客户之间约定，以及证券登记结算机构的有关规定办理。投资者融券卖出的证券暂停交易的，可以按照约定以现金等方式向会员偿还融入证券。",
+        "label": "B-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-结果 I-结果 O O O O O O B-or I-or O O O O O O O O B-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O B-操作人 I-操作人 O B-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O B-value I-value O B-key I-key O B-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "2.14",
+        "text": "投资者卖出信用证券账户内融资买入尚未了结合约的证券所得价款，应当先偿还该投资者的融资欠款。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "2.15",
+        "text": "未了结相关融券交易前，投资者融券卖出所得价款除下列用途外，不得另作他用：（一）买券还券。（二）偿还融资融券交易相关利息、费用或者融券交易相关权益现金补偿。（三）买入或者申购证券公司现金管理产品、货币市场基金，以及买入在本所上市的债券交易型开放式基金（跟踪指数成份证券含可转换公司债券的除外）、本所认可的其他高流动性证券。会员可以根据市场情况调整投资者可以买入或者申购的前述资产名单。（四）证监会及本所规定的其他用途。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O O O O O O O O O O O O B-key I-key O O O O O O O O O O O O B-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作人 I-操作人 B-结果 I-结果 O O O O O O O O B-操作人 I-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 B-or I-or B-操作 I-操作 O O O O O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "2.16",
+        "text": "会员与客户约定的融资、融券合约期限自客户实际使用资金或者证券之日起开始计算，最长不超过六个月。合约到期前，会员可以根据客户的申请为客户办理展期，每次展期的期限最长不得超过六个月。会员在为客户办理合约展期前，应当对客户的信用状况、负债情况、维持担保比例水平等进行评估。",
+        "label": "O O O O O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O B-事件 I-事件 I-事件 I-事件 O B-操作人 I-操作人 B-结果 I-结果 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O"
+    },
+    {
+        "id": "2.17",
+        "text": "会员融券专用证券账户不得用于证券买卖。",
+        "label": "O O O O O O O O O O O O O O B-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "2.18",
+        "text": "投资者信用证券账户不得用于买入或者转入除可充抵保证金证券范围以外的证券，也不得用于参与定向增发、股票交易型开放式基金和债券交易型开放式基金申购及赎回、债券回购等。",
+        "label": "O O O O O O O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O O"
+    },
+    {
+        "id": "2.19",
+        "text": "客户未能按期交足担保物或者到期未偿还融资融券债务的，会员可以根据与客户的约定处分其担保物，不足部分可以向客户追索。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O B-操作 I-操作 O"
+    },
+    {
+        "id": "2.2",
+        "text": "会员在本所从事融资融券业务，应当通过融资融券专用交易单元进行。",
+        "label": "B-操作人 I-操作人 O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "2.20",
+        "text": "会员根据与客户的约定采取强制平仓措施的，应当按照本所规定的格式申报强制平仓指令，申报指令应当包括客户的信用证券账户号码、融资融券专用交易单元代码、证券代码、买卖方向、价格、数量、融资强制平仓或者融券强制平仓标识等内容。",
+        "label": "B-操作人 I-操作人 B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O B-系统 I-系统 O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-key I-key I-key I-key O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value O O O O"
+    },
+    {
+        "id": "2.3",
+        "text": "会员按照有关规定开立融券专用证券账户、客户信用交易担保证券账户、融资专用资金账户及客户信用交易担保资金账户后，应当在三个交易日内向本所报告。",
+        "label": "B-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-系统 I-系统 B-操作 I-操作 O"
+    },
+    {
+        "id": "2.4",
+        "text": "会员应当加强客户适当性管理，明确客户参与融资融券交易应具备的资产、交易经验等条件，引导客户在充分了解融资融券业务特点的基础上合法合规参与交易。对未按照要求提供有关情况、从事证券交易时间不足半年、缺乏风险承担能力、最近二十个交易日日均证券类资产低于50万元或者有重大违约记录的客户，以及本会员股东、关联人，会员不得为其开立信用账户。专业机构投资者参与融资、融券，可以不受前款从事证券交易时间、证券类资产条件限制。本条第二款所称股东，不包括仅持有上市会员5%以下上市流通股份的股东。",
+        "label": "B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "2.5",
+        "text": "会员在向客户融资、融券前，应当按照有关规定与客户签订融资融券合同及融资融券交易风险揭示书，并为其开立信用证券账户和信用资金账户。",
+        "label": "B-操作人 I-操作人 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "2.6",
+        "text": "投资者应当按照有关规定，通过会员为其开立的信用证券账户，在本所进行融资融券交易。信用证券账户的开立和注销，根据会员和证券登记结算机构有关规定办理。",
+        "label": "B-操作人 I-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O B-value I-value O B-value I-value O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "2.7",
+        "text": "融资融券交易采用竞价交易方式。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O"
+    },
+    {
+        "id": "2.8",
+        "text": "会员接受客户的融资融券交易委托后，应当按照本所规定的格式申报，申报指令应包括客户的信用证券账户号码、融资融券专用交易单元代码、证券代码、买卖方向、价格、数量、融资融券相关标识等内容。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O O O O O O O O O B-操作 I-操作 O B-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O O O O"
+    },
+    {
+        "id": "2.9",
+        "text": "融资买入、融券卖出股票或者基金的，申报数量应当为100股（份）或者其整数倍。融资买入、融券卖出债券的，申报数量应当为10万元面额或者其整数倍。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O"
+    },
+    {
+        "id": "3.1",
+        "text": "在本所上市交易的下列证券，经本所认可，可以作为融资买入标的证券或者融券卖出标的证券（以下简称标的证券）：（一）股票；（二）证券投资基金；（三）债券；（四）其他证券。本所选取和确定标的证券，不表明本所对标的证券的投资价值或者投资者的收益作出实质性判断或者保证。",
+        "label": "O B-系统 I-系统 O O O O O O O O O O O B-系统 I-系统 O O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O B-value I-value O O O O B-value I-value I-value I-value I-value I-value O O O O B-value I-value O O O O B-value I-value I-value I-value O B-系统 I-系统 B-操作 I-操作 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-系统 I-系统 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-or I-or B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-or I-or B-操作 I-操作 O"
+    },
+    {
+        "id": "3.10",
+        "text": "标的股票交易被实行风险警示的，本所自该股票被实行风险警示当日起将其调整出标的证券范围。注册制下首次公开发行的股票被撤销风险警示的，本所自该股票被撤销风险警示当日起将其调入标的证券范围。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "3.11",
+        "text": "标的证券进入终止上市程序的，本所自发行人作出相关公告当日起将其调整出标的证券范围。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "3.12",
+        "text": "证券被调整出标的证券范围的，在调整前未了结的融资融券合约仍然有效。会员与其客户可以根据双方约定提前了结相关融资融券合约。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "3.2",
+        "text": "注册制下首次公开发行的股票自上市首日起可以作为标的证券。",
+        "label": "O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O"
+    },
+    {
+        "id": "3.3",
+        "text": "标的证券为本细则第3.2条以外的股票的，应当符合下列条件：（一）在本所上市交易超过三个月；（二）融资买入标的股票的流通股本不少于1亿股或者流通市值不低于5亿元，融券卖出标的股票的流通股本不少于2亿股或者流通市值不低于8亿元；（三）股东人数不少于4000人；（四）在最近三个月内没有出现下列情形之一：1．日均换手率低于基准指数日均换手率的15%，且日均成交金额低于5000万元；2．日均涨跌幅平均值与基准指数涨跌幅平均值的偏离值超过4%；3．波动幅度达到基准指数波动幅度的5倍以上。（五）股票交易未被本所实行风险警示；（六）本所规定的其他条件。",
+        "label": "O O O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O O O O O O O O O O O B-key I-key O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O O O O O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "3.4",
+        "text": "标的证券为交易型开放式基金的，应当符合下列条件：（一）上市交易超过五个交易日；（二）最近五个交易日内的日平均资产规模不低于5亿元；（三）基金持有户数不少于2000户；（四）本所规定的其他条件。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O B-key I-key O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "3.5",
+        "text": "标的证券为上市开放式基金的，应当符合下列条件：（一）上市交易超过五个交易日；（二）最近五个交易日内的日平均资产规模不低于5亿元；（三）基金持有户数不少于2000户；（四）基金份额不存在分拆、合并等分级转换情形；（五）本所规定的其他条件。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O B-key I-key O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "3.6",
+        "text": "标的证券为债券的，应当符合下列条件：（一）债券托管面值在1亿元以上；（二）债券剩余期限在一年以上；（三）债券信用评级达到AA级（含）以上；（四）本所规定的其他条件。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O B-key I-key O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "3.7",
+        "text": "本所按照从严到宽、从少到多、逐步扩大的原则，从满足本细则规定的证券范围内，审核、选取并确定可以作为标的证券的名单，并向市场公布。本所可以根据市场情况调整标的证券的选择标准和名单。",
+        "label": "B-系统 I-系统 O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-key I-key O O O O O O O O O O O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作部分 I-操作部分 O B-系统 I-系统 O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "3.8",
+        "text": "会员向其客户公布的标的证券名单，不得超出本所公布的标的证券范围。",
+        "label": "B-操作人 I-操作人 O O O O O O O O O O O O O O O O B-op I-op O O O O O O O O O O O O"
+    },
+    {
+        "id": "3.9",
+        "text": "标的证券暂停交易的，会员与其客户可以根据双方约定了结相关融资融券合约。标的证券暂停交易，且恢复交易日在融资融券债务到期日之后的，融资融券的期限可以顺延，顺延的具体期限由会员与其客户自行约定。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "4.1",
+        "text": "会员向客户融资、融券，应当向客户收取一定比例的保证金。保证金可以本所上市交易的股票、证券投资基金、债券，货币市场基金、证券公司现金管理产品及本所认可的其他证券充抵。",
+        "label": "B-操作人 I-操作人 O B-操作人 I-操作人 O O O O O O O O O B-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O B-系统 I-系统 O O O O O B-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O"
+    },
+    {
+        "id": "4.10",
+        "text": "会员应当加强对客户担保物的管理，对客户提交的担保物中单一证券市值占其担保物市值的比例进行监控。对于担保物中单一证券市值占比达到一定比例的客户，会员应当按照与客户的约定，暂停接受其融资买入该证券的委托或者采取其他风险控制措施。",
+        "label": "B-操作人 I-操作人 O O B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 O O O O O O O O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-or I-or B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "4.11",
+        "text": "会员应当根据市场情况、客户资信和公司风险管理能力等因素，审慎评估并与客户约定最低维持担保比例要求。当客户维持担保比例低于最低维持担保比例时，会员应当通知客户在约定的期限内追加担保物，客户经会员认可后，可以提交除可充抵保证金证券外的其他证券、不动产、股权等依法可以担保的财产或者财产权利作为其他担保物。会员可以与其客户自行约定追加担保物后的维持担保比例要求。",
+        "label": "B-操作人 I-操作人 O O O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key O B-操作 I-操作 I-操作 I-操作 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 O O O O O O O O O O O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-or I-or B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O B-操作人 I-操作人 O O O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "4.12",
+        "text": "仅计算现金及信用证券账户内证券市值总和的维持担保比例超过300%时，客户可以提取保证金可用余额中的现金或者充抵保证金的证券，但提取后仅计算现金及信用证券账户内证券市值总和的维持担保比例不得低于300%。维持担保比例超过会员与客户约定的数值时，客户可以解除其他担保物的担保，但解除担保后的维持担保比例不得低于会员与客户约定的数值。本所对提取现金、充抵保证金的证券，或者解除其他担保物的担保另有规定的除外。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O O O O O O B-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-value I-value I-value I-value O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O B-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-系统 I-系统 O O O O O O O O O O O O O O O B-or I-or O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "4.13",
+        "text": "本所认为必要时，可以调整融资、融券保证金比例及维持担保比例的标准，并向市场公布。",
+        "label": "B-系统 I-系统 O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-操作 I-操作 O"
+    },
+    {
+        "id": "4.14",
+        "text": "会员公布的融资、融券保证金比例及维持担保比例，不得低于本所规定的标准。",
+        "label": "B-操作人 I-操作人 B-操作 I-操作 O B-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-op I-op I-op I-op B-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "4.15",
+        "text": "投资者不得将已设定担保或者其他第三方权利及被采取查封、冻结等司法强制措施的证券提交为担保物，会员不得向客户借出此类证券。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O B-value I-value I-value I-value I-value B-or I-or B-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O B-操作人 I-操作人 O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "4.2",
+        "text": "可充抵保证金的证券，在计算保证金金额时应当以证券市值或者净值按下列折算率进行折算：（一）深证100指数成份股股票的折算率最高不超过70%，非深证100指数成份股股票的折算率最高不超过65%；（二）交易型开放式基金折算率最高不超过90%；（三）证券公司现金管理产品、货币市场基金、国债的折算率最高不超过95%；（四）被实行风险警示或者进入退市整理期的证券，静态市盈率在300倍以上或者为负数的A股股票，以及权证的折算率为0%；（五）其他上市证券投资基金和债券折算率最高不超过80%。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O B-or I-or O O O O O B-key I-key I-key O O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "4.3",
+        "text": "本所遵循审慎原则，审核、选取并确定可充抵保证金证券的名单，并向市场公布。本所可以根据市场情况调整可充抵保证金证券的名单和折算率。",
+        "label": "B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-操作 I-操作 O B-系统 I-系统 O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "4.4",
+        "text": "会员公布的可充抵保证金证券的名单，不得超出本所公布的可充抵保证金证券范围。会员应当根据流动性、波动性等指标对可充抵保证金证券的折算率实行动态管理与差异化控制，但会员公布的折算率不得高于本所规定的标准。",
+        "label": "B-操作人 I-操作人 O O O O O O O O O O O O O O O O O B-op I-op B-系统 I-系统 O O O O O O O O O O O O O O B-操作人 I-操作人 O O O O O O O O O O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O B-操作人 I-操作人 O O O O O O O O B-op I-op B-系统 I-系统 O O O O O O"
+    },
+    {
+        "id": "4.5",
+        "text": "投资者融资买入证券时，融资保证金比例不得低于100%。融资保证金比例是指投资者融资买入证券时交付的保证金与融资交易金额的比例。其计算公式为：融资保证金比例＝保证金/（融资买入证券数量×买入价格）×100%4.6投资者融券卖出时，融券保证金比例不得低于50%。融券保证金比例是指投资者融券卖出时交付的保证金与融券交易金额的比例。其计算公式为：融券保证金比例＝保证金/（融券卖出证券数量×卖出价格）×100%4.7投资者融资买入或者融券卖出时所使用的保证金不得超过其保证金可用余额。保证金可用余额是指投资者用于充抵保证金的现金、证券市值及融资融券交易产生的浮盈经折算后形成的保证金总额，减去投资者未了结融资融券交易已用保证金及相关利息、费用的余额。其计算公式为：保证金可用余额＝现金+∑（可充抵保证金的证券市值×折算率）+∑〔（融资买入证券市值-融资买入金额）×折算率〕＋∑〔（融券卖出金额-融券卖出证券市值）×折算率〕-∑融券卖出金额-∑融资买入证券金额×融资保证金比例-∑融券卖出证券市值×融券保证金比例-利息及费用公式中，融券卖出金额=融券卖出证券的数量×卖出价格，融券卖出证券市值=融券卖出证券数量×市价，融券卖出证券数量指融券卖出后尚未偿还的证券数量；∑〔（融资买入证券市值-融资买入金额）×折算率〕、∑〔（融券卖出金额-融券卖出证券市值）×折算率〕中的折算率是指融资买入、融券卖出证券对应的折算率，当融资买入证券市值低于融资买入金额或者融券卖出证券市值高于融券卖出金额时，折算率按100%计算。",
+        "label": "B-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O B-key I-key I-key I-key I-key I-key I-key B-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O B-key I-key I-key I-key I-key I-key I-key B-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op O B-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-key I-key I-key I-key I-key I-key I-key B-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key I-key I-key B-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key I-key B-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-key I-key I-key O B-value I-value I-value I-value O O O"
+    },
+    {
+        "id": "4.8",
+        "text": "会员向客户收取的保证金、客户融资买入的全部证券和融券卖出所得的全部价款，整体作为客户对会员融资融券所生债务的担保物。",
+        "label": "B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O"
+    },
+    {
+        "id": "4.9",
+        "text": "会员应当对客户提交的担保物进行整体监控，并计算其维持担保比例。维持担保比例是指客户担保物价值与其融资融券债务之间的比例。其计算公式为：维持担保比例=（现金+信用证券账户内证券市值总和+其他担保物价值）/（融资买入金额+融券卖出证券数量×当前市价＋利息及费用总和）公式中，其他担保物是指客户维持担保比例低于最低维持担保比例时，客户经会员认可后提交的除现金及信用证券账户内证券以外的其他担保物，其价值根据会员与客户约定的估值方式计算或者双方认可的估值结果确定。客户信用证券账户内的证券，出现被调出可充抵保证金证券范围、被暂停交易、被实行风险警示等特殊情形或者因权益处理等产生尚未到账的在途证券，会员在计算客户维持担保比例时，可以根据与客户的约定按照公允价格或者其他定价方式计算其市值。",
+        "label": "B-操作人 I-操作人 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O B-key I-key I-key I-key I-key I-key B-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key I-key O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O O O O O O O B-or I-or O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-key I-key I-key I-key O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-操作人 I-操作人 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O O O O O O O O O O O O O O B-or I-or O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "5.1",
+        "text": "本所在每个交易日开市前，根据会员报送数据，向市场公布下列信息：（一）前一交易日单只标的证券融资融券交易信息，包括融资买入额、融资余额、融券卖出量、融券余量等信息；（二）前一交易日市场融资融券交易总量信息。",
+        "label": "B-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value I-value O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O"
+    },
+    {
+        "id": "5.2",
+        "text": "会员应当按照本所要求每个交易日向本所报送当日各标的证券融资买入额、融资还款额、融资余额、融券卖出量、融券偿还量以及融券余量等数据。会员应当保证所报送数据的真实、准确、完整。",
+        "label": "B-操作人 I-操作人 O O O O O O O O O O O O O O O O B-操作 I-操作 B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value O O B-value I-value I-value I-value O B-key I-key O B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "6.1",
+        "text": "单只标的股票的融资余额、信用账户担保物市值占其上市可流通市值的比例均达到25%时，本所可以在次一交易日暂停其融资买入，并向市场公布。该标的股票的融资余额或者信用账户担保物市值占其上市可流通市值的比例降低至20%以下时，本所可以在次一交易日恢复其融资买入，并向市场公布。单只标的交易型开放式基金的融资余额、信用账户担保物市值占其上市可流通市值的比例均达到75%时，本所可以在次一交易日暂停其融资买入，并向市场公布。该标的交易型开放式基金的融资余额或者信用账户担保物市值占其上市可流通市值的比例降低至70%以下时，本所可以在次一交易日恢复其融资买入，并向市场公布。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O"
+    },
+    {
+        "id": "6.2",
+        "text": "单只标的股票的融券余量达到其上市可流通量的25%时，本所可以在次一交易日暂停其融券卖出，并向市场公布。该标的股票的融券余量降低至20%以下时，本所可以在次一交易日恢复其融券卖出，并向市场公布。单只标的交易型开放式基金的融券余量达到其上市可流通量的75%时，本所可以在次一交易日暂停其融券卖出，并向市场公布。该标的交易型开放式基金的融券余量降低至70%以下时，本所可以在次一交易日恢复其融券卖出，并向市场公布。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O"
+    },
+    {
+        "id": "6.3",
+        "text": "本所对市场融资融券交易进行监控。融资融券交易出现异常或者市场持续大幅波动时，本所可以视情况采取下列措施并向市场公布：（一）调整标的证券标准或者范围；（二）调整可充抵保证金证券的折算率；（三）调整融资、融券保证金比例；（四）调整维持担保比例；（五）暂停特定标的证券的融资买入或者融券卖出交易；（六）暂停整个市场的融资买入或者融券卖出交易；（七）本所认为必要的其他措施。",
+        "label": "B-系统 I-系统 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-or I-or O O O O O O O O O O B-系统 I-系统 O O O O O B-操作 I-操作 B-key I-key I-key I-key O O O O B-操作 I-操作 O O O O B-value I-value I-value I-value I-value I-value I-value I-value B-or I-or B-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-or I-or B-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-or I-or B-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "6.4",
+        "text": "标的证券发生重大风险情形的，本所可以视情况将其调出标的证券范围，并向市场公布；重大风险情形消除的，本所可以视情况将其调入标的证券范围，并向市场公布。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 O O O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 O O O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O"
+    },
+    {
+        "id": "6.5",
+        "text": "融资融券交易存在异常交易行为的，本所可以视情形采取限制相关证券账户交易等措施。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "6.6",
+        "text": "会员应当按照本所的要求，对客户的融资融券交易进行监控，并主动、及时地向本所报告其客户的异常融资融券交易行为。",
+        "label": "B-操作人 I-操作人 O O O O B-系统 I-系统 O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "6.7",
+        "text": "本所可以根据需要，对会员与融资融券业务相关的内部控制制度、业务操作规范、风险管理措施、交易技术系统的安全运行状况及对本所相关业务规则的执行情况等进行检查。",
+        "label": "B-系统 I-系统 O O O O O O O O B-操作人 I-操作人 O O O O O O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-操作 I-操作 O"
+    },
+    {
+        "id": "6.8",
+        "text": "会员违反本细则的，本所可以依据《深圳证券交易所会员管理规则》的相关规定采取自律监管措施或者给予纪律处分，并可以视情形暂停或者取消其在本所的融资或者融券交易权限。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 O O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-or I-or B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O O O B-操作 I-操作 B-or I-or B-value I-value B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-or I-or B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "7.1",
+        "text": "会员在向客户提供融资融券交易服务时，应当要求客户申报其持有限售股份、解除限售存量股份情况，以及是否为上市公司董事、监事、高级管理人员或者持股5%以上股东等相关信息。会员应当对客户的申报情况进行核实，并进行相应的前端控制。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O O B-操作人 I-操作人 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value B-or I-or B-value I-value I-value I-value I-value I-value I-value I-value O O O O O O B-操作人 I-操作人 O O O B-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 O O B-操作 I-操作 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "7.2",
+        "text": "个人或者机构客户持有上市公司限售股份的，会员不得接受其融券卖出该上市公司股份，也不得接受其以普通证券账户持有的限售股份充抵保证金。参与注册制下首次公开发行股票战略配售的投资者及其关联方，在参与战略配售的投资者承诺持有期限内，不得融券卖出该上市公司股票，本所另有规定的除外。会员不得以其普通证券账户持有的限售股份提交作为融券券源。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作人 I-操作人 I-操作人 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-系统 I-系统 O O O O O O O O B-操作人 I-操作人 B-结果 I-结果 O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "7.3",
+        "text": "个人客户持有上市公司解除限售存量股份的，会员不得接受其以普通证券账户持有的该上市公司股份充抵保证金。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "7.4",
+        "text": "会员不得接受上市公司的董事、监事、高级管理人员、持股5%以上的股东开展以该上市公司股票为标的证券的融资融券交易。",
+        "label": "B-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 O O O O O B-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "7.5",
+        "text": "会员通过客户信用交易担保证券账户持有的股票不计入其自有股票，会员无须因该账户内股票数量的变动而履行相应的信息报告、披露或者要约收购义务。投资者及其一致行动人通过普通证券账户和信用证券账户合计持有一家上市公司股票及其权益的数量或者其增减变动达到规定的比例时，应当依法履行相应的信息报告、披露或者要约收购义务。",
+        "label": "B-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 B-or I-or B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "7.6",
+        "text": "对客户信用交易担保证券账户记录的证券，由会员以自己的名义，为客户的利益，行使对发行人的权利。会员行使对发行人的权利，应当事先征求客户的意见，提醒客户遵守关联关系事项回避表决的规定，并按照其意见办理。客户未表示意见的，会员不得行使对发行人的权利。本条所称对发行人的权利，是指请求召开证券持有人会议、参加证券持有人会议、提案、表决、配售股份的认购、请求分配投资收益等因持有证券而产生的权利。",
+        "label": "O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 O O O O O O O O O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 O O O O O O O O O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "7.7",
+        "text": "会员客户信用交易担保证券账户内证券的分红、派息、配股等权益处理，按照《证券公司融资融券业务管理办法》和证券登记结算机构有关规定办理。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O B-value I-value O B-value I-value O B-value I-value O B-key I-key I-key I-key O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O"
+    },
+    {
+        "id": "8.1",
+        "text": "本细则中下列用语的含义：（一）证券类资产，是指投资者持有的客户交易结算资金、股票、债券、基金、证券公司资产管理计划等资产。（二）买券还券，是指客户通过其信用证券账户委托会员买券，在结算时由证券登记结算机构直接将买入的证券划转至会员融券专用证券账户内的一种还券方式。（三）卖券还款，是指客户通过其信用证券账户委托会员卖券，在结算时卖出证券所得资金直接划转至会员融资专用资金账户内的一种还款方式。（四）现金管理产品，是指适用《现金管理产品运作管理指引》进行运作的货币型集合资产管理计划或者货币市场基金。（五）日均换手率，是指最近三个月内标的证券或者基准指数每日换手率的平均值。（六）日均涨跌幅，是指最近三个月内标的证券或者基准指数每日涨跌幅绝对值的平均值。（七）波动幅度，是指最近三个月内标的证券或者基准指数最高价与最低价之差对最高价和最低价的平均值之比。（八）基准指数，是指深证A股指数、创业板综合指数。（九）静态市盈率，是指股票收盘价与相应上市公司最近一个会计年度经审计的基本每股收益的比值。（十）证券投资基金上市可流通市值，是指其当日收盘价与当日清算后的场内份额的乘积，基金发生权益分派、份额拆分合并等情况的，其上市可流通市值为其除权（息）参考价与当日清算后的场内份额的乘积。（十一）异常交易行为，是指《深圳证券交易所交易规则》证券交易监督相关条款规定的行为。（十二）存量股份，是指已完成股权分置改革、在本所上市的公司有限售期规定的股份，以及新老划断后在本所上市的公司于首次公开发行前已发行的股份。（十三）专业机构投资者，是指经国家金融监管部门批准设立的金融机构，包括商业银行、证券公司、基金管理公司、期货公司、信托公司和保险公司等；上述金融机构管理的金融产品；经证监会或者其授权机构登记备案的私募基金管理机构及其管理的私募基金产品；证监会认可的其他投资者。",
+        "label": "O O O O O O O O O O O O O O O B-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value O B-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O B-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "8.2",
+        "text": "存托凭证融资融券交易相关事宜，按照本细则有关股票的规定执行，本所另有规定的除外。",
+        "label": "O O O O O O O O O O O O O O O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O B-系统 I-系统 O O O O O O O O"
+    },
+    {
+        "id": "8.3",
+        "text": "投资者通过上海普通证券账户持有的深圳市场发行上海市场配售股份划转到深圳普通证券账户后，方可提交作为融资融券交易的担保物。投资者通过深圳普通证券账户持有的上海市场发行深圳市场配售股份划转到上海普通证券账户后，方可提交作为融资融券交易的担保物。",
+        "label": "B-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "8.4",
+        "text": "依照本细则达成的融资融券交易，其清算交收的具体规则，依照证券登记结算机构的规定执行。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "8.5",
+        "text": "本细则所称“超过”“低于”“少于”不含本数，“以上”“以下”“达到”含本数。",
+        "label": "O O O O O O B-op I-op O O B-op I-op O O B-op I-op O O O O O O O B-op I-op O O B-op I-op O O B-op I-op O O O O O"
+    },
+    {
+        "id": "8.6",
+        "text": "本细则由本所负责解释。",
+        "label": "O O O O B-系统 I-系统 B-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "8.7",
+        "text": "本细则自按照《首次公开发行股票注册管理办法》发行的首只主板股票上市首日起施行。本所2021年3月31日发布的《深圳证券交易所融资融券交易实施细则（2021年修订）》（深证会〔2021〕263号）、2015年7月1日发布的《关于发布〈深圳证券交易所融资融券交易实施细则（2015年修订）〉的通知》（深证会〔2015〕191号）同时废止。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 O O O O B-系统 I-系统 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    }
+]

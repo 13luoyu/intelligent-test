@@ -1,14 +1,14 @@
 # 主程序
-from process_nl_to_sci import nl_to_sci
-from process_sci_to_sco import sequence_classification
-from process_sco_to_tci import sco_to_tci
-from process_tci_to_tco import token_classification
-from process_tco_to_r1 import to_r1
+from ours.process_nl_to_sci import nl_to_sci
+from ours.process_sci_to_sco import sequence_classification
+from ours.process_sco_to_tci import sco_to_tci
+from ours.process_tci_to_tco import token_classification
+from ours.process_tco_to_r1 import to_r1
 
-from process_r1_to_r2 import preprocess, compose_rules_r1_r2
-from process_r2_to_r3 import compose_rules_r2_r3
-from process_r3_to_testcase import testcase
-from process_testcase_to_outputs import generate_dicts
+from ours.process_r1_to_r2 import preprocess, compose_rules_r1_r2
+from ours.process_r2_to_r3 import compose_rules_r2_r3
+from ours.process_r3_to_testcase import testcase
+from ours.process_testcase_to_outputs import generate_dicts
 from transfer import mydsl_to_rules
 import json
 from pprint import pprint
@@ -61,6 +61,8 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
     defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
     json.dump(rules, open(r3_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     print(f"R3规则生成，包含规则数：{len(rules)}")
+    r3_time = time.time()
+    
     # 生成测试样例
     vars = testcase(defines, vars, rules)
     outputs = generate_dicts(vars, rules)
@@ -71,12 +73,13 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
         out_num += len(o)
     print(f"testcase生成，数目为：{out_num}")
     json.dump(outputs, open(testcase_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-
+    
+    return r3_time
 
 
 if __name__ == "__main__":
     begin_time = time.time()
-    nlp_process("rules_cache/input.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "", "../model/ours/best_1690329462", "../data/tc_data.dict")
+    nlp_process("rules_cache/input.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1690329462", "../data/tc_data.dict")
     alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r3.json", "rules_cache/testcase.json", "../data/knowledge.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")

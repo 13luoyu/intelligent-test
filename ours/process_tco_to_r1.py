@@ -138,7 +138,7 @@ def read_OBI_to_rule(texts, labels):
         elif texts[i] == "且" or texts[i] == "但":
             sentence_and.append(len(stack))
     sentence_separate_2.pop()  # 句子的结尾一定是。而这个。无用
-    with open("r1_step1.txt", "a", encoding="utf-8") as f:
+    with open("rules_cache/r1_step1.txt", "a", encoding="utf-8") as f:
         s = pprint.pformat(stack)
         f.write(s + "\n\n")
     return stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation
@@ -490,7 +490,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         del si[key]
                         si["操作角色"] = value
                     use_index = True
-    with open("r1_step2.txt", "a", encoding="utf-8") as f:
+    with open("rules_cache/r1_step2.txt", "a", encoding="utf-8") as f:
         f.write(pprint.pformat(ss) + "\n\n")
     return ss
 
@@ -772,10 +772,10 @@ def to_r1(input_file, output_file, knowledge_file):
     fp_r1 = open(output_file, "w", encoding="utf-8")
     knowledge = read_knowledges(knowledge_file)
     rules = json.load(open(input_file, "r", encoding="utf-8"))
-    if os.path.exists("r1_step1.txt"):
-        os.remove("r1_step1.txt")
-    if os.path.exists("r1_step2.txt"):
-        os.remove("r1_step2.txt")
+    if os.path.exists("rules_cache/r1_step1.txt"):
+        os.remove("rules_cache/r1_step1.txt")
+    if os.path.exists("rules_cache/r1_step2.txt"):
+        os.remove("rules_cache/r1_step2.txt")
     unknown_id = 0
     for rule in rules:
         if 'id' in rule:

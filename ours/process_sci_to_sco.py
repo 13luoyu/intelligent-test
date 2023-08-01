@@ -25,7 +25,7 @@ def sequence_classification(in_file: str, out_file: str, model_path: str, batch_
             batch = inputs[start:start+batch_size]
             batch = tokenizer(batch, max_length=sentence_max_length, padding="max_length", truncation=True, return_tensors="pt")
             input_ids = batch.input_ids.cuda()
-            logits = model(input_ids=input_ids)
+            logits = model(input_ids=input_ids).logits
             _, outputs = torch.max(logits, dim=1)
             outputs = outputs.cpu().numpy()
             hats.extend(outputs)

@@ -30,42 +30,42 @@ focus: 时间
 
 rule 3.1.5_0.2
 focus: 时间
-	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "匹配成交" and 时间 is "9:30至11:30、13:00至15:"
+	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "匹配成交" and 连续匹配时间 is "9:30至11:30、13:00至15:30"
 	then 结果 is "成功"
 
 rule 3.1.5_0.3
 focus: 时间
-	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "用点击成交、询价成交和协商成交" and 时间 is "每个交易日的9:00至11:30、13:00至20:"
+	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "用点击成交、询价成交和协商成交" and 时间 is "每个交易日的9:00至11:30、13:00至20:00"
 	then 结果 is "成功"
 
 rule 3.1.5_0.4
 focus: 时间
-	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is ")采用竞买成交" and 时间 is "的"
+	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "竞买成交" and 竞买发起申报时间 is "每个交易日的9:00至10:00"
 	then 结果 is "成功"
 
 rule 3.1.5_0.5
 focus: 时间
-	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is ")采用竞买成交" and 时间 is "起申报时间"
+	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "竞买成交" and 应价申报时间 is "10:00至11:30"
 	then 结果 is "成功"
 
 rule 3.3.2_0.1
 focus: 订单连续性操作
-	if 系统 is "本所" and 结合规则 is "本规则第3" and 操作 is "接受" and 交易品种 is "债券" and 操作 is "交易申报"
+	if 系统 is "本所" and 结合规则 is "本规则第3.1.5条" and 操作 is "接受" and 交易品种 is "债券" and 操作 is "交易申报"
 	then 结果 is "成功"
 
 rule 3.3.4_0.1
 focus: 订单连续性操作
-	if 系统 is "本所" and 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报数量 以下要求 "10万元面额" and 操作 is "一次性申报卖出时" and 数量 is "10万元面额部分"
+	if 系统 is "本所" and 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报数量 is "10万元面额或者其整数倍"
 	then 结果 is "成功"
 
 rule 3.3.4_0.2
 focus: 订单连续性操作
-	if 系统 is "本所" and 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报数量 以下要求 "其整数倍" and 操作 is "卖出时" and 数量 is "10万元面额部分"
+	if 系统 is "本所" and 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 操作 is "一次性申报卖出" and 数量 is "不足10万元面额部分"
 	then 结果 is "成功"
 
 rule 3.3.4_0.3
 focus: 数量
-	if 系统 is "本所" and 数量 不足 "10万元面额部分,1000元面额整数倍"
+	if 系统 is "本所" and 数量 不低于 "10万元面额部分,1000元面额整数倍"
 	then 结果 is "成功"
 
 rule 3.3.4_0.4
@@ -130,27 +130,27 @@ focus: 数量
 
 rule 3.3.4_1.1
 focus: 数量
-	if 交易品种 is "债券" and 单笔最大申报数量 超过 "100亿元"
+	if 交易品种 is "债券" and 单笔最大申报数量 不超过 "100亿元"
 	then 结果 is "不得"
 
 rule 3.3.6_0.1
 focus: 价格
-	if 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报价格最小变动单位 is "0" and 价格 is "0"
+	if 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报价格最小变动单位 is "0.001元"
 	then 结果 is "成功"
 
 rule 3.3.6_0.2
 focus: 价格
-	if 交易方式 is "匹配成交" and 交易品种 is "债券通用质押式回购" and 申报价格最小变动单位 is "0"
+	if 交易方式 is "匹配成交" and 交易品种 is "债券通用质押式回购" and 申报价格最小变动单位 is "0.005元"
 	then 结果 is "成功"
 
 rule 3.3.6_0.3
 focus: 订单连续性操作
-	if 交易方式 is "他交易方" and 交易品种 is "债券交易"
+	if 交易方式 is "其他交易方式" and 交易品种 is "债券交易"
 	then 结果 is "成功"
 
 rule 4.1.5_0.1
 focus: 价格
-	if 交易品种 is "债券现券" and 时间 is "开盘集合匹配阶段" and 申报价格范围 is "前收盘价的" and 价格 上下 "30"
+	if 交易品种 is "债券现券" and 时间 is "开盘集合匹配阶段" and 申报价格范围 is "前收盘价的上下30%"
 	then 结果 is "有效"
 
 rule 4.1.5_1.1

@@ -318,6 +318,13 @@ def add_elements(vars, rules, preliminaries):
             transaction_mode = key[:4]
             for rule_id in rule_keys:
                 rule = rules[rule_id]
+                has_clt = False
+                for c in rule["constraints"]:
+                    if "申报类型" in c["key"]:
+                        has_clt = True
+                        break
+                if has_clt:
+                    continue
                 for c in rule['constraints']:
                     if c['value'] == transaction_mode:
                         rule['constraints'].append({"key":"申报类型","operation":"is","value":preliminaries[key][0]})
