@@ -1,6 +1,7 @@
 # 生成规则，并比较数目和质量
 # 质量的比较比较松
 import os
+import pprint
 from experiment.compare_BR import compute_BR_num, compute_BR_precision
 from transfer import mydsl_to_rules
 import json
@@ -49,6 +50,8 @@ if __name__ == "__main__":
         if "exp2_input" in file and "r1" in file:
             # 生成BR
             defines, vars, rules = mydsl_to_rules.read_file(f"data/{file}")
+            # pprint.pprint(rules)
+            # exit(0)
             knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
             rules, vars = preprocess(rules, vars)
             defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
@@ -61,21 +64,6 @@ if __name__ == "__main__":
                 cnt = f.read()
                 output.write(f"dataset{file[10]}\n\n\n")
                 output.write(cnt + "\n\n\n\n\n\n\n\n\n")
-        # if "exp2_cinput" in file and "r1" in file:
-        #     # 生成BR
-        #     defines, vars, rules = mydsl_to_rules.read_file(f"data/{file}")
-        #     knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
-        #     rules, vars = preprocess(rules, vars)
-        #     defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
-        #     r2_json = r2_to_json(rules)
-        #     to_mydsl(r2_json, f"data/{file[:12]}_r2.mydsl")
-        #     defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
-        #     r3_json = r3_to_json(rules)
-        #     to_mydsl(r3_json, f"data/{file[:12]}_r3.mydsl")
-        #     with open(f"data/{file[:12]}_r3.mydsl", "r", encoding="utf-8") as f:
-        #         cnt = f.read()
-        #         output.write(f"dataset{file[11]}\n\n\n")
-        #         output.write(cnt + "\n\n\n\n\n\n\n\n\n")
     output.close()
     # 计算BR的数目
     compute_BR_num("data/exp2_output.txt", fp)

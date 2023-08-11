@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+Intelligent_Test.egg-info/PKG-INFO
+Intelligent_Test.egg-info/SOURCES.txt
+Intelligent_Test.egg-info/dependency_links.txt
+Intelligent_Test.egg-info/top_level.txt

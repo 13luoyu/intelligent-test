@@ -34,12 +34,13 @@ count2("../data/sc_validate_data.json")
 def count_file(file):
     print(len(json.load(open(file, "r", encoding="utf-8"))))
 
-count_file("../data/sc_train_data_full.json")
-count_file("../data/sc_validate_data.json")
-count_file("../data/tc_train_data_all_full.json")
-count_file("../data/tc_validate_data_all.json")
-count_file("../data/tc_validate_data_rules.json")
-count_file("../data/rules.json")
+# count_file("../data/sc_train_data_full.json")
+# count_file("../data/sc_validate_data.json")
+# count_file("../data/tc_train_data_all_full.json")
+# count_file("../data/tc_validate_data_all.json")
+# count_file("../data/tc_validate_data_rules.json")
+# count_file("../data/rules.json")
+count_file("../data/knowledge.json")
 
 def count3(dir):
     a = 0

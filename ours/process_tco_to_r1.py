@@ -438,6 +438,66 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         for rule_to_add in ss[ss_now:]:
                             rule_to_add.append({key:value})
                         if_add = True
+                elif key == "结果":
+                    if value == "除外":
+                        # 处理“...情况怎么样，...情况除外”
+                        # 首先找到“除外”所在的短句
+                        for sepi, sep in enumerate(sentence_separate_3):
+                            if sepi + 1 < len(sentence_separate_3) and sep <= cnt and sentence_separate_3[sepi+1] > cnt:
+                                break
+                        # 找到其中的约束
+                        cons = []
+                        for con in stack[sep:]:
+                            if "value" in con or "时间" in con or "数量" in con or "价格" in con or "交易方式" in con:
+                                cons.append(con)
+                        # 新增规则，“除外”的内容结果反过来，这里先记录
+                        rules_to_add = []
+                        for s in ss[ss_now:]:
+                            rule_to_add = copy.deepcopy(s)
+                            rules_to_add.append(rule_to_add)
+                        # 修改“除外”的内容为非，或直接删掉（如果重复）
+                        for s in ss[ss_now:]:
+                            to_del = []
+                            for sii, si in enumerate(s):
+                                if si in cons:
+                                    keyi = list(si.keys())[0]
+                                    # 和前面重复，直接删掉
+                                    cf = False
+                                    for sj in s[:sii]:
+                                        if keyi in sj:
+                                            to_del.append(sii)
+                                            cf = True
+                                            break
+                                    if not cf:
+                                        si[keyi] = "非" + si[keyi]
+                            for ind in reversed(to_del):
+                                s.pop(ind)
+                        # 依据除外新增规则
+                        for s in rules_to_add:
+                            to_del = []
+                            has_rs = False
+                            for sii, si in enumerate(s):
+                                # 反转结果
+                                if "结果" in si:
+                                    if "不" in si["结果"] or si["结果"] == "无效":
+                                        si["结果"] = "成功"
+                                    else:
+                                        si["结果"] = "不成功"
+                                    has_rs = True
+                                    continue
+                                if si in cons:
+                                    keyi = list(si.keys())[0]
+                                    # 和前面重复，直接删掉前面的
+                                    for sj in s[:sii]:
+                                        if keyi in sj:
+                                            to_del.append(sj)
+                            for ind in to_del:
+                                s.remove(ind)
+                            if not has_rs:
+                                s.append({"结果":"不成功"})
+                        ss += rules_to_add
+                        if_add = True
+                        break
             else:  # 一条规则中没有找到key，就添加进去
                 s.append({key:value})
                 if_add = True
@@ -703,11 +763,18 @@ def write_r1(fp_r1, ss, knowledge, id):
                 for key_to_find in list(knowledge.keys()):
                     value_to_find = knowledge[key_to_find]
                     if isinstance(value_to_find, list):
-                        for v_to_find in value_to_find:
-                            if v_to_find == value:
+                        if "其他" in value:
+                            k = value[2:]
+                            if k == key_to_find:
                                 r1 += f"{key_to_find} is \"{value}\" and "
                                 find = True
                                 break
+                        else:
+                            for v_to_find in value_to_find:
+                                if v_to_find == value:
+                                    r1 += f"{key_to_find} is \"{value}\" and "
+                                    find = True
+                                    break
                     if find:
                         break
                 if not find:

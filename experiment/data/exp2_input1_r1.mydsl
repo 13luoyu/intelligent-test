@@ -1,6 +1,6 @@
 rule 3.1.4_0.1
 focus: 订单连续性操作
-	if 操作人 is "投资者" and 操作 is "买入" and 操作部分 is "证券" and 操作 is "卖出" and 时间 is "交收前" and 约束 is "回转交易"
+	if 操作人 is "投资者" and 操作部分 is "买入的证券" and 操作 is "卖出" and 时间 is "交收前" and 约束 is "回转交易"
 	then 结果 is "不得"
 
 rule 3.1.4_0.2
