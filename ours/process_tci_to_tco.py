@@ -7,6 +7,9 @@ from transformers import AutoModelForTokenClassification, AutoTokenizer
 import torch
 from utils.data_loader import read_dict
 import hanlp
+import re
+
+
 
 def change(begin, end, label, tag):
     index = begin
@@ -26,6 +29,7 @@ def change(begin, end, label, tag):
 def token_classification_with_algorithm(tco, knowledge):
     # 所有可以补的标签：
     # 交易品种、交易方式、结合规则、结果、系统、or、时间、价格、数量、op
+    # 但补可能会出现问题（比如原本是一个key，结果写成了交易方式），所以后面还需要修改
     # 还需要将标签修复完整
     HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
     for ri, rule in enumerate(tco):
@@ -124,8 +128,16 @@ def token_classification_with_algorithm(tco, knowledge):
                 types += knowledge[key]
         for t in types:
             p = text.find(t)
+            # 这里修正的时候把“不...”的情况也考虑进去
             while p != -1:
-                label = change(p, p+len(t), label, "op")
+                q = p
+                if p-1 > 0 and text[p-1] == "不":  # 不少于
+                    q = p-1
+                elif p-2 > 0 and text[p-2] == "不":  # 不得少于
+                    q = p-2
+                elif p-3 > 0 and text[p-3] == "不":  # 不可以少于
+                    q = p-3
+                label = change(q, p+len(t), label, "op")
                 p = text.find(t, p+len(t))
 
 
@@ -146,7 +158,7 @@ def token_classification_with_algorithm(tco, knowledge):
                 begin_index, end_index = index[begin], index[end]
                 lab = label[begin_index:end_index]
                 # 同一个token，修复步骤：1、统计出现最多的标签，如果它不是交易方式，就将它标记为这个词的正确标签。一个trick是单字为O
-                if end_index - begin_index == 1:
+                if end_index - begin_index == 1 and text[begin_index] != "不":
                     label[begin_index] = "O"
                     continue
                 kvs = {}
@@ -177,6 +189,98 @@ def token_classification_with_algorithm(tco, knowledge):
                             label[i] = "B-" + a
                         else:
                             label[i] = "I-" + a
+        
+        # 特殊处理：时间、数量、价格以及key、value
+        # 时间，一般形式为 时间为key
+        iters = re.finditer(r"\d{1,2}:\d{1,2}", text)
+        i = 0
+        t_begin = 0
+        for x in iters:
+            a, b = x.start(), x.end()
+            if t_begin == 0:
+                t_begin = a
+            if b < len(text) and text[b] != "至" and text[b] != "、":
+                label = change(t_begin, b, label, "时间")
+                t_begin = 0
+        # 数量，主要处理 ...或者其整数倍、不足...部分、直接 3种情况
+        stopsignal = ["，", "。", "；"]
+        if "数量" in text:
+            i = 0
+            a, b = -1, -1
+            while i < len(text):
+                if text[i].isdigit():
+                    a = i
+                    while i < len(text) and text[i] not in stopsignal:
+                        i += 1
+                    b = i
+                    if ":" not in text[a:b]:
+                        if "整数倍" in text[a:b]:
+                            b = text[a:b].find("整数倍") + a + 3
+                        if a-2 > 0 and "不足" == text[a-2:a] and "部分" in text[a:b]:
+                            a = a-2
+                            b = text[a:b].find("部分") + a + 2
+                        label = change(a, b, label, "数量")
+                else:
+                    i += 1
+        # 价格
+        if "价格" in text:
+            i = 0
+            a, b = -1, -1
+            while i < len(text):
+                if text[i].isdigit():
+                    a = i
+                    while i < len(text) and text[i] not in stopsignal:
+                        i += 1
+                    b = i
+                    if ":" not in text[a:b]:
+                        label = change(a, b, label, "价格")
+                else:
+                    i += 1
+        
+        # key value
+        i=0
+        while i < len(text):
+            # 寻找时间、数量、价格等
+            if "时间" in label[i] or "数量" in label[i] or "价格" in label[i]:
+                a = i
+                i += 1
+                while i < len(text) and label[i][2:] == label[i-1][2:]:
+                    i += 1
+                b = i
+                if text[i] == "为":
+                    # 后面是key
+                    i += 1
+                    a_key = i
+                    while i < len(text) and text[i] not in stopsignal:
+                        i += 1
+                    b_key = i
+                    label = change(a_key, b_key, label, "key")
+                    if "数量" in text[a_key:b_key]:
+                        if "数量" not in label[a]:
+                            label = change(a, b, label, "数量")
+                    elif "价格" in text[a_key:b_key]:
+                        if "价格" not in label[a]:
+                            label = change(a, b, label, "价格")
+                else:
+                    # 前面是key
+                    j = a
+                    while j > 0 and text[j] not in stopsignal:
+                        j -= 1
+                    j += 1
+                    while j < a and "O" != label[j] and "key" not in label[j]:
+                        j += 1
+                    a_key = j
+                    while j < a and j != "为":
+                        j += 1
+                    if j == a:
+                        continue
+                    b_key = j
+                    if b_key-2 > a and "应当" == text[b-2:b]:
+                        b_key -= 2
+                    label = change(a_key, b_key, label, "key")
+            else:
+                i += 1
+        
         # 2、结束之后扫描一遍，如果改标签了，则将开始标签设为B-，中间设为I-
         last = "O"
         for i, l in enumerate(label):
@@ -193,7 +297,7 @@ def token_classification_with_algorithm(tco, knowledge):
             last = l
         
         
-        # 3、所有标点符号标为O
+        # 3、部分标点符号标为O
         punctuation = [",", ".", ";", "!", "?", "，", "。", "；", "！", "？"]
         for i, t in enumerate(text):
             if t in punctuation:
