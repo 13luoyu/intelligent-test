@@ -191,7 +191,7 @@ def token_classification_with_algorithm(tco, knowledge):
                             label[i] = "I-" + a
         
         # 特殊处理：时间、数量、价格以及key、value
-        # 时间，一般形式为 时间为key
+        # 时间，一般形式为 时间 为 key，也可能出现key 为 时间
         iters = re.finditer(r"\d{1,2}:\d{1,2}", text)
         i = 0
         t_begin = 0
@@ -200,6 +200,8 @@ def token_classification_with_algorithm(tco, knowledge):
             if t_begin == 0:
                 t_begin = a
             if b < len(text) and text[b] != "至" and text[b] != "、":
+                if t_begin > 6 and "每个交易日" in text[t_begin-6:t_begin]:
+                    t_begin = t_begin - 6
                 label = change(t_begin, b, label, "时间")
                 t_begin = 0
         # 数量，主要处理 ...或者其整数倍、不足...部分、直接 3种情况
@@ -247,6 +249,8 @@ def token_classification_with_algorithm(tco, knowledge):
                 while i < len(text) and label[i][2:] == label[i-1][2:]:
                     i += 1
                 b = i
+                if b - a < 3:  # 时间、数量、价格最少得3个字
+                    continue
                 if text[i] == "为":
                     # 后面是key
                     i += 1
@@ -270,18 +274,26 @@ def token_classification_with_algorithm(tco, knowledge):
                     while j < a and "O" != label[j] and "key" not in label[j]:
                         j += 1
                     a_key = j
-                    while j < a and j != "为":
+                    while j < a and text[j] != "为":
                         j += 1
                     if j == a:
                         continue
                     b_key = j
-                    if b_key-2 > a and "应当" == text[b-2:b]:
+                    if b_key-2 > a and "应当" == text[b_key-2:b_key]:
                         b_key -= 2
                     label = change(a_key, b_key, label, "key")
             else:
                 i += 1
         
-        # 2、结束之后扫描一遍，如果改标签了，则将开始标签设为B-，中间设为I-
+
+        # 2、部分标点符号标为O
+        punctuation = [",", ".", ";", "!", "?", "，", "。", "；", "！", "？", "为"]
+        for i, t in enumerate(text):
+            if t in punctuation:
+                label[i] = "O"
+
+
+        # 3、结束之后扫描一遍，如果改标签了，则将开始标签设为B-，中间设为I-
         last = "O"
         for i, l in enumerate(label):
             if i > 0 and "B-" in label[i-1]:
@@ -297,11 +309,7 @@ def token_classification_with_algorithm(tco, knowledge):
             last = l
         
         
-        # 3、部分标点符号标为O
-        punctuation = [",", ".", ";", "!", "?", "，", "。", "；", "！", "？"]
-        for i, t in enumerate(text):
-            if t in punctuation:
-                label[i] = "O"
+        
 
 
 

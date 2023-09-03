@@ -1,120 +1,25 @@
-rule 第十二条.1
-focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 交易方式 is "竞价交易" and 操作 is "申报"
-	then 结果 is "成功"
-
-rule 第十二条.2
-focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 交易方式 is "限价申报" and 操作 is "申报"
-	then 结果 is "成功"
-
-rule 第十二条.3
-focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 交易方式 is "市价申报" and 操作 is "申报"
-	then 结果 is "成功"
-
-rule 第十二条.4
-focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 交易方式 is "市价申报" and 操作 is "申报"
-	then 结果 is "成功"
-
-rule 第十二条.5
+rule 3.1.5.1
 focus: 时间
-	if 开盘集合竞价时间 is "每个交易日9:15至9:25" and 连续竞价时间 is "9:30至11:30、13:00至14:57"
+	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "匹配成交" and 开盘集合匹配时间 is "每个交易日的9:15至9:25"
 	then 结果 is "成功"
 
-rule 第十三条.1
-focus: 数量
-	if 交易方式 is "竞价交易" and 交易品种 is "基金份额" and 申报数量 is "100份或者其整数倍"
-	then 结果 is "成功"
-
-rule 第十三条.2
-focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 操作 is "次性申报卖出" and 数量 is "不足100份的部分"
-	then 结果 is "成功"
-
-rule 第十三条.3
-focus: 数量
-	if 交易品种 is "基金份额" and 交易方式 is "竞价交易" and 单笔申报最大数量 不得超过 "100万份"
-	then 结果 is "成功"
-
-rule 第十四条.1
-focus: 价格
-	if 交易品种 is "基金份额" and 交易方式 is "竞价交易" and 约束 is "价格涨跌幅限制" and 价格 is "10%"
-	then 结果 is "成功"
-
-rule 第十五条.1
-focus: 数量
-	if 交易品种 is "基金份额" and 单笔交易数量 不低于 "200万份" and 交易方式 is "用大宗交易"
-	then 结果 is "可以"
-
-rule 第十五条.2
-focus: 数量
-	if 交易品种 is "基金份额" and 交易方式 is "用大宗交易" and 数量 不低于 "200万元人民币"
-	then 结果 is "可以"
-
-rule 第十五条.3
-focus: 数量
-	if 交易品种 is "基金份额" and 单笔交易数量 不低于 "200万元人民币" and 交易方式 is "用大宗交易"
-	then 结果 is "可以"
-
-rule 第十六条.1
+rule 3.1.5.2
 focus: 时间
-	if 交易品种 is "基金份额" and 交易方式 is "协议大宗交易" and 系统 is "本所" and 接受申报时间 is "每个交易日9:15至11:30、13:00至15:30"
+	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "匹配成交" and 连续匹配时间 is "9:30至11:30、13:00至15:30"
 	then 结果 is "成功"
 
-rule 第十六条.2
+rule 3.1.5.3
 focus: 时间
-	if 交易品种 is "基金份额" and 交易方式 is "协议大宗交易" and 系统 is "本所" and 接受申报时间 is "每个交易日15:00至15:30"
+	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is "用点击成交、询价成交和协商成交" and 交易时间 is "每个交易日的9:00至11:30、13:00至20:00"
 	then 结果 is "成功"
 
-rule 第十六条.3
+rule 3.1.5.4
 focus: 时间
-	if 交易方式 is "采用盘后定价大宗交易" and 系统 is "本所" and 接受申报时间 is "每个"
+	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is ")采用竞买成交" and 卖方提交竞买发起申报时间 is "每个交易日的9:00至10:00"
 	then 结果 is "成功"
 
-rule 第十六条.4
+rule 3.1.5.5
 focus: 时间
-	if 交易方式 is "采用盘后定价大宗交易" and 系统 is "本所" and 接受申报时间 is "易日15"
+	if 系统 is "本所" and 交易品种 is "债券" and 交易方式 is ")采用竞买成交" and 应价方提交应价申报时间 is "10:00至11:30"
 	then 结果 is "成功"
-
-rule 第十七条.1
-focus: 价格
-	if 交易品种 is "基金份额" and 交易方式 is "协议大宗交易" and 申报价格范围 is "前收盘价的" and 价格 上下 "10%"
-	then 结果 is "成功"
-
-rule 第二十条.1
-focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 操作 is "认购" and 操作 is "申赎" and 申报时间 is "每个交易日9:15至11:30、13:00至15:00"
-	then 结果 is "成功"
-
-rule 第二十五条.1
-focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 操作 is "认购" and 数量 is "1000份"
-	then 结果 is "成功"
-
-rule 第二十五条.2
-focus: 订单连续性操作
-	if 交易品种 is "基金份额" and 操作 is "认购" and 数量 is "其整数"
-	then 结果 is "成功"
-
-rule 第三十二条.1
-focus: 订单连续性操作
-	if 交易品种 is "LOF份" and 操作 is "申报" and 约束 is "以金额" and 价格 is "1元"
-	then 结果 is "成功"
-
-rule 第三十二条.2
-focus: 订单连续性操作
-	if 交易品种 is "LOF份" and 操作 is "赎回" and 约束 is "以金额" and 操作 is "申报" and 约束 is "以份额" and 数量 is "1份"
-	then 结果 is "成功"
-
-rule 第三十二条.3
-focus: 订单连续性操作
-	if 交易品种 is "基金"
-	then 结果 is "成功"
-
-rule 第三十三条.1
-focus: 订单连续性操作
-	if 交易品种 is "LO" and 操作部分 is "F份" and 操作 is "的申赎申" and 时间 is "在当日15:00"
-	then 结果 is "可以"
 
