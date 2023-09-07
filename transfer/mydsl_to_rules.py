@@ -62,7 +62,7 @@ def read_file(file_name):
                 elif l[i+1] == "in":
                     constraint["value"] = l[i + 2]
                 else:
-                    constraint["value"] = l[i+1] + constraint["value"]
+                    constraint["value"] = l[i+1] + l[i+2]
                 # if l[i+1] != "is":
                 #     constraint["value"] = str(l[i+1]) + str(l[i + 2][1:-1])
                 constraint["operation"] = l[i+1]
