@@ -10,7 +10,12 @@ from ours.process_r1_to_r2 import preprocess, compose_rules_r1_r2
 from ours.process_r2_to_r3 import compose_rules_r2_r3
 from ours.process_r3_to_testcase import testcase
 from ours.process_testcase_to_outputs import generate_dicts
+from transfer import mydsl_to_rules, rules_to_json_and_mydsl
 
+sc_model_path = "../model/ours/best_1690658708"
+tc_model_path = "../model/ours/best_1690329462"
+knowledge_file = '../data/knowledge.json'
+dict_file = '../data/tc_data.dict'
 
 app = Flask(__name__)
 # 上传目录
@@ -35,6 +40,7 @@ def default_page():
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
+# 上传文件
 @app.route('/upload', methods=['POST'])
 def upload():
     upload_file = request.files['file']
@@ -44,8 +50,8 @@ def upload():
     else:
         return jsonify('upload failed')
 
-# 获取输入文件（pdf，txt），或者直接输入一段文字，记录并转换为句分类的输入格式
-@app.route('/nl_to_sci', methods=['POST'])
+# 获取输入文件（pdf，txt），或者直接输入一段文字，进行预处理
+@app.route('/preprocess', methods=['POST'])
 def nl_to_sci_interface():
     params = request.json
     if 'file' in params and params['file'] != '':
@@ -61,8 +67,66 @@ def nl_to_sci_interface():
     else:
         return jsonify("请输入需要转换的句子或文件")
 
-# 
 
+# 规则筛选
+@app.route('/rule_filter', methods=['POST'])
+def sequence_classification_interface():
+    sequence_classification('rules_cache/sci.json', 'rules_cache/sco.json', sc_model_path)
+    sco_data = json.load(open('rules_cache/sco.json', "r", encoding="utf-8"))
+    return jsonify(sco_data)
+
+# 规则元素抽取
+@app.route('/rule_element_extraction', methods=['POST'])
+def token_classification_interface():
+    sco_to_tci('rules_cache/sco.json', 'rules_cache/tci.json')
+    token_classification('rules_cache/tci.json', 'rules_cache/tco.json', knowledge_file, tc_model_path, dict_file)
+    tco_data = json.load(open('rules_cache/tco.json', 'r', encoding="utf-8"))
+    return jsonify(tco_data)
+
+# 规则合成
+@app.route('/rule_assembly', methods=["POST"])
+def to_r1_interface():
+    to_r1('rules_cache/tco.json', 'rules_cache/r1.mydsl', knowledge_file)
+    with open('rules_cache/r1.mydsl', 'r', encoding="utf-8") as f:
+        s = f.read()
+    return jsonify(s)
+
+# R1->R2
+@app.route('/r1_to_r2', methods=['POST'])
+def r1_to_r2_interface():
+    defines, vars, rules = mydsl_to_rules.read_file('rules_cache/r1.mydsl')
+    knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
+    rules, vars = preprocess(rules, vars)
+    json.dump(rules, open('rules_cache/r1.json', "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
+    json.dump(rules, open('rules_cache/r2.json', "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    r2_json = rules_to_json_and_mydsl.r2_to_json(rules)
+    rules_to_json_and_mydsl.to_mydsl(r2_json, 'rules_cache/r2.mydsl')
+    with open('rules_cache/r2.mydsl', 'r', encoding="utf-8") as f:
+        s = f.read()
+    return jsonify(s)
+
+# R2->R3
+@app.route('/r2_to_r3', methods=['POST'])
+def r2_to_r3_interface():
+    defines, vars, rules = mydsl_to_rules.read_file('rules_cache/r2.mydsl')
+    knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
+    defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
+    json.dump(rules, open('rules_cache/r3.json', "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    r3_json = rules_to_json_and_mydsl.r3_to_json(rules)
+    rules_to_json_and_mydsl.to_mydsl(r3_json, 'rules_cache/r3.mydsl')
+    with open('rules_cache/r3.mydsl', 'r', encoding="utf-8") as f:
+        s = f.read()
+    return jsonify(s)
+
+# 测试用例生成
+@app.route('/testcase', methods=['POST'])
+def test_case_interface():
+    defines, vars, rules = mydsl_to_rules.read_file('rules_cache/r3.mydsl')
+    vars = testcase(defines, vars, rules)
+    outputs = generate_dicts(vars, rules)
+    json.dump(outputs, open('rules_cache/testcase.json', "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    return jsonify(outputs)
 
 
 if __name__ == '__main__':
