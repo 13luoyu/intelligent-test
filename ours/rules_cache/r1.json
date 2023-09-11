@@ -4,12 +4,12 @@
             "1.1.1"
         ],
         "focus": [
-            "数量"
+            "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "交易方式",
-                "value": "竞价交易",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
@@ -19,18 +19,18 @@
             },
             {
                 "key": "交易品种",
-                "value": "基金份额",
+                "value": "退市整理期可转债",
                 "operation": "is"
             },
             {
-                "key": "申报数量",
-                "value": [
-                    "%",
-                    "100",
-                    "==",
-                    "0"
-                ],
-                "operation": "compute"
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
             }
         ],
         "results": [
@@ -51,22 +51,24 @@
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "买入",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
             }
         ],
         "results": [
@@ -83,26 +85,180 @@
             "1.1.1"
         ],
         "focus": [
-            "数量"
+            "订单连续性操作"
         ],
         "constraints": [
             {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
                 "key": "交易品种",
-                "value": "基金份额",
+                "value": "退市整理期可转债",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "竞价交易",
+                "key": "操作人",
+                "value": "该客户",
                 "operation": "is"
             },
             {
-                "key": "申报数量",
-                "value": [
-                    "<=",
-                    "1000000"
-                ],
-                "operation": "compute"
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.4": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.2.1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            }
+        ]
+    },
+    "1.1.2.2": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            }
+        ]
+    },
+    "1.1.3.1": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
             }
         ],
         "results": [

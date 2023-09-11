@@ -1,7 +1,7 @@
 [
     {
-        "id": "1.1.1",
-        "text": "通过竞价交易买入基金份额的，申报数量应当为100份或者其整数倍。卖出基金份额时，余额不足100份的部分，应当一次性申报卖出。基金份额竞价交易单笔申报最大数量不得超过100万份。",
-        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-key I-key I-key I-key I-key I-key O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-key I-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 O"
+        "id": "1.1.3",
+        "text": "需要检查客户的适当性，如果客户风险承受能力降低到C0，则不允许交易。",
+        "label": "O O O O O O O O O O O O O O O O B-key I-key I-key I-key I-key I-key I-key O B-value I-value O O O O O O O O"
     }
 ]

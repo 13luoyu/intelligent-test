@@ -1,137 +1,5 @@
 {
-    "1.1.1.1.1,1.1.1.3.1": {
-        "rule_class": [
-            "1.1.1"
-        ],
-        "focus": [
-            "数量"
-        ],
-        "constraints": [
-            {
-                "key": "交易方式",
-                "value": "竞价交易",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "买入",
-                "operation": "is"
-            },
-            {
-                "key": "交易品种",
-                "value": "基金份额",
-                "operation": "is"
-            },
-            {
-                "key": "申报数量",
-                "value": [
-                    "%",
-                    "100",
-                    "==",
-                    "0"
-                ],
-                "operation": "compute"
-            },
-            {
-                "key": "交易市场",
-                "operation": "is",
-                "value": "深圳证券交易所"
-            },
-            {
-                "key": "交易方向",
-                "operation": "is",
-                "value": "买入"
-            },
-            {
-                "key": "申报数量",
-                "value": [
-                    "<=",
-                    "1000000"
-                ],
-                "operation": "compute"
-            },
-            {
-                "key": "申报类型",
-                "operation": "is",
-                "value": "限价申报"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "1.1.1.1.2,1.1.1.3.2": {
-        "rule_class": [
-            "1.1.1"
-        ],
-        "focus": [
-            "数量"
-        ],
-        "constraints": [
-            {
-                "key": "交易方式",
-                "value": "竞价交易",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "买入",
-                "operation": "is"
-            },
-            {
-                "key": "交易品种",
-                "value": "基金份额",
-                "operation": "is"
-            },
-            {
-                "key": "申报数量",
-                "value": [
-                    "%",
-                    "100",
-                    "==",
-                    "0"
-                ],
-                "operation": "compute"
-            },
-            {
-                "key": "交易市场",
-                "operation": "is",
-                "value": "深圳证券交易所"
-            },
-            {
-                "key": "交易方向",
-                "operation": "is",
-                "value": "卖出"
-            },
-            {
-                "key": "申报数量",
-                "value": [
-                    "<=",
-                    "1000000"
-                ],
-                "operation": "compute"
-            },
-            {
-                "key": "申报类型",
-                "operation": "is",
-                "value": "限价申报"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "1.1.1.2.1.1,1": {
+    "1.1.1.1.1.1": {
         "rule_class": [
             "1.1.1"
         ],
@@ -140,22 +8,2229 @@
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "买入",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "申报类型",
+                "operation": "is",
+                "value": "限价申报"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.1.1.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "申报类型",
+                "operation": "is",
+                "value": "限价申报"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.1.2.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.1.2.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.1.3.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.1.3.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.1.4.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.1.4.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.1.5.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "申报要素",
+                "operation": "is",
+                "value": "证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.1.5.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "申报要素",
+                "operation": "is",
+                "value": "证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.3.1.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "申报类型",
+                "operation": "is",
+                "value": "限价申报"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.3.1.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "申报类型",
+                "operation": "is",
+                "value": "限价申报"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.3.2.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.3.2.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.3.3.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.3.3.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.3.4.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.3.4.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.3.5.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "申报要素",
+                "operation": "is",
+                "value": "证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.3.5.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理期可转债",
+                "operation": "is"
+            },
+            {
+                "key": "操作人",
+                "value": "该客户",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "申报要素",
+                "operation": "is",
+                "value": "证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.3.1.1.1": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "基金"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "申报类型",
+                "operation": "is",
+                "value": "限价申报"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.3.1.1.2": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "基金"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "申报类型",
+                "operation": "is",
+                "value": "限价申报"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.3.1.2.1": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "基金"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.3.1.2.2": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "基金"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.3.1.3.1": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "基金"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.3.1.3.2": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "基金"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.3.1.4.1": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "基金"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.3.1.4.2": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "基金"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.3.1.5.1": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "基金"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "申报要素",
+                "operation": "is",
+                "value": "证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.3.1.5.2": {
+        "rule_class": [
+            "1.1.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "承受能力降低",
+                "value": "C0",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易品种",
+                "operation": "is",
+                "value": "基金"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "申报要素",
+                "operation": "is",
+                "value": "证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.2.1.1,1.1.1.4.1.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "申报类型",
+                "operation": "is",
+                "value": "限价申报"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.2.1.2,1.1.1.4.1.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "申报类型",
+                "operation": "is",
+                "value": "限价申报"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.2.2.1,1.1.1.4.2.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.2.2.2,1.1.1.4.2.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.2.3.1,1.1.1.4.3.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.2.3.2,1.1.1.4.3.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.2.4.1,1.1.1.4.4.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.2.4.2,1.1.1.4.4.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.2.5.1,1.1.1.4.5.1": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "申报要素",
+                "operation": "is",
+                "value": "证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.1.2.5.2,1.1.1.4.5.2": {
+        "rule_class": [
+            "1.1.1"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "买入",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "退市整理可转债",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "交易",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "申报要素",
+                "operation": "is",
+                "value": "证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "1.1.2.1.1.1,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
             },
             {
                 "key": "交易市场",
@@ -175,7 +2250,7 @@
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未申报"
+                "value": "未委托"
             },
             {
                 "key": "申报类型",
@@ -186,42 +2261,49 @@
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             },
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未成交"
+                "value": "委托失败"
             }
         ]
     },
-    "1.1.1.2.1.2,1": {
+    "1.1.2.1.1.2,1": {
         "rule_class": [
-            "1.1.1"
+            "1.1.2"
         ],
         "focus": [
             "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "委托",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
             },
             {
                 "key": "交易市场",
@@ -241,7 +2323,7 @@
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未申报"
+                "value": "未委托"
             },
             {
                 "key": "申报类型",
@@ -252,42 +2334,49 @@
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             },
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未成交"
+                "value": "委托失败"
             }
         ]
     },
-    "1.1.1.2.2.1,1": {
+    "1.1.2.1.2.1,1": {
         "rule_class": [
-            "1.1.1"
+            "1.1.2"
         ],
         "focus": [
             "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "委托",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
             },
             {
                 "key": "交易市场",
@@ -307,48 +2396,55 @@
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未申报"
+                "value": "未委托"
             }
         ],
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             },
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未成交"
+                "value": "委托失败"
             }
         ]
     },
-    "1.1.1.2.2.2,1": {
+    "1.1.2.1.2.2,1": {
         "rule_class": [
-            "1.1.1"
+            "1.1.2"
         ],
         "focus": [
             "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "委托",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
             },
             {
                 "key": "交易市场",
@@ -368,48 +2464,55 @@
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未申报"
+                "value": "未委托"
             }
         ],
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             },
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未成交"
+                "value": "委托失败"
             }
         ]
     },
-    "1.1.1.2.3.1,1": {
+    "1.1.2.1.3.1,1": {
         "rule_class": [
-            "1.1.1"
+            "1.1.2"
         ],
         "focus": [
             "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "委托",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
             },
             {
                 "key": "交易市场",
@@ -429,48 +2532,55 @@
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未申报"
+                "value": "未委托"
             }
         ],
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             },
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未成交"
+                "value": "委托失败"
             }
         ]
     },
-    "1.1.1.2.3.2,1": {
+    "1.1.2.1.3.2,1": {
         "rule_class": [
-            "1.1.1"
+            "1.1.2"
         ],
         "focus": [
             "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "委托",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
             },
             {
                 "key": "交易市场",
@@ -490,48 +2600,55 @@
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未申报"
+                "value": "未委托"
             }
         ],
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             },
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未成交"
+                "value": "委托失败"
             }
         ]
     },
-    "1.1.1.2.4.1,1": {
+    "1.1.2.1.4.1,1": {
         "rule_class": [
-            "1.1.1"
+            "1.1.2"
         ],
         "focus": [
             "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "委托",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
             },
             {
                 "key": "交易市场",
@@ -551,48 +2668,55 @@
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未申报"
+                "value": "未委托"
             }
         ],
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             },
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未成交"
+                "value": "委托失败"
             }
         ]
     },
-    "1.1.1.2.4.2,1": {
+    "1.1.2.1.4.2,1": {
         "rule_class": [
-            "1.1.1"
+            "1.1.2"
         ],
         "focus": [
             "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "委托",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
             },
             {
                 "key": "交易市场",
@@ -612,48 +2736,55 @@
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未申报"
+                "value": "未委托"
             }
         ],
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             },
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未成交"
+                "value": "委托失败"
             }
         ]
     },
-    "1.1.1.2.5.1,1": {
+    "1.1.2.1.5.1,1": {
         "rule_class": [
-            "1.1.1"
+            "1.1.2"
         ],
         "focus": [
             "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "委托",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
             },
             {
                 "key": "交易市场",
@@ -673,7 +2804,7 @@
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未申报"
+                "value": "未委托"
             },
             {
                 "key": "申报要素",
@@ -684,42 +2815,49 @@
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             },
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未成交"
+                "value": "委托失败"
             }
         ]
     },
-    "1.1.1.2.5.2,1": {
+    "1.1.2.1.5.2,1": {
         "rule_class": [
-            "1.1.1"
+            "1.1.2"
         ],
         "focus": [
             "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "交易品种",
-                "value": "基金份额",
+                "key": "操作人",
+                "value": "客户",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "委托",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": [
-                    "<",
-                    "100"
-                ],
-                "operation": "compute"
+                "key": "交易品种",
+                "value": "股票板块",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
             },
             {
                 "key": "交易市场",
@@ -739,7 +2877,7 @@
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未申报"
+                "value": "未委托"
             },
             {
                 "key": "申报要素",
@@ -750,14 +2888,714 @@
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             },
             {
                 "key": "状态",
                 "operation": "is",
-                "value": "未成交"
+                "value": "委托失败"
+            }
+        ]
+    },
+    "1.1.2.2.1.1,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "未委托"
+            },
+            {
+                "key": "申报类型",
+                "operation": "is",
+                "value": "限价申报"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "委托失败"
+            }
+        ]
+    },
+    "1.1.2.2.1.2,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "匹配成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "未委托"
+            },
+            {
+                "key": "申报类型",
+                "operation": "is",
+                "value": "限价申报"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "委托失败"
+            }
+        ]
+    },
+    "1.1.2.2.2.1,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "未委托"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "委托失败"
+            }
+        ]
+    },
+    "1.1.2.2.2.2,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "点击成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "未委托"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "委托失败"
+            }
+        ]
+    },
+    "1.1.2.2.3.1,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "未委托"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "委托失败"
+            }
+        ]
+    },
+    "1.1.2.2.3.2,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "询价成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "未委托"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "委托失败"
+            }
+        ]
+    },
+    "1.1.2.2.4.1,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "未委托"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "委托失败"
+            }
+        ]
+    },
+    "1.1.2.2.4.2,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "竞买成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "未委托"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "委托失败"
+            }
+        ]
+    },
+    "1.1.2.2.5.1,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "未委托"
+            },
+            {
+                "key": "申报要素",
+                "operation": "is",
+                "value": "证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "委托失败"
+            }
+        ]
+    },
+    "1.1.2.2.5.2,1": {
+        "rule_class": [
+            "1.1.2"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作人",
+                "value": "客户",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "委托",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "创业板",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "退市整理",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "权限校验",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "交易方式",
+                "operation": "is",
+                "value": "协商成交"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "未委托"
+            },
+            {
+                "key": "申报要素",
+                "operation": "is",
+                "value": "证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            },
+            {
+                "key": "状态",
+                "operation": "is",
+                "value": "委托失败"
             }
         ]
     }

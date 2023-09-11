@@ -3,9 +3,10 @@
 from support.generate_data_for_sequence_classification import read_pdf_to_txt, read_txt_to_json
 
 def nl_to_sci(nl_file, sci_file):
+    filename = nl_file.split('/')[-1].split('.')[0]
     if nl_file[-4:] == ".pdf":
-        read_pdf_to_txt(nl_file, f"rules_cache/{nl_file[:-4]}.txt")
-        read_txt_to_json(f"rules_cache/{nl_file[:-4]}.txt", sci_file)
+        read_pdf_to_txt(nl_file, f"rules_cache/{filename}.txt")
+        read_txt_to_json(f"rules_cache/{filename}.txt", sci_file)
     elif nl_file[-4:] == ".txt":
         read_txt_to_json(nl_file, sci_file)
 

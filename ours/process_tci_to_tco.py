@@ -157,10 +157,10 @@ def token_classification_with_algorithm(tco, knowledge):
                 tok, role, begin, end = si[0], si[1], si[2], si[3]
                 begin_index, end_index = index[begin], index[end]
                 lab = label[begin_index:end_index]
-                # 同一个token，修复步骤：1、统计出现最多的标签，如果它不是交易方式，就将它标记为这个词的正确标签。一个trick是单字为O
-                if end_index - begin_index == 1 and text[begin_index] != "不":
-                    label[begin_index] = "O"
-                    continue
+                # 同一个token，修复步骤：1、统计出现最多的标签，如果它不是交易方式，就将它标记为这个词的正确标签。
+                # if end_index - begin_index == 1 and text[begin_index] != "不":
+                #     label[begin_index] = "O"
+                #     continue
                 kvs = {}
                 for l in lab:
                     if l != "O":
@@ -169,13 +169,12 @@ def token_classification_with_algorithm(tco, knowledge):
                         kvs[l] = 1
                     else:
                         kvs[l] += 1
-                a, b, c = "", 0, 0
+                a, b = "", 0
                 for k in list(kvs.keys()):
                     if kvs[k] > b:
                         a = k
                         b = kvs[k]
-                        c = b
-                if c >= 3:  # 限定改变，防止改变太多丢失信息
+                if b <= len(lab)*4/5:  # 限定改变，防止改变太多丢失信息
                     continue
                 if a == "O":
                     for i in range(begin_index, end_index):
@@ -251,7 +250,7 @@ def token_classification_with_algorithm(tco, knowledge):
                 b = i
                 if b - a < 3:  # 时间、数量、价格最少得3个字
                     continue
-                if text[i] == "为":
+                if i < len(text) and text[i] == "为":
                     # 后面是key
                     i += 1
                     a_key = i
