@@ -3,6 +3,8 @@ import re
 import z3
 import pprint
 
+'''tsy修改：346行'''
+
 
 def testcase(defines, vars, rules):
     vars = list_conditions(defines, vars, rules)
@@ -36,6 +38,8 @@ def list_conditions(defines, vars, rules):
         # 有些变量需要像sum(a)这样的求解之后才能赋值，这里记录下来(边界价格 = max()，需要先算max())
         wait_var_dic = {}  # wait_var_dic[条件名] = c
         for cnt, c in enumerate(constraints):
+            # print("--------------"+str(cnt)+"-----------------")
+            # print(c)
             if "operation" not in c:
                 c["operation"] = "is"
             key = c["key"]
@@ -113,6 +117,8 @@ def list_conditions(defines, vars, rules):
 
             # part 3 这是一个表达式计算约束
             elif op == "compute":
+                # print("--------------"+str(cnt)+"-----------------")
+                # print(c, cons)
                 if key not in cons:
                     cons[key] = []
                 if len(value) == 2:
@@ -221,7 +227,7 @@ def list_conditions(defines, vars, rules):
                 elif len(value) == 6:  # a%100000==b%100000
                     key = c["key"]
                     op1, value1, op2, value2, op3, value3 = c["value"]
-                    print(c["value"])
+                    # print(c["value"])
                     if not isnumber(value1):
                         if value1 in defines:
                             vars[rule_id][value1] = []
@@ -328,6 +334,7 @@ def judge_conflict_and_generate_value(variables, cons, rule_id, vars):
         solver.add(variables[variable] != rs[0])
         rs += generate_value(solver, cons[variable], 0, variables[variable])
         rss.append(rs)
+
     for i, key in enumerate(variables):
         valid_value = []
         not_valid_value = []
@@ -336,6 +343,18 @@ def judge_conflict_and_generate_value(variables, cons, rule_id, vars):
                 valid_value.append(r)
             else:
                 not_valid_value.append(r)
+        '''增加一次性申报特殊判定'''
+        # print("操作" in vars[rule_id].keys())
+        # print(vars[rule_id]['操作'])
+        if "操作" in vars[rule_id].keys() and "一次性" in vars[rule_id]['操作'][0]:
+            for vi,vr in enumerate(valid_value):
+                valid_value[vi] = str(vr)+"(余额"+str(vr)+")"
+
+            not_valid_value_0 = not_valid_value[0]
+            for vi, vr in enumerate(not_valid_value):
+                not_valid_value[vi] = str(vr) + "(余额" + str(vr) + ")"
+            not_valid_value.append(str(not_valid_value_0 - 20) + "(余额" + str(not_valid_value_0 - 10) + ")")
+
         vars[rule_id][key] = [valid_value, not_valid_value]
     return True
 
