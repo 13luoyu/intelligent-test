@@ -1,4 +1,5 @@
 from flask import Flask, request, Response, jsonify
+from flask_cors import CORS
 import json
 from ours.process_nl_to_sci import nl_to_sci
 from ours.process_sci_to_sco import sequence_classification
@@ -19,6 +20,7 @@ knowledge_file = '../data/knowledge.json'
 dict_file = '../data/tc_data.dict'
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
 # 上传目录
 app.config['UPLOAD_FOLDER'] = 'rules_cache/'
 # 支持的文件格式
