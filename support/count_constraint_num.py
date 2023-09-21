@@ -13,5 +13,3 @@ def count(file):
 
 
 count("../ours/rules_cache/r1.mydsl")
-count("../ours/rules_cache/r1.mydsl")
-count("../ours/rules_cache/r1.mydsl")

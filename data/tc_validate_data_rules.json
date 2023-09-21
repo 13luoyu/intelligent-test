@@ -1,99 +1,81 @@
 [
     {
-        "text": "业务协议应当约定丙方对股票质押回购初始交易及相应的补充质押、部分解除质押进行合并管理。",
-        "label": "O O O O O O O O B-操作人 I-操作人 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-操作 I-操作 I-操作 I-操作 O",
+        "text": "如果有，则允许委托；如果没有，则校验客户是否具有可转债交易豁免权限。",
+        "label": "O O B-条件 O O B-结果 I-结果 B-操作 I-操作 O O O B-条件 I-条件 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
         "type": "1",
-        "id": "第十二条_0"
+        "id": "第一条_2"
     },
     {
-        "text": "A股交易的申报价格最小变动单位为0.01元人民币；基金的申报价格最小变动单位为0.001元人民币；B股的申报价格最小变动单位为0.01港元。",
-        "label": "B-交易品种 I-交易品种 O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O",
+        "text": "当天全天停牌、处于临时停牌期间或者停牌至收市的可转债，本所不接受其协商成交交易申报。",
+        "label": "B-时间 I-时间 B-状态 I-状态 I-状态 I-状态 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 B-or I-or B-状态 I-状态 I-状态 I-状态 I-状态 O B-交易品种 I-交易品种 I-交易品种 O O O B-结果 I-结果 I-结果 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作 I-操作 O",
         "type": "1",
-        "id": "3.3.11_0"
+        "id": "第二十七条_1"
     },
     {
-        "text": "投资者通过境内证券公司提交H股“全流通”股份的交易指令。",
-        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O",
+        "text": "投资者交易、以组合证券为对价申赎所跟踪指数成份证券包含银行间债券市场交易流通品种的跨市场债券ETF时，应当遵守下列规定：（一）当日买入的ETF份额，次一交易日可以赎回；（二）当日申购的ETF份额，在交收前不得卖出或者赎回。",
+        "label": "B-操作人 I-操作人 I-操作人 B-操作 I-操作 O O B-value I-value I-value I-value O B-key I-key B-操作 I-操作 O O O B-value I-value I-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O B-时间 I-时间 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 O O O O B-时间 I-时间 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-时间 I-时间 I-时间 B-结果 I-结果 B-操作 I-操作 B-or I-or B-操作 I-操作 O",
         "type": "1",
-        "id": "第七条_0"
+        "id": "第三十八条_1"
     },
     {
-        "text": "有效竞价范围上限或下限与基准价格之差的绝对值低于价格最小变动单位的，以基准价格增减一个价格最小变动单位为有效竞价范围。",
-        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O B-value I-value I-value I-value B-op I-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key O",
-        "type": "1",
-        "id": "2.3_1"
-    },
-    {
-        "text": "开盘集合匹配阶段，债券现券的有效申报价格范围为前收盘价的上下30%。",
-        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O",
-        "type": "1",
-        "id": "4.1.5_0"
-    },
-    {
-        "text": "影响标的证券划转的情形解除后，证券公司可与客户协商向深交所提交划转申请。",
-        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-操作人 I-操作人 I-操作人 I-操作人 O B-操作 I-操作 I-操作 I-操作 I-操作 O B-系统 I-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
-        "type": "1",
-        "id": "第四十九条_1"
-    },
-    {
-        "text": "部分解除质押日日终，中国结算深圳分公司根据深交所确认的成交数据，在进行逐笔全额结算时，部分解除质押标的证券或其孳息。",
-        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
-        "type": "1",
-        "id": "第五十五条_0"
-    },
-    {
-        "text": "向不特定对象发行的可转债采用匹配成交方式的，每个交易日的9:15至9:25为开盘集合匹配时间，9:30至11:30、13:00至14:57为连续匹配时间，14:57至15:00为收盘集合匹配时间。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key I-key I-key O",
-        "type": "1",
-        "id": "第十二条_0"
-    },
-    {
-        "text": "证券公司向客户发出报价，客户接受证券公司报价的，向证券公司发出交易委托，证券公司接受委托并向交易系统提交交易申报，交易系统对可用额度内的交易申报即时进行成交确认，向证券公司发送成交回报，并将成交结果发送中国结算深圳分公司。",
-        "label": "B-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "第二十四条_0"
-    },
-    {
-        "text": "有效竞价范围的计算结果按照四舍五入原则取至价格最小变动单位。",
-        "label": "B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "2.3_0"
-    },
-    {
-        "text": "债券投资者可以向全市场或者部分债券投资者发送意向申报，意向申报不可直接确认成交。",
-        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-结果 I-结果 O B-操作人 I-操作人 I-操作人 B-or I-or B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "4.3.6_0"
-    },
-    {
-        "text": "连续竞价时，成交价的确定原则为：（一）最高买入申报与最低卖出申报价格相同，以该价格为成交价；（二）买入申报价格高于集中申报簿当时最低卖出申报价格时，以集中申报簿当时的最低卖出申报价格为成交价；（三）卖出申报价格低于集中申报簿当时最高买入申报价格时，以集中申报簿当时的最高买入申报价格为成交价。",
-        "label": "B-value I-value I-value I-value O O O O O O O O O O O O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-价格 I-价格 I-价格 O B-key I-key I-key O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key O",
-        "type": "1",
-        "id": "3.4.4_0"
-    },
-    {
-        "text": "本所对约定号、证券代码、买卖方向、价格、数量等各项要素均匹配的成交申报进行成交确认。",
-        "label": "B-系统 I-系统 O I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "第二十九条_4"
-    },
-    {
-        "text": "向特定对象发行的可转债单笔转让申报数量应当不低于5万元面额，持有不足5万元面额的应当一次性全部申报卖出。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O B-op I-op I-op B-价格 I-价格 I-价格 I-价格 I-价格 O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "第三十七条_0"
-    },
-    {
-        "text": "每个交易日9︰15至9︰25为开盘集合竞价时间，9︰30至11︰30、13︰00至14︰57为连续竞价时间，14︰57至15︰00为收盘集合竞价时间。",
-        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-key I-key I-key I-key I-key I-key I-key I-key O",
+        "text": "（二）乙方不得主动要求甲方提前购回，但发生标的证券涉及吸收合并、要约收购、权证发行、债转股、公司缩股或分立等事件以及客户协议约定的其他情形的除外。",
+        "label": "O O O B-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O",
         "type": "1",
         "id": "第十二条_1"
     },
     {
-        "text": "待购回期间，证券公司持有的标的证券存放于专用证券账户，证券公司与客户之间应当约定证券公司不得通过交易或非交易方式转让标的证券、办理标的证券质押。",
-        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O B-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 B-结果 I-结果 O O B-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "text": "债券在9:30及其后临时停牌的，当日复牌时对已接受的申报实行盘中临时停牌复牌集合匹配，复牌后继续当日交易。",
+        "label": "B-交易品种 I-交易品种 B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-时间 I-时间 I-时间 I-时间 I-时间 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-时间 I-时间 I-时间 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
         "type": "1",
-        "id": "第三十五条_0"
+        "id": "5.1.4_1"
+    },
+    {
+        "text": "会员不得接受客户无足额可用的资金、证券而直接在市场上买入、卖出证券的委托。",
+        "label": "B-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O B-操作 I-操作 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "type": "1",
+        "id": "第九十条_1"
+    },
+    {
+        "text": "因质押物价值波动、折算率调整、司法冻结或扣划等原因导致质押物不足时，深交所可自次一交易日起暂停接受该证券公司初始交易申报，只接受提前购回申报。",
+        "label": "O B-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-key I-key O O B-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 I-系统 O O B-时间 I-时间 I-时间 I-时间 I-时间 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "type": "1",
+        "id": "第六十九条_0"
+    },
+    {
+        "text": "本所对约定号、证券代码、买卖方向、价格、数量等各项要素均匹配的成交申报进行成交确认，成交确认前申报可以撤销。",
+        "label": "B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作部分 I-操作部分 O O B-操作 I-操作 O",
+        "type": "1",
+        "id": "3.5.6_4"
+    },
+    {
+        "text": "T日日终（T日为初始交易、提前购回交易的申报日，或到期购回日），中国结算深圳分公司分别以证券公司的自营结算备付金账户和客户结算备付金账户为单位，对当日全部报价回购交易金额（包括初始交易、提前购回交易和到期购回）进行轧差清算，并将清算结果发送给证券公司。",
+        "label": "B-时间 I-时间 I-时间 I-时间 O B-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-操作 I-操作 I-操作 I-操作 O O O B-操作 I-操作 I-操作 I-操作 O O O B-操作 I-操作 I-操作 I-操作 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
+        "type": "1",
+        "id": "第六十条_0"
+    },
+    {
+        "text": "通过盘后固定价格交易买入创业板股票的，申报数量应当为100股或其整数倍。",
+        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O",
+        "type": "1",
+        "id": "3.6.6_0"
+    },
+    {
+        "text": "买入限价低于收盘价或卖出限价高于收盘价的盘后固定价格申报无效。",
+        "label": "B-key I-key I-key I-key B-op I-op B-价格 I-价格 I-价格 B-or B-key I-key I-key I-key B-op I-op B-价格 I-价格 I-价格 O B-value I-value I-value I-value I-value I-value I-value I-value B-结果 I-结果 O",
+        "type": "1",
+        "id": "3.6.5_0"
+    },
+    {
+        "text": "可充抵保证金的证券，在计算保证金金额时应当以证券市值或者净值按下列折算率进行折算：（一）深证100指数成份股股票的折算率最高不超过70%，非深证100指数成份股股票的折算率最高不超过65%；（二）交易型开放式基金折算率最高不超过90%；（三）证券公司现金管理产品、货币市场基金、国债的折算率最高不超过95%；（四）被实行风险警示或者进入退市整理期的证券，静态市盈率在300倍以上或者为负数的A股股票，以及权证的折算率为0%；（五）其他上市证券投资基金和债券折算率最高不超过80%。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O B-or I-or O O O O O B-key I-key I-key O O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O",
+        "type": "1",
+        "id": "4.2"
+    },
+    {
+        "text": "市场所有参与者可以提交成交申报，按指定的价格与定价申报全部或部分成交，本所按时间优先顺序进行成交确认。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-价格 I-价格 I-价格 I-价格 I-价格 O B-value I-value I-value I-value B-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 O B-系统 I-系统 O B-value I-value I-value I-value O O O O O O O O O",
+        "type": "1",
+        "id": "第三十一条_1"
     },
     {
         "text": "个人或者机构客户持有上市公司限售股份的，会员不得接受其融券卖出该上市公司股份，也不得接受其以普通证券账户持有的限售股份充抵保证金。",
@@ -102,268 +84,64 @@
         "id": "7.2"
     },
     {
-        "text": "初始交易最低申报数量为10张，超出部分应当为10张的整数倍；提前购回交易最低申报数量为1张，超出部分应当为1张的整数倍。",
-        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-数量 I-数量 I-数量 O B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 B-key I-key I-key I-key I-key I-key O B-数量 I-数量 O B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O",
-        "type": "1",
-        "id": "第三十三条_1"
-    },
-    {
-        "text": "（二）乙方应在中国结算深圳分公司开立专用证券账户，用于存放包括与甲方交易在内的所有待购回交易的标的证券。",
-        "label": "O O O B-操作人 I-操作人 O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
-        "type": "1",
-        "id": "第七条_2"
-    },
-    {
-        "text": "投资者不能存入或提取纸面股票，不能办理股份的跨境转托管，中国证监会另有规定的除外。",
-        "label": "B-操作人 I-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 B-or B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O",
-        "type": "1",
-        "id": "第十四条_1"
-    },
-    {
-        "text": "投资者在融券期间卖出通过其所有或者控制的证券账户所持有与其融入证券相同证券的，其申报卖出该证券的价格应当满足前款要求，但超出融券数量的部分除外。",
-        "label": "B-操作人 I-操作人 I-操作人 O B-时间 I-时间 I-时间 I-时间 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O O O O B-op I-op B-数量 I-数量 I-数量 I-数量 O O O O O O",
-        "type": "1",
-        "id": "2.10"
-    },
-    {
-        "text": "采用单一价格中标方式的，所有中标的应价申报都以边际价格成交。",
-        "label": "O O B-value I-value I-value I-value I-value I-value I-value I-value O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-价格 I-价格 I-价格 I-价格 B-操作 I-操作 O",
-        "type": "1",
-        "id": "4.4.2_3"
-    },
-    {
-        "text": "质押券或担保资金转出后，不再作为证券公司报价回购交易履约担保的质押物。",
-        "label": "B-操作部分 I-操作部分 I-操作部分 B-or B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-事件 I-事件 I-事件 O B-结果 I-结果 I-结果 I-结果 B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O",
-        "type": "1",
-        "id": "第五十一条_0"
-    },
-    {
-        "text": "港股通订单已经申报的，不得更改申报价格或者申报数量，但在联交所允许撤销申报的时段内，未成交申报可以撤销。",
-        "label": "B-value I-value I-value I-value I-value B-状态 I-状态 I-状态 I-状态 O O O O B-操作 I-操作 B-value I-value I-value I-value B-or I-or B-value I-value I-value I-value O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作 I-操作 O",
-        "type": "1",
-        "id": "第九十二条_0"
-    },
-    {
-        "text": "全部质押物设定的质权由乙方所有报价回购未到期以及购回交易未完成资金划付的客户共同享有,甲方所享有的质权不对应具体质押物品种，甲方不得单独就质押物主张行使质权，质押物处置所得由所有客户按债权比例公平受偿。",
-        "label": "B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O B-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 O B-key I-key I-key I-key I-key I-key I-key I-key B-结果 I-结果 I-结果 B-value I-value I-value I-value I-value I-value I-value O B-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "第十一条_8"
-    },
-    {
-        "text": "对于购回交易，证券公司须于T日16:00前将相应资金划入客户资金交收账户。",
-        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-操作人 I-操作人 I-操作人 I-操作人 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "第四十八条_2"
-    },
-    {
-        "text": "当天全天停牌或者停牌至收市的可转债，本所不接受其盘后定价成交交易申报。",
-        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 B-or I-or B-状态 I-状态 I-状态 I-状态 I-状态 O B-交易品种 I-交易品种 I-交易品种 O O O B-结果 I-结果 I-结果 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 B-结果 I-结果 B-操作 I-操作 O",
-        "type": "1",
-        "id": "第二十七条_3"
-    },
-    {
-        "text": "询价方选择询价回复并确认后，相关交易按照询价方确认的数量、价格成交。",
-        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O O O O O O O O O O O O O O O B-操作 I-操作 O",
-        "type": "1",
-        "id": "第三十六条_0"
-    },
-    {
-        "text": "交易日（以下简称T日）日终，中国结算深圳分公司依据深交所确认的成交数据对当日达成的股票质押回购进行逐笔全额清算，计算T日每笔交易的资金应收应付额及证券应质押或解除质押的数量。",
-        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
-        "type": "1",
-        "id": "第四十七条_0"
-    },
-    {
-        "text": "开市期间停牌的，停牌期间可以继续申报。",
-        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "3.2_2"
-    },
-    {
-        "text": "根据本办法第二十二条、第二十三条、第二十六条和第二十九条被调出深股通标的证券且仍属于本所上市证券的，不得通过深股通买入，但可以卖出。",
-        "label": "O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结果 I-结果 O O O O O B-交易品种 I-交易品种 O O O O B-系统 I-系统 O O B-交易品种 I-交易品种 O O O O O O O O O B-操作 I-操作 O O O O B-操作 I-操作 O",
-        "type": "1",
-        "id": "第三十六条_0"
-    },
-    {
-        "text": "通过竞价交易买入证券的，申报数量应当为100股（份）或其整数倍。",
-        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 B-操作部分 I-操作部分 O O B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O",
-        "type": "1",
-        "id": "3.3.8_0"
-    },
-    {
-        "text": "会员向其客户公布的标的证券名单，不得超出本所公布的标的证券范围。",
-        "label": "B-操作人 I-操作人 O O O O O O O O O O O O O O O O B-op I-op O O O O O O O O O O O O",
-        "type": "1",
-        "id": "3.8"
-    },
-    {
-        "text": "中国存托凭证在本所上市交易，以人民币为计价货币，计价单位为“每份中国存托凭证价格”，申报价格最小变动单位为人民币0.01元。",
-        "label": "O O O O O O O O O O O O O O O B-key I-key I-key O B-value I-value I-value I-value O B-key I-key I-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value O",
-        "type": "1",
-        "id": "第五十三条_0"
-    },
-    {
-        "text": "该标的股票的融资余额或者信用账户担保物市值占其上市可流通市值的比例降低至20%以下时，本所可以在次一交易日恢复其融资买入，并向市场公布。",
-        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作 I-操作 O",
-        "type": "1",
-        "id": "6.1"
-    },
-    {
-        "text": "境外发行人以非新增股票为基础证券首次在本所上市中国存托凭证的，上市首日即时行情显示的前收盘价格，为境外市场基础股票最近收盘价转换所得的人民币价格（根据存托凭证与基础股票转换比例及上市首日前一日中国人民银行公布的人民币汇率中间价计算），本所另有规定的除外。",
-        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O",
-        "type": "1",
-        "id": "第五十六条_1"
-    },
-    {
-        "text": "港股通交易以港币报价，投资者以人民币交收。",
-        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-value I-value O O O B-操作人 I-操作人 I-操作人 O B-value I-value I-value B-操作 I-操作 O",
-        "type": "1",
-        "id": "第八十三条_0"
-    },
-    {
-        "text": "买卖申报和撤销申报经本所交易系统确认后方为有效。",
-        "label": "B-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 I-操作 I-操作 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-结果 I-结果 O",
-        "type": "1",
-        "id": "3.3.3_1"
-    },
-    {
-        "text": "当日无成交的，以前收盘价为当日收盘价。",
-        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 O O O B-价格 I-价格 I-价格 I-价格 O B-时间 I-时间 B-key I-key I-key O",
-        "type": "1",
-        "id": "第三十六条_1"
-    },
-    {
-        "text": "投资者通过境内证券公司提交交易委托指令，经由深证通传递至指定的香港证券公司。",
-        "label": "B-操作人 I-操作人 I-操作人 O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-系统 I-系统 I-系统 O O O O O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O",
-        "type": "1",
-        "id": "第十八条_0"
-    },
-    {
-        "text": "基金的价格涨跌幅限制比例为10%。",
-        "label": "B-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 O",
-        "type": "1",
-        "id": "3.3.13_2"
-    },
-    {
         "text": "原始权益人或其同一控制下的关联方在限售届满后参与上述业务的，质押的战略配售取得的基础设施基金份额累计不得超过其所持全部该类份额的50%，本所另有规定除外。",
         "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O B-op I-op I-op I-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-系统 I-系统 O O O O O O O",
         "type": "1",
         "id": "第四十四条_1"
     },
     {
-        "text": "联交所证券交易服务公司应当采取适当方式，要求联交所参与者在投资者买卖深股通股票违反有关持股比例限制时拒绝接受其交易委托、实施平仓或者采取其他制止和纠正措施。",
-        "label": "O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 B-or I-or B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "text": "向不特定对象发行的可转债采用协商成交、盘后定价成交方式的，单笔交易数量不低于50万元面额，或者交易金额不低于50万元。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-key I-key I-key I-key I-key I-key B-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-or I-or B-key I-key I-key I-key B-op I-op I-op B-价格 I-价格 I-价格 I-价格 O",
         "type": "1",
-        "id": "第五十六条_0"
+        "id": "第二十八条_0"
     },
     {
-        "text": "4．待购回期间，标的证券发生老股东配售方式的增发和配售债券，乙方不得行使优先认购权。",
-        "label": "O O B-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "text": "待购回期间或购回日，发生异常情况的，证券公司与客户可以按《客户协议》约定的以下方式处理：（一）提前购回；（二）延期购回；（三）证券公司向深交所申请终止购回；（四）深交所认可的其他约定方式。",
+        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 B-or B-时间 I-时间 I-时间 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O B-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-操作 I-操作 O O O O B-操作 I-操作 I-操作 I-操作 O O O O B-操作 I-操作 I-操作 I-操作 O O O O B-操作人 I-操作人 I-操作人 I-操作人 O B-系统 I-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-系统 I-系统 I-系统 O O O B-value I-value I-value I-value I-value I-value O",
         "type": "1",
-        "id": "第十四条_8"
+        "id": "第五十二条_0"
     },
     {
-        "text": "本所会员发现投资者的港股通交易存在或者可能存在市场失当行为，应当予以提醒，并可以拒绝接受其委托。",
-        "label": "B-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 O O O O O O O O O O O O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作 I-操作 I-操作 I-操作 O O O O B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 O",
+        "text": "(五)债券交易的单笔最大申报数量不得超过100亿元面额。",
+        "label": "O O O B-交易品种 I-交易品种 O O O B-key I-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O",
         "type": "1",
-        "id": "第一百二十二条_0"
+        "id": "3.3.4_1"
     },
     {
-        "text": "由此计算的减少数量不为100元面额整数倍时，本次按照向下取整的原则予以偿还，剩余未偿还部分按募集说明书约定存续并享有相应权益。",
-        "label": "O O O O O B-key I-key I-key I-key B-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O O O O O B-value I-value I-value I-value I-value I-value I-value O O B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 O O O O O O O O",
+        "text": "因买入申报被撤销、被联交所拒绝接受或者卖出申报成交等情形，导致当日额度余额大于零的，本所证券交易服务公司在联交所持续交易时段开始时恢复接受后续的买入申报。",
+        "label": "O B-操作 I-操作 I-操作 I-操作 O B-结果 I-结果 O O B-系统 I-系统 I-系统 B-结果 I-结果 I-结果 I-结果 O O B-操作 I-操作 I-操作 I-操作 B-结果 I-结果 O O O O O O B-key I-key I-key I-key I-key I-key B-op I-op B-value O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-结果 I-结果 I-结果 I-结果 O O O B-操作 I-操作 I-操作 I-操作 O",
         "type": "1",
-        "id": "5.2.3_4"
+        "id": "第一百零二条_1"
     },
     {
-        "text": "通过竞价交易买入基金份额的，申报数量应当为100份或者其整数倍。",
-        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O",
+        "text": "向特定对象发行的可转债单笔转让申报数量应当不低于5万元面额，持有不足5万元面额的应当一次性全部申报卖出。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O O B-op I-op I-op B-价格 I-价格 I-价格 I-价格 I-价格 O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
         "type": "1",
-        "id": "第十三条_0"
+        "id": "第三十七条_0"
     },
     {
-        "text": "申报时超过涨跌幅限制价格或有效申报价格范围的申报为无效申报。",
-        "label": "B-操作 I-操作 O B-op I-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 B-or B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O O B-结果 I-结果 O O O",
+        "text": "除息日即时行情中显示的该债券的前收盘价为除息参考价，其中除息参考价=前收盘价-本次支付的利息。",
+        "label": "B-时间 I-时间 I-时间 B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 O O O B-key I-key I-key I-key I-key B-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O",
         "type": "1",
-        "id": "3.3.18_0"
+        "id": "5.2.4_2"
     },
     {
-        "text": "无限售期要求的可转债，在挂牌首日即可以转让；有限售期要求的可转债，上市公司可以在满足解除限售相关条件后，按照本所相关规定申请办理解除限售业务，并在解除限售前三个交易日内披露提示性公告。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-时间 I-时间 I-时间 I-时间 O B-结果 I-结果 B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-操作人 I-操作人 I-操作人 I-操作人 O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O B-系统 I-系统 O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "text": "B股、非流通股、限售流通股、个人持有的解除限售存量股及持有该存量股的账户通过二级市场买入的该品种流通股等不得用于约定购回式证券交易。",
+        "label": "B-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-结果 I-结果 I-结果 I-结果 B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O",
         "type": "1",
-        "id": "第三十五条_1"
+        "id": "第六条_1"
     },
     {
-        "text": "投资者当日买入的港股通标的证券，经确认成交后，在交收前即可卖出。",
-        "label": "B-操作人 I-操作人 I-操作人 B-时间 I-时间 B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-时间 I-时间 I-时间 O O B-操作 I-操作 O",
+        "text": "当日交易结束后，单个境外投资者通过深股通与其他方式持有同一上市公司股票合并计算超过限定比例的，应当在五个深股通交易日内对超出部分予以平仓，并按照有关规定及时履行信息披露义务。",
+        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-key I-key I-key I-key I-key I-key I-key I-key O O O O B-op I-op B-value I-value I-value I-value O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
         "type": "1",
-        "id": "第八十八条_0"
+        "id": "第五十八条_0"
     },
     {
-        "text": "融入方证券账户内相应标的证券已被司法机关冻结的，中国结算深圳分公司不进行转托管及质押状态调整。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-结果 I-结果 I-结果 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 O",
+        "text": "T+1日，中国结算深圳分公司根据报价回购交易清算结果在乙方自营结算备付金账户和客户结算备付金账户之间办理资金划付，最后一批次的资金划付时点为16︰00。",
+        "label": "B-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 O",
         "type": "1",
-        "id": "第五十六条_1"
-    },
-    {
-        "text": "1．乙方提交的作为报价回购交易质押物的自有证券应转入中国结算深圳分公司设立的报价回购交易质押券保管库。",
-        "label": "O O B-操作人 I-操作人 O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
-        "type": "1",
-        "id": "第十一条_5"
-    },
-    {
-        "text": "当日交易结束后，所有境外投资者通过深股通与其他方式持有同一上市公司股票合并计算超过限定比例的，本所将按照后买先卖的原则，向联交所证券交易服务公司及其他境外投资者发出平仓通知。",
-        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 B-op I-op B-value I-value I-value I-value O O O O O O O B-value I-value I-value I-value O B-key I-key O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O O B-操作 I-操作 O O O",
-        "type": "1",
-        "id": "第五十九条_0"
-    },
-    {
-        "text": "待购回期间，标的证券产生现金分红、债券兑付本金利息、送股、转增股份的，红利、本金利息或新增股份全部留存于证券公司相应账户内，由证券公司在购回交易时一并返还给客户。",
-        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value O B-value I-value I-value I-value O O B-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value B-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 I-结果 O O O B-操作人 I-操作人 I-操作人 I-操作人 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "第三十六条_0"
-    },
-    {
-        "text": "询价请求部分成交的，未成交部分的询价请求及询价回复自动撤销。",
-        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "第三十七条_2"
-    },
-    {
-        "text": "资产支持证券采用全价转让的方式，转让价格由买卖双方自行协议确定。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O O O O O O O O O O O O O",
-        "type": "1",
-        "id": "第二十七条_0"
-    },
-    {
-        "text": "15个交易日届满后的5个交易日内，中国存托凭证退出本所市场交易。",
-        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O",
-        "type": "1",
-        "id": "第一百〇二条_2"
-    },
-    {
-        "text": "报价方可以在发出报价时设置每次仅显示部分申报数量（以下简称显示数量），单笔成交的数量不超过显示数量。",
-        "label": "B-操作人 I-操作人 I-操作人 B-结果 I-结果 O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O B-key I-key I-key I-key I-key I-key I-key B-op I-op I-op B-数量 I-数量 I-数量 I-数量 O",
-        "type": "1",
-        "id": "4.2.5_0"
-    },
-    {
-        "text": "初始交易或补充质押成交当日，司法机关对该笔交易的标的证券进行司法冻结的，中国结算深圳分公司优先办理质押登记。",
-        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 I-操作人 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
-        "type": "1",
-        "id": "第五十三条_0"
-    },
-    {
-        "text": "报价回购的到期购回交易，客户不需发出购回委托。",
-        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "第二十九条_0"
-    },
-    {
-        "text": "证券公司应当通过其在中国结算深圳分公司开立的自营结算备付金账户和客户结算备付金账户进行报价回购交易的资金划付。",
-        "label": "B-操作人 I-操作人 I-操作人 I-操作人 O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-操作 I-操作 I-操作 I-操作 O",
-        "type": "1",
-        "id": "第五十九条_0"
+        "id": "第十三条_2"
     },
     {
         "text": "一般做市商对其自行选定的做市品种在一定时期内开展做市业务（以下简称一般做市业务）。",
@@ -372,15 +150,237 @@
         "id": "2.2.1_3"
     },
     {
-        "text": "两个以上价格符合上述条件的，取在该价格以上的买入申报累计数量与在该价格以下的卖出申报累计数量之差最小的价格为成交价；买卖申报累计数量之差仍存在相等情况的，开盘集合竞价时取最接近即时行情显示的前收盘价的价格为成交价，盘中、收盘集合竞价时取最接近最近成交价的价格为成交价。",
-        "label": "I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key O",
+        "text": "参与注册制下首次公开发行股票战略配售的投资者及其关联方，在参与战略配售的投资者承诺持有期限内，不得融券卖出该上市公司股票，本所另有规定的除外。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作人 I-操作人 I-操作人 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-系统 I-系统 O O O O O O O O",
         "type": "1",
-        "id": "3.4.3_1"
+        "id": "7.2"
     },
     {
-        "text": "开盘集合匹配阶段，债券通用质押式回购的有效申报价格范围为前收盘价的上下100%。",
-        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O",
+        "text": "证券公司应当依据标的证券资质、融入方资信、回购期限、第三方担保等因素确定和调整标的证券的质押率上限，其中股票质押率上限不得超过60%。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value O O O B-操作 I-操作 I-操作 I-操作 I-操作 B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-value I-value I-value O",
         "type": "1",
-        "id": "4.1.5_4"
+        "id": "第六十八条_0"
+    },
+    {
+        "text": "投资者当日买入的其他基金份额，次一交易日可以卖出。",
+        "label": "B-操作人 I-操作人 I-操作人 B-时间 I-时间 B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 O",
+        "type": "1",
+        "id": "第三十六条_3"
+    },
+    {
+        "text": "会员经纪客户可以以同一证券账户在单个或者多个会员的不同证券营业部买入债券，买入的债券可以在单个或者多个会员的不同证券营业部之间进行托管转移。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-结果 I-结果 B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-交易品种 I-交易品种 O B-操作 I-操作 O B-交易品种 I-交易品种 B-结果 I-结果 B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-操作 I-操作 I-操作 I-操作 O",
+        "type": "1",
+        "id": "5.2.6_0"
+    },
+    {
+        "text": "基金份额上市首日，其即时行情显示的前收盘价为基金管理人最近公布并向本所提供的基金份额净值或者参考净值（四舍五入至0.001元），其准确性由基金管理人负责。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-时间 I-时间 I-时间 I-时间 O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-时间 I-时间 O O O O B-系统 I-系统 O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 B-or I-or B-价格 I-价格 I-价格 I-价格 O B-value I-value I-value I-value B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O",
+        "type": "1",
+        "id": "第九条_0"
+    },
+    {
+        "text": "甲方需要行使优先认购权的，应最迟于权益登记日的前一个交易日提前购回，自行行使该项权利。",
+        "label": "B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "type": "1",
+        "id": "第十四条_9"
+    },
+    {
+        "text": "初始交易成交的，可用额度实时相应减少；提前购回交易成交的，可用额度实时相应增加。",
+        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-状态 I-状态 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作 I-操作 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 B-状态 I-状态 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作 I-操作 O",
+        "type": "1",
+        "id": "第四十三条_0"
+    },
+    {
+        "text": "属于深股通标的证券的单只证券，在本所市场进行融资交易的融资监控指标达到规定比例而被本所暂停融资买入的，本所可以要求联交所证券交易服务公司暂停提交该深股通标的证券保证金交易申报。",
+        "label": "O O O O O O O B-交易品种 I-交易品种 O O O B-交易品种 I-交易品种 O O B-系统 I-系统 O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-key I-key I-key I-key I-key I-key B-op I-op B-value I-value I-value I-value O O B-系统 I-系统 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 O O B-系统 I-系统 O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-结果 I-结果 O O O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 O",
+        "type": "1",
+        "id": "第四十条_0"
+    },
+    {
+        "text": "集合资产管理计划或定向资产管理客户作为融出方的，单一集合资产管理计划或定向资产管理客户接受单只A股股票质押的数量不得超过该股票A股股本的15%。",
+        "label": "B-value I-value I-value I-value I-value I-value I-value I-value B-or B-value I-value I-value I-value I-value I-value I-value I-value O O B-key I-key I-key O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key B-or B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-op I-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O",
+        "type": "1",
+        "id": "第六十六条_1"
+    },
+    {
+        "text": "初始交易的申报价格为百元资金到期购回年收益。",
+        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O",
+        "type": "1",
+        "id": "第三十二条_0"
+    },
+    {
+        "text": "对于担保物中单一证券市值占比达到一定比例的客户，会员应当按照与客户的约定，暂停接受其融资买入该证券的委托或者采取其他风险控制措施。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 O O O O O O O O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-or I-or B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "type": "1",
+        "id": "4.10"
+    },
+    {
+        "text": "（一）T日日终（T日为初始交易、提前购回交易的申报日，或到期购回日），中国结算深圳分公司分别以乙方的自营结算备付金账户和客户结算备付金账户为单位，对当日全部报价回购交易金额（包括初始交易、提前购回交易和到期购回）进行轧差清算。",
+        "label": "O O O B-时间 I-时间 I-时间 I-时间 O B-key I-key O B-时间 I-时间 I-时间 I-时间 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-时间 I-时间 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O B-操作 I-操作 I-操作 I-操作 O",
+        "type": "1",
+        "id": "第十三条_1"
+    },
+    {
+        "text": "采用匹配成交方式的，债券投资者以匿名方式进行申报；采用协商成交方式的，债券投资者以显名方式进行申报；采用其他交易方式的，债券投资者可以选择以匿名或者显名方式进行申报。",
+        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-value I-value I-value I-value O O B-操作 I-操作 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-value I-value I-value I-value O O B-操作 I-操作 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-结果 I-结果 O O O B-value I-value B-or I-or B-value I-value I-value I-value O O B-操作 I-操作 O",
+        "type": "1",
+        "id": "3.3.10_0"
+    },
+    {
+        "text": "融入方与融出方可向证券公司申请查询股票质押回购交易明细情况。",
+        "label": "B-操作人 I-操作人 I-操作人 O B-操作人 I-操作人 I-操作人 O O B-value I-value I-value I-value B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "type": "1",
+        "id": "第五十八条_0"
+    },
+    {
+        "text": "本所对资产支持证券转让收取转让经手费，收费标准为100万元以下（含100万）每笔0.1元，超过100万元的每笔10元。",
+        "label": "B-系统 I-系统 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O",
+        "type": "1",
+        "id": "第五十四条_0"
+    },
+    {
+        "text": "终止购回后，双方不再进行购回交易，乙方可根据客户协议的约定和深交所、中国结算的有关规定申请将相应证券划转至用于处置的自营账户进行处置，但发生司法等机关冻结或强制执行的除外。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 O B-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-操作人 I-操作人 O O O B-value I-value I-value I-value I-value I-value I-value O B-系统 I-系统 I-系统 O B-系统 I-系统 I-系统 I-系统 O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O",
+        "type": "1",
+        "id": "第十六条_0"
+    },
+    {
+        "text": "B股、非流通股、限售流通股、个人持有的解除限售存量股及持有该存量股的账户通过二级市场买入的该品种流通股等不得用于约定购回式证券交易。",
+        "label": "B-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-结果 I-结果 I-结果 I-结果 B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O",
+        "type": "1",
+        "id": "第十六条_1"
+    },
+    {
+        "text": "本所对下列基金竞价交易实行的涨跌幅限制比例为20%：（一）跟踪指数成份股仅为创业板股票或其他实行20%涨跌幅限制股票的指数型ETF、LOF或分级基金B类份额；（二）基金合同约定投资于创业板股票或其他实行20%涨跌幅限制股票的资产占非现金基金资产比例不低于80%的LOF。",
+        "label": "B-系统 I-系统 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O B-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 O",
+        "type": "1",
+        "id": "2.9_0"
+    },
+    {
+        "text": "因客户原因导致购回交易或证券、资金划付无法完成的，证券公司应当于次一交易日报告深交所，并按以下程序处理：（一）证券公司应当及时向深交所申请终止购回，并告知客户；（二）证券公司应当向深交所提交处置申请、承诺书和合规意见书等相关材料；（三）证券公司提交的处置申请材料形式齐备的，深交所将根据处置申请通知中国结算深圳分公司将标的证券划转至用于处置的自营账户；（四）证券公司在标的证券划转至用于处置的自营账户的次一交易日起，可按照《客户协议》的约定对相关标的证券进行处置，以抵偿客户应付金额，剩余金额按照多退少补的原则处理；（五）处置完成后，证券公司应当将处置结果报深交所备案。",
+        "label": "O B-value I-value I-value I-value O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-or B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-结果 I-结果 B-操作 I-操作 O O B-操作人 I-操作人 I-操作人 I-操作人 O O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 O O O O O O O B-操作 I-操作 O O O O B-操作人 I-操作人 I-操作人 I-操作人 O O O O O B-系统 I-系统 I-系统 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O B-操作 I-操作 I-操作 I-操作 O O O O B-操作人 I-操作人 I-操作人 I-操作人 O O O B-系统 I-系统 I-系统 B-操作 I-操作 B-value I-value I-value I-value O B-value I-value I-value O B-value I-value I-value I-value I-value O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 I-操作人 O O O B-value I-value I-value I-value B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作人 I-操作人 I-操作人 I-操作人 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-时间 I-时间 I-时间 I-时间 I-时间 O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 O O O O B-事件 I-事件 I-事件 I-事件 I-事件 O B-操作人 I-操作人 I-操作人 I-操作人 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O",
+        "type": "1",
+        "id": "第四十八条_0"
+    },
+    {
+        "text": "因H股“全流通”股票权益分派、转换等情形取得联交所上市非H股“全流通”证券的，可以卖出，但不得买入；取得联交所上市股票的认购权利，并且该认购权在联交所上市的，可以卖出，但不得行权。",
+        "label": "O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-结果 I-结果 B-操作 I-操作 O O B-结果 I-结果 B-操作 I-操作 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-结果 I-结果 B-操作 I-操作 O O B-结果 I-结果 B-操作 I-操作 O",
+        "type": "1",
+        "id": "第三十三条_0"
+    },
+    {
+        "text": "即时成交剩余撤销申报，以对手方价格为成交价，与申报进入交易主机时集中申报簿中对手方所有申报队列依次成交，未成交部分自动撤销。",
+        "label": "B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-结果 I-结果 I-结果 I-结果 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-结果 I-结果 I-结果 I-结果 O",
+        "type": "1",
+        "id": "3.3.4_4"
+    },
+    {
+        "text": "质押券或担保资金转出后，不再作为证券公司报价回购交易履约担保的质押物。",
+        "label": "B-操作部分 I-操作部分 I-操作部分 B-or B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-事件 I-事件 I-事件 O B-结果 I-结果 I-结果 I-结果 B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O",
+        "type": "1",
+        "id": "第五十一条_0"
+    },
+    {
+        "text": "采用单一主体中标方式的，由最优出价的应价方按该笔竞买的全部数量成交。",
+        "label": "O O B-value I-value I-value I-value I-value I-value O O O O O B-价格 I-价格 I-价格 I-价格 O B-操作人 I-操作人 I-操作人 O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 B-结果 I-结果 O",
+        "type": "1",
+        "id": "4.4.8_1"
+    },
+    {
+        "text": "设置的显示数量应当符合本规则第3.3.4条关于点击成交申报数量的相关规定。",
+        "label": "O O O B-数量 I-数量 I-数量 I-数量 O O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O O O",
+        "type": "1",
+        "id": "4.2.5_2"
+    },
+    {
+        "text": "客户协议应约定约定购回式证券交易的标的证券为深交所上市交易的股票、基金和债券。",
+        "label": "O O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-系统 I-系统 I-系统 O O O O O B-交易品种 I-交易品种 O B-交易品种 I-交易品种 O B-交易品种 I-交易品种 O",
+        "type": "1",
+        "id": "第六条_0"
+    },
+    {
+        "text": "客户进行向不特定对象发行的可转债申购、买入时，校验客户是否为专业投资者。",
+        "label": "B-操作人 I-操作人 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-操作 I-操作 O B-操作 I-操作 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "type": "1",
+        "id": "第一条_0"
+    },
+    {
+        "text": "除上市首日外，向不特定对象发行的可转债的价格涨跌幅限制比例为20%。",
+        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value O",
+        "type": "1",
+        "id": "第十五条_0"
+    },
+    {
+        "text": "投资者当日申购的挂牌申赎开放式基金份额，在交收前不得赎回。",
+        "label": "B-操作人 I-操作人 I-操作人 B-时间 I-时间 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-时间 I-时间 I-时间 B-结果 I-结果 B-操作 I-操作 O",
+        "type": "1",
+        "id": "第四十四条_0"
+    },
+    {
+        "text": "投资者通过境内证券公司提交H股“全流通”股份的交易指令。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O",
+        "type": "1",
+        "id": "第七条_0"
+    },
+    {
+        "text": "询价请求部分成交的，未成交部分的询价请求及询价回复自动撤销。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 O",
+        "type": "1",
+        "id": "第三十七条_2"
+    },
+    {
+        "text": "每笔竞价交易的申报不能一次全部成交时，未成交部分继续参加当日竞价，但第3.3.4条第三项至第五项市价申报类型除外。",
+        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-时间 I-时间 B-操作 I-操作 O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 B-value I-value I-value I-value I-value I-value B-结果 I-结果 O",
+        "type": "1",
+        "id": "3.3.21_1"
+    },
+    {
+        "text": "定价申报的未成交部分可以撤销。",
+        "label": "B-value I-value I-value I-value O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O",
+        "type": "1",
+        "id": "3.5.6_7"
+    },
+    {
+        "text": "证券公司开展报价回购交易前，应当向中国结算深圳分公司提交用于报价回购交易履约担保的质押物。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O",
+        "type": "1",
+        "id": "第四十七条_0"
+    },
+    {
+        "text": "个人投资者参与中国存托凭证交易，应当符合下列条件：（一）申请权限开通前20个交易日证券账户及资金账户内的资产日均不低于人民币50万元（不包括该投资者通过融资融券交易融入的资金和证券）；（二）参与证券交易24个月以上；（三）不存在严重的不良诚信记录；（四）不存在境内法律、本所业务规则等规定的禁止或者限制参与证券交易的情形。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key B-op I-op I-op B-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O",
+        "type": "1",
+        "id": "第四十八条_0"
+    },
+    {
+        "text": "本所对约定号、证券代码、买卖方向、价格、数量等各项要素均匹配的成交申报进行成交确认。",
+        "label": "B-系统 I-系统 O I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O",
+        "type": "1",
+        "id": "第三十二条_3"
+    },
+    {
+        "text": "投资者当日买入的中国存托凭证，当日不得卖出，本所另有规定的除外。",
+        "label": "B-操作人 I-操作人 I-操作人 B-时间 I-时间 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-时间 I-时间 B-操作 I-操作 I-操作 I-操作 O O O O O O O O O O O",
+        "type": "1",
+        "id": "第五十四条_0"
+    },
+    {
+        "text": "投资者融资买入证券时，融资保证金比例不得低于100%。",
+        "label": "B-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-value I-value I-value I-value O",
+        "type": "1",
+        "id": "4.5"
+    },
+    {
+        "text": "待购回期间，标的证券产生的无需支付对价的股东权益，如送股、转增股份、现金红利等，一并予以质押。",
+        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O B-value I-value I-value I-value O B-value I-value I-value I-value O O O O O O B-操作 I-操作 O",
+        "type": "1",
+        "id": "第五十九条_0"
+    },
+    {
+        "text": "证券公司报价回购可用额度为以下两个金额中的较小值：（一）质押库和担保资金账户中当日可用标准券总量所对应金额；（二）报价回购额度减去未到期回购金额的差。",
+        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O O O O O B-op I-op I-op O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O",
+        "type": "1",
+        "id": "第四十二条_1"
     }
 ]

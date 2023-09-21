@@ -1,6 +1,7 @@
 import json
 from ours.process_tci_to_tco import token_classification
 from experiment.compare_BR import str_same
+import os
 
 # 将信息抽取任务的预测和真实值放在一个文件中
 def integrate_tc(real_file, hat_file, out_file):
@@ -89,11 +90,24 @@ def evaluate(in_file, out_file, threshold=0.8):
 
 
 if __name__ == "__main__":
-    # 执行信息抽取
-    rules = json.load(open("../data/rules.json", "r", encoding="utf-8"))
-    json.dump(rules, open("data/exp1_2_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-    token_classification("data/exp1_2_input.json", "data/exp1_2_output.json", "../data/knowledge.json", "../model/ours/best_1690329462", "../data/tc_data.dict")
-    # 整合预测与真实值
-    integrate_tc("../data/rules.json", "data/exp1_2_output.json", "data/exp1_2_compare.log")
-    # 评估
-    evaluate("data/exp1_2_compare.log", "data/exp1_2_result.log", threshold=0.6)
+
+    for file in sorted(os.listdir('../model/ours/')):
+        if file == 'best_1690658708' or 'checkpoint' in file:
+            continue
+        print(file)
+        # 执行信息抽取
+        rules = json.load(open("../data/rules.json", "r", encoding="utf-8"))
+        json.dump(rules, open("data/exp1_2_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+        token_classification("data/exp1_2_input.json", "data/exp1_2_output.json", "../data/knowledge.json", "../model/ours/" + file, "../data/tc_data.dict")
+        # 整合预测与真实值
+        integrate_tc("../data/rules.json", "data/exp1_2_output.json", "data/exp1_2_compare.log")
+        # 评估
+        evaluate("data/exp1_2_compare.log", "data/exp1_2_result.log", threshold=0.6)
+    # # 执行信息抽取
+    # rules = json.load(open("../data/rules.json", "r", encoding="utf-8"))
+    # json.dump(rules, open("data/exp1_2_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    # token_classification("data/exp1_2_input.json", "data/exp1_2_output.json", "../data/knowledge.json", "../model/ours/best_1690329462", "../data/tc_data.dict")
+    # # 整合预测与真实值
+    # integrate_tc("../data/rules.json", "data/exp1_2_output.json", "data/exp1_2_compare.log")
+    # # 评估
+    # evaluate("data/exp1_2_compare.log", "data/exp1_2_result.log", threshold=0.6)

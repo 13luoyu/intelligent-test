@@ -8,7 +8,11 @@ import synonyms
 import random
 import argparse
 
-
+# 数据增强
+# 运行方法：
+# python data_augment.py --tast all --nlpcda_size 10 --eda_tc_size 20 --eda_sc_size 9
+# python data_augment.py --tast tc --nlpcda_size 10 --eda_tc_size 20
+# python data_augment.py --task sc --eda_sc_size 9
 
 def preprocess(input_file, output_dir):
     data = json.load(open(input_file, "r", encoding="utf-8"))

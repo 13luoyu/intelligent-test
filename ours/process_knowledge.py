@@ -132,9 +132,9 @@ def process_knowledge(input_file: str, output_file: str, todo_file: str):
                 todo_fp.write(text + "\n")
                 cannot_process += 1
     # pprint(knowledge)
-    if os.path.exists(output_file):
-        knowledge_pre = json.load(open(output_file, "r", encoding="utf-8"))
-        knowledge.update(knowledge_pre)
+    # if os.path.exists(output_file):
+    #     knowledge_pre = json.load(open(output_file, "r", encoding="utf-8"))
+    #     knowledge.update(knowledge_pre)
     json.dump(knowledge, open(output_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     return knowledge_count, cannot_process
 

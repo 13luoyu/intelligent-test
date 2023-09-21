@@ -2,6 +2,7 @@ import pdfplumber
 import json
 import os
 
+# 读取一个目录，按照句号分割，生成sequence_classification文件
 
 def is_id(str):
     # 判断一句话是否是id开头
@@ -89,6 +90,6 @@ if __name__ == "__main__":
     for file in os.listdir("../data/业务规则/origin"):
         if "pdf" in file:
             read_pdf_to_txt(f"../data/业务规则/origin/{file}", f"../data/业务规则/txt/{file[:-4]}.txt")
-            read_txt_to_json(f"../data/业务规则/txt/{file[:-4]}.txt", f"../data/业务规则/json_for_sequence_classification/{file[:-4]}.json")
-        else:  # "docx"
-            ...
+    
+    for file in os.listdir("../data/业务规则/txt"):
+        read_txt_to_json(f"../data/业务规则/txt/{file[:-4]}.txt", f"../data/业务规则/json_for_sequence_classification/{file[:-4]}.json")
