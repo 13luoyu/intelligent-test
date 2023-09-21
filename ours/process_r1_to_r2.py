@@ -543,7 +543,7 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
             for rule_id in list(rules.keys()):
                 rule = rules[rule_id]
                 for c in rule['constraints']:
-                    if c['key'] == '交易操作':
+                    if c['key'] == '操作':
                         if '买入' in c['value']:
                             rule['constraints'].append({"key":"交易方向","operation":"is","value":"买入"})
                             vars[rule_id]['交易方向'] = []
@@ -794,9 +794,15 @@ def subrule_compose(vars, rules):
                     if c['operation'] == "in":
                         conflict = True
                         break
+                    if c['key'] == "操作" and "一次性" in c['value']:
+                        conflict = True
+                        break
                     find = False
                     for c1 in new_rule["constraints"]:
                         if c1['operation'] == "in":
+                            conflict = True
+                            break
+                        if(c1['key'] == "操作" and "一次性" in c1['value']):
                             conflict = True
                             break
                         if c['key'] == c1['key'] and c['operation'] == "is":

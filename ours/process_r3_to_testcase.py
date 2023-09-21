@@ -132,6 +132,7 @@ def list_conditions(defines, vars, rules):
                         else:
                             variable = z3.Int(key)
                         variables[key] = variable
+                        cons[key].append(variable > 0)
                     if isnumber(value):
                         value = float(value)
                         cc = gen_cons(op1, variable, value)
@@ -197,6 +198,7 @@ def list_conditions(defines, vars, rules):
                     else:
                         variable = z3.Int(key)
                         variables[key] = variable
+                        cons[key].append(variable > 0)
                     if not isnumber(value1):
                         if value1 in defines:
                             vars[rule_id][value1] = []
@@ -270,6 +272,7 @@ def list_conditions(defines, vars, rules):
         
         # 生成单变量
         if len(cons) > 0:
+            print(cons)
             rs = judge_conflict_and_generate_value(variables, cons, rule_id, vars)
             if not rs:
                 conflict_to_delete.append(rule_id)
