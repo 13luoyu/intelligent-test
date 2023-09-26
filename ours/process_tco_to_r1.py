@@ -558,7 +558,7 @@ def write_r1(fp_r1, ss, knowledge, id):
     """
     将ss中的所有子规则写成R1
 
-    :param fp_r1 R1的文件符指针
+    :param fp_r1 一个结果字符串
     :param ss: 子规则数组
     :param knowledge: 领域知识
     :param id: 当前所有子规则的基准id
@@ -820,30 +820,30 @@ def write_r1(fp_r1, ss, knowledge, id):
         
         if focus == "":
             focus = "订单连续性操作"
-        fp_r1.write("rule " + new_id + "\n")
-        fp_r1.write(f"focus: {focus}\n")
-        fp_r1.write(f"\t{r1[:-5]}\n")
-        fp_r1.write(f"\tthen 结果 is \"{result}\"\n")
-        fp_r1.write(f"\n")
+        fp_r1 += "rule " + new_id + "\n"
+        fp_r1 += f"focus: {focus}\n"
+        fp_r1 += f"\t{r1[:-5]}\n"
+        fp_r1 += f"\tthen 结果 is \"{result}\"\n"
+        fp_r1 += f"\n"
+    return fp_r1
 
 
 
 
-def to_r1(input_file, output_file, knowledge_file):
+def to_r1(rules, knowledge_file):
     """
     将input_file文件的内容写成R1，存放在output_file文件中
     :param input_file: 一个json文件，存放一或多篇文档中的按照id分好的自然语言text及其标签label
     :param output_file: 写R1的文件
     :param knowledge_file: 存储领域知识的文件
     """
-    fp_r1 = open(output_file, "w", encoding="utf-8")
     knowledge = read_knowledges(knowledge_file)
-    rules = json.load(open(input_file, "r", encoding="utf-8"))
     if os.path.exists("rules_cache/r1_step1.txt"):
         os.remove("rules_cache/r1_step1.txt")
     if os.path.exists("rules_cache/r1_step2.txt"):
         os.remove("rules_cache/r1_step2.txt")
     unknown_id = 0
+    r1 = ''
     for rule in rules:
         if 'id' in rule:
             id = rule["id"]
@@ -857,12 +857,14 @@ def to_r1(input_file, output_file, knowledge_file):
 
         ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation)
         
-        write_r1(fp_r1, ss, knowledge, id)
-
-    fp_r1.close()
+        r1 = write_r1(r1, ss, knowledge, id)
+    return r1
 
 
 
 
 if __name__ == "__main__":
-    to_r1("rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json")
+    rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
+    r1 = to_r1(rules, "../data/knowledge.json")
+    with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:
+        f.write(r1)

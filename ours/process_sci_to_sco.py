@@ -4,8 +4,8 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch
 
 
-def sequence_classification(in_file: str, out_file: str, model_path: str, batch_size: int = 8, sentence_max_length: int = 512):
-    sci = json.load(open(in_file, "r", encoding="utf-8"))
+# def sequence_classification(in_file: str, out_file: str, model_path: str, batch_size: int = 8, sentence_max_length: int = 512):
+def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sentence_max_length: int = 512):
     model = AutoModelForSequenceClassification.from_pretrained(model_path, num_labels=3)
     tokenizer = AutoTokenizer.from_pretrained(model_path)
 
@@ -35,10 +35,11 @@ def sequence_classification(in_file: str, out_file: str, model_path: str, batch_
     sco = sci.copy()
     for i, rule in enumerate(sco):
         rule["type"] = str(hats[i])
-    json.dump(sco, open(out_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-
+    return sco
 
 
 
 if __name__ == "__main__":
-    sequence_classification("rules_cache/sci.json", "rules_cache/sco.json", "../model/ours/?")
+    sci_data = json.load(open("rules_cache/sci.json", "r", encoding="utf-8"))
+    sco_data = sequence_classification(sci_data, "../model/ours/best_1690658708")
+    json.dump(sco_data, open("rules_cache/sco.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

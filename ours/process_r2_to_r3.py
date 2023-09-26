@@ -194,7 +194,7 @@ def deal_with_event(vars, rules):
                                 new_rules += rule_to_add_1
                         rule_id_to_del.append(rule_id)
                         rule_to_add += new_rules
-                        rule_to_add.append(rule)
+                        rule_to_add.append(copy.deepcopy(rule))
                         add_i = 1
                         for i in range(len(new_rules) + 1):
                             while f"{rule_id}.{i+add_i}" in rule_id_to_add:
@@ -330,7 +330,7 @@ def add_elements(vars, rules, preliminaries):
                         rule['constraints'].append({"key":"申报类型","operation":"is","value":preliminaries[key][0]})
                         vars[rule_id]['申报类型'] = []
                         break
-    
+
     # 添加申报要素
     for key in prelim_keys:
         if '申报要素' in key:

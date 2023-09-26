@@ -57,15 +57,15 @@ def upload():
 @app.route('/preprocess', methods=['POST'])
 def nl_to_sci_interface():
     params = request.json
-    if 'file' in params and params['file'] != '':
-        nl_to_sci(app.config['UPLOAD_FOLDER'] + params['file'], 'rules_cache/sci.json')
-        sci_data = json.load(open('rules_cache/sci.json', "r", encoding="utf-8"))
+    if 'file' in params and params['file'] != '' and '.pdf' in params['file']:
+        sci_data = nl_to_sci(nl_file=app.config['UPLOAD_FOLDER'] + params['file'])
+        return jsonify({"data":sci_data, "message":"success"})
+    elif 'file' in params and params['file'] != '' and '.txt' in params['file']:
+        nl_data = open(app.config['UPLOAD_FOLDER'] + params['file'], 'r', encoding="utf-8").read()
+        sci_data = nl_to_sci(nl_data=nl_data)
         return jsonify({"data":sci_data, "message":"success"})
     elif 'input' in params and params['input'] != '':
-        with open('rules_cache/input.txt', "w", encoding="utf-8") as f:
-            f.write(params['input'])
-        nl_to_sci('rules_cache/input.txt', 'rules_cache/sci.json')
-        sci_data = json.load(open('rules_cache/sci.json', "r", encoding="utf-8"))
+        sci_data = nl_to_sci(nl_data=params['input'])
         return jsonify({"data":sci_data, "message":"success"})
     else:
         return jsonify({"message":"请输入需要转换的句子或文件"})

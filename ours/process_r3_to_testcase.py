@@ -49,6 +49,7 @@ def list_conditions(defines, vars, rules):
             # part 1 连接词是 is
             # 规则是仅将这个值加入vars，不考虑其他值
             if op == "is":
+                # print(rule_id)
                 vars[rule_id][key].append(value)
 
             # part 2 连接词是 in
@@ -272,7 +273,7 @@ def list_conditions(defines, vars, rules):
         
         # 生成单变量
         if len(cons) > 0:
-            print(cons)
+            # print(cons)
             rs = judge_conflict_and_generate_value(variables, cons, rule_id, vars)
             if not rs:
                 conflict_to_delete.append(rule_id)

@@ -128,4 +128,4 @@ if __name__ == "__main__":
     to_mydsl(r2_json, "../ours/rules_cache/r2.mydsl")
     r3_rules = json.load(open("../ours/rules_cache/r3.json", "r", encoding="utf-8"))
     r3_json = r3_to_json(r3_rules)
-    to_mydsl(r2_json, "../ours/rules_cache/r3.mydsl")
+    to_mydsl(r3_json, "../ours/rules_cache/r3.mydsl")

@@ -315,8 +315,8 @@ def token_classification_with_algorithm(tco, knowledge):
         rule["text"], rule["label"] = text, " ".join(label)
     return tco
 
-def token_classification(in_file: str, out_file: str, knowledge_file: str, model_path: str, dict_file: str, batch_size: int = 8, sentence_max_length: int = 512):
-    tci = json.load(open(in_file, "r", encoding="utf-8"))
+def token_classification(tci: list, knowledge_file: str, model_path: str, dict_file: str, batch_size: int = 8, sentence_max_length: int = 512):
+
     knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
     
     with open(dict_file, "r", encoding="utf-8") as f:
@@ -370,9 +370,11 @@ def token_classification(in_file: str, out_file: str, knowledge_file: str, model
     # 使用算法修复
     tco = token_classification_with_algorithm(tco, knowledge)
     
-    json.dump(tco, open(out_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    return tco
 
 
 
 if __name__ == "__main__":
-    token_classification("rules_cache/tci.json", "rules_cache/tco.json", "../data/knowledge.json", "../model/ours/best_1689080207", "../data/tc_data.dict")
+    tci_data = json.load(open("rules_cache/tci.json", "r", encoding="utf-8"))
+    tco_data = token_classification(tci_data, "../data/knowledge.json", "../model/ours/best_1690329462", "../data/tc_data.dict")
+    json.dump(tco_data, open("rules_cache/tco.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

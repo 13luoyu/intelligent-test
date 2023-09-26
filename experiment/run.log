@@ -1,16 +1,6 @@
-best_1690329462
-Traceback (most recent call last):
-  File "/home/asus/intelligent-test/experiment/exp1_2.py", line 101, in <module>
-    token_classification("data/exp1_2_input.json", "data/exp1_2_output.json", "../data/knowledge.json", "../model/ours/" + file, "../data/tc_data.dict")
-  File "/home/asus/intelligent-test/ours/process_tci_to_tco.py", line 326, in token_classification
-    model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=num_labels)
-  File "/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py", line 471, in from_pretrained
-    return model_class.from_pretrained(
-  File "/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/modeling_utils.py", line 2646, in from_pretrained
-    ) = cls._load_pretrained_model(
-  File "/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/modeling_utils.py", line 3019, in _load_pretrained_model
-    raise RuntimeError(f"Error(s) in loading state_dict for {model.__class__.__name__}:\n\t{error_msg}")
-RuntimeError: Error(s) in loading state_dict for BertForTokenClassification:
-	size mismatch for classifier.weight: copying a param with shape torch.Size([35, 768]) from checkpoint, the shape in current model is torch.Size([37, 768]).
-	size mismatch for classifier.bias: copying a param with shape torch.Size([35]) from checkpoint, the shape in current model is torch.Size([37]).
-	You may consider adding `ignore_mismatched_sizes=True` in the model `from_pretrained` method.
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/scipy/__init__.py:132: UserWarning: A NumPy version >=1.21.6 and <1.28.0 is required for this version of SciPy (detected version 1.21.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            best_1695586111
+真实信息总数：4580，预测信息总数：4482，其中完全正确的信息数：3291，正确率0.7186，召回率0.7343，F1分数0.7263。
+best_1695604389
+真实信息总数：4415，预测信息总数：4482，其中完全正确的信息数：2922，正确率0.6618，召回率0.6519，F1分数0.6569。

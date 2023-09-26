@@ -1,6 +1,27 @@
+原始数据（规则筛选或信息抽取）：训练集有数据3000条，验证集有数据334条。
+原始数据（规则筛选或信息抽取）：训练集有数据1199条，验证集有数据134条。
+规则：训练集有数据574条，验证集有数据64条。
 /home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/scipy/__init__.py:132: UserWarning: A NumPy version >=1.21.6 and <1.28.0 is required for this version of SciPy (detected version 1.21.5)
   warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
-Some weights of the model checkpoint at ../model/mengzi-bert-base-fin were not used when initializing BertForTokenClassification: ['cls.predictions.transform.LayerNorm.weight', 'pos_transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.bias', 'sop.cls.weight', 'cls.predictions.decoder.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'pos_transform.dense.bias', 'pos_head.weight', 'pos_head.bias', 'pos_transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'pos_transform.dense.weight', 'sop.cls.bias', 'cls.predictions.decoder.bias']
+Building prefix dict from /home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/synonyms/data/vocab.txt ...
+Loading model from cache /tmp/jieba.u2936b6aa2669ea7ea53bb471c04c76db.cache
+Loading model cost 0.795 seconds.
+Prefix dict has been built successfully.
+Simbert不能正常使用，除非你安装：bert4keras、tensorflow ，为了安装快捷，没有默认安装.... No module named 'bert4keras'
+smart_open library not found; falling back to local-filesystem-only
+
+ Synonyms: v3.18.0, Project home: https://github.com/chatopera/Synonyms/
+
+ Project Sponsored by Chatopera
+
+  deliver your chatbots with Chatopera Cloud Services --> https://bot.chatopera.com
+
+>> Synonyms load wordseg dict [/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/synonyms/data/vocab.txt] ... 
+>> Synonyms on loading stopwords [/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/synonyms/data/stopwords.txt] ...
+>> Synonyms on loading vectors [/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/synonyms/data/words.vector.gz] ...
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/scipy/__init__.py:132: UserWarning: A NumPy version >=1.21.6 and <1.28.0 is required for this version of SciPy (detected version 1.21.5)
+  warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
+Some weights of the model checkpoint at ../model/mengzi-bert-base-fin were not used when initializing BertForTokenClassification: ['cls.predictions.decoder.weight', 'pos_transform.dense.weight', 'cls.predictions.bias', 'sop.cls.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.LayerNorm.bias', 'pos_transform.LayerNorm.bias', 'sop.cls.bias', 'pos_transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'pos_head.weight', 'pos_head.bias', 'pos_transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight']
 - This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
 - This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
 Some weights of BertForTokenClassification were not initialized from the model checkpoint at ../model/mengzi-bert-base-fin and are newly initialized: ['classifier.bias', 'classifier.weight']

@@ -2,8 +2,7 @@ import json
 
 # 将sequence classification output的结果组合成token classification input的格式
 
-def sco_to_tci(sco_file: str, tci_file: str):
-    sco = json.load(open(sco_file, "r", encoding="utf-8"))
+def sco_to_tci(sco: list):
     last_id = ""
     text = ""
     tci = []
@@ -40,10 +39,12 @@ def sco_to_tci(sco_file: str, tci_file: str):
         t["text"] = text
         t["label"] = ""
         tci.append(t)
-    json.dump(tci, open(tci_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    return tci
 
 
 
 
 if __name__ == "__main__":
-    sco_to_tci("rules_cache/sco.json", "rules_cache/tci.json")
+    sco_data = json.load(open("rules_cache/sco.json", "r", encoding="utf-8"))
+    tci_data = sco_to_tci(sco_data)
+    json.dump(tci_data, open("rules_cache/tci.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

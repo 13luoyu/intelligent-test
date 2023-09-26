@@ -28,18 +28,24 @@ def nlp_process(input_file: str,
                 batch_size: int = 8,
                 sentence_max_length: int = 512):
     # 获取输入，转换为句分类的输入格式
-    nl_to_sci(input_file, sci_file)
+    sci = nl_to_sci(nl_file=input_file)
+    json.dump(sci, open(sci_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     # 句分类任务
     # 标注每个句子的类别：0为无法测试的自然语言，1为可测试的规则，2为领域知识
-    sequence_classification(sci_file, sco_file, sc_model, batch_size, sentence_max_length)
+    sco = sequence_classification(sci, sc_model, batch_size, sentence_max_length)
+    json.dump(sco, open(sco_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    print("规则筛选任务完成")
     # 将句子按照id组合
-    sco_to_tci(sco_file, tci_file)
-    print("句分类任务完成")
+    tci = sco_to_tci(sco)
+    json.dump(tci, open(tci_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     # 标注句子中每个字的类别
-    token_classification(tci_file, tco_file, knowledge_file, tc_model, tc_dict, batch_size, sentence_max_length)
-    print("字分类任务完成")
+    tco = token_classification(tci, knowledge_file, tc_model, tc_dict, batch_size, sentence_max_length)
+    json.dump(tco, open(tco_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    print("规则元素抽取任务完成")
     # 调用转R1
-    to_r1(tco_file, r1_file, knowledge_file)
+    r1 = to_r1(tco, knowledge_file)
+    with open(r1_file, "w", encoding="utf-8") as f:
+        f.write(r1)
     print("R规则生成")
     # exit(0)
 
@@ -80,7 +86,7 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
 
 if __name__ == "__main__":
     begin_time = time.time()
-    # nlp_process("rules_cache/input.txt", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1690329462", "../data/tc_data.dict")
+    nlp_process("rules_cache/深圳证券交易所债券交易规则.pdf", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1690329462", "../data/tc_data.dict")
     alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r3.json", "rules_cache/testcase.json", "../data/knowledge.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")
