@@ -1,10 +1,6 @@
-import pprint
-import re
-import json
-
 
 # 读文件
-def read_file(file_name):
+def mydsl_to_rules(s):
     """读文件并解析, 将常量写入defines, 变量写入vars, 规则写入rules"""
 
     defines = dict()
@@ -25,8 +21,7 @@ def read_file(file_name):
 #            'rule_class': '4.1.1'},
 # }
 
-    with open(file_name, "r", encoding="utf-8") as f:
-        lines = f.readlines()
+    lines = s.split("\n")
     for line in lines:
         l = line.strip().split()
         

@@ -83,8 +83,8 @@ def evaluate(in_file, out_file, threshold=0.8):
     recall = correct_sum / real_sum
     F1 = 2 * precision * recall / (precision + recall)
     with open(out_file, "w", encoding="utf-8") as f:
-        f.write(f"真实信息总数：{hat_sum}，预测信息总数：{real_sum}，其中正确的信息数：{correct_sum}，正确率{round(precision, 4)}，召回率{round(recall, 4)}，F1分数{round(F1, 4)}。")
-    print(f"真实信息总数：{hat_sum}，预测信息总数：{real_sum}，其中完全正确的信息数：{correct_sum}，正确率{round(precision, 4)}，召回率{round(recall, 4)}，F1分数{round(F1, 4)}。")
+        f.write(f"真实信息总数：{real_sum}，预测信息总数：{hat_sum}，其中正确的信息数：{correct_sum}，正确率{round(precision, 4)}，召回率{round(recall, 4)}，F1分数{round(F1, 4)}。")
+    print(f"真实信息总数：{real_sum}，预测信息总数：{hat_sum}，其中完全正确的信息数：{correct_sum}，正确率{round(precision, 4)}，召回率{round(recall, 4)}，F1分数{round(F1, 4)}。")
 
 
 
@@ -98,7 +98,8 @@ if __name__ == "__main__":
         # 执行信息抽取
         rules = json.load(open("../data/rules.json", "r", encoding="utf-8"))
         json.dump(rules, open("data/exp1_2_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-        token_classification("data/exp1_2_input.json", "data/exp1_2_output.json", "../data/knowledge.json", "../model/ours/" + file, "../data/tc_data.dict")
+        tco = token_classification(rules, "../data/knowledge.json", "../model/ours/" + file, "../data/tc_data.dict")
+        json.dump(tco, open("data/exp1_2_output.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
         # 整合预测与真实值
         integrate_tc("../data/rules.json", "data/exp1_2_output.json", "data/exp1_2_compare.log")
         # 评估
@@ -106,7 +107,8 @@ if __name__ == "__main__":
     # # 执行信息抽取
     # rules = json.load(open("../data/rules.json", "r", encoding="utf-8"))
     # json.dump(rules, open("data/exp1_2_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-    # token_classification("data/exp1_2_input.json", "data/exp1_2_output.json", "../data/knowledge.json", "../model/ours/best_1690329462", "../data/tc_data.dict")
+    # tco = token_classification(rules, "../data/knowledge.json", "../model/ours/best_1690329462", "../data/tc_data.dict")
+    # json.dump(rules, open("data/exp1_2_output.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     # # 整合预测与真实值
     # integrate_tc("../data/rules.json", "data/exp1_2_output.json", "data/exp1_2_compare.log")
     # # 评估

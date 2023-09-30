@@ -51,7 +51,8 @@ def nlp_process(input_file: str,
 
 def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_file):
     # 读文件
-    defines, vars, rules = mydsl_to_rules.read_file(input_file)
+    r1 = open(input_file, "r", encoding="utf-8").read()
+    defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r1)
     # 领域知识
     knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
     # 文件预处理，将rules中某些自然语言描述的规则转换为数学表达式

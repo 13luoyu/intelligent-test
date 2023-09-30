@@ -113,19 +113,24 @@ def r3_to_json(rules):
     # json_xtext = json.dumps(json_xtext, ensure_ascii=False, indent=4)
     return json_xtext
 
-def to_mydsl(json_text, out_file):
+def to_mydsl(json_text):
     rules = json_text["rules"]
-    with open(out_file, "w", encoding="utf-8") as f:
-        for rule in rules:
-            f.write(f"rule {rule['rule']}\n")
-            f.write(f"focus: {','.join(rule['focus'])}\n")
-            rule['context'] = rule['context'].replace("\n ", "\n\t")
-            f.write(f"\t{rule['context']}\n\n")
+    s = ""
+    for rule in rules:
+        s += f"rule {rule['rule']}\n"
+        s += f"focus: {','.join(rule['focus'])}\n"
+        rule['context'] = rule['context'].replace("\n ", "\n\t")
+        s += f"\t{rule['context']}\n\n"
+    return s
 
 if __name__ == "__main__":
     r2_rules = json.load(open("../ours/rules_cache/r2.json", "r", encoding="utf-8"))
     r2_json = r2_to_json(r2_rules)
-    to_mydsl(r2_json, "../ours/rules_cache/r2.mydsl")
+    r2 = to_mydsl(r2_json)
+    with open("../ours/rules_cache/r2.mydsl", "w", encoding="utf-8") as f:
+        f.write(r2)
     r3_rules = json.load(open("../ours/rules_cache/r3.json", "r", encoding="utf-8"))
     r3_json = r3_to_json(r3_rules)
-    to_mydsl(r3_json, "../ours/rules_cache/r3.mydsl")
+    r3 = to_mydsl(r3_json)
+    with open("../ours/rules_cache/r3.mydsl", "w", encoding="utf-8") as f:
+        f.write(r3)
