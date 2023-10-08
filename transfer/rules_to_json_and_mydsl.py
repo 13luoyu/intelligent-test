@@ -118,6 +118,7 @@ def to_mydsl(json_text):
     s = ""
     for rule in rules:
         s += f"rule {rule['rule']}\n"
+        s += f"sourceId {','.join(rule['parent'])}\n"
         s += f"focus: {','.join(rule['focus'])}\n"
         rule['context'] = rule['context'].replace("\n ", "\n\t")
         s += f"\t{rule['context']}\n\n"

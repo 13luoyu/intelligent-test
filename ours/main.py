@@ -9,7 +9,7 @@ from ours.process_r1_to_r2 import preprocess, compose_rules_r1_r2
 from ours.process_r2_to_r3 import compose_rules_r2_r3
 from ours.process_r3_to_testcase import testcase
 from ours.process_testcase_to_outputs import generate_dicts
-from transfer import mydsl_to_rules
+from transfer import mydsl_to_rules, rules_to_json_and_mydsl
 import json
 from pprint import pprint
 import time
@@ -63,11 +63,21 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
     # R1->R2
     defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
     json.dump(rules, open(r2_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    r2_rules = json.load(open("../ours/rules_cache/r2.json", "r", encoding="utf-8"))
+    r2_json = rules_to_json_and_mydsl.r2_to_json(r2_rules)
+    r2 = rules_to_json_and_mydsl.to_mydsl(r2_json)
+    with open("../ours/rules_cache/r2.mydsl", "w", encoding="utf-8") as f:
+        f.write(r2)
     print(f"R2规则生成，包含规则数：{len(rules)}")
 
     # R2->R3
     defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
     json.dump(rules, open(r3_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    r3_rules = json.load(open("../ours/rules_cache/r3.json", "r", encoding="utf-8"))
+    r3_json = rules_to_json_and_mydsl.r3_to_json(r3_rules)
+    r3 = rules_to_json_and_mydsl.to_mydsl(r3_json)
+    with open("../ours/rules_cache/r3.mydsl", "w", encoding="utf-8") as f:
+        f.write(r3)
     print(f"R3规则生成，包含规则数：{len(rules)}")
     r3_time = time.time()
     
@@ -87,7 +97,7 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
 
 if __name__ == "__main__":
     begin_time = time.time()
-    nlp_process("rules_cache/深圳证券交易所债券交易规则.pdf", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1690329462", "../data/tc_data.dict")
+    # nlp_process("rules_cache/深圳证券交易所债券交易规则.pdf", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1696264421", "../data/tc_data.dict")
     alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r3.json", "rules_cache/testcase.json", "../data/knowledge.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")

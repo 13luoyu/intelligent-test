@@ -29,18 +29,21 @@ def mydsl_to_rules(s):
         if len(l) == 0:
             continue
         if l[0] == "rule":
-            if "_" in l[1]:
-                rule_class = l[1].split("_")[0]
-            else:
-                rule_class = '.'.join(l[1].split(".")[:-1])
+            # if "_" in l[1]:
+            #     rule_class = l[1].split("_")[0]
+            # else:
+            #     rule_class = '.'.join(l[1].split(".")[:-1])
             rule_id = l[1]
             rules[rule_id] = {}
             vars[rule_id] = {}
-            rules[rule_id]["rule_class"] = [rule_class]
+            # rules[rule_id]["rule_class"] = [rule_class]
+        
+        elif l[0] == 'sourceId':
+            rules[rule_id]["rule_class"] = l[1].split(',')
         
         elif l[0] == 'focus:':
             focus = l[1]
-            rules[rule_id]["focus"] = [focus]
+            rules[rule_id]["focus"] = focus.split(",")
 
         elif l[0] == "if":
             constraints = []
@@ -103,6 +106,7 @@ def mydsl_to_rules(s):
             
             rules[rule_id]["constraints"] = constraints
 
+    # TODO，更加通用
     defines['交易市场'] = ["深圳证券交易所"]
     defines['交易品种'] = ["基金"]
     return defines, vars, rules

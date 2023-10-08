@@ -26,7 +26,7 @@ def prase_rule(outputs, ruleid, keys,rule):
     retans = collections.OrderedDict()
     retans['rule'] = ruleid
     retans['测试关注点'] = rule['focus'][0]
-    retans['testid'] = testid
+    retans['testid'] = f"{ruleid}_{testid}"
     testid += 1
     #
     # 将判断结果接在最后面

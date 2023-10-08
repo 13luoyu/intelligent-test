@@ -821,6 +821,7 @@ def write_r1(fp_r1, ss, knowledge, id):
         if focus == "":
             focus = "订单连续性操作"
         fp_r1 += "rule " + new_id + "\n"
+        fp_r1 += f"sourceId {id}\n"
         fp_r1 += f"focus: {focus}\n"
         fp_r1 += f"\t{r1[:-5]}\n"
         fp_r1 += f"\tthen 结果 is \"{result}\"\n"
