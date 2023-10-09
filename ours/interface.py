@@ -15,7 +15,7 @@ from ours.process_knowledge import process_knowledge
 from transfer import mydsl_to_rules, rules_to_json_and_mydsl
 
 sc_model_path = "../model/ours/best_1690658708"
-tc_model_path = "../model/ours/best_1690329462"
+tc_model_path = "../model/ours/best_1696264421"
 knowledge_file = '../data/knowledge.json'
 dict_file = '../data/tc_data.dict'
 
