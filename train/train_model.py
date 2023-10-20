@@ -1,5 +1,4 @@
 import torch
-import transformers
 from train.BertModel import BertModelForTC
 from train.data import load_data_tc
 
@@ -13,10 +12,10 @@ def train_tc(net, train_iter, test_iter, loss, optimizer, vocab_size, epochs):
     last_test_loss = 1e8
     device = try_gpu()
     net = net.to(device)
-    for epoch in epochs:
+    for epoch in range(epochs):
         train_l_sum = 0
         for x, segments, valid_lens, y in train_iter:
-            x, y = x.to(device), y.to(device)
+            x, segments, valid_lens, y = x.to(device), segments.to(device), valid_lens.to(device), y.to(device)
             optimizer.zero_grad()
             y_hat = net(x, segments, valid_lens)
             l = loss(y_hat.reshape(-1, vocab_size), y.reshape(-1))
@@ -44,3 +43,7 @@ def train_tc_main(batch_size=8, max_len=512, lr=0.01, epochs=20):
     loss = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(net.parameters(), lr=lr)
     train_tc(net, train_iter, test_iter, loss, optimizer, label_vocab_size, epochs)
+
+
+
+train_tc_main()

@@ -34,10 +34,11 @@ class HFModel_TC(PreTrainedModel):
 
 
 def generate_model():
-    config = HFConfig_TC(21128, 768, [768], 768, 3072, 4, 12, 0.1, 512)
+    config = HFConfig_TC(21128, 768*2, [768*2], 768*2, 3072*2, 4, 12*2, 0.1, 512)
     model = HFModel_TC(config)
     model.apply(xavier_init_weights)
     model.eval()
+    print(model)
     model.save_pretrained("./model")
 
 generate_model()

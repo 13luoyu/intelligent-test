@@ -221,6 +221,6 @@ def test_bert_tc_model():
 
 
 
-
-# test_bert_model()
-test_bert_tc_model()
+if __name__ == "__main__":
+    test_bert_model()
+    test_bert_tc_model()
