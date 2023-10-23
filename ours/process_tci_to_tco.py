@@ -203,6 +203,11 @@ def token_classification_with_algorithm(tco, knowledge):
                     t_begin = t_begin - 6
                 label = change(t_begin, b, label, "时间")
                 t_begin = 0
+        # 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内
+        if "除" in text and "不接受" in text and "撤销" in text and "外" in text and "其他" in text and "申报" in text and "时间" in text:
+            t_begin = text.find("除")
+            t_end = text.find("内")
+            label = change(t_begin, t_end + 1, label, "时间")
         # 数量，主要处理 ...或者其整数倍、不足...部分、直接 3种情况
         stopsignal = ["，", "。", "；"]
         if "数量" in text:
@@ -286,10 +291,11 @@ def token_classification_with_algorithm(tco, knowledge):
         
 
         # 2、部分标点符号标为O
-        punctuation = [",", ".", ";", "!", "?", "，", "。", "；", "！", "？", "为"]
-        for i, t in enumerate(text):
-            if t in punctuation:
-                label[i] = "O"
+        if not ("除" in text and "不接受" in text and "撤销" in text and "外" in text and "其他" in text and "申报" in text and "时间" in text):
+            punctuation = [",", ".", ";", "!", "?", "，", "。", "；", "！", "？", "为"]
+            for i, t in enumerate(text):
+                if t in punctuation:
+                    label[i] = "O"
 
 
         # 3、结束之后扫描一遍，如果改标签了，则将开始标签设为B-，中间设为I-

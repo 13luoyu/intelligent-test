@@ -265,19 +265,13 @@ focus: 时间
 rule 3.3.12.1
 sourceId 3.3.12
 focus: 订单连续性操作
-	if 状态 is "未成交的" and 操作部分 is "申报" and 操作 is "撤销" and 时间 is "除本规则规定的不接受撤销申报的时间段外"
+	if 状态 is "未成交的" and 操作部分 is "申报" and 操作 is "撤销" and 时间 is "除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内"
 	then 结果 is "可以"
 
 rule 3.3.12.2
 sourceId 3.3.12
 focus: 订单连续性操作
-	if 状态 is "未成交的" and 操作部分 is "申报" and 操作 is "撤销" and 时间 is "其他接受申报的时间内"
-	then 结果 is "可以"
-
-rule 3.3.12.3
-sourceId 3.3.12
-focus: 订单连续性操作
-	if 状态 is "部分达成成交的" and 操作部分 is "未成交的部分" and 操作 is "撤销" and 时间 is "其他接受申报的时间内"
+	if 状态 is "部分达成成交的" and 操作部分 is "未成交的部分" and 操作 is "撤销" and 时间 is "除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内"
 	then 结果 is "可以"
 
 rule 3.4.3.1

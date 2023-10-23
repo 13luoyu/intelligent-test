@@ -143,8 +143,8 @@ def consistency_checking(data, source):
                                         last = v1
                                 if last != "":
                                     interact_cons1_value.append(last)
-                            cons2_keys = interact_cons1_keys
-                            cons2_value = interact_cons1_value
+                            cons1_keys = interact_cons1_keys
+                            cons1_value = interact_cons1_value
                         if interact_same:
                             continue
                         else:
@@ -270,9 +270,9 @@ def consistency_checking(data, source):
                         if interact_same:
                             # 冲突
                             if len(cons1_keys) > len(cons2_keys):
-                                f"规则{id2}的约束包含规则{id1}，但它们的结果不一致"
+                                reason = f"规则{id2}的约束包含规则{id1}，但它们的结果不一致"
                             else:
-                                f"规则{id1}的约束包含规则{id2}，但它们的结果不一致"
+                                reason = f"规则{id1}的约束包含规则{id2}，但它们的结果不一致"
                             conflict_rules.append({"rule_ids": [id1, id2], "reason":reason})
                         else:
                             continue

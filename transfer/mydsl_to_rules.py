@@ -108,7 +108,7 @@ def mydsl_to_rules(s):
 
     # TODO，更加通用
     defines['交易市场'] = ["深圳证券交易所"]
-    defines['交易品种'] = ["基金"]
+    defines['交易品种'] = ["债券"]
     return defines, vars, rules
 
 

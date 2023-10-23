@@ -1,6 +1,4 @@
 import copy
-import pprint
-from transfer import mydsl_to_rules
 import re
 from ours.process_tco_to_r1 import is_num_key, is_price_key, is_time_key
 
@@ -15,6 +13,7 @@ def preprocess(rules, vars):
         del rules[rule_id]
         del vars[rule_id]
 
+    # 将时间、数量、价格改为对应的constraint表达式
     for rule_id in rules:
         rule = rules[rule_id]
         constraints = rule["constraints"]
@@ -24,11 +23,11 @@ def preprocess(rules, vars):
         for pl, constraint in enumerate(constraints):
             key = constraint["key"]
             value = constraint["value"]
-            # 时间
             if key == "op":
                 saved_op = value
                 del_op = pl
                 continue
+            # 时间
             if is_time_key(key):
                 valid, new_value = time_preprocess(value)
                 if valid:
@@ -89,7 +88,7 @@ def preprocess(rules, vars):
         to_del = []
         ac_or_not = False  # 是不是系统为主语的接受、不接受操作
         for j, c in enumerate(rule["constraints"]):
-            if c["key"] == "系统" and j not in to_del:
+            if c["key"] == "系统" and j not in to_del:  # 删掉"系统"
                 to_del.append(j)
             elif c["key"] == "操作":
                 op_num += 1
@@ -230,6 +229,21 @@ def preprocess(rules, vars):
         for c in rule["constraints"]:
             var[c["key"]] = []
         vars[rule_id_to_add[i]] = var
+    
+    # 删掉所有系统
+    rule_to_del = []
+    for rule_id in rules:
+        rule = rules[rule_id]
+        for i, c in enumerate(rule['constraints']):
+            if c['key'] == "系统":
+                del rule['constraints'][i]
+                break
+        if len(rule['constraints']) == 0:
+            rule_to_del.append(rule_id)
+    for rule_id in rule_to_del:
+        del rules[rule_id]
+        del vars[rule_id]
+
     return rules, vars
 
 
@@ -242,6 +256,11 @@ def find_word(s, word):
 
 
 def time_preprocess(value):
+    """
+    处理“每个交易日9:15至9:30”，“在9:15前”，“在9:30后”等时间语句表达
+    如果是合法的时间表达，返回True, R规则表示的时间
+    否则，返回False, 非法原因
+    """
     # 时间
     time_re = r"\d+:\d+"
     time_vals = re.findall(time_re, value)
@@ -252,7 +271,7 @@ def time_preprocess(value):
     locs = sorted(loc_1s + loc_2s + loc_3s)
     if len(time_vals) > 0:
         t = "{"
-        # 考虑三种时间的情况，9:00-10:00，9:00后，9:00前，其他情况直接照抄
+        # 考虑三种时间的情况，9:00至10:00，9:00后，9:00前，其他情况直接照抄
         if len(vals_locs) != 2 * len(loc_1s) + len(loc_2s) + len(loc_3s):
             return False, ""
         p = 0
@@ -269,7 +288,7 @@ def time_preprocess(value):
             elif loc in loc_2s:
                 vl = vals_locs[p]
                 if vl < loc:
-                    t += f"[?-{time_vals[p]}],"
+                    t += f"[00:00-{time_vals[p]}],"
                     p += 1
                 else:
                     valid = False
@@ -277,7 +296,7 @@ def time_preprocess(value):
             else:  # loc in loc_3s
                 vl = vals_locs[p]
                 if vl < loc:
-                    t += f"[{time_vals[p]}-?]"
+                    t += f"[{time_vals[p]}-24:00],"
                     p += 1
                 else:
                     valid = False
@@ -286,8 +305,8 @@ def time_preprocess(value):
             t = t[:-1] + "}"
             return True, t
         else:
-            return False, ""
-    return False, "Not Time"
+            return False, f"非法的时间表达: \"{value}\""
+    return False, f"\"{value}\"中不含有时间表达"
 
 def judge_op(value):
     value = value.replace("得", "")
@@ -296,9 +315,9 @@ def judge_op(value):
         return ">="
     if "不高于" in value or "以下" in value or "不超过" in value:
         return "<="
-    if "低于" in value or "未达到" in value or "不足" in value:
+    if "低于" in value or "未达到" in value or "不足" in value or "小于" in value:
         return "<"
-    if "高于" in value or "超过" in value or "优于" in value:
+    if "高于" in value or "超过" in value or "优于" in value or "大于" in value:
         return ">"
     if "等于" in value:
         return "=="
@@ -308,6 +327,11 @@ def judge_op(value):
 
 
 def num_preprocess(value):
+    """
+    处理“1000元或者其整数倍”，“大于1000元”等时间表达
+    如果合法，返回True, 数量的R规则表达
+    否则，返回False, 非法原因
+    """
     vs = value.split(",")
     num_re = "\d+"
     t = []
@@ -330,7 +354,7 @@ def num_preprocess(value):
         if "整数倍" in v:
             t.append(["%", num_val, "==", "0"])
     if len(t) == 0:
-        return False, f"句子\"{v}\"中没有约束"
+        return False, f"句子\"{v}\"中没有合法约束"
     return True, t
 
 
@@ -350,15 +374,12 @@ def compose_rules_r1_r2(defines, vars, rules, preliminaries, rule_name = "rule")
     规则组合函数, 包含:
     1. 组合明显嵌套的规则
     2. 补全单规则相关的字段
-    3. 必须交易阶段相同，一个是订单连续性操作，一个是交易时间，组合
-       此外，这一步还会去重
+    3. 将规则中的时间替换为具体的时间（开盘集合匹配阶段）
     4. 补全"其他"交易方式等
     5. 申报数量<100...0和其他规则的组合, 同一rule下subrule的组合
     6. 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内怎样怎样
     7. 没有then就删掉，这是另一个去重步
     """
-    # 预处理：添加两个结合规则
-    vars, rules = add_relation(vars, rules)
     # 组合明显嵌套的规则
     vars, rules = compose_nested_rules(vars, rules)
     # 必须交易阶段相同，一个是订单连续性操作，一个是交易时间，组合
@@ -371,6 +392,7 @@ def compose_rules_r1_r2(defines, vars, rules, preliminaries, rule_name = "rule")
 
     # 申报数量<100...0和其他规则的组合, 同一rule下subrule的组合  ID有问题 FIXME
     vars, rules = subrule_compose(vars, rules)
+    
 
     # 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内怎样怎样
     vars, rules = compute_other_time_in_rules(vars, rules, preliminaries)
@@ -394,148 +416,65 @@ def compose_rules_r1_r2(defines, vars, rules, preliminaries, rule_name = "rule")
 
 
 
-
-
-def add_relation(vars, rules):
-
-    # 遍历，找到没有then的所有规则，以及所有结合规则
-    keys = list(rules.keys())
-    rule_class_all, rule_class_have = [], []
-    last = ""
-    for rule_id in keys:
-        rule = rules[rule_id]
-        if "results" not in rule:
-            if rule["rule_class"][0] not in rule_class_all:
-                rule_class_all.append(rule["rule_class"][0])
-        else:
-            for c in rule["constraints"]:
-                if c["key"] == "结合规则":
-                    if c["value"][2:-2] not in rule_class_have:
-                        rule_class_have.append(c["value"][2:-2])
-                        last = rule_id
+def judge_rule_conflict(rule1, rule2):
+    for c1 in rule1['constraints']:
+        conflict = False
+        for c2 in rule2['constraints']:
+            if c1['key'] == c2['key']:
+                if c1['value'] == c2['value']:
+                    conflict = False
                     break
-    # 所有要补充的规则
-    rule_class_not_have = []
-    for rule_id in rule_class_all:
-        if rule_id not in rule_class_have:
-            rule_class_not_have.append(rule_id)
-    if last == "":
-        last = "100.1.1.1"
-
-    # 生成规则
-    last_list = last.split(".")
-    last_list[-1] = str(30)
-    for i, id in enumerate(rule_class_not_have):
-        new_id = ".".join(last_list)
-        last_list[-1] = str(int(last_list[-1]) + 1)
-        constraints = [{"key":"交易操作","operation":"is","value":"债券交易申报"},
-                       {"key":"结合规则","operation":"in","value":f"['{id}']"},
-                       {"key":"交易市场","operation":"is","value":"深圳证券交易所"},
-                       {"key":"交易品种","operation":"is","value":"债券"}]
-        results = [{"key":"结果","value":"成功","else":"失败"}]
-        focus = ["订单连续性操作"]
-        rule_class = [".".join(last_list[:-1])]
-        rules[new_id] = {"constraints":constraints,"results":results,"focus":focus,"rule_class":rule_class}
-        vars[new_id] = {"交易操作":[],"结合规则":[],"交易市场":[],"交易品种":[]}
-
-        # print(new_id, rules[new_id], vars[new_id])
-    return vars, rules
-
-
-
+                else:
+                    conflict = True
+        if conflict:
+            return True
+    return False
 
 
 def compose_nested_rules(vars, rules):
-    keys = list(rules.keys())
-    # 组合明显嵌套的规则
-    # if 结合规则 in ["3.1.5"]
-    to_delete = []
-    for rule_id in keys:
+    # 遍历，找到所有结合规则
+    rule_to_del = []
+    for rule_id in list(rules.keys()):
         rule = rules[rule_id]
+        var = vars[rule_id]
         for c in rule['constraints']:
-            if c['key'] == "结合规则":
-                to_delete.append(rule_id)
-                find = re.search(r"\d+\.\d+\.\d+", c["value"])
-                if find:
-                    target_id = find.group()
-                else:
-                    find = re.search(r"第.+条", c["value"])
-                    if find:
-                        target_id = find.group()
-                    else:
-                        continue
-                for trule_id in keys:
-                    trule = rules[trule_id]
-                    if target_id in trule_id:
-                        # 组合
-                        new_rule = copy.deepcopy(trule)
-                        # constraints
-                        for nc in rule['constraints']:
-                            if nc['key'] == "结合规则":
-                                continue
-                            find = False
-                            for oc in new_rule['constraints']:
-                                if nc['key'] == oc['key']:
-                                    find = True
-                                    break
-                            if not find:
-                                new_rule['constraints'].append(nc)
-                        if rule_id < trule_id:
-                            new_id = rule_id + "," + trule_id
-                        else:
-                            new_id = trule_id + "," + rule_id
-                        # results
-                        if "results" not in new_rule:
-                            if "results" in rule:
-                                new_rule['results'] = copy.deepcopy(rule['results'])
-                        else:
-                            if "results" in rule:
-                                for result in rule['results']:
-                                    find = False
-                                    for alread_have_result in new_rule['results']:
-                                        if alread_have_result['key'] == result['key']:
-                                            find = True
-                                            break
-                                    if not find:
-                                        new_rule['results'].append(copy.deepcopy(result))
-                        # focus
-                        if "focus" not in new_rule:
-                            if "focus" in rule:
-                                new_rule["focus"] = copy.deepcopy(rule['focus'])
-                        else:
-                            if "focus" in rule:
-                                for focus in rule["focus"]:
-                                    if focus not in new_rule["focus"]:
-                                        new_rule["focus"].append(focus)
-                        # rule_class
-                        for rule_idd in rule['rule_class']:
-                            if rule_idd not in new_rule['rule_class']:
-                                new_rule['rule_class'].append(rule_idd)
-                        
-                        
+            if c['key'] == '结合规则':
+                rule_to_del.append(rule_id)
+                loc1 = c['value'].find("第")
+                loc2 = c['value'].find("条")
+                # 找到要结合的规则的id
+                compose_rule_id = c['value'][loc1+1:loc2]
+                # 找到要结合的规则，要求不互相冲突
+                for rule_id1 in list(rules.keys()):
+                    if compose_rule_id in rules[rule_id1]['rule_class'] and not judge_rule_conflict(rule, rules[rule_id1]):
+                        # 构建结合后的规则
+                        new_rule = {
+                            "constraints": copy.deepcopy(rules[rule_id1]['constraints']),
+                            "focus": list(set(rule['focus'] + rules[rule_id1]['focus'])),
+                            "results": copy.deepcopy(rule['results']),
+                            "rule_class": list(set(rule['rule_class'] + rules[rule_id1]['rule_class']))
+                        }
+                        for ci in rule['constraints']:
+                            if ci not in new_rule['constraints'] and ci['key'] != "结合规则":
+                                new_rule['constraints'].append(ci)
+                        new_id = rule_id + "," + rule_id1
                         rules[new_id] = new_rule
-                        
-                        new_var = copy.deepcopy(vars[trule_id])
-                        for var in vars[rule_id]:
-                            if var not in new_var:
-                                new_var[var] = []
-                        del new_var['结合规则']
-                        vars[new_id] = new_var
+                        var = {}
+                        for ci in new_rule['constraints']:
+                            var[ci['key']] = ci['value']
+                        vars[new_id] = var
 
-                break
-    for id in to_delete:
-        del rules[id]
-        del vars[id]
+    for rule_id in rule_to_del:
+        del rules[rule_id]
+        del vars[rule_id]
+
     return vars, rules
 
 
 
 def supply_rules_on_prelim(defines, vars, rules, preliminaries):
     # 如果规则中没有"单独可测试规则要素"，添加
-
-    # preliminaries = json.load(open("preliminaries.json", "r", encoding="utf-8"))
     elements = preliminaries["单独可测试规则要素"]
-
 
     for element in elements:
         if element == "交易方向":
@@ -595,140 +534,48 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
 
 
 def compose_same_stage(vars, rules):
-    keys1 = list(vars.keys())
+    rule_to_delete = []
+    for i, rule_id1 in enumerate(list(rules.keys())):
+        rule1 = rules[rule_id1]
+        new_rule = copy.deepcopy(rule1)
+        new_id = rule_id1
+        for idx, c1 in enumerate(rule1['constraints']):
+            if c1['key'] == "时间" and c1['operation'] == "is":
+                time_key = c1['value']
+                if "阶段" in time_key:
+                    time_key = time_key[:time_key.find("阶段")]
+                if "时间" in time_key:
+                    time_key = time_key[:time_key.find("时间")]
 
-    stages = []  # 每个规则是否有交易阶段
-    times = []  # 每个规则是否有交易时间
-    for i in range(len(keys1)):
-        rule_id = keys1[i]
-        rule = rules[rule_id]
-        have_stage = False
-        have_time = False
-        for c in rule["constraints"]:
-            if c["key"] == "交易阶段":
-                stages.append(c["value"])
-                have_stage = True
-            if c["key"] == "交易时间":
-                times.append(c["value"])
-                have_time = True
-        if not have_stage:
-            stages.append(None)
-        if not have_time:
-            times.append(None)
-
-    to_delete = []
-    for i in range(len(keys1)):
-        if ',' in keys1[i]:
-            continue
-        for j in range(len(keys1)):
-            if j <= i:
-                continue
-            if stages[i] is not None and stages[i] == stages[j]:# 都有交易阶段，且相同，且
-                focusi = rules[keys1[i]]['focus']
-                focusj = rules[keys1[j]]['focus']
-                if "申报价格" in focusi or "申报价格" in focusj or "申报数量" in focusi or "申报数量" in focusj:
-                    continue
-                time_in_i, time_in_j, op_in_i, op_in_j = "交易时间" in focusi, "交易时间" in focusj, "订单连续性操作" in focusi, "订单连续性操作" in focusj
-                if (time_in_i and op_in_j) or (time_in_j and op_in_i):# 一个是订单连续性操作，一个是交易时间
-                    if times[i] is not None and times[j] is not None:  # 交易时间都不为空
-                        if times[i] != times[j]:  # 交易时间不同，排除
-                            continue
-                    # 如果无冲突，组合
-                    to_add = []
-                    new_rule = copy.deepcopy(rules[keys1[i]])
-                    conflict = False
-                    for c in rules[keys1[j]]["constraints"]:
-                        find = False
-                        for c1 in new_rule["constraints"]:
-                            if c["key"] == c1["key"] and (c["operation"] == "is" or c['operation'] == 'in'):
-                                find = True
-                                if c["value"] != c1["value"]:
-                                    conflict = True
-                                    break
-                        if not find:
-                            to_add.append(c)
-                        if conflict:
-                            break
-                    if conflict:
+                for j, rule_id2 in enumerate(rules):
+                    if i == j:
                         continue
-                    
-                    for c in to_add:
-                        new_rule["constraints"].append(c)
-                    
-                    # results
-                    rule = rules[keys1[j]]
-                    if "results" not in new_rule:
-                        if "results" in rule:
-                            new_rule['results'] = copy.deepcopy(rule['results'])
-                    else:
-                        if "results" in rule:
-                            for result in rule['results']:
-                                find = False
-                                for alread_have_result in new_rule['results']:
-                                    if alread_have_result['key'] == result['key']:
-                                        find = True
-                                        break
-                                if not find:
-                                    new_rule['results'].append(copy.deepcopy(result))
-                    # focus
-                    if "focus" not in new_rule:
-                        if "focus" in rule:
-                            new_rule["focus"] = copy.deepcopy(rule['focus'])
-                    else:
-                        if "focus" in rule:
-                            for focus in rule["focus"]:
-                                if focus not in new_rule["focus"]:
-                                    new_rule["focus"].append(focus)
-                    # rule_class
-                    for rule_idd in rule['rule_class']:
-                        if rule_idd not in new_rule['rule_class']:
-                            new_rule['rule_class'].append(rule_idd)
+                    rule2 = rules[rule_id2]
+                    find = False
+                    for c2 in rule2['constraints']:
+                        if time_key in c2['key']:
+                            new_rule['constraints'][idx]['operation'] = "in"
+                            new_rule['constraints'][idx]['value'] = copy.deepcopy(c2['value'])
+                            new_rule['focus'] = list(set(new_rule['focus'] + rule2['focus']))
+                            new_rule['rule_class'] = list(set(new_rule['rule_class'] + rule2['rule_class']))
+                            if rule_id2 not in new_id.split(","):
+                                new_id += "," + rule_id2
+                            find = True
+                            break
+                    if find:
+                        break
+        
+        if new_id != rule_id1:
+            rules[new_id] = new_rule
+            var = copy.deepcopy(vars[rule_id1])
+            vars[new_id] = var
+            rule_to_delete.append(rule_id1)
 
-
-                    # 这些长操作是为了去重id，比如3.1.5.1,3.1.5.1.1这样的
-                    id1_list, id2_list = keys1[i].split(","), keys1[j].split(",")
-                    id1_list, id2_list = sorted(id1_list), sorted(id2_list)
-                    x, y = 0, 0
-                    new_id = ""
-                    while x < len(id1_list) and y < len(id2_list):
-                        if id1_list[x] in id2_list[y]:
-                            new_id += id1_list[x] + ","
-                            x += 1
-                            y += 1
-                        elif id2_list[y] in id1_list[x]:
-                            new_id += id2_list[y] + ","
-                            x += 1
-                            y += 1
-                        elif id1_list[x] < id2_list[y]:
-                            new_id += id1_list[x] + ","
-                            x += 1
-                        else:
-                            new_id += id2_list[y] + ","
-                            y += 1
-                    while x < len(id1_list):
-                        new_id += id1_list[x] + ","
-                        x += 1
-                    while y < len(id2_list):
-                        new_id += id2_list[y] + ","
-                        y += 1
-                    new_id = new_id[:-1]
-
-                    rules[new_id] = new_rule
-                    if keys1[i] not in to_delete and keys1[i] != new_id:
-                        to_delete.append(keys1[i])
-                    if keys1[j] not in to_delete and keys1[j] != new_id:
-                        to_delete.append(keys1[j])
-
-                    new_var = copy.deepcopy(vars[keys1[i]])
-                    for v in list(vars[keys1[j]].keys()):
-                        if v not in list(new_var.keys()):
-                            new_var[v] = []
-                    vars[new_id] = new_var
-    for id in to_delete:
-        del rules[id]
-        del vars[id]
+    for rule_id in rule_to_delete:
+        del rules[rule_id]
+        del vars[rule_id]
     return vars, rules
-                    
+
 
 
 
@@ -739,7 +586,9 @@ def supply_other_rules(vars, rules, preliminaries):
     for rule_id in keys:
         rule = rules[rule_id]
         for c in rule["constraints"]:
-            if c["value"] == "其他" + c["key"]:
+            if "其他" in c["value"]:  # 其他申报类型
+                want = c['value'][c['value'].find("其他")+2:]
+                # 将已有c['key']的同一rule_class下的c['value']挑选出来
                 have = []
                 rule_class = rule["rule_class"]
                 for rule_id1 in keys:
@@ -749,8 +598,10 @@ def supply_other_rules(vars, rules, preliminaries):
                                 have.append(c0["value"])
                                 break
                 # 取反
-                # preliminaries = json.load(open("preliminaries.json", "r", encoding="utf-8"))
-                c_key = preliminaries[c["key"]]
+                # TODO 等领域知识库更新
+                if want not in preliminaries:
+                    continue
+                c_key = preliminaries[want]
                 not_have = []
                 for k in c_key:
                     if k not in have:
@@ -791,9 +642,11 @@ def subrule_compose(vars, rules):
                 new_rule = copy.deepcopy(rules[keys[i]])
                 conflict = False
                 for c in rules[keys[j]]["constraints"]:
+                    # 时间
                     if c['operation'] == "in":
                         conflict = True
                         break
+                    # 少于...一次性申报
                     if c['key'] == "操作" and "一次性" in c['value']:
                         conflict = True
                         break
@@ -914,7 +767,7 @@ def subrule_compose(vars, rules):
 def compute_other_time_in_rules(vars, rules, preliminaries):
     # 处理“交易阶段 is "除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内"”这句话
     # 输入
-# '3.3.12.1.1.1': {'constraints': [{'key': '交易阶段',
+# '3.3.12.1.1.1': {'constraints': [{'key': '时间',
 #                                    'operation': 'is',
 #                                    'value': '除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内'},
 #                                   {'key': '操作',
@@ -1239,12 +1092,7 @@ def compose_full_rules(vars, rules):
 
 
 
-# if __name__ == "__main__":
-#     defines, vars, rules = mydsl_to_rules.read_file("r1.mydsl")
-#     rules = preprocess(rules)
-#     pprint.pprint(rules)
-#     exit(0)
-#     compose_rules_r1_r2(defines, vars, rules)
+
 
 
 
