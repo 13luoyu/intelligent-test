@@ -11,12 +11,21 @@ def compose_rules_r2_r3(defines, vars, rules, preliminaries, rule_name = 'rule')
     1. 结合状态机
     2. 添加一些预定义的要素
     """
+    # 增加关联标记
+    for rule_id in list(rules.keys()):
+        rule = rules[rule_id]
+        rule['before'] = []
+        rule['after'] = []
 
     # 处理事件
+    # 对于...前，直到...等情况，会生成一条反例规则，例如在A前做B可以成功，生成反例为A后做B失败
+    # 这里不生成两条规则，是因为B才是动作的重点，A做不做都可以。
+    # 对于...后，...的等情况，会生成两条相关联的规则，例如做A后做B成功，可以生成做A成功，A之后做B成功。
     vars, rules = deal_with_event(vars, rules)
 
     # 结合状态机
     vars, rules = compose_state_machine(vars, rules, preliminaries)
+    return defines, vars, rules
 
     # 添加一些预定义的要素
     vars, rules = add_elements(vars, rules, preliminaries)
@@ -105,6 +114,7 @@ def deal_with_event(vars, rules):
     for rule_id in rules:
         rule = rules[rule_id]
         constraints = rule["constraints"]
+        add_origin_rule = False  # 在处理...后的所有情况后，将原规则也添加上去
         for constraint in constraints:
             if constraint["key"] == "事件":
                 event = constraint["value"]
@@ -112,6 +122,8 @@ def deal_with_event(vars, rules):
                 for event in events:
                     if event[-1] == "前" or "直到" in event:
                         # 前的处理，将“前”变成“后”，并将结果反转
+                        # rule: 在A前，做B，成功
+                        # new_rule: A后，做B，失败
                         rule_id_to_del.append(rule_id)
                         rule_to_add.append(rule)
                         rule_id_to_add.append(rule_id + ".1")
@@ -135,15 +147,25 @@ def deal_with_event(vars, rules):
                         new_rule = {}
                         new_rule["rule_class"] = copy.deepcopy(rule["rule_class"])
                         new_rule["focus"] = copy.deepcopy(rule["focus"])
-                        new_rule["results"] = copy.deepcopy(rule["results"])  # 也可以不复制直接写
+                        new_rule["results"] = [{
+                            "key":"结果",
+                            "operation":"is",
+                            "value":"成功",
+                            "else":"不成功"
+                        }]
+                        new_rule['before'] = []
+                        new_rule['after'] = []
                         new_rule["constraints"] = []
+                        # 事件前的约束
                         for c in rule["constraints"]:
                             if c["key"] == "事件":
                                 break
                             new_rule["constraints"].append(copy.deepcopy(c))
                         new_rules = [new_rule]
+                        
                         for i, key in enumerate(keys):
                             value = values[i]
+                            # example: 经纪客户委托会员申报
                             if i > 0 and (key == "系统" or key == "操作人") and keys[i-1] == "操作":
                                 # 直接分裂
                                 rule_to_add_1 = []
@@ -161,7 +183,7 @@ def deal_with_event(vars, rules):
                                     })
                                     rule_to_add_1.append(new_rule_cp)
                                 new_rules += rule_to_add_1
-                            else:
+                            else:  # 其他约束，不冲突就加上
                                 rule_to_add_1 = []
                                 if_add = False
                                 for new_rule in new_rules:
@@ -177,7 +199,7 @@ def deal_with_event(vars, rules):
                                             "value":value
                                         })
                                         if_add = True
-                                if not if_add:
+                                if not if_add:  # 已有的没有规则能加上的，新建规则
                                     for new_rule in new_rules:
                                         new_rule_cp = copy.deepcopy(new_rule)
                                         new_rule_cp["constraints"] = []
@@ -194,13 +216,19 @@ def deal_with_event(vars, rules):
                                 new_rules += rule_to_add_1
                         rule_id_to_del.append(rule_id)
                         rule_to_add += new_rules
-                        rule_to_add.append(copy.deepcopy(rule))
+                        add_origin_rule = True
                         add_i = 1
-                        for i in range(len(new_rules) + 1):
+                        for i in range(len(new_rules)):
                             while f"{rule_id}.{i+add_i}" in rule_id_to_add:
                                 add_i += 1
                             rule_id_to_add.append(f"{rule_id}.{i+add_i}")
 
+        if add_origin_rule:
+            rule_to_add.append(copy.deepcopy(rule))
+            add_i=1
+            while f"{rule_id}.{add_i}" in rule_id_to_add:
+                add_i += 1
+            rule_id_to_add.append(f"{rule_id}.{add_i}")
 
 
 
@@ -208,9 +236,14 @@ def deal_with_event(vars, rules):
         if rule_id in rules:
             del rules[rule_id]
             del vars[rule_id]
+    last_id = ""
     for i, rule in enumerate(rule_to_add):
         rule_id = rule_id_to_add[i]
+        if last_id != "":
+            rules[last_id]['after'].append(rule_id)
+            rule['before'].append(last_id)
         rules[rule_id] = rule
+        last_id = rule_id
         var = {}
         for c in rule["constraints"]:
             if c["key"] not in var:
@@ -222,7 +255,12 @@ def deal_with_event(vars, rules):
 
 
 def op_match(trigger, operation, op_part):
-    if trigger in operation or operation in trigger:
+    if "撤销" in trigger and "撤销" in operation:
+        if trigger.replace("撤销", "") in operation.replace("撤销", "") or operation.replace("撤销", "") in trigger.replace("撤销", ""):
+            return True
+    elif "撤销" in trigger or "撤销" in operation:
+        return False
+    elif trigger in operation or operation in trigger:
         return True
     elif "提交" in operation and trigger in op_part:
         return True
@@ -243,6 +281,7 @@ def compose_state_machine(vars, rules, preliminaries):
     keys = list(rules.keys())
     for rule_id in keys:
         rule = rules[rule_id]
+        # 只去匹配第一个操作和操作部分
         operation = ""
         op_part = ""
         for c in rule['constraints']:
@@ -299,9 +338,83 @@ def compose_state_machine(vars, rules, preliminaries):
     for id in new_keys:
         rules[id] = to_add[id]
 
+    rules = add_relation(rules)
 
     return vars, rules
 
+
+def add_relation(rules):
+    keys = list(rules.keys())
+    from_states, to_states = {}, {}
+    for rule_id in keys:
+        rule = rules[rule_id]
+        from_state, to_state = [], []
+        for c in rule['constraints']:
+            if c['key'] == "状态":
+                from_state.append(c['value'])
+        for r in rule['results']:
+            if r['key'] == "状态":
+                to_state.append(r['value'])
+        from_states[rule_id] = from_state
+        to_states[rule_id] = to_state
+    for i, rule_id1 in enumerate(keys):
+        from_state1, to_state1 = from_states[rule_id1], to_states[rule_id1]
+        if len(from_state1) == 0 and len(to_state1) == 0:
+            continue
+        for j, rule_id2 in enumerate(keys):
+            from_state2, to_state2 = from_states[rule_id2], to_states[rule_id2]
+            if j <= i or len(from_state2) == 0 and len(to_state2) == 0:
+                continue
+            for s1 in from_state1:
+                for t2 in to_state2:
+                    if s1 == t2 or ("撤销" not in s1 and "撤销" not in t2 and (s1 in t2 or t2 in s1)) or ("撤销" in s1 and "撤销" in t2 and (s1.replace("撤销", "") in t2.replace("撤销", "") or t2.replace("撤销", "") in s1.replace("撤销", ""))):  # 状态相同
+                        # rule2 -> rule1
+                        for xi in rules[rule_id2]['after']:
+                            if xi in rule_id1:
+                                rules[rule_id2]['after'].remove(xi)
+                        rules[rule_id2]['after'].append(rule_id1)
+                        for xi in rules[rule_id1]['before']:
+                            if xi in rule_id2:
+                                rules[rule_id1]['before'].remove(xi)
+                        rules[rule_id1]['before'].append(rule_id2)
+            for s2 in from_state2:
+                for t1 in to_state1:
+                    if s2 == t1 or ("撤销" not in s2 and "撤销" not in t1 and (s2 in t1 or t1 in s2)) or ("撤销" in s2 and "撤销" in t1 and (s2.replace("撤销", "") in t1.replace("撤销", "") or t1.replace("撤销", "") in s2.replace("撤销", ""))):  # 状态相同
+                        # rule1 -> rule2
+                        for xi in rules[rule_id2]['before']:
+                            if xi in rule_id1:
+                                rules[rule_id2]['before'].remove(xi)
+                        rules[rule_id2]['before'].append(rule_id1)
+                        for xi in rules[rule_id1]['after']:
+                            if xi in rule_id2:
+                                rules[rule_id1]['after'].remove(xi)
+                        rules[rule_id1]['after'].append(rule_id2)
+    
+    for rule_id in keys:
+        rule = rules[rule_id]
+        if len(rule['after']) > 0:
+            restart = True
+            while restart:
+                restart = False
+                for i, t in enumerate(rule['after']):
+                    if t not in keys:
+                        to_add = [id1 for id1 in keys if t in id1]
+                        del rule['after'][i]
+                        rule['after'] += to_add
+                        restart = True
+                        break
+        if len(rule['before']) > 0:
+            restart = True
+            while restart:
+                restart = False
+                for i, t in enumerate(rule['before']):
+                    if t not in keys:
+                        to_add = [id1 for id1 in keys if t in id1]
+                        del rule['before'][i]
+                        rule['before'] += to_add
+                        restart = True
+                        break
+    return rules
 
 
 def add_elements(vars, rules, preliminaries):
@@ -315,7 +428,7 @@ def add_elements(vars, rules, preliminaries):
     rule_keys = list(rules.keys())
     for key in prelim_keys:
         if '申报类型' in key:
-            transaction_mode = key[:4]
+            transaction_mode = key[:-4]
             for rule_id in rule_keys:
                 rule = rules[rule_id]
                 has_clt = False
@@ -326,7 +439,7 @@ def add_elements(vars, rules, preliminaries):
                 if has_clt:
                     continue
                 for c in rule['constraints']:
-                    if c['value'] == transaction_mode:
+                    if c['value'] in transaction_mode:
                         rule['constraints'].append({"key":"申报类型","operation":"is","value":preliminaries[key][0]})
                         vars[rule_id]['申报类型'] = []
                         break
@@ -334,11 +447,11 @@ def add_elements(vars, rules, preliminaries):
     # 添加申报要素
     for key in prelim_keys:
         if '申报要素' in key:
-            declaration_type = key[:4]
+            declaration_type = key[:-4]
             for rule_id in rule_keys:
                 rule = rules[rule_id]
                 for c in rule['constraints']:
-                    if declaration_type in c['value']:
+                    if c['value'] in declaration_type:
                         elements = preliminaries[key]
                         element_str = "、".join(elements)
                         rule['constraints'].append({"key":"申报要素","operation":"is","value":element_str})
