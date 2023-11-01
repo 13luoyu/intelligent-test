@@ -14,8 +14,12 @@ import json
 from pprint import pprint
 import time
 
+def add_defines(s, market_variety):
+    s = f"define 交易市场 = {market_variety['market']}\ndefine 交易品种 = {market_variety['variety']}\n\n{s}"
+    return s
 
 def nlp_process(input_file: str, 
+                setting_file: str,
                 sci_file: str, 
                 sco_file: str, 
                 tci_file: str, 
@@ -28,8 +32,9 @@ def nlp_process(input_file: str,
                 batch_size: int = 8,
                 sentence_max_length: int = 512):
     # 获取输入，转换为句分类的输入格式
-    sci = nl_to_sci(nl_file=input_file)
+    sci, market_variety = nl_to_sci(nl_file=input_file)
     json.dump(sci, open(sci_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    json.dump(market_variety, open(setting_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     # 句分类任务
     # 标注每个句子的类别：0为无法测试的自然语言，1为可测试的规则，2为领域知识
     sco = sequence_classification(sci, sc_model, batch_size, sentence_max_length)
@@ -44,6 +49,7 @@ def nlp_process(input_file: str,
     print("规则元素抽取任务完成")
     # 调用转R1
     r1 = to_r1(tco, knowledge_file)
+    r1 = add_defines(r1, market_variety)
     with open(r1_file, "w", encoding="utf-8") as f:
         f.write(r1)
     print("R规则生成")
@@ -97,7 +103,7 @@ def alg_process(input_file, r1_file, r2_file, r3_file, testcase_file, knowledge_
 
 if __name__ == "__main__":
     begin_time = time.time()
-    nlp_process("rules_cache/深圳证券交易所债券交易规则.pdf", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1696264421", "../data/tc_data.dict")
+    nlp_process("rules_cache/深圳证券交易所债券交易规则.pdf", "rules_cache/setting.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1696264421", "../data/tc_data.dict")
     alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r3.json", "rules_cache/testcase.json", "../data/knowledge.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")

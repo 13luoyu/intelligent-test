@@ -237,6 +237,7 @@ def preprocess(rules, vars):
         for i, c in enumerate(rule['constraints']):
             if c['key'] == "系统":
                 del rule['constraints'][i]
+                del vars[rule_id]['系统']
                 break
         if len(rule['constraints']) == 0:
             rule_to_del.append(rule_id)
@@ -598,7 +599,6 @@ def supply_other_rules(vars, rules, preliminaries):
                                 have.append(c0["value"])
                                 break
                 # 取反
-                # TODO 等领域知识库更新
                 if want not in preliminaries:
                     continue
                 c_key = preliminaries[want]

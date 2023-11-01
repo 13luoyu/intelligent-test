@@ -498,6 +498,10 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         ss += rules_to_add
                         if_add = True
                         break
+                elif key == "op":
+                    s.append({key:value})
+                    if_add = True
+                    break
             else:  # 一条规则中没有找到key，就添加进去
                 s.append({key:value})
                 if_add = True
@@ -716,7 +720,10 @@ def write_r1(fp_r1, ss, knowledge, id):
                         if is_time_key(value):
                             r1 += f"{value} {op} \"{v2}\" and "
                         else:
-                            r1 += f"{v1} {op} \"{v2}\" and "
+                            if "前" in op or "后" in op:
+                                r1 += f"{v1} {op} \"{v2}\" and "
+                            else:
+                                r1 += f"{v1} is \"{v2}\" and "
                             key_to_use = {key:value}
                         value_to_use = {}
                     elif v1 == "数量":

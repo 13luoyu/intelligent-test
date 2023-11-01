@@ -12,6 +12,8 @@ from ours.process_r2_to_r3 import compose_rules_r2_r3
 from ours.process_r3_to_testcase import testcase
 from ours.process_testcase_to_outputs import generate_dicts
 from ours.process_knowledge import process_knowledge
+from ours.consistency_checking import consistency_checking
+from ours.main import add_defines
 from transfer import mydsl_to_rules, rules_to_json_and_mydsl
 
 sc_model_path = "../model/ours/best_1690658708"
@@ -66,24 +68,24 @@ def nl_to_sci_interface():
     try:
         params = request.json
         if 'file' in params and params['file'] != '' and '.pdf' in params['file']:
-            sci_data = nl_to_sci(nl_file=app.config['UPLOAD_FOLDER'] + params['file'])
-            writelog(f"### 访问接口/preprocess, 处理文件---{params['file']}---, 返回数据:\n{json.dumps(sci_data, ensure_ascii=False, indent=4)}\n\n")
-            return jsonify({"data":sci_data, "message":"success"})
+            sci_data, market_variety = nl_to_sci(nl_file=app.config['UPLOAD_FOLDER'] + params['file'])
+            writelog(f"### 访问接口/preprocess, 处理文件---{params['file']}---, 返回数据:\n{json.dumps(sci_data, ensure_ascii=False, indent=4)}\n交易市场: {market_variety['market']}, 交易品种: {market_variety['variety']}\n\n")
+            return jsonify({"data":sci_data, "message":"success", "setting": market_variety})
         elif 'file' in params and params['file'] != '' and '.txt' in params['file']:
             nl_data = open(app.config['UPLOAD_FOLDER'] + params['file'], 'r', encoding="utf-8").read()
-            sci_data = nl_to_sci(nl_data=nl_data)
-            writelog(f"### 访问接口/preprocess, 处理文件---{params['file']}---, 返回数据:\n{json.dumps(sci_data, ensure_ascii=False, indent=4)}\n\n")
-            return jsonify({"data":sci_data, "message":"success"})
+            sci_data, market_variety = nl_to_sci(nl_data=nl_data)
+            writelog(f"### 访问接口/preprocess, 处理文件---{params['file']}---, 返回数据:\n{json.dumps(sci_data, ensure_ascii=False, indent=4)}\n交易市场: {market_variety['market']}, 交易品种: {market_variety['variety']}\n\n")
+            return jsonify({"data":sci_data, "message":"success", "setting": market_variety})
         elif 'input' in params and params['input'] != '':
-            sci_data = nl_to_sci(nl_data=params['input'])
-            writelog(f"### 访问接口/preprocess, 处理输入:\n{params['file']}\n返回数据:\n{json.dumps(sci_data, ensure_ascii=False, indent=4)}\n\n")
-            return jsonify({"data":sci_data, "message":"success"})
+            sci_data, market_variety = nl_to_sci(nl_data=params['input'])
+            writelog(f"### 访问接口/preprocess, 处理输入:\n{params['file']}\n返回数据:\n{json.dumps(sci_data, ensure_ascii=False, indent=4)}\n交易市场: {market_variety['market']}, 交易品种: {market_variety['variety']}\n\n")
+            return jsonify({"data":sci_data, "message":"success", "setting": market_variety})
         else:
             writelog(f"### 访问接口/preprocess, 缺少输入参数, 请输入需要转换的句子或文件. \n\n")
             return jsonify({"message":"请输入需要转换的句子或文件"})
     except Exception as e:
         writelog(f"### 访问接口/preprocess, 错误: {e}\n\n")
-        return e
+        return jsonify({"message":e})
 
 
 # 规则筛选
@@ -101,7 +103,7 @@ def sequence_classification_interface():
             return jsonify({"message": "请输入要进行规则筛选的句子数据"})
     except Exception as e:
         writelog(f"### 访问接口/rule_filter, 错误: {e}\n\n")
-        return e
+        return jsonify({"message":e})
 
 # # 更改规则筛选的结果
 # @app.route('/rule_filter', methods=['PUT'])
@@ -126,7 +128,7 @@ def token_classification_interface():
             return jsonify({"message": "请输入要进行规则元素抽取的句子数据"})
     except Exception as e:
         writelog(f"### 访问接口/rule_element_extraction, 错误: {e}\n\n")
-        return e
+        return jsonify({"message":e})
 
 # # 更改规则元素抽取的结果
 # @app.route('/rule_element_extraction', methods=['PUT'])
@@ -140,9 +142,11 @@ def token_classification_interface():
 def to_r1_interface():
     try:
         params = request.json
-        if "data" in params:
+        if "data" in params and "setting" in params:
             tco_data = params["data"]
+            market_variety = params['setting']
             r1_data = to_r1(tco_data, knowledge_file)
+            r1_data = add_defines(r1_data, market_variety)
             writelog(f"### 访问接口/rule_assembly, 输入数据:\n{json.dumps(tco_data, ensure_ascii=False, indent=4)}\n返回数据:\n{r1_data}\n\n")
             return jsonify({"message":"success",'data': r1_data})
         else:
@@ -150,7 +154,7 @@ def to_r1_interface():
             return jsonify({"message": "请输入要进行规则合成的句子数据"})
     except Exception as e:
         writelog(f"### 访问接口/rule_assembly, 错误: {e}\n\n")
-        return e
+        return jsonify({"message":e})
 
 # # 更改规则合成(R1)的结果
 # @app.route('/rule_assembly', methods=["PUT"])
@@ -182,7 +186,7 @@ def r1_to_r2_interface():
             return jsonify({"message": "请输入要进行理解的规则"})
     except Exception as e:
         writelog(f"### 访问接口/r1_to_r2, 错误: {e}\n\n")
-        return e
+        return jsonify({"message":e})
 
 # # 更改R2的结果
 # @app.route('/r1_to_r2', methods=["PUT"])
@@ -212,7 +216,7 @@ def r2_to_r3_interface():
             return jsonify({"message": "请输入要进行理解的规则"})
     except Exception as e:
         writelog(f"### 访问接口/r2_to_r3, 错误: {e}\n\n")
-        return e
+        return jsonify({"message":e})
 
 # # 更改R3的结果
 # @app.route('/r2_to_r3', methods=["PUT"])
@@ -239,7 +243,7 @@ def test_case_interface():
             return jsonify({"message": "请输入要生成测试用例的规则"})
     except Exception as e:
         writelog(f"### 访问接口/testcase, 错误: {e}\n\n")
-        return e
+        return jsonify({"message":e})
 
 # # 更改生成的测试用例
 # @app.route('/testcase', methods=["PUT"])
@@ -274,8 +278,22 @@ def process_knowledge_interface_update():
     json.dump(knowledge, open('../data/knowledge.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
     return jsonify({"message": "update success"})
 
-
-
+# 需求一致性检测
+@app.route('/consistency_checking', methods=['POST'])
+def consistency_checking_interface():
+    try:
+        if 'data' in request.json and 'source' in request.json:
+            data = request.json['data']
+            source = request.json['source']
+            conflict_rules = consistency_checking(data, source)
+            writelog(f"### 访问接口/consistency_checking, 输入数据:\n{request.json}\n返回数据:\n{conflict_rules}\n\n")
+            return jsonify({"message":"success", "conflict_rules": conflict_rules})
+        else:
+            writelog(f"### 访问接口/consistency_checking, 缺少输入参数, 请输入要检测一致性的规则及其来源.\n\n")
+            return jsonify({"message": "请输入要检测一致性的规则及其来源"})
+    except Exception as e:
+        writelog(f"### 访问接口/consistency_checking, 错误: {e}\n\n")
+        return jsonify({"message":e})
 
 
 

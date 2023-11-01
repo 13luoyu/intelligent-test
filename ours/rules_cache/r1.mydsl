@@ -1,3 +1,6 @@
+define 交易市场 = 深圳证券交易所
+define 交易品种 = 债券
+
 rule 2.2.1.1
 sourceId 2.2.1
 focus: 订单连续性操作
@@ -7,7 +10,7 @@ focus: 订单连续性操作
 rule 2.2.1.2
 sourceId 2.2.1
 focus: 订单连续性操作
-	if 操作人 is "一般做市商" and 交易品种 is "其自行选定的做市品种" and 操作 is "开展" and 操作部分 is "做市业务" and 时间 以下 "在一定时期内"
+	if 操作人 is "一般做市商" and 交易品种 is "其自行选定的做市品种" and 操作 is "开展" and 操作部分 is "做市业务" and 时间 is "在一定时期内"
 	then 结果 is "成功"
 
 rule 2.2.1.3
@@ -115,40 +118,22 @@ focus: 数量
 rule 3.3.4.4
 sourceId 3.3.4
 focus: 数量
-	if 系统 is "本所另" and 交易方式 is "用询价成交、竞买成交" and 申报数量 以下 "10万元面额,1000元面额整数倍"
+	if 系统 is "本所另" and 交易方式 is "用询价成交、竞买成交" and 申报数量 应当不低于 "10万元面额,1000元面额整数倍"
 	then 结果 is "成功"
 
 rule 3.3.4.5
 sourceId 3.3.4
 focus: 数量
-	if 系统 is "本所另" and 数量 应当不低于 "10万元面额,1000元面额整数倍,100元面额整数倍"
+	if 系统 is "本所另" and 交易方式 is "用协商成交" and 交易品种 is "债券现券" and 数量 数量应当不低于 "1000元面额,100元面额整数倍"
 	then 结果 is "成功"
 
 rule 3.3.4.6
 sourceId 3.3.4
 focus: 数量
-	if 系统 is "本所另" and 交易方式 is "用协商成交" and 交易品种 is "债券现券" and 数量 应当不低于 "10万元面额,1000元面额整数倍,100元面额整数倍"
+	if 系统 is "本所另" and 交易方式 is "用协商成交" and 交易品种 is "债券通用质押式回购" and 数量 以下 "数量应当" and 数量 is "1000元面额或者其整数倍"
 	then 结果 is "成功"
 
 rule 3.3.4.7
-sourceId 3.3.4
-focus: 数量
-	if 系统 is "本所另" and 数量 数量应当不低于 "1000元面额,100元面额整数倍"
-	then 结果 is "成功"
-
-rule 3.3.4.8
-sourceId 3.3.4
-focus: 数量
-	if 系统 is "本所另" and 交易品种 is "债券通用质押式回购" and 数量 数量应当不低于 "1000元面额,100元面额整数倍"
-	then 结果 is "成功"
-
-rule 3.3.4.9
-sourceId 3.3.4
-focus: 数量
-	if 系统 is "本所另" and 数量 数量应当不低于 "数量应当" and 数量 is "1000元面额或者其整数倍"
-	then 结果 is "成功"
-
-rule 3.3.4.10
 sourceId 3.3.4
 focus: 数量
 	if 交易品种 is "(五)债券" and 数量 不得超过 "100亿元面额"
@@ -337,13 +322,13 @@ focus: 时间
 rule 4.1.3.1
 sourceId 4.1.3
 focus: 价格
-	if 交易方式 is "限价申报" and 交易品种 is "债券" and 价格 优于 "限定的价格"
+	if 交易方式 is "限价申报" and 交易品种 is "债券" and 价格 等于 "限定的价格"
 	then 结果 is "成功"
 
 rule 4.1.3.2
 sourceId 4.1.3
 focus: 价格
-	if 交易方式 is "限价申报" and 交易品种 is "债券" and 价格 等于 "限定的价格"
+	if 交易方式 is "限价申报" and 交易品种 is "债券" and 价格 is "限定的价格"
 	then 结果 is "成功"
 
 rule 4.1.5.1
@@ -355,7 +340,7 @@ focus: 价格
 rule 4.1.5.2
 sourceId 4.1.5
 focus: 价格
-	if 交易品种 is "国债" and 时间 is "续匹配" and 交易方式 is "匹配成交" and 、地方政府债券、政府支持债券、政策性金融债等的有效申报价格范围 is "最近成交价的" and 其他债券的有效申报价格范围 上下 "10%" and 价格 is "最近成交价的" and 价格 is "最近成交价的" and 价格 is "20%" and 价格 is "20%" and 价格 is "20%" and 价格 is "20%"
+	if 交易品种 is "国债" and 时间 is "续匹配" and 交易方式 is "匹配成交" and 、地方政府债券、政府支持债券、政策性金融债等的有效申报价格范围 is "最近成交价的" and 其他债券的有效申报价格范围 上下 "10%" and 价格 is "最近成交价的" and 价格 上下 "最近成交价的" and 价格 is "20%" and 价格 is "20%" and 价格 is "20%" and 价格 is "20%"
 	then 结果 is "成功"
 
 rule 4.1.5.3
@@ -367,13 +352,13 @@ focus: 价格
 rule 4.1.5.4
 sourceId 4.1.5
 focus: 价格
-	if 交易品种 is "国债" and 时间 is "续匹配" and 交易方式 is "匹配成交" and 、地方政府债券、政府支持债券、政策性金融债等的有效申报价格范围 is "最近成交价的" and 价格 上下 "20%"
+	if 交易品种 is "国债" and 时间 is "续匹配" and 交易方式 is "匹配成交" and 、地方政府债券、政府支持债券、政策性金融债等的有效申报价格范围 is "最近成交价的" and 价格 is "20%"
 	then 结果 is "成功"
 
 rule 4.1.5.5
 sourceId 4.1.5
 focus: 价格
-	if 交易品种 is "国债" and 时间 is "盘中临时停牌复牌集合匹配阶段" and 交易方式 is "匹配成交" and 、地方政府债券、政府支持债券、政策性金融债等的有效申报价格范围 is "最近成交价的" and 价格 上下 "20%"
+	if 交易品种 is "国债" and 时间 is "盘中临时停牌复牌集合匹配阶段" and 交易方式 is "匹配成交" and 、地方政府债券、政府支持债券、政策性金融债等的有效申报价格范围 is "最近成交价的" and 价格 is "20%"
 	then 结果 is "成功"
 
 rule 4.1.5.6
@@ -451,52 +436,40 @@ focus: 价格
 rule 4.1.8.2
 sourceId 4.1.8
 focus: 价格
-	if 匹配成交方式 is "集合匹配" and 成交价格的确定原则 is "可实现最大成交量的价格" and 操作部分 is "买入申报" and 价格 高于 "该价格" and 价格 is "该价格" and 操作部分 is "卖出申报" and 价格 is "该价格"
+	if 匹配成交方式 is "集合匹配" and 成交价格的确定原则 is "可实现最大成交量的价格" and 操作部分 is "买入申报" and 价格 低于 "该价格" and 价格 is "该价格" and 操作部分 is "卖出申报" and 价格 is "该价格"
 	then 结果 is "全部成交"
 
 rule 4.1.8.3
 sourceId 4.1.8
 focus: 价格
-	if 匹配成交方式 is "集合匹配" and 成交价格的确定原则 is "可实现最大成交量的价格" and 操作部分 is "卖出申报" and 价格 低于 "该价格"
-	then 结果 is "全部成交"
-
-rule 4.1.8.4
-sourceId 4.1.8
-focus: 价格
 	if 匹配成交方式 is "集合匹配" and 成交价格的确定原则 is "该价格" and 操作人 is "买方"
 	then 结果 is "至少有一方全部成交"
 
-rule 4.1.8.5
+rule 4.1.8.4
 sourceId 4.1.8
 focus: 价格
 	if 匹配成交方式 is "集合匹配" and 成交价格的确定原则 is "该价格" and 操作人 is "卖方"
 	then 结果 is "至少有一方全部成交"
 
+rule 4.1.8.5
+sourceId 4.1.8
+focus: 价格
+	if 状态 is "两个以上价格符合上述条件的" and 价格 以上 "在该价格" and 价格 以下 "的买入申报累计数量与在该价格" and 价格 is "的卖出申报累计数量之差最小的价格" and 成交价 is "的卖出申报累计数量之差最小的价格"
+	then 结果 is "成功"
+
 rule 4.1.8.6
-sourceId 4.1.8
-focus: 价格
-	if 状态 is "两个以上价格符合上述条件的" and 价格 以上 "在该价格" and 价格 is "的买入申报累计数量与在该价格" and 价格 is "的卖出申报累计数量之差最小的价格" and 成交价 is "的卖出申报累计数量之差最小的价格"
-	then 结果 is "成功"
-
-rule 4.1.8.7
-sourceId 4.1.8
-focus: 价格
-	if 状态 is "两个以上价格符合上述条件的" and 价格 以下 "在该价格" and 成交价 is "的卖出申报累计数量之差最小的价格"
-	then 结果 is "成功"
-
-rule 4.1.8.8
 sourceId 4.1.8
 focus: 价格
 	if 状态 is "买卖申报累计数量之差仍存在相等情况" and 时间 is "开盘集合匹配时" and 成交价 is "最接近即时行情显示的前收盘价的价格" and 价格 is "最接近最近成交价的价格"
 	then 结果 is "成功"
 
-rule 4.1.8.9
+rule 4.1.8.7
 sourceId 4.1.8
 focus: 价格
 	if 状态 is "买卖申报累计数量之差仍存在相等情况" and 时间 is "盘中临时停牌复牌集合匹配时" and 成交价 is "最接近最近成交价的价格"
 	then 结果 is "成功"
 
-rule 4.1.8.10
+rule 4.1.8.8
 sourceId 4.1.8
 focus: 价格
 	if 操作部分 is "交易" and 时间 is "集合匹配阶段" and 价格 is "同一价格"
@@ -535,22 +508,16 @@ focus: 订单连续性操作
 rule 4.2.5.1
 sourceId 4.2.5
 focus: 订单连续性操作
-	if 操作人 is "报价方" and 操作 is "设置" and 操作部分 is "每次仅显示部分申报数量" and 时间 以下 "在发出报价时" and 单笔成交的数量 is "显示数量"
+	if 操作人 is "报价方" and 操作 is "设置" and 操作部分 is "每次仅显示部分申报数量" and 时间 is "在发出报价时" and 单笔成交的数量 不超过 "显示数量"
 	then 结果 is "可以"
 
 rule 4.2.5.2
 sourceId 4.2.5
 focus: 订单连续性操作
-	if 操作人 is "报价方" and 操作 is "设置" and 操作部分 is "每次仅显示部分申报数量" and 时间 不超过 "在发出报价时" and 数量 is "显示数量"
-	then 结果 is "可以"
-
-rule 4.2.5.3
-sourceId 4.2.5
-focus: 订单连续性操作
 	if 事件 is "设置的显示数量完全成交后,直至申报数量完全显示并成交" and 操作部分 is "显示设置的显示数量和剩余申报数量的孰低值"
 	then 结果 is "成功"
 
-rule 4.2.5.4
+rule 4.2.5.3
 sourceId 4.2.5
 focus: 数量
 	if 数量 is "4条关于点击成交申报数量的相关规定"
@@ -763,46 +730,34 @@ focus: 数量
 rule 4.4.8.5
 sourceId 4.4.8
 focus: 数量
-	if 应价申报累计数量 不低于 "最低成交总量" and 数量 is "竞买总量" and 应价申报 is "的最低价格" and 操作部分 is "全部应价申报" and 数量 is "其申报数量" and 数量 is "其申报数量"
+	if 应价申报累计数量 不低于 "最低成交总量" and 数量 未达到 "竞买总量" and 应价申报 is "的最低价格" and 操作部分 is "全部应价申报" and 数量 is "其申报数量" and 数量 is "其申报数量"
 	then 结果 is "达成成交"
 
 rule 4.4.8.6
 sourceId 4.4.8
-focus: 数量
-	if 应价申报累计数量 未达到 "竞买总量" and 应价申报 is "的最低价格" and 操作部分 is "全部应价申报" and 数量 is "其申报数量"
-	then 结果 is "达成成交"
+focus: 价格
+	if 应价申报累计数量 达到 "竞买总量" and 边际价格 达到 "竞买总量的价格"
+	then 结果 is "成功"
 
 rule 4.4.8.7
-sourceId 4.4.8
-focus: 价格
-	if 应价申报累计数量 达到 "竞买总量" and 边际价格 is "竞买总量的价格"
-	then 结果 is "成功"
-
-rule 4.4.8.8
-sourceId 4.4.8
-focus: 价格
-	if 应价申报累计数量 达到 "竞买总量的价格"
-	then 结果 is "成功"
-
-rule 4.4.8.9
 sourceId 4.4.8
 focus: 数量
 	if 价格 优于 "边际价格" and 操作部分 is "应价申报" and 成交数量 is "应价申报数量"
 	then 结果 is "全部成交"
 
-rule 4.4.8.10
+rule 4.4.8.8
 sourceId 4.4.8
 focus: 数量
 	if 价格 等于 "边际价格" and 操作部分 is "申报" and 数量 is "以各应价申报数量" and 数量 is "权重按舍去法进" and 数量 is "边际" and 数量 is "边际"
 	then 结果 is "部分"
 
-rule 4.4.8.11
+rule 4.4.8.9
 sourceId 4.4.8
 focus: 数量
 	if 价格 等于 "边际价格" and 操作部分 is "申报" and 成交数量 is "以各应价申报数量" and 数量 is "权重按舍去法进" and 数量 is "边际" and 数量 is "边际"
 	then 结果 is "全部成交"
 
-rule 4.4.8.12
+rule 4.4.8.10
 sourceId 4.4.8
 focus: 订单连续性操作
 	if 事件 is "初次分配完成后" and 状态 is "有剩余尾量" and 约束 is "时间优先原则"
@@ -1027,58 +982,40 @@ focus: 订单连续性操作
 rule 5.2.3.4
 sourceId 5.2.3
 focus: 价格
-	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 交易品种 is "债券" and 数量 以下 "持仓数量" and 价格 is "实际面额" and 价格 is "100元×未偿还比例"
+	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 交易品种 is "债券" and 数量 不变 "持仓数量" and 价格 减少 "实际面额" and 价格 is "100元×未偿还比例"
 	then 结果 is "成功"
 
 rule 5.2.3.5
 sourceId 5.2.3
-focus: 价格
-	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 交易品种 is "债券" and 价格 不变 "实际面额" and 价格 is "100元×未偿还比例"
+focus: 订单连续性操作
+	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 交易品种 is "债券" and 数量 不变 "持仓数量" and 价格 减少 "实际面额" and 系统 is "本所提" and 价格 is "100元×未偿还比例" and 操作 is "除权处理" and 时间 is "在权益登记日次一交易日" and 除权参考价格 is "前收盘价格-100元×本次偿还比例"
 	then 结果 is "成功"
 
 rule 5.2.3.6
 sourceId 5.2.3
-focus: 价格
-	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 价格 减少 "100元×未偿还比例"
-	then 结果 is "成功"
+focus: 订单连续性操作
+	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 交易品种 is "债券" and 数量 不变 "持仓数量" and 价格 减少 "实际面额" and 系统 is "本所提" and 价格 is "100元×未偿还比例" and 操作 is "除权处理" and 时间 is "在权益登记日次一交易日" and 除权参考价格 is "前收盘价格-100元×本次偿还比例" and 操作人 is "债券发行人" and 状态 is "有必要调整上述公式" and 操作 is "出调" and 操作部分 is "整申请" and 操作 is "并说明" and 操作部分 is "理由" and 事件 is "经本所同意的"
+	then 结果 is "可以"
 
 rule 5.2.3.7
 sourceId 5.2.3
 focus: 订单连续性操作
-	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 系统 is "本所" and 价格 减少 "100元×未偿还比例" and 操作 is "除权处理" and 时间 is "在权益登记日次一交易日"
+	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 交易品种 is "债券" and 数量 不变 "持仓数量" and 价格 减少 "实际面额" and 系统 is "本所提" and 价格 is "100元×未偿还比例" and 操作 is "除权处理" and 时间 is "在权益登记日次一交易日" and 除权参考价格 is "前收盘价格-100元×本次偿还比例" and 操作人 is "债券发行人" and 操作部分 is "该次除权适用的除权参考价格计算公式"
 	then 结果 is "成功"
 
 rule 5.2.3.8
 sourceId 5.2.3
 focus: 价格
-	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 价格 减少 "前收盘价格-100元×本次偿还比例"
-	then 结果 is "成功"
-
-rule 5.2.3.9
-sourceId 5.2.3
-focus: 订单连续性操作
-	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 操作人 is "债券发行人" and 状态 is "有必要调整上述公式" and 系统 is "本所提" and 操作 is "出调" and 操作部分 is "整申请" and 操作 is "并说明" and 操作部分 is "理由" and 事件 is "经本所同意的" and 价格 减少 "前收盘价格-100元×本次偿还比例"
-	then 结果 is "可以"
-
-rule 5.2.3.10
-sourceId 5.2.3
-focus: 价格
-	if 约束 is "分期偿还" and 约束 is "减少实际面额" and 操作人 is "债券发行人" and 操作部分 is "该次除权适用的除权参考价格计算公式" and 价格 减少 "前收盘价格-100元×本次偿还比例"
-	then 结果 is "成功"
-
-rule 5.2.3.11
-sourceId 5.2.3
-focus: 价格
 	if 约束 is "分期偿还" and 约束 is "减少实际面额" and (四)除权日即时行情中显示的该债券的前收盘价 is "权参考价" and 系统 is "本所另有规定"
 	then 结果 is "成功"
 
-rule 5.2.3.12
+rule 5.2.3.9
 sourceId 5.2.3
 focus: 数量
 	if 约束 is "分期偿还采" and 约束 is "减少持仓方式" and 交易品种 is "债券" and 价格 不变 "实际面额保" and 数量 is "持仓数量根"
 	then 结果 is "成功"
 
-rule 5.2.3.13
+rule 5.2.3.10
 sourceId 5.2.3
 focus: 订单连续性操作
 	if 价格 is "100元面额整数倍时" and 操作 is "偿还" and 操作部分 is "余未偿还部分按" and 约束 is "下取整的原则予以" and 操作 is "续并享" and 约束 is "集说明书约定存"

@@ -31,15 +31,7 @@ def list_conditions(defines, vars, rules):
         cons = dict()  # cons[条件名] = [条件列表]
         # 存储所有z3变量
         variables = dict()  # variables[条件名] = [z3条件变量]
-        # 像sum(a)>=b这样的要求，放到最后做，这里先记录
-        wait_dic = collections.OrderedDict()  # wait_dic[条件名] = [c]
-        # cons的原始约束，和下面的wait_var_dic一起用
-        cons_detail = {}  # cons_detail[条件名] = [c]
-        # 有些变量需要像sum(a)这样的求解之后才能赋值，这里记录下来(边界价格 = max()，需要先算max())
-        wait_var_dic = {}  # wait_var_dic[条件名] = c
         for cnt, c in enumerate(constraints):
-            # print("--------------"+str(cnt)+"-----------------")
-            # print(c)
             if "operation" not in c:
                 c["operation"] = "is"
             key = c["key"]
@@ -49,7 +41,6 @@ def list_conditions(defines, vars, rules):
             # part 1 连接词是 is
             # 规则是仅将这个值加入vars，不考虑其他值
             if op == "is":
-                # print(rule_id)
                 vars[rule_id][key].append(value)
 
             # part 2 连接词是 in
@@ -104,11 +95,12 @@ def list_conditions(defines, vars, rules):
                     last_valid = False
                     for v in value:
                         for vi in v[1:-1].split("-"):
-                            if not last_valid:
+                            if not last_valid and last != vi:
                                 not_valid_value.append("[" + last + "-" + vi + "]")
                             last = vi
                             last_valid = ~last_valid
-                    not_valid_value.append("[" + last + "-" + "24:00:00" + "]")
+                    if last != "24:00:00":
+                        not_valid_value.append("[" + last + "-" + "24:00:00" + "]")
                     vars[rule_id][key] = [value, not_valid_value]
 
                 # 如果仅有一个元素v，那么添加值为v，非v
@@ -118,11 +110,9 @@ def list_conditions(defines, vars, rules):
 
             # part 3 这是一个表达式计算约束
             elif op == "compute":
-                # print("--------------"+str(cnt)+"-----------------")
-                # print(c, cons)
                 if key not in cons:
                     cons[key] = []
-                if len(value) == 2:
+                if len(value) == 2:  # a >= 100000
                     op1 = value[0]
                     value = value[1]
                     if key in variables:
@@ -138,62 +128,42 @@ def list_conditions(defines, vars, rules):
                         value = float(value)
                         cc = gen_cons(op1, variable, value)
                         cons[key].append(cc)
-                        if key not in cons_detail:
-                            cons_detail[key] = []
-                        cons_detail[key].append(c)
 
-                    else:  # value不是一个数字，考虑value是一个变量，是一个常量，还是未定义
-                        if value in defines:  # 定义在define中，可能是常量或未定义
-                            v = defines[value]
-                            if len(v) == 0:  # 未定义
-                                if len(vars[rule_id][key]) == 0:
-                                    vars[rule_id][key] = [[], []]
-                                if op1 == "<":
-                                    vars[rule_id][key][0].append(value + "之前")
-                                    vars[rule_id][key][1].append(value + "及" + value + "之后")
-                                elif op1 == ">=":
-                                    vars[rule_id][key][0].append(value + "及" + value + "之后")
-                                    vars[rule_id][key][1].append(value + "之前")
-                                elif op1 == "<=":
-                                    vars[rule_id][key][0].append(value + "及" + value + "之前")
-                                    vars[rule_id][key][1].append(value + "之后")
-                                elif op1 == ">":
-                                    vars[rule_id][key][0].append(value + "之后")
-                                    vars[rule_id][key][1].append(value + "及" + value + "之前")
-                                elif op1 == "==":
-                                    vars[rule_id][key][0].append(value)
-                                    vars[rule_id][key][1].append("非" + value)
-                                elif op1 == "!=":
-                                    vars[rule_id][key][0].append("非" + value)
-                                    vars[rule_id][key][1].append(value)
-                                del cons[key]
-                                del variables[key]
-                            elif len(v) == 1:  # 常量
-                                v = v[0]
-                                if isnumber(v):
-                                    value = float(v)
-                                    cc = gen_cons(op1, variable, value)
-                                    cons[key].append(cc)
-                                    if key not in cons_detail:
-                                        cons_detail[key] = []
-                                    cons_detail[key].append(c)
-                                else:
-                                    vars[rule_id][key].append(v)
-                            else:  # 未知情况
-                                raise ValueError(f"未知情况！'{value}'定义在define中，是一个数组，无法处理数组")
-                        else:  # 变量
-                            wait_var_dic[key] = c
-                            # 不用求解器，删除
-                            del cons[key]
-                            if key in variables:
-                                del variables[key]
+                    else:  # value不是一个数字，考虑value是否在defines中定义
+                        if value in defines and len(defines[value]) == 1:
+                            if isnumber(defines[value][0]):
+                                value = float(defines[value][0])
+                                cc = gen_cons(op1, variable, value)
+                                cons[key].append(cc)
+                                continue
+                            else:
+                                value = defines[value][0]
+                        if len(vars[rule_id][key]) == 0:
+                            vars[rule_id][key] = [[], []]
+                        if op1 == "<":
+                            vars[rule_id][key][0].append("小于" + value)
+                            vars[rule_id][key][1].append("不低于" + value)
+                        elif op1 == ">=":
+                            vars[rule_id][key][0].append("不低于" + value)
+                            vars[rule_id][key][1].append("小于" + value)
+                        elif op1 == "<=":
+                            vars[rule_id][key][0].append("不超过" + value)
+                            vars[rule_id][key][1].append("大于" + value)
+                        elif op1 == ">":
+                            vars[rule_id][key][0].append("大于" + value)
+                            vars[rule_id][key][1].append("不超过" + value)
+                        elif op1 == "==":
+                            vars[rule_id][key][0].append(value)
+                            vars[rule_id][key][1].append("非" + value)
+                        elif op1 == "!=":
+                            vars[rule_id][key][0].append("非" + value)
+                            vars[rule_id][key][1].append(value)
+                        del cons[key]
+                        if key in variables:
+                            del variables[key]
 
-                elif len(value) == 4:
+                elif len(value) == 4:  # a % 100000 == 0
                     op1, value1, op2, value2 = value[:]
-                    if 'sum' in value2:
-                        t = value2.split('[')[0] + '[i]' + value2.split('.')[-1]  # bad
-                        wait_var_dic[t] = c
-                        continue
                     if key in variables:
                         variable = variables[key]
                     else:
@@ -201,31 +171,24 @@ def list_conditions(defines, vars, rules):
                         variables[key] = variable
                         cons[key].append(variable > 0)
                     if not isnumber(value1):
-                        if value1 in defines:
-                            vars[rule_id][value1] = []
-                            vars[rule_id][value1].append(defines[value1][0])
+                        if value1 in defines and len(defines[value1]) == 1 and isnumber(defines[value1][0]):
                             value1 = defines[value1][0]
-                        else:
-                            raise ValueError(f"常量{value1}未定义")
+                        else:  # 未定义情况
+                            continue
                     value1 = float(value1) if '.' in value1 else int(value1)
                     if not isnumber(value2):
-                        if value2 in defines:
-                            vars[rule_id][value2] = []
-                            vars[rule_id][value2].append(defines[value2][0])
+                        if value2 in defines and len(defines[value2]) == 1 and isnumber(defines[value2][0]):
                             value2 = defines[value2][0]
-                        else:
-                            raise ValueError(f"常量{value2}未定义")
+                        else:  # 未定义情况
+                            continue
                     value2 = float(value2) if '.' in value2 else int(value2)
-                    if op1 in ['+', '-', '*', '/', '%']:
+                    if op1 in ['+', '-', '*', '/', '%']:  # a % 100000 == 0
                         v1 = gen_temp_v(op1, variable, value1)
                         cc = gen_cons(op2, v1, value2)
-                    else:
+                    else:  # 暂未使用
                         v1 = gen_temp_v(op2, value1, value2)
                         cc = gen_cons(op1, variable, v1)
                     cons[key].append(cc)
-                    if key not in cons_detail:
-                        cons_detail[key] = []
-                    cons_detail[key].append(c)
 
                 elif len(value) == 6:  # a%100000==b%100000
                     key = c["key"]
@@ -263,9 +226,6 @@ def list_conditions(defines, vars, rules):
                     vars[rule_id][key][0].append(value2 - value3)
                     vars[rule_id][key][1].append(int(value2 - value3 / 10))
                     vars[rule_id][key][1].append(int(value3 / 10))
-                    # if key not in cons_detail:
-                    #     cons_detail[key] = []
-                    # cons_detail[key].append(c)
 
 
             
@@ -329,10 +289,12 @@ def judge_conflict_and_generate_value(variables, cons, rule_id, vars):
         for con in cons[variable]:
             solver.push()
             solver.add(con)
+        # 先生成一个成功的案例
         if solver.check() == z3.sat:
             rs = solver.model()
             value = int(rs[variables[variable]].as_long()) if isinstance(rs[variables[variable]], z3.IntNumRef) else float(rs[variables[variable]].as_decimal(prec=6)[:6])
             rs = [value]
+        # 生成多个案例，包含一个成功，其余失败
         solver = z3.Solver()
         solver.add(variables[variable] > 0)
         solver.add(variables[variable] != rs[0])
@@ -347,18 +309,33 @@ def judge_conflict_and_generate_value(variables, cons, rule_id, vars):
                 valid_value.append(r)
             else:
                 not_valid_value.append(r)
-        '''增加一次性申报特殊判定'''
-        # print("操作" in vars[rule_id].keys())
-        # print(vars[rule_id]['操作'])
-        if "操作" in vars[rule_id].keys() and "一次性" in vars[rule_id]['操作'][0]:
-            for vi,vr in enumerate(valid_value):
-                valid_value[vi] = str(vr)+"(余额"+str(vr)+")"
-
-            not_valid_value_0 = not_valid_value[0]
-            for vi, vr in enumerate(not_valid_value):
-                not_valid_value[vi] = str(vr) + "(余额" + str(vr) + ")"
-            not_valid_value.append(str(not_valid_value_0 - 20) + "(余额" + str(not_valid_value_0 - 10) + ")")
-
+        vars[rule_id][key] = [valid_value, not_valid_value]
+    '''增加一次性申报特殊判定'''
+    # 案例
+    # 成功：
+    # 余额10000，卖出10000
+    # 余额20000，卖出20000
+    # 余额110000，卖出110000
+    # 余额110000，卖出100000
+    # 失败：
+    # 余额20000，卖出10000
+    # 余额220000，卖出110000
+    if "操作" in vars[rule_id].keys() and "一次性" in vars[rule_id]['操作'][0]:
+        if "数量" in vars[rule_id] and "申报数量" in vars[rule_id]:
+            del vars[rule_id]['数量']
+            key = "申报数量"
+        elif "数量" in vars[rule_id] and "申报数量" not in vars[rule_id]:
+            key = "数量"
+        elif "数量" not in vars[rule_id]:
+            key = "申报数量"
+        if "余额" in vars[rule_id]:
+            del vars[rule_id]['余额']
+        zero_num = 0
+        for num in vars[rule_id][key][0]:
+            x=len(str(num))-1
+            zero_num = max(zero_num, x)
+        valid_value = [f"{10**(zero_num-1)}(余额{10**(zero_num-1)})", f"{2*10**(zero_num-1)}(余额{2*10**(zero_num-1)})", f"{11*10**(zero_num-1)}(余额{11*10**(zero_num-1)})", f"{11*10**(zero_num-1)}(余额{10*10**(zero_num-1)})"]
+        not_valid_value = [f"{2*10**(zero_num-1)}(余额{10**(zero_num-1)})", f"{22*10**(zero_num-1)}(余额{11*10**(zero_num-1)})"]
         vars[rule_id][key] = [valid_value, not_valid_value]
     return True
 

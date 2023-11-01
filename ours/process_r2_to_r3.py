@@ -25,7 +25,6 @@ def compose_rules_r2_r3(defines, vars, rules, preliminaries, rule_name = 'rule')
 
     # 结合状态机
     vars, rules = compose_state_machine(vars, rules, preliminaries)
-    return defines, vars, rules
 
     # 添加一些预定义的要素
     vars, rules = add_elements(vars, rules, preliminaries)
@@ -426,6 +425,7 @@ def add_elements(vars, rules, preliminaries):
     # 添加申报类型
     prelim_keys = list(preliminaries.keys())
     rule_keys = list(rules.keys())
+    rule_id_to_del = []
     for key in prelim_keys:
         if '申报类型' in key:
             transaction_mode = key[:-4]
@@ -439,23 +439,54 @@ def add_elements(vars, rules, preliminaries):
                 if has_clt:
                     continue
                 for c in rule['constraints']:
-                    if c['value'] in transaction_mode:
-                        rule['constraints'].append({"key":"申报类型","operation":"is","value":preliminaries[key][0]})
-                        vars[rule_id]['申报类型'] = []
+                    if isinstance(c['value'], str) and c['value'] in transaction_mode and isinstance(preliminaries[key], list):
+                        rule_id_to_del.append(rule_id)
+                        i = 1
+                        for v in preliminaries[key]:
+                            if "其他" in v:
+                                continue
+                            new_rule_id = rule_id + "." + str(i)
+                            i += 1
+                            new_rule = copy.deepcopy(rule)
+                            new_rule['constraints'].append({"key":"申报类型","operation":"is","value":v})
+                            rules[new_rule_id] = new_rule
+                            vars[new_rule_id] = copy.deepcopy(vars[rule_id])
+                            vars[new_rule_id]['申报类型'] = []
                         break
-
+    for rule_id in rule_id_to_del:
+        if rule_id in rules:
+            del rules[rule_id]
+        if rule_id in vars:
+            del vars[rule_id]
+    
+    rule_keys = list(rules.keys())
     # 添加申报要素
     for key in prelim_keys:
         if '申报要素' in key:
             declaration_type = key[:-4]
             for rule_id in rule_keys:
                 rule = rules[rule_id]
+                has_clt = False
+                for c in rule["constraints"]:
+                    if "申报要素" in c["key"]:
+                        has_clt = True
+                        break
+                if has_clt:
+                    continue
+                operator_in, operation_in, others_in = False, False, False
                 for c in rule['constraints']:
-                    if c['value'] in declaration_type:
-                        elements = preliminaries[key]
-                        element_str = "、".join(elements)
-                        rule['constraints'].append({"key":"申报要素","operation":"is","value":element_str})
-                        vars[rule_id]["申报要素"] = []
+                    if isinstance(c['value'], str) and c['value'] in declaration_type:
+                        if c['key'] == '操作人':
+                            operator_in = True
+                        elif c['key'] == '操作' or c['key'] == "操作部分":
+                            operation_in = True
+                        else:
+                            others_in = True
+                        if operator_in and operation_in or others_in:
+                            elements = preliminaries[key]
+                            element_str = "、".join(elements)
+                            rule['constraints'].append({"key":"申报要素","operation":"is","value":element_str})
+                            vars[rule_id]["申报要素"] = []
                         break
     
 

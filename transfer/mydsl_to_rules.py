@@ -1,5 +1,8 @@
 
 # 读文件
+import json
+
+
 def mydsl_to_rules(s):
     """读文件并解析, 将常量写入defines, 变量写入vars, 规则写入rules"""
 
@@ -28,6 +31,8 @@ def mydsl_to_rules(s):
         # 跳过空行
         if len(l) == 0:
             continue
+        if l[0] == "define":
+            defines[l[1]] = [l[3]]
         if l[0] == "rule":
             # if "_" in l[1]:
             #     rule_class = l[1].split("_")[0]
@@ -106,11 +111,17 @@ def mydsl_to_rules(s):
             
             rules[rule_id]["constraints"] = constraints
 
-    # TODO，更加通用
-    defines['交易市场'] = ["深圳证券交易所"]
-    defines['交易品种'] = ["债券"]
+        elif l[0] == "before:":
+            rules[rule_id]['before'] = json.loads(" ".join(l[1:]).replace("\'", "\""))
+        elif l[0] == "after:":
+            rules[rule_id]['after'] = json.loads(" ".join(l[1:]).replace("\'", "\""))
+
     return defines, vars, rules
 
 
 
 
+if __name__ == "__main__":
+    s = open("../ours/rules_cache/r3.mydsl").read()
+    setting = json.load(open("../ours/rules_cache/setting.json"))
+    print(mydsl_to_rules(s, setting))
