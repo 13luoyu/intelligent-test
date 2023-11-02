@@ -1,0 +1,1113 @@
+define 交易市场 = 深圳证券交易所
+define 交易品种 = 基金
+
+rule 第六条.1
+sourceId 第六条
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易品种 is "封闭式基金"
+	then 结果 is "可以"
+
+rule 第六条.2
+sourceId 第六条
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易品种 is "易型开放式基金"
+	then 结果 is "可以"
+
+rule 第六条.3
+sourceId 第六条
+focus: 订单连续性操作
+	if 交易品种 is "ETF" and 系统 is "本所"
+	then 结果 is "可以"
+
+rule 第六条.4
+sourceId 第六条
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易品种 is "上市开放式基金"
+	then 结果 is "可以"
+
+rule 第六条.5
+sourceId 第六条
+focus: 订单连续性操作
+	if 交易品种 is "“LOF”" and 系统 is "本所"
+	then 结果 is "可以"
+
+rule 第六条.6
+sourceId 第六条
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易品种 is "分级基金及"
+	then 结果 is "可以"
+
+rule 第七条.1
+sourceId 第七条
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 交易方式 is "竞价交易"
+	then 结果 is "可以"
+
+rule 第七条.2
+sourceId 第七条
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 交易方式 is "大宗交易"
+	then 结果 is "可以"
+
+rule 第八条.1
+sourceId 第八条
+focus: 价格
+	if 交易品种 is "基金份额" and 交易的申报价格最小变动单位 is "001元"
+	then 结果 is "成功"
+
+rule 第九条.1
+sourceId 第九条
+focus: 价格
+	if 时间 is "上市首日" and 操作人 is "基金管理人" and 系统 is "本所" and 交易品种 is "基金份额" and 其即时行情显示的前收盘价 is "份额净值" and 约束 is "四舍五入至0" and 约束 is "001元" and 操作人 is "由基金管理人" and 约束 is "001元"
+	then 结果 is "成功"
+
+rule 第九条.2
+sourceId 第九条
+focus: 价格
+	if 时间 is "上市首日" and 操作人 is "基金管理人" and 系统 is "本所" and 交易品种 is "基金份额" and 其即时行情显示的前收盘价 is "参考净值" and 约束 is "四舍五入至0" and 约束 is "001元" and 操作人 is "由基金管理人" and 约束 is "001元"
+	then 结果 is "成功"
+
+rule 第十一条.1
+sourceId 第十一条
+focus: 价格
+	if 事件 is "份额折算" and 时间 is "折算完成后次一交易日即时" and 操作人 is "基金管理人" and 系统 is "本所" and 交易品种 is "分级基金" and 行情显示的前收盘价调整 is "份额净值" and 约束 is "四舍五入至0" and 操作人 is "由基金管理人" and 价格 is "001元"
+	then 结果 is "成功"
+
+rule 第十一条.2
+sourceId 第十一条
+focus: 价格
+	if 事件 is "份额折算" and 系统 is "本所" and 交易品种 is "分级基金" and 时间 is "最近" and 价格 is "份额净值" and 约束 is "四舍五入至0" and 操作人 is "由基金管理人" and 价格 is "001元"
+	then 结果 is "成功"
+
+rule 第十一条.3
+sourceId 第十一条
+focus: 价格
+	if 事件 is "份额折算" and 时间 is "折算完成后次一交易日即时" and 操作人 is "基金管理人" and 系统 is "本所" and 交易品种 is "分级基金" and 行情显示的前收盘价调整 is "参考净值" and 约束 is "四舍五入至0" and 操作人 is "由基金管理人" and 价格 is "001元"
+	then 结果 is "成功"
+
+rule 第十一条.4
+sourceId 第十一条
+focus: 价格
+	if 事件 is "份额折算" and 系统 is "本所" and 交易品种 is "分级基金" and 时间 is "最近" and 价格 is "参考净值" and 约束 is "四舍五入至0" and 操作人 is "由基金管理人" and 价格 is "001元"
+	then 结果 is "成功"
+
+rule 第十二条.1
+sourceId 第十二条
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 交易方式 is "竞价交易" and 操作 is "申报"
+	then 结果 is "成功"
+
+rule 第十二条.2
+sourceId 第十二条
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 交易方式 is "限价申报" and 操作 is "申报"
+	then 结果 is "成功"
+
+rule 第十二条.3
+sourceId 第十二条
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 交易方式 is "市价申报" and 操作 is "申报"
+	then 结果 is "成功"
+
+rule 第十二条.4
+sourceId 第十二条
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 交易方式 is "市价申报" and 操作 is "申报"
+	then 结果 is "成功"
+
+rule 第十二条.5
+sourceId 第十二条
+focus: 时间
+	if 开盘集合竞价时间 is "每个交易日9︰15至9︰25" and 连续竞价时间 is "9︰30至11︰30、13︰00至14︰57" and 交易方式 is "集合竞价"
+	then 结果 is "成功"
+
+rule 第十二条.6
+sourceId 第十二条
+focus: 时间
+	if 时间 is "14︰57至15" and 交易方式 is "集合竞价"
+	then 结果 is "成功"
+
+rule 第十三条.1
+sourceId 第十三条
+focus: 订单连续性操作
+	if 交易方式 is "竞价交易" and 操作 is "买入" and 交易品种 is "基金份额" and 申报数量应当 is "100份或者其整数倍"
+	then 结果 is "成功"
+
+rule 第十三条.2
+sourceId 第十三条
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 操作 is "次性申报卖出" and 数量 is "不足100份的部分"
+	then 结果 is "成功"
+
+rule 第十三条.3
+sourceId 第十三条
+focus: 数量
+	if 交易品种 is "基金份额" and 交易方式 is "竞价交易" and 单笔申报最大数量 不得超过 "100万份"
+	then 结果 is "成功"
+
+rule 第十四条.1
+sourceId 第十四条
+focus: 价格
+	if 交易品种 is "基金份额" and 交易方式 is "竞价交易" and 约束 is "价格涨跌幅限制" and 价格 is "10%"
+	then 结果 is "成功"
+
+rule 第十五条.1
+sourceId 第十五条
+focus: 数量
+	if 交易品种 is "基金份额" and 单笔交易数量 不低于 "200万份" and 交易方式 is "用大宗交易"
+	then 结果 is "可以"
+
+rule 第十五条.2
+sourceId 第十五条
+focus: 数量
+	if 交易品种 is "基金份额" and 交易方式 is "用大宗交易" and 数量 不低于 "200万元人民币"
+	then 结果 is "可以"
+
+rule 第十六条.1
+sourceId 第十六条
+focus: 时间
+	if 交易品种 is "基金份额" and 交易方式 is "协议大宗交易" and 系统 is "本所" and 接受申报时间 is "每个交易日9︰15至11︰30、13︰00至15︰30"
+	then 结果 is "成功"
+
+rule 第十六条.2
+sourceId 第十六条
+focus: 时间
+	if 交易品种 is "基金份额" and 交易方式 is "协议大宗交易" and 系统 is "本所" and 接受申报时间 is "每个交易日15︰00至15︰30"
+	then 结果 is "成功"
+
+rule 第十六条.3
+sourceId 第十六条
+focus: 时间
+	if 交易品种 is "基金" and 交易方式 is "额采用盘后定价大宗交易" and 系统 is "本所" and 接受申报时间 is "每个"
+	then 结果 is "成功"
+
+rule 第十六条.4
+sourceId 第十六条
+focus: 时间
+	if 交易品种 is "基金" and 交易方式 is "额采用盘后定价大宗交易" and 系统 is "本所" and 接受申报时间 is "易日15："
+	then 结果 is "成功"
+
+rule 第十七条.1
+sourceId 第十七条
+focus: 价格
+	if 交易品种 is "基金份额" and 交易方式 is "协议大宗交易" and 申报价格范围 is "前收盘价的" and 价格 上下 "10%"
+	then 结果 is "成功"
+
+rule 第十八条.1
+sourceId 第十八条
+focus: 订单连续性操作
+	if 交易品种 is "ETF、LOF" and 系统 is "本所" and 操作 is "购和申赎"
+	then 结果 is "可以"
+
+rule 第十八条.2
+sourceId 第十八条
+focus: 订单连续性操作
+	if 交易品种 is "挂牌申赎开放式基金及" and 系统 is "本所" and 操作 is "购和申赎"
+	then 结果 is "可以"
+
+rule 第十八条.3
+sourceId 第十八条
+focus: 订单连续性操作
+	if 交易品种 is "认可的其他基金品种" and 系统 is "本所" and 操作 is "购和申赎"
+	then 结果 is "可以"
+
+rule 第十八条.4
+sourceId 第十八条
+focus: 订单连续性操作
+	if 交易品种 is "封闭式基金" and 系统 is "本所"
+	then 结果 is "可以"
+
+rule 第十九条.1
+sourceId 第十九条
+focus: 订单连续性操作
+	if 操作人 is "基金管理人" and 系统 is "本所" and 交易品种 is "基金份额" and 操作 is "认购" and 操作 is "申赎" and 操作 is "提交申请" and 操作 is "签署" and 操作部分 is "协议"
+	then 结果 is "成功"
+
+rule 第二十条.1
+sourceId 第二十条
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 操作 is "认购" and 和申赎的申报时间 is "每个交易日9︰15至11︰30、13︰00至15︰00"
+	then 结果 is "成功"
+
+rule 第二十五条.1
+sourceId 第二十五条
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 操作 is "认购" and 数量 is "1000份"
+	then 结果 is "成功"
+
+rule 第二十五条.2
+sourceId 第二十五条
+focus: 订单连续性操作
+	if 交易品种 is "基金份额" and 操作 is "认购" and 数量 is "其整数"
+	then 结果 is "成功"
+
+rule 第二十六条.1
+sourceId 第二十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易品种 is "基金份额" and 操作 is "认购" and 操作 is "撤销" and 时间 is "募集期间"
+	then 结果 is "可以"
+
+rule 第二十六条.2
+sourceId 第二十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易品种 is "基金份额" and 操作 is "撤销" and 时间 is "认购申报提交后"
+	then 结果 is "不得"
+
+rule 第二十七条.1
+sourceId 第二十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 系统 is "本所" and 操作 is "认购" and 交易品种 is "基金" and 操作部分 is "份额" and 约束 is "现金"
+	then 结果 is "成功"
+
+rule 第二十八条.1
+sourceId 第二十八条
+focus: 数量
+	if 交易品种 is "ETF份" and 数量 is "最小申赎单位"
+	then 结果 is "成功"
+
+rule 第二十八条.2
+sourceId 第二十八条
+focus: 数量
+	if 交易品种 is "基金" and 数量 is "最小申赎单位"
+	then 结果 is "成功"
+
+rule 第二十八条.3
+sourceId 第二十八条
+focus: 数量
+	if 交易品种 is "ETF份" and 数量 is "其整数倍"
+	then 结果 is "成功"
+
+rule 第二十八条.4
+sourceId 第二十八条
+focus: 数量
+	if 交易品种 is "基金" and 数量 is "其整数倍"
+	then 结果 is "成功"
+
+rule 第三十条.1
+sourceId 第三十条
+focus: 订单连续性操作
+	if 操作人 is "基金管理人" and 系统 is "本所" and 操作 is "提供" and 时间 is "于每日开市前"
+	then 结果 is "成功"
+
+rule 第三十二条.1
+sourceId 第三十二条
+focus: 订单连续性操作
+	if 交易品种 is "LOF份额" and 约束 is "金额申"
+	then 结果 is "成功"
+
+rule 第三十二条.2
+sourceId 第三十二条
+focus: 数量
+	if 交易品种 is "LOF份额" and 约束 is "额申" and 数量 is "1份" and 数量 is "份额"
+	then 结果 is "成功"
+
+rule 第三十二条.3
+sourceId 第三十二条
+focus: 数量
+	if 交易品种 is "基金" and 数量 is "份额"
+	then 结果 is "成功"
+
+rule 第三十三条.1
+sourceId 第三十三条
+focus: 时间
+	if 交易品种 is "LOF份额" and 操作部分 is "赎申" and 时间 is "在当日15︰00前"
+	then 结果 is "可以"
+
+rule 第三十四条.1
+sourceId 第三十四条
+focus: 订单连续性操作
+	if 操作人 is "基金管理人或者其委托的登记结算机构" and 交易品种 is "LOF份" and 操作部分 is "额申赎结" and 操作 is "的确"
+	then 结果 is "成功"
+
+rule 第三十六条.1
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易方式 is "竞价交易" and 操作 is "竞价买入" and 交易品种 is "债券ETF份额" and 时间 以下 "当日"
+	then 结果 is "可以"
+
+rule 第三十六条.2
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易方式 is "竞价交易" and 操作 is "竞价买入" and 交易品种 is "黄金ETF份额、上市交易的货币市场基金份额" and 时间 以下 "当日"
+	then 结果 is "可以"
+
+rule 第三十六条.3
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易方式 is "竞价交易" and 操作 is "竞价买入" and 交易品种 is "跨境ETF份额、跨境LOF份" and 时间 以下 "当日"
+	then 结果 is "可以"
+
+rule 第三十六条.4
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易方式 is "竞价交易" and 操作 is "竞价买入" and 交易品种 is "和商品期货ETF份额" and 时间 以下 "当日"
+	then 结果 is "可以"
+
+rule 第三十六条.5
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易方式 is "日通过大宗交易" and 操作 is "“大宗买" and 交易品种 is "”）的债券" and 时间 以下 "份额"
+	then 结果 is "可以"
+
+rule 第三十六条.6
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易方式 is "日通过大宗交易" and 操作 is "“大宗买" and 交易品种 is "TF份额、黄金ETF份额、上市交易的货币市场基金份额、跨境ETF份额、跨境LOF份额和商品期货ETF" and 时间 以下 "份额"
+	then 结果 is "可以"
+
+rule 第三十六条.7
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易方式 is "日通过大宗交易" and 操作 is "“大宗买" and 交易品种 is "”）的债券" and 时间 以下 "当日"
+	then 结果 is "可以"
+
+rule 第三十六条.8
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易方式 is "日通过大宗交易" and 操作 is "“大宗买" and 交易品种 is "TF份额、黄金ETF份额、上市交易的货币市场基金份额、跨境ETF份额、跨境LOF份额和商品期货ETF" and 时间 以下 "当日"
+	then 结果 is "可以"
+
+rule 第三十六条.9
+sourceId 第三十六条
+focus: 时间
+	if 操作人 is "投资者" and 交易方式 is "大宗交易" and 时间 is "大宗卖出”）"
+	then 结果 is "可以"
+
+rule 第三十六条.10
+sourceId 第三十六条
+focus: 时间
+	if 操作人 is "投资者" and 交易方式 is "卖出（" and 时间 is "大宗卖出”）"
+	then 结果 is "可以"
+
+rule 第三十六条.11
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易方式 is "日通过大宗交易" and 操作 is "“大宗买" and 交易品种 is "”）的债券" and 时间 以下 "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十六条.12
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 交易方式 is "日通过大宗交易" and 操作 is "“大宗买" and 交易品种 is "TF份额、黄金ETF份额、上市交易的货币市场基金份额、跨境ETF份额、跨境LOF份额和商品期货ETF" and 时间 以下 "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十六条.13
+sourceId 第三十六条
+focus: 时间
+	if 操作人 is "投资者" and 交易方式 is "大宗交易" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十六条.14
+sourceId 第三十六条
+focus: 时间
+	if 操作人 is "投资者" and 交易方式 is "卖出（" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十六条.15
+sourceId 第三十六条
+focus: 时间
+	if 操作人 is "投资者" and 交易方式 is "竞价交易" and 时间 is "价卖出"
+	then 结果 is "成功"
+
+rule 第三十六条.16
+sourceId 第三十六条
+focus: 时间
+	if 交易品种 is "投资者当日" and 时间 is "买入"
+	then 结果 is "可以"
+
+rule 第三十六条.17
+sourceId 第三十六条
+focus: 时间
+	if 交易品种 is "投资者当日" and 时间 is "其他"
+	then 结果 is "可以"
+
+rule 第三十六条.18
+sourceId 第三十六条
+focus: 订单连续性操作
+	if 交易品种 is "基金"
+	then 结果 is "可以"
+
+rule 第三十七条.1
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "竞价买入" and 操作部分 is "ETF份额" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十七条.2
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十七条.3
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "大宗买入" and 操作部分 is "的ETF份额" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十七条.4
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "赎回" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十七条.5
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作部分 is "的ETF份额" and 操作 is "竞价卖出" and 时间 is "）当日"
+	then 结果 is "可以"
+
+rule 第三十七条.6
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "竞价卖出" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十七条.7
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十七条.8
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作部分 is "的ETF份额" and 操作 is "大宗卖" and 时间 is "）当日"
+	then 结果 is "可以"
+
+rule 第三十七条.9
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "大宗卖" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十七条.10
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "大宗卖" and 时间 is "次一交易日"
+	then 结果 is "成功"
+
+rule 第三十七条.11
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 操作部分 is "ETF" and 操作 is "日赎" and 交易品种 is "股票" and 操作 is "竞价卖出" and 操作部分 is "申购ET" and 时间 is "三）当"
+	then 结果 is "可以"
+
+rule 第三十七条.12
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 操作部分 is "ETF" and 操作 is "竞价卖出" and 操作部分 is "申购ET" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十七条.13
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 操作部分 is "ETF" and 操作部分 is "申购ET" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十七条.14
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 操作部分 is "ETF" and 操作 is "日赎" and 交易品种 is "股票" and 操作 is "竞价卖出" and 操作 is "大宗" and 时间 is "三）当"
+	then 结果 is "可以"
+
+rule 第三十七条.15
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 操作部分 is "ETF" and 操作 is "竞价卖出" and 操作 is "大宗" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十七条.16
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 操作部分 is "ETF" and 操作 is "大宗" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十七条.17
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 操作部分 is "ETF" and 操作 is "竞价" and 操作部分 is "买入的" and 交易品种 is "股票" and 操作 is "于申" and 操作部分 is "购E" and 时间 is "（四）当日"
+	then 结果 is "可以"
+
+rule 第三十七条.18
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 操作部分 is "ETF" and 操作 is "于申" and 操作部分 is "购E" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十七条.19
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "单市场" and 操作部分 is "ETF" and 时间 is "TF份额"
+	then 结果 is "成功"
+
+rule 第三十七条.20
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "日大宗买" and 交易品种 is "股票" and 时间 is "入的"
+	then 结果 is "可以"
+
+rule 第三十七条.21
+sourceId 第三十七条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "日大宗买" and 时间 is "次一交"
+	then 结果 is "可以"
+
+rule 第三十八条.1
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 操作 is "竞价买入的" and 操作部分 is "ETF份额" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十八条.2
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十八条.3
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 操作 is "宗买入的" and 操作部分 is "ETF份额" and 操作 is "赎回" and 时间 is "当日大"
+	then 结果 is "可以"
+
+rule 第三十八条.4
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 操作 is "赎回" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十八条.5
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 操作 is "申购" and 操作部分 is "ETF份额" and 操作 is "大宗卖出" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十八条.6
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 操作 is "大宗卖出" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十八条.7
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 操作 is "申购" and 操作部分 is "ETF份额" and 操作 is "竞价卖出" and 操作 is "大宗卖出" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十八条.8
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 操作 is "竞价卖出" and 操作 is "大宗卖出" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十八条.9
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 操作 is "大宗卖出" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十八条.10
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 操作 is "日赎" and 交易品种 is "单市场债券ETF" and 时间 is "）当" and 操作部分 is "质押" and 操作 is "大宗卖出"
+	then 结果 is "可以"
+
+rule 第三十八条.11
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 时间 is "当日" and 操作部分 is "质押" and 操作 is "大宗卖出"
+	then 结果 is "可以"
+
+rule 第三十八条.12
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 操作 is "大宗卖出" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十八条.13
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 操作 is "价买入" and 交易品种 is "债券" and 操作 is "申购" and 操作部分 is "ET" and 时间 is "四）当日竞"
+	then 结果 is "可以"
+
+rule 第三十八条.14
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 操作 is "解除质押得" and 交易品种 is "债券" and 操作 is "申购" and 操作部分 is "ET" and 时间 is "四）当日竞"
+	then 结果 is "可以"
+
+rule 第三十八条.15
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 操作 is "申购" and 操作部分 is "ET" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第三十八条.16
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "组合证券" and 操作 is "申赎" and 时间 is "F份额"
+	then 结果 is "成功"
+
+rule 第三十八条.17
+sourceId 第三十八条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "当日大宗买入" and 交易品种 is "债券" and 操作部分 is "购ETF份" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第三十八条.18
+sourceId 第三十八条
+focus: 时间
+	if 操作部分 is "市场" and 交易品种 is "债券" and 操作部分 is "ETF" and 操作部分 is "一）当日买" and 约束 is "指数成份证券包含银行间债券市场交易流通品种的跨" and 时间 is "入的ETF份额"
+	then 结果 is "可以"
+
+rule 第三十八条.19
+sourceId 第三十八条
+focus: 时间
+	if 操作部分 is "市场" and 交易品种 is "债券" and 操作部分 is "ETF" and 操作部分 is "一）当日买" and 约束 is "指数成份证券包含银行间债券市场交易流通品种的跨" and 时间 is "当日申购"
+	then 结果 is "不得"
+
+rule 第三十八条.20
+sourceId 第三十八条
+focus: 时间
+	if 操作部分 is "市场" and 交易品种 is "债券" and 操作部分 is "ETF" and 操作部分 is "一）当日买" and 约束 is "指数成份证券包含银行间债券市场交易流通品种的跨" and 时间 is "ETF份"
+	then 结果 is "不得"
+
+rule 第三十八条.21
+sourceId 第三十八条
+focus: 时间
+	if 操作部分 is "市场" and 交易品种 is "债券" and 操作部分 is "ETF" and 操作部分 is "一）当日买" and 约束 is "指数成份证券包含银行间债券市场交易流通品种的跨" and 时间 is "当日申购"
+	then 结果 is "成功"
+
+rule 第三十八条.22
+sourceId 第三十八条
+focus: 时间
+	if 操作部分 is "市场" and 交易品种 is "债券" and 操作部分 is "ETF" and 操作部分 is "一）当日买" and 约束 is "指数成份证券包含银行间债券市场交易流通品种的跨" and 时间 is "ETF份"
+	then 结果 is "成功"
+
+rule 第三十九条.1
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.2
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨市场债券ETF、黄金ET" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.3
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "、商品期货" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.4
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨境ETF时" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.5
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨境ETF时" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.6
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨境ETF时" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.7
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨境ETF时" and 操作 is "日竞价" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.8
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨境ETF时" and 操作 is "日竞价" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.9
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨境ETF时" and 操作 is "日竞价" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.10
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 交易品种 is "跨境ETF时" and 操作 is "日竞价" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.11
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 交易品种 is "跨境ETF时" and 操作 is "日竞价" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.12
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 交易品种 is "跨境ETF时" and 操作 is "日竞价" and 操作部分 is "买入的E" and 时间 is "（一）当"
+	then 结果 is "可以"
+
+rule 第三十九条.13
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 时间 is "TF份"
+	then 结果 is "可以"
+
+rule 第三十九条.14
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨市场债券ETF、黄金ET" and 时间 is "TF份"
+	then 结果 is "可以"
+
+rule 第三十九条.15
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "、商品期货" and 时间 is "TF份"
+	then 结果 is "可以"
+
+rule 第三十九条.16
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨境ETF时" and 时间 is "TF份"
+	then 结果 is "可以"
+
+rule 第三十九条.17
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 交易品种 is "跨境ETF时" and 时间 is "TF份"
+	then 结果 is "可以"
+
+rule 第三十九条.18
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "单市场债券ETF" and 时间 is "赎回"
+	then 结果 is "成功"
+
+rule 第三十九条.19
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨市场债券ETF、黄金ET" and 时间 is "赎回"
+	then 结果 is "成功"
+
+rule 第三十九条.20
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "、商品期货" and 时间 is "赎回"
+	then 结果 is "成功"
+
+rule 第三十九条.21
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 操作 is "申赎" and 交易品种 is "跨境ETF时" and 时间 is "赎回"
+	then 结果 is "成功"
+
+rule 第三十九条.22
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "现金" and 交易品种 is "跨境ETF时" and 时间 is "赎回"
+	then 结果 is "成功"
+
+rule 第三十九条.23
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "当日" and 操作部分 is "大宗买入的" and 时间 is "ETF份额"
+	then 结果 is "可以"
+
+rule 第三十九条.24
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "当日" and 操作部分 is "二）当日申购" and 时间 is "的ETF"
+	then 结果 is "不得"
+
+rule 第三十九条.25
+sourceId 第三十九条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "当日" and 操作部分 is "二）当日申购" and 时间 is "的ETF"
+	then 结果 is "成功"
+
+rule 第四十条.1
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "竞价买入" and 操作部分 is "ETF份额" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十条.2
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十条.3
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "大宗买入" and 操作部分 is "的ETF份额" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十条.4
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "赎回" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十条.5
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "赎回" and 系统 is "本所" and 操作 is "申购" and 操作部分 is "的ETF份额" and 操作 is "竞价卖出" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十条.6
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "竞价卖出" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十条.7
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十条.8
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "赎回" and 系统 is "本所" and 操作 is "申购" and 操作部分 is "的ETF份额" and 操作 is "大宗卖出" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十条.9
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "大宗卖出" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十条.10
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 交易品种 is "股票" and 操作部分 is "ETF" and 操作 is "大宗卖出" and 时间 is "次一交易日"
+	then 结果 is "成功"
+
+rule 第四十条.11
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 操作部分 is "ETF" and 操作 is "大宗卖出" and 系统 is "本所" and 操作部分 is "到的" and 交易品种 is "股票" and 操作 is "竞价卖出" and 操作部分 is "于申购ETF份" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十条.12
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 操作部分 is "ETF" and 操作 is "竞价卖出" and 操作部分 is "于申购ETF份" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十条.13
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 操作部分 is "ETF" and 操作部分 is "于申购ETF份" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十条.14
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 操作部分 is "ETF" and 操作 is "大宗卖出" and 系统 is "本所" and 操作部分 is "到的" and 交易品种 is "股票" and 操作 is "竞价卖出" and 操作 is "大宗卖" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十条.15
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 操作部分 is "ETF" and 操作 is "竞价卖出" and 操作 is "大宗卖" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十条.16
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 操作部分 is "ETF" and 操作 is "大宗卖" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十条.17
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 操作部分 is "ETF" and 操作 is "日竞价" and 操作部分 is "入的" and 交易品种 is "股票" and 操作部分 is "购ET" and 时间 is "四）当"
+	then 结果 is "可以"
+
+rule 第四十条.18
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 操作部分 is "ETF" and 操作部分 is "购ET" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十条.19
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 操作部分 is "跨市场" and 操作部分 is "ETF" and 时间 is "F份额"
+	then 结果 is "成功"
+
+rule 第四十条.20
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "日大宗买入" and 交易品种 is "股票" and 操作 is "用于申购E" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十条.21
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "日大宗买入" and 交易品种 is "股票" and 操作部分 is "构申购的E" and 时间 is "当日通过登记结"
+	then 结果 is "不得"
+
+rule 第四十条.22
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "日大宗买入" and 交易品种 is "股票" and 时间 is "TF"
+	then 结果 is "不得"
+
+rule 第四十条.23
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "日大宗买入" and 交易品种 is "股票" and 操作部分 is "构申购的E" and 时间 is "当日通过登记结"
+	then 结果 is "成功"
+
+rule 第四十条.24
+sourceId 第四十条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "日大宗买入" and 交易品种 is "股票" and 时间 is "TF"
+	then 结果 is "成功"
+
+rule 第四十一条.1
+sourceId 第四十一条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "以上海黄金交易所现货实盘合约" and 操作 is "申赎" and 交易品种 is "黄金ETF" and 操作 is "买入的" and 操作部分 is "ETF份额" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十一条.2
+sourceId 第四十一条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "以上海黄金交易所现货实盘合约" and 操作 is "申赎" and 交易品种 is "黄金ETF" and 操作 is "赎回" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十一条.3
+sourceId 第四十一条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "以上海黄金交易所现货实盘合约" and 操作 is "申赎" and 交易品种 is "黄金ETF" and 操作 is "申购" and 操作部分 is "TF份额" and 操作 is "大宗" and 时间 is "）当日"
+	then 结果 is "可以"
+
+rule 第四十一条.4
+sourceId 第四十一条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "以上海黄金交易所现货实盘合约" and 操作 is "申赎" and 交易品种 is "黄金ETF" and 操作 is "大宗" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十一条.5
+sourceId 第四十一条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "以上海黄金交易所现货实盘合约" and 操作 is "申赎" and 交易品种 is "黄金ETF" and 操作 is "申购" and 操作部分 is "TF份额" and 操作 is "竞价卖出" and 操作 is "大宗" and 时间 is "）当日"
+	then 结果 is "可以"
+
+rule 第四十一条.6
+sourceId 第四十一条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "以上海黄金交易所现货实盘合约" and 操作 is "申赎" and 交易品种 is "黄金ETF" and 操作 is "竞价卖出" and 操作 is "大宗" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十一条.7
+sourceId 第四十一条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 约束 is "以上海黄金交易所现货实盘合约" and 操作 is "申赎" and 交易品种 is "黄金ETF" and 操作 is "大宗" and 时间 is "一交易日"
+	then 结果 is "可以"
+
+rule 第四十二条.1
+sourceId 第四十二条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 交易品种 is "货币ETF" and 操作 is "竞价买入" and 操作部分 is "ETF份额" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十二条.2
+sourceId 第四十二条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 交易品种 is "货币ETF" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十二条.3
+sourceId 第四十二条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 交易品种 is "货币ETF" and 操作 is "大宗买" and 操作部分 is "的ETF份额" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "可以"
+
+rule 第四十二条.4
+sourceId 第四十二条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 交易品种 is "货币ETF" and 操作 is "赎回" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十二条.5
+sourceId 第四十二条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "日申购" and 操作部分 is "的ETF份" and 时间 is "次一交易"
+	then 结果 is "可以"
+
+rule 第四十二条.6
+sourceId 第四十二条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "日申购" and 操作部分 is "的ETF份" and 操作 is "竞价卖出" and 时间 is "次一交易"
+	then 结果 is "可以"
+
+rule 第四十三条.1
+sourceId 第四十三条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 交易品种 is "LOF" and 操作 is "入的" and 操作部分 is "OF份额" and 操作 is "赎回" and 时间 is "当日买"
+	then 结果 is "可以"
+
+rule 第四十三条.2
+sourceId 第四十三条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 交易品种 is "LOF" and 操作 is "赎回" and 时间 is "次一交易日"
+	then 结果 is "可以"
+
+rule 第四十三条.3
+sourceId 第四十三条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 交易品种 is "LOF" and 操作 is "申购" and 操作部分 is "LOF份额" and 操作 is "卖出" and 时间 is "当日"
+	then 结果 is "不得"
+
+rule 第四十三条.4
+sourceId 第四十三条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 交易品种 is "LOF" and 操作 is "卖出" and 时间 is "交收前"
+	then 结果 is "不得"
+
+rule 第四十三条.5
+sourceId 第四十三条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 交易品种 is "LOF" and 操作 is "申购" and 操作部分 is "LOF份额" and 时间 is "当日"
+	then 结果 is "不得"
+
+rule 第四十三条.6
+sourceId 第四十三条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "交易" and 操作 is "申赎" and 交易品种 is "LOF" and 时间 is "交收前"
+	then 结果 is "不得"
+
+rule 第四十四条.1
+sourceId 第四十四条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "申购" and 交易品种 is "挂牌申赎" and 操作部分 is "份额" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "不得"
+
+rule 第四十四条.2
+sourceId 第四十四条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "申购" and 交易品种 is "基金" and 操作部分 is "份额" and 操作 is "赎回" and 时间 is "当日"
+	then 结果 is "不得"
+
+rule 第四十四条.3
+sourceId 第四十四条
+focus: 订单连续性操作
+	if 操作人 is "投资者" and 操作 is "赎回" and 时间 is "交收前"
+	then 结果 is "不得"
+

@@ -1,5 +1,6 @@
 import json
 import pprint
+import cn2an
 
 # 本文件的作用是，将内部数据格式rules写成json格式的R
 
@@ -87,7 +88,12 @@ def r3_to_json(rules):
     return json_rules
 
 def to_mydsl(json_rules):
-    rules = json_rules
+    if "第" in json_rules[0]['rule'] and "条" in json_rules[0]['rule']:
+        for rule in json_rules:
+            rule['temp_id'] = cn2an.cn2an(rule['rule'].split(".")[0][1:-1], 'normal')
+        rules = sorted(json_rules, key=lambda x:x['temp_id'])
+    else:
+        rules = sorted(json_rules, key=lambda x:x['rule'])
     s = ""
     for rule in rules:
         s += f"rule {rule['rule']}\n"

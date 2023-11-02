@@ -234,11 +234,14 @@ def preprocess(rules, vars):
     rule_to_del = []
     for rule_id in rules:
         rule = rules[rule_id]
+        constraint_to_del = []
         for i, c in enumerate(rule['constraints']):
             if c['key'] == "系统":
+                constraint_to_del.append(i)
+        if len(constraint_to_del) > 0:
+            for i in reversed(constraint_to_del):
                 del rule['constraints'][i]
-                del vars[rule_id]['系统']
-                break
+            del vars[rule_id]['系统']
         if len(rule['constraints']) == 0:
             rule_to_del.append(rule_id)
     for rule_id in rule_to_del:

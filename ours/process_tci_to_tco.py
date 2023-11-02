@@ -39,6 +39,7 @@ def token_classification_with_algorithm(tco, knowledge):
         for key in knowledge:
             if "品种" in key and isinstance(knowledge[key], list):
                 types += knowledge[key]
+        # print(len(text), len(label))
         for t in types:
             p = text.find(t)
             while p != -1:
@@ -330,7 +331,7 @@ def token_classification(tci: list, knowledge_file: str, model_path: str, dict_f
     def preprocess(items):
         inputs = []
         for item in items:
-            inputs.append(item["text"].replace(" ", ""))
+            inputs.append(item["text"].replace(" ", "")[:510])
         return inputs
 
     inputs = preprocess(tci)
@@ -367,6 +368,7 @@ def token_classification(tci: list, knowledge_file: str, model_path: str, dict_f
     tco = tci.copy()
     for i, rule in enumerate(tco):
         rule["label"] = " ".join(class_hats[i])
+        rule['text'] = inputs[i]
     
     # 使用算法修复
     tco = token_classification_with_algorithm(tco, knowledge)

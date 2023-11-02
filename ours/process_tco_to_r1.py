@@ -138,9 +138,9 @@ def read_OBI_to_rule(texts, labels):
         elif texts[i] == "且" or texts[i] == "但":
             sentence_and.append(len(stack))
     sentence_separate_2.pop()  # 句子的结尾一定是。而这个。无用
-    with open("rules_cache/r1_step1.txt", "a", encoding="utf-8") as f:
-        s = pprint.pformat(stack)
-        f.write(s + "\n\n")
+    # with open("rules_cache/r1_step1.txt", "a", encoding="utf-8") as f:
+    #     s = pprint.pformat(stack)
+    #     f.write(s + "\n\n")
     return stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation
 
 
@@ -554,8 +554,8 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         del si[key]
                         si["操作角色"] = value
                     use_index = True
-    with open("rules_cache/r1_step2.txt", "a", encoding="utf-8") as f:
-        f.write(pprint.pformat(ss) + "\n\n")
+    # with open("rules_cache/r1_step2.txt", "a", encoding="utf-8") as f:
+    #     f.write(pprint.pformat(ss) + "\n\n")
     return ss
 
 def write_r1(fp_r1, ss, knowledge, id):

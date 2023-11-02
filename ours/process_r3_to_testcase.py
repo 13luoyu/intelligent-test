@@ -331,11 +331,15 @@ def judge_conflict_and_generate_value(variables, cons, rule_id, vars):
         if "余额" in vars[rule_id]:
             del vars[rule_id]['余额']
         zero_num = 0
-        for num in vars[rule_id][key][0]:
+        for old_key in list(vars[rule_id]):
+            if key in old_key:
+                break
+        for num in vars[rule_id][old_key][0]:
             x=len(str(num))-1
             zero_num = max(zero_num, x)
         valid_value = [f"{10**(zero_num-1)}(余额{10**(zero_num-1)})", f"{2*10**(zero_num-1)}(余额{2*10**(zero_num-1)})", f"{11*10**(zero_num-1)}(余额{11*10**(zero_num-1)})", f"{11*10**(zero_num-1)}(余额{10*10**(zero_num-1)})"]
         not_valid_value = [f"{2*10**(zero_num-1)}(余额{10**(zero_num-1)})", f"{22*10**(zero_num-1)}(余额{11*10**(zero_num-1)})"]
+        del vars[rule_id][old_key]
         vars[rule_id][key] = [valid_value, not_valid_value]
     return True
 

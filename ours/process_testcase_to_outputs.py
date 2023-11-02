@@ -2,7 +2,7 @@
 import json
 import collections
 from pprint import pprint
-
+import cn2an
 
 
 # 每个关键字所选择的答案
@@ -79,6 +79,17 @@ def generate_dicts(vars, rules):
         datadict = []
         dfs(0, ruleid,rules[ruleid], var , keys, outputs,datadict)
 
-        ans.append(datadict)
+        if datadict != []:
+            ans.append(datadict)
 
+    if len(ans) > 0 and "第" in ans[0][0]['rule'] and "条" in ans[0][0]['rule']:
+        for tcs in ans:
+            for tc in tcs:
+                tc['temp_id'] = cn2an.cn2an(tc['rule'].split(".")[0][1:-1], "normal")
+        ans = sorted(ans, key=lambda x:x[0]['temp_id'])
+        for tcs in ans:
+            for tc in tcs:
+                del tc['temp_id']
+    else:
+        ans = sorted(ans, key=lambda x:x[0]['rule'])
     return ans
