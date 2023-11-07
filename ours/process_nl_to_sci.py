@@ -20,12 +20,17 @@ def get_market_variety(s, knowledge):
                     variety = value
     
     if market_num == 0:
-        if "\n".join(s.split("\n")[:2]).count("深圳") > "\n".join(s.split("\n")[:2]).count("上海"):
+        if "\n".join(s.split("\n")).count("深圳") > "\n".join(s.split("\n")).count("上海"):
             market = "深圳证券交易所"
-        elif "\n".join(s.split("\n")[:2]).count("深圳") < "\n".join(s.split("\n")[:2]).count("上海"):
+        elif "\n".join(s.split("\n")).count("深圳") < "\n".join(s.split("\n")).count("上海"):
             market = "上海证券交易所"
         else:
-            market = "证券交易所"
+            if "\n".join(s.split("\n")).count("深交所") > "\n".join(s.split("\n")).count("上交所"):
+                market = "深圳证券交易所"
+            elif "\n".join(s.split("\n")).count("深交所") < "\n".join(s.split("\n")).count("上交所"):
+                market = "上海证券交易所"
+            else:
+                market = "证券交易所"
     if variety_num == 0:
         variety = "证券"
     return {"market": market, "variety": variety}

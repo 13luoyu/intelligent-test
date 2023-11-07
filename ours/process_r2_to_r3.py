@@ -343,6 +343,7 @@ def compose_state_machine(vars, rules, preliminaries):
 
 
 def add_relation(rules):
+    # 对于所有规则两两观察是否有一条规则在result有状态，另一条规则在consstraint有状态，且二者相等，有的话就关联。
     keys = list(rules.keys())
     from_states, to_states = {}, {}
     for rule_id in keys:

@@ -31,12 +31,12 @@ def read_pdf_to_txt(pdf_file):
     for i, line in enumerate(s.split("\n")):
         # 什么时候换行呢？
         # 如果是标题、附件等，换行；如果是一个规则的开始（遇到id），则换行
-        line = line.strip()
+        line = line.strip().replace("：", ":").replace("︰", ":")
         if line[0:2] == "附件":
             if len(line) == 2:
                 ts += "\n" + line + "\n"
                 continue
-            elif line.replace(" ","")[2] == "：" or line.replace(" ","")[2] == ":" or line.replace(" ","")[2].isdigit():
+            elif line.replace(" ","")[2] == ":" or line.replace(" ","")[2].isdigit():
                 ts += "\n" + line.replace(" ","") + "\n"
                 continue
         if line == "":
@@ -70,6 +70,7 @@ def read_txt_to_json(txt_data):
     for line in lines:
         if line.strip() == "":
             continue
+        line = line.strip().replace("：", ":").replace("︰", ":")
         id = line.split(" ")[0]
         if is_id(id):
             text = "".join(line.split(" ")[1:])

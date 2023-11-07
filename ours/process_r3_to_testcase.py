@@ -320,7 +320,7 @@ def judge_conflict_and_generate_value(variables, cons, rule_id, vars):
     # 失败：
     # 余额20000，卖出10000
     # 余额220000，卖出110000
-    if "操作" in vars[rule_id].keys() and "一次性" in vars[rule_id]['操作'][0]:
+    if "操作" in vars[rule_id].keys() and "次性" in vars[rule_id]['操作'][0]:
         if "数量" in vars[rule_id] and "申报数量" in vars[rule_id]:
             del vars[rule_id]['数量']
             key = "申报数量"
@@ -334,13 +334,14 @@ def judge_conflict_and_generate_value(variables, cons, rule_id, vars):
         for old_key in list(vars[rule_id]):
             if key in old_key:
                 break
-        for num in vars[rule_id][old_key][0]:
-            x=len(str(num))-1
-            zero_num = max(zero_num, x)
-        valid_value = [f"{10**(zero_num-1)}(余额{10**(zero_num-1)})", f"{2*10**(zero_num-1)}(余额{2*10**(zero_num-1)})", f"{11*10**(zero_num-1)}(余额{11*10**(zero_num-1)})", f"{11*10**(zero_num-1)}(余额{10*10**(zero_num-1)})"]
-        not_valid_value = [f"{2*10**(zero_num-1)}(余额{10**(zero_num-1)})", f"{22*10**(zero_num-1)}(余额{11*10**(zero_num-1)})"]
-        del vars[rule_id][old_key]
-        vars[rule_id][key] = [valid_value, not_valid_value]
+        if len(vars[rule_id][old_key]) > 1:
+            for num in vars[rule_id][old_key][1]:
+                x=len(str(num))-1
+                zero_num = max(zero_num, x)
+            valid_value = [f"{10**(zero_num-1)}(余额{10**(zero_num-1)})", f"{2*10**(zero_num-1)}(余额{2*10**(zero_num-1)})", f"{11*10**(zero_num-1)}(余额{11*10**(zero_num-1)})", f"{11*10**(zero_num-1)}(余额{10*10**(zero_num-1)})"]
+            not_valid_value = [f"{2*10**(zero_num-1)}(余额{10**(zero_num-1)})", f"{22*10**(zero_num-1)}(余额{11*10**(zero_num-1)})"]
+            del vars[rule_id][old_key]
+            vars[rule_id][key] = [valid_value, not_valid_value]
     return True
 
 

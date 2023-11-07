@@ -394,15 +394,17 @@ def compose_rules_r1_r2(defines, vars, rules, preliminaries, rule_name = "rule")
     # 补全单规则相关的字段
     vars, rules = supply_rules_on_prelim(defines, vars, rules, preliminaries)
 
-    # 申报数量<100...0和其他规则的组合, 同一rule下subrule的组合  ID有问题 FIXME
+    # 统一规则下的子规则组合，申报数量<100...0和其他规则的组合
     vars, rules = subrule_compose(vars, rules)
     
 
     # 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内怎样怎样
     vars, rules = compute_other_time_in_rules(vars, rules, preliminaries)
-    
     # 没有then就删掉
     vars, rules = delete_then(vars, rules)
+
+    # 添加操作，如果一条规则没有操作，操作为“申报”
+    vars, rules = add_operation(vars, rules)
 
 
     # 打印中间结果
@@ -465,7 +467,7 @@ def compose_nested_rules(vars, rules):
                         rules[new_id] = new_rule
                         var = {}
                         for ci in new_rule['constraints']:
-                            var[ci['key']] = ci['value']
+                            var[ci['key']] = []
                         vars[new_id] = var
 
     for rule_id in rule_to_del:
@@ -958,7 +960,22 @@ def delete_then(vars, rules):
         del vars[rule_id]
     return vars, rules
 
-
+def add_operation(vars, rules):
+    keys = list(rules.keys())
+    for rule_id in keys:
+        have_op = False
+        value_constraint = False
+        rule = rules[rule_id]
+        for c in rule['constraints']:
+            if c['key'] == '操作':
+                have_op = True
+                break
+            if is_time_key(c['key']) or is_num_key(c['key']) or is_price_key(c['key']):
+                value_constraint = True
+        if not have_op and value_constraint:
+            rule['constraints'].append({"key":"操作","operation":"is","value":"申报"})
+            vars[rule_id]['操作'] = []
+    return vars, rules
 
 
 

@@ -238,7 +238,6 @@ def token_classification_with_algorithm(tco, knowledge):
                         label = change(a, b, label, "价格")
                 else:
                     i += 1
-        
         # key value
         i=0
         while i < len(text):
@@ -288,11 +287,31 @@ def token_classification_with_algorithm(tco, knowledge):
 
         # 2、部分标点符号标为O
         if not ("除" in text and "不接受" in text and "撤销" in text and "外" in text and "其他" in text and "申报" in text and "时间" in text):
-            punctuation = [",", ".", ";", "!", "?", "，", "。", "；", "！", "？", "为"]
+            punctuation = [",", ";", "!", "?", "，", "。", "；", "！", "？", "为"]
             for i, t in enumerate(text):
                 if t in punctuation:
                     label[i] = "O"
 
+        # 3、“应当”设为O
+        i = 0
+        i = text.find("应")
+        while i != -1:
+            if i+1 < len(text) and (text[i+1] == "当" or text[i+1] == "该"):
+                label[i] = label[i+1] = "O"
+            else:
+                label[i] = "O"
+            i = text.find("应", i+1)
+        # 4、“上下”改为和前后一致的标签
+        i=0
+        i=text.find("上下")
+        while i != -1:
+            if i+2 < len(text):
+                next_lb = label[i+2]
+            if i-1 >= 0:
+                last_lb = label[i-1]
+            if next_lb[2:] == last_lb[2:]:
+                label[i] = label[i+1] = "I-" + last_lb[2:]
+            i = text.find("上下", i+1)
 
         # 3、结束之后扫描一遍，如果改标签了，则将开始标签设为B-，中间设为I-
         last = "O"
@@ -308,7 +327,6 @@ def token_classification_with_algorithm(tco, knowledge):
                 else:
                     label[i] = "I-" + l
             last = l
-        
         
         
 

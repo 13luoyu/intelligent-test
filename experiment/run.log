@@ -1,15 +1,6 @@
 /home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/scipy/__init__.py:132: UserWarning: A NumPy version >=1.21.6 and <1.28.0 is required for this version of SciPy (detected version 1.21.5)
   warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
-Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            规则筛选任务完成
-Traceback (most recent call last):
-  File "/home/asus/intelligent-test/experiment/generate_all_rules_and_testcases.py", line 10, in <module>
-    nlp_process("data/" + file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1696264421", "../data/tc_data.dict")
-  File "/home/asus/intelligent-test/ours/main.py", line 47, in nlp_process
-    tco = token_classification(tci, knowledge_file, tc_model, tc_dict, batch_size, sentence_max_length)
-  File "/home/asus/intelligent-test/ours/process_tci_to_tco.py", line 372, in token_classification
-    tco = token_classification_with_algorithm(tco, knowledge)
-  File "/home/asus/intelligent-test/ours/process_tci_to_tco.py", line 45, in token_classification_with_algorithm
-    label = change(p, p+len(t), label, "交易品种")
-  File "/home/asus/intelligent-test/ours/process_tci_to_tco.py", line 16, in change
-    if "状态" not in label[index] and "事件" not in label[index] and "操作人" not in label[index]:
-IndexError: list index out of range
+Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            best_1696264421
+真实信息总数：4482，预测信息总数：4771，其中完全正确的信息数：3526，正确率0.739，召回率0.7867，F1分数0.7621。
+best_1698959165
+真实信息总数：4482，预测信息总数：4648，其中完全正确的信息数：3513，正确率0.7558，召回率0.7838，F1分数0.7696。

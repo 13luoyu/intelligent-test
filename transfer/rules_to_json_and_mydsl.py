@@ -88,6 +88,8 @@ def r3_to_json(rules):
     return json_rules
 
 def to_mydsl(json_rules):
+    if len(json_rules) == 0:
+        return ""
     if "第" in json_rules[0]['rule'] and "条" in json_rules[0]['rule']:
         for rule in json_rules:
             rule['temp_id'] = cn2an.cn2an(rule['rule'].split(".")[0][1:-1], 'normal')
