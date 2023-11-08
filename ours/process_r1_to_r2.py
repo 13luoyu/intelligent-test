@@ -323,7 +323,7 @@ def judge_op(value):
         return "<"
     if "高于" in value or "超过" in value or "优于" in value or "大于" in value:
         return ">"
-    if "等于" in value:
+    if "等于" in value or "为" in value:
         return "=="
     if "不等于" in value:
         return "!="

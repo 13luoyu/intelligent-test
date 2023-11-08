@@ -301,7 +301,14 @@ def token_classification_with_algorithm(tco, knowledge):
             else:
                 label[i] = "O"
             i = text.find("应", i+1)
-        # 4、“上下”改为和前后一致的标签
+        # 4、有些申报方式不应该标为“交易方式”
+        i = 0
+        i = text.find("申报")
+        while i != -1:
+            if i-2>=0 and "交易方式" in label[i] and "交易方式" in label[i+1]:
+                label = change(i-2, i+2, label, "value")
+            i = text.find("申报", i+1)
+        # 5、“上下”改为和前后一致的标签
         i=0
         i=text.find("上下")
         while i != -1:

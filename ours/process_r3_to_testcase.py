@@ -23,6 +23,12 @@ def isnumber(s):
 
 def list_conditions(defines, vars, rules):
     """依据rules中的规则，枚举部分可能出现的条件，将枚举结果写入vars"""
+    # 将操作中的“买入”、“卖出”转为申报
+    for rule_id in rules:
+        rule = rules[rule_id]
+        for c in rule['constraints']:
+            if c['key'] == "操作" and (c['value'] == "买入" or c['value'] == "卖出"):
+                c['value'] = "申报"
     conflict_to_delete = []
     for rule_id in rules:
         rule = rules[rule_id]
@@ -31,6 +37,7 @@ def list_conditions(defines, vars, rules):
         cons = dict()  # cons[条件名] = [条件列表]
         # 存储所有z3变量
         variables = dict()  # variables[条件名] = [z3条件变量]
+        time_constraints = []
         for cnt, c in enumerate(constraints):
             if "operation" not in c:
                 c["operation"] = "is"
@@ -42,6 +49,8 @@ def list_conditions(defines, vars, rules):
             # 规则是仅将这个值加入vars，不考虑其他值
             if op == "is":
                 vars[rule_id][key].append(value)
+                if "时间" in key or "数量" in key or "价格" in key or "金额" in key:
+                    vars[rule_id][key].append("非" + value)
 
             # part 2 连接词是 in
             elif op == "in":
@@ -90,18 +99,8 @@ def list_conditions(defines, vars, rules):
                             new_value.append("[" + s[:-1] + "]")
                         new_value.sort()
                         value = new_value
-                    not_valid_value = []  # value的补集
-                    last = "00:00:00"
-                    last_valid = False
-                    for v in value:
-                        for vi in v[1:-1].split("-"):
-                            if not last_valid and last != vi:
-                                not_valid_value.append("[" + last + "-" + vi + "]")
-                            last = vi
-                            last_valid = ~last_valid
-                    if last != "24:00:00":
-                        not_valid_value.append("[" + last + "-" + "24:00:00" + "]")
-                    vars[rule_id][key] = [value, not_valid_value]
+                    time_constraints += value
+                    vars[rule_id][key] = [value]
 
                 # 如果仅有一个元素v，那么添加值为v，非v
                 elif len(value) == 1:
@@ -228,7 +227,38 @@ def list_conditions(defines, vars, rules):
                     vars[rule_id][key][1].append(int(value3 / 10))
 
 
-            
+        if len(time_constraints) > 0:
+            # 生成正时间、反时间
+            time_constraints = sorted(time_constraints)
+            value = []
+            done = False
+            for ti, t in enumerate(time_constraints):
+                if done:
+                    done = False
+                    continue
+                if ti+1 < len(time_constraints):
+                    t1 = t.split("-")[1][:-1]
+                    t2 = time_constraints[ti+1].split("-")[0][1:]
+                    if t1 >= t2:
+                        t = t.split("-")[0] + "-" + time_constraints[ti+1].split("-")[1]
+                        value.append(t)
+                        done = True
+                    else:
+                        value.append(t)
+                else:
+                    value.append(t)
+            not_valid_value = []  # value的补集
+            last = "00:00:00"
+            last_valid = False
+            for v in value:
+                for vi in v[1:-1].split("-"):
+                    if not last_valid and last != vi:
+                        not_valid_value.append("[" + last + "-" + vi + "]")
+                    last = vi
+                    last_valid = ~last_valid
+            if last != "24:00:00":
+                not_valid_value.append("[" + last + "-" + "24:00:00" + "]")
+            vars[rule_id]["交易时间"] = [value, not_valid_value]
 
         
         # 生成单变量

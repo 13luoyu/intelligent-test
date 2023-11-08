@@ -39,6 +39,7 @@ def judge_operation_in(op1, op2):
         return False, ""
 
 def judge_time_compose(time1, time2):
+    return True
     time1_cnt = len(re.findall(r"\d+:\d+", time1))
     time2_cnt = len(re.findall(r"\d+:\d+", time2))
     if time1_cnt > 0 and time2_cnt == 0 or time2_cnt > 0 and time1_cnt == 0:
@@ -192,6 +193,9 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                     for k in rule_to_cp[:-2]:
                         new_rule.append(k)
                     last_or = 2
+                elif len(rule_to_cp) > 0 and cnt+1 < len(stack) and list(rule_to_cp[-1].keys())[0] == "交易方式" and list(stack[cnt+1].keys())[0] == "交易方式":
+                    for k in rule_to_cp[:-1]:
+                        new_rule.append(k)
                 else:
                     for k in rule_to_cp[:-1]:
                         new_rule.append(k)

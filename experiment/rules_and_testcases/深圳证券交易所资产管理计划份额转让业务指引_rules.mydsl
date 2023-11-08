@@ -3,7 +3,7 @@ sourceId 第十三条
 focus: 时间
 before: []
 after: []
-	if 资管计划份额的转让时间 in {[9:15-11:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十三条.1.2.2,1
@@ -11,7 +11,7 @@ sourceId 第十三条
 focus: 时间
 before: []
 after: []
-	if 资管计划份额的转让时间 in {[9:15-11:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十三条.1.3.1,1
@@ -19,7 +19,7 @@ sourceId 第十三条
 focus: 时间
 before: []
 after: []
-	if 资管计划份额的转让时间 in {[9:15-11:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十三条.1.3.2,1
@@ -27,7 +27,7 @@ sourceId 第十三条
 focus: 时间
 before: []
 after: []
-	if 资管计划份额的转让时间 in {[9:15-11:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十三条.1.4.1,1
@@ -35,7 +35,7 @@ sourceId 第十三条
 focus: 时间
 before: []
 after: []
-	if 资管计划份额的转让时间 in {[9:15-11:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十三条.1.4.2,1
@@ -43,7 +43,7 @@ sourceId 第十三条
 focus: 时间
 before: []
 after: []
-	if 资管计划份额的转让时间 in {[9:15-11:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十三条.1.5.1,1
@@ -51,7 +51,7 @@ sourceId 第十三条
 focus: 时间
 before: []
 after: []
-	if 资管计划份额的转让时间 in {[9:15-11:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报' and 申报要素 is '证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期'
+	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报' and 申报要素 is '证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十三条.1.5.2,1
@@ -59,71 +59,7 @@ sourceId 第十三条
 focus: 时间
 before: []
 after: []
-	if 资管计划份额的转让时间 in {[9:15-11:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报' and 申报要素 is '证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十三条.2.2.1,1
-sourceId 第十三条
-focus: 时间
-before: []
-after: []
-	if 资管计划份额的转让时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十三条.2.2.2,1
-sourceId 第十三条
-focus: 时间
-before: []
-after: []
-	if 资管计划份额的转让时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '点击成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十三条.2.3.1,1
-sourceId 第十三条
-focus: 时间
-before: []
-after: []
-	if 资管计划份额的转让时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十三条.2.3.2,1
-sourceId 第十三条
-focus: 时间
-before: []
-after: []
-	if 资管计划份额的转让时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '询价成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十三条.2.4.1,1
-sourceId 第十三条
-focus: 时间
-before: []
-after: []
-	if 资管计划份额的转让时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十三条.2.4.2,1
-sourceId 第十三条
-focus: 时间
-before: []
-after: []
-	if 资管计划份额的转让时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '竞买成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十三条.2.5.1,1
-sourceId 第十三条
-focus: 时间
-before: []
-after: []
-	if 资管计划份额的转让时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报' and 申报要素 is '证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十三条.2.5.2,1
-sourceId 第十三条
-focus: 时间
-before: []
-after: []
-	if 资管计划份额的转让时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报' and 申报要素 is '证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期'
+	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '协商成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报' and 申报要素 is '证券代码、交易方向、价格、数量、证券账户号码、本方及对手方信息、结算方式、结算周期'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十三条.1.1.1,1.1
@@ -131,7 +67,7 @@ sourceId 第十三条
 focus: 时间
 before: []
 after: []
-	if 资管计划份额的转让时间 in {[9:15-11:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报' and 申报类型 is '限价申报'
+	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报' and 申报类型 is '限价申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十三条.1.1.2,1.1
@@ -139,23 +75,7 @@ sourceId 第十三条
 focus: 时间
 before: []
 after: []
-	if 资管计划份额的转让时间 in {[9:15-11:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报' and 申报类型 is '限价申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十三条.2.1.1,1.1
-sourceId 第十三条
-focus: 时间
-before: []
-after: []
-	if 资管计划份额的转让时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报' and 申报类型 is '限价申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十三条.2.1.2,1.1
-sourceId 第十三条
-focus: 时间
-before: []
-after: []
-	if 资管计划份额的转让时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报' and 申报类型 is '限价申报'
+	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方式 is '匹配成交' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报' and 申报类型 is '限价申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十四条.1.2.1,第十四条.2.2.1,第十四条.3.2.1,1
