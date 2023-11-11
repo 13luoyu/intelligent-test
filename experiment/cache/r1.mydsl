@@ -1,69 +1,111 @@
 define 交易市场 = 深圳证券交易所
 define 交易品种 = 证券
 
-rule 第三十二条.1
-sourceId 第三十二条
-focus: 价格
-	if 初始交易的申报价格 is "到期购回年收益"
+rule 第二十七条.1
+sourceId 第二十七条
+focus: 时间
+	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 交易时间 is "每个交易日的9:15至11:30、13:00至15:30"
 	then 结果 is "成功"
 
-rule 第三十二条.2
-sourceId 第三十二条
-focus: 价格
-	if 提前购回价格 is "前购回年收益"
+rule 第二十七条.2
+sourceId 第二十七条
+focus: 订单连续性操作
+	if 状态 is "天全天停牌、处于临时停牌期间或者停牌至收市的" and 交易品种 is "可转债" and 系统 is "本所" and 交易方式 is "协商成交交易申"
+	then 结果 is "不接受其"
+
+rule 第二十七条.3
+sourceId 第二十七条
+focus: 时间
+	if 交易方式 is "盘后定价成交方" and 时间 is "每个交易日的15:05至15:30"
 	then 结果 is "成功"
 
-rule 第三十二条.3
-sourceId 第三十二条
-focus: 价格
-	if 初始交易申报价格和提前购回价格的最小变动单位 is "人民币" and 价格 is "0.001元"
-	then 结果 is "成功"
+rule 第二十七条.4
+sourceId 第二十七条
+focus: 订单连续性操作
+	if 状态 is "当天全天停牌或者停牌至收" and 交易品种 is "市的可转债" and 系统 is "本所" and 交易方式 is "盘后定价成交"
+	then 结果 is "不接受其"
 
-rule 第三十三条.1
-sourceId 第三十三条
+rule 第二十八条.1
+sourceId 第二十八条
 focus: 数量
-	if 初始交易最低申报数量 is "10张" and 数量 is "10张的整数倍"
+	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 单笔交易数量 不低于 "50万元面额" and 数量 不低于 "50万元"
 	then 结果 is "成功"
 
-rule 第三十三条.2
-sourceId 第三十三条
+rule 第二十八条.2
+sourceId 第二十八条
 focus: 数量
-	if 提前购回交易最低申报数量 is "1张" and 数量 is "1张的整数倍"
+	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "盘后定价成交" and 单笔交易数量 不低于 "50万元面额" and 数量 is "50万元"
 	then 结果 is "成功"
 
-rule 第三十四条.1
-sourceId 第三十四条
-focus: 订单连续性操作
-	if 操作部分 is "交易指令" and 操作 is "申报" and 约束 is "通过证券公司已开通权限的交易单元"
+rule 第二十八条.3
+sourceId 第二十八条
+focus: 数量
+	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 数量 不低于 "50万元"
 	then 结果 is "成功"
 
-rule 第三十五条.1
-sourceId 第三十五条
-focus: 订单连续性操作
-	if 事件 is "初始交易和提前购回交易申报成功后" and 操作 is "撤销"
-	then 结果 is "不得"
-
-rule 第三十六条.1
-sourceId 第三十六条
-focus: 订单连续性操作
-	if 操作人 is "证券公司" and 操作 is "按照客户" and 操作 is "初始委托的时间" and 操作 is "顺序向交易系统申报初始" and 操作部分 is "交易" and 操作 is "即时冻结客户资金" and 操作部分 is "账户内的相" and 操作部分 is "资金" and 约束 is "先后"
-	then 结果 is "有效"
-
-rule 第三十八条.1
-sourceId 第三十八条
-focus: 订单连续性操作
-	if 交易方式 is "到期购回交易" and 操作人 is "证券公司" and 操作 is "申报"
-	then 结果 is "不需"
-
-rule 第三十八条.2
-sourceId 第三十八条
-focus: 订单连续性操作
-	if 交易方式 is "提前购回交易" and 操作人 is "证券公司" and 操作 is "向交易系统申报提" and 操作部分 is "前购回交易"
+rule 第二十八条.4
+sourceId 第二十八条
+focus: 数量
+	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "盘后定价成交" and 数量 不低于 "50万元"
 	then 结果 is "成功"
 
-rule 第三十八条.3
-sourceId 第三十八条
+rule 第二十九条.1
+sourceId 第二十九条
 focus: 订单连续性操作
-	if 事件 is "证券公司提前购回申报经交易系统确认后"
+	if 申报类型 is "意向申报" and 操作 is "撤销"
+	then 结果 is "可以"
+
+rule 第二十九条.2
+sourceId 第二十九条
+focus: 订单连续性操作
+	if 系统 is "本所" and 协议大宗交易成交申报指令 is "约定号" and 交易方式 is "证券代码" and 深股通限价申报指令 is "买卖方向" and 深股通限价申报指令 is "价格" and 深股通限价申报指令 is "数量" and 操作部分 is "匹配" and 操作部分 is "成交申报" and 操作 is "成交确认"
+	then 结果 is "成功"
+
+rule 第二十九条.3
+sourceId 第二十九条
+focus: 订单连续性操作
+	if 操作人 is "市场所有参与者" and 操作 is "提交" and 操作部分 is "成交申报" and 申报类型 is "定价申报" and 系统 is "本所" and 价格 is "指定的价格"
+	then 结果 is "可以"
+
+rule 第二十九条.4
+sourceId 第二十九条
+focus: 订单连续性操作
+	if 操作人 is "市场所有参与者" and 系统 is "本所"
+	then 结果 is "全部"
+
+rule 第二十九条.5
+sourceId 第二十九条
+focus: 订单连续性操作
+	if 操作人 is "市场所有参与者" and 操作 is "提交" and 操作部分 is "成交申报" and 系统 is "本所" and 价格 is "指定的价格" and 约束 is "时间优先"
+	then 结果 is "可以"
+
+rule 第二十九条.6
+sourceId 第二十九条
+focus: 订单连续性操作
+	if 操作人 is "市场所有参与者" and 系统 is "本所" and 约束 is "时间优先"
+	then 结果 is "部分成交"
+
+rule 第二十九条.7
+sourceId 第二十九条
+focus: 价格
+	if 申报类型 is "定价申报" and 数量 is "每笔成交的数量" and 交易方式 is "协商成交" and 价格 满足 "交易金额"
+	then 结果 is "成功"
+
+rule 第二十九条.8
+sourceId 第二十九条
+focus: 价格
+	if 申报类型 is "定价申报" and 交易方式 is "协商成交" and 价格 满足 "交易金额" and 约束 is "最低限额"
+	then 结果 is "成功"
+
+rule 第三十一条.1
+sourceId 第三十一条
+focus: 价格
+	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 时间 is "上市首日" and 申报价格 is "发行价的上下30%范围内确定"
+	then 结果 is "成功"
+
+rule 第三十一条.2
+sourceId 第三十一条
+focus: 价格
+	if 交易方式 is "协商成交" and 时间 is "除上市首日外" and 申报价格在 is "涨跌幅限制价格范围内确"
 	then 结果 is "成功"
 

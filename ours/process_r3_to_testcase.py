@@ -3,6 +3,8 @@ import re
 import z3
 import pprint
 
+from ours.process_tco_to_r1 import is_time_key
+
 '''tsy修改：346行'''
 
 
@@ -227,6 +229,12 @@ def list_conditions(defines, vars, rules):
                     vars[rule_id][key][1].append(int(value3 / 10))
 
 
+        if len(time_constraints) == 1:
+            for idc, c in enumerate(rules[rule_id]['constraints']):
+                if is_time_key(c['key']):
+                    del rules[rule_id]['constraints'][idc]
+                    del vars[rule_id][c['key']]
+                    break
         if len(time_constraints) > 0:
             # 生成正时间、反时间
             time_constraints = sorted(time_constraints)
@@ -275,7 +283,7 @@ def list_conditions(defines, vars, rules):
             del vars[id]
         if id in rules:
             del rules[id]
-    
+
     return vars
 
 

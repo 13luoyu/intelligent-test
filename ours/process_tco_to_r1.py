@@ -18,7 +18,7 @@ def is_num_key(key):
     return False
 
 def is_price_key(key):
-    if "价" in key or "基准" == key:
+    if "价" in key or "基准" == key or "金额" in key:
         return True
     return False
 

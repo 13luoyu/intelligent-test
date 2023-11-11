@@ -50,6 +50,8 @@ def token_classification_with_algorithm(tco, knowledge):
         for key in knowledge:
             if "交易方式" in key and isinstance(knowledge[key], list):
                 types += knowledge[key]
+            elif isinstance(knowledge[key], str) and "交易方式" == knowledge[key][-4:]:
+                types.append(key)
         for t in types:
             p = text.find(t)
             while p != -1:
@@ -308,7 +310,9 @@ def token_classification_with_algorithm(tco, knowledge):
             if i-2>=0 and "交易方式" in label[i] and "交易方式" in label[i+1]:
                 label = change(i-2, i+2, label, "value")
             i = text.find("申报", i+1)
-        # 5、“上下”改为和前后一致的标签
+        # 5、
+
+        # 6、“上下”改为和前后一致的标签
         i=0
         i=text.find("上下")
         while i != -1:

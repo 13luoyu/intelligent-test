@@ -1,7 +1,18 @@
 import json
 import re
+import hanlp
+import os
+from ours.process_r1_to_r2 import judge_op, is_num_key, is_price_key, is_time_key
+from experiment.tc import str_same
 
-from ours.process_r1_to_r2 import judge_op
+sts = hanlp.load(hanlp.pretrained.sts.STS_ELECTRA_BASE_ZH)
+threshold = 0.5
+
+def judge_same(s1, s2, method="alg"):
+    if method == "alg":
+        return str_same(s1, s2, threshold)
+    else:
+        return sts((s1, s2)) > threshold
 
 def compute_bsc(testcases, scenarios, f):
     # 处理scenarios
@@ -26,18 +37,41 @@ def compute_bsc(testcases, scenarios, f):
                 s_keys = list(s.keys())
                 t_keys = list(t.keys())
                 conflict = False
-                have_time, have_num, have_price = False, False, False
-                find_time, find_num, find_price = False, False, False
+                find_time, find_num, find_price = False, False, False  # 匹配的数目
+                # 统计s中的时间、数目、价格key
+                s_time_keys = []
+                for s_key in s_keys:
+                    if "时间" in s_key:
+                        s_time_keys.append(s_key)
+                
+                s_num_keys = []
+                for s_key in s_keys:
+                    if "数量" in s_key:
+                        s_num_keys.append(s_key)
+                
+                s_price_keys = []
+                for s_key in s_keys:
+                    if "价格" in s_key or "金额" in s_key:
+                        s_price_keys.append(s_key)
+
                 for t_key in t_keys:
                     if t_key in ["rule", "测试关注点", "testid"]:
                         continue
-                    if "时间" not in t_key and "数量" not in t_key and "价格" not in t_key and "金额" not in t_key:
+                    if t_key == "结果":
+                        # 必须相同
+                        if t[t_key] != s[t_key]:
+                            conflict = True
+                            break
+                    elif not is_time_key(t_key) and not is_num_key(t_key) and not is_price_key(t_key):
                         # 枚举约束
                         # 如果找到相同的value，就算相同
                         find = False
                         for s_key in s_keys:
-                            if t[t_key] in s[s_key].split(","):
-                                find = True
+                            for s_value in s[s_key].split(","):
+                                if judge_same(t[t_key], s_value):
+                                    find = True
+                                    break
+                            if find:
                                 break
                         if find:
                             continue
@@ -47,19 +81,22 @@ def compute_bsc(testcases, scenarios, f):
                         else:
                             conflict = True
                             break
-                    elif "时间" in t_key:
-                        s_time_keys = []
-                        for s_key in s_keys:
-                            if "时间" in s_key:
-                                s_time_keys.append(s_key)
+                    elif is_time_key(t_key):
                         if len(s_time_keys) == 0:
                             conflict = True
                             break
-                        have_time = True
                         find = False
                         for s_key in s_time_keys:
                             t_value = t[t_key]
                             s_value = s[s_key]
+                            if ":" not in t_value and ":" not in s_value:  # 时间 is 上市首日
+                                if judge_same(t_value, s_value):
+                                    find = True
+                                    break
+                                else:
+                                    continue
+                            elif ":" not in t_value or ":" not in s_value:
+                                continue
                             # t_value: '00:00:00-09:30:00' 或 '11:30:00-13:00:00' 或 '14:57:00-24:00:00'
                             # s_value: 非9:15至11:30,13:00至15:30
                             # 将s_value、t_value格式转化
@@ -125,15 +162,10 @@ def compute_bsc(testcases, scenarios, f):
                         if find:
                             find_time = True
 
-                    elif "数量" in t_key:
-                        s_num_keys = []
-                        for s_key in s_keys:
-                            if "数量" in s_key:
-                                s_num_keys.append(s_key)
+                    elif is_num_key(t_key):
                         if len(s_num_keys) == 0:
                             conflict = True
                             break
-                        have_num = True
                         find = False
                         for s_key in s_num_keys:
                             t_value = t[t_key]
@@ -152,7 +184,14 @@ def compute_bsc(testcases, scenarios, f):
                             for sv in s_value.split(","):
                                 fulfill = False
                                 for num in nums:
-                                    num = int(num)
+                                    if num.isdigit():
+                                        num = int(num)
+                                    else:
+                                        if judge_same(num,sv):
+                                            fulfill = True
+                                            break
+                                        else:
+                                            continue
                                     if "整数倍" in sv:
                                         value = int(re.findall(r"\d+", sv)[0])  # value的整数倍
                                         if num % value == 0 and not fei or num % value != 0 and fei:
@@ -175,15 +214,10 @@ def compute_bsc(testcases, scenarios, f):
                             find_num = True
 
                     else:  # "价格"/"金额" in t_key
-                        s_price_keys = []
-                        for s_key in s_keys:
-                            if "价格" in s_key or "金额" in s_key:
-                                s_price_keys.append(s_key)
                         if len(s_price_keys) == 0:
                             conflict = True
                             break
                         find = False
-                        have_price = False
                         for s_key in s_price_keys:
                             t_value = t[t_key]
                             s_value = s[s_key]
@@ -199,7 +233,7 @@ def compute_bsc(testcases, scenarios, f):
                                     if price.isdigit():
                                         price = float(price)
                                     else:
-                                        if price in sv:
+                                        if judge_same(price, sv):
                                             fulfill = True
                                             break
                                         else:
@@ -218,7 +252,7 @@ def compute_bsc(testcases, scenarios, f):
                                 break
                         if find:
                             find_price = True
-                if (not have_num or have_num and find_num) or (not have_price or have_price and find_price) or (not have_time or have_time and find_time):
+                if (len(s_time_keys) == 0 or len(s_time_keys) > 0 and find_time) or (len(s_num_keys) == 0 or len(s_num_keys) > 0 and find_num) or (len(s_price_keys) == 0 or len(s_price_keys) > 0 and find_price):
                     ...
                 else:
                     conflict = True
@@ -227,17 +261,23 @@ def compute_bsc(testcases, scenarios, f):
 
     for i, cover in enumerate(if_cover):
         if cover == 0:
-            f.write(str(i))
+            f.write(str(i+1))
             f.write("\n")
     return float(sum(if_cover)) / float(len(if_cover))
 
 
 if __name__ == "__main__":
-    testcase_file = "rules_and_testcases_part/data3_testcases.json"
-    scenario_file = "business_scenario/data3_scenario.txt"
-    testcases = json.load(open(testcase_file, "r", encoding="utf-8"))
-    scenarios = open(scenario_file, "r", encoding="utf-8").read().strip().split("\n")
     f = open("bsc.log", "w", encoding="utf-8")
-    bsc = compute_bsc(testcases, scenarios, f)
+    for file in os.listdir("business_scenario"):
+        # if "data1" not in file:
+        #     continue
+        testcase_file = f"rules_and_testcases_part/{file.split('_')[0]}_testcases.json"
+        scenario_file = f"business_scenario/{file}"
+        testcases = json.load(open(testcase_file, "r", encoding="utf-8"))
+        scenarios = open(scenario_file, "r", encoding="utf-8").read().strip().split("\n")
+        f.write(f"运行数据集{file.split('_')[0]}\n")
+        f.write("未覆盖的场景有:\n")
+        bsc = compute_bsc(testcases, scenarios, f)
+        print(f"数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}")
+        f.write(f"数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
     f.close()
-    print(f"文件{testcase_file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}")
