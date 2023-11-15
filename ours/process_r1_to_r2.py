@@ -317,7 +317,7 @@ def judge_op(value):
     
     if "不低于" in value or "达到" in value or "以上" in value:
         return ">="
-    if "不高于" in value or "以下" in value or "不超过" in value:
+    if "不高于" in value or "以下" in value or "不超过" in value or "以内" in value:
         return "<="
     if "低于" in value or "未达到" in value or "不足" in value or "小于" in value:
         return "<"

@@ -1,14 +1,12 @@
 # token classification任务
 
 import json
-from ours.token_classification import eval_model
-from utils.arguments import arg_parser
 from transformers import AutoModelForTokenClassification, AutoTokenizer
 import torch
 from utils.data_loader import read_dict
 import hanlp
 import re
-
+from ours.process_r1_to_r2 import is_num_key, is_price_key
 
 
 def change(begin, end, label, tag):
@@ -29,7 +27,6 @@ def change(begin, end, label, tag):
 def token_classification_with_algorithm(tco, knowledge):
     # 所有可以补的标签：
     # 交易品种、交易方式、结合规则、结果、系统、or、时间、价格、数量、op
-    # 但补可能会出现问题（比如原本是一个key，结果写成了交易方式），所以后面还需要修改
     # 还需要将标签修复完整
     HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
     for ri, rule in enumerate(tco):
@@ -39,6 +36,8 @@ def token_classification_with_algorithm(tco, knowledge):
         for key in knowledge:
             if "品种" in key and isinstance(knowledge[key], list):
                 types += knowledge[key]
+            elif isinstance(knowledge[key], str) and knowledge[key][-2:] == "股票":
+                types += key
         # print(len(text), len(label))
         for t in types:
             p = text.find(t)
@@ -217,17 +216,21 @@ def token_classification_with_algorithm(tco, knowledge):
                     while i < len(text) and text[i] not in stopsignal:
                         i += 1
                     b = i
-                    if ":" not in text[a:b]:
+                    c=a-1
+                    while c >= 0 and text[c] not in stopsignal:
+                        c-=1
+                    if "数量" in text[c:a] and ":" not in text[a:b]:
                         if "整数倍" in text[a:b]:
                             b = text[a:b].find("整数倍") + a + 3
+                            label = change(a, b, label, "数量")
                         if a-2 > 0 and "不足" == text[a-2:a] and "部分" in text[a:b]:
                             a = a-2
                             b = text[a:b].find("部分") + a + 2
-                        label = change(a, b, label, "数量")
+                            label = change(a, b, label, "数量")
                 else:
                     i += 1
         # 价格
-        if "价格" in text:
+        if "价格" in text or "金额" in text:
             i = 0
             a, b = -1, -1
             while i < len(text):
@@ -236,8 +239,12 @@ def token_classification_with_algorithm(tco, knowledge):
                     while i < len(text) and text[i] not in stopsignal:
                         i += 1
                     b = i
-                    if ":" not in text[a:b]:
-                        label = change(a, b, label, "价格")
+                    c=a-1
+                    while c >= 0 and text[c] not in stopsignal:
+                        c-=1
+                    if "价格" in text[c:a] or "金额" in text[c:a]:
+                        if ":" not in text[a:b]:
+                            label = change(a, b, label, "价格")
                 else:
                     i += 1
         # key value
@@ -310,25 +317,117 @@ def token_classification_with_algorithm(tco, knowledge):
             if i-2>=0 and "交易方式" in label[i] and "交易方式" in label[i+1]:
                 label = change(i-2, i+2, label, "value")
             i = text.find("申报", i+1)
-        # 5、
-
+        
+        
+        # 5、解决数量/价格 op/为 数量/价格的现象，将第一个数量/价格改为key
+        i = 0
+        count, l = 0, ""
+        a, b = 0, 0
+        while i < len(label):
+            if "价格" in label[i]:
+                if count == 0:
+                    count = 1
+                    l = "价格"
+                    a = i
+                elif count == 2:
+                    if l == "价格":
+                        # 将前面的价格改为key
+                        label = change(a, b, label, "key")
+                        while "价格" in label[i]:
+                            i += 1
+                        i-=1  # 结尾有一个统一的i+=1
+                    else:  # 价格 op 数量
+                        if is_price_key(text[a:b]):
+                            label = change(a, b, label, "key")
+                            a = i
+                            while "数量" in label[i] or "价格" in label[i]:
+                                i += 1
+                            b = i
+                            i-=1
+                            label = change(a, b, label, "价格")
+                        elif is_num_key(text[a:b]):
+                            label = change(a, b, label, "key")
+                            a = i
+                            while "数量" in label[i] or "价格" in label[i]:
+                                i += 1
+                            b = i
+                            i-=1
+                            label = change(a, b, label, "数量")
+                    count = 0
+                    a = 0
+                    b = 0
+            elif "数量" in label[i]:
+                if count == 0:
+                    count = 1
+                    l = "数量"
+                    a = i
+                elif count == 2:
+                    if l == "数量":
+                        label = change(a, b, label, "key")
+                        while "数量" in label[i]:
+                            i += 1
+                        i-=1
+                    else:
+                        if is_price_key(text[a:b]):
+                            label = change(a, b, label, "key")
+                            a = i
+                            while "数量" in label[i] or "价格" in label[i]:
+                                i += 1
+                            b = i
+                            i-=1
+                            label = change(a, b, label, "价格")
+                        elif is_num_key(text[a:b]):
+                            label = change(a, b, label, "key")
+                            a = i
+                            while "数量" in label[i] or "价格" in label[i]:
+                                i += 1
+                            b = i
+                            i-=1
+                            label = change(a, b, label, "数量")
+                    count = 0
+                    a = 0
+                    b = 0
+            elif "数量" not in label[i] and "价格" not in label[i]:
+                if count == 1 and b == 0:
+                    b = i
+                if label[i] == "O" and text[i] == "为" or "op" in label[i]:
+                    if count == 1:
+                        count = 2
+                else:
+                    count = 0
+            i += 1
         # 6、“上下”改为和前后一致的标签
         i=0
         i=text.find("上下")
         while i != -1:
-            if i+2 < len(text):
-                next_lb = label[i+2]
-            if i-1 >= 0:
-                last_lb = label[i-1]
-            if next_lb[2:] == last_lb[2:]:
-                label[i] = label[i+1] = "I-" + last_lb[2:]
+            a, b = i-1, i+2
+            a -= 1
+            b += 1
+            while a > 0:
+                if label[a] != "O" and label[a] == label[a+1]:
+                    a-=1
+                else:
+                    a += 1
+                    label_a = label[a] if "-" not in label[a] else label[a][2:]
+                    break
+            while b < len(text):
+                if label[b] != "O" and label[b] == label[b-1]:
+                    b += 1
+                else:
+                    b -= 1
+                    label_b = label[b] if "-" not in label[b] else label[b][2:]
+                    break
+            if label_a == label_b:
+                label = change(a,b+1,label,label_a)
+            else:
+                label = change(a,b+1,label,label_b)
             i = text.find("上下", i+1)
 
         # 3、结束之后扫描一遍，如果改标签了，则将开始标签设为B-，中间设为I-
         last = "O"
         for i, l in enumerate(label):
             if i > 0 and "B-" in label[i-1]:
-                if l == "O" or l[2:] != last:
+                if (l == "O" or l[2:] != last) and "or" not in label[i-1]:
                     label[i-1] = "O"
                     last = "O"
             if l != "O":

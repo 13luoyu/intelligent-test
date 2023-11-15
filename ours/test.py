@@ -30,4 +30,10 @@ def test_r3_testcase():
 if __name__ == "__main__":
     # test_r1_r2()
     # test_r2_r3()
-    test_r3_testcase()
+    # test_r3_testcase()
+    a = [1,2,3,4,5]
+    for ai in a:
+        print(ai)
+        if ai == 3:
+            a.insert(0, 100)
+    print(a)

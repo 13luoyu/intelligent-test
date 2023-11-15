@@ -7,7 +7,7 @@
     {
         "id": "第二十八条",
         "text": "向不特定对象发行的可转债采用协商成交、盘后定价成交方式的，单笔交易数量不低于50万元面额，或者交易金额不低于50万元。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-key I-key I-key I-key I-key I-key B-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-or I-or I-or B-key I-key I-key B-op I-op I-op B-数量 I-数量 I-数量 I-数量 O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-key I-key I-key I-key I-key I-key B-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-or I-or I-or B-key I-key I-key B-op I-op I-op B-价格 I-价格 I-价格 I-价格 O"
     },
     {
         "id": "第二十九条",
@@ -17,6 +17,6 @@
     {
         "id": "第三十一条",
         "text": "向不特定对象发行的可转债上市首日，协商成交申报价格在发行价的上下30%范围内确定。除上市首日外，协商成交申报价格在当日涨跌幅限制价格范围内确定。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-时间 I-时间 I-时间 I-时间 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-key I-key I-key I-key I-key O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O"
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-时间 I-时间 I-时间 I-时间 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-key I-key I-key I-key O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-key I-key I-key I-key I-key O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O"
     }
 ]

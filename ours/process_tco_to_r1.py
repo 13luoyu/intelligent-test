@@ -139,6 +139,12 @@ def read_OBI_to_rule(texts, labels):
         elif texts[i] == "且" or texts[i] == "但":
             sentence_and.append(len(stack))
     sentence_separate_2.pop()  # 句子的结尾一定是。而这个。无用
+    
+    # 将stack中的申报类型显式点出
+    for i, s in enumerate(stack):
+        key, value = list(s.keys())[0], s[list(s.keys())[0]]
+        if len(value) >= 4 and value[-2:] == "申报" and "性" not in value:
+            stack[i] = {"申报类型":value}
     # with open("rules_cache/r1_step1.txt", "a", encoding="utf-8") as f:
     #     s = pprint.pformat(stack)
     #     f.write(s + "\n\n")
@@ -159,6 +165,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
     # print(sentence_separate_2)
     ss = []
     last_or = 0
+    fan = 0
     ss.append([])  # 按照插入的顺序排列键-值对
     ss_now = 0  # 每次后面出现新的key，它的对应key-value会被添加到ss[ss_now:]的所有字典中
     for cnt, kv in enumerate(stack):
@@ -189,10 +196,18 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                 new_rule = []
                 # 将除了or对应的键之外的所有key-value对复制
                 # 如果or对应的键是操作、操作部分，则不复制这两个
+                # 如果or对应的是key、op、value，则不复制这三个
                 if len(rule_to_cp) > 1 and cnt+2 < len(stack) and ((list(rule_to_cp[-2].keys())[0] == "操作" and list(rule_to_cp[-1].keys())[0] == "操作部分") or (list(rule_to_cp[-1].keys())[0] == "操作" and list(rule_to_cp[-2].keys())[0] == "操作部分")) and (list(stack[cnt+1].keys())[0] == "操作" and list(stack[cnt+2].keys())[0] == "操作部分" or list(stack[cnt+1].keys())[0] == "操作部分" and list(stack[cnt+2].keys())[0] == "操作"):
                     for k in rule_to_cp[:-2]:
                         new_rule.append(k)
                     last_or = 2
+                elif len(rule_to_cp) > 2 and cnt+3 < len(stack) and (list(rule_to_cp[-3].keys())[0] == "key" and list(rule_to_cp[-2].keys())[0] == "op" and (is_num_key(list(rule_to_cp[-1].keys())[0]) or is_price_key(list(rule_to_cp[-1].keys())[0]))) and (list(stack[cnt+1].keys())[0] == "key" and list(stack[cnt+2].keys())[0] == "op" and (is_num_key(list(stack[cnt+3].keys())[0]) or is_price_key(list(stack[cnt+3].keys())[0]))):
+                    if "不" in rule_to_cp[-2]['op']:
+                        rule_to_cp[-2]['op'] = rule_to_cp[-2]['op'][rule_to_cp[-2]['op'].find("不")+1:]
+                    else:
+                        rule_to_cp[-2]['op'] = "不" + rule_to_cp[-2]['op']
+                    fan += 1
+                    continue
                 elif len(rule_to_cp) > 0 and cnt+1 < len(stack) and list(rule_to_cp[-1].keys())[0] == "交易方式" and list(stack[cnt+1].keys())[0] == "交易方式":
                     for k in rule_to_cp[:-1]:
                         new_rule.append(k)
@@ -203,6 +218,18 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                 new_rules.append(new_rule)
             ss += new_rules
             continue
+        if fan > 0:
+            # 将所有结果改为不成功
+            for rule in ss[ss_now:]:
+                find = False
+                for kv_ in rule:
+                    key_ = list(kv_.keys())[0]
+                    value_ = kv_[key_]
+                    if key_ == "结果":
+                        kv_[key_] = "不成功"
+                        find = True
+                if not find:
+                    rule.insert(0, {"结果":"不成功"})
         if_add = False  # 判断当前的key-value是否被添加到了某一个规则中，如果没有，就说明出现了冲突，需要分裂
         for s in ss[ss_now:]:
             find = False
@@ -211,6 +238,8 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                     find = True
                     find_value = si[key]
                     break
+            if last_or > 0:
+                find = True
             if find:
                 if key == "交易品种":  
                     replace, v = judge_tradetype_compose(find_value, value)
@@ -226,7 +255,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if "一次性" in k[list(k.keys())[0]]:
                             special = True
                     if last_or > 0:
-                        last_or = 0
+                        last_or -= 1
                         rule_num = len(ss[ss_now:])
                         for rule_to_add in ss[int(ss_now + rule_num/2):]:
                             rule_to_add.append({key:value})
@@ -318,7 +347,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                 elif key == "操作人":
                     if_add = True
                     if last_or > 0:
-                        last_or = 0
+                        last_or -= 1
                         rule_num = len(ss[ss_now:])
                         for rule_to_add in ss[int(ss_now + rule_num/2):]:
                             rule_to_add.append({key:value})
@@ -368,7 +397,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                     break
                 elif key == "key":
                     if last_or > 0:
-                        last_or = 0
+                        last_or -= 1
                         rule_num = len(ss[ss_now:])
                         for rule_to_add in ss[int(ss_now + rule_num/2):]:
                             rule_to_add.append({key:value})
@@ -389,7 +418,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                             
                 elif key == "价格":
                     if last_or > 0:
-                        last_or = 0
+                        last_or -= 1
                         rule_num = len(ss[ss_now:])
                         for rule_to_add in ss[int(ss_now + rule_num/2):]:
                             rule_to_add.append({key:value})
@@ -407,7 +436,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                 elif key == "时间":
                     if last_or > 0:
                         if_add = True
-                        last_or = 0
+                        last_or -= 1
                         rule_num = len(ss[ss_now:])
                         for rule_to_add in ss[int(ss_now + rule_num/2):]:
                             rule_to_add.append({key:value})
@@ -422,7 +451,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                 elif key == "系统":
                     if last_or > 0:
                         if_add = True
-                        last_or = 0
+                        last_or -= 1
                         rule_num = len(ss[ss_now:])
                         for rule_to_add in ss[int(ss_now + rule_num/2):]:
                             rule_to_add.append({key:value})
@@ -433,7 +462,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                 elif key == "value":
                     if last_or > 0:
                         if_add = True
-                        last_or = 0
+                        last_or -= 1
                         rule_num = len(ss[ss_now:])
                         for rule_to_add in ss[int(ss_now + rule_num/2):]:
                             rule_to_add.append({key:value})
@@ -503,6 +532,22 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if_add = True
                         break
                 elif key == "op":
+                    if fan > 0:
+                        fan -= 1
+                        if "不" in value:
+                            value = value[value.find("不")+1:]
+                        else:
+                            value = "不" + value
+                        s.append({key:value})
+                        if_add = True
+                        break
+                    if last_or > 0:
+                        last_or -= 1
+                        rule_num = len(ss[ss_now:])
+                        for rule_to_add in ss[int(ss_now + rule_num/2):]:
+                            rule_to_add.append({key:value})
+                        if_add = True
+                        break
                     s.append({key:value})
                     if_add = True
                     break

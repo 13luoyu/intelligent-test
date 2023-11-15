@@ -18,8 +18,8 @@ def generate_rules_testcases_all():
 def generate_rules_testcases_part():
     for file in os.listdir("data/"):
         if ".txt" in file:
-            if "data4" not in file:
-                continue
+            # if "data5" not in file:
+            #     continue
             filename = file[:-4]
             begin_time = time.time()
             nlp_process("data/" + file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1696264421", "../data/tc_data.dict")

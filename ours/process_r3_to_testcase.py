@@ -3,7 +3,7 @@ import re
 import z3
 import pprint
 
-from ours.process_tco_to_r1 import is_time_key
+from ours.process_tco_to_r1 import is_time_key, is_num_key, is_price_key
 
 '''tsy修改：346行'''
 
@@ -51,8 +51,12 @@ def list_conditions(defines, vars, rules):
             # 规则是仅将这个值加入vars，不考虑其他值
             if op == "is":
                 vars[rule_id][key].append(value)
-                if "时间" in key or "数量" in key or "价格" in key or "金额" in key:
-                    vars[rule_id][key].append("非" + value)
+                if is_time_key(key) or is_num_key(key) or is_price_key(key):
+                    if "不" in value:
+                        value = value[value.find("不")+1:]
+                    else:
+                        value = "非" + value
+                    vars[rule_id][key].append(value)
 
             # part 2 连接词是 in
             elif op == "in":
