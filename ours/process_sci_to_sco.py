@@ -2,6 +2,7 @@
 import json
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch
+from utils.try_gpu import try_gpu
 
 
 # def sequence_classification(in_file: str, out_file: str, model_path: str, batch_size: int = 8, sentence_max_length: int = 512):
@@ -19,12 +20,13 @@ def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sen
     
     def predict(model, tokenizer, inputs):
         model.eval()
-        model = model.cuda()
+        device = try_gpu()
+        model = model.to(device)
         hats = []
         for start in range(0, len(inputs), batch_size):
             batch = inputs[start:start+batch_size]
             batch = tokenizer(batch, max_length=sentence_max_length, padding="max_length", truncation=True, return_tensors="pt")
-            input_ids = batch.input_ids.cuda()
+            input_ids = batch.input_ids.to(device)
             logits = model(input_ids=input_ids).logits
             _, outputs = torch.max(logits, dim=1)
             outputs = outputs.cpu().numpy()

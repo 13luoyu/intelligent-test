@@ -7,6 +7,7 @@ from utils.data_loader import read_dict
 import hanlp
 import re
 from ours.process_r1_to_r2 import is_num_key, is_price_key
+from utils.try_gpu import try_gpu
 
 
 def change(begin, end, label, tag):
@@ -466,13 +467,14 @@ def token_classification(tci: list, knowledge_file: str, model_path: str, dict_f
 
     def predict(model, tokenizer, inputs):
         model.eval()
-        model = model.cuda()
+        device = try_gpu()
+        model = model.to(device)
         hats = []
         for start in range(0, len(inputs), batch_size):
             batch = inputs[start:start+batch_size]
             input_copy = batch.copy()
             batch = tokenizer(batch, max_length=sentence_max_length, padding="max_length", truncation=True, return_tensors="pt")
-            input_ids = batch.input_ids.cuda()
+            input_ids = batch.input_ids.to(device)
             logits = model(input_ids=input_ids).logits
             _, outputs = torch.max(logits, dim=2)
             outputs = outputs.cpu().numpy()

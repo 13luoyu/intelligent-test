@@ -18,7 +18,7 @@ def is_num_key(key):
     return False
 
 def is_price_key(key):
-    if "价" in key or "基准" == key or "金额" in key:
+    if ("价" in key or "基准" == key or "金额" in key) and "要素" not in key and "指令" not in key and "类型" not in key:
         return True
     return False
 
@@ -238,9 +238,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                     find = True
                     find_value = si[key]
                     break
-            if last_or > 0:
-                find = True
-            if find:
+            if find or fan > 0:
                 if key == "交易品种":  
                     replace, v = judge_tradetype_compose(find_value, value)
                     if replace:
@@ -250,6 +248,11 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                     else:
                         ...  # 冲突
                 elif key == "数量":  # 如果是数量约束，可能是一条规则中对数量有多条约束
+                    if fan > 0:
+                        fan -= 1
+                        s.append({key:value})
+                        if_add = True
+                        continue
                     special = False
                     for k in ss[-1]:
                         if "一次性" in k[list(k.keys())[0]]:
@@ -417,6 +420,11 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                             if_add = True
                             
                 elif key == "价格":
+                    if fan > 0:
+                        fan -= 1
+                        s.append({key:value})
+                        if_add = True
+                        continue
                     if last_or > 0:
                         last_or -= 1
                         rule_num = len(ss[ss_now:])
@@ -425,14 +433,15 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if_add = True
                         break
                     else:
-                        # 如果读到一个价格时，上面的价格不是数值，则不冲突
-                        for si in s[::-1]:
-                            ki = list(si.keys())[0]
-                            vi = si[ki]
-                            if ki == "价格":
-                                if len(re.findall(r"\d+.\d+", vi)) == 0:
-                                    s.append({key:value})
-                                    if_add = True
+                        # for si in s[::-1]:
+                        #     ki = list(si.keys())[0]
+                        #     vi = si[ki]
+                        #     if ki == "价格":
+                        #         if len(re.findall(r"\d+.\d+", vi)) == 0:
+                        #             s.append({key:value})
+                        #             if_add = True
+                        s.append({key:value})
+                        if_add = True
                 elif key == "时间":
                     if last_or > 0:
                         if_add = True
@@ -533,14 +542,13 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         break
                 elif key == "op":
                     if fan > 0:
-                        fan -= 1
                         if "不" in value:
                             value = value[value.find("不")+1:]
                         else:
                             value = "不" + value
                         s.append({key:value})
                         if_add = True
-                        break
+                        continue
                     if last_or > 0:
                         last_or -= 1
                         rule_num = len(ss[ss_now:])
@@ -550,7 +558,6 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         break
                     s.append({key:value})
                     if_add = True
-                    break
             else:  # 一条规则中没有找到key，就添加进去
                 s.append({key:value})
                 if_add = True

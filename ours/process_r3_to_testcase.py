@@ -34,6 +34,11 @@ def list_conditions(defines, vars, rules):
     conflict_to_delete = []
     for rule_id in rules:
         rule = rules[rule_id]
+        for result in rule['results']:
+            if result['key'] == "状态":
+                rule['constraints'].append({"key":"结果状态", "operation":"is", "value":result['value']})
+                vars[rule_id]["结果状态"] = []
+                break
         constraints = rule["constraints"]
         # 存储所有用z3求解的z3格式约束
         cons = dict()  # cons[条件名] = [条件列表]
@@ -49,14 +54,28 @@ def list_conditions(defines, vars, rules):
 
             # part 1 连接词是 is
             # 规则是仅将这个值加入vars，不考虑其他值
+            # 如果该key已经存在，则序号递增，如操作，操作2，操作3...
+            opposite_tnp = True
             if op == "is":
-                vars[rule_id][key].append(value)
-                if is_time_key(key) or is_num_key(key) or is_price_key(key):
+                real_key = key
+                if len(vars[rule_id][key]) > 0:
+                    index = 2
+                    while f"{key}{index}" in vars[rule_id]:
+                        index += 1
+                    if opposite_tnp and index > 3:
+                        conflict_to_delete.append(rule_id)
+                        break
+                    vars[rule_id][f"{key}{index}"] = [value]
+                    real_key = f"{key}{index}"
+                else:
+                    vars[rule_id][key].append(value)
+                # 这个地方用于生成时间、数量、价格的枚举变量的反，但如果不注释掉，生成测试用例非常多
+                if opposite_tnp and (is_time_key(key) or is_num_key(key) or is_price_key(key)):
                     if "不" in value:
                         value = value[value.find("不")+1:]
                     else:
                         value = "非" + value
-                    vars[rule_id][key].append(value)
+                    vars[rule_id][real_key] = [[vars[rule_id][real_key][0]], [value]]
 
             # part 2 连接词是 in
             elif op == "in":
@@ -232,7 +251,8 @@ def list_conditions(defines, vars, rules):
                     vars[rule_id][key][1].append(int(value2 - value3 / 10))
                     vars[rule_id][key][1].append(int(value3 / 10))
 
-
+        if rule_id in conflict_to_delete:
+            continue
         if len(time_constraints) == 1:
             for idc, c in enumerate(rules[rule_id]['constraints']):
                 if is_time_key(c['key']):
@@ -259,6 +279,14 @@ def list_conditions(defines, vars, rules):
                         value.append(t)
                 else:
                     value.append(t)
+            # if len(value) == 2:
+            #     value = [value[0][:-1] + "," + value[1][1:]]
+            # elif len(value) >= 3:
+            #     value1 = value[0][:-1]
+            #     for i in range(1, len(value)-1, 1):
+            #         value1 += "," + value[i][1:-1]
+            #     value1 += "," + value[-1][1:]
+            #     value = [value1]
             not_valid_value = []  # value的补集
             last = "00:00:00"
             last_valid = False
@@ -270,6 +298,14 @@ def list_conditions(defines, vars, rules):
                     last_valid = ~last_valid
             if last != "24:00:00":
                 not_valid_value.append("[" + last + "-" + "24:00:00" + "]")
+            # if len(not_valid_value) == 2:
+            #     not_valid_value = [not_valid_value[0][:-1] + "," + not_valid_value[1][1:]]
+            # elif len(not_valid_value) >= 3:
+            #     value1 = not_valid_value[0][:-1]
+            #     for i in range(1, len(not_valid_value)-1, 1):
+            #         value1 += "," + not_valid_value[i][1:-1]
+            #     value1 += "," + not_valid_value[-1][1:]
+            #     not_valid_value = value1
             vars[rule_id]["交易时间"] = [value, not_valid_value]
 
         

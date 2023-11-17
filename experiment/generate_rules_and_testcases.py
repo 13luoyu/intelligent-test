@@ -5,6 +5,8 @@ import os
 def generate_rules_testcases_all():
     for file in os.listdir("data/"):
         if ".pdf" in file:
+            # if "深圳证券交易所创业板交易特别规定" not in file:
+            #     continue
             filename = file[:-4]
             print(f"文件《{filename}》开始执行")
             begin_time = time.time()
@@ -18,7 +20,7 @@ def generate_rules_testcases_all():
 def generate_rules_testcases_part():
     for file in os.listdir("data/"):
         if ".txt" in file:
-            # if "data5" not in file:
+            # if "data3" not in file:
             #     continue
             filename = file[:-4]
             begin_time = time.time()
@@ -30,5 +32,5 @@ def generate_rules_testcases_part():
 
 
 if __name__ == "__main__":
-    # generate_rules_testcases_all()
+    generate_rules_testcases_all()
     generate_rules_testcases_part()

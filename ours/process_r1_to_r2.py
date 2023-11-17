@@ -1,4 +1,5 @@
 import copy
+import pprint
 import re
 from ours.process_tco_to_r1 import is_num_key, is_price_key, is_time_key
 
@@ -391,12 +392,11 @@ def compose_rules_r1_r2(defines, vars, rules, preliminaries, rule_name = "rule")
     # "其他"补全
     vars, rules = supply_other_rules(vars, rules, preliminaries)
 
-    # 补全单规则相关的字段
-    vars, rules = supply_rules_on_prelim(defines, vars, rules, preliminaries)
-
     # 统一规则下的子规则组合，申报数量<100...0和其他规则的组合
     vars, rules = subrule_compose(vars, rules)
     
+    # 补全单规则相关的字段
+    vars, rules = supply_rules_on_prelim(defines, vars, rules, preliminaries)
 
     # 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内怎样怎样
     vars, rules = compute_other_time_in_rules(vars, rules, preliminaries)
@@ -478,64 +478,177 @@ def compose_nested_rules(vars, rules):
 
 
 
+def construct_tree(preliminaries, jypz):
+    arr = []
+    for key in list(preliminaries.keys()):
+        if "交易方式" in key and jypz in key:
+            for value in preliminaries[key]:
+                arr.append(["交易方式", value])
+    end = False
+    while not end:
+        end = True
+        new_arr = []
+        for kv in arr:
+            father_key, father_value = kv[-2], kv[-1]
+            add_old_kv = True
+            arr_local = []
+            for key in list(preliminaries.keys()):
+                # 大宗交易 必须在 大宗交易交易方式 的开头才行
+                if key.find(father_value) == 0 and isinstance(preliminaries[key], list):
+                    # 如果当前要添加的key、value已存在，跳过
+                    if key in kv:
+                        continue
+                    find = False
+                    for value in preliminaries[key]:
+                        if value in kv:
+                            find = True
+                            break
+                    if find:
+                        continue
+                    
+                    # 添加
+                    if len(arr_local) == 0:
+                        if "指令" in key or "要素" in key or "内容" in key:
+                            arr_local.append(copy.deepcopy(kv) + [key, ",".join(preliminaries[key])])
+                        else:
+                            for value in preliminaries[key]:
+                                new_kv = copy.deepcopy(kv)
+                                new_kv += [key, value]
+                                arr_local.append(new_kv)
+                    else:
+                        if "指令" in key or "要素" in key or "内容" in key:
+                            for kv1 in arr_local:
+                                kv1 += [key, ",".join(preliminaries[key])]
+                        else:
+                            a = []
+                            multi_num = len(preliminaries[key])
+                            for _ in range(multi_num):
+                                a += copy.deepcopy(arr_local)
+                            arr_local = a
+                            for i, value in enumerate(preliminaries[key]):
+                                for kvi in arr_local[int(len(arr_local)/multi_num*i):int(len(arr_local)/multi_num*(i+1))]:
+                                    kvi += [key, value]
+                    end = False
+                    add_old_kv = False
+                    break
+            if add_old_kv:
+                arr_local.append(kv)
+            new_arr += arr_local
+        arr = new_arr
+    return arr
+
+
+
 def supply_rules_on_prelim(defines, vars, rules, preliminaries):
     # 如果规则中没有"单独可测试规则要素"，添加
     elements = preliminaries["单独可测试规则要素"]
+    tree = {}
+    beside_key = ["交易品种", "操作", "操作部分", "事件", "状态", "操作人", "条件", "结合规则"]
 
     for element in elements:
         if element == "交易方向":
             # 交易操作
+            to_delete = []
             for rule_id in list(rules.keys()):
+                index = 1
                 rule = rules[rule_id]
+                find = False
                 for c in rule['constraints']:
-                    if c['key'] == '操作':
-                        if '买入' in c['value']:
+                    if c['key'] == '操作':  # 认购(买)、申购(买)、赎回(卖)、申购(买卖)、竞买(卖)、应价(买)
+                        if '买入' in c['value'] or "认购" in c['value'] or "申购" in c['value'] or "应价" in c['value']:
                             rule['constraints'].append({"key":"交易方向","operation":"is","value":"买入"})
                             vars[rule_id]['交易方向'] = []
-                        if '卖出' in c['value']:
+                            find = True
+                            break
+                        if '卖出' in c['value'] or "赎回" in c['value'] or "竞买" in c['value']:
                             rule['constraints'].append({"key":"交易方向","operation":"is","value":"卖出"})
                             vars[rule_id]['交易方向'] = []
+                            find = True
+                            break
+                if not find:
+                    to_delete.append(rule_id)
+                    for direction in preliminaries[element]:
+                        new_rule = copy.deepcopy(rule)
+                        new_var = copy.deepcopy(vars[rule_id])
+                        new_rule['constraints'].append({"key":element, "operation":"is", "value":direction})
+                        new_var[element] = []
+                        rules[f"{rule_id}.{index}"] = new_rule
+                        vars[f"{rule_id}.{index}"] = new_var
+                        index += 1
+            for rule_id in to_delete:
+                del vars[rule_id]
+                del rules[rule_id]
         if element in defines:
             e = defines[element][0]
-        else:
-            e = preliminaries[element]
-
-        if type(e) == str:
             for rule_id in list(rules.keys()):
                 rule = rules[rule_id]
                 find = False
-                for c in rule["constraints"]:
-                    if element == c["key"]:
+                for c in rule['constraints']:
+                    if c['key'] == element:
                         find = True
                         break
                 if not find:
-                    constraint = {"key": element, "operation": "is", "value": e}
-                    rule["constraints"].append(constraint)
+                    rule['constraints'].append({"key":element, "operation":"is", "value":e})
                     vars[rule_id][element] = []
-        elif type(e) == list:
+        
+        elif element == "交易方式":
+            # 获取交易品种，得到对应的交易方式，填入
             to_delete = []
-            keys = list(rules.keys())
-            for rule_id in keys:
+            for rule_id in list(rules.keys()):
                 rule = rules[rule_id]
-                find = False
-                for c in rule["constraints"]:
-                    if element == c["key"]:
-                        find = True
+                # 查找交易品种
+                for c in rule['constraints']:
+                    if c['key'] == "交易品种":
+                        jypz = c['value']
+                        if "创业" in jypz:
+                            jypz = "创业板"
+                        elif "债" in jypz:
+                            jypz = "债券"
+                        elif "股" in jypz:
+                            jypz = "股票"
+                        elif "基金" in jypz or "ET" in jypz or "TF" in jypz or "LO" in jypz or "OF" in jypz:
+                            jypz = "基金"
                         break
-                if not find:
-                    for (i, ee) in enumerate(e):
-                        new_rule = copy.deepcopy(rule)
-                        new_rule["constraints"].append({"key": element, "operation":"is", "value":ee})
-                        new_id = f"{rule_id}.{i+1}"
+                if jypz in tree:
+                    tree_local = tree[jypz]
+                else:
+                    tree_local = construct_tree(preliminaries, jypz)
+                    tree[jypz] = tree_local
+                index = 1
+                # 将ti加入rule['constraints']中
+                for ti in tree_local:
+                    new_rule = copy.deepcopy(rule)
+                    new_var = copy.deepcopy(vars[rule_id])
+                    conflict = False
+                    for i in range(0, len(ti), 2):
+                        find_value = False
+                        find_key = False
+                        for c in rule['constraints']:
+                            if c['value'] == ti[i+1]:
+                                find_value = True
+                                break
+                            if c['key'] == ti[i]:
+                                find_key = True
+                        if find_value:  # 找到了相同的value，这个value就不用加了
+                            continue
+                        if find_key:  # 找到了key，但value不同，冲突，这个ti不继续加了
+                            conflict = True
+                            break
+                        # 将value加入规则中
+                        new_rule['constraints'].append({"key": ti[i], "operation": "is", "value": ti[i+1]})
+                        new_var[ti[i]] = []
+                    if not conflict:
+                        new_id = f"{rule_id}.{index}"
+                        index += 1
                         rules[new_id] = new_rule
-                        new_var = copy.deepcopy(vars[rule_id])
-                        new_var[element] = []
                         vars[new_id] = new_var
-                    to_delete.append(rule_id)
+                        if rule_id not in to_delete:
+                            to_delete.append(rule_id)
             for id in to_delete:
                 del rules[id]
                 del vars[id]
     return vars, rules
+
 
 
 

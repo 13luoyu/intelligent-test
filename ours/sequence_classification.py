@@ -4,6 +4,7 @@ from utils.training_arguments import get_training_arguments
 from utils.arguments import arg_parser
 import torch
 import time
+from utils.try_gpu import try_gpu
 
 
 def train_model(train_dataset: str, eval_dataset: str, model_path: str, training_args = {}):
@@ -42,12 +43,13 @@ def eval_model(eval_dataset: str, model_path: str, training_args = {}):
 
     def predict(model, tokenizer, inputs, batch_size=8):
         model.eval()
-        model = model.cuda()
+        device = try_gpu()
+        model = model.to(device)
         hats = []  # batch_size, 1
         for start in range(0, len(inputs), batch_size):
             batch = inputs[start:start+batch_size]
             batch = tokenizer(batch, max_length=512, padding="max_length", truncation=True, return_tensors="pt")
-            input_ids = batch.input_ids.cuda()
+            input_ids = batch.input_ids.to(device)
             logits = model(input_ids=input_ids).logits  # (8, 2)
             _, outputs = torch.max(logits, dim=1)
             outputs = outputs.cpu().numpy()  # (8)

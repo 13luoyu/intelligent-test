@@ -103,10 +103,10 @@ def compute_bsc_v1(testcases, scenarios, f):
                                     continue
                             elif ":" not in t_value or ":" not in s_value:
                                 continue
-                            # t_value: '00:00:00-09:30:00' 或 '11:30:00-13:00:00' 或 '14:57:00-24:00:00'
+                            # t_value: 00:00:00-09:30:00 或 11:30:00-13:00:00 或 14:57:00-24:00:00
                             # s_value: 非9:15至11:30,13:00至15:30
                             # 将s_value、t_value格式转化
-                            vs = [t.strip()[1:-1] for t in t_value.split("或")]
+                            vs = [t.strip() for t in t_value.split("或")]
                             t_value = "{"
                             for v in vs:
                                 t_value += f"[{v}],"
@@ -338,9 +338,9 @@ def compute_bsc_v2(testcases, scenarios, f):
                         elif ":" not in testcase_value or ":" not in scenario_value:
                             continue
                         # else: 两个时间变量，转成相同的格式比较
-                        # testcase_value: '00:00:00-09:30:00' 或 '11:30:00-13:00:00' 或 '14:57:00-24:00:00'
+                        # testcase_value: 00:00:00-09:30:00 或 11:30:00-13:00:00 或 14:57:00-24:00:00
                         # scenario_value: 非9:15至11:30,13:00至15:30
-                        vs = [t.strip()[1:-1] for t in testcase_value.split("或")]
+                        vs = [t.strip() for t in testcase_value.split("或")]
                         t_value = "{"
                         for v in vs:
                             t_value += f"[{v}],"

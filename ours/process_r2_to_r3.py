@@ -27,7 +27,7 @@ def compose_rules_r2_r3(defines, vars, rules, preliminaries, rule_name = 'rule')
     vars, rules = compose_state_machine(vars, rules, preliminaries)
 
     # 添加一些预定义的要素
-    vars, rules = add_elements(vars, rules, preliminaries)
+    # vars, rules = add_elements(vars, rules, preliminaries)
 
     # 打印中间结果
     # with open(f"rules/r3_{rule_name}.txt", "w", encoding="utf-8") as f:
@@ -214,7 +214,7 @@ def deal_with_event(vars, rules):
                                         rule_to_add_1.append(new_rule_cp)
                                 new_rules += rule_to_add_1
                         rule_id_to_del.append(rule_id)
-                        rule_to_add += new_rules
+                        rule_to_add += [new_rule for new_rule in new_rules if len(new_rule['constraints'])>0]
                         add_origin_rule = True
                         add_i = 1
                         for i in range(len(new_rules)):

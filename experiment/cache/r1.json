@@ -195,11 +195,8 @@
             },
             {
                 "key": "易金额",
-                "value": [
-                    "==",
-                    "50"
-                ],
-                "operation": "compute"
+                "value": "不低于50万元",
+                "operation": "is"
             }
         ],
         "results": [
@@ -510,35 +507,7 @@
             "第二十九条"
         ],
         "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "操作人",
-                "value": "市场所有参与者",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "时间优先",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "第二十九条.10": {
-        "rule_class": [
-            "第二十九条"
-        ],
-        "focus": [
-            "数量"
+            "价格"
         ],
         "constraints": [
             {
@@ -547,13 +516,18 @@
                 "operation": "is"
             },
             {
+                "key": "数量",
+                "value": "每笔成交的数量",
+                "operation": "is"
+            },
+            {
                 "key": "交易方式",
                 "value": "协商成交",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": "满足每笔成交的数量",
+                "key": "价格",
+                "value": "满足交易金额",
                 "operation": "is"
             },
             {
@@ -571,7 +545,7 @@
             }
         ]
     },
-    "第二十九条.11": {
+    "第二十九条.10": {
         "rule_class": [
             "第二十九条"
         ],

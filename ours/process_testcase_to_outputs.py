@@ -33,7 +33,7 @@ def prase_rule(outputs, ruleid, keys,rule):
 
     for i in range(len(outputs)):
         if isinstance(outputs[i][1], list):
-            retans[outputs[i][0]] = (str(outputs[i][1]).replace('[', '').replace(']', '')).replace(',',' 或')
+            retans[outputs[i][0]] = (str(outputs[i][1]).replace('[', '').replace(']', '').replace('\'', '')).replace(',',' 或')
         else:
             retans[outputs[i][0]] = outputs[i][1]
 
