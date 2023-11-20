@@ -5,6 +5,9 @@ from ours.process_r1_to_r2 import preprocess, compose_rules_r1_r2, construct_tre
 from ours.process_r2_to_r3 import compose_rules_r2_r3
 from ours.process_r3_to_testcase import testcase
 import json
+from hashlib import md5
+import time
+import wget
 
 def test_r1_r2():
     s = open("rules_cache/r1.mydsl", "r", encoding="utf-8").read()
@@ -32,8 +35,17 @@ def test_r3_testcase():
     print(f"testcase生成，数目为：{out_num}")
     json.dump(outputs, open("a.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
+app_secret_key = "aitest"
+def get_timestamp_sign():
+    timestamp = str(int(time.time() * 1000))
+    sign = md5(f"{timestamp}{app_secret_key}".encode("utf-8")).hexdigest().upper()
+    return timestamp, sign
 
 if __name__ == "__main__":
     # test_r1_r2()
     # test_r2_r3()
-    test_r3_testcase()
+    # test_r3_testcase()
+    timestamp, sign = get_timestamp_sign()
+    print(timestamp, sign)
+    # r = wget.download("https://docs.static.szse.cn/www/lawrules/rule/allrules/bussiness/W020220127631859244722.pdf", "rules_cache/")
+    # print(r)

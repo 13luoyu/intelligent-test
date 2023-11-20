@@ -62,10 +62,6 @@ def judge_tradetype_compose(t1, t2):
     return False, ""
 
 
-def read_knowledges(file):
-    knowledge = json.load(open(file, "r", encoding="utf-8"))
-    return knowledge
-
 
 def read_OBI_to_rule(texts, labels):
     """
@@ -894,14 +890,10 @@ def write_r1(fp_r1, ss, knowledge, id):
 
 
 
-def to_r1(rules, knowledge_file):
+def to_r1(rules, knowledge):
     """
     将input_file文件的内容写成R1，存放在output_file文件中
-    :param input_file: 一个json文件，存放一或多篇文档中的按照id分好的自然语言text及其标签label
-    :param output_file: 写R1的文件
-    :param knowledge_file: 存储领域知识的文件
     """
-    knowledge = read_knowledges(knowledge_file)
     if os.path.exists("rules_cache/r1_step1.txt"):
         os.remove("rules_cache/r1_step1.txt")
     if os.path.exists("rules_cache/r1_step2.txt"):
@@ -929,6 +921,7 @@ def to_r1(rules, knowledge_file):
 
 if __name__ == "__main__":
     rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
-    r1 = to_r1(rules, "../data/knowledge.json")
+    knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
+    r1 = to_r1(rules, knowledge)
     with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:
         f.write(r1)

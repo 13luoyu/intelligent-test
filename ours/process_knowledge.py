@@ -2,10 +2,9 @@ import json
 from pprint import pprint
 import os
 
-def process_knowledge(input_file: str, output_file: str, todo_file: str):
-    todo_fp = open(todo_file, "a", encoding="utf-8")
+def process_knowledge(rules):
+    todo_text = []
     knowledge = {}
-    rules = json.load(open(input_file, "r", encoding="utf-8"))
     divided_words = ["、", "以及", "和", "或者", "或"]
     knowledge_count, cannot_process = 0, 0
     for rule in rules:
@@ -129,14 +128,9 @@ def process_knowledge(input_file: str, output_file: str, todo_file: str):
                         contents = new_c
                     knowledge[label] = contents
             else:
-                todo_fp.write(text + "\n")
+                todo_text.append(text)
                 cannot_process += 1
-    # pprint(knowledge)
-    # if os.path.exists(output_file):
-    #     knowledge_pre = json.load(open(output_file, "r", encoding="utf-8"))
-    #     knowledge.update(knowledge_pre)
-    json.dump(knowledge, open(output_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-    return knowledge_count, cannot_process
+    return knowledge, "\n".join(todo_text), knowledge_count, cannot_process
 
 
 if __name__ == "__main__":
@@ -145,6 +139,8 @@ if __name__ == "__main__":
     # process_knowledge("rules_cache/sco.json", "rules_cache/knowledge.json", "rules_cache/todo_knowledge.json")
 
     knowledge_file, todo_knowledge_file = "rules_cache/knowledge.json", "rules_cache/todo_knowledge.txt"
+    all_knowledge = []
+    todo_fp = open(todo_knowledge_file, "w" ,encoding="utf-8")
     if os.path.exists(knowledge_file):
         os.remove(knowledge_file)
     if os.path.exists(todo_knowledge_file):
@@ -152,7 +148,13 @@ if __name__ == "__main__":
     a, b = 0, 0
     for file in os.listdir("../data/业务规则/json_for_sequence_classification/"):
         if "finish" in file:
-            knowledge_count, cannot_process = process_knowledge("../data/业务规则/json_for_sequence_classification/" + file, knowledge_file, todo_knowledge_file)
+            rules = json.load(open("../data/业务规则/json_for_sequence_classification/" + file, "r", encoding="utf-8"))
+            knowledge, todo_text, knowledge_count, cannot_process = process_knowledge(rules)
             a += knowledge_count
             b += cannot_process
+            all_knowledge += knowledge
+            todo_fp.write(todo_text)
+            todo_fp.write("\n")
+    json.dump(all_knowledge, open(knowledge_file, "w", encoding="utf-8"))
+    todo_fp.close()
     print(f"所有领域知识数目：{a}, 能够处理的数目：{a-b}, 处理率为{round(float(a-b)/float(a)*100.0, 1)}%")

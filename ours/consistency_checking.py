@@ -3,7 +3,7 @@ import pprint
 from transfer.mydsl_to_rules import mydsl_to_rules
 import copy
 
-def consistency_checking(data, source):
+def consistency_checking(data):
     defines, vars, rules = mydsl_to_rules(data)
     conflict_rules = []  # {ids: [id1, id2], reason: ''}
     general_keys = ['交易市场', '交易方式', '交易品种', '交易方向', '事件', '状态', '操作', '操作人', '操作部分']
@@ -286,7 +286,7 @@ def consistency_checking(data, source):
 
 if __name__ == "__main__":
     input_data = json.load(open("rules_cache/consistency_checking_input.json", "r", encoding="utf-8"))
-    conflict_rules = consistency_checking(input_data['data'], input_data['source'])
+    conflict_rules = consistency_checking(input_data['data'])
     pprint.pprint(conflict_rules)
 
 

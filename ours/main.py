@@ -48,11 +48,12 @@ def nlp_process(input_file: str,
     tci = sco_to_tci(sco)
     json.dump(tci, open(tci_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     # 标注句子中每个字的类别
-    tco = token_classification(tci, knowledge_file, tc_model, tc_dict, batch_size, sentence_max_length)
+    knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
+    tco = token_classification(tci, knowledge, tc_model, tc_dict, batch_size, sentence_max_length)
     json.dump(tco, open(tco_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     print("规则元素抽取任务完成")
     # 调用转R1
-    r1 = to_r1(tco, knowledge_file)
+    r1 = to_r1(tco, knowledge)
     r1 = add_defines(r1, market_variety)
     with open(r1_file, "w", encoding="utf-8") as f:
         f.write(r1)
