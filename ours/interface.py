@@ -17,6 +17,7 @@ from transfer import mydsl_to_rules, rules_to_json_and_mydsl
 import time
 from hashlib import md5
 import wget
+import os
 
 # nohup python interface.py >../log/run.log &
 
@@ -28,7 +29,7 @@ dict_file = '../data/tc_data.dict'
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 # 上传目录
-app.config['UPLOAD_FOLDER'] = 'rules_cache/'
+app.config['UPLOAD_FOLDER'] = 'download_files/'
 # 支持的文件格式
 app.config['ALLOWED_EXTENSIONS'] = {'pdf', 'txt'}
 # 接口校验的私钥
@@ -120,6 +121,9 @@ def nl_to_sci_interface():
             if ".pdf" in fileData:
                 # 下载文件
                 filepath = wget.download(fileData, app.config['UPLOAD_FOLDER'])
+                filepath = filepath.replace("//", "/")
+                os.rename(filepath, filepath.split("?")[0])
+                filepath = filepath.split("?")[0]
                 filepath = filepath.replace("//", "/")
                 # 处理
                 sci_data, market_variety = nl_to_sci(filepath)

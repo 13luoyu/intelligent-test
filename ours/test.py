@@ -8,6 +8,7 @@ import json
 from hashlib import md5
 import time
 import wget
+import os
 
 def test_r1_r2():
     s = open("rules_cache/r1.mydsl", "r", encoding="utf-8").read()
@@ -47,5 +48,9 @@ if __name__ == "__main__":
     # test_r3_testcase()
     timestamp, sign = get_timestamp_sign()
     print(timestamp, sign)
-    # r = wget.download("https://docs.static.szse.cn/www/lawrules/rule/allrules/bussiness/W020220127631859244722.pdf", "rules_cache/")
-    # print(r)
+    url = "http://163.53.170.150:9000/file/2023/11/20/9b41c1633d4948a8b173e3fb8adf91d0.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=3GMDQM6UZLF36FAQTVS2%2F20231121%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231121T071009Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiIzR01EUU02VVpMRjM2RkFRVFZTMiIsImV4cCI6MTcwMDU1NDE5MSwicGFyZW50IjoiYWRtaW4ifQ.PjBdWNbzRDrdxYXGPCty7NXrFGA4F8YRSL_Op3Gs_xWrlyBLAZMrm11GNnpsu_dsoGussUvixmpymyxNsgQuZg&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=b17fd659e7eca8a0a2615c044a794fa512ffef0f8461f116f183a6f812e5b896"
+    # filepath = wget.download(url, "download_files/")
+    # filepath = filepath.replace("//", "/")
+    # os.rename(filepath, filepath.split("?")[0])
+    # filepath = filepath.split("?")[0]
+    # print(filepath)
