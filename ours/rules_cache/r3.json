@@ -18,7 +18,7 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
+                "key": "交易时间",
                 "value": "{[9:00-11:30],[13:00-20:00]}",
                 "operation": "in"
             },
@@ -78,7 +78,7 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
+                "key": "交易时间",
                 "value": "{[9:00-11:30],[13:00-20:00]}",
                 "operation": "in"
             },
@@ -428,14 +428,9 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
+                "key": "卖方提交竞买发起申报时间",
                 "value": "{[9:00-10:00]}",
                 "operation": "in"
-            },
-            {
-                "key": "时间",
-                "value": "发起申报时间",
-                "operation": "is"
             },
             {
                 "key": "时间",
@@ -503,14 +498,9 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
+                "key": "卖方提交竞买发起申报时间",
                 "value": "{[9:00-10:00]}",
                 "operation": "in"
-            },
-            {
-                "key": "时间",
-                "value": "发起申报时间",
-                "operation": "is"
             },
             {
                 "key": "时间",
@@ -578,14 +568,9 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
+                "key": "卖方提交竞买发起申报时间",
                 "value": "{[9:00-10:00]}",
                 "operation": "in"
-            },
-            {
-                "key": "时间",
-                "value": "发起申报时间",
-                "operation": "is"
             },
             {
                 "key": "时间",
@@ -653,14 +638,9 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
+                "key": "卖方提交竞买发起申报时间",
                 "value": "{[9:00-10:00]}",
                 "operation": "in"
-            },
-            {
-                "key": "时间",
-                "value": "发起申报时间",
-                "operation": "is"
             },
             {
                 "key": "时间",

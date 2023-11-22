@@ -18,6 +18,7 @@ import time
 from hashlib import md5
 import wget
 import os
+import traceback
 
 # nohup python interface.py >../log/run.log &
 
@@ -220,6 +221,75 @@ def token_classification_interface():
 #     json.dump(tco_data, open('rules_cache/tco.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
 #     return jsonify({'message': 'update success'})
 
+def Rrule_transfer(r):
+    defines = {}
+    rules = []
+    rule = {}
+    for line in r.split("\n"):
+        line = line.strip()
+        if line == "":
+            continue
+        if line.find("define") == 0:
+            defines[line.split(" ")[1]] = line.split(" ")[3]
+            continue
+        if line.find("rule") == 0:
+            if rule != {}:
+                rules.append(rule)
+                rule = {}
+            rule['rule'] = line.split(" ")[1]
+        elif line.find("sourceId") == 0:
+            rule['sourceId'] = line.split(" ")[1]
+        elif line.find("focus:") == 0:
+            rule['focus'] = line.split(" ")[1]
+        elif line.find("before:") == 0:
+            rule['before'] = json.loads(" ".join(line.split(" ")[1:]))
+        elif line.find("after:") == 0:
+            rule['after'] = json.loads(" ".join(line.split(" ")[1:]))
+        else:
+            if "text" in rule:
+                rule['text'] = rule['text'] + line + "\n"
+            else:
+                rule['text'] = line + "\n"
+    if rule != {}:
+        rules.append(rule)
+    if defines != {}:
+        data = {
+            "define": defines,
+            "rules": rules
+        }
+    else:
+        data = rules
+    return data
+
+def Rrule_back(data):
+    s = ""
+    if isinstance(data, list):
+        rules = data
+        defines = {}
+    else:
+        rules = data['rules']
+        defines = data['define']
+    for key in list(defines.keys()):
+        s += f"define {key} = {defines[key]}\n"
+    if len(s)>0:
+        s += "\n"
+    for rule in rules:
+        if "rule" in rule:
+            s += f"rule {rule['rule']}\n"
+        if "sourceId" in rule:
+            s += f"sourceId {rule['sourceId']}\n"
+        if "focus" in rule:
+            s += f"focus: {rule['focus']}\n"
+        if "before" in rule:
+            s += f"before: {json.dumps(rule['before'])}\n"
+        if "after" in rule:
+            s += f"after: {json.dumps(rule['after'])}\n"
+        if "text" in rule:
+            for t in rule['text'].split("\n"):
+                s += f"\t{t}\n"
+        s += "\n"
+    return s
+
 # 规则合成(R1生成)
 @app.route('/rule_assembly', methods=["POST"])
 def to_r1_interface():
@@ -238,10 +308,11 @@ def to_r1_interface():
         r1_data = to_r1(tco_data, knowledge)
         r1_data = add_defines(r1_data, market_variety)
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": code, "msg": "success", "data": r1_data, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": code, "msg": "success", "data": Rrule_transfer(r1_data), "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/rule_assembly, 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
     except Exception as e:
+        traceback.print_exc()
         timestamp, sign = get_timestamp_sign()
         return_data = {"code": 204, "msg": str(e), "data": None, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/rule_assembly, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
@@ -267,7 +338,7 @@ def r1_to_r2_interface():
             writelog(f"### 访问接口/r1_to_r2, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
             return jsonify(return_data)
         
-        r1 = params['data']
+        r1 = Rrule_back(params['data'])
         defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r1)
         knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
         rules, vars = preprocess(rules, vars)
@@ -276,7 +347,7 @@ def r1_to_r2_interface():
         r2 = rules_to_json_and_mydsl.to_mydsl(r2_json)
 
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": code, "msg": "success", "data": r2, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": code, "msg": "success", "data": Rrule_transfer(r2), "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/r1_to_r2, 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
     except Exception as e:
@@ -305,7 +376,7 @@ def r2_to_r3_interface():
             writelog(f"### 访问接口/r2_to_r3, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
             return jsonify(return_data)
         
-        r2 = params['data']
+        r2 = Rrule_back(params['data'])
         defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r2)
         knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
         defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
@@ -313,7 +384,7 @@ def r2_to_r3_interface():
         r3 = rules_to_json_and_mydsl.to_mydsl(r3_json)
 
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": code, "msg": "success", "data": r3, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": code, "msg": "success", "data": Rrule_transfer(r3), "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/r2_to_r3, 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
     except Exception as e:
@@ -342,7 +413,7 @@ def test_case_interface():
             writelog(f"### 访问接口/testcase, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
             return jsonify(return_data)
         
-        r3 = params['data']
+        r3 = Rrule_back(params['data'])
         defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r3)
         vars = testcase(defines, vars, rules)
         outputs = generate_dicts(vars, rules)
@@ -370,6 +441,8 @@ def process_knowledge_interface():
     try:
         params = request.json
         code, msg = check_input_params(params)
+        if code == 203 and msg == "缺少输入参数，请传递接口所需要的输入数据":
+            code = 200
         if code != 200:
             timestamp, sign = get_timestamp_sign()
             return_data = {"code": code, "msg": msg, "data": None, "timeStamp": timestamp, "sign": sign}
