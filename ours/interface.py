@@ -511,7 +511,7 @@ def consistency_checking_interface():
             writelog(f"### 访问接口/testcase, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
             return jsonify(return_data)
         
-        data = request.json['data']
+        data = Rrule_back(params['data'])
         conflict_rules = consistency_checking(data)
 
         timestamp, sign = get_timestamp_sign()
