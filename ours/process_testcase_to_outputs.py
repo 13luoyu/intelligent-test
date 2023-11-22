@@ -43,6 +43,11 @@ def prase_rule(outputs, ruleid, keys,rule):
             retans[rule['results'][0]['key']] = rule['results'][0]['value']
         else:
             retans[rule['results'][0]['key']] = rule['results'][0]['else']
+            if "结果状态" in retans and "状态" in retans:
+                if rule['results'][0]['else'] == "不成功":
+                    retans['结果状态'] = retans['状态']
+                else:
+                    del retans['结果状态']
 
     # pprint(retans)
     return retans

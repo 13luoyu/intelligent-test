@@ -429,15 +429,15 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if_add = True
                         break
                     else:
-                        # for si in s[::-1]:
-                        #     ki = list(si.keys())[0]
-                        #     vi = si[ki]
-                        #     if ki == "价格":
-                        #         if len(re.findall(r"\d+.\d+", vi)) == 0:
-                        #             s.append({key:value})
-                        #             if_add = True
-                        s.append({key:value})
-                        if_add = True
+                        for si in s[::-1]:
+                            ki = list(si.keys())[0]
+                            vi = si[ki]
+                            if ki == "价格":
+                                if len(re.findall(r"\d+.\d+", vi)) == 0:
+                                    s.append({key:value})
+                                    if_add = True
+                        # s.append({key:value})
+                        # if_add = True
                 elif key == "时间":
                     if last_or > 0:
                         if_add = True
