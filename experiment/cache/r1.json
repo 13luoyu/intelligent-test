@@ -255,17 +255,17 @@
                 "operation": "is"
             },
             {
-                "key": "深股通限价申报指令",
+                "key": "ETF份额申赎的申报指令",
                 "value": "买卖方向",
                 "operation": "is"
             },
             {
-                "key": "深股通限价申报指令",
+                "key": "协商成交的申报要素",
                 "value": "价格",
                 "operation": "is"
             },
             {
-                "key": "深股通限价申报指令",
+                "key": "ETF份额申赎的申报指令",
                 "value": "数量",
                 "operation": "is"
             },

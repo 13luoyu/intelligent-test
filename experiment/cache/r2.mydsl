@@ -89,13 +89,13 @@ focus: 价格
 rule 第二十九条.2,第二十九条.5,第二十九条.8.1
 sourceId 第二十九条
 focus: 订单连续性操作
-	if 协议大宗交易成交申报指令 is '约定号' and 交易方式 is '证券代码' and 深股通限价申报指令 is '买卖方向' and 深股通限价申报指令 is '价格' and 深股通限价申报指令 is '数量' and 操作部分 is '匹配' and 申报类型 is '成交申报' and 操作 is '成交确认' and 操作人 is '市场所有参与者' and 约束 is '时间优先' and 交易市场 is '深圳证券交易所' and 交易品种 is '证券' and 交易方向 is '买入'
+	if 协议大宗交易成交申报指令 is '约定号' and 交易方式 is '证券代码' and ETF份额申赎的申报指令 is '买卖方向' and 协商成交的申报要素 is '价格' and ETF份额申赎的申报指令 is '数量' and 操作部分 is '匹配' and 申报类型 is '成交申报' and 操作 is '成交确认' and 操作人 is '市场所有参与者' and 约束 is '时间优先' and 交易市场 is '深圳证券交易所' and 交易品种 is '证券' and 交易方向 is '买入'
 	then 结果 is '成功'
 
 rule 第二十九条.2,第二十九条.5,第二十九条.8.2
 sourceId 第二十九条
 focus: 订单连续性操作
-	if 协议大宗交易成交申报指令 is '约定号' and 交易方式 is '证券代码' and 深股通限价申报指令 is '买卖方向' and 深股通限价申报指令 is '价格' and 深股通限价申报指令 is '数量' and 操作部分 is '匹配' and 申报类型 is '成交申报' and 操作 is '成交确认' and 操作人 is '市场所有参与者' and 约束 is '时间优先' and 交易市场 is '深圳证券交易所' and 交易品种 is '证券' and 交易方向 is '卖出'
+	if 协议大宗交易成交申报指令 is '约定号' and 交易方式 is '证券代码' and ETF份额申赎的申报指令 is '买卖方向' and 协商成交的申报要素 is '价格' and ETF份额申赎的申报指令 is '数量' and 操作部分 is '匹配' and 申报类型 is '成交申报' and 操作 is '成交确认' and 操作人 is '市场所有参与者' and 约束 is '时间优先' and 交易市场 is '深圳证券交易所' and 交易品种 is '证券' and 交易方向 is '卖出'
 	then 结果 is '成功'
 
 rule 第二十九条.1,第二十九条.5,第二十九条.8.1.1

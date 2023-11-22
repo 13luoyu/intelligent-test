@@ -445,8 +445,8 @@ def compute_bsc_v2(testcases, scenarios, f):
                                 fulfill = constraint_fulfill and not fei or not constraint_fulfill and fei
                                 if fulfill:
                                     break
-                            # 如果是正例，必须fulfill_all；如果是反例，只要有一个不fulfill就算成功
-                            if fei and not fulfill:
+                            # 如果是正例，必须fulfill_all；如果是反例，只要有一个fulfill就算成功
+                            if fei and fulfill:
                                 fulfill_all = True
                                 break
                             if not fulfill:
@@ -489,6 +489,9 @@ def compute_bsc_v2(testcases, scenarios, f):
                                 fulfill = constraint_fulfill and not fei or not constraint_fulfill and fei
                                 if fulfill:
                                     break
+                            if fei and fulfill:
+                                fulfill_all = True
+                                break
                             if not fulfill:
                                 fulfill_all = False
                                 break
@@ -520,12 +523,11 @@ def compute_bsc_v2(testcases, scenarios, f):
     return cover_rate
 
 
-if __name__ == "__main__":
-    summary_f = open("log/bsc.log", "w", encoding="utf-8")
-    for file in os.listdir("business_scenario"):
+def compute_bsc_ours(summary_f):
+    for file in sorted(os.listdir("business_scenario")):
         # if "data5" not in file:
         #     continue
-        f = open(f"log/{file.split('_')[0]}.log", "w", encoding="utf-8")
+        f = open(f"log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
         testcase_file = f"rules_and_testcases_part/{file.split('_')[0]}_testcases.json"
         scenario_file = f"business_scenario/{file}"
         testcases = json.load(open(testcase_file, "r", encoding="utf-8"))
@@ -534,6 +536,256 @@ if __name__ == "__main__":
         bsc = compute_bsc_v2(testcases, scenarios, f)
         print(f"数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}")
         f.write(f"数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
-        summary_f.write(f"数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
+        summary_f.write(f"ours在数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
         f.close()
+
+
+def compute_bsc_v3(testcases, scenarios, f):
+    # 预处理scenarios
+    new_scenarios = []  # new_scenarios[i]['交易市场']='深圳证券交易所'
+    scenarios_variables = []  # scenario_variables[i]['交易市场'] = 0代表该元素未被覆盖，1代表覆盖
+    max_cover_varnum = [0] * len(scenarios)  # 每个测试场景的最大覆盖变量数量
+
+    for scenario in scenarios:
+        s = {}
+        variables = {}
+        scs = scenario.split(";")
+        for sc in scs:
+            if "时间" not in sc:
+                ss = sc.split(":")
+                s[ss[0]] = ss[1]
+                variables[ss[0]] = 0
+            else:
+                ss = sc.split(":")
+                s[ss[0]] = ":".join(ss[1:])
+                variables[ss[0]] = 0
+        new_scenarios.append(s)
+        scenarios_variables.append(variables)
+    scenarios = new_scenarios
+
+    for scenario_index, scenario in enumerate(scenarios):
+        scenario_variables_total = copy.deepcopy(scenarios_variables[scenario_index])
+        for testcase in testcases:
+            scenario_variables = copy.deepcopy(scenarios_variables[scenario_index])
+            
+            # 结果必须相同，否则直接算冲突
+            if '结果' in scenario and '结果' in testcase and (scenario['结果'] == testcase['结果']):
+                scenario_variables['结果'] = 1
+            else:
+                continue
+            # if '结果' in scenario and '结果' in testcase and (scenario['结果'] == testcase['结果'] or scenario['结果'] == "不成功" and testcase['结果'] == "成功"):
+            #     scenario_variables['结果'] = 1
+            # else:
+            #     continue
+            
+            # 计算这个testcase在scenario中覆盖了多少
+            for testcase_key, testcase_value in testcase.items():
+                # 无关的测试用例key跳过
+                if testcase_key in ['rule', '测试关注点', 'testid', '结果'] or not isinstance(testcase_value, str):
+                    continue
+                for scenario_key, scenario_value in scenario.items():
+                    if scenario_key == "结果":
+                        continue
+
+                    # 对于scenario中的一条枚举变量，如果在testcase中存在value相似的字符串，则算覆盖；否则不算
+                    for s_value in scenario_value.split(","):
+                        if judge_same(s_value, testcase_value):
+                            scenario_variables[scenario_key] = 1
+                            break
+
+                    # 同时为时间变量
+                    if scenario_variables[scenario_key] == 0 and is_time_key(testcase_key) and is_time_key(scenario_key):
+                        if ":" not in testcase_value and ":" not in scenario_value:  # 时间 is 上市首日 这样的，按照枚举变量处理
+                            continue
+                        elif ":" not in testcase_value or ":" not in scenario_value:
+                            continue
+                        # else: 两个时间变量，转成相同的格式比较
+                        # testcase_value: 9:15
+                        # scenario_value: 非9:15至11:30,13:00至15:30
+                        t_value = testcase_value.split(" ")[-1]
+                        fei = False
+                        if "非" == scenario_value[0]:
+                            fei = True
+                            scenario_value = scenario_value[1:]
+                        vs = scenario_value.split(",")
+                        time = []
+                        for v in vs:
+                            if "至" in v or "-" in v:
+                                t1 = v.split("至")[0] if "至" in v else v.split("-")[0]
+                                t2 = v.split("至")[1] if "至" in v else v.split("-")[1]
+                                if len(t1) == 4:
+                                    t1 = "0" + t1 + ":00"
+                                elif len(t1) == 5:
+                                    t1 = t1 + ":00"
+                                elif len(t1) == 7:
+                                    t1 = "0" + t1
+                                if len(t2) == 4:
+                                    t2 = "0" + t2 + ":00"
+                                elif len(t2) == 5:
+                                    t2 = t2 + ":00"
+                                elif len(t2) == 7:
+                                    t2 = "0" + t2
+                                time.append(t1)
+                                time.append(t2)
+                            elif "前" in v or "后" in v:
+                                t = v[:-1]
+                                if len(t) == 4:
+                                    t = "0" + t + ":00"
+                                elif len(t) == 5:
+                                    t = t + ":00"
+                                elif len(t) == 7:
+                                    t = "0" + t
+                                if "前" in v:
+                                    time.append("00:00:00")
+                                    time.append(t)
+                                else:
+                                    time.append(t)
+                                    time.append("24:00:00")
+                        if fei:
+                            if time[0] == "00:00:00":
+                                del time[0]
+                            else:
+                                time.insert(0, "00:00:00")
+                            if time[-1] == "24:00:00":
+                                del time[-1]
+                            else:
+                                time.append("24:00:00")
+                        for i in range(0, len(time), 2):
+                            if time[i] < t_value and t_value < time[i+1]:
+                                scenario_variables[scenario_key] = 1
+                                break
+
+                    # 同时为数量变量
+                    elif scenario_variables[scenario_key] == 0 and is_num_key(testcase_key) and is_num_key(scenario_key):
+                        
+                        if "一次性" in scenario_value and "(余额" in testcase_value:
+                            scenario_variables[scenario_key] = 1
+                            continue
+                        elif "一次性" in scenario_value or "(余额)" in testcase_value:
+                            continue
+                        # else: 常规数值约束
+                        nums = re.findall(r"\d+\.?\d*", testcase_value.strip())
+                        if len(nums) == 0:
+                            continue
+                        num = nums[0].replace(",", "")
+                        fei = False
+                        if "非" == scenario_value[0]:
+                            scenario_value = scenario_value[1:]
+                            fei = True
+                        fulfill_all = True  # 这里假设满足所有约束
+                        for sv in scenario_value.split(","):
+                            fulfill = False
+                            num = int(num)
+                            if "万" in testcase_value:
+                                num = num * 10000
+                            if "亿" in testcase_value:
+                                num = num * 100000000
+                            if "整数倍" in sv:
+                                value = int(re.findall(r"\d+", sv)[0])  # value的整数倍
+                                if num % value == 0 and not fei or num % value != 0 and fei:
+                                    # 满足条件
+                                    fulfill = True
+                            else:
+                                op = judge_op(sv)
+                                all_v = re.findall(f"\d+", sv)
+                                if len(all_v)>0:
+                                    value = float(all_v[0])  # op value
+                                else:  # 场景中的价格是一个枚举变量(但price不是)
+                                    continue
+                                if "万" in sv:
+                                    value = value * 10000
+                                if "亿" in sv:
+                                    value = value * 100000000
+                                constraint_fulfill = op == ">=" and num >= value or op == "<=" and num <= value or op == ">" and num > value or op == "<" and num < value or op == "==" and num == value or op == "!=" and num != value
+                                fulfill = constraint_fulfill and not fei or not constraint_fulfill and fei
+
+                            # 如果是正例，必须fulfill all；如果是反例，只要有一个fulfill就算成功
+                            if fei and fulfill:
+                                fulfill_all = True
+                                break
+                            if not fulfill:
+                                fulfill_all = False
+                                break
+                        if fulfill_all:
+                            scenario_variables[scenario_key] = 1
+
+                    # 同时为价格变量
+                    elif scenario_variables[scenario_key] == 0 and is_price_key(testcase_key) and is_price_key(scenario_key):
+                        
+                        prices = re.findall(r"\d+\.?\d*", testcase_value.strip())
+                        if len(prices) == 0:
+                            continue
+                        price = prices[0].replace(",", "")
+                        fei = False
+                        if "非" == scenario_value[0]:
+                            scenario_value = scenario_value[1:]
+                            fei = True
+                        fulfill_all = True  # 这里假设满足所有约束
+                        for sv in scenario_value.split(","):
+                            fulfill = False
+
+                            price = float(price)
+                            if "万" in scenario_value:
+                                price = price * 10000
+                            if "亿" in scenario_value:
+                                price = price * 100000000
+                            op = judge_op(sv)
+                            all_v = re.findall(f"\d+", sv)
+                            if len(all_v)>0:
+                                value = float(all_v[0])  # op value
+                            else:  # 场景中的价格是一个枚举变量(但price不是)
+                                continue
+                            if "万" in sv:
+                                value = value * 10000
+                            if "亿" in sv:
+                                value = value * 100000000
+                            constraint_fulfill = op == ">=" and price >= value or op == "<=" and price <= value or op == ">" and price > value or op == "<" and price < value or op == "==" and price == value or op == "!=" and price != value
+                            fulfill = constraint_fulfill and not fei or not constraint_fulfill and fei
+                            
+                            if fei and fulfill:
+                                fulfill_all = True
+                                break
+                            if not fulfill:
+                                fulfill_all = False
+                                break
+                        if fulfill_all:
+                            scenario_variables[scenario_key] = 1
+
+
+            f.write(f"## 测试场景\"{scenario_index+1}\", 测试用例\"{testcase['testid']}\", 覆盖变量数目为{sum(scenario_variables.values())}, 未覆盖的变量包括{[key for key in scenario_variables.keys() if scenario_variables[key] == 0]}\n")
+            
+            for key in scenario_variables_total.keys():
+                if scenario_variables[key] == 1:
+                    scenario_variables_total[key] = 1
+        
+        max_cover_varnum[scenario_index] = sum(scenario_variables_total.values())
+        if len(scenario_variables_total.keys()) > max_cover_varnum[scenario_index]:
+            f.write(f"### 测试场景\"{scenario_index+1}\", 覆盖变量的最大数目为{max_cover_varnum[scenario_index]}, 整体未覆盖的变量包括{[key for key in scenario_variables_total.keys() if scenario_variables_total[key] == 0]}\n\n")
+        else:
+            f.write(f"### 测试场景\"{scenario_index+1}\", 覆盖变量的最大数目为{max_cover_varnum[scenario_index]}, 所有变量全部覆盖\n\n")
+    
+    max_cover_rate = [max_cover_varn / len(scenarios[i]) for i, max_cover_varn in enumerate(max_cover_varnum)]
+    cover_rate = sum(max_cover_rate) / len(max_cover_rate)
+    return cover_rate
+
+def compute_bsc_llm(summary_f):
+    for file in sorted(os.listdir("llm_result")):
+        if "testcase" in file:
+            llm = file.split("_")[0]
+            f = open(f"log/{llm}_{file.split('_')[0]}.log", "w", encoding="utf-8")
+            testcase_file = "llm_result/" + file
+            scenario_file = f"business_scenario/{file.split('_')[-1].split('.')[0]}_scenario.txt"
+            testcases = json.load(open(testcase_file, "r", encoding="utf-8"))
+            scenarios = open(scenario_file, "r", encoding="utf-8").read().strip().split("\n")
+            f.write(f"运行数据集{file.split('_')[-1].split('.')[0]}\n")
+            bsc = compute_bsc_v3(testcases, scenarios, f)
+            print(f"{llm}在数据集{file.split('_')[-1].split('.')[0]}的业务场景覆盖率为{round(bsc, 4)}")
+            f.write(f"{llm}在数据集{file.split('_')[-1].split('.')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
+            summary_f.write(f"{llm}在数据集{file.split('_')[-1].split('.')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
+            f.close()
+
+if __name__ == "__main__":
+    summary_f = open("log/bsc.log", "w", encoding="utf-8")
+    compute_bsc_ours(summary_f)
+    compute_bsc_llm(summary_f)
     summary_f.close()
