@@ -152,7 +152,7 @@ def nl_to_sci_interface():
         
     except Exception as e:
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": 204, "msg": str(e), "data": None, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": 204, "msg": traceback.format_exc(), "data": None, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/preprocess, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
 
@@ -177,7 +177,7 @@ def sequence_classification_interface():
         return jsonify(return_data)
     except Exception as e:
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": 204, "msg": str(e), "data": None, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": 204, "msg": traceback.format_exc(), "data": None, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/rule_filter, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
 
@@ -210,7 +210,7 @@ def token_classification_interface():
         return jsonify(return_data)
     except Exception as e:
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": 204, "msg": str(e), "data": None, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": 204, "msg": traceback.format_exc(), "data": None, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/rule_element_extraction, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
 
@@ -312,9 +312,8 @@ def to_r1_interface():
         writelog(f"### 访问接口/rule_assembly, 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
     except Exception as e:
-        traceback.print_exc()
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": 204, "msg": str(e), "data": None, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": 204, "msg": traceback.format_exc(), "data": None, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/rule_assembly, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
 
@@ -352,7 +351,7 @@ def r1_to_r2_interface():
         return jsonify(return_data)
     except Exception as e:
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": 204, "msg": str(e), "data": None, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": 204, "msg": traceback.format_exc(), "data": None, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/r1_to_r2, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
 
@@ -389,7 +388,7 @@ def r2_to_r3_interface():
         return jsonify(return_data)
     except Exception as e:
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": 204, "msg": str(e), "data": None, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": 204, "msg": traceback.format_exc(), "data": None, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/r2_to_r3, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
 
@@ -424,7 +423,7 @@ def test_case_interface():
         return jsonify(return_data)
     except Exception as e:
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": 204, "msg": str(e), "data": None, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": 204, "msg": traceback.format_exc(), "data": None, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/testcase, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
 
@@ -458,7 +457,7 @@ def process_knowledge_interface():
         return jsonify(return_data)
     except Exception as e:
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": 204, "msg": str(e), "data": None, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": 204, "msg": traceback.format_exc(), "data": None, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/knowledge(处理领域知识), 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
 
@@ -521,7 +520,7 @@ def consistency_checking_interface():
         return jsonify(return_data)
     except Exception as e:
         timestamp, sign = get_timestamp_sign()
-        return_data = {"code": 204, "msg": str(e), "data": None, "timeStamp": timestamp, "sign": sign}
+        return_data = {"code": 204, "msg": traceback.format_exc(), "data": None, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/testcase, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
 
