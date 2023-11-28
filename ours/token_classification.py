@@ -34,8 +34,11 @@ def train_model(train_dataset: str, eval_dataset: str, class_dict: str, model_pa
         lines = f.readlines()
         num_labels = len(lines)
 
+    print(model_path)
     model = AutoModelForTokenClassification.from_pretrained(model_path, num_labels=num_labels)
     tokenizer = AutoTokenizer.from_pretrained(model_path)
+    print(model)
+    exit(0)
 
     train_dataset = DefaultDataset(read_json_for_token_classification(train_dataset, istrain=True))
     eval_dataset = DefaultDataset(read_json_for_token_classification(eval_dataset))

@@ -17,11 +17,11 @@ def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sen
         return inputs
     
     inputs = preprocess(sci)
-    
-    def predict(model, tokenizer, inputs):
-        model.eval()
-        device = try_gpu()
-        model = model.to(device)
+    model.eval()
+    device = try_gpu()
+    model = model.to(device)
+
+    def predict(inputs):
         hats = []
         for start in range(0, len(inputs), batch_size):
             batch = inputs[start:start+batch_size]
@@ -33,7 +33,7 @@ def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sen
             hats.extend(outputs)
         return hats
     
-    hats = predict(model, tokenizer, inputs)
+    hats = predict(inputs)
     sco = sci.copy()
     for i, rule in enumerate(sco):
         rule["type"] = str(hats[i])

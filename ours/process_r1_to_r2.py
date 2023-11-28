@@ -601,13 +601,15 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                     if c['key'] == "交易品种":
                         jypz = c['value']
                         if "创业" in jypz:
-                            jypz = "创业板"
-                        elif "债" in jypz:
-                            jypz = "债券"
-                        elif "股" in jypz:
-                            jypz = "股票"
-                        elif "基金" in jypz or "ET" in jypz or "TF" in jypz or "LO" in jypz or "OF" in jypz:
-                            jypz = "基金"
+                            new_jypz = "创业板"
+                        else:
+                            if "债" in jypz:
+                                new_jypz = "债券"
+                            if "股" in jypz:
+                                new_jypz = "股票"
+                            if "基金" in jypz or "ET" in jypz or "TF" in jypz or "LO" in jypz or "OF" in jypz:
+                                new_jypz = "基金"
+                        jypz = new_jypz
                         break
                 if jypz in tree:
                     tree_local = tree[jypz]

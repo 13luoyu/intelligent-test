@@ -25,6 +25,19 @@ def change(begin, end, label, tag):
                 label[index] = "I-" + tag
     return label
 
+def lx(label, x, y):
+    if x>0:
+        l1 = label[x-1]
+    else:
+        return False
+    for i in range(x, y, 1):
+        if label[i]!=l1:
+            return False
+    if y < len(label):
+        if label[y]!=l1:
+            return False
+    return True
+
 def token_classification_with_algorithm(tco, knowledge):
     # 所有可以补的标签：
     # 交易品种、交易方式、结合规则、结果、系统、or、时间、价格、数量、op
@@ -55,7 +68,8 @@ def token_classification_with_algorithm(tco, knowledge):
         for t in types:
             p = text.find(t)
             while p != -1:
-                label = change(p, p+len(t), label, "交易方式")
+                if not lx(label, p, p+len(t)):
+                    label = change(p, p+len(t), label, "交易方式")
                 p = text.find(t, p+len(t))
         # 结合规则
         # 第..条，本规则第..条，《》，《》第..条
@@ -155,7 +169,10 @@ def token_classification_with_algorithm(tco, knowledge):
             i += len(word)
             index.append(i)
         srl = doc["srl"]
+        print("-------------")
         for ss in srl:
+            print(ss)
+            
             for si in ss:
                 tok, role, begin, end = si[0], si[1], si[2], si[3]
                 begin_index, end_index = index[begin], index[end]
@@ -462,11 +479,12 @@ def token_classification(tci: list, knowledge, model_path: str, dict_file: str, 
         return inputs
 
     inputs = preprocess(tci)
+    model.eval()
+    device = try_gpu()
+    model = model.to(device)
 
-    def predict(model, tokenizer, inputs):
-        model.eval()
-        device = try_gpu()
-        model = model.to(device)
+    def predict(inputs):
+        
         hats = []
         for start in range(0, len(inputs), batch_size):
             batch = inputs[start:start+batch_size]
@@ -483,7 +501,7 @@ def token_classification(tci: list, knowledge, model_path: str, dict_file: str, 
                 hats.append(h[1:-1])
         return hats
     
-    hats = predict(model, tokenizer, inputs)
+    hats = predict(inputs)
 
     index_to_class, _ = read_dict(dict_file)
     class_hats = []
