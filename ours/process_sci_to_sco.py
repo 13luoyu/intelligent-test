@@ -18,7 +18,7 @@ def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sen
     
     inputs = preprocess(sci)
     model.eval()
-    device = try_gpu()
+    device = torch.device('cpu')
     model = model.to(device)
 
     def predict(inputs):
@@ -32,8 +32,8 @@ def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sen
             outputs = outputs.cpu().numpy()
             hats.extend(outputs)
         return hats
-    
-    hats = predict(inputs)
+    with torch.no_grad():
+        hats = predict(inputs)
     sco = sci.copy()
     for i, rule in enumerate(sco):
         rule["type"] = str(hats[i])

@@ -501,7 +501,8 @@ def token_classification(tci: list, knowledge, model_path: str, dict_file: str, 
                 hats.append(h[1:-1])
         return hats
     
-    hats = predict(inputs)
+    with torch.no_grad():
+        hats = predict(inputs)
 
     index_to_class, _ = read_dict(dict_file)
     class_hats = []
