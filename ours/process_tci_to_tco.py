@@ -169,9 +169,7 @@ def token_classification_with_algorithm(tco, knowledge):
             i += len(word)
             index.append(i)
         srl = doc["srl"]
-        print("-------------")
         for ss in srl:
-            print(ss)
             
             for si in ss:
                 tok, role, begin, end = si[0], si[1], si[2], si[3]

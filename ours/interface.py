@@ -242,9 +242,9 @@ def Rrule_transfer(r):
         elif line.find("focus:") == 0:
             rule['focus'] = line.split(" ")[1]
         elif line.find("before:") == 0:
-            rule['before'] = json.loads(" ".join(line.split(" ")[1:]))
+            rule['before'] = json.loads((" ".join(line.split(" ")[1:])).replace("'", "\""))
         elif line.find("after:") == 0:
-            rule['after'] = json.loads(" ".join(line.split(" ")[1:]))
+            rule['after'] = json.loads((" ".join(line.split(" ")[1:])).replace("'", "\""))
         else:
             if "text" in rule:
                 rule['text'] = rule['text'] + line + "\n"
