@@ -55,17 +55,13 @@ def nlpcda_method(origin_file, input_dir, output_file, augument_size):
     rules += new_rules
     json.dump(rules, open(output_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
-def data_augment_nlpcda(augument_size=10):
+def data_augment_nlpcda(input_file, output_file, augument_size=10):
     cache_dir = "../data/unaugment_data_cache/"
     if os.path.exists(cache_dir):
         shutil.rmtree(cache_dir)
     os.mkdir(cache_dir)
-    preprocess("../data/tc_train_data_all_base.json", cache_dir)
-    nlpcda_method("../data/tc_train_data_all_base.json", cache_dir, "../data/tc_train_data_all_full.json", augument_size)
-    shutil.rmtree(cache_dir)
-    os.mkdir(cache_dir)
-    preprocess("../data/tc_train_data_rules_base.json", cache_dir)
-    nlpcda_method("../data/tc_train_data_rules_base.json", cache_dir, "../data/tc_train_data_rules_full.json", augument_size)
+    preprocess(input_file, cache_dir)
+    nlpcda_method(input_file, cache_dir, output_file, augument_size)
     shutil.rmtree(cache_dir)
 
 
@@ -329,7 +325,7 @@ def eda_tc(sentence, label, stop_words, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1
     return augmented_sentences, augmented_labels
 
 
-def data_augment_eda_for_tc(num_aug):
+def data_augment_eda_for_tc(input_file, output_file, num_aug):
     #停用词列表，默认使用哈工大停用词表
     f = open('stopwords/hit_stopwords.txt')
     stop_words = list()
@@ -337,7 +333,7 @@ def data_augment_eda_for_tc(num_aug):
         stop_words.append(stop_word[:-1])
     
     augmented_data = []
-    datas = json.load(open("../data/tc_train_data_all_base.json", "r", encoding="utf-8"))
+    datas = json.load(open(input_file, "r", encoding="utf-8"))
     for data in datas:
         texts, labels = eda_tc(sentence=data["text"], label=data["label"], stop_words=stop_words, num_aug=num_aug)
         id = data["id"] if "id" in data else ""
@@ -349,26 +345,9 @@ def data_augment_eda_for_tc(num_aug):
                 augmented_data.append({"text":text, "label":label, "id":new_id})
             else:
                 augmented_data.append({"text":text, "label":label})
-    datas = json.load(open("../data/tc_train_data_all_full.json", "r", encoding="utf-8"))
+    datas = json.load(open(output_file, "r", encoding="utf-8"))
     datas += augmented_data
-    json.dump(datas, open("../data/tc_train_data_all_full.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-
-    augmented_data = []
-    datas = json.load(open("../data/tc_train_data_rules_base.json", "r", encoding="utf-8"))
-    for data in datas:
-        texts, labels = eda_tc(sentence=data["text"], label=data["label"], stop_words=stop_words, num_aug=num_aug)
-        id = data["id"] if "id" in data else ""
-        augmented_data.append(data)
-        for i, text in enumerate(texts):
-            label = labels[i]
-            if id != "":
-                new_id = f"{id}.augment_eda{i}"
-                augmented_data.append({"text":text, "label":label, "id":new_id})
-            else:
-                augmented_data.append({"text":text, "label":label})
-    datas = json.load(open("../data/tc_train_data_rules_full.json", "r", encoding="utf-8"))
-    datas += augmented_data
-    json.dump(datas, open("../data/tc_train_data_rules_full.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    json.dump(datas, open(output_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
 
 
@@ -524,9 +503,9 @@ def eda_sc(sentence, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug
 
 
 
-def data_augment_eda_for_sc(num_aug):
+def data_augment_eda_for_sc(input_file, output_file, num_aug):
     augmented_data = []
-    datas = json.load(open("../data/sc_train_data_base.json", "r", encoding="utf-8"))
+    datas = json.load(open(input_file, "r", encoding="utf-8"))
     for data in datas:
         texts = eda_sc(sentence=data["text"], num_aug=num_aug)
         id = data["id"] if "id" in data else ""
@@ -538,7 +517,7 @@ def data_augment_eda_for_sc(num_aug):
                 augmented_data.append({"text":text, "type":rule_type, "id":new_id})
             else:
                 augmented_data.append({"text":text, "type":rule_type})
-    json.dump(augmented_data, open("../data/sc_train_data_full.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    json.dump(augmented_data, open(output_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
 
 
@@ -551,11 +530,17 @@ if __name__ == "__main__":
     paras = parser.parse_args()
     task = paras.task
     if task == "all":
-        data_augment_nlpcda(paras.nlpcda_size)
-        data_augment_eda_for_tc(paras.eda_tc_size)
-        data_augment_eda_for_sc(paras.eda_sc_size)
+        data_augment_nlpcda("../data/tc_train_data_all_base.json", "../data/tc_train_data_all_full.json", paras.nlpcda_size)
+        data_augment_nlpcda("../data/tc_train_data_rules_base.json", "../data/tc_train_data_rules_full.json", paras.nlpcda_size)
+        data_augment_eda_for_tc("../data/tc_train_data_all_base.json", "../data/tc_train_data_all_full.json", paras.eda_tc_size)
+        data_augment_eda_for_tc("../data/tc_train_data_rules_base.json", "../data/tc_train_data_rules_full.json", paras.eda_tc_size)
+        data_augment_eda_for_sc("../data/sc_train_data_base.json", "../data/sc_train_data_full.json", paras.eda_sc_size)
     elif task == "tc":
-        data_augment_nlpcda(paras.nlpcda_size)
-        data_augment_eda_for_tc(paras.eda_tc_size)
+        data_augment_nlpcda("../data/tc_train_data_all_base.json", "../data/tc_train_data_all_full.json", paras.nlpcda_size)
+        data_augment_nlpcda("../data/tc_train_data_rules_base.json", "../data/tc_train_data_rules_full.json", paras.nlpcda_size)
+        data_augment_eda_for_tc("../data/tc_train_data_all_base.json", "../data/tc_train_data_all_full.json", paras.eda_tc_size)
+        data_augment_eda_for_tc("../data/tc_train_data_rules_base.json", "../data/tc_train_data_rules_full.json", paras.eda_tc_size)
+        # data_augment_nlpcda("../data/tc_data.json", "../data/tc_train_data_all_full.json", paras.nlpcda_size)
+        # data_augment_eda_for_tc("../data/tc_data.json", "../data/tc_train_data_all_full.json", paras.eda_tc_size)
     elif task == "sc":
-        data_augment_eda_for_sc(paras.eda_sc_size)
+        data_augment_eda_for_sc("../data/sc_train_data_base.json", "../data/sc_train_data_full.json", paras.eda_sc_size)

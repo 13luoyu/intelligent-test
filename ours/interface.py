@@ -511,8 +511,26 @@ def consistency_checking_interface():
             writelog(f"### 访问接口/testcase, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
             return jsonify(return_data)
         
-        data = Rrule_back(params['data'])
+        data = params['data']
+        new_data = []
+        for key in list(data.keys()):
+            value = data[key]
+            for v in value:
+                if "rule" in v:
+                    v['rule'] = f"{key}!{v['rule']}"
+                else:
+                    v['rule'] = f"{key}!"
+                new_data.append(v)
+        data = Rrule_back(new_data)
         conflict_rules = consistency_checking(data)
+        for conflict in conflict_rules:
+            rule_ids = conflict['rule_ids']
+            # docId, ruleId
+            new_rule_ids = []
+            for ids in rule_ids:
+                docId, ruleId = ids.split("!")[0], ids.split("!")[1]
+                new_rule_ids.append({"docId": docId, "ruleId": ruleId})
+            conflict['rule_ids'] = new_rule_ids
 
         timestamp, sign = get_timestamp_sign()
         return_data = {"code": code, "msg": "success", "data": conflict_rules, "timeStamp": timestamp, "sign": sign}

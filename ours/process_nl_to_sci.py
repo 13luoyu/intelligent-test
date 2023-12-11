@@ -14,7 +14,7 @@ def get_market_variety(s, knowledge):
         elif key == "交易品种":
             values = knowledge[key]
             for value in values:
-                value_count = s.count(value)
+                value_count = s.split("\n")[0].count(value)
                 if value_count > variety_num:
                     variety_num = value_count
                     variety = value

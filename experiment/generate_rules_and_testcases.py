@@ -5,7 +5,7 @@ import os
 def generate_rules_testcases_all():
     for file in os.listdir("data/"):
         if ".pdf" in file:
-            # if "深圳证券交易所创业板交易特别规定" not in file:
+            # if "深圳证券交易所交易规则" not in file:
             #     continue
             filename = file[:-4]
             print(f"文件《{filename}》开始执行")
@@ -20,8 +20,8 @@ def generate_rules_testcases_all():
 def generate_rules_testcases_part():
     for file in os.listdir("data/"):
         if ".txt" in file:
-            # if "data3" not in file:
-            #     continue
+            if "data5" not in file:
+                continue
             filename = file[:-4]
             begin_time = time.time()
             nlp_process("data/" + file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1696264421", "../data/tc_data.dict")
@@ -32,5 +32,5 @@ def generate_rules_testcases_part():
 
 
 if __name__ == "__main__":
-    generate_rules_testcases_all()
+    # generate_rules_testcases_all()
     generate_rules_testcases_part()

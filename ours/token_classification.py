@@ -114,6 +114,6 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], "../data/tc_data.dict", model, training_args)
-    # saved_path = "../model/ours/best_1696264421"
+    # saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], "../data/tc_data.dict", model, training_args)
+    saved_path = "../model/ours/best_1696264421"
     eval_model(training_args["validate_dataset"], "../data/tc_data.dict", saved_path, training_args)

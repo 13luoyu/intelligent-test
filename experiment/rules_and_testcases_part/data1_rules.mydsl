@@ -3,7 +3,7 @@ sourceId 3.11
 focus: 订单连续性操作
 before: []
 after: ['3.11.1.1.2']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 操作部分 is '额度' and 系统 is '本所' and 操作 is '盘'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 操作部分 is '当日额度' and 系统 is '本所' and 操作 is '使用完毕'
 	then 结果 = '成功'
 
 rule 3.11.1.1.2
@@ -11,7 +11,7 @@ sourceId 3.11
 focus: 订单连续性操作
 before: ['3.11.1.1.1']
 after: ['3.11.1.1.3']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 操作部分 is '定价交易阶段' and 操作 is '使用完毕'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 操作部分 is '定价交易阶段' and 操作 is '使用完毕'
 	then 结果 = '成功'
 
 rule 3.11.1.1.3
@@ -19,7 +19,7 @@ sourceId 3.11
 focus: 订单连续性操作
 before: ['3.11.1.1.2']
 after: ['3.11.1.2.1']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 事件 is '当日额度在本所盘后定价交易阶段使用完毕的' and 申报类型 is '后续的买入申报' and 操作 is '接受' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 事件 is '当日额度在本所盘后定价交易阶段使用完毕的' and 申报类型 is '后续的买入申报' and 操作 is '接受' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '买入'
 	then 结果 = '成功'
 
 rule 3.11.1.2.1
@@ -27,7 +27,7 @@ sourceId 3.11
 focus: 订单连续性操作
 before: ['3.11.1.1.3']
 after: ['3.11.1.2.2']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 操作部分 is '额度' and 系统 is '本所' and 操作 is '盘'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 操作部分 is '当日额度' and 系统 is '本所' and 操作 is '使用完毕'
 	then 结果 = '成功'
 
 rule 3.11.1.2.2
@@ -35,7 +35,7 @@ sourceId 3.11
 focus: 订单连续性操作
 before: ['3.11.1.2.1']
 after: ['3.11.1.2.3']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 操作部分 is '定价交易阶段' and 操作 is '使用完毕'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 操作部分 is '定价交易阶段' and 操作 is '使用完毕'
 	then 结果 = '成功'
 
 rule 3.11.1.2.3
@@ -43,7 +43,7 @@ sourceId 3.11
 focus: 订单连续性操作
 before: ['3.11.1.2.2']
 after: ['3.11.2.1.1']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 事件 is '当日额度在本所盘后定价交易阶段使用完毕的' and 申报类型 is '后续的买入申报' and 操作 is '接受' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 事件 is '当日额度在本所盘后定价交易阶段使用完毕的' and 申报类型 is '后续的买入申报' and 操作 is '接受' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '卖出'
 	then 结果 = '成功'
 
 rule 3.11.2.1.1
@@ -51,7 +51,7 @@ sourceId 3.11
 focus: 时间
 before: ['3.11.1.2.3']
 after: ['3.11.2.1.2']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 操作部分 is '额度' and 系统 is '本所' and 操作 is '盘'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 操作部分 is '当日额度' and 系统 is '本所' and 操作 is '使用完毕'
 	then 结果 = '成功'
 
 rule 3.11.2.1.2
@@ -59,7 +59,7 @@ sourceId 3.11
 focus: 时间
 before: ['3.11.2.1.1']
 after: ['3.11.2.1.3,1']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 操作部分 is '定价交易阶段' and 操作 is '使用完毕'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 操作部分 is '定价交易阶段' and 操作 is '使用完毕'
 	then 结果 = '成功'
 
 rule 3.11.2.1.3,1
@@ -67,7 +67,7 @@ sourceId 3.11
 focus: 时间
 before: ['3.11.2.1.2']
 after: ['3.11.2.2.1']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 事件 is '当日额度在本所盘后定价交易阶段使用完毕的' and 申报类型 is '卖出申报' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 事件 is '当日额度在本所盘后定价交易阶段使用完毕的' and 申报类型 is '卖出申报' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 3.11.2.2.1
@@ -75,7 +75,7 @@ sourceId 3.11
 focus: 时间
 before: ['3.11.2.1.3,1']
 after: ['3.11.2.2.2']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 操作部分 is '额度' and 系统 is '本所' and 操作 is '盘'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 操作部分 is '当日额度' and 系统 is '本所' and 操作 is '使用完毕'
 	then 结果 = '成功'
 
 rule 3.11.2.2.2
@@ -83,7 +83,7 @@ sourceId 3.11
 focus: 时间
 before: ['3.11.2.2.1']
 after: ['3.11.2.2.3,1']
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 操作部分 is '定价交易阶段' and 操作 is '使用完毕'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 操作部分 is '定价交易阶段' and 操作 is '使用完毕'
 	then 结果 = '成功'
 
 rule 3.11.2.2.3,1
@@ -91,10 +91,122 @@ sourceId 3.11
 focus: 时间
 before: ['3.11.2.2.2']
 after: []
-	if 交易方式 is '盘后定价交易' and 交易品种 is '深股通' and 事件 is '当日额度在本所盘后定价交易阶段使用完毕的' and 申报类型 is '卖出申报' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 交易方式 is '盘后定价交易' and 交易品种 is '股票' and 事件 is '当日额度在本所盘后定价交易阶段使用完毕的' and 申报类型 is '卖出申报' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.1.1.1,1
+rule 3.2.1.1.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.1.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.1.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.1.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.1.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.1.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.2.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.2.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.2.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.2.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.2.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.2.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.1.2.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.2.1.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -102,7 +214,7 @@ after: []
 	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.1.1.2,1
+rule 3.2.1.2.1.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -110,7 +222,7 @@ after: []
 	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.1.1.3,1
+rule 3.2.1.2.1.3,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -118,7 +230,7 @@ after: []
 	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.1.1.4,1
+rule 3.2.1.2.1.4,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -126,7 +238,7 @@ after: []
 	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.1.1.5,1
+rule 3.2.1.2.1.5,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -134,7 +246,7 @@ after: []
 	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.1.2.1,1
+rule 3.2.1.2.2.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -142,7 +254,7 @@ after: []
 	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.1.2.2,1
+rule 3.2.1.2.2.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -150,7 +262,7 @@ after: []
 	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.1.2.3,1
+rule 3.2.1.2.2.3,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -158,7 +270,7 @@ after: []
 	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.1.2.4,1
+rule 3.2.1.2.2.4,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -166,7 +278,7 @@ after: []
 	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.1.2.5,1
+rule 3.2.1.2.2.5,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -174,7 +286,247 @@ after: []
 	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.2.1,1
+rule 3.2.1.3.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.3.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.10,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.11,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.8,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.1.9,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.10,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.11,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.8,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.4.2.9,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.5.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.5.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.6.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.1.6.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 盘后定价交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.2.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.2.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.2.2.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -182,7 +534,7 @@ after: []
 	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.2.2,1
+rule 3.2.2.2.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -190,7 +542,183 @@ after: []
 	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.3,3.2.2.1.1,1
+rule 3.2.2.3.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.2.3.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.2.4.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.2.4.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.2.5.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.2.5.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.2.6.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.2.6.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 申报的时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.1.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.1.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.1.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.1.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.1.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.2.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.2.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.2.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.2.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.2.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.2.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.1.2.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.2.1.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -198,7 +726,7 @@ after: []
 	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.3,3.2.2.1.2,1
+rule 3.2.3,3.2.2.2.1.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -206,7 +734,7 @@ after: []
 	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.3,3.2.2.1.3,1
+rule 3.2.3,3.2.2.2.1.3,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -214,7 +742,7 @@ after: []
 	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.3,3.2.2.1.4,1
+rule 3.2.3,3.2.2.2.1.4,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -222,7 +750,7 @@ after: []
 	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.3,3.2.2.1.5,1
+rule 3.2.3,3.2.2.2.1.5,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -230,7 +758,7 @@ after: []
 	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.3,3.2.2.2.1,1
+rule 3.2.3,3.2.2.2.2.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -238,7 +766,7 @@ after: []
 	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.3,3.2.2.2.2,1
+rule 3.2.3,3.2.2.2.2.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -246,7 +774,7 @@ after: []
 	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.3,3.2.2.2.3,1
+rule 3.2.3,3.2.2.2.2.3,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -254,7 +782,7 @@ after: []
 	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.3,3.2.2.2.4,1
+rule 3.2.3,3.2.2.2.2.4,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -262,7 +790,7 @@ after: []
 	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.3,3.2.2.2.5,1
+rule 3.2.3,3.2.2.2.2.5,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -270,7 +798,343 @@ after: []
 	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.4.1.1,1
+rule 3.2.3,3.2.2.3.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.3.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.10,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.11,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.8,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.1.9,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.10,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.11,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.8,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.4.2.9,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.5.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.5.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.6.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.3,3.2.2.6.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '开市期间停牌' and 时间 is '停牌期间' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.1.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.1.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.1.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.1.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.1.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.2.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.2.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.2.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.2.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.2.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.2.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.1.2.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.2.1.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -278,7 +1142,7 @@ after: []
 	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.4.1.2,1
+rule 3.2.4.2.1.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -286,7 +1150,7 @@ after: []
 	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.4.1.3,1
+rule 3.2.4.2.1.3,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -294,7 +1158,7 @@ after: []
 	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.4.1.4,1
+rule 3.2.4.2.1.4,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -302,7 +1166,7 @@ after: []
 	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.4.1.5,1
+rule 3.2.4.2.1.5,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -310,7 +1174,7 @@ after: []
 	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.4.2.1,1
+rule 3.2.4.2.2.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -318,7 +1182,7 @@ after: []
 	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.4.2.2,1
+rule 3.2.4.2.2.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -326,7 +1190,7 @@ after: []
 	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.4.2.3,1
+rule 3.2.4.2.2.3,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -334,7 +1198,7 @@ after: []
 	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.4.2.4,1
+rule 3.2.4.2.2.4,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -342,7 +1206,7 @@ after: []
 	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.4.2.5,1
+rule 3.2.4.2.2.5,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -350,7 +1214,343 @@ after: []
 	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.5.1.1,1
+rule 3.2.4.3.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.3.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.10,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.11,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.8,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.1.9,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.10,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.11,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.8,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.4.2.9,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.5.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.5.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.6.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.4.6.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 状态 is '处于停牌状,不进行盘后定价交易' and 时间 is '当日15:00仍' and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.1.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.1.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.1.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.1.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.1.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.2.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.2.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.2.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.2.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.2.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.2.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.1.2.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.2.1.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -358,7 +1558,7 @@ after: []
 	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.5.1.2,1
+rule 3.2.5.2.1.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -366,7 +1566,7 @@ after: []
 	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.5.1.3,1
+rule 3.2.5.2.1.3,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -374,7 +1574,7 @@ after: []
 	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.5.1.4,1
+rule 3.2.5.2.1.4,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -382,7 +1582,7 @@ after: []
 	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.5.1.5,1
+rule 3.2.5.2.1.5,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -390,7 +1590,7 @@ after: []
 	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.5.2.1,1
+rule 3.2.5.2.2.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -398,7 +1598,7 @@ after: []
 	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.5.2.2,1
+rule 3.2.5.2.2.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -406,7 +1606,7 @@ after: []
 	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.5.2.3,1
+rule 3.2.5.2.2.3,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -414,7 +1614,7 @@ after: []
 	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.5.2.4,1
+rule 3.2.5.2.2.4,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -422,7 +1622,7 @@ after: []
 	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.5.2.5,1
+rule 3.2.5.2.2.5,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -430,7 +1630,343 @@ after: []
 	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.6,3.2.1.1.1,1
+rule 3.2.5.3.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.3.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.10,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.11,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.8,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.1.9,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.10,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.11,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.8,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.4.2.9,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.5.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.5.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.6.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.5.6.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 申报类型 is '未成交的申报' and 时间 is '接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.1.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.1.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.1.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.1.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.1.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.2.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.2.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.2.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.2.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.2.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.2.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.1.2.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.2.1.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -438,7 +1974,7 @@ after: []
 	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.6,3.2.1.1.2,1
+rule 3.2.6,3.2.1.2.1.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -446,7 +1982,7 @@ after: []
 	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.6,3.2.1.1.3,1
+rule 3.2.6,3.2.1.2.1.3,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -454,7 +1990,7 @@ after: []
 	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.6,3.2.1.1.4,1
+rule 3.2.6,3.2.1.2.1.4,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -462,7 +1998,7 @@ after: []
 	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.6,3.2.1.1.5,1
+rule 3.2.6,3.2.1.2.1.5,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -470,7 +2006,7 @@ after: []
 	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.6,3.2.1.2.1,1
+rule 3.2.6,3.2.1.2.2.1,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -478,7 +2014,7 @@ after: []
 	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.6,3.2.1.2.2,1
+rule 3.2.6,3.2.1.2.2.2,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -486,7 +2022,7 @@ after: []
 	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.6,3.2.1.2.3,1
+rule 3.2.6,3.2.1.2.2.3,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -494,7 +2030,7 @@ after: []
 	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.6,3.2.1.2.4,1
+rule 3.2.6,3.2.1.2.2.4,1
 sourceId 3.2
 focus: 时间
 before: []
@@ -502,12 +2038,236 @@ after: []
 	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 3.2.6,3.2.1.2.5,1
+rule 3.2.6,3.2.1.2.2.5,1
 sourceId 3.2
 focus: 时间
 before: []
 after: []
 	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.3.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.3.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.10,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.11,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.8,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.1.9,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.10,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.11,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.3,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.4,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.5,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.6,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.7,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.8,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.4.2.9,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.5.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.5.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.6.1,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.2.6,3.2.1.6.2,1
+sourceId 3.2
+focus: 时间
+before: []
+after: []
+	if 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 3.3.1.1
@@ -526,7 +2286,119 @@ after: []
 	if 操作人 is '投资者' and 状态 is '盘后定价' and 交易方式 is '交易' and 交易品种 is '股票' and 操作人 is '会员' and 操作 is '提交' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出'
 	then 结果 = '成功'
 
-rule 3.5.1.1.1
+rule 3.5.1.1.1.1
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.1.2
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.1.3
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '点击成交' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.1.4
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '询价成交' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.1.5
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.1.6
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.1.7
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.2.1
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.2.2
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.2.3
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '点击成交' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.2.4
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '询价成交' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.2.5
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.2.6
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.1.2.7
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.2.1.1
 sourceId 3.5
 focus: 价格
 before: []
@@ -534,7 +2406,7 @@ after: []
 	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报'
 	then 结果 = '不成功'
 
-rule 3.5.1.1.2
+rule 3.5.1.2.1.2
 sourceId 3.5
 focus: 价格
 before: []
@@ -542,7 +2414,7 @@ after: []
 	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报'
 	then 结果 = '不成功'
 
-rule 3.5.1.1.3
+rule 3.5.1.2.1.3
 sourceId 3.5
 focus: 价格
 before: []
@@ -550,7 +2422,7 @@ after: []
 	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报'
 	then 结果 = '不成功'
 
-rule 3.5.1.1.4
+rule 3.5.1.2.1.4
 sourceId 3.5
 focus: 价格
 before: []
@@ -558,7 +2430,7 @@ after: []
 	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报'
 	then 结果 = '不成功'
 
-rule 3.5.1.1.5
+rule 3.5.1.2.1.5
 sourceId 3.5
 focus: 价格
 before: []
@@ -566,7 +2438,7 @@ after: []
 	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报'
 	then 结果 = '不成功'
 
-rule 3.5.1.2.1
+rule 3.5.1.2.2.1
 sourceId 3.5
 focus: 价格
 before: []
@@ -574,7 +2446,7 @@ after: []
 	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报'
 	then 结果 = '不成功'
 
-rule 3.5.1.2.2
+rule 3.5.1.2.2.2
 sourceId 3.5
 focus: 价格
 before: []
@@ -582,7 +2454,7 @@ after: []
 	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报'
 	then 结果 = '不成功'
 
-rule 3.5.1.2.3
+rule 3.5.1.2.2.3
 sourceId 3.5
 focus: 价格
 before: []
@@ -590,7 +2462,7 @@ after: []
 	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报'
 	then 结果 = '不成功'
 
-rule 3.5.1.2.4
+rule 3.5.1.2.2.4
 sourceId 3.5
 focus: 价格
 before: []
@@ -598,7 +2470,7 @@ after: []
 	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报'
 	then 结果 = '不成功'
 
-rule 3.5.1.2.5
+rule 3.5.1.2.2.5
 sourceId 3.5
 focus: 价格
 before: []
@@ -606,7 +2478,357 @@ after: []
 	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报'
 	then 结果 = '不成功'
 
-rule 3.6.1.1.1,1
+rule 3.5.1.3.1
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '买入' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.3.2
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '卖出' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.1
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.10
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.11
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.2
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.3
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.4
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.5
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.6
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.7
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.8
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.1.9
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.1
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.10
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.11
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.2
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.3
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.4
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.5
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.6
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.7
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.8
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.4.2.9
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.5.1
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '买入' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.5.2
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '卖出' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.6.1
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '买入' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.5.1.6.2
+sourceId 3.5
+focus: 价格
+before: []
+after: []
+	if 限价 is '不低于收盘价' and 卖出限价 is '不高于收盘价' and 申报类型 is '盘后定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '卖出' and 操作 is '申报'
+	then 结果 = '不成功'
+
+rule 3.6.1.1.1.1,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.1.2,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.1.3,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.1.4,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.1.5,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.1.6,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.1.7,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.2.1,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.2.2,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.2.3,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '点击成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.2.4,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '询价成交' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.2.5,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.2.6,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.1.2.7,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.2.1.1,1
 sourceId 3.6
 focus: 数量
 before: []
@@ -615,7 +2837,7 @@ after: []
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 盘后定价申报的单笔申报数量 <= 1000000
 
-rule 3.6.1.1.2,1
+rule 3.6.1.2.1.2,1
 sourceId 3.6
 focus: 数量
 before: []
@@ -624,7 +2846,7 @@ after: []
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 盘后定价申报的单笔申报数量 <= 1000000
 
-rule 3.6.1.1.3,1
+rule 3.6.1.2.1.3,1
 sourceId 3.6
 focus: 数量
 before: []
@@ -633,7 +2855,7 @@ after: []
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 盘后定价申报的单笔申报数量 <= 1000000
 
-rule 3.6.1.1.4,1
+rule 3.6.1.2.1.4,1
 sourceId 3.6
 focus: 数量
 before: []
@@ -642,7 +2864,7 @@ after: []
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 盘后定价申报的单笔申报数量 <= 1000000
 
-rule 3.6.1.1.5,1
+rule 3.6.1.2.1.5,1
 sourceId 3.6
 focus: 数量
 before: []
@@ -651,7 +2873,7 @@ after: []
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 盘后定价申报的单笔申报数量 <= 1000000
 
-rule 3.6.1.2.1,1
+rule 3.6.1.2.2.1,1
 sourceId 3.6
 focus: 数量
 before: []
@@ -660,7 +2882,7 @@ after: []
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 盘后定价申报的单笔申报数量 <= 1000000
 
-rule 3.6.1.2.2,1
+rule 3.6.1.2.2.2,1
 sourceId 3.6
 focus: 数量
 before: []
@@ -669,7 +2891,7 @@ after: []
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 盘后定价申报的单笔申报数量 <= 1000000
 
-rule 3.6.1.2.3,1
+rule 3.6.1.2.2.3,1
 sourceId 3.6
 focus: 数量
 before: []
@@ -678,7 +2900,7 @@ after: []
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 盘后定价申报的单笔申报数量 <= 1000000
 
-rule 3.6.1.2.4,1
+rule 3.6.1.2.2.4,1
 sourceId 3.6
 focus: 数量
 before: []
@@ -687,7 +2909,7 @@ after: []
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 盘后定价申报的单笔申报数量 <= 1000000
 
-rule 3.6.1.2.5,1
+rule 3.6.1.2.2.5,1
 sourceId 3.6
 focus: 数量
 before: []
@@ -696,7 +2918,275 @@ after: []
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 盘后定价申报的单笔申报数量 <= 1000000
 
-rule 3.7.1.1
+rule 3.6.1.3.1,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.3.2,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.1,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.10,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.11,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.2,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.3,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.4,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.5,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.6,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.7,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.8,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.1.9,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.1,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.10,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.11,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.2,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.3,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.4,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.5,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.6,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.7,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.8,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.4.2.9,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.5.1,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.5.2,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.6.1,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.6.1.6.2,1
+sourceId 3.6
+focus: 数量
+before: []
+after: []
+	if 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 盘后定价申报的单笔申报数量 <= 1000000
+
+rule 3.7.1.1.1
+sourceId 3.7
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '买入'
+	then 结果 = '成功'
+
+rule 3.7.1.1.2
+sourceId 3.7
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '债券' and 交易方向 is '卖出'
+	then 结果 = '成功'
+
+rule 3.7.1.2.1
 sourceId 3.7
 focus: 订单连续性操作
 before: []
@@ -704,11 +3194,75 @@ after: []
 	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入'
 	then 结果 = '成功'
 
-rule 3.7.1.2
+rule 3.7.1.2.2
 sourceId 3.7
 focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出'
+	then 结果 = '成功'
+
+rule 3.7.1.3.1
+sourceId 3.7
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '买入'
+	then 结果 = '成功'
+
+rule 3.7.1.3.2
+sourceId 3.7
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '期货' and 交易方向 is '卖出'
+	then 结果 = '成功'
+
+rule 3.7.1.4.1
+sourceId 3.7
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入'
+	then 结果 = '成功'
+
+rule 3.7.1.4.2
+sourceId 3.7
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出'
+	then 结果 = '成功'
+
+rule 3.7.1.5.1
+sourceId 3.7
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '买入'
+	then 结果 = '成功'
+
+rule 3.7.1.5.2
+sourceId 3.7
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '权证' and 交易方向 is '卖出'
+	then 结果 = '成功'
+
+rule 3.7.1.6.1
+sourceId 3.7
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '买入'
+	then 结果 = '成功'
+
+rule 3.7.1.6.2
+sourceId 3.7
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易方式 is '盘后定价交易' and 即时行情内容 is '收盘价' and 时间 is '期间' and 成交价 is '时间优先原则' and 申报类型 is '后定价申报' and 操作 is '逐笔连续撮合' and 交易市场 is '深圳证券交易所' and 交易品种 is '存托凭证' and 交易方向 is '卖出'
 	then 结果 = '成功'
 

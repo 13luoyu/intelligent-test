@@ -1,0 +1,10 @@
+### 访问接口/testcase, 错误! 输入数据:
+{'timeStamp': '1702283739507', 'sign': 'AF83E2F7D210FAB321DA1998D6A38A4E', 'data': {'文档1': [{'rule': '文档1!1.1.1.1', 'sourceId': '1.1.1', 'focus': '时间', 'text': "if 交易品种 is '债券' and 交易方式 is '匹配成交' and 开盘集合匹配时间 in {[9:15-9:25]} and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 申报类型 is '限价申报' \n\tthen 结果 = '成功'"}, {'rule': '文档1!1.1.1.2', 'sourceId': '1.1.1', 'focus': '时间', 'text': "if 交易品种 is '债券' and 交易方式 is '匹配成交' and 开盘集合匹配时间 in {[9:45-9:55]} and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 申报类型 is '限价申报' \n\tthen 结果 = '成功'"}]}},
+返回数据:
+{'code': 204, 'msg': 'Traceback (most recent call last):\n  File "/home/asus/intelligent-test/ours/interface.py", line 522, in consistency_checking_interface\n    data = Rrule_back(data)\n  File "/home/asus/intelligent-test/ours/interface.py", line 270, in Rrule_back\n    rules = data[\'rules\']\nKeyError: \'rules\'\n', 'data': None, 'timeStamp': '1702284000938', 'sign': 'A70ABBD77833E08C7578E51FE5F5E212'}
+
+### 访问接口/testcase, 成功! 输入数据:
+{'timeStamp': '1702283739507', 'sign': 'AF83E2F7D210FAB321DA1998D6A38A4E', 'data': {'文档1': [{'rule': '文档1!1.1.1.1', 'sourceId': '1.1.1', 'focus': '时间', 'text': "if 交易品种 is '债券' and 交易方式 is '匹配成交' and 开盘集合匹配时间 in {[9:15-9:25]} and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 申报类型 is '限价申报' \n\tthen 结果 = '成功'"}, {'rule': '文档1!1.1.1.2', 'sourceId': '1.1.1', 'focus': '时间', 'text': "if 交易品种 is '债券' and 交易方式 is '匹配成交' and 开盘集合匹配时间 in {[9:45-9:55]} and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 申报类型 is '限价申报' \n\tthen 结果 = '成功'"}]}},
+返回数据:
+{'code': 200, 'msg': 'success', 'data': [{'rule_ids': [{'docId': '文档1', 'ruleId': '1.1.1.1'}, {'docId': '文档1', 'ruleId': '1.1.1.2'}], 'reason': '规则文档1!1.1.1.1和文档1!1.1.1.2的结果相同，但存在互相冲突的约束：对规则文档1!1.1.1.1，开盘集合匹配时间为{[9:15-9:25]}，而对规则文档1!1.1.1.2，开盘集合匹配时间为{[9:45-9:55]}。'}], 'timeStamp': '1702284479385', 'sign': 'E3275E9364D783560FDD3A2939A0BF2E'}
+

@@ -2166,284 +2166,44 @@ after: []
 	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '定向增发' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
 	then 结果 = '不成功'
 
-rule 2.18.10.1
+rule 2.18.10
 sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配'
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
 	then 结果 = '不成功'
 
-rule 2.18.10.2
+rule 2.18.11.1
 sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量'
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
 	then 结果 = '不成功'
 
-rule 2.18.10.3
+rule 2.18.11.2
 sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '点击成交'
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出'
 	then 结果 = '不成功'
 
-rule 2.18.10.4
+rule 2.18.12.1
 sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价成交'
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
 	then 结果 = '不成功'
 
-rule 2.18.10.5
+rule 2.18.12.2
 sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标'
-	then 结果 = '不成功'
-
-rule 2.18.10.6
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式'
-	then 结果 = '不成功'
-
-rule 2.18.10.7
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期'
-	then 结果 = '不成功'
-
-rule 2.18.11.1.1
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配'
-	then 结果 = '不成功'
-
-rule 2.18.11.1.2
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量'
-	then 结果 = '不成功'
-
-rule 2.18.11.1.3
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '点击成交'
-	then 结果 = '不成功'
-
-rule 2.18.11.1.4
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价成交'
-	then 结果 = '不成功'
-
-rule 2.18.11.1.5
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标'
-	then 结果 = '不成功'
-
-rule 2.18.11.1.6
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式'
-	then 结果 = '不成功'
-
-rule 2.18.11.1.7
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期'
-	then 结果 = '不成功'
-
-rule 2.18.11.2.1
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配'
-	then 结果 = '不成功'
-
-rule 2.18.11.2.2
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量'
-	then 结果 = '不成功'
-
-rule 2.18.11.2.3
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '点击成交'
-	then 结果 = '不成功'
-
-rule 2.18.11.2.4
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '询价成交'
-	then 结果 = '不成功'
-
-rule 2.18.11.2.5
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标'
-	then 结果 = '不成功'
-
-rule 2.18.11.2.6
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式'
-	then 结果 = '不成功'
-
-rule 2.18.11.2.7
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期'
-	then 结果 = '不成功'
-
-rule 2.18.12.1.1
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配'
-	then 结果 = '不成功'
-
-rule 2.18.12.1.2
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量'
-	then 结果 = '不成功'
-
-rule 2.18.12.1.3
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '点击成交'
-	then 结果 = '不成功'
-
-rule 2.18.12.1.4
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价成交'
-	then 结果 = '不成功'
-
-rule 2.18.12.1.5
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标'
-	then 结果 = '不成功'
-
-rule 2.18.12.1.6
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式'
-	then 结果 = '不成功'
-
-rule 2.18.12.1.7
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期'
-	then 结果 = '不成功'
-
-rule 2.18.12.2.1
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配'
-	then 结果 = '不成功'
-
-rule 2.18.12.2.2
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量'
-	then 结果 = '不成功'
-
-rule 2.18.12.2.3
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '点击成交'
-	then 结果 = '不成功'
-
-rule 2.18.12.2.4
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '询价成交'
-	then 结果 = '不成功'
-
-rule 2.18.12.2.5
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标'
-	then 结果 = '不成功'
-
-rule 2.18.12.2.6
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式'
-	then 结果 = '不成功'
-
-rule 2.18.12.2.7
-sourceId 2.18
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期'
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券回购' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出'
 	then 结果 = '不成功'
 
 rule 2.18.2
@@ -2468,6 +2228,22 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.4.10
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
+	then 结果 = '不成功'
+
+rule 2.18.4.11
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
 rule 2.18.4.2
@@ -2502,12 +2278,60 @@ after: []
 	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
+rule 2.18.4.6
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价交易'
+	then 结果 = '不成功'
+
+rule 2.18.4.7
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.4.8
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	then 结果 = '不成功'
+
+rule 2.18.4.9
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
+	then 结果 = '不成功'
+
 rule 2.18.5.1
 sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.5.10
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
+	then 结果 = '不成功'
+
+rule 2.18.5.11
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
 rule 2.18.5.2
@@ -2542,12 +2366,60 @@ after: []
 	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
+rule 2.18.5.6
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价交易'
+	then 结果 = '不成功'
+
+rule 2.18.5.7
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.5.8
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	then 结果 = '不成功'
+
+rule 2.18.5.9
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
+	then 结果 = '不成功'
+
 rule 2.18.6.1
 sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.6.10
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
+	then 结果 = '不成功'
+
+rule 2.18.6.11
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
 rule 2.18.6.2
@@ -2582,12 +2454,60 @@ after: []
 	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
+rule 2.18.6.6
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价交易'
+	then 结果 = '不成功'
+
+rule 2.18.6.7
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.6.8
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	then 结果 = '不成功'
+
+rule 2.18.6.9
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '股票交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
+	then 结果 = '不成功'
+
 rule 2.18.7.1
 sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配'
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.7.10
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
+	then 结果 = '不成功'
+
+rule 2.18.7.11
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
 rule 2.18.7.2
@@ -2595,7 +2515,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量'
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
 	then 结果 = '不成功'
 
 rule 2.18.7.3
@@ -2603,7 +2523,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '点击成交'
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
 	then 结果 = '不成功'
 
 rule 2.18.7.4
@@ -2611,7 +2531,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价成交'
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
 	then 结果 = '不成功'
 
 rule 2.18.7.5
@@ -2619,7 +2539,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标'
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
 rule 2.18.7.6
@@ -2627,7 +2547,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式'
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价交易'
 	then 结果 = '不成功'
 
 rule 2.18.7.7
@@ -2635,7 +2555,23 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期'
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.7.8
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	then 结果 = '不成功'
+
+rule 2.18.7.9
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '买入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
 	then 结果 = '不成功'
 
 rule 2.18.8.1
@@ -2643,7 +2579,23 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配'
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.8.10
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
+	then 结果 = '不成功'
+
+rule 2.18.8.11
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
 rule 2.18.8.2
@@ -2651,7 +2603,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量'
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
 	then 结果 = '不成功'
 
 rule 2.18.8.3
@@ -2659,7 +2611,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '点击成交'
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
 	then 结果 = '不成功'
 
 rule 2.18.8.4
@@ -2667,7 +2619,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价成交'
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
 	then 结果 = '不成功'
 
 rule 2.18.8.5
@@ -2675,7 +2627,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标'
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
 rule 2.18.8.6
@@ -2683,7 +2635,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式'
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价交易'
 	then 结果 = '不成功'
 
 rule 2.18.8.7
@@ -2691,7 +2643,23 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期'
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.8.8
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	then 结果 = '不成功'
+
+rule 2.18.8.9
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '转入' and 操作部分 is '除可充抵保证金证券范围以外的证券' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
 	then 结果 = '不成功'
 
 rule 2.18.9.1
@@ -2699,7 +2667,23 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配'
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.9.10
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
+	then 结果 = '不成功'
+
+rule 2.18.9.11
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
 rule 2.18.9.2
@@ -2707,7 +2691,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量'
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
 	then 结果 = '不成功'
 
 rule 2.18.9.3
@@ -2715,7 +2699,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '点击成交'
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
 	then 结果 = '不成功'
 
 rule 2.18.9.4
@@ -2723,7 +2707,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价成交'
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
 	then 结果 = '不成功'
 
 rule 2.18.9.5
@@ -2731,7 +2715,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标'
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
 rule 2.18.9.6
@@ -2739,7 +2723,7 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式'
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价交易'
 	then 结果 = '不成功'
 
 rule 2.18.9.7
@@ -2747,7 +2731,23 @@ sourceId 2.18
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期'
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	then 结果 = '不成功'
+
+rule 2.18.9.8
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	then 结果 = '不成功'
+
+rule 2.18.9.9
+sourceId 2.18
+focus: 订单连续性操作
+before: []
+after: []
+	if 操作人 is '投资者' and 操作 is '参与' and 交易品种 is '债券交易型开放式基金' and 操作 is '申购及' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
 	then 结果 = '不成功'
 
 rule 2.19.1.1.1
@@ -6648,84 +6648,20 @@ after: []
 	if 操作人 is '会员' and 操作 is '借出' and 操作部分 is '此类证' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '不成功'
 
-rule 4.2.1.1.1,1
+rule 4.2.1.1,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.1.1.2,1
+rule 4.2.1.2,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.1.1.3,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.1.1.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.1.1.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.1.2.1,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.1.2.2,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.1.2.3,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.1.2.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.1.2.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 4.2.10.1,1
@@ -7064,84 +7000,20 @@ after: []
 	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '债券' and 约束 is '其他上市证券投资' and 约束 is '率最高' and 约束 is '率最高' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.2.1.1,1
+rule 4.2.2.1,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.2.1.2,1
+rule 4.2.2.2,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.2.1.3,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.2.1.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.2.1.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.2.2.1,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.2.2.2,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.2.2.3,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.2.2.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.2.2.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '股股票' and 约束 is '证100指数成份' and 约束 is '的折算率最高' and 约束 is '65%' and 约束 is '65%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 4.2.3.1.1,1
@@ -7400,324 +7272,68 @@ after: []
 	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 交易品种 is '基金' and 约束 is '证券公司现金管理产品、货币市场' and 约束 is '、国债的折算率最高' and 约束 is '95%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.5.1.1,1
+rule 4.2.5.1,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.5.1.2,1
+rule 4.2.5.2,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.5.1.3,1
+rule 4.2.6.1,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.5.1.4,1
+rule 4.2.6.2,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.5.1.5,1
+rule 4.2.7.1,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.5.2.1,1
+rule 4.2.7.2,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.5.2.2,1
+rule 4.2.8.1,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 4.2.5.2.3,1
+rule 4.2.8.2,1
 sourceId 4.2
 focus: 价格
 before: []
 after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.5.2.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.5.2.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.6.1.1,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.6.1.2,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.6.1.3,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.6.1.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.6.1.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.6.2.1,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.6.2.2,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.6.2.3,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.6.2.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.6.2.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '态市盈率在300倍' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.7.1.1,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.7.1.2,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.7.1.3,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.7.1.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.7.1.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.7.2.1,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.7.2.2,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.7.2.3,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.7.2.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.7.2.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '实行风险警示' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.8.1.1,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.8.1.2,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.8.1.3,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.8.1.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.8.1.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.8.2.1,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.8.2.2,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.8.2.3,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.8.2.4,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 4.2.8.2.5,1
-sourceId 4.2
-focus: 价格
-before: []
-after: []
-	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	if 价格 is '100指数成份股股票的折算率最高不超过70%' and 约束 is '进入退市整理期的证券' and 约束 is '态市盈率在300倍' and 约束 is '态市盈率在300倍' and 交易品种 is 'A股股票' and 约束 is '负数的' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 约束 is '的折算率' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 4.2.9.1,1
@@ -9212,168 +8828,40 @@ rule 6.1.1.5.3
 sourceId 6.1
 focus: 订单连续性操作
 before: ['6.1.1.5.2']
-after: ['6.1.2.1.1']
+after: ['6.2.1.1.1']
 	if 事件 is '单只标的股票' and 状态 is '的融资,5%' and 操作 is '暂停其融资买入' and 操作 is '公布' and 时间 is '达到在次一交易日' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
 	then 结果 = '成功'
 
-rule 6.1.2.1.1
+rule 6.1.2.1
 sourceId 6.1
 focus: 订单连续性操作
-before: ['6.1.1.5.3']
-after: ['6.1.2.1.2']
+before: []
+after: ['6.1.2.2']
 	if 交易品种 is '标的股票的' and 操作 is '降低至'
 	then 结果 = '成功'
 
-rule 6.1.2.1.2
+rule 6.1.2.2
 sourceId 6.1
 focus: 订单连续性操作
-before: ['6.1.2.1.1']
-after: ['6.1.2.2.1']
-	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+before: ['6.1.2.1']
+after: ['6.1.3.1']
+	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
 	then 结果 = '成功'
 
-rule 6.1.2.2.1
+rule 6.1.3.1
 sourceId 6.1
 focus: 订单连续性操作
-before: ['6.1.2.1.2']
-after: ['6.1.2.2.2']
+before: ['6.1.2.2']
+after: ['6.1.3.2']
 	if 交易品种 is '标的股票的' and 操作 is '降低至'
 	then 结果 = '成功'
 
-rule 6.1.2.2.2
+rule 6.1.3.2
 sourceId 6.1
 focus: 订单连续性操作
-before: ['6.1.2.2.1']
-after: ['6.1.2.3.1']
-	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 6.1.2.3.1
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.2.2.2']
-after: ['6.1.2.3.2']
-	if 交易品种 is '标的股票的' and 操作 is '降低至'
-	then 结果 = '成功'
-
-rule 6.1.2.3.2
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.2.3.1']
-after: ['6.1.2.4.1']
-	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 6.1.2.4.1
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.2.3.2']
-after: ['6.1.2.4.2']
-	if 交易品种 is '标的股票的' and 操作 is '降低至'
-	then 结果 = '成功'
-
-rule 6.1.2.4.2
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.2.4.1']
-after: ['6.1.2.5.1']
-	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 6.1.2.5.1
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.2.4.2']
-after: ['6.1.2.5.2']
-	if 交易品种 is '标的股票的' and 操作 is '降低至'
-	then 结果 = '成功'
-
-rule 6.1.2.5.2
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.2.5.1']
-after: ['6.1.3.1.1']
-	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 6.1.3.1.1
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.2.5.2']
-after: ['6.1.3.1.2']
-	if 交易品种 is '标的股票的' and 操作 is '降低至'
-	then 结果 = '成功'
-
-rule 6.1.3.1.2
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.3.1.1']
-after: ['6.1.3.2.1']
-	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 6.1.3.2.1
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.3.1.2']
-after: ['6.1.3.2.2']
-	if 交易品种 is '标的股票的' and 操作 is '降低至'
-	then 结果 = '成功'
-
-rule 6.1.3.2.2
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.3.2.1']
-after: ['6.1.3.3.1']
-	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 6.1.3.3.1
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.3.2.2']
-after: ['6.1.3.3.2']
-	if 交易品种 is '标的股票的' and 操作 is '降低至'
-	then 结果 = '成功'
-
-rule 6.1.3.3.2
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.3.3.1']
-after: ['6.1.3.4.1']
-	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 6.1.3.4.1
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.3.3.2']
-after: ['6.1.3.4.2']
-	if 交易品种 is '标的股票的' and 操作 is '降低至'
-	then 结果 = '成功'
-
-rule 6.1.3.4.2
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.3.4.1']
-after: ['6.1.3.5.1']
-	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 6.1.3.5.1
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.3.4.2']
-after: ['6.1.3.5.2']
-	if 交易品种 is '标的股票的' and 操作 is '降低至'
-	then 结果 = '成功'
-
-rule 6.1.3.5.2
-sourceId 6.1
-focus: 订单连续性操作
-before: ['6.1.3.5.1']
-after: ['6.2.1.1.1']
-	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
+before: ['6.1.3.1']
+after: ['6.1.5.1']
+	if 交易品种 is '标的股票的' and 事件 is '降低至20%以下' and 操作 is '恢复其融资买入' and 操作 is '公布' and 时间 is '在次一交易日' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
 	then 结果 = '成功'
 
 rule 6.1.4.1
@@ -9467,7 +8955,7 @@ after: []
 rule 6.1.5.1
 sourceId 6.1
 focus: 订单连续性操作
-before: []
+before: ['6.1.3.2']
 after: ['6.1.5.2']
 	if 操作部分 is '易型' and 操作 is '开'
 	then 结果 = '成功'
@@ -9619,7 +9107,7 @@ after: ['6.1.5.10']
 rule 6.2.1.1.1
 sourceId 6.2
 focus: 订单连续性操作
-before: ['6.1.3.5.2']
+before: ['6.1.1.5.3']
 after: ['6.2.1.1.2']
 	if 操作 is '标' and 操作部分 is '股票'
 	then 结果 = '成功'

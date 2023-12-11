@@ -578,28 +578,19 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
             for rule_id in to_delete:
                 del vars[rule_id]
                 del rules[rule_id]
-        if element in defines:
+        if element in defines:  # 交易品种/交易市场
             e = defines[element][0]
-            for rule_id in list(rules.keys()):
-                rule = rules[rule_id]
-                find = False
-                for c in rule['constraints']:
-                    if c['key'] == element:
-                        find = True
-                        break
-                if not find:
-                    rule['constraints'].append({"key":element, "operation":"is", "value":e})
-                    vars[rule_id][element] = []
-        
-        elif element == "交易方式":
-            # 获取交易品种，得到对应的交易方式，填入
+            if e == "证券":
+                e = preliminaries['交易品种']
             to_delete = []
             for rule_id in list(rules.keys()):
                 rule = rules[rule_id]
-                # 查找交易品种
+                find = False
+                jypz = ""
                 for c in rule['constraints']:
-                    if c['key'] == "交易品种":
+                    if c['key'] == element:  # 只有交易品种才可能走这个分支
                         jypz = c['value']
+                        new_jypz = ""
                         if "创业" in jypz:
                             new_jypz = "创业板"
                         else:
@@ -609,6 +600,59 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                                 new_jypz = "股票"
                             if "基金" in jypz or "ET" in jypz or "TF" in jypz or "LO" in jypz or "OF" in jypz:
                                 new_jypz = "基金"
+                            if new_jypz == "":
+                                new_jypz = jypz
+                        if jypz != new_jypz:
+                            c['value'] = new_jypz
+                            rule['constraints'].append({"key":f"{new_jypz}品种", "operation":"is", "value":jypz})
+                            vars[rule_id][f"{new_jypz}品种"] = []
+                        find = True
+                        break
+                if not find or jypz == "证券":
+                    if jypz == "证券":
+                        e = preliminaries['交易品种']
+                    if isinstance(e, str):
+                        rule['constraints'].append({"key":element, "operation":"is", "value":e})
+                        vars[rule_id][element] = []
+                    elif isinstance(e, list):
+                        for eidx, ei in enumerate(e):
+                            new_id = f"{rule_id}.{eidx+1}"
+                            new_rule = copy.deepcopy(rule)
+                            if jypz == "证券":
+                                for c in new_rule['constraints']:
+                                    if c['key'] == element:
+                                        c['value'] = ei
+                            else:
+                                new_rule['constraints'].append({"key":element, "operation":"is", "value":ei})
+                            rules[new_id] = new_rule
+                            new_var = copy.deepcopy(vars[rule_id])
+                            new_var[element] = []
+                            vars[new_id] = new_var
+                        to_delete.append(rule_id)
+            for rule_id in to_delete:
+                del rules[rule_id]
+                del vars[rule_id]
+        elif element == "交易方式":
+            # 获取交易品种，得到对应的交易方式，填入
+            to_delete = []
+            for rule_id in list(rules.keys()):
+                rule = rules[rule_id]
+                # 查找交易品种
+                for c in rule['constraints']:
+                    if c['key'] == "交易品种":
+                        jypz = c['value']
+                        new_jypz = ""
+                        if "创业" in jypz:
+                            new_jypz = "创业板"
+                        else:
+                            if "债" in jypz:
+                                new_jypz = "债券"
+                            if "股" in jypz:
+                                new_jypz = "股票"
+                            if "基金" in jypz or "ET" in jypz or "TF" in jypz or "LO" in jypz or "OF" in jypz:
+                                new_jypz = "基金"
+                            if new_jypz == "":
+                                new_jypz = jypz
                         jypz = new_jypz
                         break
                 if jypz in tree:

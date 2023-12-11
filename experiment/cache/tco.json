@@ -1,22 +1,37 @@
 [
     {
-        "id": "第二十七条",
-        "text": "向不特定对象发行的可转债采用协商成交方式的，交易时间为每个交易日的9:15至11:30、13:00至15:30。当天全天停牌、处于临时停牌期间或者停牌至收市的可转债，本所不接受其协商成交交易申报。采用盘后定价成交方式的，交易时间为每个交易日的15:05至15:30。当天全天停牌或者停牌至收市的可转债，本所不接受其盘后定价成交交易申报。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 B-交易品种 I-交易品种 I-交易品种 O B-系统 I-系统 B-结果 I-结果 I-结果 I-结果 B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-key I-key O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-系统 I-系统 B-结果 I-结果 I-结果 I-结果 B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O"
+        "id": "3.3.1",
+        "text": "本所接受交易参与人竞价交易申报的时间为每个交易日9:15至9:25、9:30至11:30、13:00至15:00。每个交易日9:20至9:25的开盘集合竞价阶段、14:57至15:00的收盘集合竞价阶段，本所交易主机不接受撤单申报；其他接受交易申报的时间内，未成交申报可以撤销。",
+        "label": "B-系统 I-系统 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-系统 I-系统 O B-系统 I-系统 O O B-状态 I-状态 I-状态 O O O O B-时间 I-时间 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O B-结果 I-结果 O O O"
     },
     {
-        "id": "第二十八条",
-        "text": "向不特定对象发行的可转债采用协商成交、盘后定价成交方式的，单笔交易数量不低于50万元面额，或者交易金额不低于50万元。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-key I-key I-key I-key I-key I-key B-op I-op I-op B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-or I-or I-or B-key I-key I-key B-op I-op I-op B-价格 I-价格 I-价格 I-价格 O"
+        "id": "3.3.4",
+        "text": "根据市场需要，本所可以接受下列方式的市价申报:（一）最优5档即时成交剩余撤销申报，即该申报在对手方实时最优5个价位内以对手方价格为成交价逐次成交，剩余未成交部分自动撤销。（二）最优5档即时成交剩余转限价申报，即该申报在对手方实时5个最优价位内以对手方价格为成交价逐次成交，剩余未成交部分按本方申报最新成交价转为限价申报；如该申报无成交的，按本方最优报价转为限价申报；如无本方申报的，该申报撤销。（三）本方最优价格申报，即该申报以其进入交易主机时，集中申报簿中本方最优报价为其申报价格；本方最优价格申报进入交易主机时，集中申报簿中本方无申报的，申报自动撤销。（四）对手方最优价格申报，即该申报以其进入交易主机时，集中申报簿中对手方最优报价为其申报价格；对手方最优价格申报进入交易主机时，集中申报簿中对手方无申报的，申报自动撤销。",
+        "label": "O O O O O O O B-系统 I-系统 B-结果 I-结果 O O O O O O O B-key I-key I-key I-key O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key I-key I-key I-key I-key O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-结果 I-结果 I-结果 I-结果 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key I-key I-key I-key I-key O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-状态 I-状态 I-状态 I-状态 I-状态 O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-状态 I-状态 I-状态 I-状态 I-状态 O O O B-操作部分 I-操作部分 B-结果 I-结果 O O O O B-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key I-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作部分 I-操作部分 B-结果 I-结果 I-结果 O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key I-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value I-value B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O B-操作部分 I-操作部分 B-结果 I-结果 I-结果 I-结果 O"
     },
     {
-        "id": "第二十九条",
-        "text": "意向申报不承担成交义务，意向申报指令可以撤销。本所对约定号、证券代码、买卖方向、价格、数量等各项要素均匹配的成交申报进行成交确认。市场所有参与者可以提交成交申报，按指定的价格与定价申报全部或者部分成交，本所按时间优先顺序进行成交确认。定价申报每笔成交的数量或者交易金额，应当满足协商成交最低限额的要求。",
-        "label": "O O O O O O O O O O O O B-value I-value I-value I-value O O B-结果 I-结果 B-操作 I-操作 O B-系统 I-系统 O B-value I-value I-value O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-value I-value I-value I-value O B-value I-value O B-value I-value O O O O O O B-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-价格 I-价格 I-价格 I-价格 I-价格 O B-value I-value I-value I-value B-结果 I-结果 B-or I-or B-结果 I-结果 I-结果 I-结果 O B-系统 I-系统 O B-value I-value I-value I-value O O O O O O O O O B-value I-value I-value I-value B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 B-or I-or B-价格 I-价格 I-价格 I-价格 O O O B-op I-op B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-value I-value I-value I-value O O O O"
+        "id": "3.3.5",
+        "text": "本所交易系统处理前款规定的市价申报时，买入申报的成交价格和转为限价申报的申报价格不高于买入保护限价，卖出申报的成交价格和转为限价申报的申报价格不低于卖出保护限价。",
+        "label": "B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-key I-key I-key I-key O B-key I-key I-key I-key O O O O B-value I-value I-value O B-key I-key I-key I-key B-op I-op I-op B-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key O B-key I-key I-key I-key O O O O B-key I-key I-key O B-key I-key I-key I-key B-op I-op I-op O O B-value I-value O O O"
     },
     {
-        "id": "第三十一条",
-        "text": "向不特定对象发行的可转债上市首日，协商成交申报价格在发行价的上下30%范围内确定。除上市首日外，协商成交申报价格在当日涨跌幅限制价格范围内确定。",
-        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-时间 I-时间 I-时间 I-时间 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-key I-key I-key I-key O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-key I-key I-key I-key I-key O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O"
+        "id": "3.3.6",
+        "text": "市价申报只适用于连续竞价期间的交易，本所另有规定的除外。",
+        "label": "B-key I-key I-key I-key O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O B-系统 I-系统 O O O O O O O O"
+    },
+    {
+        "id": "3.3.8",
+        "text": "通过竞价交易买入证券的，申报数量应当为100股（份）或其整数倍。",
+        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 B-交易品种 I-交易品种 O O B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O"
+    },
+    {
+        "id": "3.3.9",
+        "text": "证券交易单笔申报最大数量应当不超过100万股（份）。",
+        "label": "B-交易品种 I-交易品种 O O B-key I-key I-key I-key I-key I-key I-key I-key O O B-op I-op I-op B-value I-value I-value I-value O B-value I-value O O"
+    },
+    {
+        "id": "3.3.11",
+        "text": "A股的申报价格最小变动单位为0.01元人民币，基金、权证交易的申报价格最小变动单位为0.001元人民币，B股交易的申报价格最小变动单位为0.001美元。",
+        "label": "B-交易品种 I-交易品种 B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-交易品种 I-交易品种 B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O"
     }
 ]

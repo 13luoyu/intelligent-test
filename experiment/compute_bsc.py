@@ -9,11 +9,18 @@ from experiment.tc import str_same
 sts = hanlp.load(hanlp.pretrained.sts.STS_ELECTRA_BASE_ZH)
 
 def judge_same(s1, s2, method="alg", threshold=0.8):
+    s1, s2 = str(s1), str(s2)
     if method == "alg":
         return str_same(s1, s2, threshold)
     else:
         return sts((s1, s2)) > threshold
 
+def is_number(s):
+    try:
+        s = float(s)
+        return True
+    except ValueError:
+        return False
 
 def compute_bsc_v1(testcases, scenarios, f):
     """
@@ -272,7 +279,7 @@ def compute_bsc_v1(testcases, scenarios, f):
     return float(sum(if_cover)) / float(len(if_cover))
 
 
-def compute_bsc_v2(testcases, scenarios, f):
+def compute_bsc_v2(testcases, scenarios, f, type="ours"):
     """
     这个函数的计算方法是，对于一个场景，一条用例，判断场景的每个变量在用例中是否提及（值相同），
     然后这个场景覆盖率=提及的变量数/总变量数，取最高的覆盖率
@@ -300,7 +307,8 @@ def compute_bsc_v2(testcases, scenarios, f):
         scenarios_variables.append(variables)
     scenarios = new_scenarios
 
-    testcases = [testcase for testcase_ in testcases for testcase in testcase_]
+    if type == "ours":
+        testcases = [testcase for testcase_ in testcases for testcase in testcase_]
 
     for scenario_index, scenario in enumerate(scenarios):
         scenario_variables_total = copy.deepcopy(scenarios_variables[scenario_index])
@@ -467,7 +475,7 @@ def compute_bsc_v2(testcases, scenarios, f):
                         for sv in scenario_value.split(","):
                             fulfill = False
                             for price in prices:
-                                if price.isdigit():
+                                if is_number(price):
                                     price = float(price)
                                 else:
                                     if judge_same(price, sv):
@@ -476,7 +484,9 @@ def compute_bsc_v2(testcases, scenarios, f):
                                     else:
                                         continue
                                 op = judge_op(sv)
-                                all_v = re.findall(f"\d+", sv)
+                                if op == "":
+                                    op = "=="
+                                all_v = re.findall(r"\d+\.\d*", sv)
                                 if len(all_v)>0:
                                     value = float(all_v[0])  # op value
                                 else:  # 场景中的价格是一个枚举变量(但price不是)
@@ -500,13 +510,15 @@ def compute_bsc_v2(testcases, scenarios, f):
 
                     # 同时为枚举变量
                     elif not is_time_key(testcase_key) and not is_time_key(testcase_key) and not is_num_key(testcase_key) and not is_num_key(scenario_key) and not is_price_key(testcase_key) and not is_price_key(scenario_key):
+                        
                         # 对于scenario中的一条枚举变量，如果在testcase中存在value相似的字符串，则算覆盖；否则不算
                         for s_value in scenario_value.split(","):
                             if judge_same(s_value, testcase_value):
                                 scenario_variables[scenario_key] = 1
                                 break
-
-            f.write(f"## 测试场景\"{scenario_index+1}\", 测试用例\"{testcase['testid']}\", 覆盖变量数目为{sum(scenario_variables.values())}, 未覆盖的变量包括{[key for key in scenario_variables.keys() if scenario_variables[key] == 0]}\n")
+            
+            if "textid" in testcase:
+                f.write(f"## 测试场景\"{scenario_index+1}\", 测试用例\"{testcase['testid']}\", 覆盖变量数目为{sum(scenario_variables.values())}, 未覆盖的变量包括{[key for key in scenario_variables.keys() if scenario_variables[key] == 0]}\n")
             
             for key in scenario_variables_total.keys():
                 if scenario_variables[key] == 1:
@@ -525,15 +537,14 @@ def compute_bsc_v2(testcases, scenarios, f):
 
 def compute_bsc_ours(summary_f):
     for file in sorted(os.listdir("business_scenario")):
-        # if "data5" not in file:
-        #     continue
+        if "data5" not in file:
+            continue
         f = open(f"log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
         testcase_file = f"rules_and_testcases_part/{file.split('_')[0]}_testcases.json"
         scenario_file = f"business_scenario/{file}"
         testcases = json.load(open(testcase_file, "r", encoding="utf-8"))
         scenarios = open(scenario_file, "r", encoding="utf-8").read().strip().split("\n")
-        f.write(f"运行数据集{file.split('_')[0]}\n")
-        bsc = compute_bsc_v2(testcases, scenarios, f)
+        bsc = compute_bsc_v2(testcases, scenarios, f, type="ours")
         print(f"数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}")
         f.write(f"数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
         summary_f.write(f"ours在数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
@@ -772,20 +783,34 @@ def compute_bsc_llm(summary_f):
     for file in sorted(os.listdir("llm_result")):
         if "testcase" in file:
             llm = file.split("_")[0]
-            f = open(f"log/{llm}_{file.split('_')[0]}.log", "w", encoding="utf-8")
+            f = open(f"log/{llm}_{file.split('_')[-1].split('.')[0]}.log", "w", encoding="utf-8")
             testcase_file = "llm_result/" + file
             scenario_file = f"business_scenario/{file.split('_')[-1].split('.')[0]}_scenario.txt"
             testcases = json.load(open(testcase_file, "r", encoding="utf-8"))
             scenarios = open(scenario_file, "r", encoding="utf-8").read().strip().split("\n")
-            f.write(f"运行数据集{file.split('_')[-1].split('.')[0]}\n")
-            bsc = compute_bsc_v3(testcases, scenarios, f)
+            bsc = compute_bsc_v2(testcases, scenarios, f, type="llm")
             print(f"{llm}在数据集{file.split('_')[-1].split('.')[0]}的业务场景覆盖率为{round(bsc, 4)}")
             f.write(f"{llm}在数据集{file.split('_')[-1].split('.')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
             summary_f.write(f"{llm}在数据集{file.split('_')[-1].split('.')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
             f.close()
 
+def compute_bsc_non_expert(summary_f):
+    for file in sorted(os.listdir("non_expert_result")):
+        if ".json" in file and "expert" not in file:
+            testcases = json.load(open(f"non_expert_result/{file}", "r", encoding="utf-8"))
+            dataset = file.split(".")[0].split("_")[-1]
+            scenarios = open(f"business_scenario/{dataset}_scenario.txt", "r", encoding="utf-8").read().strip().split("\n")
+            f = open(f"log/{file.split('.')[0]}.log", "w", encoding="utf-8")
+            bsc = compute_bsc_v2(testcases, scenarios, f, type="human")
+            human = "_".join(file.split("_")[:2])
+            print(f"{human}在数据集{file.split('_')[-1].split('.')[0]}的业务场景覆盖率为{round(bsc, 4)}")
+            f.write(f"{human}在数据集{file.split('_')[-1].split('.')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
+            summary_f.write(f"{human}在数据集{file.split('_')[-1].split('.')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
+            f.close()
+
 if __name__ == "__main__":
     summary_f = open("log/bsc.log", "w", encoding="utf-8")
-    compute_bsc_ours(summary_f)
-    compute_bsc_llm(summary_f)
+    # compute_bsc_ours(summary_f)
+    # compute_bsc_llm(summary_f)
+    # compute_bsc_non_expert(summary_f)
     summary_f.close()

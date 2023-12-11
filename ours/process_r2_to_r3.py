@@ -2,6 +2,8 @@ import json
 import pprint
 import copy
 import hanlp
+from ours.process_tci_to_tco import token_classification
+from ours.process_tco_to_r1 import to_r1
 
 HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_SMALL_ZH)
 
@@ -47,6 +49,7 @@ def deal_with_event_precond(event):
     keys, values = [], []
     n, v = "", ""
     last = ""
+    # print(tok, ctb)
     for i, c in enumerate(ctb):
         t = tok[i]
         if c == "VV":
@@ -63,20 +66,21 @@ def deal_with_event_precond(event):
                 values.append(n)
                 n = ""
             v += t
-        elif c == "NN":
+        elif c == "NN" or c == "NT":
             if last == "DT":
                 n += tok[i-1]
-            if last == "NN":
+            if last == "NN" or last == "NT":
                 n += t
                 continue
             elif last == "VV":
-                keys.append("操作")
-                values.append(v)
+                if v != "盘":
+                    keys.append("操作")
+                    values.append(v)
                 v = ""
             n += t
         elif c != last:
             if v != "":
-                if c != "DEC":
+                if c != "DEC" and v != "盘":
                     keys.append("操作")
                     values.append(v)
                 v = ""
@@ -102,6 +106,22 @@ def deal_with_event_precond(event):
         keys.append("操作")
         values.append(v)
     return keys, values
+
+    # if event[-1] != "。":
+    #     event = event + "。"
+    # tci = [
+    #     {
+    #         "id":"1.1.1",
+    #         "text":event,
+    #         "label":""
+    #     }
+    # ]
+    # knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
+    # tco = token_classification(tci, knowledge, "../model/ours/best_1701809213", "../data/tc_data.dict")
+    # # 当日额度在本所盘后定价交易阶段使用完毕的
+    # r1 = to_r1(tco, knowledge)
+    # print(r1)
+    # return [], []
 
 
 

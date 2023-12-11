@@ -1,113 +1,17 @@
-rule 第三条.1,第三条.3.1.1
+rule 第三条.1,第三条.3.1
 sourceId 第三条
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配'
+	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
 	then 结果 = '成功'
 
-rule 第三条.1,第三条.3.1.2
+rule 第三条.1,第三条.3.2
 sourceId 第三条
 focus: 订单连续性操作
 before: []
 after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.1.3
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '点击成交'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.1.4
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '询价成交'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.1.5
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.1.6
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.1.7
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.2.1
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '集合匹配'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.2.2
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '匹配成交' and 匹配成交方式 is '连续匹配' and 连续匹配期间，即时行情内容 is '证券代码,证券简称,前收盘价,最近成交价,当日最高价,当日最低价,当日累计成交数量,当日累计成交金额,实时最高五个价位买入申报价和数量,实时最低五个价位卖出申报价和数量'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.2.3
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '点击成交'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.2.4
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '询价成交'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.2.5
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '单一主体中标'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.2.6
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '竞买成交' and 竞买成交方式 is '多主体中标等方式'
-	then 结果 = '成功'
-
-rule 第三条.1,第三条.3.2.7
-sourceId 第三条
-focus: 订单连续性操作
-before: []
-after: []
-	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 交易方式 is '协商成交' and 协商成交的申报要素 is '证券代码,交易方向,价格,数量,证券账户号码,本方及对手方信息,结算方式,结算周期'
+	if 操作人 is '证券公司' and 质押物 is '以下交易' and 交易品种 is '债券质押式回购' and 约束 is '关规定' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出'
 	then 结果 = '成功'
 
 rule 第三条.2,第三条.3.1.1
