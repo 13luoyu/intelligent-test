@@ -517,9 +517,9 @@ def consistency_checking_interface():
             value = data[key]
             for v in value:
                 if "rule" in v:
-                    v['rule'] = f"{key}!{v['rule']}"
+                    v['rule'] = f"{key}的{v['rule']}"
                 else:
-                    v['rule'] = f"{key}!"
+                    v['rule'] = f"{key}的"
                 new_data.append(v)
         data = Rrule_back(new_data)
         conflict_rules = consistency_checking(data)
@@ -528,7 +528,7 @@ def consistency_checking_interface():
             # docId, ruleId
             new_rule_ids = []
             for ids in rule_ids:
-                docId, ruleId = ids.split("!")[0], ids.split("!")[1]
+                docId, ruleId = ids.split("的")[0], ids.split("的")[1]
                 new_rule_ids.append({"docId": docId, "ruleId": ruleId})
             conflict['rule_ids'] = new_rule_ids
 
