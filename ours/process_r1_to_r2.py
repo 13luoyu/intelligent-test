@@ -367,8 +367,25 @@ def num_preprocess(value):
 def price_preprocess(value):
     price_re = r"\d+\.\d+|\d+"
     price_vals = re.findall(price_re, value)
-    if len(price_vals) == 1 and value.find(price_vals[0]) == 0:
-        return True, ["==", price_vals[0]]
+    if len(price_vals) == 1:
+        if value.find(price_vals[0]) == 0:
+            return True, ["==", price_vals[0]]
+        else:
+            num_val = price_vals[0]
+            v = value
+            val_loc = v.find(num_val)
+            unit_loc = val_loc + len(num_val)
+            while(unit_loc < len(v) and (v[unit_loc] == "亿" or v[unit_loc] == "万")):
+                if v[unit_loc] == "万":
+                    num_val += "0000"
+                elif v[unit_loc] == "亿":
+                    num_val += "00000000"
+                unit_loc += 1
+            op = judge_op(v)
+            if op != "":
+                return True, [op, num_val]
+            else:
+                return False, ""
     else:
         return False, ""
 
@@ -494,7 +511,7 @@ def construct_tree(preliminaries, jypz):
             arr_local = []
             for key in list(preliminaries.keys()):
                 # 大宗交易 必须在 大宗交易交易方式 的开头才行
-                if key.find(father_value) == 0 and isinstance(preliminaries[key], list):
+                if (key.find(father_value) == 0 or len(kv)>=4 and key.find(kv[-3])==0 and father_value in key) and isinstance(preliminaries[key], list):
                     # 如果当前要添加的key、value已存在，跳过
                     if key in kv:
                         continue
@@ -509,32 +526,43 @@ def construct_tree(preliminaries, jypz):
                     # 添加
                     if len(arr_local) == 0:
                         if "指令" in key or "要素" in key or "内容" in key:
-                            arr_local.append(copy.deepcopy(kv) + [key, ",".join(preliminaries[key])])
+                            if len(kv)>=4 and key.find(kv[-3])==0 and father_value in key:
+                                arr_local.append(copy.deepcopy(kv) + [key, ",".join(preliminaries[key])])
+                                end = False
+                                add_old_kv = False
                         else:
                             for value in preliminaries[key]:
                                 new_kv = copy.deepcopy(kv)
                                 new_kv += [key, value]
                                 arr_local.append(new_kv)
+                            end = False
+                            add_old_kv = False
                     else:
                         if "指令" in key or "要素" in key or "内容" in key:
-                            for kv1 in arr_local:
-                                kv1 += [key, ",".join(preliminaries[key])]
+                            
+                            if len(kv)>=4 and key.find(kv[-3])==0 and father_value in key:
+                                for kv1 in arr_local:
+                                    kv1 += [key, ",".join(preliminaries[key])]
+                                end = False
+                                add_old_kv = False
                         else:
                             a = []
                             multi_num = len(preliminaries[key])
                             for _ in range(multi_num):
                                 a += copy.deepcopy(arr_local)
                             arr_local = a
+                            
                             for i, value in enumerate(preliminaries[key]):
                                 for kvi in arr_local[int(len(arr_local)/multi_num*i):int(len(arr_local)/multi_num*(i+1))]:
                                     kvi += [key, value]
-                    end = False
-                    add_old_kv = False
-                    break
+                            end = False
+                            add_old_kv = False
+                    
             if add_old_kv:
                 arr_local.append(kv)
             new_arr += arr_local
-        arr = new_arr
+        arr = copy.deepcopy(new_arr)
+    # pprint.pprint(arr)
     return arr
 
 
@@ -632,7 +660,7 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
             for rule_id in to_delete:
                 del rules[rule_id]
                 del vars[rule_id]
-        elif element == "交易方式":
+        if element == "交易方式":
             # 获取交易品种，得到对应的交易方式，填入
             to_delete = []
             for rule_id in list(rules.keys()):
@@ -693,6 +721,7 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
             for id in to_delete:
                 del rules[id]
                 del vars[id]
+    
     return vars, rules
 
 

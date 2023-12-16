@@ -136,14 +136,17 @@ def read_OBI_to_rule(texts, labels):
             sentence_and.append(len(stack))
     sentence_separate_2.pop()  # 句子的结尾一定是。而这个。无用
     
-    # 将stack中的申报类型显式点出
-    for i, s in enumerate(stack):
-        key, value = list(s.keys())[0], s[list(s.keys())[0]]
-        if len(value) >= 4 and value[-2:] == "申报" and "性" not in value:
-            stack[i] = {"申报类型":value}
+    # 将stack中的申报类型显式点出 TODO
+    # for i, s in enumerate(stack):
+    #     key, value = list(s.keys())[0], s[list(s.keys())[0]]
+    #     if len(value) >= 4 and value[-2:] == "申报" and "性" not in value:
+    #         stack[i] = {"申报类型":value}
+
     # with open("rules_cache/r1_step1.txt", "a", encoding="utf-8") as f:
-    #     s = pprint.pformat(stack)
-    #     f.write(s + "\n\n")
+    #     f.write(f"输入：{texts}\n")
+    #     f.write("输出:\n")
+    #     f.write(pprint.pformat(stack) + "\n\n")
+    
     return stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation
 
 

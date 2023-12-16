@@ -42,6 +42,7 @@ def token_classification_with_algorithm(tco, knowledge):
     # 所有可以补的标签：
     # 交易品种、交易方式、结合规则、结果、系统、or、时间、价格、数量、op
     # 还需要将标签修复完整
+    punctuation = [",", ";", "!", "?", "，", "。", "；", "！", "？", "为"]
     HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
     for ri, rule in enumerate(tco):
         text, label = rule["text"], rule["label"].split(" ")
@@ -51,13 +52,18 @@ def token_classification_with_algorithm(tco, knowledge):
             if "品种" in key and isinstance(knowledge[key], list):
                 types += knowledge[key]
             elif isinstance(knowledge[key], str) and knowledge[key][-2:] == "股票":
-                types += key
+                types.append(key)
         # print(len(text), len(label))
         for t in types:
             p = text.find(t)
             while p != -1:
                 label = change(p, p+len(t), label, "交易品种")
                 p = text.find(t, p+len(t))
+        p = text.find("单笔")
+        while p != -1:
+            label = change(p, p+2, label, "key")
+            p = text.find("单笔", p+2)
+                
         # 交易方式
         types = []
         for key in knowledge:
@@ -71,6 +77,7 @@ def token_classification_with_algorithm(tco, knowledge):
                 if not lx(label, p, p+len(t)):
                     label = change(p, p+len(t), label, "交易方式")
                 p = text.find(t, p+len(t))
+        
         # 结合规则
         # 第..条，本规则第..条，《》，《》第..条
         p1 = text.find("《")
@@ -157,7 +164,33 @@ def token_classification_with_algorithm(tco, knowledge):
                 label = change(q, p+len(t), label, "op")
                 p = text.find(t, p+len(t))
 
-
+        # 操作
+        operation = ["撤销","撤单","申报"]
+        for op in operation:
+            p = text.find(op)
+            while p != -1:
+                if label[p] == label[p+1] and label[p] == "O" or "操作" in label[p] and "操作部分" not in label[p] or "操作" in label[p+1] and "操作部分" not in label[p+1]:
+                    label = change(p, p+2, label, "操作")
+                p = text.find(op, p+2)
+        # 操作部分
+        p = text.find("申报")
+        while p != -1:
+            # 如果后面有撤销
+            a, b = p, p+2
+            while b<len(text) and text[b] not in punctuation:
+                if text[b] == ":":
+                    if text[b-1].isdigit() and text[b+1].isdigit():
+                        b += 1
+                    else:
+                        break
+                else:
+                    b += 1
+            if "撤" in text[a:b]:
+                while a>0 and text[a] not in punctuation:
+                    a -= 1
+                a += 1
+                label = change(a, p+2, label, "操作部分")
+            p = text.find("申报", p+2)
 
         # 小修正，先分词，然后理论上同一组词应该具有相同的标签，如果连续不同的词具有相同的标签，应该是一个词
         
@@ -221,8 +254,17 @@ def token_classification_with_algorithm(tco, knowledge):
                     t_begin = t_begin - 6
                 label = change(t_begin, b, label, "时间")
                 t_begin = 0
+        p = text.find("时间")
+        while p != -1:
+            a, b = p, p+2
+            while a > 0 and text[a] not in punctuation:
+                a-=1
+            a+=1
+            if text[b] in ["内"] and text[b+1] in punctuation:
+                label = change(a, b+1, label, "时间")
+            p = text.find("时间", b+1)
         # 数量，主要处理 ...或者其整数倍、不足...部分、直接 3种情况
-        stopsignal = ["，", "。", "；"]
+        stopsignal = ["，", "。", "；", "的"]
         if "数量" in text:
             i = 0
             a, b = -1, -1
@@ -235,13 +277,17 @@ def token_classification_with_algorithm(tco, knowledge):
                     c=a-1
                     while c >= 0 and text[c] not in stopsignal:
                         c-=1
-                    if "数量" in text[c:a] and ":" not in text[a:b]:
+                    if ("数量" in text[c:a] or "余额" in text[c:a]) and ":" not in text[a:b]:
                         if "整数倍" in text[a:b]:
                             b = text[a:b].find("整数倍") + a + 3
                             label = change(a, b, label, "数量")
-                        if a-2 > 0 and "不足" == text[a-2:a] and "部分" in text[a:b]:
+                        elif a-2 > 0 and "不足" == text[a-2:a] and "部分" in text[a:b]:
                             a = a-2
+                            if a-2>0 and text[a-2:a] == "余额":
+                                a = a-2
                             b = text[a:b].find("部分") + a + 2
+                            label = change(a, b, label, "数量")
+                        else:
                             label = change(a, b, label, "数量")
                 else:
                     i += 1
@@ -312,7 +358,7 @@ def token_classification_with_algorithm(tco, knowledge):
 
         # 2、部分标点符号标为O
         if not ("除" in text and "不接受" in text and "撤销" in text and "外" in text and "其他" in text and "申报" in text and "时间" in text):
-            punctuation = [",", ";", "!", "?", "，", "。", "；", "！", "？", "为"]
+            
             for i, t in enumerate(text):
                 if t in punctuation:
                     label[i] = "O"

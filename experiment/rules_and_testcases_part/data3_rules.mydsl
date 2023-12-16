@@ -1,1303 +1,87 @@
-rule 第六条.1.1.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.1.1.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.1.1.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.1.1.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.1.1.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.1.1.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.1.1.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.1.1.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.1.1.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.1.1.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.1.1.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.1.2.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.1.2.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.1.2.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.1.2.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.1.2.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.1.2.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.1.2.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.1.2.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.1.2.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.1.2.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.1.2.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.2.1.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.2.1.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.2.1.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.2.1.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.2.1.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.2.1.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.2.1.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.2.1.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.2.1.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.2.1.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.2.1.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.2.2.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.2.2.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.2.2.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.2.2.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.2.2.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.2.2.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.2.2.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.2.2.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.2.2.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.2.2.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.2.2.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '易型开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.3.1.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.3.1.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.3.1.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.3.1.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.3.1.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.3.1.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.3.1.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.3.1.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.3.1.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.3.1.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.3.1.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.3.2.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.3.2.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.3.2.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.3.2.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.3.2.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.3.2.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.3.2.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.3.2.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.3.2.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.3.2.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.3.2.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is 'ETF' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.4.1.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.4.1.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.4.1.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.4.1.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.4.1.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.4.1.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.4.1.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.4.1.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.4.1.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.4.1.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.4.1.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.4.2.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.4.2.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.4.2.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.4.2.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.4.2.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.4.2.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.4.2.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.4.2.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.4.2.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.4.2.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.4.2.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.5.1.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.5.1.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.5.1.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.5.1.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.5.1.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.5.1.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.5.1.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.5.1.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.5.1.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.5.1.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.5.1.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.5.2.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.5.2.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.5.2.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.5.2.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.5.2.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.5.2.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.5.2.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.5.2.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.5.2.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.5.2.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.5.2.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '“LOF”' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.6.1.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.6.1.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.6.1.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.6.1.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.6.1.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.6.1.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.6.1.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.6.1.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.6.1.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.6.1.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.6.1.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.6.2.1
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.6.2.2
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.6.2.3
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.6.2.4
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.6.2.5
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第六条.6.2.6
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '询价交易'
-	then 结果 = '成功'
-
-rule 第六条.6.2.7
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第六条.6.2.8
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第六条.6.2.9
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第六条.6.2.10
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第六条.6.2.11
-sourceId 第六条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金及' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第七条.1.1.1
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第七条.1.1.2
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第七条.1.1.3
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第七条.1.1.4
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第七条.1.2.1
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第七条.1.2.2
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第七条.1.2.3
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
-	then 结果 = '成功'
-
-rule 第七条.1.2.4
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
-	then 结果 = '成功'
-
-rule 第七条.2.1.1
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第七条.2.1.2
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第七条.2.1.3
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第七条.2.1.4
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第七条.2.1.5
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第七条.2.1.6
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第七条.2.2.1
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第七条.2.2.2
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第七条.2.2.3
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
-rule 第七条.2.2.4
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码'
-	then 结果 = '成功'
-
-rule 第七条.2.2.5
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价'
-	then 结果 = '成功'
-
-rule 第七条.2.2.6
-sourceId 第七条
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格'
-	then 结果 = '成功'
-
 rule 第八条.1.1.1,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.1.2,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.1.3,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.1.4,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.1.5,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.1.6,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '意向申报' and 协议大宗交易意向申报指令 is '证券账户号码,证券代码,买卖方向和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.1.7,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '成交申报' and 协议大宗交易成交申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.1.8,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '定价申报' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.1.9,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '其他申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.1.10,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
 	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
@@ -1306,7 +90,115 @@ after: []
 
 rule 第八条.1.1.11,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.12,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.13,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.14,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.15,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.16,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.17,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.18,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '意向申报' and 协议大宗交易意向申报指令 is '证券账户号码,证券代码,买卖方向和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.19,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '成交申报' and 协议大宗交易成交申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.20,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '定价申报' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.21,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '其他申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.22,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.1.23,1
+sourceId 第八条
+focus: 价格
 before: []
 after: []
 	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
@@ -1315,88 +207,88 @@ after: []
 
 rule 第八条.1.2.1,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.2.2,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.2.3,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.2.4,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.2.5,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.2.6,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '意向申报' and 协议大宗交易意向申报指令 is '证券账户号码,证券代码,买卖方向和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.2.7,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '成交申报' and 协议大宗交易成交申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.2.8,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '定价申报' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.2.9,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '其他申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第八条.1.2.10,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
 	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
@@ -1405,1119 +297,127 @@ after: []
 
 rule 第八条.1.2.11,1
 sourceId 第八条
-focus: 订单连续性操作
+focus: 价格
 before: []
 after: []
 	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
-rule 第九条.1.1.1,1
-sourceId 第九条
+rule 第八条.1.2.12,1
+sourceId 第八条
 focus: 价格
 before: []
 after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.1.2,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.1.3,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.1.4,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.1.5,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.1.6,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.1.7,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.1.8,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.1.9,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.1.10,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.1.11,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.1,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.2,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.3,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.4,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.5,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.6,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.7,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.8,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.9,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.10,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.1.2.11,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '份额净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.1,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.2,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.3,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.4,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.5,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.6,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.7,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.8,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.9,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.10,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.1.11,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.1,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.2,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.3,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.4,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.5,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.6,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.7,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.8,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.9,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.10,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第九条.2.2.11,1
-sourceId 第九条
-focus: 价格
-before: []
-after: []
-	if 时间 is '上市首日' and 操作人 is '基金管理人' and 交易品种 is '基金' and 其即时行情显示的前收盘价 is '参考净值' and 操作人 is '由基金管理人' and 约束 is '四舍五入至0.001元' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 第十一条.1.1.1.1
-sourceId 第十一条
-focus: 价格
-before: []
-after: ['第十一条.1.1.1.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.2.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.1.2,1']
-after: ['第十一条.1.1.2.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.3.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.2.2,1']
-after: ['第十一条.1.1.3.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.4.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.3.2,1']
-after: ['第十一条.1.1.4.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.5.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.4.2,1']
-after: ['第十一条.1.1.5.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.6.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.5.2,1']
-after: ['第十一条.1.1.6.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.7.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.6.2,1']
-after: ['第十一条.1.1.7.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.8.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.7.2,1']
-after: ['第十一条.1.1.8.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.9.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.8.2,1']
-after: ['第十一条.1.1.9.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.10.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.9.2,1']
-after: ['第十一条.1.1.10.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.11.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.10.2,1']
-after: ['第十一条.1.1.11.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.1.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.11.2,1']
-after: ['第十一条.1.2.1.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.2.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.1.2,1']
-after: ['第十一条.1.2.2.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.3.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.2.2,1']
-after: ['第十一条.1.2.3.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.4.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.3.2,1']
-after: ['第十一条.1.2.4.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.5.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.4.2,1']
-after: ['第十一条.1.2.5.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.6.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.5.2,1']
-after: ['第十一条.1.2.6.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.7.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.6.2,1']
-after: ['第十一条.1.2.7.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.8.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.7.2,1']
-after: ['第十一条.1.2.8.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.9.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.8.2,1']
-after: ['第十一条.1.2.9.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.10.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.9.2,1']
-after: ['第十一条.1.2.10.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.2.11.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.10.2,1']
-after: ['第十一条.1.2.11.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.1.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.11.2,1']
-after: ['第十一条.2.1.1.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.2.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.1.2,1']
-after: ['第十一条.2.1.2.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.3.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.2.2,1']
-after: ['第十一条.2.1.3.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.4.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.3.2,1']
-after: ['第十一条.2.1.4.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.5.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.4.2,1']
-after: ['第十一条.2.1.5.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.6.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.5.2,1']
-after: ['第十一条.2.1.6.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.7.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.6.2,1']
-after: ['第十一条.2.1.7.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.8.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.7.2,1']
-after: ['第十一条.2.1.8.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.9.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.8.2,1']
-after: ['第十一条.2.1.9.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.10.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.9.2,1']
-after: ['第十一条.2.1.10.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.1.11.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.10.2,1']
-after: ['第十一条.2.1.11.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.1.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.11.2,1']
-after: ['第十一条.2.2.1.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.2.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.1.2,1']
-after: ['第十一条.2.2.2.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.3.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.2.2,1']
-after: ['第十一条.2.2.3.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.4.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.3.2,1']
-after: ['第十一条.2.2.4.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.5.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.4.2,1']
-after: ['第十一条.2.2.5.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.6.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.5.2,1']
-after: ['第十一条.2.2.6.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.7.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.6.2,1']
-after: ['第十一条.2.2.7.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.8.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.7.2,1']
-after: ['第十一条.2.2.8.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.9.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.8.2,1']
-after: ['第十一条.2.2.9.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.10.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.9.2,1']
-after: ['第十一条.2.2.10.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.2.2.11.1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.10.2,1']
-after: ['第十一条.2.2.11.2,1']
-	if 操作部分 is '份额折算'
-	then 结果 = '成功'
-
-rule 第十一条.1.1.1.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.1.1']
-after: ['第十一条.1.1.2.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
+	constraint 申报价格最小变动单位 == 0.001
 
-rule 第十一条.1.1.2.2,1
-sourceId 第十一条
+rule 第八条.1.2.13,1
+sourceId 第八条
 focus: 价格
-before: ['第十一条.1.1.2.1']
-after: ['第十一条.1.1.3.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.1.3.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.3.1']
-after: ['第十一条.1.1.4.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.1.4.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.4.1']
-after: ['第十一条.1.1.5.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.1.5.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.5.1']
-after: ['第十一条.1.1.6.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.1.6.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.6.1']
-after: ['第十一条.1.1.7.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.1.7.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.7.1']
-after: ['第十一条.1.1.8.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.1.8.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.8.1']
-after: ['第十一条.1.1.9.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.1.9.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.9.1']
-after: ['第十一条.1.1.10.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.1.10.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.10.1']
-after: ['第十一条.1.1.11.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.1.11.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.1.11.1']
-after: ['第十一条.1.2.1.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.1.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.1.1']
-after: ['第十一条.1.2.2.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.2.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.2.1']
-after: ['第十一条.1.2.3.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.3.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.3.1']
-after: ['第十一条.1.2.4.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.4.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.4.1']
-after: ['第十一条.1.2.5.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.5.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.5.1']
-after: ['第十一条.1.2.6.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.6.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.6.1']
-after: ['第十一条.1.2.7.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.7.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.7.1']
-after: ['第十一条.1.2.8.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.8.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.8.1']
-after: ['第十一条.1.2.9.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.9.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.9.1']
-after: ['第十一条.1.2.10.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.10.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.10.1']
-after: ['第十一条.1.2.11.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.1.2.11.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.1.2.11.1']
-after: ['第十一条.2.1.1.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '份额净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.1.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.1.1']
-after: ['第十一条.2.1.2.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.2.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.2.1']
-after: ['第十一条.2.1.3.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.3.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.3.1']
-after: ['第十一条.2.1.4.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.4.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.4.1']
-after: ['第十一条.2.1.5.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.5.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.5.1']
-after: ['第十一条.2.1.6.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.6.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.6.1']
-after: ['第十一条.2.1.7.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.7.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.7.1']
-after: ['第十一条.2.1.8.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.8.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.8.1']
-after: ['第十一条.2.1.9.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.9.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.9.1']
-after: ['第十一条.2.1.10.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.10.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.10.1']
-after: ['第十一条.2.1.11.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.1.11.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.1.11.1']
-after: ['第十一条.2.2.1.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.1.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.1.1']
-after: ['第十一条.2.2.2.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.2.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.2.1']
-after: ['第十一条.2.2.3.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.3.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.3.1']
-after: ['第十一条.2.2.4.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.4.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.4.1']
-after: ['第十一条.2.2.5.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.5.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.5.1']
-after: ['第十一条.2.2.6.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.6.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.6.1']
-after: ['第十一条.2.2.7.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.7.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.7.1']
-after: ['第十一条.2.2.8.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.8.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.8.1']
-after: ['第十一条.2.2.9.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.9.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.9.1']
-after: ['第十一条.2.2.10.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.10.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.10.1']
-after: ['第十一条.2.2.11.1']
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
-
-rule 第十一条.2.2.11.2,1
-sourceId 第十一条
-focus: 价格
-before: ['第十一条.2.2.11.1']
+before: []
 after: []
-	if 事件 is '份额折算' and 时间 is '折算完成后次一交易日即时' and 操作人 is '基金管理人' and 交易品种 is '基金' and 时间 is '最近' and 价格 is '参考净值' and 约束 is '四舍五入至0.' and 操作人 is '由基金管理人' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 价格 == 001
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.2.14,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.2.15,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.2.16,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.2.17,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.2.18,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '意向申报' and 协议大宗交易意向申报指令 is '证券账户号码,证券代码,买卖方向和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.2.19,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '成交申报' and 协议大宗交易成交申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.2.20,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '定价申报' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.2.21,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '其他申报' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.2.22,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
+
+rule 第八条.1.2.23,1
+sourceId 第八条
+focus: 价格
+before: []
+after: []
+	if 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 申报价格最小变动单位 == 0.001
 
 rule 第十二条.1.1.1,1
 sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '限价申报' and 操作 is '申报' and 时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.1.1.2,1
@@ -2525,7 +425,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '限价申报' and 操作 is '申报' and 时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.1.1.3,1
@@ -2533,7 +433,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '限价申报' and 操作 is '申报' and 时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.1.1.4,1
@@ -2541,7 +441,55 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '限价申报' and 操作 is '申报' and 时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.1.5,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.1.6,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.1.7,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.1.8,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.1.9,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.1.10,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.1.2.1,1
@@ -2549,7 +497,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '限价申报' and 操作 is '申报' and 时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.1.2.2,1
@@ -2557,7 +505,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '限价申报' and 操作 is '申报' and 时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.1.2.3,1
@@ -2565,7 +513,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '限价申报' and 操作 is '申报' and 时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.1.2.4,1
@@ -2573,7 +521,55 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '限价申报' and 操作 is '申报' and 时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.2.5,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.2.6,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.2.7,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.2.8,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.2.9,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.1.2.10,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 匹配成交方式的申报类型 is '限价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.2.1.1,1
@@ -2581,7 +577,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.2.1.2,1
@@ -2589,7 +585,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.2.1.3,1
@@ -2597,7 +593,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 市价申报类型 is '本方最优价格申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.2.1.4,1
@@ -2605,7 +601,39 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 市价申报类型 is '对手方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.2.1.5,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.2.1.6,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.2.1.7,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 市价申报类型 is '本方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.2.1.8,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 市价申报类型 is '对手方最优价格申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.2.2.1,1
@@ -2613,7 +641,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.2.2.2,1
@@ -2621,7 +649,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.2.2.3,1
@@ -2629,7 +657,7 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 市价申报类型 is '本方最优价格申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十二条.2.2.4,1
@@ -2637,78 +665,335 @@ sourceId 第十二条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 市价申报类型 is '对手方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.2.2.5,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.2.2.6,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.2.2.7,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 市价申报类型 is '本方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 第十二条.2.2.8,1
+sourceId 第十二条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 操作 is '申报' and 开盘集合竞价时间 in {[9:15-9:25]} and 连续竞价时间 in {[9:30-11:30],[13:00-14:57]} and 收盘集合竞价时间 in {[14:57-15:00]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 市价申报类型 is '对手方最优价格申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十三条.1,第十三条.3.1
 sourceId 第十三条
-focus: 订单连续性操作
+focus: 订单连续性操作,数量
 before: []
 after: []
-	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报'
 	then 结果 = '成功' 
-	constraint 申报数量 % 100 == 0
+	constraint 申报数量 % 100 == 0 and 申报数量 <= 1000000
 
 rule 第十三条.1,第十三条.3.2
 sourceId 第十三条
-focus: 订单连续性操作
+focus: 订单连续性操作,数量
 before: []
 after: []
-	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报'
 	then 结果 = '成功' 
-	constraint 申报数量 % 100 == 0
+	constraint 申报数量 % 100 == 0 and 申报数量 <= 1000000
 
 rule 第十三条.1,第十三条.3.3
 sourceId 第十三条
-focus: 订单连续性操作
+focus: 订单连续性操作,数量
 before: []
 after: []
-	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报'
 	then 结果 = '成功' 
-	constraint 申报数量 % 100 == 0
+	constraint 申报数量 % 100 == 0 and 申报数量 <= 1000000
 
 rule 第十三条.1,第十三条.3.4
 sourceId 第十三条
-focus: 订单连续性操作
+focus: 订单连续性操作,数量
 before: []
 after: []
-	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报'
 	then 结果 = '成功' 
-	constraint 申报数量 % 100 == 0
+	constraint 申报数量 % 100 == 0 and 申报数量 <= 1000000
 
-rule 第十三条.2,第十三条.3.1,1
+rule 第十三条.1,第十三条.3.5
+sourceId 第十三条
+focus: 订单连续性操作,数量
+before: []
+after: []
+	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报'
+	then 结果 = '成功' 
+	constraint 申报数量 % 100 == 0 and 申报数量 <= 1000000
+
+rule 第十三条.1,第十三条.3.6
+sourceId 第十三条
+focus: 订单连续性操作,数量
+before: []
+after: []
+	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报'
+	then 结果 = '成功' 
+	constraint 申报数量 % 100 == 0 and 申报数量 <= 1000000
+
+rule 第十三条.1,第十三条.3.7
+sourceId 第十三条
+focus: 订单连续性操作,数量
+before: []
+after: []
+	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报'
+	then 结果 = '成功' 
+	constraint 申报数量 % 100 == 0 and 申报数量 <= 1000000
+
+rule 第十三条.1,第十三条.3.8
+sourceId 第十三条
+focus: 订单连续性操作,数量
+before: []
+after: []
+	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报'
+	then 结果 = '成功' 
+	constraint 申报数量 % 100 == 0 and 申报数量 <= 1000000
+
+rule 第十三条.1,第十三条.3.9
+sourceId 第十三条
+focus: 订单连续性操作,数量
+before: []
+after: []
+	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报'
+	then 结果 = '成功' 
+	constraint 申报数量 % 100 == 0 and 申报数量 <= 1000000
+
+rule 第十三条.1,第十三条.3.10
+sourceId 第十三条
+focus: 订单连续性操作,数量
+before: []
+after: []
+	if 交易方式 is '竞价交易' and 操作 is '买入' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报'
+	then 结果 = '成功' 
+	constraint 申报数量 % 100 == 0 and 申报数量 <= 1000000
+
+rule 第十三条.2.1,1
 sourceId 第十三条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 操作 is '次性申报卖出' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 状态 is '未申报'
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 数量 < 100
 
-rule 第十三条.2,第十三条.3.2,1
+rule 第十三条.2.2,1
 sourceId 第十三条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 操作 is '次性申报卖出' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 状态 is '未申报'
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 数量 < 100
 
-rule 第十三条.2,第十三条.3.3,1
+rule 第十三条.2.3,1
 sourceId 第十三条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 操作 is '次性申报卖出' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格' and 状态 is '未申报'
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 数量 < 100
 
-rule 第十三条.2,第十三条.3.4,1
+rule 第十三条.2.4,1
 sourceId 第十三条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 操作 is '次性申报卖出' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量' and 状态 is '未申报'
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.5,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.6,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '意向申报' and 协议大宗交易意向申报指令 is '证券账户号码,证券代码,买卖方向和本方交易单元代码' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.7,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '成交申报' and 协议大宗交易成交申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.8,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '定价申报' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.9,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '其他申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.10,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.11,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.12,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '询价交易' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.13,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '限价申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.14,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.15,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.16,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.17,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '竞价交易' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.18,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '意向申报' and 协议大宗交易意向申报指令 is '证券账户号码,证券代码,买卖方向和本方交易单元代码' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.19,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '成交申报' and 协议大宗交易成交申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.20,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '定价申报' and 协议大宗交易定价申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.21,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '协议大宗交易' and 协议大宗交易申报类型 is '其他申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.22,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日收盘价' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 数量 < 100
+
+rule 第十三条.2.23,1
+sourceId 第十三条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 操作 is '一次性申报卖出卖出' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 交易方式 is '大宗交易' and 大宗交易交易方式 is '盘后定价大宗交易' and 盘后定价大宗交易的价格类型 is '证券当日成交量加权平均价格' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 数量 < 100
 
@@ -2717,7 +1002,7 @@ sourceId 第十四条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报'
 	then 结果 = '成功'
 
 rule 第十四条.1.1.2
@@ -2725,7 +1010,7 @@ sourceId 第十四条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报'
 	then 结果 = '成功'
 
 rule 第十四条.1.1.3
@@ -2733,7 +1018,7 @@ sourceId 第十四条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报'
 	then 结果 = '成功'
 
 rule 第十四条.1.1.4
@@ -2741,7 +1026,55 @@ sourceId 第十四条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.1.5
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.1.6
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '限价申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.1.7
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.1.8
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.1.9
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.1.10
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报'
 	then 结果 = '成功'
 
 rule 第十四条.1.2.1
@@ -2749,7 +1082,7 @@ sourceId 第十四条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '限价申报'
 	then 结果 = '成功'
 
 rule 第十四条.1.2.2
@@ -2757,7 +1090,7 @@ sourceId 第十四条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报'
 	then 结果 = '成功'
 
 rule 第十四条.1.2.3
@@ -2765,7 +1098,7 @@ sourceId 第十四条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '限价申报' and 限价申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报'
 	then 结果 = '成功'
 
 rule 第十四条.1.2.4
@@ -2773,7 +1106,55 @@ sourceId 第十四条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报指令 is '申报类型,证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量'
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.2.5
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.2.6
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '限价申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.2.7
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余撤销申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.2.8
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '最优5档即时成交剩余转限价申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.2.9
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '本方最优价格申报'
+	then 结果 = '成功'
+
+rule 第十四条.1.2.10
+sourceId 第十四条
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '基金' and 交易方式 is '竞价交易' and 约束 is '价格涨跌幅限制' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 竞价交易的申报类型 is '市价申报' and 市价申报类型 is '对手方最优价格申报'
 	then 结果 = '成功'
 
 rule 第十五条.1,第十五条.2.1
@@ -2781,25 +1162,25 @@ sourceId 第十五条
 focus: 价格,订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易金额 is '低于200万元人民币' and 交易方式 is '用大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 操作 is '申报'
+	if 交易品种 is '基金' and 交易方式 is '用大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 操作 is '申报'
 	then 结果 = '不成功' 
-	constraint 单笔交易数量 < 2000000
+	constraint 单笔交易数量 < 2000000 and 易金额 < 2000000
 
 rule 第十五条.1,第十五条.2.2
 sourceId 第十五条
 focus: 价格,订单连续性操作
 before: []
 after: []
-	if 交易品种 is '基金' and 交易金额 is '低于200万元人民币' and 交易方式 is '用大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 操作 is '申报'
+	if 交易品种 is '基金' and 交易方式 is '用大宗交易' and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 操作 is '申报'
 	then 结果 = '不成功' 
-	constraint 单笔交易数量 < 2000000
+	constraint 单笔交易数量 < 2000000 and 易金额 < 2000000
 
 rule 第十六条.1.1,1
 sourceId 第十六条
 focus: 时间
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '协议大宗交易' and 申报时间 in {[9:15-11:30],[13:00-15:30]} and 成交确认时间 in {[15:00-15:30]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '协议大宗交易' and 接受申报时间 in {[9:15-11:30],[13:00-15:30]} and 成交确认时间 in {[15:00-15:30]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十六条.1.2,1
@@ -2807,23 +1188,23 @@ sourceId 第十六条
 focus: 时间
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '协议大宗交易' and 申报时间 in {[9:15-11:30],[13:00-15:30]} and 成交确认时间 in {[15:00-15:30]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '协议大宗交易' and 接受申报时间 in {[9:15-11:30],[13:00-15:30]} and 成交确认时间 in {[15:00-15:30]} and 交易市场 is '深圳证券交易所' and 基金品种 is '基金份额' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 第十六条.2,第六条.1.1,1
-sourceId 第十六条,第六条
-focus: 订单连续性操作,时间
+rule 第十六条.2,第八条.1.1,1
+sourceId 第八条,第十六条
+focus: 时间,价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '额采用盘后定价大宗交易' and 申报类型 is '接受申报' and 时间 in 封闭式基金 and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '额采用盘后定价大宗交易' and 时间 in 基金份额 and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 第十六条.2,第六条.1.2,1
-sourceId 第十六条,第六条
-focus: 订单连续性操作,时间
+rule 第十六条.2,第八条.1.2,1
+sourceId 第八条,第十六条
+focus: 时间,价格
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '额采用盘后定价大宗交易' and 申报类型 is '接受申报' and 时间 in 封闭式基金 and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '额采用盘后定价大宗交易' and 时间 in 基金份额 and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十七条.1.1,1

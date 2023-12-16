@@ -1,3 +1,7 @@
 /home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/scipy/__init__.py:132: UserWarning: A NumPy version >=1.21.6 and <1.28.0 is required for this version of SciPy (detected version 1.21.5)
   warnings.warn(f"A NumPy version >={np_minversion} and <{np_maxversion}"
-Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            数据集data5的业务场景覆盖率为0.803
+Building model [5m[33m...[0m[0m                  Moving model to GPUs [0] [5m[33m...[0m[0m                            数据集data1的业务场景覆盖率为0.9606
+数据集data2的业务场景覆盖率为0.8536
+数据集data3的业务场景覆盖率为0.9867
+数据集data4的业务场景覆盖率为0.9696
+数据集data5的业务场景覆盖率为0.8291

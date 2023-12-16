@@ -5,6 +5,13 @@ import torch
 from utils.try_gpu import try_gpu
 
 
+def sequence_classification_with_algorithm(sco):
+    for sc in sco:
+        if "可以在本所上市交易" in sc["text"] or "可以采用" in sc["text"] and "等方式" in sc["text"] or "即时行情" in sc["text"] or "，即" in sc["text"] or "本所交易系统处理" in sc["text"]:
+            sc['type'] = "0"
+    return sco
+
+
 # def sequence_classification(in_file: str, out_file: str, model_path: str, batch_size: int = 8, sentence_max_length: int = 512):
 def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sentence_max_length: int = 512):
     model = AutoModelForSequenceClassification.from_pretrained(model_path, num_labels=3)
@@ -37,6 +44,9 @@ def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sen
     sco = sci.copy()
     for i, rule in enumerate(sco):
         rule["type"] = str(hats[i])
+    
+    sco = sequence_classification_with_algorithm(sco)
+    
     return sco
 
 
