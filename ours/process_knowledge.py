@@ -146,9 +146,9 @@ if __name__ == "__main__":
     if os.path.exists(todo_knowledge_file):
         os.remove(todo_knowledge_file)
     a, b = 0, 0
-    for file in os.listdir("../data/业务规则/json_for_sequence_classification/"):
+    for file in os.listdir("../data/business_rules/json_for_sequence_classification/"):
         if "finish" in file:
-            rules = json.load(open("../data/业务规则/json_for_sequence_classification/" + file, "r", encoding="utf-8"))
+            rules = json.load(open("../data/business_rules/json_for_sequence_classification/" + file, "r", encoding="utf-8"))
             knowledge, todo_text, knowledge_count, cannot_process = process_knowledge(rules)
             a += knowledge_count
             b += cannot_process

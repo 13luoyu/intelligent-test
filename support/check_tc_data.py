@@ -18,9 +18,9 @@ def check_length(file):
 
 if __name__ == "__main__":
     check_length("../data/rules.json")
-    for file in os.listdir("../data/业务规则/json_for_token_classification/"):
+    for file in os.listdir("../data/business_rules/json_for_token_classification/"):
         if "finish" in file:
-            check_length("../data/业务规则/json_for_token_classification/" + file)
+            check_length("../data/business_rules/json_for_token_classification/" + file)
     
     for file in os.listdir("../data/"):
         if "tc" in file and ".json" in file:
