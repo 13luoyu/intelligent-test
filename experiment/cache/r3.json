@@ -241,6 +241,116 @@
         "before": [],
         "after": []
     },
+    "第二十七条.2,第二十七条.3,第二十七条.4.1": {
+        "rule_class": [
+            "第二十七条"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "当天全天停牌、处于临时停牌期,停牌至",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "协商成交交易",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "债券品种",
+                "operation": "is",
+                "value": "市的可转债"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "买入"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ],
+        "before": [],
+        "after": []
+    },
+    "第二十七条.2,第二十七条.3,第二十七条.4.2": {
+        "rule_class": [
+            "第二十七条"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "当天全天停牌、处于临时停牌期,停牌至",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "协商成交交易",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "交易市场",
+                "operation": "is",
+                "value": "深圳证券交易所"
+            },
+            {
+                "key": "债券品种",
+                "operation": "is",
+                "value": "市的可转债"
+            },
+            {
+                "key": "交易方向",
+                "operation": "is",
+                "value": "卖出"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ],
+        "before": [],
+        "after": []
+    },
     "第二十八条.1.1.1": {
         "rule_class": [
             "第二十八条"
@@ -368,136 +478,6 @@
                 "value": "不成功",
                 "operation": "is",
                 "else": "成功"
-            }
-        ],
-        "before": [],
-        "after": []
-    },
-    "第二十七条.2,第二十七条.3,第二十七条.4.1,1": {
-        "rule_class": [
-            "第二十七条"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "状态",
-                "value": "当天全天停牌、处于临时停牌期,停牌至",
-                "operation": "is"
-            },
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "交易方式",
-                "value": "协商成交交易",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "申报",
-                "operation": "is"
-            },
-            {
-                "key": "交易市场",
-                "operation": "is",
-                "value": "深圳证券交易所"
-            },
-            {
-                "key": "债券品种",
-                "operation": "is",
-                "value": "市的可转债"
-            },
-            {
-                "key": "交易方向",
-                "operation": "is",
-                "value": "买入"
-            },
-            {
-                "key": "状态",
-                "operation": "is",
-                "value": "未申报"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            },
-            {
-                "key": "状态",
-                "operation": "is",
-                "value": "未成交"
-            }
-        ],
-        "before": [],
-        "after": []
-    },
-    "第二十七条.2,第二十七条.3,第二十七条.4.2,1": {
-        "rule_class": [
-            "第二十七条"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "状态",
-                "value": "当天全天停牌、处于临时停牌期,停牌至",
-                "operation": "is"
-            },
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "交易方式",
-                "value": "协商成交交易",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "申报",
-                "operation": "is"
-            },
-            {
-                "key": "交易市场",
-                "operation": "is",
-                "value": "深圳证券交易所"
-            },
-            {
-                "key": "债券品种",
-                "operation": "is",
-                "value": "市的可转债"
-            },
-            {
-                "key": "交易方向",
-                "operation": "is",
-                "value": "卖出"
-            },
-            {
-                "key": "状态",
-                "operation": "is",
-                "value": "未申报"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            },
-            {
-                "key": "状态",
-                "operation": "is",
-                "value": "未成交"
             }
         ],
         "before": [],
@@ -1512,13 +1492,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1532,13 +1512,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1597,13 +1577,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1617,13 +1597,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1682,13 +1662,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1702,13 +1682,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1767,13 +1747,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1787,13 +1767,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1852,13 +1832,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1872,13 +1852,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1937,13 +1917,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1957,13 +1937,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -2022,13 +2002,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -2042,13 +2022,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -2107,13 +2087,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -2127,13 +2107,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {

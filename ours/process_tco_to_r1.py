@@ -613,6 +613,51 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
     #     f.write(pprint.pformat(ss) + "\n\n")
     return ss
 
+
+def get_clause_for_single_value(value_cache, op_cache, knowledge, key=None):
+    v_key = list(value_cache.keys())[0]
+    v_value = value_cache[v_key]
+
+    if key is not None:
+        if v_key == "时间" and is_time_key(key) or v_key == "数量" and is_num_key(key) or v_key == "价格" and is_price_key(key):
+
+            if op_cache != "":
+                op = op_cache
+                op_cache = ""
+            else:
+                op = "is"
+            if "时间" == v_key and ("前" in op or "后" in op) or v_key in ["数量", "价格"]:
+                clause = f"{key} {op} \"{v_value}\""
+            else:
+                clause = f"{key} is \"{v_value}\""
+            return clause, op_cache, True
+        elif v_key not in ["时间", "数量", "价格"] and (not is_time_key(key) and not is_num_key(key) and not is_price_key(key) or len(re.findall(r"\d+", key)) == 0):
+            clause = f"{key} is \"{v_value}\""
+            op_cache = ""
+            return clause, op_cache, True
+
+    # key不存在或和value_cache不配对
+    if v_key in ["时间", "数量", "价格"]:
+        if op_cache != "":
+            op = op_cache
+            op_cache = ""
+        else:
+            op = "is"
+        clause = f"{v_key} {op} \"{v_value}\""
+    else:
+        # 查找领域知识
+        find = False
+        for knowledge_key in list(knowledge.keys()):
+            knowledge_value = knowledge[knowledge_key]
+            if isinstance(knowledge_value, list) and v_value in knowledge_value:
+                clause = f"{knowledge_key} is \"{v_value}\""
+                find = True
+                break
+        if not find:
+            clause = f"约束 is \"{v_value}\""
+    return clause, op_cache, False
+
+
 def write_r1(fp_r1, ss, knowledge, id):
     """
     将ss中的所有子规则写成R1
@@ -647,18 +692,10 @@ def write_r1(fp_r1, ss, knowledge, id):
             elif key == "时间":
                 if focus != "订单连续性操作":
                     focus = "时间"
-                if not key_to_use:  # 为空
+                if not key_to_use:
                     if value_to_use:
-                        v1 = list(value_to_use.keys())[0]
-                        v2 = value_to_use[v1]
-                        if v1 != "value":
-                            op = "is"
-                            if op_to_use != "":
-                                op = op_to_use
-                                op_to_use = ""
-                            r1 += f"{v1} {op} \"{v2}\" and "
-                        else:
-                            r1 += f"约束 is \"{v2}\" and "
+                        clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge)
+                        r1 += f"{clause} and "
                     value_to_use = {key:value}
                 else:
                     k1 = list(key_to_use.keys())[0]
@@ -671,33 +708,17 @@ def write_r1(fp_r1, ss, knowledge, id):
                         r1 += f"{v1} {op} \"{value}\" and "
                     else:
                         if value_to_use:
-                            v1 = list(value_to_use.keys())[0]
-                            v2 = value_to_use[v1]
-                            if v1 != "value":
-                                op = "is"
-                                if op_to_use != "":
-                                    op = op_to_use
-                                    op_to_use = ""
-                                r1 += f"{v1} {op} \"{v2}\" and "
-                            else:
-                                r1 += f"约束 is \"{v2}\" and "
+                            clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge, v1)
+                            r1 += f"clause and "
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "价格":
                 if focus != "订单连续性操作":
                     focus = "价格"
-                if not key_to_use:  # 为空
+                if not key_to_use:
                     if value_to_use:
-                        v1 = list(value_to_use.keys())[0]
-                        v2 = value_to_use[v1]
-                        if v1 != "value":
-                            op = "is"
-                            if op_to_use != "":
-                                op = op_to_use
-                                op_to_use = ""
-                            r1 += f"{v1} {op} \"{v2}\" and "
-                        else:
-                            r1 += f"约束 is \"{v2}\" and "
+                        clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge)
+                        r1 += f"{clause} and "
                     value_to_use = {key:value}
                 else:
                     k1 = list(key_to_use.keys())[0]
@@ -710,33 +731,17 @@ def write_r1(fp_r1, ss, knowledge, id):
                         r1 += f"{v1} {op} \"{value}\" and "
                     else:
                         if value_to_use:
-                            v1 = list(value_to_use.keys())[0]
-                            v2 = value_to_use[v1]
-                            if v1 != "value":
-                                op = "is"
-                                if op_to_use != "":
-                                    op = op_to_use
-                                    op_to_use = ""
-                                r1 += f"{v1} {op} \"{v2}\" and "
-                            else:
-                                r1 += f"约束 is \"{v2}\" and "
+                            clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge, v1)
+                            r1 += f"clause and "
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "数量":
                 if focus != "订单连续性操作":
                     focus = "数量"
-                if not key_to_use:  # 为空
+                if not key_to_use:
                     if value_to_use:
-                        v1 = list(value_to_use.keys())[0]
-                        v2 = value_to_use[v1]
-                        if v1 != "value":
-                            op = "is"
-                            if op_to_use != "":
-                                op = op_to_use
-                                op_to_use = ""
-                            r1 += f"{v1} {op} \"{v2}\" and "
-                        else:
-                            r1 += f"约束 is \"{v2}\" and "
+                        clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge)
+                        r1 += f"{clause} and "
                     value_to_use = {key:value}
                 else:
                     k1 = list(key_to_use.keys())[0]
@@ -749,137 +754,73 @@ def write_r1(fp_r1, ss, knowledge, id):
                         r1 += f"{v1} {op} \"{value}\" and "
                     else:
                         if value_to_use:
-                            v1 = list(value_to_use.keys())[0]
-                            v2 = value_to_use[v1]
-                            if v1 != "value":
-                                op = "is"
-                                if op_to_use != "":
-                                    op = op_to_use
-                                    op_to_use = ""
-                                r1 += f"{v1} {op} \"{v2}\" and "
-                            else:
-                                r1 += f"约束 is \"{v2}\" and "
+                            clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge, v1)
+                            r1 += f"clause and "
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "key":
                 if not value_to_use:  # 空，当前读到的key没有对应的value
                     key_to_use = {key:value}  # {"key":"开盘集合匹配时间"}
                 else:
-                    v1 = list(value_to_use.keys())[0]
-                    v2 = value_to_use[v1]
-                    if v1 == "时间":
-                        op = "is"
-                        if op_to_use != "":
-                            op = op_to_use
-                            op_to_use = ""
-                        if is_time_key(value):
-                            r1 += f"{value} {op} \"{v2}\" and "
-                        else:
-                            if "前" in op or "后" in op:
-                                r1 += f"{v1} {op} \"{v2}\" and "
-                            else:
-                                r1 += f"{v1} is \"{v2}\" and "
-                            key_to_use = {key:value}
-                        value_to_use = {}
-                    elif v1 == "数量":
-                        op = "is"
-                        if op_to_use != "":
-                            op = op_to_use
-                            op_to_use = ""
-                        if is_num_key(value):
-                            r1 += f"{value} {op} \"{v2}\" and "
-                        else:
-                            r1 += f"{v1} {op} \"{v2}\" and "
-                            key_to_use = {key:value}
-                        value_to_use = {}
-                    elif v1 == "价格":
-                        op = "is"
-                        if op_to_use != "":
-                            op = op_to_use
-                            op_to_use = ""
-                        if is_price_key(value):
-                            r1 += f"{value} {op} \"{v2}\" and "
-                        else:
-                            r1 += f"{v1} {op} \"{v2}\" and "
-                            key_to_use = {key:value}
-                        value_to_use = {}
-                    else:  # v1 == "value"，查找领域知识判断是否配对
-                        find = False
-                        for key_to_find in list(knowledge.keys()):
-                            if key_to_find == key:
-                                value_to_find = knowledge[key_to_find]
-                                if isinstance(value_to_find, list):
-                                    if v2 in value_to_find:
-                                        find = True
-                                        break
-                        if find:
-                            r1 += f"{value} is \"{v2}\" and "
-                            value_to_use = {}
-                        else:
-                            r1 += f"约束 is \"{v2}\" and "
-                            value_to_use = {}
-                            key_to_use = {key:value}
-            else:  # value
-                # 在领域知识中寻找value
-                find = False
-                for key_to_find in list(knowledge.keys()):
-                    value_to_find = knowledge[key_to_find]
-                    if isinstance(value_to_find, list):
-                        if "其他" in value:
-                            k = value[2:]
-                            if k == key_to_find:
-                                r1 += f"{key_to_find} is \"{value}\" and "
-                                find = True
-                                break
-                        else:
-                            for v_to_find in value_to_find:
-                                if v_to_find == value:
-                                    r1 += f"{key_to_find} is \"{value}\" and "
-                                    find = True
-                                    break
-                    if find:
-                        break
-                if not find:
-                    # 查看key_to_use看是否配对
                     if key_to_use:
-                        k1 = list(key_to_use.keys())[0]
-                        v1 = key_to_use[k1]
-                        配对 = True  # TODO，在领域知识中找不到时，key-value是否配对
-                        op = "is"
-                        if op_to_use != "":
-                            op = op_to_use
-                            op_to_use = ""
-                        if 配对:
-                            r1 += f"{v1} {op} \"{value}\" and "
+                        k_key = list(key_to_use.keys())[0]
+                        k_value = key_to_use[k_key]
+                        clause, assume_op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge, k_value)
+                        if if_add:
+                            key_to_use = {key:value}
+                            value_to_use = {}
+                            op_to_use = assume_op_to_use
+                            r1 += f"{clause} and "
+                            continue
+                        else:
                             key_to_use = {}
-                            find = True
-                    if not find:
-                        if value_to_use:
-                            # 如果value_to_use不为空
-                            v1 = list(value_to_use.keys())[0]
-                            v2 = value_to_use[v1]
-                            op = "is"
-                            if op_to_use != "":
-                                op = op_to_use
-                                op_to_use = ""
-                            if v1 != "value":
-                                r1 += f"{v1} {op} \"{v2}\" and "
-                            else:
-                                r1 += f"约束 is \"{v2}\" and "
-                        value_to_use = {key: value}
+                    clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge, value)
+                    r1 += f"{clause} and "
+                    value_to_use = {}
+                    key_to_use = {}
+                    if not if_add:
+                        key_to_use = {key:value}
 
+            else:  # value
+                if not key_to_use:
+                    if value_to_use:
+                        clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge)
+                        r1 += f"{clause} and "
+                    value_to_use = {key:value}
+                else:
+                    k_key = list(key_to_use.keys())[0]
+                    k_value = key_to_use[k_key]
+                    if value_to_use:
+                        clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge, k_value)
+                        r1 += f"{clause} and "
+                        if if_add:
+                            value_to_use = {key:value}
+                            key_to_use = {}
+                            continue
+                        else:
+                            value_to_use = {}
+                    value_to_use = {key:value}
+                    clause, assume_op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge, k_value)
+                    if if_add:
+                        r1 += f"{clause} and "
+                        op_to_use = assume_op_to_use
+                        value_to_use = {}
+                
+
+        if key_to_use and value_to_use:
+            k_key = list(key_to_use.keys())[0]
+            k_value = key_to_use[k_key]
+            clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge, k_value)
+            r1 += f"{clause} and "
+            if if_add:
+                key_to_use = {}
+            value_to_use = {}
         if value_to_use:
-            v1 = list(value_to_use.keys())[0]
-            v2 = value_to_use[v1]
-            op = "is"
-            if op_to_use != "":
-                op = op_to_use
-                op_to_use = ""
-            if v1 == "时间" or v1 == "数量" or v1 == "价格":
-                r1 += f"{v1} {op} \"{v2}\" and "
-            else:
-                r1 += f"约束 is \"{v2}\" and "
+            clause, op_to_use, if_add = get_clause_for_single_value(value_to_use, op_to_use, knowledge)
+            r1 += f"{clause} and "
+            value_to_use = {}
         
+
         if focus == "":
             focus = "订单连续性操作"
         fp_r1 += "rule " + new_id + "\n"

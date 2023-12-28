@@ -1156,13 +1156,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1176,13 +1176,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1229,13 +1229,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1249,13 +1249,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1302,13 +1302,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1322,13 +1322,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1375,13 +1375,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1395,13 +1395,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1448,13 +1448,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1468,13 +1468,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1521,13 +1521,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1541,13 +1541,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1594,13 +1594,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1614,13 +1614,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -1667,13 +1667,13 @@
         ],
         "constraints": [
             {
-                "key": "协议大宗交易成交申报指令",
-                "value": "约定号",
+                "key": "交易方式",
+                "value": "证券代码",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "证券代码",
+                "key": "协议大宗交易成交申报指令",
+                "value": "约定号",
                 "operation": "is"
             },
             {
@@ -1687,13 +1687,13 @@
                 "operation": "is"
             },
             {
-                "key": "ETF份额申赎的申报指令",
-                "value": "数量",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
                 "operation": "is"
             },
             {

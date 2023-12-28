@@ -301,14 +301,17 @@ def compose_state_machine(vars, rules, preliminaries):
     for rule_id in keys:
         rule = rules[rule_id]
         # 只去匹配第一个操作和操作部分
-        operation = ""
-        op_part = ""
+        operation = ""  # 操作
+        op_part = ""  # 操作部分
+        state = ""  # 已有状态
         for c in rule['constraints']:
-            if c['key'] == '操作':
+            if c['key'] == '操作' and operation == "":
                 operation = c['value']
-            if c["key"] == "操作部分":
+            if c["key"] == "操作部分" and op_part == "":
                 op_part = c["value"]
-            if operation != "" and op_part != "":
+            if c["key"] == "状态" and state == "":
+                state = c['value']
+            if operation != "" and op_part != "" and state != "":
                 break
         if operation == "":
             continue
@@ -336,13 +339,17 @@ def compose_state_machine(vars, rules, preliminaries):
                             if r["key"] == "结果" and r['value'] == "成功":
                                 compose = True
                                 break
+                    # 如果已有状态，判断状态是否匹配，不匹配直接跳过
+                    if state != "" and state != cnt['from']:
+                        compose = False
                     if not compose:
                         continue
                     # 添加状态机
                     new_id = rule_id + "," + str(new_rule_number)
                     new_rule_number += 1
                     new_rule = copy.deepcopy(rule)
-                    new_rule['constraints'].append({"key":key,"operation":"is","value":cnt['from']})
+                    if state == "":
+                        new_rule['constraints'].append({"key":key,"operation":"is","value":cnt['from']})
                     new_rule['results'].append({"key":key,"operation":"is","value":cnt['to']})
                     to_add[new_id] = new_rule
                     if rule_id not in to_delete:
@@ -360,6 +367,7 @@ def compose_state_machine(vars, rules, preliminaries):
     rules = add_relation(rules)
 
     return vars, rules
+
 
 
 def add_relation(rules):

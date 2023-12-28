@@ -466,7 +466,12 @@ def compose_nested_rules(vars, rules):
                 loc1 = c['value'].find("第")
                 loc2 = c['value'].find("条")
                 # 找到要结合的规则的id
-                compose_rule_id = c['value'][loc1+1:loc2]
+                if len(re.findall(r"\d+", c['value']))>0:
+                    loc1 = c['value'].find("第")
+                    loc2 = c['value'].find("条")
+                    compose_rule_id = c['value'][loc1+1:loc2]
+                else:
+                    compose_rule_id = c['value']
                 # 找到要结合的规则，要求不互相冲突
                 for rule_id1 in list(rules.keys()):
                     if compose_rule_id in rules[rule_id1]['rule_class'] and not judge_rule_conflict(rule, rules[rule_id1]):
@@ -606,9 +611,12 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
             for rule_id in to_delete:
                 del vars[rule_id]
                 del rules[rule_id]
-        if element in defines:  # 交易品种/交易市场
-            e = defines[element][0]
-            if e == "证券":
+        if element in defines or element == "交易品种":  # 交易品种/交易市场
+            if element in defines:
+                e = defines[element][0]
+                if e == "证券":
+                    e = preliminaries['交易品种']
+            else:
                 e = preliminaries['交易品种']
             to_delete = []
             for rule_id in list(rules.keys()):
