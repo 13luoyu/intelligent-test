@@ -109,7 +109,7 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
 
 if __name__ == "__main__":
     begin_time = time.time()
-    nlp_process("rules_cache/深圳证券交易所债券交易规则.pdf", "rules_cache/setting.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1696264421", "../data/tc_data.dict")
+    nlp_process("rules_cache/深圳证券交易所债券交易规则.pdf", "rules_cache/setting.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1701809213", "../data/tc_data.dict")
     alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r2.mydsl", "rules_cache/r3.json", "rules_cache/r3.mydsl", "rules_cache/testcase.json", "../data/knowledge.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")

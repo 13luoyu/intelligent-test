@@ -25,7 +25,7 @@ def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sen
     
     inputs = preprocess(sci)
     model.eval()
-    device = torch.device('cpu')
+    device = try_gpu()
     model = model.to(device)
 
     def predict(inputs):

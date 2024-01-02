@@ -497,7 +497,7 @@ def process_knowledge_interface_update():
     timestamp, sign = get_timestamp_sign()
     return_data = {"code": code, "msg": "success", "data": None, "timeStamp": timestamp, "sign": sign}
     writelog(f"### 访问接口/knowledge(修改), 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
-    return jsonify({"message": "update success"})
+    return jsonify(return_data)
 
 # 需求一致性检测
 @app.route('/consistency_checking', methods=['POST'])
