@@ -99,7 +99,7 @@ def token_classification_with_algorithm(tco, knowledge):
         p3 = text.find("第", p1+3)
         p4 = text.find("条", p1+3)
         while p1 != -1:
-            if p3>0 and p4>0 and p3-p2<=2:
+            if p3>0 and p4>0 and p3-p1<=2:
                 label = change(p1, p4+1, label, "结合规则")
             p1 = text.find("本规则", p1+3)
             p3 = text.find("第", p1+3)
@@ -186,7 +186,7 @@ def token_classification_with_algorithm(tco, knowledge):
                 else:
                     b += 1
             if "撤" in text[a:b]:
-                while a>0 and text[a] not in punctuation:
+                while a>=0 and text[a] not in punctuation:
                     a -= 1
                 a += 1
                 label = change(a, p+2, label, "操作部分")
@@ -257,10 +257,10 @@ def token_classification_with_algorithm(tco, knowledge):
         p = text.find("时间")
         while p != -1:
             a, b = p, p+2
-            while a > 0 and text[a] not in punctuation:
+            while a >= 0 and text[a] not in punctuation:
                 a-=1
             a+=1
-            if text[b] in ["内"] and text[b+1] in punctuation:
+            if text[b] in ["内"] and text[b+1] in punctuation and "I-结合规则" not in label[a:b+1]:
                 label = change(a, b+1, label, "时间")
             p = text.find("时间", b+1)
         # 数量，主要处理 ...或者其整数倍、不足...部分、直接 3种情况

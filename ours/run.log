@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/asus/intelligent-test/ours/consistency_checking.py", line 444, in <module>
+    conflict_rules = consistency_checking(input_data['data'])
+  File "/home/asus/intelligent-test/ours/consistency_checking.py", line 423, in consistency_checking
+    process_result_not_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys)
+  File "/home/asus/intelligent-test/ours/consistency_checking.py", line 55, in process_result_not_same_key_same
+    if (is_time_key(cons1_keys[vi]) or is_num_key(cons1_keys[vi]) or is_price_key(cons1_keys[vi])) and (isinstance(v1, list) or len(re.findall(r"\d+", v1)) > 0) and (isinstance(v2, list) or len(re.findall(r"\d+", v2)) > 0) and intersection(is_time_key(cons1_keys[vi]), is_num_key(cons1_keys[vi]), is_price_key(cons1_keys[vi]), v1, v2):
+  File "/home/asus/intelligent-test/ours/consistency_checking.py", line 86, in intersection
+    v1, v2, v3, v4 = v1.split("-")[0], v1.split("-")[1], v2.split("-")[0], v2.split("-")[1]
+IndexError: list index out of range

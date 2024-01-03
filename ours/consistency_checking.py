@@ -2,6 +2,292 @@ import json
 import pprint
 from transfer.mydsl_to_rules import mydsl_to_rules
 import copy
+from ours.process_r1_to_r2 import is_num_key, is_price_key, is_time_key
+from ours.process_r3_to_testcase import isnumber, gen_cons, gen_temp_v
+import re
+import z3
+
+
+def process_result_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys):
+    # TODO 这个地方存疑，1、是否冲突的时间、数量、价格必须是数值变量；2、如果存在两个或更多时间、数量、价格冲突，规则是否冲突。
+    if cons1_value == cons2_value:
+        return False, {}
+    general_diff = False  # 是否是通用的key不同
+    other_diff_idx = []  # 不同的key的index
+    for vi, v1 in enumerate(cons1_value):
+        v2 = cons2_value[vi]
+        if v1 != v2: 
+            # 时间、数量、价格不同，并且是数值型变量
+            if (is_time_key(cons1_keys[vi]) or is_num_key(cons1_keys[vi]) or is_price_key(cons1_keys[vi])) and (isinstance(v1, list) or len(re.findall(r"\d+", v1)) > 0) and (isinstance(v2, list) or len(re.findall(r"\d+", v2)) > 0):
+                other_diff_idx.append(vi)
+                continue
+            # 枚举约束，通用key不同
+            else:
+                general_diff = True
+                break
+        
+    if general_diff:
+        # 不冲突
+        return False, {}
+    else:
+        # 冲突
+        reason = f"规则{id1}和{id2}的结果相同，但存在互相冲突的约束：对规则{id1}，"
+        for idx in other_diff_idx:
+            reason += f"{cons1_keys[idx]}为{cons1_value[idx]}，"
+        reason += f"而对规则{id2}，"
+        for idx in other_diff_idx:
+            reason += f"{cons2_keys[idx]}为{cons2_value[idx]}，"
+        reason = f"{reason[:-1]}。"
+        return True, {"rule_ids":[id1, id2], "reason":reason}
+
+
+
+def process_result_not_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys):
+    # TODO 这个地方存疑，1、是否冲突的时间、数量、价格必须是数值变量；2、如果存在两个或更多时间、数量、价格冲突，规则是否冲突。
+    if cons1_value == cons2_value:
+        return True, {"rule_ids":[id1, id2], "reason":f"规则{id1}和{id2}的约束可以实例化为相同，但却产生了不同的结果"}
+    general_diff = False  # 是否是通用的key不同
+    other_diff_idx = []  # 不同的key的index
+    for vi, v1 in enumerate(cons1_value):
+        v2 = cons2_value[vi]
+        if v1 != v2: 
+            # 时间、数量、价格不同，并且是数值型变量，并且有交集
+            if (is_time_key(cons1_keys[vi]) or is_num_key(cons1_keys[vi]) or is_price_key(cons1_keys[vi])) and (isinstance(v1, list) or len(re.findall(r"\d+", v1)) > 0) and (isinstance(v2, list) or len(re.findall(r"\d+", v2)) > 0) and intersection(is_time_key(cons1_keys[vi]), is_num_key(cons1_keys[vi]), is_price_key(cons1_keys[vi]), v1, v2):
+                other_diff_idx.append(vi)
+                continue
+            # 枚举约束，通用key不同
+            else:
+                general_diff = True
+                break
+        
+    if general_diff:
+        # 不冲突
+        return False, {}
+    else:
+        # 冲突
+        reason = f"规则{id1}和{id2}的结果相同，但存在互相冲突的约束：对规则{id1}，"
+        for idx in other_diff_idx:
+            reason += f"{cons1_keys[idx]}为{cons1_value[idx]}，"
+        reason += f"而对规则{id2}，"
+        for idx in other_diff_idx:
+            reason += f"{cons2_keys[idx]}为{cons2_value[idx]}，"
+        reason = f"{reason[:-1]}。"
+        return True, {"rule_ids":[id1, id2], "reason":reason}
+
+
+
+
+def intersection(time_key, num_key, price_key, v1, v2):
+    if time_key:
+        if "{[" in v1 and "{[" in v2:
+            v1, v2 = v1[2:-2], v2[2:-2]
+        elif "[" in v1 and "[" in v2:
+            v1, v2 = v1[1:-1], v2[1:-1]
+        v5 = v2
+        print(v1, v2)
+        v1, v2 = v1.split("-")[0], v1.split("-")[1]
+        v3, v4 = v5.split("-")[0], v5.split("-")[1]
+        v1 = "0" + v1 if len(v1) == 4 else v1
+        v2 = "0" + v2 if len(v2) == 4 else v2
+        v3 = "0" + v3 if len(v3) == 4 else v3
+        v4 = "0" + v4 if len(v4) == 4 else v4
+        if v2 <= v3 or v4 <= v1:  # 无交集
+            return False
+        else:
+            return True
+    elif num_key:
+        return SMT_Solver(v1, v2, "num")
+    elif price_key:
+        return SMT_Solver(v1, v2, "price")
+    return False
+
+
+def SMT_Solver(v1, v2, task):  # 如果有解，返回True，否则返回False
+    if task == "num":
+        variable = z3.Int("variable")
+    else:
+        variable = z3.Real("variable")
+    cons = []
+    cons.append(variable > 0)
+    if len(v1) == 2:
+        op, value = v1[0], v1[1]
+        if isnumber(value):
+            cons.append(gen_cons(op, variable, value))
+        else:
+            value = 100  # 变量实例化
+            cons.append(gen_cons(op, variable, value))
+    elif len(v1) == 4:
+        op1, value1, op2, value2 = value[:]
+        if not isnumber(value1):
+            value1 = 100000
+        if not isnumber(value2):
+            value2 = 0
+        cons.append(gen_cons(op2, gen_temp_v(op1, variable, value1), value2))
+    else:
+        return False
+    if len(v2) == 2:
+        op, value = v2[0], v2[1]
+        if isnumber(value):
+            cons.append(gen_cons(op, variable, value))
+        else:
+            value = 100  # 变量实例化
+            cons.append(gen_cons(op, variable, value))
+    elif len(v2) == 4:
+        op1, value1, op2, value2 = v2[:]
+        if not isnumber(value1):
+            value1 = 100000
+        if not isnumber(value2):
+            value2 = 0
+        cons.append(gen_cons(op2, gen_temp_v(op1, variable, value1), value2))
+    else:
+        return False
+    solver = z3.Solver()
+    for con in cons:
+        solver.push()
+        solver.add(con)
+    return solver.check() == z3.sat
+
+
+def instantiate(cons1_keys, cons1_value, cons2_keys, cons2_value, then_same):
+    # 实例化为特例，并按照key相同比较
+    # 如果遇到重复的key，value合并，最后len应该相同
+    new_con1_keys, new_cons1_value = [], []
+    for index, key in enumerate(cons1_keys):
+        value = cons1_value[index]
+        if key not in new_con1_keys:
+            new_con1_keys.append(key)
+            new_cons1_value.append(value)
+        else:
+            for index1, k in enumerate(new_con1_keys):
+                if k == key:
+                    if isinstance(new_cons1_value[index1], list) and isinstance(value, str):
+                        ...
+                    elif isinstance(new_cons1_value[index1], str) and isinstance(value, list):
+                        new_cons1_value[index1] = value
+                    else:
+                        new_cons1_value[index1] = new_cons1_value[index1] + value
+                    break
+    cons1_keys, cons1_value = new_con1_keys, new_cons1_value
+    new_con2_keys, new_cons2_value = [], []
+    for index, key in enumerate(cons2_keys):
+        value = cons2_value[index]
+        if key not in new_con2_keys:
+            new_con2_keys.append(key)
+            new_cons2_value.append(value)
+        else:
+            for index2, k in enumerate(new_con2_keys):
+                if k == key:
+                    if isinstance(new_cons2_value[index2], list) and isinstance(value, str):
+                        ...
+                    elif isinstance(new_cons2_value[index2], str) and isinstance(value, list):
+                        new_cons2_value[index2] = value
+                    else:
+                        new_cons2_value[index2] = new_cons2_value[index2] + value
+                    break
+    cons2_keys, cons2_value = new_con2_keys, new_cons2_value
+    
+    union = list(set(cons1_keys + cons2_keys))
+    if then_same:
+        new_cons1_value = []
+        for key in union:
+            find = False
+            for index, key1 in enumerate(cons1_keys):
+                if key == key1:
+                    new_cons1_value.append(cons1_value[index])
+                    find = True
+                    break
+            if not find:
+                for index, key1 in enumerate(cons2_keys):
+                    if key == key1:
+                        new_cons1_value.append(cons2_value[index])
+                        break
+        cons1_keys = copy.deepcopy(union)
+        cons1_value = new_cons1_value
+
+
+        new_cons2_value = []
+        for key in union:
+            find = False
+            for index, key1 in enumerate(cons2_keys):
+                if key == key1:
+                    new_cons2_value.append(cons2_value[index])
+                    find = True
+                    break
+            if not find:
+                for index, key1 in enumerate(cons1_keys):
+                    if key == key1:
+                        new_cons2_value.append(cons1_value[index])
+                        break
+        cons2_keys = copy.deepcopy(union)
+        cons2_value = new_cons2_value
+
+    else:
+        new_cons1_value = []
+        not_conflict = False
+        for key in union:
+            find = False
+            for index, key1 in enumerate(cons1_keys):
+                if key == key1:
+                    new_cons1_value.append(cons1_value[index])
+                    find = True
+                    break
+            if not find:
+                if is_num_key(key) or is_time_key(key) or is_price_key(key):
+                    not_conflict = True
+                    break
+                for index, key1 in enumerate(cons2_keys):
+                    if key == key1:
+                        new_cons1_value.append(cons2_value[index])
+                        break
+        if not not_conflict:
+            cons1_keys = copy.deepcopy(union)
+            cons1_value = new_cons1_value
+
+
+        new_cons2_value = []
+        not_conflict = False
+        for key in union:
+            find = False
+            for index, key1 in enumerate(cons2_keys):
+                if key == key1:
+                    new_cons2_value.append(cons2_value[index])
+                    find = True
+                    break
+            if not find:
+                if is_num_key(key) or is_time_key(key) or is_price_key(key):
+                    not_conflict = True
+                    break
+                for index, key1 in enumerate(cons1_keys):
+                    if key == key1:
+                        new_cons2_value.append(cons1_value[index])
+                        break
+        if not not_conflict:
+            cons2_keys = copy.deepcopy(union)
+            cons2_value = new_cons2_value
+
+
+        for index, key in enumerate(cons2_keys):
+            value = cons2_value[index]
+            if key not in cons1_keys:
+                if is_num_key(key) or is_time_key(key) or is_price_key(key):
+                    break
+                else:
+                    cons1_keys.insert(index, key)
+                    cons1_value.insert(index, value)
+        for index, key in enumerate(cons1_keys):
+            value = cons1_value[index]
+            if key not in cons2_keys:
+                if is_num_key(key) or is_time_key(key) or is_price_key(key):
+                    break
+                else:
+                    cons2_keys.insert(index, key)
+                    cons2_value.insert(index, value)
+
+
+    return cons1_keys, cons1_value, cons2_keys, cons2_value
+
+
+
 
 def consistency_checking(data):
     defines, vars, rules = mydsl_to_rules(data)
@@ -13,8 +299,10 @@ def consistency_checking(data):
             if j <= i:
                 continue
             rule1, rule2 = rules[id1], rules[id2]
-            cons1, cons2, res1, res2 = sorted(rule1['constraints'], key=lambda x:x['key']), sorted(rule2['constraints'], key=lambda x:x['key']), sorted(rule1['results'], key=lambda x:x['key']), sorted(rule2['results'], key=lambda x:x['key'])
+            cons1, cons2, res1, res2 = sorted(rule1['constraints'], key=lambda x:x['key']), sorted(rule2['constraints'], key=lambda x:x['key']), [rs for rs in sorted(rule1['results'], key=lambda x:x['key']) if rs['key'] != "状态"], [rs for rs in sorted(rule2['results'], key=lambda x:x['key']) if rs['key'] != "状态"]
+
             
+            # 这里的if_same，then_same都是完全相同的意思
             then_same = True
             if len(res1) != len(res2):
                 then_same = False
@@ -38,7 +326,7 @@ def consistency_checking(data):
             if then_same:
                 if if_same:
                     continue
-                else:
+                else:  # if不同，then相同
                     # 判断cons1的key和cons2的key之间的关系
                     cons1_keys, cons2_keys = [con['key'] for con in cons1], [con['key'] for con in cons2]
                     cons1_value, cons2_value = [con['value'] for con in cons1], [con['value'] for con in cons2]
@@ -65,123 +353,37 @@ def consistency_checking(data):
                             cons2_in_cons1 = False
                             break
                     
-                    if cons1_in_cons2 and cons2_in_cons1:  # key相同
-                        general_diff = False
-                        other_diff_idx = []
-                        for vi, v1 in enumerate(cons1_value):
-                            v2 = cons2_value[vi]
-                            if v1 != v2 and cons1_keys[vi] in general_keys:
-                                general_diff = True
-                                break
-                            elif v1 != v2 and cons1_keys[vi] not in general_keys:
-                                other_diff_idx.append(vi)
-                        if general_diff:
-                            # 不冲突
-                            continue
-                        else:
-                            # 冲突
-                            reason = f"规则{id1}和{id2}的结果相同，但存在互相冲突的约束：对规则{id1}，"
-                            for idx in other_diff_idx:
-                                reason += f"{cons1_keys[idx]}为{cons1_value[idx]}，"
-                            reason += f"而对规则{id2}，"
-                            for idx in other_diff_idx:
-                                reason += f"{cons2_keys[idx]}为{cons2_value[idx]}，"
-                            reason = f"{reason[:-1]}。"
-                            conflict_rules.append({"rule_ids":[id1, id2], "reason":reason})
+                    if cons1_in_cons2 and cons2_in_cons1:  # key相同，如果general key的value不同，不冲突；否则，如果为时间数量价格的value不同且value不为枚举约束，则冲突
+                        if_conflict, info = process_result_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys)
+                        if if_conflict:
+                            conflict_rules.append(info)
+                    
                     elif cons1_in_cons2 or cons2_in_cons1:
-                        # 判断相交部分的value是否完全相同
-                        interact_same = True
-                        if cons1_in_cons2:
-                            for ki, key1 in enumerate(cons1_keys):
-                                kv_diff = True
-                                for kj, key2 in enumerate(cons2_keys):
-                                    if key1 == key2 and cons1_value[ki] == cons2_value[kj]:
-                                        kv_diff = False
-                                        break
-                                if kv_diff:
-                                    interact_same = False
-                                    break
-                            # 将cons2_keys和cons2_value设置为交集部分
-                            interact_cons2_keys = copy.deepcopy(cons1_keys)
-                            interact_cons2_value = []
-                            for ki, key in enumerate(interact_cons2_keys):
-                                v1 = cons1_keys[ki]
-                                last = ""
-                                for vi, v2 in enumerate(cons2_value):
-                                    if key == cons2_keys[vi] and v1 == v2:
-                                        interact_cons2_value.append(v1)
-                                        last = ""
-                                        break
-                                    elif key == cons2_keys[vi] and v1 != v2:
-                                        last = v2
-                                if last != "":
-                                    interact_cons2_value.append(last)
-                            cons2_keys = interact_cons2_keys
-                            cons2_value = interact_cons2_value
-                        else:
-                            for ki, key2 in enumerate(cons2_keys):
-                                kv_diff = True
-                                for kj, key1 in enumerate(cons1_keys):
-                                    if key1 == key2 and cons1_value[kj] == cons2_value[ki]:
-                                        kv_diff = False
-                                        break
-                                if kv_diff:
-                                    interact_same = False
-                                    break
-                            # 将cons1_keys和cons1_value设置为交集部分
-                            interact_cons1_keys = copy.deepcopy(cons2_keys)
-                            interact_cons1_value = []
-                            for ki, key in enumerate(interact_cons1_keys):
-                                v2 = cons2_keys[ki]
-                                last = ""
-                                for vi, v1 in enumerate(cons1_value):
-                                    if key == cons1_keys[vi] and v1 == v2:
-                                        interact_cons1_value.append(v1)
-                                        last = ""
-                                        break
-                                    elif key == cons1_keys[vi] and v1 != v2:
-                                        last = v1
-                                if last != "":
-                                    interact_cons1_value.append(last)
-                            cons1_keys = interact_cons1_keys
-                            cons1_value = interact_cons1_value
-                        if interact_same:
-                            continue
-                        else:
-                            general_diff = False
-                            other_diff_idx = []
-                            for vi, v1 in enumerate(cons1_value):
-                                v2 = cons2_value[vi]
-                                if v1 != v2 and cons1_keys[vi] in general_keys:
-                                    general_diff = True
-                                    break
-                                elif v1 != v2 and cons1_keys[vi] not in general_keys:
-                                    other_diff_idx.append(vi)
-                            if general_diff:
-                                # 不冲突
-                                continue
-                            else:
-                                # 冲突
-                                reason = f"规则{id1}和{id2}的结果相同，但存在互相冲突的约束：对规则{id1}，"
-                                for idx in other_diff_idx:
-                                    reason += f"{cons1_keys[idx]}为{cons1_value[idx]}，"
-                                reason += f"而对规则{id2}，"
-                                for idx in other_diff_idx:
-                                    reason += f"{cons2_keys[idx]}为{cons2_value[idx]}，"
-                                reason = f"{reason[:-1]}。"
-                                conflict_rules.append({"rule_ids":[id1, id2], "reason":reason})
+                        
+                        cons1_keys, cons1_value, cons2_keys, cons2_value = instantiate(cons1_keys, cons1_value, cons2_keys, cons2_value, then_same)
+                        assert cons1_keys == cons2_keys and len(cons2_keys) == len(cons2_value) == len(cons1_keys) == len(cons1_value)
+
+                        if_conflict, info = process_result_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys)
+                        if if_conflict:
+                            conflict_rules.append(info)
 
                     elif interact:
+                        # cons1_keys, cons1_value, cons2_keys, cons2_value = instantiate(cons1_keys, cons1_value, cons2_keys, cons2_value, then_same)
+                        # assert cons1_keys == cons2_keys and len(cons2_keys) == len(cons2_value) == len(cons1_keys) == len(cons1_value)
+
+                        # if_conflict, info = process_result_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys)
+                        # if if_conflict:
+                        #     conflict_rules.append(info)
                         continue
                     else:
                         continue
 
 
-            else:
+            else:  # then不同
                 if if_same:
                     # 冲突
                     conflict_rules.append({"rule_ids":[id1, id2], "reason":f"规则{id1}和{id2}的约束相同，但却产生了不同的结果"})
-                else:
+                else:  # if和then都不同
                     # 判断cons1的key和cons2的key之间的关系
                     cons1_keys, cons2_keys = [con['key'] for con in cons1], [con['key'] for con in cons2]
                     cons1_value, cons2_value = [con['value'] for con in cons1], [con['value'] for con in cons2]
@@ -209,75 +411,31 @@ def consistency_checking(data):
                             break
                     
                     if cons1_in_cons2 and cons2_in_cons1:
-                        continue
+                        # key相同，如果general key的value不同，不冲突；否则，如果为时间数量价格的value不同且value不为枚举约束，且约束有重合的地方，则冲突（重合的地方不知是成功还是失败）
+                        if_conflict, info = process_result_not_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys)
+                        if if_conflict:
+                            conflict_rules.append(info)
+
                     elif cons1_in_cons2 or cons2_in_cons1:
-                        # 判断相交部分的value是否完全相同
-                        interact_same = True
-                        if cons1_in_cons2:
-                            for ki, key1 in enumerate(cons1_keys):
-                                kv_diff = True
-                                for kj, key2 in enumerate(cons2_keys):
-                                    if key1 == key2 and cons1_value[ki] == cons2_value[kj]:
-                                        kv_diff = False
-                                        break
-                                if kv_diff:
-                                    interact_same = False
-                                    break
-                            # 将cons2_keys和cons2_value设置为交集部分
-                            interact_cons2_keys = copy.deepcopy(cons1_keys)
-                            interact_cons2_value = []
-                            for ki, key in enumerate(interact_cons2_keys):
-                                v1 = cons1_keys[ki]
-                                last = ""
-                                for vi, v2 in enumerate(cons2_value):
-                                    if key == cons2_keys[vi] and v1 == v2:
-                                        interact_cons2_value.append(v1)
-                                        last = ""
-                                        break
-                                    elif key == cons2_keys[vi] and v1 != v2:
-                                        last = v2
-                                if last != "":
-                                    interact_cons2_value.append(last)
-                            cons2_keys = interact_cons2_keys
-                            cons2_value = interact_cons2_value
-                        else:
-                            for ki, key2 in enumerate(cons2_keys):
-                                kv_diff = True
-                                for kj, key1 in enumerate(cons1_keys):
-                                    if key1 == key2 and cons1_value[kj] == cons2_value[ki]:
-                                        kv_diff = False
-                                        break
-                                if kv_diff:
-                                    interact_same = False
-                                    break
-                            # 将cons1_keys和cons1_value设置为交集部分
-                            interact_cons1_keys = copy.deepcopy(cons2_keys)
-                            interact_cons1_value = []
-                            for ki, key in enumerate(interact_cons1_keys):
-                                v2 = cons2_keys[ki]
-                                last = ""
-                                for vi, v1 in enumerate(cons1_value):
-                                    if key == cons1_keys[vi] and v1 == v2:
-                                        interact_cons1_value.append(v1)
-                                        last = ""
-                                        break
-                                    elif key == cons1_keys[vi] and v1 != v2:
-                                        last = v1
-                                if last != "":
-                                    interact_cons1_value.append(last)
-                            cons2_keys = interact_cons1_keys
-                            cons2_value = interact_cons1_value
-                        if interact_same:
-                            # 冲突
-                            if len(cons1_keys) > len(cons2_keys):
-                                reason = f"规则{id2}的约束包含规则{id1}，但它们的结果不一致"
-                            else:
-                                reason = f"规则{id1}的约束包含规则{id2}，但它们的结果不一致"
-                            conflict_rules.append({"rule_ids": [id1, id2], "reason":reason})
-                        else:
+                        cons1_keys, cons1_value, cons2_keys, cons2_value = instantiate(cons1_keys, cons1_value, cons2_keys, cons2_value, then_same)
+                        
+                        if not (cons1_keys == cons2_keys and len(cons2_keys) == len(cons2_value) == len(cons1_keys) == len(cons1_value)):
+                            # 不冲突
                             continue
+
+                        process_result_not_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys)
+                        if if_conflict:
+                            conflict_rules.append(info)
                     
                     elif interact:
+                        # cons1_keys, cons1_value, cons2_keys, cons2_value = instantiate(cons1_keys, cons1_value, cons2_keys, cons2_value, then_same)
+                        # if not (cons1_keys == cons2_keys and len(cons2_keys) == len(cons2_value) == len(cons1_keys) == len(cons1_value)):
+                        #     # 不冲突
+                        #     continue
+                        
+                        # if_conflict, info = process_result_not_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys)
+                        # if if_conflict:
+                        #     conflict_rules.append(info)
                         continue
                     else:
                         continue

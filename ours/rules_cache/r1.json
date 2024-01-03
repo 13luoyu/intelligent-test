@@ -18,11 +18,6 @@
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "开展",
-                "operation": "is"
-            },
-            {
                 "key": "操作部分",
                 "value": "持续做市业务",
                 "operation": "is"
@@ -199,16 +194,16 @@
             },
             {
                 "key": "交易方式",
-                "value": "点击成交、询价成交和协商成交",
+                "value": ")采用竞买成交",
                 "operation": "is"
             },
             {
-                "key": "交易时间",
+                "key": "卖方提交竞买发起申报时间",
                 "value": "{[9:00-10:00]}",
                 "operation": "in"
             },
             {
-                "key": "卖方提交竞买发起申报时间",
+                "key": "时间",
                 "value": "{[10:00-11:30]}",
                 "operation": "in"
             }
@@ -231,23 +226,23 @@
         ],
         "constraints": [
             {
-                "key": "交易制度",
-                "value": "当日回转交易",
-                "operation": "is"
-            },
-            {
                 "key": "操作人",
-                "value": "投资者当",
+                "value": "投资者",
                 "operation": "is"
             },
             {
                 "key": "操作部分",
-                "value": "日买入的",
+                "value": "当日买入的",
                 "operation": "is"
             },
             {
                 "key": "交易品种",
                 "value": "债券现券",
+                "operation": "is"
+            },
+            {
+                "key": "交易制度",
+                "value": "当日回转交易",
                 "operation": "is"
             },
             {
@@ -284,13 +279,8 @@
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "委托会员",
-                "operation": "is"
-            },
-            {
                 "key": "事件",
-                "value": "达成,交易",
+                "value": "委托会员申报并达成债券交易",
                 "operation": "is"
             },
             {
@@ -337,13 +327,8 @@
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "委托会员",
-                "operation": "is"
-            },
-            {
                 "key": "事件",
-                "value": "达成,交易",
+                "value": "委托会员申报并达成债券交易",
                 "operation": "is"
             },
             {
@@ -414,7 +399,7 @@
         "constraints": [
             {
                 "key": "事件",
-                "value": "委托指令被撤销和失效的",
+                "value": "委托指令被撤销和失效",
                 "operation": "is"
             },
             {
@@ -429,17 +414,22 @@
             },
             {
                 "key": "操作",
-                "value": "返还相",
+                "value": "返还",
                 "operation": "is"
             },
             {
                 "key": "操作部分",
-                "value": "资金",
+                "value": "的资金",
                 "operation": "is"
             },
             {
                 "key": "交易品种",
                 "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "确认后",
                 "operation": "is"
             }
         ],
@@ -462,7 +452,7 @@
         "constraints": [
             {
                 "key": "事件",
-                "value": "委托指令被撤销和失效的",
+                "value": "委托指令被撤销和失效",
                 "operation": "is"
             },
             {
@@ -477,12 +467,17 @@
             },
             {
                 "key": "操作",
-                "value": "返还相",
+                "value": "返还",
                 "operation": "is"
             },
             {
                 "key": "交易品种",
                 "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "确认后",
                 "operation": "is"
             }
         ],
@@ -510,17 +505,40 @@
             },
             {
                 "key": "操作",
-                "value": "接受",
+                "value": "申报",
                 "operation": "is"
             },
             {
                 "key": "交易品种",
                 "value": "债券",
                 "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.3.1": {
+        "rule_class": [
+            "3.3.3"
+        ],
+        "focus": [
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "操作部分",
+                "value": "买卖申报和撤销申报",
+                "operation": "is"
             },
             {
-                "key": "申报类型",
-                "value": "交易申报",
+                "key": "操作",
+                "value": "确认",
                 "operation": "is"
             }
         ],
@@ -552,16 +570,18 @@
                 "operation": "is"
             },
             {
-                "key": "的申报数量",
+                "key": "申报数量",
                 "value": [
-                    "<=",
-                    "100000"
+                    "%",
+                    "100000",
+                    "==",
+                    "0"
                 ],
                 "operation": "compute"
             },
             {
                 "key": "操作",
-                "value": "一次性申报卖出",
+                "value": "一次性申报申报卖出",
                 "operation": "is"
             },
             {
@@ -571,16 +591,6 @@
                     "100000"
                 ],
                 "operation": "compute"
-            },
-            {
-                "key": "的申报数量",
-                "operation": "compute",
-                "value": [
-                    "%",
-                    "100000",
-                    "==",
-                    "0"
-                ]
             }
         ],
         "results": [
@@ -611,22 +621,14 @@
                 "operation": "is"
             },
             {
-                "key": "的申报数量",
-                "value": [
-                    "<=",
-                    "1000"
-                ],
-                "operation": "compute"
-            },
-            {
-                "key": "的申报数量",
-                "operation": "compute",
+                "key": "申报数量",
                 "value": [
                     "%",
                     "1000",
                     "==",
                     "0"
-                ]
+                ],
+                "operation": "compute"
             }
         ],
         "results": [
@@ -648,26 +650,18 @@
         "constraints": [
             {
                 "key": "交易方式",
-                "value": "用点击成交",
+                "value": "点击成交",
                 "operation": "is"
             },
             {
                 "key": "申报数量",
                 "value": [
-                    "<=",
-                    "100000"
-                ],
-                "operation": "compute"
-            },
-            {
-                "key": "申报数量",
-                "operation": "compute",
-                "value": [
                     "%",
                     "100000",
                     "==",
                     "0"
-                ]
+                ],
+                "operation": "compute"
             }
         ],
         "results": [
@@ -689,7 +683,7 @@
         "constraints": [
             {
                 "key": "交易方式",
-                "value": "用询价成交、竞买成交",
+                "value": "询价成交、竞买成交",
                 "operation": "is"
             },
             {
@@ -761,7 +755,35 @@
             "3.3.4"
         ],
         "focus": [
-            "数量"
+            "订单连续性操作"
+        ],
+        "constraints": [
+            {
+                "key": "交易方式",
+                "value": "用协商成交",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "数倍",
+                "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "3.3.4.7": {
+        "rule_class": [
+            "3.3.4"
+        ],
+        "focus": [
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -775,8 +797,13 @@
                 "operation": "is"
             },
             {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
                 "key": "数量",
-                "value": "以下数量",
+                "value": "数量",
                 "operation": "is"
             },
             {
@@ -799,7 +826,7 @@
             }
         ]
     },
-    "3.3.4.7": {
+    "3.3.4.8": {
         "rule_class": [
             "3.3.4"
         ],
@@ -811,6 +838,19 @@
                 "key": "交易品种",
                 "value": "(五)债券",
                 "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
+                "key": "数量",
+                "value": [
+                    "<=",
+                    "10000000000"
+                ],
+                "operation": "compute"
             }
         ],
         "results": [
@@ -841,7 +881,7 @@
                 "operation": "is"
             },
             {
-                "key": "的申报价格最小变动单位",
+                "key": "申报价格最小变动单位",
                 "value": [
                     "==",
                     "0.001"
@@ -877,7 +917,7 @@
                 "operation": "is"
             },
             {
-                "key": "的申报价格最小变动单位",
+                "key": "申报价格最小变动单位",
                 "value": [
                     "==",
                     "0.005"
@@ -904,12 +944,12 @@
         "constraints": [
             {
                 "key": "交易方式",
-                "value": "他交易方",
+                "value": "其他交易方式",
                 "operation": "is"
             },
             {
                 "key": "交易品种",
-                "value": "债券交易的",
+                "value": "债券",
                 "operation": "is"
             },
             {
@@ -949,13 +989,13 @@
                 "operation": "is"
             },
             {
-                "key": "申报价格类型",
-                "value": "全价价格",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "申报价格类型",
+                "value": "全价价格",
                 "operation": "is"
             }
         ],
@@ -990,9 +1030,9 @@
         "results": [
             {
                 "key": "结果",
-                "value": "成功",
+                "value": "不成功",
                 "operation": "is",
-                "else": "不成功"
+                "else": "成功"
             }
         ]
     },
@@ -1010,6 +1050,11 @@
                 "operation": "is"
             },
             {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
+            {
                 "key": "结算方式",
                 "value": "逐笔全额结算的",
                 "operation": "is"
@@ -1020,7 +1065,12 @@
                 "operation": "is"
             },
             {
-                "key": "协商成交的申报要素",
+                "key": "操作",
+                "value": "选择",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
                 "value": "结算周期",
                 "operation": "is"
             }
@@ -1067,12 +1117,17 @@
             "3.3.9"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
+                "key": "操作",
+                "value": "申报的",
+                "operation": "is"
+            },
+            {
                 "key": "交易品种",
-                "value": "债券交",
+                "value": "债券交易",
                 "operation": "is"
             },
             {
@@ -1081,7 +1136,7 @@
                 "operation": "in"
             },
             {
-                "key": "结算方式",
+                "key": "算方式",
                 "value": "笔全额结算",
                 "operation": "is"
             }
@@ -1100,9 +1155,14 @@
             "3.3.9"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
+            {
+                "key": "操作",
+                "value": "申报的",
+                "operation": "is"
+            },
             {
                 "key": "交易品种",
                 "value": "债券现券",
@@ -1128,12 +1188,17 @@
             "3.3.9"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
+                "key": "操作",
+                "value": "申报的",
+                "operation": "is"
+            },
+            {
                 "key": "交易品种",
-                "value": "债券交",
+                "value": "债券交易",
                 "operation": "is"
             },
             {
@@ -1142,7 +1207,7 @@
                 "operation": "in"
             },
             {
-                "key": "结算方式",
+                "key": "算方式",
                 "value": "笔全额结算",
                 "operation": "is"
             }
@@ -1161,9 +1226,14 @@
             "3.3.9"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
+            {
+                "key": "操作",
+                "value": "申报的",
+                "operation": "is"
+            },
             {
                 "key": "交易品种",
                 "value": "债券现券",
@@ -1203,13 +1273,13 @@
                 "operation": "is"
             },
             {
-                "key": "是否匿名",
-                "value": "匿名方式",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "是否匿名",
+                "value": "匿名方式",
                 "operation": "is"
             }
         ],
@@ -1241,13 +1311,13 @@
                 "operation": "is"
             },
             {
-                "key": "是否匿名",
-                "value": "显名方式",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "是否匿名",
+                "value": "显名方式",
                 "operation": "is"
             }
         ],
@@ -1279,13 +1349,13 @@
                 "operation": "is"
             },
             {
-                "key": "是否匿名",
-                "value": "匿名",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "是否匿名",
+                "value": "匿名",
                 "operation": "is"
             }
         ],
@@ -1317,13 +1387,13 @@
                 "operation": "is"
             },
             {
-                "key": "是否匿名",
-                "value": "显名方式",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
-                "key": "操作",
-                "value": "申报",
+                "key": "是否匿名",
+                "value": "显名方式",
                 "operation": "is"
             }
         ],
@@ -1341,7 +1411,7 @@
             "3.3.11"
         ],
         "focus": [
-            "订单连续性操作"
+            "时间"
         ],
         "constraints": [
             {
@@ -1352,6 +1422,16 @@
             {
                 "key": "交易品种",
                 "value": "债券",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "交易申报",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "当日",
                 "operation": "is"
             }
         ],
@@ -1380,6 +1460,11 @@
             {
                 "key": "状态",
                 "value": "债券交易申报不能一次全部成交时",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "未成交的部分",
                 "operation": "is"
             },
             {
@@ -1416,6 +1501,11 @@
                 "operation": "is"
             },
             {
+                "key": "操作部分",
+                "value": "未成交的部分",
+                "operation": "is"
+            },
+            {
                 "key": "时间",
                 "value": "当日",
                 "operation": "is"
@@ -1440,12 +1530,12 @@
         "constraints": [
             {
                 "key": "状态",
-                "value": "未成交的",
+                "value": "未成交",
                 "operation": "is"
             },
             {
                 "key": "操作部分",
-                "value": "申报",
+                "value": "的申报",
                 "operation": "is"
             },
             {
@@ -1525,8 +1615,18 @@
                 "operation": "is"
             },
             {
-                "key": "事件",
-                "value": "经交易系统确认成交后",
+                "key": "约束",
+                "value": "方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
                 "operation": "is"
             },
             {
@@ -1545,8 +1645,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "以多边净额结算方式",
+                "key": "时间",
+                "value": "确认成交后",
                 "operation": "is"
             }
         ],
@@ -1574,12 +1674,22 @@
             },
             {
                 "key": "交易方式",
-                "value": "其他交易方式",
+                "value": "其他交易",
                 "operation": "is"
             },
             {
-                "key": "事件",
-                "value": "经交易系统确认成交后",
+                "key": "约束",
+                "value": "方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
                 "operation": "is"
             },
             {
@@ -1598,8 +1708,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "以多边净额结算方式",
+                "key": "时间",
+                "value": "确认成交后",
                 "operation": "is"
             }
         ],
@@ -1631,8 +1741,18 @@
                 "operation": "is"
             },
             {
-                "key": "事件",
-                "value": "经交易系统确认成交后",
+                "key": "约束",
+                "value": "方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
                 "operation": "is"
             },
             {
@@ -1651,8 +1771,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "以多边净额结算方式",
+                "key": "时间",
+                "value": "确认成交后",
                 "operation": "is"
             }
         ],
@@ -1680,12 +1800,22 @@
             },
             {
                 "key": "交易方式",
-                "value": "其他交易方式",
+                "value": "其他交易",
                 "operation": "is"
             },
             {
-                "key": "事件",
-                "value": "经交易系统确认成交后",
+                "key": "约束",
+                "value": "方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
                 "operation": "is"
             },
             {
@@ -1704,8 +1834,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "以多边净额结算方式",
+                "key": "时间",
+                "value": "确认成交后",
                 "operation": "is"
             }
         ],
@@ -1737,8 +1867,18 @@
                 "operation": "is"
             },
             {
-                "key": "事件",
-                "value": "经交易系统确认成交后",
+                "key": "约束",
+                "value": "方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
                 "operation": "is"
             },
             {
@@ -1757,8 +1897,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "以多边净额结算方式",
+                "key": "时间",
+                "value": "确认成交后",
                 "operation": "is"
             }
         ],
@@ -1786,12 +1926,22 @@
             },
             {
                 "key": "交易方式",
-                "value": "其他交易方式",
+                "value": "其他交易",
                 "operation": "is"
             },
             {
-                "key": "事件",
-                "value": "经交易系统确认成交后",
+                "key": "约束",
+                "value": "方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
                 "operation": "is"
             },
             {
@@ -1810,8 +1960,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "以多边净额结算方式",
+                "key": "时间",
+                "value": "确认成交后",
                 "operation": "is"
             }
         ],
@@ -1843,8 +1993,18 @@
                 "operation": "is"
             },
             {
-                "key": "事件",
-                "value": "经交易系统确认成交后",
+                "key": "约束",
+                "value": "方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
                 "operation": "is"
             },
             {
@@ -1863,8 +2023,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "以多边净额结算方式",
+                "key": "时间",
+                "value": "确认成交后",
                 "operation": "is"
             }
         ],
@@ -1892,12 +2052,22 @@
             },
             {
                 "key": "交易方式",
-                "value": "其他交易方式",
+                "value": "其他交易",
                 "operation": "is"
             },
             {
-                "key": "事件",
-                "value": "经交易系统确认成交后",
+                "key": "约束",
+                "value": "方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "以多边净额结算方式",
                 "operation": "is"
             },
             {
@@ -1916,8 +2086,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "以多边净额结算方式",
+                "key": "时间",
+                "value": "确认成交后",
                 "operation": "is"
             }
         ],
@@ -1939,13 +2109,23 @@
         ],
         "constraints": [
             {
-                "key": "申报类型",
-                "value": "成交的交易申报",
+                "key": "匹配成交方式",
+                "value": "集合匹配",
                 "operation": "is"
             },
             {
                 "key": "时间",
-                "value": "集合匹配期间",
+                "value": "期间",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "成交",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "易申",
                 "operation": "is"
             },
             {
@@ -1972,7 +2152,7 @@
         ],
         "constraints": [
             {
-                "key": "申报类型",
+                "key": "匹配成交方式的申报类型",
                 "value": "限价申报",
                 "operation": "is"
             },
@@ -2005,7 +2185,7 @@
         ],
         "constraints": [
             {
-                "key": "申报类型",
+                "key": "匹配成交方式的申报类型",
                 "value": "限价申报",
                 "operation": "is"
             },
@@ -2048,7 +2228,7 @@
                 "operation": "is"
             },
             {
-                "key": "的有效申报价格范围",
+                "key": "申报价格范围",
                 "value": "收盘价的上下30%",
                 "operation": "is"
             }
@@ -2072,7 +2252,7 @@
         "constraints": [
             {
                 "key": "时间",
-                "value": "续匹配",
+                "value": "连续匹配",
                 "operation": "is"
             },
             {
@@ -2091,12 +2271,12 @@
                 "operation": "is"
             },
             {
-                "key": "、地方政府债券、政府支持债券、政策性金融债等的有效申报价格范围",
+                "key": "申报价格范围",
                 "value": "近成交价的上下10%",
                 "operation": "is"
             },
             {
-                "key": "其他债券的有效申报价格范围",
+                "key": "价格",
                 "value": "近成交价的上下20%",
                 "operation": "is"
             }
@@ -2120,12 +2300,12 @@
         "constraints": [
             {
                 "key": "时间",
-                "value": "续匹配",
+                "value": "连续匹配",
                 "operation": "is"
             },
             {
                 "key": "交易品种",
-                "value": "国债",
+                "value": "地方政府债券",
                 "operation": "is"
             },
             {
@@ -2139,7 +2319,12 @@
                 "operation": "is"
             },
             {
-                "key": "、地方政府债券、政府支持债券、政策性金融债等的有效申报价格范围",
+                "key": "申报价格范围",
+                "value": "近成交价的上下10%",
+                "operation": "is"
+            },
+            {
+                "key": "价格",
                 "value": "近成交价的上下20%",
                 "operation": "is"
             }
@@ -2162,18 +2347,33 @@
         ],
         "constraints": [
             {
+                "key": "时间",
+                "value": "连续匹配",
+                "operation": "is"
+            },
+            {
                 "key": "交易品种",
-                "value": "债券",
+                "value": "政府支持债券",
                 "operation": "is"
             },
             {
                 "key": "时间",
-                "value": "上市首日",
+                "value": "盘中临时停牌复牌集合匹配阶段",
                 "operation": "is"
             },
             {
-                "key": "前收盘价",
-                "value": "行价作",
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "申报价格范围",
+                "value": "近成交价的上下10%",
+                "operation": "is"
+            },
+            {
+                "key": "价格",
+                "value": "近成交价的上下20%",
                 "operation": "is"
             }
         ],
@@ -2195,18 +2395,33 @@
         ],
         "constraints": [
             {
+                "key": "时间",
+                "value": "连续匹配",
+                "operation": "is"
+            },
+            {
                 "key": "交易品种",
-                "value": "债券通用质押式回购",
+                "value": "政策性金融债",
                 "operation": "is"
             },
             {
                 "key": "时间",
-                "value": "开盘集合匹配阶段",
+                "value": "盘中临时停牌复牌集合匹配阶段",
                 "operation": "is"
             },
             {
-                "key": "的有效申报价格范围",
-                "value": "前收盘价的上下100%",
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "申报价格范围",
+                "value": "近成交价的上下10%",
+                "operation": "is"
+            },
+            {
+                "key": "价格",
+                "value": "近成交价的上下20%",
                 "operation": "is"
             }
         ],
@@ -2228,13 +2443,18 @@
         ],
         "constraints": [
             {
+                "key": "时间",
+                "value": "连续匹配",
+                "operation": "is"
+            },
+            {
                 "key": "交易品种",
-                "value": "债券通用质押式回购的",
+                "value": "其他债券",
                 "operation": "is"
             },
             {
                 "key": "时间",
-                "value": "连续匹配、盘中临时停牌复牌集合匹配阶段",
+                "value": "盘中临时停牌复牌集合匹配阶段",
                 "operation": "is"
             },
             {
@@ -2243,8 +2463,8 @@
                 "operation": "is"
             },
             {
-                "key": "申报价格",
-                "value": "不得高于最近成交价的100个基点",
+                "key": "申报价格范围",
+                "value": "近成交价的上下20%",
                 "operation": "is"
             }
         ],
@@ -2266,13 +2486,18 @@
         ],
         "constraints": [
             {
-                "key": "状态",
-                "value": "当日无交易的",
+                "key": "交易品种",
+                "value": "该债券",
                 "operation": "is"
             },
             {
-                "key": "最近成交价",
-                "value": "前收盘价",
+                "key": "时间",
+                "value": "上市首日",
+                "operation": "is"
+            },
+            {
+                "key": "前收盘价",
+                "value": "发行价",
                 "operation": "is"
             }
         ],
@@ -2294,13 +2519,18 @@
         ],
         "constraints": [
             {
-                "key": "申报价格范围计算",
-                "value": "按照四舍五入原则",
+                "key": "交易品种",
+                "value": "债券通用质押式回购",
                 "operation": "is"
             },
             {
-                "key": "价格",
-                "value": "价格最小变动单位",
+                "key": "时间",
+                "value": "开盘集合匹配阶段",
+                "operation": "is"
+            },
+            {
+                "key": "申报价格范围",
+                "value": "前收盘价的上下100%",
                 "operation": "is"
             }
         ],
@@ -2322,8 +2552,110 @@
         ],
         "constraints": [
             {
+                "key": "时间",
+                "value": "连续匹配",
+                "operation": "is"
+            },
+            {
+                "key": "交易品种",
+                "value": "债券通用质押式回购",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "盘中临时停牌复牌集合匹配阶段",
+                "operation": "is"
+            },
+            {
+                "key": "交易方式",
+                "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "申报价格",
+                "value": [
+                    "<=",
+                    "100"
+                ],
+                "operation": "compute"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "4.1.5.10": {
+        "rule_class": [
+            "4.1.5"
+        ],
+        "focus": [
+            "价格"
+        ],
+        "constraints": [
+            {
+                "key": "状态",
+                "value": "当日无交易的",
+                "operation": "is"
+            },
+            {
+                "key": "最近成交价",
+                "value": "收盘价作",
+                "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "4.1.5.11": {
+        "rule_class": [
+            "4.1.5"
+        ],
+        "focus": [
+            "价格"
+        ],
+        "constraints": [
+            {
+                "key": "申报价格范围",
+                "value": "按照四舍五入原则",
+                "operation": "is"
+            },
+            {
+                "key": "申报价格范围",
+                "value": "价格最小变动单位",
+                "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "成功",
+                "operation": "is",
+                "else": "不成功"
+            }
+        ]
+    },
+    "4.1.5.12": {
+        "rule_class": [
+            "4.1.5"
+        ],
+        "focus": [
+            "价格"
+        ],
+        "constraints": [
+            {
                 "key": "有效申报价格范围上限或者下限与最近成交价之差的绝对值",
-                "value": "低于价格最小变动单位",
+                "value": "低于价格最小变动单",
                 "operation": "is"
             },
             {
@@ -2346,264 +2678,22 @@
             "4.1.6"
         ],
         "focus": [
-            "价格"
+            "订单连续性操作"
         ],
         "constraints": [
+            {
+                "key": "约束",
+                "value": "申报价格",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "申报",
+                "operation": "is"
+            },
             {
                 "key": "价格",
-                "value": "超过申报价格范围",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "4.1.7.1": {
-        "rule_class": [
-            "4.1.7"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "状态",
-                "value": "没有达成成交",
-                "operation": "is"
-            },
-            {
-                "key": "事件",
-                "value": "继续交易",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "调整",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "申报价格范围",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "在集合匹配阶段",
-                "operation": "is"
-            },
-            {
-                "key": "最高买入申报价",
-                "value": "高于即时行情显示的前收盘价",
-                "operation": "is"
-            },
-            {
-                "key": "交易方式",
-                "value": "匹配成交",
-                "operation": "is"
-            },
-            {
-                "key": "基准调整有效申报价格范围",
-                "value": "以最高买入申报价",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "4.1.7.2": {
-        "rule_class": [
-            "4.1.7"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "状态",
-                "value": "没有达成成交",
-                "operation": "is"
-            },
-            {
-                "key": "事件",
-                "value": "继续交易",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "调整",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "申报价格范围",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "在集合匹配阶段",
-                "operation": "is"
-            },
-            {
-                "key": "交易方式",
-                "value": "匹配成交",
-                "operation": "is"
-            },
-            {
-                "key": "最高买入申报价",
-                "value": "高于最近成交价",
-                "operation": "is"
-            },
-            {
-                "key": "基准调整有效申报价格范围",
-                "value": "以最高买入申报价",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "4.1.7.3": {
-        "rule_class": [
-            "4.1.7"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "状态",
-                "value": "没有达成成交",
-                "operation": "is"
-            },
-            {
-                "key": "事件",
-                "value": "继续交易",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "调整",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "申报价格范围",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "在集合匹配阶段",
-                "operation": "is"
-            },
-            {
-                "key": "最低卖出申报价",
-                "value": "低于即时行情显示的前收盘价",
-                "operation": "is"
-            },
-            {
-                "key": "交易方式",
-                "value": "匹配成交",
-                "operation": "is"
-            },
-            {
-                "key": "基准调整有效申报价格范围",
-                "value": "以最低卖出申报价",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "4.1.7.4": {
-        "rule_class": [
-            "4.1.7"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "状态",
-                "value": "没有达成成交",
-                "operation": "is"
-            },
-            {
-                "key": "事件",
-                "value": "继续交易",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "调整",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "申报价格范围",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "在集合匹配阶段",
-                "operation": "is"
-            },
-            {
-                "key": "交易方式",
-                "value": "匹配成交",
-                "operation": "is"
-            },
-            {
-                "key": "最低卖出申报价",
-                "value": "低于最近成交价",
-                "operation": "is"
-            },
-            {
-                "key": "基准调整有效申报价格范围",
-                "value": "以最低卖出申报价",
+                "value": "超过范围",
                 "operation": "is"
             }
         ],
@@ -2625,12 +2715,12 @@
         ],
         "constraints": [
             {
-                "key": "匹配成交方式",
+                "key": "成交价格",
                 "value": "集合匹配",
                 "operation": "is"
             },
             {
-                "key": "成交价格的确定原则",
+                "key": "价格",
                 "value": "可实现最大成交量的价格",
                 "operation": "is"
             }
@@ -2649,22 +2739,22 @@
             "4.1.8"
         ],
         "focus": [
-            "价格"
+            "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "匹配成交方式",
+                "key": "成交价格",
                 "value": "集合匹配",
                 "operation": "is"
             },
             {
-                "key": "成交价格的确定原则",
-                "value": "可实现最大成交量的价格",
+                "key": "价格",
+                "value": "高于可实现最大成交量的价格",
                 "operation": "is"
             },
             {
-                "key": "申报类型",
-                "value": "买入申报",
+                "key": "操作",
+                "value": "入申报",
                 "operation": "is"
             },
             {
@@ -2675,6 +2765,11 @@
             {
                 "key": "价格",
                 "value": "该价格",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "出申报",
                 "operation": "is"
             },
             {
@@ -2701,23 +2796,18 @@
         ],
         "constraints": [
             {
-                "key": "匹配成交方式",
+                "key": "成交价格",
                 "value": "集合匹配",
                 "operation": "is"
             },
             {
-                "key": "成交价格的确定原则",
-                "value": "可实现最大成交量的价格",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
-                "value": "卖出申报",
+                "key": "操作人",
+                "value": "买方",
                 "operation": "is"
             },
             {
                 "key": "价格",
-                "value": "高于该价格",
+                "value": "该价格相",
                 "operation": "is"
             }
         ],
@@ -2739,18 +2829,18 @@
         ],
         "constraints": [
             {
-                "key": "匹配成交方式",
+                "key": "成交价格",
                 "value": "集合匹配",
                 "operation": "is"
             },
             {
-                "key": "成交价格的确定原则",
-                "value": "该价格",
+                "key": "操作人",
+                "value": "卖方",
                 "operation": "is"
             },
             {
-                "key": "操作人",
-                "value": "买方",
+                "key": "价格",
+                "value": "该价格相",
                 "operation": "is"
             }
         ],
@@ -2768,174 +2858,17 @@
             "4.1.8"
         ],
         "focus": [
-            "价格"
+            "时间"
         ],
         "constraints": [
             {
-                "key": "匹配成交方式",
+                "key": "时间",
                 "value": "集合匹配",
                 "operation": "is"
             },
             {
-                "key": "成交价格的确定原则",
-                "value": "该价格",
-                "operation": "is"
-            },
-            {
-                "key": "操作人",
-                "value": "卖方",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "4.1.8.6": {
-        "rule_class": [
-            "4.1.8"
-        ],
-        "focus": [
-            "价格"
-        ],
-        "constraints": [
-            {
-                "key": "状态",
-                "value": "两个以上价格符合上述条件的",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": "以上在该价格",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": "以下的买入申报累计数量与在该价格",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": "的卖出申报累计数量之差最小的价格",
-                "operation": "is"
-            },
-            {
-                "key": "成交价",
-                "value": "的卖出申报累计数量之差最小的价格",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "4.1.8.7": {
-        "rule_class": [
-            "4.1.8"
-        ],
-        "focus": [
-            "价格"
-        ],
-        "constraints": [
-            {
-                "key": "状态",
-                "value": "买卖申报累计数量之差仍存在相等情况",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "开盘集合匹配时",
-                "operation": "is"
-            },
-            {
-                "key": "成交价",
-                "value": "最接近即时行情显示的前收盘价的价格",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "盘中临时停牌复牌集合匹配时",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": "最接近最近成交价的价格",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "4.1.8.8": {
-        "rule_class": [
-            "4.1.8"
-        ],
-        "focus": [
-            "价格"
-        ],
-        "constraints": [
-            {
-                "key": "状态",
-                "value": "买卖申报累计数量之差仍存在相等情况",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "开盘集合匹配时",
-                "operation": "is"
-            },
-            {
-                "key": "成交价",
-                "value": "最接近即时行情显示的前收盘价的价格",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "4.1.8.9": {
-        "rule_class": [
-            "4.1.8"
-        ],
-        "focus": [
-            "价格"
-        ],
-        "constraints": [
-            {
-                "key": "操作部分",
-                "value": "交易",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "集合匹配阶段",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": "同一价格",
+                "key": "约束",
+                "value": "一价格",
                 "operation": "is"
             }
         ],
@@ -2957,23 +2890,13 @@
         ],
         "constraints": [
             {
-                "key": "匹配成交方式",
+                "key": "成交价格",
                 "value": "连续匹配",
                 "operation": "is"
             },
             {
-                "key": "成交价格的确定原则",
-                "value": "最高",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
-                "value": "买入申报",
-                "operation": "is"
-            },
-            {
                 "key": "价格",
-                "value": "相同最低卖出申报价格",
+                "value": "相同最高买入申报与最低卖出申报价格",
                 "operation": "is"
             },
             {
@@ -3000,12 +2923,12 @@
         ],
         "constraints": [
             {
-                "key": "匹配成交方式",
+                "key": "买入申报价格",
                 "value": "连续匹配",
                 "operation": "is"
             },
             {
-                "key": "买入申报价格",
+                "key": "价格",
                 "value": "高于集中申报簿当时最低卖出申报价格",
                 "operation": "is"
             },
@@ -3033,12 +2956,12 @@
         ],
         "constraints": [
             {
-                "key": "匹配成交方式",
+                "key": "卖出申报价格",
                 "value": "连续匹配",
                 "operation": "is"
             },
             {
-                "key": "卖出申报价格",
+                "key": "价格",
                 "value": "低于集中申报簿当时最高买入申报价格",
                 "operation": "is"
             },
@@ -3062,12 +2985,17 @@
             "4.1.10"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
                 "key": "交易方式",
                 "value": "匹配成交",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "撤销申报",
                 "operation": "is"
             },
             {
@@ -3171,7 +3099,7 @@
         "constraints": [
             {
                 "key": "事件",
-                "value": "设置的显示数量完全成交后,直至申报数量完全显示并成交",
+                "value": "设置的显示数量完全成交后,直至申报数量完全显示,成交",
                 "operation": "is"
             },
             {
@@ -3194,17 +3122,17 @@
             "4.2.5"
         ],
         "focus": [
-            "订单连续性操作"
+            "数量"
         ],
         "constraints": [
             {
                 "key": "结合规则",
-                "value": "第3.3.4条",
+                "value": "本规则第",
                 "operation": "is"
             },
             {
-                "key": "交易方式",
-                "value": "点击成交",
+                "key": "数量",
+                "value": "3.3.4条关于点击成交申报数量",
                 "operation": "is"
             }
         ],
@@ -3260,12 +3188,17 @@
             "4.2.6"
         ],
         "focus": [
-            "订单连续性操作"
+            "数量"
         ],
         "constraints": [
             {
                 "key": "结合规则",
-                "value": "本规则第3.3.4条,第4.2.4条,第4.2.5条",
+                "value": "本规则第",
+                "operation": "is"
+            },
+            {
+                "key": "数量",
+                "value": "3.3.4条、第4.2.4条及第4.2.5条",
                 "operation": "is"
             }
         ],
@@ -3297,13 +3230,18 @@
                 "operation": "is"
             },
             {
-                "key": "协商成交的申报要素",
-                "value": "结算周期",
+                "key": "约束",
+                "value": "报价方所报价格",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "报价方所报价格、结算方式",
+                "key": "协商成交的申报要素",
+                "value": "结算方式",
+                "operation": "is"
+            },
+            {
+                "key": "申报要素",
+                "value": "结算周期",
                 "operation": "is"
             }
         ],
@@ -3330,23 +3268,13 @@
                 "operation": "is"
             },
             {
-                "key": "操作部分",
-                "value": "未成交部分",
-                "operation": "is"
-            },
-            {
                 "key": "操作",
                 "value": "修改",
                 "operation": "is"
             },
             {
                 "key": "操作部分",
-                "value": "等报价要素",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "价格和数量",
+                "value": "价格和数量等报价要素",
                 "operation": "is"
             }
         ],
@@ -3368,7 +3296,7 @@
         ],
         "constraints": [
             {
-                "key": "债券交易的结算方式",
+                "key": "结算方式",
                 "value": "多边净额结算",
                 "operation": "is"
             },
@@ -3378,8 +3306,8 @@
                 "operation": "is"
             },
             {
-                "key": "匹配成交方式",
-                "value": "连续匹配",
+                "key": "时间",
+                "value": "连续匹配阶段的整时点",
                 "operation": "is"
             },
             {
@@ -3398,8 +3326,8 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "以下连续匹配阶段的整时点",
+                "key": "匹配成交方式",
+                "value": "连续匹配",
                 "operation": "is"
             }
         ],
@@ -3421,7 +3349,7 @@
         ],
         "constraints": [
             {
-                "key": "债券交易的结算方式",
+                "key": "结算方式",
                 "value": "多边净额结算",
                 "operation": "is"
             },
@@ -3431,18 +3359,13 @@
                 "operation": "is"
             },
             {
-                "key": "匹配成交方式",
-                "value": "连续匹配",
+                "key": "时间",
+                "value": "连续匹配阶段的整时点",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "参与",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "限价申报的",
+                "value": "申报",
                 "operation": "is"
             },
             {
@@ -3451,8 +3374,8 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "以下连续匹配阶段的整时点",
+                "key": "匹配成交方式",
+                "value": "连续匹配",
                 "operation": "is"
             }
         ],
@@ -3474,7 +3397,7 @@
         ],
         "constraints": [
             {
-                "key": "债券交易的结算方式",
+                "key": "结算方式",
                 "value": "多边净额结算",
                 "operation": "is"
             },
@@ -3484,8 +3407,8 @@
                 "operation": "is"
             },
             {
-                "key": "匹配成交方式",
-                "value": "连续匹配",
+                "key": "时间",
+                "value": "连续匹配阶段的整时点",
                 "operation": "is"
             },
             {
@@ -3499,8 +3422,8 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "以下连续匹配阶段的整时点",
+                "key": "匹配成交方式",
+                "value": "连续匹配",
                 "operation": "is"
             }
         ],
@@ -3522,7 +3445,7 @@
         ],
         "constraints": [
             {
-                "key": "债券交易的结算方式",
+                "key": "结算方式",
                 "value": "多边净额结算",
                 "operation": "is"
             },
@@ -3555,18 +3478,8 @@
                 "operation": "is"
             },
             {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
+                "key": "操作人",
                 "value": "做市商",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "交易参与人",
                 "operation": "is"
             },
             {
@@ -3575,8 +3488,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "交易参与人",
+                "key": "操作部分",
+                "value": "询价请求",
                 "operation": "is"
             }
         ],
@@ -3603,18 +3516,8 @@
                 "operation": "is"
             },
             {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "其他",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "交易参与人",
+                "key": "操作人",
+                "value": "债券交易参与人",
                 "operation": "is"
             },
             {
@@ -3623,8 +3526,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "交易参与人",
+                "key": "操作部分",
+                "value": "询价请求",
                 "operation": "is"
             }
         ],
@@ -3694,8 +3597,13 @@
                 "operation": "is"
             },
             {
+                "key": "ETF份额申赎的申报指令",
+                "value": "数量",
+                "operation": "is"
+            },
+            {
                 "key": "约束",
-                "value": "按询价方确认的数量、价格、结算方式与结算周期",
+                "value": "价格、结算方式与结算周期",
                 "operation": "is"
             }
         ],
@@ -3831,7 +3739,12 @@
                 "operation": "is"
             },
             {
-                "key": "申报类型",
+                "key": "操作部分",
+                "value": "意向申报",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
                 "value": "意向申报",
                 "operation": "is"
             },
@@ -3874,7 +3787,12 @@
                 "operation": "is"
             },
             {
-                "key": "申报类型",
+                "key": "操作部分",
+                "value": "意向申报",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
                 "value": "意向申报",
                 "operation": "is"
             },
@@ -3907,92 +3825,6 @@
                 "operation": "is"
             },
             {
-                "key": "操作人",
-                "value": "全市场",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "发送",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
-                "value": "意向申报",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "直接确认成交",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "4.3.6.4": {
-        "rule_class": [
-            "4.3.6"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "操作人",
-                "value": "债券投资者",
-                "operation": "is"
-            },
-            {
-                "key": "操作人",
-                "value": "部分债券投资者",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "发送",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
-                "value": "意向申报",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "直接确认成交",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "4.3.6.5": {
-        "rule_class": [
-            "4.3.6"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "操作人",
-                "value": "债券投资者",
-                "operation": "is"
-            },
-            {
                 "key": "操作",
                 "value": "直接确认成交",
                 "operation": "is"
@@ -4007,7 +3839,7 @@
             }
         ]
     },
-    "4.3.6.6": {
+    "4.3.6.4": {
         "rule_class": [
             "4.3.6"
         ],
@@ -4016,7 +3848,7 @@
         ],
         "constraints": [
             {
-                "key": "申报类型",
+                "key": "事件",
                 "value": "收到意向申报",
                 "operation": "is"
             },
@@ -4050,7 +3882,7 @@
             }
         ]
     },
-    "4.3.6.7": {
+    "4.3.6.5": {
         "rule_class": [
             "4.3.6"
         ],
@@ -4059,7 +3891,7 @@
         ],
         "constraints": [
             {
-                "key": "申报类型",
+                "key": "事件",
                 "value": "收到意向申报",
                 "operation": "is"
             },
@@ -4098,14 +3930,9 @@
             "4.4.2"
         ],
         "focus": [
-            "数量"
+            "订单连续性操作"
         ],
         "constraints": [
-            {
-                "key": "中标方式",
-                "value": "单一主体中标",
-                "operation": "is"
-            },
             {
                 "key": "操作人",
                 "value": "由最优出价的",
@@ -4117,8 +3944,18 @@
                 "operation": "is"
             },
             {
+                "key": "中标方式",
+                "value": "单一主体中标",
+                "operation": "is"
+            },
+            {
                 "key": "价格",
                 "value": "价价格",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "成交",
                 "operation": "is"
             },
             {
@@ -4141,7 +3978,7 @@
             "4.4.2"
         ],
         "focus": [
-            "价格"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -4157,6 +3994,11 @@
             {
                 "key": "约束",
                 "value": "单一价格中标方式",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "成交",
                 "operation": "is"
             },
             {
@@ -4193,8 +4035,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "多重价格中标方式",
+                "key": "多主体中标方式",
+                "value": "多重价格中标",
                 "operation": "is"
             },
             {
@@ -4244,6 +4086,11 @@
                 "key": "操作",
                 "value": "确定",
                 "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "买日",
+                "operation": "is"
             }
         ],
         "results": [
@@ -4270,12 +4117,12 @@
             },
             {
                 "key": "操作",
-                "value": "修改竞买",
+                "value": "修改",
                 "operation": "is"
             },
             {
                 "key": "操作部分",
-                "value": "预约要素",
+                "value": "竞买预约要素",
                 "operation": "is"
             },
             {
@@ -4389,11 +4236,11 @@
             },
             {
                 "key": "操作",
-                "value": "易系统提交",
+                "value": "提交",
                 "operation": "is"
             },
             {
-                "key": "申报类型",
+                "key": "操作部分",
                 "value": "竞买发起申报",
                 "operation": "is"
             },
@@ -4464,8 +4311,8 @@
         ],
         "constraints": [
             {
-                "key": "中标方式",
-                "value": "单一主体中标",
+                "key": "操作人",
+                "value": "由最优出价的",
                 "operation": "is"
             },
             {
@@ -4474,8 +4321,8 @@
                 "operation": "is"
             },
             {
-                "key": "价格",
-                "value": "优出价",
+                "key": "中标方式",
+                "value": "单一主体中标",
                 "operation": "is"
             },
             {
@@ -4530,18 +4377,8 @@
         ],
         "constraints": [
             {
-                "key": "中标方式",
-                "value": "多主体中标",
-                "operation": "is"
-            },
-            {
                 "key": "操作部分",
-                "value": "价申报",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "价格从优到劣",
+                "value": "价申报按价格从优到劣",
                 "operation": "is"
             },
             {
@@ -4557,6 +4394,11 @@
             {
                 "key": "操作部分",
                 "value": "价申报累计数量",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "多主体中标方式",
                 "operation": "is"
             }
         ],
@@ -4580,11 +4422,6 @@
             {
                 "key": "价申报累计数量",
                 "value": "未达到最低成交总量",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "所有",
                 "operation": "is"
             },
             {
@@ -4621,8 +4458,8 @@
                 "operation": "is"
             },
             {
-                "key": "价申报",
-                "value": "的最低价格",
+                "key": "边际价格",
+                "value": "价申报的最低价格",
                 "operation": "is"
             },
             {
@@ -4637,12 +4474,12 @@
             },
             {
                 "key": "数量",
-                "value": "其申报数量",
+                "value": "申报数量",
                 "operation": "is"
             },
             {
                 "key": "数量",
-                "value": "其申报数量",
+                "value": "申报数量",
                 "operation": "is"
             }
         ],
@@ -4688,7 +4525,7 @@
             "4.4.8"
         ],
         "focus": [
-            "数量"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -4697,8 +4534,8 @@
                 "operation": "is"
             },
             {
-                "key": "操作部分",
-                "value": "价申报",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
@@ -4721,7 +4558,7 @@
             "4.4.8"
         ],
         "focus": [
-            "数量"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -4730,7 +4567,7 @@
                 "operation": "is"
             },
             {
-                "key": "操作部分",
+                "key": "操作",
                 "value": "申报",
                 "operation": "is"
             },
@@ -4746,32 +4583,12 @@
             },
             {
                 "key": "数量",
-                "value": "权重按舍去法进",
+                "value": "权重按舍去法进行边际中标量的初次分配",
                 "operation": "is"
             },
             {
                 "key": "数量",
-                "value": "权重按舍去法进",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "边际",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "边际",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "边际",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "边际",
+                "value": "权重按舍去法进行边际中标量的初次分配",
                 "operation": "is"
             }
         ],
@@ -4789,7 +4606,7 @@
             "4.4.8"
         ],
         "focus": [
-            "数量"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -4798,7 +4615,7 @@
                 "operation": "is"
             },
             {
-                "key": "操作部分",
+                "key": "操作",
                 "value": "申报",
                 "operation": "is"
             },
@@ -4814,32 +4631,12 @@
             },
             {
                 "key": "数量",
-                "value": "权重按舍去法进",
+                "value": "权重按舍去法进行边际中标量的初次分配",
                 "operation": "is"
             },
             {
                 "key": "数量",
-                "value": "权重按舍去法进",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "边际",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "边际",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "边际",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "边际",
+                "value": "权重按舍去法进行边际中标量的初次分配",
                 "operation": "is"
             }
         ],
@@ -4904,7 +4701,7 @@
                 "operation": "is"
             },
             {
-                "key": "申报类型",
+                "key": "操作部分",
                 "value": "竞买发起申报",
                 "operation": "is"
             }
@@ -4927,11 +4724,6 @@
         ],
         "constraints": [
             {
-                "key": "中标方式",
-                "value": "单一主体中标",
-                "operation": "is"
-            },
-            {
                 "key": "操作部分",
                 "value": "价申报",
                 "operation": "is"
@@ -4939,6 +4731,11 @@
             {
                 "key": "操作",
                 "value": "撤销",
+                "operation": "is"
+            },
+            {
+                "key": "中标方式",
+                "value": "单一主体中标",
                 "operation": "is"
             }
         ],
@@ -4961,12 +4758,17 @@
         "constraints": [
             {
                 "key": "操作部分",
+                "value": "价申报可以在",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
                 "value": "价申报",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "多主体中标方式",
+                "key": "中标方式",
+                "value": "多主体中标",
                 "operation": "is"
             },
             {
@@ -4976,7 +4778,7 @@
             },
             {
                 "key": "时间",
-                "value": "价申报时间截止前",
+                "value": "时间截止前",
                 "operation": "is"
             }
         ],
@@ -5085,17 +4887,17 @@
             },
             {
                 "key": "操作",
-                "value": "发送给",
+                "value": "通过",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "易对",
+                "value": "发送给",
                 "operation": "is"
             },
             {
                 "key": "操作人",
-                "value": "手方",
+                "value": "交易对手方",
                 "operation": "is"
             },
             {
@@ -5128,7 +4930,7 @@
         "constraints": [
             {
                 "key": "操作人",
-                "value": "做市商或",
+                "value": "做市商",
                 "operation": "is"
             },
             {
@@ -5153,12 +4955,7 @@
             },
             {
                 "key": "操作",
-                "value": "合并",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
-                "value": "交易系统申报",
+                "value": "申报申报合并",
                 "operation": "is"
             },
             {
@@ -5220,11 +5017,6 @@
                 "operation": "is"
             },
             {
-                "key": "申报类型",
-                "value": "交易系统申报",
-                "operation": "is"
-            },
-            {
                 "key": "结合规则",
                 "value": "本规则第4.5.3条",
                 "operation": "is"
@@ -5253,13 +5045,8 @@
         ],
         "constraints": [
             {
-                "key": "申报类型",
-                "value": "合并申报",
-                "operation": "is"
-            },
-            {
                 "key": "事件",
-                "value": "经前述两笔交易的对手方分别确认后",
+                "value": "合并申报经前述两笔交易的对手方分别确认后",
                 "operation": "is"
             },
             {
@@ -5297,7 +5084,7 @@
             },
             {
                 "key": "操作部分",
-                "value": "对已接受的申报实",
+                "value": "对已接受的申报",
                 "operation": "is"
             },
             {
@@ -5312,12 +5099,12 @@
             },
             {
                 "key": "操作",
-                "value": "继续当",
+                "value": "继续",
                 "operation": "is"
             },
             {
                 "key": "操作部分",
-                "value": "日交易",
+                "value": "当日交易",
                 "operation": "is"
             },
             {
@@ -5355,7 +5142,7 @@
             },
             {
                 "key": "操作部分",
-                "value": "对已接受的申报实",
+                "value": "对已接受的申报",
                 "operation": "is"
             },
             {
@@ -5365,7 +5152,7 @@
             },
             {
                 "key": "时间",
-                "value": "日复牌时",
+                "value": "当日复牌",
                 "operation": "is"
             },
             {
@@ -5380,7 +5167,7 @@
             },
             {
                 "key": "时间",
-                "value": "牌后",
+                "value": "复牌后",
                 "operation": "is"
             }
         ],
@@ -5403,22 +5190,17 @@
         "constraints": [
             {
                 "key": "交易方式",
-                "value": "匹配成交方",
+                "value": "匹配成交",
                 "operation": "is"
             },
             {
                 "key": "操作",
-                "value": "申报",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
                 "value": "撤销申报",
                 "operation": "is"
             },
             {
                 "key": "时间",
-                "value": "时停牌期间",
+                "value": "临时停牌期间",
                 "operation": "is"
             }
         ],
@@ -5441,50 +5223,7 @@
         "constraints": [
             {
                 "key": "交易方式",
-                "value": "匹配成交方",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
-                "value": "撤销申报",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "时停牌期间",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "5.1.4.5": {
-        "rule_class": [
-            "5.1.4"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "交易方式",
-                "value": "点击成交、询价成交、协商成交方",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
-                "value": "的交易申报",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "接受",
+                "value": "匹配成交",
                 "operation": "is"
             },
             {
@@ -5502,6 +5241,44 @@
             }
         ]
     },
+    "5.1.4.5": {
+        "rule_class": [
+            "5.1.4"
+        ],
+        "focus": [
+            "时间"
+        ],
+        "constraints": [
+            {
+                "key": "交易方式",
+                "value": "点击成交",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "的交易申报",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "受符合要求的撤销申报",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "临时停牌期间",
+                "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            }
+        ]
+    },
     "5.1.4.6": {
         "rule_class": [
             "5.1.4"
@@ -5512,12 +5289,55 @@
         "constraints": [
             {
                 "key": "交易方式",
-                "value": "点击成交、询价成交、协商成交方",
+                "value": "询价成交",
                 "operation": "is"
             },
             {
-                "key": "申报类型",
-                "value": "符合要求的撤销申报",
+                "key": "操作部分",
+                "value": "的交易申报",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "受符合要求的撤销申报",
+                "operation": "is"
+            },
+            {
+                "key": "时间",
+                "value": "临时停牌期间",
+                "operation": "is"
+            }
+        ],
+        "results": [
+            {
+                "key": "结果",
+                "value": "不成功",
+                "operation": "is",
+                "else": "成功"
+            }
+        ]
+    },
+    "5.1.4.7": {
+        "rule_class": [
+            "5.1.4"
+        ],
+        "focus": [
+            "时间"
+        ],
+        "constraints": [
+            {
+                "key": "交易方式",
+                "value": "协商成交",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "的交易申报",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "受符合要求的撤销申报",
                 "operation": "is"
             },
             {
@@ -5540,7 +5360,7 @@
             "5.1.5"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -5554,8 +5374,8 @@
                 "operation": "is"
             },
             {
-                "key": "申报类型",
-                "value": "相关交易申报",
+                "key": "操作",
+                "value": "申报",
                 "operation": "is"
             },
             {
@@ -5587,18 +5407,13 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "转（换）",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
+                "key": "操作",
                 "value": "转（换）股申报",
                 "operation": "is"
             },
             {
                 "key": "交易品种",
-                "value": "转股、换股条款的债券",
+                "value": "设定转股、换股条款的债券",
                 "operation": "is"
             },
             {
@@ -5607,8 +5422,13 @@
                 "operation": "is"
             },
             {
+                "key": "操作部分",
+                "value": "股份",
+                "operation": "is"
+            },
+            {
                 "key": "时间",
-                "value": "期内",
+                "value": "在转（换）股期内",
                 "operation": "is"
             }
         ],
@@ -5635,18 +5455,13 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "转（换）",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
+                "key": "操作",
                 "value": "转（换）股申报",
                 "operation": "is"
             },
             {
                 "key": "交易品种",
-                "value": "转股、换股条款的债券",
+                "value": "设定转股、换股条款的债券",
                 "operation": "is"
             },
             {
@@ -5655,8 +5470,13 @@
                 "operation": "is"
             },
             {
+                "key": "操作部分",
+                "value": "股份",
+                "operation": "is"
+            },
+            {
                 "key": "时间",
-                "value": "期内",
+                "value": "在转（换）股期内",
                 "operation": "is"
             }
         ],
@@ -5674,7 +5494,7 @@
             "5.2.1"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -5683,12 +5503,7 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "转（换）",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
+                "key": "操作",
                 "value": "转（换）股申报",
                 "operation": "is"
             },
@@ -5698,8 +5513,13 @@
                 "operation": "is"
             },
             {
+                "key": "操作部分",
+                "value": "股份",
+                "operation": "is"
+            },
+            {
                 "key": "时间",
-                "value": "期内",
+                "value": "在转（换）股期内",
                 "operation": "is"
             }
         ],
@@ -5717,7 +5537,7 @@
             "5.2.1"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -5726,12 +5546,7 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "转（换）",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
+                "key": "操作",
                 "value": "转（换）股申报",
                 "operation": "is"
             },
@@ -5741,8 +5556,13 @@
                 "operation": "is"
             },
             {
+                "key": "操作部分",
+                "value": "股份",
+                "operation": "is"
+            },
+            {
                 "key": "时间",
-                "value": "期内",
+                "value": "在转（换）股期内",
                 "operation": "is"
             }
         ],
@@ -5760,7 +5580,7 @@
             "5.2.1"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -5769,23 +5589,23 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "转（换）",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
+                "key": "操作",
                 "value": "转（换）股申报",
                 "operation": "is"
             },
             {
                 "key": "交易品种",
-                "value": "转股、换股条款的债券",
+                "value": "设定转股、换股条款的债券",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "股份",
                 "operation": "is"
             },
             {
                 "key": "时间",
-                "value": "期内",
+                "value": "在转（换）股期内",
                 "operation": "is"
             }
         ],
@@ -5803,7 +5623,7 @@
             "5.2.1"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -5812,23 +5632,23 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "转（换）",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
+                "key": "操作",
                 "value": "转（换）股申报",
                 "operation": "is"
             },
             {
                 "key": "交易品种",
-                "value": "转股、换股条款的债券",
+                "value": "设定转股、换股条款的债券",
+                "operation": "is"
+            },
+            {
+                "key": "操作部分",
+                "value": "股份",
                 "operation": "is"
             },
             {
                 "key": "时间",
-                "value": "期内",
+                "value": "在转（换）股期内",
                 "operation": "is"
             }
         ],
@@ -5846,7 +5666,7 @@
             "5.2.1"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -5855,18 +5675,18 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "转（换）",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
+                "key": "操作",
                 "value": "转（换）股申报",
                 "operation": "is"
             },
             {
+                "key": "操作部分",
+                "value": "股份",
+                "operation": "is"
+            },
+            {
                 "key": "时间",
-                "value": "期内",
+                "value": "在转（换）股期内",
                 "operation": "is"
             }
         ],
@@ -5884,7 +5704,7 @@
             "5.2.1"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -5893,18 +5713,18 @@
                 "operation": "is"
             },
             {
-                "key": "时间",
-                "value": "转（换）",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
+                "key": "操作",
                 "value": "转（换）股申报",
                 "operation": "is"
             },
             {
+                "key": "操作部分",
+                "value": "股份",
+                "operation": "is"
+            },
+            {
                 "key": "时间",
-                "value": "期内",
+                "value": "在转（换）股期内",
                 "operation": "is"
             }
         ],
@@ -5926,7 +5746,7 @@
         ],
         "constraints": [
             {
-                "key": "事件",
+                "key": "状态",
                 "value": "回售条件满足时",
                 "operation": "is"
             },
@@ -5936,33 +5756,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "设定投资者回售选择权",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "进行",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
-                "value": "回售申报",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "持有的",
-                "operation": "is"
-            },
-            {
                 "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "操作对象",
-                "value": "发行人",
+                "value": "设定投资者回售选择权的债券",
                 "operation": "is"
             },
             {
@@ -5971,23 +5766,23 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
+                "key": "操作",
+                "value": "回售申报",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
+                "key": "操作对象",
+                "value": "发行人",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
+                "key": "操作部分",
+                "value": "回售申报",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
+                "key": "数量",
+                "value": "全部",
                 "operation": "is"
             },
             {
@@ -6019,7 +5814,7 @@
         ],
         "constraints": [
             {
-                "key": "事件",
+                "key": "状态",
                 "value": "回售条件满足时",
                 "operation": "is"
             },
@@ -6029,33 +5824,13 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "设定投资者回售选择权",
-                "operation": "is"
-            },
-            {
                 "key": "操作",
-                "value": "进行",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
                 "value": "回售申报",
                 "operation": "is"
             },
             {
-                "key": "操作部分",
-                "value": "持有的",
-                "operation": "is"
-            },
-            {
                 "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "操作对象",
-                "value": "发行人",
+                "value": "设定投资者回售选择权的债券",
                 "operation": "is"
             },
             {
@@ -6064,23 +5839,18 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
+                "key": "操作对象",
+                "value": "发行人",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
+                "key": "操作部分",
+                "value": "回售申报",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "售申报",
+                "key": "数量",
+                "value": "全部",
                 "operation": "is"
             },
             {
@@ -6112,7 +5882,7 @@
         ],
         "constraints": [
             {
-                "key": "事件",
+                "key": "状态",
                 "value": "回售条件满足时",
                 "operation": "is"
             },
@@ -6122,33 +5892,13 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "设定投资者回售选择权",
-                "operation": "is"
-            },
-            {
                 "key": "操作",
-                "value": "进行",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
                 "value": "回售申报",
                 "operation": "is"
             },
             {
-                "key": "操作部分",
-                "value": "持有的",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "部分回售",
-                "operation": "is"
-            },
-            {
-                "key": "操作对象",
-                "value": "发行人",
+                "key": "交易品种",
+                "value": "设定投资者回售选择权的债券",
                 "operation": "is"
             },
             {
@@ -6157,23 +5907,18 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
+                "key": "操作对象",
+                "value": "发行人",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
+                "key": "操作部分",
+                "value": "回售申报",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "售申报",
+                "key": "数量",
+                "value": "部分",
                 "operation": "is"
             },
             {
@@ -6205,7 +5950,7 @@
         ],
         "constraints": [
             {
-                "key": "事件",
+                "key": "状态",
                 "value": "回售条件满足时",
                 "operation": "is"
             },
@@ -6215,33 +5960,13 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "设定投资者回售选择权",
-                "operation": "is"
-            },
-            {
                 "key": "操作",
-                "value": "进行",
-                "operation": "is"
-            },
-            {
-                "key": "申报类型",
                 "value": "回售申报",
                 "operation": "is"
             },
             {
-                "key": "操作部分",
-                "value": "持有的",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "部分回售",
-                "operation": "is"
-            },
-            {
-                "key": "操作对象",
-                "value": "发行人",
+                "key": "交易品种",
+                "value": "设定投资者回售选择权的债券",
                 "operation": "is"
             },
             {
@@ -6250,23 +5975,18 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
+                "key": "操作对象",
+                "value": "发行人",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
+                "key": "操作部分",
+                "value": "回售申报",
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "售申报",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "售申报",
+                "key": "数量",
+                "value": "部分",
                 "operation": "is"
             },
             {
@@ -6298,18 +6018,13 @@
         ],
         "constraints": [
             {
-                "key": "事件",
+                "key": "状态",
                 "value": "回售条件满足时",
                 "operation": "is"
             },
             {
                 "key": "操作人",
                 "value": "债券持有人",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "设定投资者回售选择权",
                 "operation": "is"
             },
             {
@@ -6351,13 +6066,8 @@
                 "operation": "is"
             },
             {
-                "key": "申报类型",
+                "key": "操作部分",
                 "value": "回售申报",
-                "operation": "is"
-            },
-            {
-                "key": "状态",
-                "value": "撤销回售申报的",
                 "operation": "is"
             },
             {
@@ -6395,17 +6105,12 @@
             },
             {
                 "key": "操作",
-                "value": "未做",
+                "value": "撤销",
                 "operation": "is"
             },
             {
-                "key": "状态",
-                "value": "撤销回售申报的",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "继续持有",
+                "key": "操作部分",
+                "value": "回售申报",
                 "operation": "is"
             },
             {
@@ -6447,8 +6152,33 @@
                 "operation": "is"
             },
             {
+                "key": "约束",
+                "value": "相关安排",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "认可",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "认可",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "其他方式",
+                "operation": "is"
+            },
+            {
                 "key": "操作",
                 "value": "转售",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "其他方式",
                 "operation": "is"
             }
         ],
@@ -6480,8 +6210,33 @@
                 "operation": "is"
             },
             {
+                "key": "约束",
+                "value": "相关安排",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "认可",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "认可",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "其他方式",
+                "operation": "is"
+            },
+            {
                 "key": "操作",
                 "value": "转售",
+                "operation": "is"
+            },
+            {
+                "key": "约束",
+                "value": "其他方式",
                 "operation": "is"
             }
         ],
@@ -6513,7 +6268,7 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
+                "key": "方式",
                 "value": "减少实际面额",
                 "operation": "is"
             }
@@ -6578,7 +6333,7 @@
             "5.2.3"
         ],
         "focus": [
-            "价格"
+            "数量"
         ],
         "constraints": [
             {
@@ -6587,8 +6342,8 @@
                 "operation": "is"
             },
             {
-                "key": "约束",
-                "value": "减少实际面额",
+                "key": "方式",
+                "value": "减少持仓",
                 "operation": "is"
             },
             {
@@ -6597,22 +6352,14 @@
                 "operation": "is"
             },
             {
+                "key": "价格",
+                "value": "不变实际面额",
+                "operation": "is"
+            },
+            {
                 "key": "数量",
-                "value": "不变持仓数量",
+                "value": "减少持仓数量",
                 "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": "减少实际面额",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": [
-                    "==",
-                    "100"
-                ],
-                "operation": "compute"
             }
         ],
         "results": [
@@ -6633,326 +6380,12 @@
         ],
         "constraints": [
             {
-                "key": "约束",
-                "value": "分期偿还",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "减少实际面额",
-                "operation": "is"
-            },
-            {
-                "key": "交易品种",
-                "value": "债券",
+                "key": "数量不",
+                "value": "减少",
                 "operation": "is"
             },
             {
                 "key": "数量",
-                "value": "不变持仓数量",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": "减少实际面额",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": [
-                    "==",
-                    "100"
-                ],
-                "operation": "compute"
-            },
-            {
-                "key": "操作",
-                "value": "除权处理",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "在权益登记日次一交易日",
-                "operation": "is"
-            },
-            {
-                "key": "除权参考价格",
-                "value": "前收盘价格-100元×本次偿还比例",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "5.2.3.6": {
-        "rule_class": [
-            "5.2.3"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "约束",
-                "value": "分期偿还",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "减少实际面额",
-                "operation": "is"
-            },
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "不变持仓数量",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": "减少实际面额",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": [
-                    "==",
-                    "100"
-                ],
-                "operation": "compute"
-            },
-            {
-                "key": "操作",
-                "value": "除权处理",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "在权益登记日次一交易日",
-                "operation": "is"
-            },
-            {
-                "key": "除权参考价格",
-                "value": "前收盘价格-100元×本次偿还比例",
-                "operation": "is"
-            },
-            {
-                "key": "操作人",
-                "value": "债券发行人",
-                "operation": "is"
-            },
-            {
-                "key": "状态",
-                "value": "有必要调整上述公式",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "出调",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "整申请",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "并说明",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "理由",
-                "operation": "is"
-            },
-            {
-                "key": "事件",
-                "value": "经本所同意的",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "5.2.3.7": {
-        "rule_class": [
-            "5.2.3"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "约束",
-                "value": "分期偿还",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "减少实际面额",
-                "operation": "is"
-            },
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "不变持仓数量",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": "减少实际面额",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": [
-                    "==",
-                    "100"
-                ],
-                "operation": "compute"
-            },
-            {
-                "key": "操作",
-                "value": "除权处理",
-                "operation": "is"
-            },
-            {
-                "key": "时间",
-                "value": "在权益登记日次一交易日",
-                "operation": "is"
-            },
-            {
-                "key": "除权参考价格",
-                "value": "前收盘价格-100元×本次偿还比例",
-                "operation": "is"
-            },
-            {
-                "key": "操作人",
-                "value": "债券发行人",
-                "operation": "is"
-            },
-            {
-                "key": "操作部分",
-                "value": "该次除权适用的除权参考价格计算公式",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "5.2.3.8": {
-        "rule_class": [
-            "5.2.3"
-        ],
-        "focus": [
-            "价格"
-        ],
-        "constraints": [
-            {
-                "key": "约束",
-                "value": "分期偿还",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "减少实际面额",
-                "operation": "is"
-            },
-            {
-                "key": "(四)除权日即时行情中显示的该债券的前收盘价",
-                "value": "除权参考价",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "5.2.3.9": {
-        "rule_class": [
-            "5.2.3"
-        ],
-        "focus": [
-            "数量"
-        ],
-        "constraints": [
-            {
-                "key": "约束",
-                "value": "分期偿还采",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "减少持仓方式",
-                "operation": "is"
-            },
-            {
-                "key": "交易品种",
-                "value": "债券",
-                "operation": "is"
-            },
-            {
-                "key": "价格",
-                "value": "不变实际面额保",
-                "operation": "is"
-            },
-            {
-                "key": "数量",
-                "value": "持仓数量根",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "5.2.3.10": {
-        "rule_class": [
-            "5.2.3"
-        ],
-        "focus": [
-            "订单连续性操作"
-        ],
-        "constraints": [
-            {
-                "key": "减少数",
                 "value": [
                     "%",
                     "100",
@@ -6968,22 +6401,12 @@
             },
             {
                 "key": "操作部分",
-                "value": "余未偿还部分按",
+                "value": "剩余未偿还部分",
                 "operation": "is"
             },
             {
                 "key": "约束",
-                "value": "下取整的原则予以",
-                "operation": "is"
-            },
-            {
-                "key": "操作",
-                "value": "续并享",
-                "operation": "is"
-            },
-            {
-                "key": "约束",
-                "value": "集说明书约定存",
+                "value": "下取整的原则",
                 "operation": "is"
             }
         ],
@@ -7005,13 +6428,13 @@
         ],
         "constraints": [
             {
-                "key": "申报价格类型",
-                "value": "全价价格",
+                "key": "事件",
+                "value": "发生付",
                 "operation": "is"
             },
             {
-                "key": "事件",
-                "value": "发生付息的",
+                "key": "申报价格类型",
+                "value": "全价价格",
                 "operation": "is"
             },
             {
@@ -7021,40 +6444,12 @@
             },
             {
                 "key": "操作",
-                "value": "除息",
+                "value": "除息处理",
                 "operation": "is"
             },
             {
                 "key": "时间",
                 "value": "权益登记日次一交易日",
-                "operation": "is"
-            }
-        ],
-        "results": [
-            {
-                "key": "结果",
-                "value": "成功",
-                "operation": "is",
-                "else": "不成功"
-            }
-        ]
-    },
-    "5.2.4.2": {
-        "rule_class": [
-            "5.2.4"
-        ],
-        "focus": [
-            "价格"
-        ],
-        "constraints": [
-            {
-                "key": "除息日即时行情中显示的该债券的前收盘价",
-                "value": "除息参考价",
-                "operation": "is"
-            },
-            {
-                "key": "除息参考价",
-                "value": "前收盘价-本次支付的利息",
                 "operation": "is"
             }
         ],
@@ -7086,18 +6481,18 @@
                 "operation": "is"
             },
             {
-                "key": "申报类型",
+                "key": "操作部分",
                 "value": "转托管申报",
                 "operation": "is"
             },
             {
                 "key": "操作部分",
-                "value": "持有的已上市流",
+                "value": "持有",
                 "operation": "is"
             },
             {
                 "key": "操作部分",
-                "value": "跨市场",
+                "value": "已上市流通跨市场",
                 "operation": "is"
             },
             {
@@ -7244,7 +6639,7 @@
             "6.5"
         ],
         "focus": [
-            "时间"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -7263,14 +6658,19 @@
                 "operation": "is"
             },
             {
+                "key": "操作部分",
+                "value": "成交数据不纳",
+                "operation": "is"
+            },
+            {
+                "key": "操作",
+                "value": "盘价计算",
+                "operation": "is"
+            },
+            {
                 "key": "时间",
                 "value": "{[15:30-24:00]}",
                 "operation": "in"
-            },
-            {
-                "key": "约束",
-                "value": "成交数据",
-                "operation": "is"
             }
         ],
         "results": [
@@ -7287,12 +6687,17 @@
             "6.5"
         ],
         "focus": [
-            "订单连续性操作"
+            "价格"
         ],
         "constraints": [
             {
                 "key": "状态",
                 "value": "当日无成交的",
+                "operation": "is"
+            },
+            {
+                "key": "价格",
+                "value": "收盘价",
                 "operation": "is"
             }
         ],

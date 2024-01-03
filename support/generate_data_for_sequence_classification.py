@@ -108,6 +108,6 @@ if __name__ == "__main__":
                 f.write(txt_data)
     
     for file in os.listdir("../data/business_rules/txt"):
-        txt_data = open(f"../data/business_rules/txt/{file[:-4]}.txt", "r", encoding="utf-8").readlines()
+        txt_data = open(f"../data/business_rules/txt/{file[:-4]}.txt", "r", encoding="utf-8").read()
         sci = read_txt_to_json(txt_data)
         json.dump(sci, open(f"../data/business_rules/json_for_sequence_classification/{file[:-4]}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
