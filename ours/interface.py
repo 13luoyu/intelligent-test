@@ -493,7 +493,11 @@ def process_knowledge_interface_update():
         return jsonify(return_data)
     
     knowledge = request.json['data']
-    json.dump(knowledge, open('../data/knowledge.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
+    # 更新知识库
+    knowledge_base = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
+    for key in knowledge:
+        knowledge_base[key] = knowledge[key]
+    json.dump(knowledge_base, open('../data/knowledge.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
     timestamp, sign = get_timestamp_sign()
     return_data = {"code": code, "msg": "success", "data": None, "timeStamp": timestamp, "sign": sign}
     writelog(f"### 访问接口/knowledge(修改), 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
