@@ -115,5 +115,5 @@ if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
     # saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], "../data/tc_data.dict", model, training_args)
-    saved_path = "../model/ours/best_1696264421"
+    saved_path = "../model/ours/best_1701809213"
     eval_model(training_args["validate_dataset"], "../data/tc_data.dict", saved_path, training_args)

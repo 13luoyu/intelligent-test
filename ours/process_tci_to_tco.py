@@ -46,6 +46,7 @@ def token_classification_with_algorithm(tco, knowledge):
     HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
     for ri, rule in enumerate(tco):
         text, label = rule["text"], rule["label"].split(" ")
+        
         # 交易品种
         types = []
         for key in knowledge:
@@ -191,7 +192,7 @@ def token_classification_with_algorithm(tco, knowledge):
                 a += 1
                 label = change(a, p+2, label, "操作部分")
             p = text.find("申报", p+2)
-
+        
         # 小修正，先分词，然后理论上同一组词应该具有相同的标签，如果连续不同的词具有相同的标签，应该是一个词
         
         doc = HanLP(text, tasks='srl')
@@ -571,5 +572,5 @@ def token_classification(tci: list, knowledge, model_path: str, dict_file: str, 
 if __name__ == "__main__":
     tci_data = json.load(open("rules_cache/tci.json", "r", encoding="utf-8"))
     knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
-    tco_data = token_classification(tci_data, knowledge, "../model/ours/best_1690329462", "../data/tc_data.dict")
+    tco_data = token_classification(tci_data, knowledge, "../model/ours/best_1701809213", "../data/tc_data.dict")
     json.dump(tco_data, open("rules_cache/tco.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

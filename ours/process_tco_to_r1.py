@@ -681,7 +681,7 @@ def write_r1(fp_r1, ss, knowledge, id):
         r1 = "if "
         focus = ""
         result = "成功"
-        for i, si in enumerate(s):
+        for si in s:
             key = list(si.keys())[0]
             value = si[key]
             if key == "操作":
@@ -837,6 +837,14 @@ def write_r1(fp_r1, ss, knowledge, id):
 
 
 
+def fix_token(ss):
+    for s in ss:
+        for si in s:
+            key = list(si.keys())[0]
+            value = si[key]
+            print(value)
+
+
 
 def to_r1(rules, knowledge):
     """
@@ -861,7 +869,10 @@ def to_r1(rules, knowledge):
 
         ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation)
         
+        # ss = fix_token(ss)
+
         r1 = write_r1(r1, ss, knowledge, id)
+    # exit(0)
     return r1
 
 

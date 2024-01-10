@@ -23,7 +23,7 @@ import traceback
 # nohup python interface.py >../log/run.log &
 
 sc_model_path = "../model/ours/best_1690658708"
-tc_model_path = "../model/ours/best_1696264421"
+tc_model_path = "../model/ours/best_1701809213"
 knowledge_file = '../data/knowledge.json'
 dict_file = '../data/tc_data.dict'
 
