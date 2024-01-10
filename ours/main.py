@@ -82,7 +82,7 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
     print(f"R2规则生成，包含规则数：{len(rules)}")
 
     # R2->R3
-    defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
+    defines, vars, rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation = compose_rules_r2_r3(defines, vars, rules, knowledge)
     json.dump(rules, open(r3_json_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     r3_rules = rules
     r3_json = rules_to_json_and_mydsl.r3_to_json(r3_rules)
@@ -90,6 +90,10 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
     with open(r3_mydsl_file, "w", encoding="utf-8") as f:
         f.write(r3)
     print(f"R3规则生成，包含规则数：{len(rules)}")
+    print(f"显式关系有{explicit_relation_count}条，隐式关系有{implicit_relation_count}条")
+    json.dump(relation, open("rules_cache/relation.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    json.dump(explicit_relation, open("rules_cache/explicit_relation.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    json.dump(implicit_relation, open("rules_cache/implicit_relation.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     r3_time = time.time()
     
     # 生成测试样例

@@ -378,7 +378,7 @@ def r2_to_r3_interface():
         r2 = Rrule_back(params['data'])
         defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r2)
         knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
-        defines, vars, rules = compose_rules_r2_r3(defines, vars, rules, knowledge)
+        defines, vars, rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation = compose_rules_r2_r3(defines, vars, rules, knowledge)
         r3_json = rules_to_json_and_mydsl.r3_to_json(rules)
         r3 = rules_to_json_and_mydsl.to_mydsl(r3_json)
 

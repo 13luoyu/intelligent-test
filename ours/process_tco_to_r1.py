@@ -8,7 +8,7 @@ import re
 # 做法是在分规则后进行一步处理，依据原文中的关键字处理两个操作人。两个操作人的情况总共以上三种，向（与、给）、作为与无关。在第一步处理模型结果时要找到这个关系，传给第二步。
 
 def is_time_key(key):
-    if key[-1] == "日" or key[-2:] == "时间":
+    if key[-1] == "日" or key[-2:] == "时间" or "期" in key:
         return True
     return False
 
@@ -253,9 +253,10 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         if_add = True
                         continue
                     special = False
-                    for k in ss[-1]:
+                    for k in stack[cnt+1:cnt+4]:
                         if "一次性" in k[list(k.keys())[0]]:
                             special = True
+                            break
                     if last_or > 0:
                         last_or -= 1
                         rule_num = len(ss[ss_now:])
@@ -287,7 +288,10 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         for i, k in enumerate(ss[-1]):
                             if list(k.keys())[0] == tk:
                                 break
-                        for j, k in enumerate(ss[-1][i:]):
+                        divide = 0
+                        for j, k in enumerate(reversed(ss[-1][i:])):
+                            j = j-divide
+                            divide += 1
                             new_rule.append(k)
                             del ss[-1][j+i]
                         # 更新ss_now，之后只更新new_rule，前面的不再更新

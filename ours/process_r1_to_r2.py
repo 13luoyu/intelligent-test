@@ -391,7 +391,7 @@ def price_preprocess(value):
 
 
 
-def compose_rules_r1_r2(defines, vars, rules, preliminaries, rule_name = "rule"):
+def compose_rules_r1_r2(defines, vars, rules, preliminaries):
     """
     规则组合函数, 包含:
     1. 组合明显嵌套的规则
@@ -420,14 +420,11 @@ def compose_rules_r1_r2(defines, vars, rules, preliminaries, rule_name = "rule")
     # 没有then就删掉
     vars, rules = delete_then(vars, rules)
 
-    # 添加操作，如果一条规则没有操作，操作为“申报”
-    vars, rules = add_operation(vars, rules)
+    # 后处理
+    vars, rules = post_process(vars, rules)
 
 
-    # 打印中间结果
-    # with open(f"rules/r2_{rule_name}.txt", "w", encoding="utf-8") as f:
-    #     f.write(pprint.pformat(rules))
-    # print(f"R2包含的规则数：{len(vars.keys())}")
+
     
     return defines, vars, rules
 
@@ -443,12 +440,12 @@ def judge_rule_conflict(rule1, rule2):
     for c1 in rule1['constraints']:
         conflict = False
         for c2 in rule2['constraints']:
-            if c1['key'] == c2['key']:
+            if c1['key'] == c2['key'] and c1['key'] in ["交易市场", "交易品种", "交易方式", "交易方向"]:
                 if c1['value'] == c2['value']:
                     conflict = False
-                    break
                 else:
                     conflict = True
+                    break
         if conflict:
             return True
     return False
@@ -463,8 +460,6 @@ def compose_nested_rules(vars, rules):
         for c in rule['constraints']:
             if c['key'] == '结合规则':
                 rule_to_del.append(rule_id)
-                loc1 = c['value'].find("第")
-                loc2 = c['value'].find("条")
                 # 找到要结合的规则的id
                 if len(re.findall(r"\d+", c['value']))>0:
                     loc1 = c['value'].find("第")
@@ -612,15 +607,21 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                 del vars[rule_id]
                 del rules[rule_id]
         if element in defines or element == "交易品种":  # 交易品种/交易市场
+            old_element = element
             if element in defines:
                 e = defines[element][0]
                 if e == "证券":
                     e = preliminaries['交易品种']
             else:
                 e = preliminaries['交易品种']
+            old_e = e
             to_delete = []
             for rule_id in list(rules.keys()):
+                element = old_element
+                e = old_e
                 rule = rules[rule_id]
+                # if "第五十二条" in rule_id:
+                #     print(rule, element)
                 find = False
                 jypz = ""
                 for c in rule['constraints']:
@@ -638,11 +639,17 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                                 new_jypz = "基金"
                             if new_jypz == "":
                                 new_jypz = jypz
-                        if jypz != new_jypz:
+                        
+                        if jypz != new_jypz and jypz != "基金份额":
                             c['value'] = new_jypz
                             rule['constraints'].append({"key":f"{new_jypz}品种", "operation":"is", "value":jypz})
                             vars[rule_id][f"{new_jypz}品种"] = []
                         find = True
+
+                        if (jypz == new_jypz or jypz == "基金份额") and f"{new_jypz}品种" in preliminaries:
+                            e = preliminaries[f"{new_jypz}品种"]
+                            element = f"{new_jypz}品种"
+                            find = False
                         break
                 if not find or jypz == "证券":
                     if jypz == "证券":
@@ -650,7 +657,11 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                     if isinstance(e, str):
                         rule['constraints'].append({"key":element, "operation":"is", "value":e})
                         vars[rule_id][element] = []
-                    elif isinstance(e, list):
+                        # 继续细化，补充e的具体品种
+                        if element == "交易品种" and f"{e}品种" in preliminaries:
+                            element = f"{e}品种"
+                            e = preliminaries[f"{e}品种"]
+                    if isinstance(e, list):
                         for eidx, ei in enumerate(e):
                             new_id = f"{rule_id}.{eidx+1}"
                             new_rule = copy.deepcopy(rule)
@@ -697,7 +708,7 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                     tree_local = construct_tree(preliminaries, jypz)
                     tree[jypz] = tree_local
                 index = 1
-                # 将ti加入rule['constraints']中
+                
                 for ti in tree_local:
                     new_rule = copy.deepcopy(rule)
                     new_var = copy.deepcopy(vars[rule_id])
@@ -711,14 +722,23 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                                 break
                             if c['key'] == ti[i]:
                                 find_key = True
+                                break
                         if find_value:  # 找到了相同的value，这个value就不用加了
                             continue
-                        if find_key:  # 找到了key，但value不同，冲突，这个ti不继续加了
+                        if find_key and c['value'] not in ti:  # 找到了key，但value不同，冲突，并且value不在ti中这个ti不继续加了
                             conflict = True
                             break
+                        if c['value'] in ti:
+                            for nc in new_rule['constraints']:
+                                if nc['value'] == c['value']:
+                                    nc['key'] = ti[ti.index(c['value'])-1]
+                                    new_var[c['key']] = []
+                                    break
+                            
                         # 将value加入规则中
                         new_rule['constraints'].append({"key": ti[i], "operation": "is", "value": ti[i+1]})
                         new_var[ti[i]] = []
+                        
                     if not conflict:
                         new_id = f"{rule_id}.{index}"
                         index += 1
@@ -828,6 +848,56 @@ def supply_other_rules(vars, rules, preliminaries):
 
 
 
+
+
+def judge_variety_same(v1, v2):
+    if v1 == v2:
+        return True, v1
+    
+    ori_v = ""
+    if v1 in ["债券", "股票", "基金", "创业板"]:
+        ori_v = v1
+        if v2 in ["债券", "股票", "基金", "创业板"]:
+            return False, ""
+        else:
+            v = v2
+    else:
+        if v2 in ["债券", "股票", "基金", "创业板"]:
+            ori_v = v2
+            v = v1
+        else:
+            return False, ""
+    
+    new_v = ""
+    if "创业" in v:
+        new_v = "创业板"
+    else:
+        if "债" in v:
+            new_v = "债券"
+        if "股" in v:
+            new_v = "股票"
+        if "基金" in v or "ET" in v or "TF" in v or "LO" in v or "OF" in v:
+            new_v = "基金"
+        if new_v == "":
+            new_v = v
+
+    if new_v == ori_v:
+        if ori_v == v1:
+            return True, v2
+        else:
+            return True, v1
+    else:
+        return False, ""
+
+def same_fatherid(id1, id2, id_example):
+    if "_" in id_example:
+        return id1.split("_")[0] == id2.split("_")[0]
+    elif "第" in id_example and "条" in id_example:
+        return id1.split(".")[0] == id2.split(".")[0]
+    else:
+        point_count = id_example.count(".")
+        return ".".join(id1.split(".")[:point_count]) == ".".join(id2.split(".")[:point_count])
+
 def subrule_compose(vars, rules):
     # 同一rule下的subrule组合
     # 多组合
@@ -837,8 +907,24 @@ def subrule_compose(vars, rules):
         for i in range(len(keys)):
             for j in range(len(keys)):
                 # 避免重复，并且要求属于同一个rule
-                if j <= i or rules[keys[i]]["rule_class"] != rules[keys[j]]["rule_class"]:
+                if j <= i:
                     continue
+                if rules[keys[i]]["rule_class"] != rules[keys[j]]["rule_class"]:
+                    # 如果是数量，则不跳过
+                    find_num=False
+                    for c in rules[keys[i]]['constraints']:
+                        if is_num_key(c['key']):
+                            find_num = True
+                            break
+                    if not find_num:
+                        continue
+                    find_num = False
+                    for c in rules[keys[j]]['constraints']:
+                        if is_num_key(c['key']):
+                            find_num = True
+                            break
+                    if not find_num:
+                        continue
                 # 避免冲突
                 new_rule = copy.deepcopy(rules[keys[i]])
                 conflict = False
@@ -848,35 +934,45 @@ def subrule_compose(vars, rules):
                         conflict = True
                         break
                     # 少于...一次性申报
-                    if c['key'] == "操作" and "一次性" in c['value']:
-                        conflict = True
-                        break
+                    # if c['key'] == "操作" and "一次性" in c['value']:
+                    #     conflict = True
+                    #     break
                     find = False
+                    find_num_price = False  # 新规定，只组合数量、价格相关数值约束规则
                     for c1 in new_rule["constraints"]:
                         if c1['operation'] == "in":
                             conflict = True
                             break
-                        if(c1['key'] == "操作" and "一次性" in c1['value']):
-                            conflict = True
+                        # if(c1['key'] == "操作" and "一次性" in c1['value']):
+                        #     conflict = True
+                        #     break
+                        if c['key'] == c1['key'] and c['operation'] == "is" and c1['operation'] == "is":
+                            if c['key'] == "交易品种":
+                                find = True
+                                variety_same, small_variety= judge_variety_same(c['value'], c1['value'])
+                                if not variety_same:
+                                    conflict = True
+                                else:
+                                    if c1['value'] != small_variety:
+                                        c1['value'] = small_variety
+                                break
+                            if is_num_key(c['key']) and is_num_key(c1['key']) or is_price_key(c['key']) and is_price_key(c1['key']):
+                                if c['value'] == c1['value']:
+                                    find = True
+                            else:
+                                find = True
+                                if c['value'] != c1['value'] and not (c['key'] == "操作" and c1['key'] == "操作" and (c['value'] in ["买入", "申报"] and c1['value'] in ["买入", "申报"] or c['value'] in ["卖出","申报"] and c1['value'] in ["卖出","申报"])):
+                                    conflict = True
                             break
-                        if c['key'] == c1['key'] and c['operation'] == "is":
-                            find = True
-                            if c['value'] != c1['value']:
-                                conflict = True
-                            break
-                        if c['key'] == c1['key'] and c['operation'] == 'compute':
+                        if c['key'] == c1['key'] and c['operation'] == 'compute' and c1['operation'] == "compute":
+                            find_num_price = True
                             if c['value'] == c1['value']:
                                 find = True
-                        # # 特殊处理: 申报数量 == 100000   申报数量 % 100000 == 0
-                        # if c['key'] == c1['key'] and c['operation'] == "compute":
-                        #     if c['value'][1] == c1['value'][1]:
-                        #         conflict = True
-                        #         break
-                    if conflict:
+                    if not find_num_price or conflict:
                         break
                     if not find:
                         new_rule["constraints"].append(copy.deepcopy(c))
-                if conflict:
+                if not find_num_price or conflict:
                     continue
                 # 合并results, focus
                 if "results" not in new_rule and "results" in rules[keys[j]]:
@@ -893,6 +989,8 @@ def subrule_compose(vars, rules):
                 for f in rules[keys[j]]['focus']:
                     if f not in new_rule['focus']:
                         new_rule['focus'].append(f)
+                if "数量" in new_rule['focus'] and "价格" in new_rule['focus']:  # 禁止价格和数量规则组合
+                    continue
                 if keys[i] not in to_delete:
                     to_delete.append(keys[i])
                 if keys[j] not in to_delete:
@@ -1156,21 +1254,56 @@ def delete_then(vars, rules):
         del vars[rule_id]
     return vars, rules
 
-def add_operation(vars, rules):
+def post_process(vars, rules):
+    # 添加操作，如果一条规则没有操作，操作为“申报”，如果存在“成交确认...”，操作为“达成交易”
     keys = list(rules.keys())
     for rule_id in keys:
         have_op = False
         value_constraint = False
+        change_op = False
         rule = rules[rule_id]
         for c in rule['constraints']:
             if c['key'] == '操作':
                 have_op = True
-                break
-            if is_time_key(c['key']) or is_num_key(c['key']) or is_price_key(c['key']):
-                value_constraint = True
-        if not have_op and value_constraint:
+            # if is_key_for_time(c['key']) or is_key_for_quantity(c['key']) or is_key_for_price(c['key']):
+            #     value_constraint = True
+            if "成交确认" in c['key'] or "成交确认" in c['value'] or "有效期" in c['key']:
+                change_op = True
+        if not have_op:
             rule['constraints'].append({"key":"操作","operation":"is","value":"申报"})
             vars[rule_id]['操作'] = []
+        if change_op:
+            for c in rule['constraints']:
+                if c['key'] == "操作":
+                    c['value'] = "达成交易"
+
+    # 合并同类项，这里仅合并数量和申报数量
+    # for rule_id in keys:
+    #     rule = rules[rule_id]
+    #     value = ""
+    #     for c in rule['constraints']:
+    #         if c['key'] == "数量" or c['key'] == "申报数量":
+    #             value += c['value'] + ","
+    #     if value.count(",")>=2:
+    #         value = value[:-1]
+    #     add = False
+    #     new_rule = copy.deepcopy(rules[rule_id])
+    #     new_rule['constraints'] = []
+    #     new_var = {"结果":[]}
+    #     for c in rule['constraints']:
+    #         if c['key'] == "数量" or c['key'] == "申报数量":
+    #             if not add:
+    #                 new_rule['constraints'].append({"key":"申报数量","operation":"is","value":value})
+    #                 new_var["申报数量"] = []
+    #                 add = True
+    #             else:
+    #                 continue
+    #         else:
+    #             new_rule['constraints'].append({"key":c['key'],"operation":c['operation'],"value":c['value']})
+    #             new_var[c['key']] = []
+    #     rules[rule_id] = new_rule
+    #     vars[rule_id] = new_var
+    
     return vars, rules
 
 

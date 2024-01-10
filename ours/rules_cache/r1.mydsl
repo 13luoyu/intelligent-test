@@ -87,47 +87,53 @@ focus: 订单连续性操作
 
 rule 3.3.4.1
 sourceId 3.3.4
-focus: 订单连续性操作
-	if 系统 is "本所" and 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报数量 is "10万元面额或者其整数倍" and 操作 is "一次性申报申报卖出" and 数量 不足 "10万元面额部分"
+focus: 数量
+	if 系统 is "本所" and 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报数量 is "10万元面额或者其整数倍"
 	then 结果 is "成功"
 
 rule 3.3.4.2
 sourceId 3.3.4
-focus: 数量
-	if 系统 is "本所" and 交易方式 is "匹配成交" and 交易品种 is "债券通用质押式回购" and 申报数量 is "1000元面额或者其整数倍"
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易方式 is "匹配成交" and 交易品种 is "债券现券" and 申报数量 不足 "10万元面额部分" and 操作 is "一次性申报申报卖出"
 	then 结果 is "成功"
 
 rule 3.3.4.3
 sourceId 3.3.4
 focus: 数量
-	if 系统 is "本所" and 交易方式 is "点击成交" and 申报数量 is "10万元面额或者其整数倍"
+	if 系统 is "本所" and 交易方式 is "匹配成交" and 交易品种 is "债券通用质押式回购" and 申报数量 is "1000元面额或者其整数倍"
 	then 结果 is "成功"
 
 rule 3.3.4.4
 sourceId 3.3.4
 focus: 数量
-	if 系统 is "本所" and 交易方式 is "询价成交、竞买成交" and 申报数量 不低于 "10万元面额,1000元面额整数倍"
+	if 系统 is "本所" and 交易方式 is "点击成交" and 申报数量 is "10万元面额或者其整数倍"
 	then 结果 is "成功"
 
 rule 3.3.4.5
 sourceId 3.3.4
 focus: 数量
-	if 系统 is "本所" and 交易方式 is "用协商成交" and 交易品种 is "债券现券" and 数量 不低于 "1000元面额,100元面"
+	if 系统 is "本所" and 交易方式 is "询价成交、竞买成交" and 申报数量 不低于 "10万元面额,1000元面额整数倍"
 	then 结果 is "成功"
 
 rule 3.3.4.6
 sourceId 3.3.4
-focus: 订单连续性操作
-	if 系统 is "本所" and 交易方式 is "用协商成交" and 交易品种 is "数倍"
+focus: 数量
+	if 系统 is "本所" and 交易方式 is "用协商成交" and 交易品种 is "债券现券" and 数量 不低于 "1000元面额,100元面"
 	then 结果 is "成功"
 
 rule 3.3.4.7
 sourceId 3.3.4
 focus: 订单连续性操作
-	if 系统 is "本所" and 交易方式 is "用协商成交" and 交易品种 is "债券通用质押式回购" and 操作 is "申报" and 数量 is "数量" and 数量 is "1000元面额或者其整数倍"
+	if 系统 is "本所" and 交易方式 is "用协商成交" and 交易品种 is "数倍"
 	then 结果 is "成功"
 
 rule 3.3.4.8
+sourceId 3.3.4
+focus: 订单连续性操作
+	if 系统 is "本所" and 交易方式 is "用协商成交" and 交易品种 is "债券通用质押式回购" and 操作 is "申报" and 数量 is "数量" and 数量 is "1000元面额或者其整数倍"
+	then 结果 is "成功"
+
+rule 3.3.4.9
 sourceId 3.3.4
 focus: 订单连续性操作
 	if 交易品种 is "(五)债券" and 操作 is "申报" and 数量 不得超过 "100亿元面额"

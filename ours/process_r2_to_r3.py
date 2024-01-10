@@ -2,12 +2,10 @@ import json
 import pprint
 import copy
 import hanlp
-from ours.process_tci_to_tco import token_classification
-from ours.process_tco_to_r1 import to_r1
 
 HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_SMALL_ZH)
 
-def compose_rules_r2_r3(defines, vars, rules, preliminaries, rule_name = 'rule'):
+def compose_rules_r2_r3(defines, vars, rules, preliminaries):
     """
     r2到r3的转换
     1. 结合状态机
@@ -28,15 +26,17 @@ def compose_rules_r2_r3(defines, vars, rules, preliminaries, rule_name = 'rule')
     # 结合状态机
     vars, rules = compose_state_machine(vars, rules, preliminaries)
 
+    # 挖掘规则间的关联
+    if len(rules) > 0:
+        id_example = rules[list(rules.keys())[0]]['rule_class'][0]
+        rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation = add_relation(rules, id_example)
+
     # 添加一些预定义的要素
     # vars, rules = add_elements(vars, rules, preliminaries)
 
-    # 打印中间结果
-    # with open(f"rules/r3_{rule_name}.txt", "w", encoding="utf-8") as f:
-    #     f.write(pprint.pformat(rules))
-    # print(f"R3包含的规则数：{len(rules.keys())}")
+    
 
-    return defines, vars, rules
+    return defines, vars, rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation
 
 
 
@@ -345,7 +345,7 @@ def compose_state_machine(vars, rules, preliminaries):
                     if not compose:
                         continue
                     # 添加状态机
-                    new_id = rule_id + "," + str(new_rule_number)
+                    new_id = rule_id + "." + str(new_rule_number)
                     new_rule_number += 1
                     new_rule = copy.deepcopy(rule)
                     if state == "":
@@ -364,14 +364,38 @@ def compose_state_machine(vars, rules, preliminaries):
     for id in new_keys:
         rules[id] = to_add[id]
 
-    rules = add_relation(rules)
-
     return vars, rules
 
 
 
-def add_relation(rules):
+def judge_conflict(rule1, rule2):
+    conflict_keys = ["交易市场","交易品种","交易方式","交易方向"]
+    conflict = False
+    def not_in(key):
+        for ki in conflict_keys:
+            if ki in key:
+                return False
+        return True
+    
+    for c1 in rule1['constraints']:
+        if c1['key'] not in conflict_keys and not_in(c1['key']):
+            continue
+        else:
+            if "品种" in c1['key'] or "方式" in c1['key']:
+                conflict_keys.append(f"{c1['value']}")
+        for c2 in rule2['constraints']:
+            if c1['key'] == c2['key']:
+                if c1['value']!=c2['value']:
+                    # print(c1['key'], c1['value'], c2['value'])
+                    conflict = True
+                break
+        if conflict:
+            break
+    return conflict
+
+def add_relation(rules, id_example):
     # 对于所有规则两两观察是否有一条规则在result有状态，另一条规则在consstraint有状态，且二者相等，有的话就关联。
+    rules_copy = copy.deepcopy(rules)
     keys = list(rules.keys())
     from_states, to_states = {}, {}
     for rule_id in keys:
@@ -396,6 +420,8 @@ def add_relation(rules):
             for s1 in from_state1:
                 for t2 in to_state2:
                     if s1 == t2 or ("撤销" not in s1 and "撤销" not in t2 and (s1 in t2 or t2 in s1)) or ("撤销" in s1 and "撤销" in t2 and (s1.replace("撤销", "") in t2.replace("撤销", "") or t2.replace("撤销", "") in s1.replace("撤销", ""))):  # 状态相同
+                        if judge_conflict(rules[rule_id1], rules[rule_id2]):  # 不冲突
+                            continue
                         # rule2 -> rule1
                         for xi in rules[rule_id2]['after']:
                             if xi in rule_id1:
@@ -408,6 +434,8 @@ def add_relation(rules):
             for s2 in from_state2:
                 for t1 in to_state1:
                     if s2 == t1 or ("撤销" not in s2 and "撤销" not in t1 and (s2 in t1 or t1 in s2)) or ("撤销" in s2 and "撤销" in t1 and (s2.replace("撤销", "") in t1.replace("撤销", "") or t1.replace("撤销", "") in s2.replace("撤销", ""))):  # 状态相同
+                        if judge_conflict(rules[rule_id1], rules[rule_id2]):  # 不冲突
+                            continue
                         # rule1 -> rule2
                         for xi in rules[rule_id2]['before']:
                             if xi in rule_id1:
@@ -442,7 +470,66 @@ def add_relation(rules):
                         rule['before'] += to_add
                         restart = True
                         break
-    return rules
+    
+    # 统计rules和rules_copy之间的差距，从而算出隐式关联的数目
+    explicit_relation, implicit_relation, relation = {}, {}, {}
+
+    # 显式关系记录，包含事件、以及以，分隔的id
+    for rule_id in list(rules_copy.keys()):
+        rule = rules_copy[rule_id]
+        for before_after in [rule['before'], rule['after']]:
+            ori_ids = get_ori_id(rule_id, id_example)
+            for ori_id in ori_ids:
+                if ori_id not in explicit_relation:
+                    explicit_relation[ori_id] = []
+                # for id in ori_ids:
+                #     if id != ori_id and id not in explicit_relation[ori_id]:
+                #         explicit_relation[ori_id].append(id)
+                for rule_id1 in before_after:
+                    ori_id1s = get_ori_id(rule_id1, id_example)
+                    for ori_id1 in ori_id1s:
+                        if ori_id1 not in explicit_relation[ori_id]:
+                            explicit_relation[ori_id].append(ori_id1)
+    
+    # 所有关系记录
+    for rule_id in list(rules.keys()):
+        rule = rules[rule_id]
+        for before_after in [rule['before'], rule['after']]:
+            ori_ids = get_ori_id(rule_id, id_example)
+            for ori_id in ori_ids:
+                if ori_id not in relation:
+                    relation[ori_id] = []
+                for rule_id1 in before_after:
+                    ori_id1s = get_ori_id(rule_id1, id_example)
+                    for ori_id1 in ori_id1s:
+                        if ori_id1 not in relation[ori_id]:
+                            relation[ori_id].append(ori_id1)
+
+    for rule_id in list(relation.keys()):
+        if rule_id not in implicit_relation:
+            implicit_relation[rule_id] = []
+        for rule_id1 in relation[rule_id]:
+            if rule_id in explicit_relation and rule_id1 not in explicit_relation[rule_id]:
+                implicit_relation[rule_id].append(rule_id1)
+
+    explicit_relation_count = int(sum([len(explicit_relation[rule_id]) for rule_id in list(explicit_relation.keys())]) / 2.0)
+    implicit_relation_count = int(sum([len(implicit_relation[rule_id]) for rule_id in list(implicit_relation.keys())]) / 2.0)
+    return rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation
+
+def get_ori_id(rule_id, id_example):
+    ids = []
+    for id in rule_id.split(','):
+        if "_" in id_example:
+            ids.append(id.split("_")[0])
+        elif "第" in id and "条" in id_example:
+            ids.append(id.split(".")[0])
+        else:
+            point_count = id_example.count(".")
+            ids.append(".".join(id.split(".")[:point_count]))
+    return ids
+
+
+
 
 
 def add_elements(vars, rules, preliminaries):
