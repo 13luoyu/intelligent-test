@@ -114,7 +114,6 @@ def token_classification_with_algorithm(tco, knowledge):
             label = change(p1, p2+1, label, "结合规则")
             p1 = text.find("第", p2+1)
             p2 = text.find("条", p2+1)
-
         # 结果
         p = text.find("可以")
         while p != -1:
@@ -123,15 +122,25 @@ def token_classification_with_algorithm(tco, knowledge):
         p = text.find("不得")
         while p != -1:
             label = change(p, p+2, label, "结果")
+            if "结果" in label[p+2] and label[p+2]!="为" and p+3<len(label):
+                label[p+2] = label[p+3]
             p = text.find("不得", p+2)
         p = text.find("不接受")
         while p != -1:
             label = change(p, p+3, label, "结果")
+            if "结果" in label[p+3] and label[p+3]!="为" and p+4<len(label):
+                label[p+3] = label[p+4]
             p = text.find("不接受", p+3)
         p = text.find("有效")
         while p != -1:
             label = change(p, p+2, label, "结果")
             p = text.find("有效", p+2)
+        p = text.find("不纳入")
+        while p != -1:
+            label = change(p, p+3, label, "结果")
+            if "结果" in label[p+3] and label[p+3]!="为" and p+4<len(label):
+                label[p+3] = label[p+4]
+            p = text.find("不纳入", p+3)
         # 系统
         p = text.find("本所")
         while p != -1:
@@ -289,7 +298,13 @@ def token_classification_with_algorithm(tco, knowledge):
                             b = text[a:b].find("部分") + a + 2
                             label = change(a, b, label, "数量")
                         else:
-                            label = change(a, b, label, "数量")
+                            have_jhgz = False
+                            for l in label[a:b]:
+                                if "结合规则" in l:
+                                    have_jhgz = True
+                                    break
+                            if not have_jhgz:
+                                label = change(a, b, label, "数量")
                 else:
                     i += 1
         # 价格
@@ -381,7 +396,7 @@ def token_classification_with_algorithm(tco, knowledge):
                 label = change(i-2, i+2, label, "value")
             i = text.find("申报", i+1)
         
-        
+
         # 5、解决数量/价格 op/为 数量/价格的现象，将第一个数量/价格改为key
         i = 0
         count, l = 0, ""

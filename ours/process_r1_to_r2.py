@@ -1278,31 +1278,37 @@ def post_process(vars, rules):
                     c['value'] = "达成交易"
 
     # 合并同类项，这里仅合并数量和申报数量
-    # for rule_id in keys:
-    #     rule = rules[rule_id]
-    #     value = ""
-    #     for c in rule['constraints']:
-    #         if c['key'] == "数量" or c['key'] == "申报数量":
-    #             value += c['value'] + ","
-    #     if value.count(",")>=2:
-    #         value = value[:-1]
-    #     add = False
-    #     new_rule = copy.deepcopy(rules[rule_id])
-    #     new_rule['constraints'] = []
-    #     new_var = {"结果":[]}
-    #     for c in rule['constraints']:
-    #         if c['key'] == "数量" or c['key'] == "申报数量":
-    #             if not add:
-    #                 new_rule['constraints'].append({"key":"申报数量","operation":"is","value":value})
-    #                 new_var["申报数量"] = []
-    #                 add = True
-    #             else:
-    #                 continue
-    #         else:
-    #             new_rule['constraints'].append({"key":c['key'],"operation":c['operation'],"value":c['value']})
-    #             new_var[c['key']] = []
-    #     rules[rule_id] = new_rule
-    #     vars[rule_id] = new_var
+    for rule_id in keys:
+        rule = rules[rule_id]
+        value = ""
+        last_value = ""
+        for c in rule['constraints']:
+            if (c['key'] == "数量" or c['key'] == "申报数量") and c['value'] not in value:
+                if "不超过" in c['value']:
+                    last_value = c['value']
+                else:
+                    value += c['value'] + ","
+        if last_value != "":
+            value = value + last_value + ","
+        if value.count(",")>=2:
+            value = value[:-1]
+        add = False
+        new_rule = copy.deepcopy(rules[rule_id])
+        new_rule['constraints'] = []
+        new_var = {"结果":[]}
+        for c in rule['constraints']:
+            if c['key'] == "数量" or c['key'] == "申报数量":
+                if not add:
+                    new_rule['constraints'].append({"key":"申报数量","operation":"is","value":value})
+                    new_var["申报数量"] = []
+                    add = True
+                else:
+                    continue
+            else:
+                new_rule['constraints'].append({"key":c['key'],"operation":c['operation'],"value":c['value']})
+                new_var[c['key']] = []
+        rules[rule_id] = new_rule
+        vars[rule_id] = new_var
     
     return vars, rules
 

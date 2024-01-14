@@ -839,10 +839,24 @@ def write_r1(fp_r1, ss, knowledge, id):
 
 def fix_token(ss):
     for s in ss:
-        for si in s:
+        for i, si in enumerate(s):
             key = list(si.keys())[0]
             value = si[key]
-            print(value)
+            if key.find("的") == 0 or key.find(")") == 0 or key.find("）") == 0:
+                key = key[1:]
+            if value.find("的") == 0 or value.find("(") == 0 or value.find("（")==0:
+                value = value[1:]
+            if key.find("（") == len(key)-1 or key.find("(") == len(key)-1:
+                key = key[:-1]
+            if value.find("）") == len(value)-1 or value.find(")") == len(value)-1:
+                value = value[:-1]
+            if key == "数量":
+                key = "申报数量"
+            if key == "价格":
+                key = "申报价格"
+            
+            s[i] = {key:value}
+    return ss
 
 
 
@@ -869,7 +883,7 @@ def to_r1(rules, knowledge):
 
         ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation)
         
-        # ss = fix_token(ss)
+        ss = fix_token(ss)
 
         r1 = write_r1(r1, ss, knowledge, id)
     # exit(0)

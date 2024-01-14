@@ -256,6 +256,15 @@ def deal_with_event(vars, rules):
             del rules[rule_id]
             del vars[rule_id]
     last_id = ""
+    rule_to_add_1 = []
+    rule_id_to_add_1 = []
+    for i, rule in enumerate(rule_to_add):
+        if rule not in rule_to_add_1:
+            rule_to_add_1.append(rule)
+            rule_id_to_add_1.append(rule_id_to_add[i])
+    rule_to_add = rule_to_add_1
+    rule_id_to_add = rule_id_to_add_1
+
     for i, rule in enumerate(rule_to_add):
         rule_id = rule_id_to_add[i]
         if last_id != "":
@@ -275,8 +284,16 @@ def deal_with_event(vars, rules):
 
 def op_match(trigger, operation, op_part):
     if "撤销" in trigger and "撤销" in operation:
-        if trigger.replace("撤销", "") in operation.replace("撤销", "") or operation.replace("撤销", "") in trigger.replace("撤销", ""):
-            return True
+        trigger1 = trigger.replace("撤销", "")
+        operation1 = operation.replace("撤销", "")
+        if operation1 == "":
+            if trigger1 in op_part:
+                return True
+        else:
+            if operation1 in trigger1 or trigger1 in operation1:
+                return True
+        # if trigger.replace("撤销", "") in operation.replace("撤销", "") or operation.replace("撤销", "") in trigger.replace("撤销", ""):
+        #     return True
     elif "撤销" in trigger or "撤销" in operation:
         return False
     elif trigger in operation or operation in trigger:
@@ -423,53 +440,53 @@ def add_relation(rules, id_example):
                         if judge_conflict(rules[rule_id1], rules[rule_id2]):  # 不冲突
                             continue
                         # rule2 -> rule1
+                        find = False
                         for xi in rules[rule_id2]['after']:
                             if xi in rule_id1:
-                                rules[rule_id2]['after'].remove(xi)
-                        rules[rule_id2]['after'].append(rule_id1)
-                        for xi in rules[rule_id1]['before']:
-                            if xi in rule_id2:
-                                rules[rule_id1]['before'].remove(xi)
-                        rules[rule_id1]['before'].append(rule_id2)
+                                find = True
+                                break
+                        if not find:
+                            rules[rule_id2]['after'].append(rule_id1)
+                            rules[rule_id1]['before'].append(rule_id2)
             for s2 in from_state2:
                 for t1 in to_state1:
                     if s2 == t1 or ("撤销" not in s2 and "撤销" not in t1 and (s2 in t1 or t1 in s2)) or ("撤销" in s2 and "撤销" in t1 and (s2.replace("撤销", "") in t1.replace("撤销", "") or t1.replace("撤销", "") in s2.replace("撤销", ""))):  # 状态相同
                         if judge_conflict(rules[rule_id1], rules[rule_id2]):  # 不冲突
                             continue
                         # rule1 -> rule2
+                        find = False
                         for xi in rules[rule_id2]['before']:
                             if xi in rule_id1:
-                                rules[rule_id2]['before'].remove(xi)
-                        rules[rule_id2]['before'].append(rule_id1)
-                        for xi in rules[rule_id1]['after']:
-                            if xi in rule_id2:
-                                rules[rule_id1]['after'].remove(xi)
-                        rules[rule_id1]['after'].append(rule_id2)
+                                find = True
+                                break
+                        if not find:
+                            rules[rule_id2]['before'].append(rule_id1)
+                            rules[rule_id1]['after'].append(rule_id2)
     
-    for rule_id in keys:
-        rule = rules[rule_id]
-        if len(rule['after']) > 0:
-            restart = True
-            while restart:
-                restart = False
-                for i, t in enumerate(rule['after']):
-                    if t not in keys:
-                        to_add = [id1 for id1 in keys if t in id1]
-                        del rule['after'][i]
-                        rule['after'] += to_add
-                        restart = True
-                        break
-        if len(rule['before']) > 0:
-            restart = True
-            while restart:
-                restart = False
-                for i, t in enumerate(rule['before']):
-                    if t not in keys:
-                        to_add = [id1 for id1 in keys if t in id1]
-                        del rule['before'][i]
-                        rule['before'] += to_add
-                        restart = True
-                        break
+    # for rule_id in keys:
+    #     rule = rules[rule_id]
+    #     if len(rule['after']) > 0:
+    #         restart = True
+    #         while restart:
+    #             restart = False
+    #             for i, t in enumerate(rule['after']):
+    #                 if t not in keys:
+    #                     to_add = [id1 for id1 in keys if t in id1]
+    #                     del rule['after'][i]
+    #                     rule['after'] += to_add
+    #                     restart = True
+    #                     break
+    #     if len(rule['before']) > 0:
+    #         restart = True
+    #         while restart:
+    #             restart = False
+    #             for i, t in enumerate(rule['before']):
+    #                 if t not in keys:
+    #                     to_add = [id1 for id1 in keys if t in id1]
+    #                     del rule['before'][i]
+    #                     rule['before'] += to_add
+    #                     restart = True
+    #                     break
     
     # 统计rules和rules_copy之间的差距，从而算出隐式关联的数目
     explicit_relation, implicit_relation, relation = {}, {}, {}
