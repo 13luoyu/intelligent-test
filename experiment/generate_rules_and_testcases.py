@@ -10,7 +10,7 @@ def generate_rules_testcases_all():
             filename = file[:-4]
             print(f"文件《{filename}》开始执行")
             begin_time = time.time()
-            nlp_process("data/" + file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1701809213", "../data/tc_data.dict")
+            nlp_process("data/" + file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/knowledge.json", "../data/terms.txt", "../model/ours/best_1690658708", "../model/ours/best_1701809213", "../data/tc_data.dict")
             alg_process("cache/r1.mydsl", "cache/r1.json", "cache/r2.json", "cache/r2.mydsl", "cache/r3.json", f"rules_and_testcases/{filename}_rules.mydsl", f"rules_and_testcases/{filename}_testcases.json", "../data/knowledge.json")
             time_consume = time.time() - begin_time
             print(f"《{filename}》总共消耗时间: {time_consume}")
@@ -30,7 +30,7 @@ def generate_rules_testcases_part():
             #     continue
             filename = file[:-4]
             begin_time = time.time()
-            nlp_process("data/" + file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/knowledge.json", "../model/ours/best_1690658708", "../model/ours/best_1701809213", "../data/tc_data.dict")
+            nlp_process("data/" + file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/knowledge.json", "../data/terms.txt", "../model/ours/best_1690658708", "../model/ours/best_1701809213", "../data/tc_data.dict")
             first_line = open("data/"+file, "r", encoding="utf-8").readlines()[0].strip()
             if "盘后定价交易" in first_line:
                 add_trading_method("cache/r1.mydsl", "盘后定价交易")

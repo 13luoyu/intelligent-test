@@ -3780,7 +3780,7 @@
     },
     {
         "text": "红筹公司存托凭证交易实行价格涨跌幅限制，涨跌幅限制比例为10%。",
-        "label": "O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value O",
+        "label": "O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value O",
         "type": "1",
         "id": "第三十八条_0"
     },

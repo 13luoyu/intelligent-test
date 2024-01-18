@@ -25,6 +25,7 @@ import traceback
 sc_model_path = "../model/ours/best_1690658708"
 tc_model_path = "../model/ours/best_1701809213"
 knowledge_file = '../data/knowledge.json'
+terms_file = "../data/terms.txt"
 dict_file = '../data/tc_data.dict'
 
 app = Flask(__name__)
@@ -305,7 +306,8 @@ def to_r1_interface():
         tco_data = params["data"]["tco_data"]
         market_variety = params["data"]['setting']
         knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
-        r1_data = to_r1(tco_data, knowledge)
+        terms = open(terms_file, "r", encoding="utf-8").read().split("\n")
+        r1_data = to_r1(tco_data, knowledge, terms)
         r1_data = add_defines(r1_data, market_variety)
         timestamp, sign = get_timestamp_sign()
         return_data = {"code": code, "msg": "success", "data": Rrule_transfer(r1_data), "timeStamp": timestamp, "sign": sign}

@@ -1,7 +1,6 @@
 import json
-from collections import OrderedDict
+import cn2an
 import copy
-import pprint
 import os
 import re
 
@@ -23,10 +22,14 @@ def is_price_key(key):
     return False
 
 def judge_operation_compose(op1, op2):
-    if ("买入" in op1 or "卖出" in op1 or "合并" in op1) and ("申报" in op2 or "撤销" in op2):
-        return True, op2 + op1
-    elif ("申报" in op1 or "撤销" in op1) and ("买入" in op2 or "卖出" in op2 or "合并" in op2):
+    if "一次性申报" in op1 and "卖出" in op2:
         return True, op1 + op2
+    elif "卖出" in op1 and "一次性申报" in op2:
+        return True, op2+op1
+    elif ("买入" in op1 or "卖出" in op1 or "合并" in op1) and ("申报" in op2 or "撤销" in op2):
+        return True, "申报"
+    elif ("申报" in op1 or "撤销" in op1) and ("买入" in op2 or "卖出" in op2 or "合并" in op2):
+        return True, "申报"
     else:
         return False, ""
 
@@ -322,10 +325,24 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                     op2 = find_value
                     can_compose, op = judge_operation_compose(op1, op2)  # 一次性申报卖出
                     if can_compose:
-                        del s[i]
-                        s.append({key:op})
-                        if_add = True
-                        break
+                        if op == "申报":
+                            if "卖出" in op1 or "卖出" in op2:
+                                del s[i]
+                                s.append({key:op})
+                                s.append({"交易方向":"卖出"})
+                                if_add = True
+                                break
+                            elif "买入" in op1 or "买入" in op2:
+                                del s[i]
+                                s.append({key:op})
+                                s.append({"交易方向":"买入"})
+                                if_add = True
+                                break
+                        else:
+                            del s[i]
+                            s.append({key:op})
+                            if_add = True
+                            break
                     # 操作是同一个
                     if_in, op = judge_operation_in(op1, op2)
                     if if_in:
@@ -836,31 +853,62 @@ def write_r1(fp_r1, ss, knowledge, id):
     return fp_r1
 
 
+def is_number(s):
+    try:
+        s = cn2an.cn2an(s)
+        return True
+    except ValueError:
+        return False
 
-def fix_token(ss):
-    for s in ss:
-        for i, si in enumerate(s):
-            key = list(si.keys())[0]
-            value = si[key]
-            if key.find("的") == 0 or key.find(")") == 0 or key.find("）") == 0:
-                key = key[1:]
-            if value.find("的") == 0 or value.find("(") == 0 or value.find("（")==0:
-                value = value[1:]
-            if key.find("（") == len(key)-1 or key.find("(") == len(key)-1:
-                key = key[:-1]
-            if value.find("）") == len(value)-1 or value.find(")") == len(value)-1:
-                value = value[:-1]
-            if key == "数量":
-                key = "申报数量"
-            if key == "价格":
-                key = "申报价格"
-            
-            s[i] = {key:value}
-    return ss
+def fix_token(stack, text, terms):
+    # 解决多字问题
+    for i, si in enumerate(stack):
+        key = list(si.keys())[0]
+        value = si[key]
+        if key.find("的") == 0 or key.find(")") == 0 or key.find("）") == 0:
+            key = key[1:]
+        if value.find("的") == 0 or value.find("于") == 0 or value.find("以") == 0 or value.find("用") == 0 or value.find(")") == 0 or value.find("）")==0:
+            value = value[1:]
+        if value.find("的") == len(value)-1 and key != "状态" and key != "事件":
+            value = value[:-1]
+        if key.find("（") == len(key)-1 or key.find("(") == len(key)-1:
+            key = key[:-1]
+        if value.find("(") == len(value)-1 or value.find("（") == len(value)-1:
+            value = value[:-1]
+        
+        if "(" in value and ")" in value:
+            cnt = value[value.find("(")+1:value.find(")")]
+            if is_number(cnt):
+                value = value[value.find(")")+1:]
+        if "（" in value and "）" in value:
+            cnt = value[value.find("（")+1:value.find("）")]
+            if is_number(cnt):
+                value = value[value.find("）")+1:]
+
+        stack[i] = {key:value}
+    
+    # 解决少字问题
+    for i, si in enumerate(stack):
+        key = list(si.keys())[0]
+        value = si[key]
+        
+        if value not in terms:
+            l = 0
+            target_text = ""
+            for term in terms:
+                if value in term and term in text and len(term) > l:
+                    target_text = term
+                    l = len(term)
+            if target_text != "":
+                value = target_text
+
+        stack[i] = {key:value}
+    
+    return stack
 
 
 
-def to_r1(rules, knowledge):
+def to_r1(rules, knowledge, terms):
     """
     将input_file文件的内容写成R1，存放在output_file文件中
     """
@@ -881,12 +929,22 @@ def to_r1(rules, knowledge):
         
         stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation = read_OBI_to_rule(texts, labels)
 
-        ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation)
+        stack = fix_token(stack, rule['text'], terms)
         
-        ss = fix_token(ss)
+
+        ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation)
+        for s in ss:
+            for i, si in enumerate(s):
+                key = list(si.keys())[0]
+                value = si[key]
+                if key == "数量":
+                    key = "申报数量"
+                if key == "价格":
+                    key = "申报价格"
+                s[i] = {key:value}
+        
 
         r1 = write_r1(r1, ss, knowledge, id)
-    # exit(0)
     return r1
 
 
@@ -895,6 +953,7 @@ def to_r1(rules, knowledge):
 if __name__ == "__main__":
     rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
     knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
-    r1 = to_r1(rules, knowledge)
+    terms = open("../data/terms.txt", "r", encoding="utf-8").read().split("\n")
+    r1 = to_r1(rules, knowledge, terms)
     with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:
         f.write(r1)
