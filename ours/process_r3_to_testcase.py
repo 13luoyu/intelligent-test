@@ -51,6 +51,8 @@ def list_conditions(defines, vars, rules):
             key = c["key"]
             op = c["operation"]
             value = c["value"]
+            if key not in vars[rule_id]:
+                vars[rule_id][key] = []
 
             # part 1 连接词是 is
             # 规则是仅将这个值加入vars，不考虑其他值

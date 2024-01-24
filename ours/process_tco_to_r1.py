@@ -877,13 +877,19 @@ def fix_token(stack, text, terms):
             value = value[:-1]
         
         if "(" in value and ")" in value:
-            cnt = value[value.find("(")+1:value.find(")")]
-            if is_number(cnt):
-                value = value[value.find(")")+1:]
+            if value.find("(") < value.find(")"):
+                cnt = value[value.find("(")+1:value.find(")")]
+                if is_number(cnt):
+                    value = value[value.find(")")+1:]
+            else:
+                value = value[value.find(")")+1:value.find("(")]
         if "（" in value and "）" in value:
-            cnt = value[value.find("（")+1:value.find("）")]
-            if is_number(cnt):
-                value = value[value.find("）")+1:]
+            if value.find("（") < value.find("）"):
+                cnt = value[value.find("（")+1:value.find("）")]
+                if is_number(cnt):
+                    value = value[value.find("）")+1:]
+            else:
+                value = value[value.find("）")+1:value.find("（")]
 
         stack[i] = {key:value}
     

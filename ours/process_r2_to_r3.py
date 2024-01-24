@@ -30,6 +30,8 @@ def compose_rules_r2_r3(defines, vars, rules, preliminaries):
     if len(rules) > 0:
         id_example = rules[list(rules.keys())[0]]['rule_class'][0]
         rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation = add_relation(rules, id_example)
+    else:
+        rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation = rules, 0, 0, {}, {}, {}
 
     # 添加一些预定义的要素
     # vars, rules = add_elements(vars, rules, preliminaries)

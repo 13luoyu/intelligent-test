@@ -42,7 +42,7 @@
         "constraints": [
             {
                 "key": "状态",
-                "value": "当天全天停牌、处于临时停牌期,停牌至",
+                "value": "当天全天停牌、处于临时停牌期,停牌至收市",
                 "operation": "is"
             }
         ],
@@ -70,7 +70,7 @@
             },
             {
                 "key": "交易方式",
-                "value": "协商成交交易",
+                "value": "其协商成交交易",
                 "operation": "is"
             },
             {
@@ -103,7 +103,7 @@
             },
             {
                 "key": "交易方式",
-                "value": "协商成交交易",
+                "value": "其协商成交交易",
                 "operation": "is"
             },
             {
@@ -192,7 +192,7 @@
             "第二十八条"
         ],
         "focus": [
-            "价格"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -206,18 +206,15 @@
                 "operation": "is"
             },
             {
-                "key": "单笔交易数量",
-                "value": [
-                    "<",
-                    "500000"
-                ],
-                "operation": "compute"
+                "key": "申报数量",
+                "value": "50万元面额",
+                "operation": "is"
             },
             {
-                "key": "交易金额",
+                "key": "申报价格",
                 "value": [
-                    "<",
-                    "500000"
+                    "==",
+                    "50"
                 ],
                 "operation": "compute"
             }
@@ -236,7 +233,7 @@
             "第二十八条"
         ],
         "focus": [
-            "价格"
+            "订单连续性操作"
         ],
         "constraints": [
             {
@@ -250,18 +247,15 @@
                 "operation": "is"
             },
             {
-                "key": "单笔交易数量",
-                "value": [
-                    "<",
-                    "500000"
-                ],
-                "operation": "compute"
+                "key": "申报数量",
+                "value": "50万元面额",
+                "operation": "is"
             },
             {
-                "key": "交易金额",
+                "key": "申报价格",
                 "value": [
-                    ">=",
-                    "500000"
+                    "==",
+                    "50"
                 ],
                 "operation": "compute"
             }
@@ -380,7 +374,7 @@
                 "operation": "is"
             },
             {
-                "key": "价格",
+                "key": "申报价格",
                 "value": "指定的价格",
                 "operation": "is"
             },
@@ -446,7 +440,7 @@
                 "operation": "is"
             },
             {
-                "key": "价格",
+                "key": "申报价格",
                 "value": "指定的价格",
                 "operation": "is"
             },
@@ -498,17 +492,17 @@
             "第二十九条"
         ],
         "focus": [
-            "价格"
+            "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "协议大宗交易申报类型",
-                "value": "定价申报",
+                "key": "申报数量",
+                "value": "每笔成交的数量",
                 "operation": "is"
             },
             {
-                "key": "数量",
-                "value": "每笔成交的数量",
+                "key": "申报价格",
+                "value": "交易金额",
                 "operation": "is"
             },
             {
@@ -517,8 +511,8 @@
                 "operation": "is"
             },
             {
-                "key": "价格",
-                "value": "满足交易金额",
+                "key": "协议大宗交易申报类型",
+                "value": "定价申报",
                 "operation": "is"
             }
         ],
@@ -536,12 +530,12 @@
             "第二十九条"
         ],
         "focus": [
-            "价格"
+            "订单连续性操作"
         ],
         "constraints": [
             {
-                "key": "协议大宗交易申报类型",
-                "value": "定价申报",
+                "key": "申报价格",
+                "value": "交易金额",
                 "operation": "is"
             },
             {
@@ -550,13 +544,13 @@
                 "operation": "is"
             },
             {
-                "key": "价格",
-                "value": "满足交易金额",
+                "key": "协议大宗交易申报类型",
+                "value": "定价申报",
                 "operation": "is"
             },
             {
                 "key": "约束",
-                "value": "最低限额",
+                "value": "协商成交最低限额",
                 "operation": "is"
             }
         ],
@@ -574,7 +568,7 @@
             "第三十一条"
         ],
         "focus": [
-            "价格"
+            "时间"
         ],
         "constraints": [
             {
@@ -594,7 +588,7 @@
             },
             {
                 "key": "申报价格",
-                "value": "行价的上下30%范围内",
+                "value": "发行价的上下30%范围内",
                 "operation": "is"
             }
         ],
@@ -612,7 +606,7 @@
             "第三十一条"
         ],
         "focus": [
-            "价格"
+            "时间"
         ],
         "constraints": [
             {

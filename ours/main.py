@@ -62,7 +62,7 @@ def nlp_process(input_file: str,
     print("R规则生成")
     # exit(0)
 
-def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_json_file, r3_mydsl_file, testcase_file, knowledge_file):
+def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_json_file, r3_mydsl_file, testcase_file, knowledge_file, relation_file, e_relation_file, i_relation_file):
     # 读文件
     r1 = open(r1_mydsl_file, "r", encoding="utf-8").read()
     defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r1)
@@ -93,9 +93,9 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
         f.write(r3)
     print(f"R3规则生成，包含规则数：{len(rules)}")
     print(f"显式关系有{explicit_relation_count}条，隐式关系有{implicit_relation_count}条")
-    json.dump(relation, open("rules_cache/relation.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-    json.dump(explicit_relation, open("rules_cache/explicit_relation.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-    json.dump(implicit_relation, open("rules_cache/implicit_relation.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    json.dump(relation, open(relation_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    json.dump(explicit_relation, open(e_relation_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    json.dump(implicit_relation, open(i_relation_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     r3_time = time.time()
     
     # 生成测试样例
@@ -115,7 +115,7 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
 
 if __name__ == "__main__":
     begin_time = time.time()
-    nlp_process("rules_cache/深圳证券交易所债券交易规则.pdf", "rules_cache/setting.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../data/terms.txt", "../model/ours/best_1690658708", "../model/ours/best_1701809213", "../data/tc_data.dict")
-    alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r2.mydsl", "rules_cache/r3.json", "rules_cache/r3.mydsl", "rules_cache/testcase.json", "../data/knowledge.json")
+    nlp_process("rules_cache/质押式报价回购交易及登记结算业务办法.pdf", "rules_cache/setting.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/knowledge.json", "../data/terms.txt", "../model/ours/best_1690658708", "../model/ours/best_1701809213", "../data/tc_data.dict")
+    alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r2.mydsl", "rules_cache/r3.json", "rules_cache/r3.mydsl", "rules_cache/testcase.json", "../data/knowledge.json", "rules_cache/relation.json", "rules_cache/explicit_relation.json", "rules_cache/implicit_relation.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")
