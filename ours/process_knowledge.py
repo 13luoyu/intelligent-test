@@ -17,7 +17,68 @@ def process_knowledge(rules):
             for word in unuse_words:
                 text = text.replace(word, "")
             # 关键词：是（是指），包括
-            if "包括" in text:
+            p1, p2, p3, p4 = text.find("包括"), text.find("是"), text.find("指"), text.find("为")
+            
+            if "计算公式" in text:
+                text = text.replace("＝", "=")
+                label = text.split("：")[-1].split("=")[0]
+                content = "=".join(text.split("=")[1:])
+                knowledge[f"{label}的计算公式"] = content
+
+            # 特殊处理
+            elif text[0] == "(":
+                if "：" in text:
+                    label = text.split("：")[0]
+                    label = label[label.find(")") + 1:]
+                    content = text.split("：")[1]
+                else:
+                    label = text.split("，")[0]
+                    label = label[label.find(")") + 1:]
+                    content = "，".join(text.split("，")[1:])
+                    if content[0] == "指":
+                        content = content[1:]
+                knowledge[label] = content
+            elif "采用" in text:
+                if "：" in text:
+                    label = text.split("：")[0]
+                    label = label.replace("采用", "")
+                    content = text.split("：")[1]
+                    contents = [c.split(")")[1] for c in content.split("；")]
+                    knowledge[label] = contents
+                else:
+                    if text.find("采用") == 0:
+                        if text.count("是")>=2:
+                            todo_text.append(text)
+                            continue
+                        text = text[2:]
+                    label = text.split("采用")[0]
+                    content = text.split("采用")[1]
+                    if label[-1] == "，":
+                        label = label[:-1]
+                    if "其他" in content:
+                        t = content[content.find("其他") + 2:-1]
+                        label = label + t
+                    elif "等" in content:
+                        t = content[content.find("等") + 1:-1]
+                        label = label + t
+                    elif "种" in content:
+                        t = content[content.find("种") + 1:-1]
+                        label = label + t
+                    contents = [content]
+                    new_c = []
+                    for word in divided_words:
+                        for c in contents:
+                            cs = c.split(word)
+                            for ci in cs:
+                                if ci not in new_c:
+                                    new_c.append(ci)
+                                    if c in new_c and ci != c and (ci in c or c in ci):
+                                        new_c.remove(c)
+                        contents = new_c
+                    knowledge[label] = contents
+            
+            # 分类型
+            elif p1 != -1 and ((p2 != -1 and p1 < p2) or (p3 != -1 and (p1 < p3 or text.find("指令")== p3)) or (p4 != -1 and p1 < p4)):
                 if "下列" in text:
                     label = text.split("包括")[0]
                     content = text.split("包括")[1]
@@ -51,8 +112,10 @@ def process_knowledge(rules):
                     else:
                         contents = content.split("和")
                     knowledge[label] = contents
-            elif ("是" in text or "指" in text or "为" in text) and text[0] != "(":
-                if "是" in text:
+            
+            # 解释型
+            elif (p2 != -1 or p3 != -1 or p4 != -1) and text[0] != "(":
+                if p2 != -1 and (p3 == -1 or p3 != -1 and p2 < p3) and (p4 == -1 or p4 != -1 and p2 < p4):
                     texts = text.split("；")
                     label = ""
                     for text in texts:
@@ -61,10 +124,15 @@ def process_knowledge(rules):
                         elif "是" in text:
                             label = text.split("是")[0]
                             content = text.split("是")[1]
+                            if "含义" in label:
+                                if "：" in label:
+                                    label = label.split("：")[-1]
+                                if ")" in label:
+                                    label = label.split(")")[-1]
                             if "指" in content:
                                 content = content[content.find("指") + 1:]
                             knowledge[label] = content
-                elif "指" in text:
+                elif p3 != -1 and (p2 == -1 or p2 != -1 and p3 < p2) and (p4 == -1 or p4 != -1 and p3 < p4):
                     texts = text.split("；")
                     for text in texts:
                         label = text.split("指")[0]
@@ -72,7 +140,7 @@ def process_knowledge(rules):
                             label = label.split(")")[1]
                         content = text.split("指")[1]
                         knowledge[label] = content
-                else:  # 为
+                elif p4 != -1 and (p2 == -1 or p2 != -1 and p4 < p2) and (p3 == -1 or p3 != -1 and p4 < p3):  # 为
                     texts = text.split("；")
                     label = ""
                     for text in texts:
@@ -84,52 +152,25 @@ def process_knowledge(rules):
                             if "：" in content:
                                 content = content[content.find("：") + 1:]
                             knowledge[label] = content
-            elif text[0] == "(":
-                if "：" in text:
-                    label = text.split("：")[0]
-                    label = label[label.find(")") + 1:]
-                    content = text.split("：")[1]
-                else:
-                    label = text.split("，")[0]
-                    label = label[label.find(")") + 1:]
-                    content = "，".join(text.split("：")[1:])
-                knowledge[label] = content
-            elif "采用" in text:
-                if "：" in text:
-                    label = text.split("：")[0]
-                    label = label.replace("采用", "")
-                    content = text.split("：")[1]
-                    contents = [c.split(")")[1] for c in content.split("；")]
-                    knowledge[label] = contents
-                else:
-                    if text.find("采用") == 0:
-                        text = text[2:]
-                    label = text.split("采用")[0]
-                    content = text.split("采用")[1]
-                    if "其他" in content:
-                        t = content[content.find("其他") + 2:-1]
-                        label = label + t
-                    elif "等" in content:
-                        t = content[content.find("等") + 1:-1]
-                        label = label + t
-                    elif "种" in content:
-                        t = content[content.find("种") + 1:-1]
-                        label = label + t
-                    contents = [content]
-                    new_c = []
-                    for word in divided_words:
-                        for c in contents:
-                            cs = c.split(word)
-                            for ci in cs:
-                                if ci not in new_c:
-                                    new_c.append(ci)
-                                    if c in new_c and ci != c and (ci in c or c in ci):
-                                        new_c.remove(c)
-                        contents = new_c
-                    knowledge[label] = contents
+            
             else:
                 todo_text.append(text)
                 cannot_process += 1
+    
+    for key in list(knowledge.keys()):
+        if isinstance(knowledge[key], str):
+            if knowledge[key][-1] == "。":
+                knowledge[key] = knowledge[key][:-1]
+            if key[-1] == "，":
+                knowledge[key[:-1]] = knowledge[key]
+                del knowledge[key]
+        else:
+            for i, k in enumerate(knowledge[key]):
+                if k[-1] == "。":
+                    knowledge[key][i] = k[:-1]
+            if key[-1] == "，":
+                knowledge[key[:-1]] = knowledge[key]
+                del knowledge[key]
     return knowledge, "\n".join(todo_text), knowledge_count, cannot_process
 
 
@@ -139,12 +180,8 @@ if __name__ == "__main__":
     # process_knowledge("rules_cache/sco.json", "rules_cache/knowledge.json", "rules_cache/todo_knowledge.json")
 
     knowledge_file, todo_knowledge_file = "rules_cache/knowledge.json", "rules_cache/todo_knowledge.txt"
-    all_knowledge = []
+    all_knowledge = {}
     todo_fp = open(todo_knowledge_file, "w" ,encoding="utf-8")
-    if os.path.exists(knowledge_file):
-        os.remove(knowledge_file)
-    if os.path.exists(todo_knowledge_file):
-        os.remove(todo_knowledge_file)
     a, b = 0, 0
     for file in os.listdir("../data/business_rules/json_for_sequence_classification/"):
         if "finish" in file:
@@ -152,9 +189,9 @@ if __name__ == "__main__":
             knowledge, todo_text, knowledge_count, cannot_process = process_knowledge(rules)
             a += knowledge_count
             b += cannot_process
-            all_knowledge += knowledge
+            all_knowledge = {**all_knowledge, **knowledge}
             todo_fp.write(todo_text)
             todo_fp.write("\n")
-    json.dump(all_knowledge, open(knowledge_file, "w", encoding="utf-8"))
+    json.dump(all_knowledge, open(knowledge_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     todo_fp.close()
     print(f"所有领域知识数目：{a}, 能够处理的数目：{a-b}, 处理率为{round(float(a-b)/float(a)*100.0, 1)}%")
