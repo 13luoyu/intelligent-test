@@ -24,19 +24,42 @@ def process_knowledge(rules):
                 label = text.split("：")[-1].split("=")[0]
                 content = "=".join(text.split("=")[1:])
                 knowledge[f"{label}的计算公式"] = content
+            elif "“元”" in text or "四舍五入" in text or "=" in text or "红筹公司" in text:
+                continue
 
             # 特殊处理
-            elif text[0] == "(":
+            elif text[0] == "(" or "含义" in text:
                 if "：" in text:
-                    label = text.split("：")[0]
-                    label = label[label.find(")") + 1:]
-                    content = text.split("：")[1]
+                    if "含义" in text:
+                        if text.count("：") >= 2:
+                            label = text.split("：")[-2]
+                            label = label[label.find(")") + 1:]
+                            content = text.split("：")[-1]
+                        else:
+                            label = text.split("：")[-1].split("，")[0]
+                            label = label[label.find(")") + 1:]
+                            content = text.split("：")[-1].split("，")[-1]
+                    else:
+                        label = text.split("：")[0]
+                        label = label[label.find(")") + 1:]
+                        content = text.split("：")[1]
+                    if content[0] == "指":
+                        content = content[1:]
+                    elif content[:2] == "是指":
+                        content = content[2:]
+                elif ":" in text and "含义" in text:
+                    label = text.split(":")[-1].split("，")[0]
+                    content = text.split(":")[-1].split("，")[-1]
+                    if content[0] == "即":
+                        content = content[1:]
                 else:
                     label = text.split("，")[0]
                     label = label[label.find(")") + 1:]
                     content = "，".join(text.split("，")[1:])
                     if content[0] == "指":
                         content = content[1:]
+                    elif content[:2] == "是指":
+                        content = content[2:]
                 knowledge[label] = content
             elif "采用" in text:
                 if "：" in text:
@@ -78,7 +101,7 @@ def process_knowledge(rules):
                     knowledge[label] = contents
             
             # 分类型
-            elif p1 != -1 and ((p2 != -1 and p1 < p2) or (p3 != -1 and (p1 < p3 or text.find("指令")== p3)) or (p4 != -1 and p1 < p4)):
+            elif p1 != -1 and ((p2 == -1 or p2 != -1 and p1 < p2) or (p3 == -1 or p3 != -1 and (p1 < p3 or text.find("指令")== p3)) or (p4 == -1 or p4 != -1 and p1 < p4)):
                 if "下列" in text:
                     label = text.split("包括")[0]
                     content = text.split("包括")[1]
@@ -101,6 +124,10 @@ def process_knowledge(rules):
                 else:
                     label = text.split("包括")[0]
                     content = text.split("包括")[1]
+                    if label[-1] == "应":
+                        label = label[:-1]
+                    elif label[-2:] == "应该":
+                        label = label[:-2]
                     if "等" in content:
                         content = content[:content.find("等")]
                     if "：" in content:
@@ -111,6 +138,23 @@ def process_knowledge(rules):
                         contents = content.split("、")
                     else:
                         contents = content.split("和")
+                    new_contents = []
+                    ci = ""
+                    for c in contents:
+                        if "(" in c and ")" not in c:
+                            ci += c
+                        elif ")" in c and "(" not in c:
+                            ci += c
+                            new_contents.append(ci)
+                            ci = ""
+                        elif ci != "":
+                            ci += c
+                        else:
+                            # (一)...(二)...的处理
+                            if c[0] == "(" and ")" in c:
+                                c = c[c.find(")")+1:]
+                            new_contents.append(c)
+                    contents = new_contents
                     knowledge[label] = contents
             
             # 解释型
@@ -132,12 +176,14 @@ def process_knowledge(rules):
                             if "指" in content:
                                 content = content[content.find("指") + 1:]
                             knowledge[label] = content
-                elif p3 != -1 and (p2 == -1 or p2 != -1 and p3 < p2) and (p4 == -1 or p4 != -1 and p3 < p4):
+                elif p3 != -1 and (p2 == -1 or p2 != -1 and p3 < p2) and (p4 == -1 or p4 != -1 and p3 < p4) and text.find("指定") != p3 and text.find("指引") != p3:
                     texts = text.split("；")
                     for text in texts:
                         label = text.split("指")[0]
                         if label[0] == "(":
                             label = label.split(")")[1]
+                        if label[-1] == "：":
+                            label = label[:-1]
                         content = text.split("指")[1]
                         knowledge[label] = content
                 elif p4 != -1 and (p2 == -1 or p2 != -1 and p4 < p2) and (p3 == -1 or p3 != -1 and p4 < p3):  # 为
@@ -153,6 +199,24 @@ def process_knowledge(rules):
                                 content = content[content.find("：") + 1:]
                             knowledge[label] = content
             
+            elif "下列" in text:
+                if "下列类型的" in text:
+                    label = text.split("下列类型的")[-1].split("：")[0]
+                    content = text.split("：")[-1]
+                    contents = content.split("；")
+                    for i, c in enumerate(contents):
+                        if c[0] == "(" and ")" in c:
+                            contents[i] = c[c.find(")")+1:]
+                    knowledge[label] = contents
+                else:
+                    label = text.split("下列")[-1].split("：")[0]
+                    content = text.split("：")[-1]
+                    contents = content.split("；")
+                    for i, c in enumerate(contents):
+                        if c[0] == "(" and ")" in c:
+                            contents[i] = c[c.find(")")+1:]
+                    knowledge[label] = contents
+
             else:
                 todo_text.append(text)
                 cannot_process += 1
