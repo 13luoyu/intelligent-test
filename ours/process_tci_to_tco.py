@@ -7,6 +7,7 @@ from utils.data_loader import read_dict
 import hanlp
 import re
 from ours.process_r1_to_r2 import is_num_key, is_price_key
+from transfer.knowledge_tree import encode_tree
 from utils.try_gpu import try_gpu
 
 
@@ -49,11 +50,10 @@ def token_classification_with_algorithm(tco, knowledge):
         
         # 交易品种
         types = []
-        for key in knowledge:
-            if "品种" in key and isinstance(knowledge[key], list):
-                types += knowledge[key]
-            elif isinstance(knowledge[key], str) and knowledge[key][-2:] == "股票":
-                types.append(key)
+        tree = encode_tree(knowledge)
+        for key in tree:
+            if "品种" in key['content'].split(":")[0]:
+                types.append(key['content'].split(":")[-1])
         # print(len(text), len(label))
         for t in types:
             p = text.find(t)
@@ -67,11 +67,9 @@ def token_classification_with_algorithm(tco, knowledge):
                 
         # 交易方式
         types = []
-        for key in knowledge:
-            if "交易方式" in key and isinstance(knowledge[key], list):
-                types += knowledge[key]
-            elif isinstance(knowledge[key], str) and "交易方式" == knowledge[key][-4:]:
-                types.append(key)
+        for key in tree:
+            if "交易方式" in key['content'].split(":")[0]:
+                types.append(key['content'].split(":")[-1])
         for t in types:
             p = text.find(t)
             while p != -1:
@@ -157,9 +155,9 @@ def token_classification_with_algorithm(tco, knowledge):
             p = text.find("或者", p+2)
         # op
         types = []
-        for key in knowledge:
-            if "本数" in key and isinstance(knowledge[key], list):
-                types += knowledge[key]
+        for key in tree:
+            if "本数" in key['content'].split(":")[0]:
+                types.append(key['content'].split(":")[-1])
         for t in types:
             p = text.find(t)
             # 这里修正的时候把“不...”的情况也考虑进去
@@ -586,6 +584,6 @@ def token_classification(tci: list, knowledge, model_path: str, dict_file: str, 
 
 if __name__ == "__main__":
     tci_data = json.load(open("rules_cache/tci.json", "r", encoding="utf-8"))
-    knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
+    knowledge = json.load(open("../data/classification_knowledge.json", "r", encoding="utf-8"))
     tco_data = token_classification(tci_data, knowledge, "../model/ours/best_1701809213", "../data/tc_data.dict")
     json.dump(tco_data, open("rules_cache/tco.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

@@ -2,6 +2,7 @@ import copy
 import pprint
 import re
 from ours.process_tco_to_r1 import is_num_key, is_price_key, is_time_key
+from transfer.knowledge_tree import get_constrainted_values, get_constrainted_all_subvalues
 
 
 def preprocess(rules, vars):
@@ -402,12 +403,13 @@ def compose_rules_r1_r2(defines, vars, rules, preliminaries):
     6. 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内怎样怎样
     7. 没有then就删掉，这是另一个去重步
     """
+
     # 组合明显嵌套的规则
     vars, rules = compose_nested_rules(vars, rules)
     # 必须交易阶段相同，一个是订单连续性操作，一个是交易时间，组合
     vars, rules = compose_same_stage(vars, rules)
     # "其他"补全
-    vars, rules = supply_other_rules(vars, rules, preliminaries)
+    vars, rules = supply_other_rules(defines, vars, rules, preliminaries)
 
     # 统一规则下的子规则组合，申报数量<100...0和其他规则的组合
     vars, rules = subrule_compose(vars, rules)
@@ -495,81 +497,10 @@ def compose_nested_rules(vars, rules):
 
 
 
-def construct_tree(preliminaries, jypz):
-    arr = []
-    for key in list(preliminaries.keys()):
-        if "交易方式" in key and jypz in key:
-            for value in preliminaries[key]:
-                arr.append(["交易方式", value])
-    end = False
-    while not end:
-        end = True
-        new_arr = []
-        for kv in arr:
-            father_key, father_value = kv[-2], kv[-1]
-            add_old_kv = True
-            arr_local = []
-            for key in list(preliminaries.keys()):
-                # 大宗交易 必须在 大宗交易交易方式 的开头才行
-                if (key.find(father_value) == 0 or len(kv)>=4 and key.find(kv[-3])==0 and father_value in key) and isinstance(preliminaries[key], list):
-                    # 如果当前要添加的key、value已存在，跳过
-                    if key in kv:
-                        continue
-                    find = False
-                    for value in preliminaries[key]:
-                        if value in kv:
-                            find = True
-                            break
-                    if find:
-                        continue
-                    
-                    # 添加
-                    if len(arr_local) == 0:
-                        if "指令" in key or "要素" in key or "内容" in key:
-                            if len(kv)>=4 and key.find(kv[-3])==0 and father_value in key:
-                                arr_local.append(copy.deepcopy(kv) + [key, ",".join(preliminaries[key])])
-                                end = False
-                                add_old_kv = False
-                        else:
-                            for value in preliminaries[key]:
-                                new_kv = copy.deepcopy(kv)
-                                new_kv += [key, value]
-                                arr_local.append(new_kv)
-                            end = False
-                            add_old_kv = False
-                    else:
-                        if "指令" in key or "要素" in key or "内容" in key:
-                            
-                            if len(kv)>=4 and key.find(kv[-3])==0 and father_value in key:
-                                for kv1 in arr_local:
-                                    kv1 += [key, ",".join(preliminaries[key])]
-                                end = False
-                                add_old_kv = False
-                        else:
-                            a = []
-                            multi_num = len(preliminaries[key])
-                            for _ in range(multi_num):
-                                a += copy.deepcopy(arr_local)
-                            arr_local = a
-                            
-                            for i, value in enumerate(preliminaries[key]):
-                                for kvi in arr_local[int(len(arr_local)/multi_num*i):int(len(arr_local)/multi_num*(i+1))]:
-                                    kvi += [key, value]
-                            end = False
-                            add_old_kv = False
-                    
-            if add_old_kv:
-                arr_local.append(kv)
-            new_arr += arr_local
-        arr = copy.deepcopy(new_arr)
-    # pprint.pprint(arr)
-    return arr
-
-
 
 def supply_rules_on_prelim(defines, vars, rules, preliminaries):
     # 如果规则中没有"单独可测试规则要素"，添加
-    elements = preliminaries["单独可测试规则要素"]
+    elements = get_constrainted_values(preliminaries, {}, "单独可测试规则要素")
     tree = {}
     beside_key = ["交易品种", "操作", "操作部分", "事件", "状态", "操作人", "条件", "结合规则"]
 
@@ -595,7 +526,7 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                             break
                 if not find:
                     to_delete.append(rule_id)
-                    for direction in preliminaries[element]:
+                    for direction in get_constrainted_values(preliminaries, {}, element):
                         new_rule = copy.deepcopy(rule)
                         new_var = copy.deepcopy(vars[rule_id])
                         new_rule['constraints'].append({"key":element, "operation":"is", "value":direction})
@@ -606,14 +537,12 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
             for rule_id in to_delete:
                 del vars[rule_id]
                 del rules[rule_id]
-        if element in defines or element == "交易品种":  # 交易品种/交易市场
+        if element == "交易市场" or element == "交易品种":  # 交易品种/交易市场
             old_element = element
             if element in defines:
                 e = defines[element][0]
-                if e == "证券":
-                    e = preliminaries['交易品种']
             else:
-                e = preliminaries['交易品种']
+                e = "证券"
             old_e = e
             to_delete = []
             for rule_id in list(rules.keys()):
@@ -646,31 +575,21 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                             vars[rule_id][f"{new_jypz}品种"] = []
                         find = True
 
-                        if (jypz == new_jypz or jypz == "基金份额") and f"{new_jypz}品种" in preliminaries:
-                            e = preliminaries[f"{new_jypz}品种"]
-                            element = f"{new_jypz}品种"
-                            find = False
+                        if (jypz == new_jypz or jypz == "基金份额"):
+                            e = get_constrainted_values(preliminaries, defines, f"{new_jypz}品种")
+                            if e != []:
+                                element = f"{new_jypz}品种"
+                                find = False
                         break
-                if not find or jypz == "证券":
-                    if jypz == "证券":
-                        e = preliminaries['交易品种']
+                if not find:
                     if isinstance(e, str):
                         rule['constraints'].append({"key":element, "operation":"is", "value":e})
                         vars[rule_id][element] = []
-                        # 继续细化，补充e的具体品种
-                        if element == "交易品种" and f"{e}品种" in preliminaries:
-                            element = f"{e}品种"
-                            e = preliminaries[f"{e}品种"]
-                    if isinstance(e, list):
+                    elif isinstance(e, list):
                         for eidx, ei in enumerate(e):
                             new_id = f"{rule_id}.{eidx+1}"
                             new_rule = copy.deepcopy(rule)
-                            if jypz == "证券":
-                                for c in new_rule['constraints']:
-                                    if c['key'] == element:
-                                        c['value'] = ei
-                            else:
-                                new_rule['constraints'].append({"key":element, "operation":"is", "value":ei})
+                            new_rule['constraints'].append({"key":element, "operation":"is", "value":ei})
                             rules[new_id] = new_rule
                             new_var = copy.deepcopy(vars[rule_id])
                             new_var[element] = []
@@ -702,10 +621,14 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                                 new_jypz = jypz
                         jypz = new_jypz
                         break
+                if jypz == "证券":
+                    continue
                 if jypz in tree:
                     tree_local = tree[jypz]
                 else:
-                    tree_local = construct_tree(preliminaries, jypz)
+                    if defines['交易品种'][0] == "证券":
+                        defines["交易品种"] = [jypz]
+                    tree_local = get_constrainted_all_subvalues(preliminaries, defines)
                     tree[jypz] = tree_local
                 index = 1
                 
@@ -713,31 +636,33 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                     new_rule = copy.deepcopy(rule)
                     new_var = copy.deepcopy(vars[rule_id])
                     conflict = False
-                    for i in range(0, len(ti), 2):
+                    for i in range(0, len(ti), 1):
                         find_value = False
                         find_key = False
                         for c in rule['constraints']:
-                            if c['value'] == ti[i+1]:
+                            if c['value'] == ti[i].split(":")[-1]:
                                 find_value = True
                                 break
-                            if c['key'] == ti[i]:
+                            if c['key'] == ti[i].split(":")[0]:
                                 find_key = True
                                 break
                         if find_value:  # 找到了相同的value，这个value就不用加了
                             continue
-                        if find_key and c['value'] not in ti:  # 找到了key，但value不同，冲突，并且value不在ti中这个ti不继续加了
+                        if find_key and c['value'] not in [tii.split(":")[-1] for tii in ti]:  # 找到了key，但value不同，冲突，并且value不在ti中这个ti不继续加了
                             conflict = True
                             break
-                        if c['value'] in ti:
+                        if c['value'] in [tii.split(":")[-1] for tii in ti]:
                             for nc in new_rule['constraints']:
                                 if nc['value'] == c['value']:
-                                    nc['key'] = ti[ti.index(c['value'])-1]
-                                    new_var[c['key']] = []
+                                    for tii in ti:
+                                        if tii.split(":")[-1] == c['value']:
+                                            nc['key'] = tii.split(":")[0]
+                                    new_var[nc['key']] = []
                                     break
                             
                         # 将value加入规则中
-                        new_rule['constraints'].append({"key": ti[i], "operation": "is", "value": ti[i+1]})
-                        new_var[ti[i]] = []
+                        new_rule['constraints'].append({"key": ti[i].split(":")[0], "operation": "is", "value": ti[i].split(":")[-1]})
+                        new_var[ti[i].split(":")[0]] = []
                         
                     if not conflict:
                         new_id = f"{rule_id}.{index}"
@@ -802,7 +727,7 @@ def compose_same_stage(vars, rules):
 
 
 
-def supply_other_rules(vars, rules, preliminaries):
+def supply_other_rules(defines, vars, rules, preliminaries):
     to_delete = []
     keys = list(vars.keys())
     for rule_id in keys:
@@ -820,9 +745,9 @@ def supply_other_rules(vars, rules, preliminaries):
                                 have.append(c0["value"])
                                 break
                 # 取反
-                if want not in preliminaries:
+                c_key = get_constrainted_values(preliminaries, defines, want)
+                if c_key == []:
                     continue
-                c_key = preliminaries[want]
                 not_have = []
                 for k in c_key:
                     if k not in have:
@@ -1102,7 +1027,7 @@ def compute_other_time_in_rules(vars, rules, preliminaries):
                 # 处理，添加交易时间
                 sentence = c['value'].split('外')
                 # preliminaries = json.load(open("preliminaries.json", "r", encoding="utf-8"))
-                elements = preliminaries["单独可测试规则要素"]
+                elements = get_constrainted_values(preliminaries, {}, "单独可测试规则要素")
                 # 首先处理除...外，这中间有两个点用于匹配，一是操作“撤销”，二是结果“失败”
                 # 遍历所有其他规则，寻找这两个点
                 except_time = ""  # 除了这个时间段，要找的结果就是这个时间

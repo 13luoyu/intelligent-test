@@ -3,6 +3,7 @@ import cn2an
 import copy
 import os
 import re
+from transfer.knowledge_tree import encode_tree
 
 # 做法是在分规则后进行一步处理，依据原文中的关键字处理两个操作人。两个操作人的情况总共以上三种，向（与、给）、作为与无关。在第一步处理模型结果时要找到这个关系，传给第二步。
 
@@ -668,9 +669,10 @@ def get_clause_for_single_value(value_cache, op_cache, knowledge, key=None):
     else:
         # 查找领域知识
         find = False
-        for knowledge_key in list(knowledge.keys()):
-            knowledge_value = knowledge[knowledge_key]
-            if isinstance(knowledge_value, list) and v_value in knowledge_value:
+        for item in knowledge:
+            knowledge_key = item['content'].split(":")[0]
+            knowledge_value = item['content'].split(":")[-1]
+            if v_value in knowledge_value:
                 clause = f"{knowledge_key} is \"{v_value}\""
                 find = True
                 break
@@ -690,6 +692,7 @@ def write_r1(fp_r1, ss, knowledge, id):
     """
     # pprint.pprint(ss)
     # 现在ss中存储了每一条规则，这里将其写成R1
+    knowledge = encode_tree(knowledge)
     for i, s in enumerate(ss):
         key_to_use = {}
         value_to_use = {}
@@ -957,7 +960,7 @@ def to_r1(rules, knowledge, terms):
 
 if __name__ == "__main__":
     rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
-    knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
+    knowledge = json.load(open("../data/classification_knowledge.json", "r", encoding="utf-8"))
     terms = open("../data/terms.txt", "r", encoding="utf-8").read().split("\n")
     r1 = to_r1(rules, knowledge, terms)
     with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:

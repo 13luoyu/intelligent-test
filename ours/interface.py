@@ -24,7 +24,8 @@ import traceback
 
 sc_model_path = "../model/ours/best_1690658708"
 tc_model_path = "../model/ours/best_1701809213"
-knowledge_file = '../data/knowledge.json'
+classification_knowledge_file = "../data/classification_knowledge.json"
+other_knowledge_file = '../data/other_knowledge.json'
 terms_file = "../data/terms.txt"
 dict_file = '../data/tc_data.dict'
 
@@ -203,7 +204,7 @@ def token_classification_interface():
         
         sco_data = params["data"]
         tci_data = sco_to_tci(sco_data)
-        knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
+        knowledge = json.load(open(classification_knowledge_file, "r", encoding="utf-8"))
         tco_data = token_classification(tci_data, knowledge, tc_model_path, dict_file)
         timestamp, sign = get_timestamp_sign()
         return_data = {"code": code, "msg": "success", "data": tco_data, "timeStamp": timestamp, "sign": sign}
@@ -305,7 +306,7 @@ def to_r1_interface():
         
         tco_data = params["data"]["tco_data"]
         market_variety = params["data"]['setting']
-        knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
+        knowledge = json.load(open(classification_knowledge_file, 'r', encoding="utf-8"))
         terms = open(terms_file, "r", encoding="utf-8").read().split("\n")
         r1_data = to_r1(tco_data, knowledge, terms)
         r1_data = add_defines(r1_data, market_variety)
@@ -341,7 +342,7 @@ def r1_to_r2_interface():
         
         r1 = Rrule_back(params['data'])
         defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r1)
-        knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
+        knowledge = json.load(open(classification_knowledge_file, 'r', encoding="utf-8"))
         rules, vars = preprocess(rules, vars)
         defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
         r2_json = rules_to_json_and_mydsl.r2_to_json(rules)
@@ -379,7 +380,7 @@ def r2_to_r3_interface():
         
         r2 = Rrule_back(params['data'])
         defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r2)
-        knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
+        knowledge = json.load(open(other_knowledge_file, 'r', encoding="utf-8"))
         defines, vars, rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation = compose_rules_r2_r3(defines, vars, rules, knowledge)
         r3_json = rules_to_json_and_mydsl.r3_to_json(rules)
         r3 = rules_to_json_and_mydsl.to_mydsl(r3_json)

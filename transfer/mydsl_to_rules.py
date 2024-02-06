@@ -121,6 +121,8 @@ def mydsl_to_rules(s):
 
 
 if __name__ == "__main__":
-    s = open("../ours/rules_cache/r3.mydsl").read()
-    setting = json.load(open("../ours/rules_cache/setting.json"))
-    print(mydsl_to_rules(s, setting))
+    s = open("../ours/rules_cache/r1.mydsl").read()
+    defines, vars, rules = mydsl_to_rules(s)
+    print(defines)
+    print(vars)
+    print(rules)
