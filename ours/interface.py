@@ -19,13 +19,14 @@ from hashlib import md5
 import wget
 import os
 import traceback
+from transfer.knowledge_tree import decode_tree, encode_tree
 
 # nohup python interface.py >../log/run.log &
 
 sc_model_path = "../model/ours/best_1690658708"
 tc_model_path = "../model/ours/best_1701809213"
 classification_knowledge_file = "../data/classification_knowledge.json"
-other_knowledge_file = '../data/other_knowledge.json'
+knowledge_file = '../data/knowledge.json'
 terms_file = "../data/terms.txt"
 dict_file = '../data/tc_data.dict'
 
@@ -380,7 +381,7 @@ def r2_to_r3_interface():
         
         r2 = Rrule_back(params['data'])
         defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r2)
-        knowledge = json.load(open(other_knowledge_file, 'r', encoding="utf-8"))
+        knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
         defines, vars, rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation = compose_rules_r2_r3(defines, vars, rules, knowledge)
         r3_json = rules_to_json_and_mydsl.r3_to_json(rules)
         r3 = rules_to_json_and_mydsl.to_mydsl(r3_json)
@@ -478,9 +479,11 @@ def get_all_knowledge_interface():
         writelog(f"### 访问接口/knowledge(获取), 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
     
-    knowledge = json.load(open('../data/knowledge.json', 'r', encoding='utf-8'))
+    classification_knowledge = json.load(open(classification_knowledge_file, 'r', encoding='utf-8'))
+    classification_knowledge_tree = encode_tree(classification_knowledge)
+    knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
     timestamp, sign = get_timestamp_sign()
-    return_data = {"code": code, "msg": "success", "data": knowledge, "timeStamp": timestamp, "sign": sign}
+    return_data = {"code": code, "msg": "success", "data": {"all_knowledge": knowledge, "classification_knowledge": classification_knowledge_tree}, "timeStamp": timestamp, "sign": sign}
     writelog(f"### 访问接口/knowledge(获取), 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
     return jsonify(return_data)
 
@@ -497,10 +500,16 @@ def process_knowledge_interface_update():
     
     knowledge = request.json['data']
     # 更新知识库
-    knowledge_base = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
-    for key in knowledge:
-        knowledge_base[key] = knowledge[key]
-    json.dump(knowledge_base, open('../data/knowledge.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
+    if "all_knowledge" in knowledge:
+        all_knowledge = knowledge['all_knowledge']
+        knowledge_base = json.load(open(knowledge_file, "r", encoding="utf-8"))
+        for key in all_knowledge:
+            knowledge_base[key] = all_knowledge[key]
+        json.dump(knowledge_base, open(knowledge_file, 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
+    if "classification_knowledge" in knowledge:
+        classification_knowledge = knowledge['classification_knowledge']
+        classification_knowledge = decode_tree(classification_knowledge)
+        json.dump(classification_knowledge, open(classification_knowledge_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     timestamp, sign = get_timestamp_sign()
     return_data = {"code": code, "msg": "success", "data": None, "timeStamp": timestamp, "sign": sign}
     writelog(f"### 访问接口/knowledge(修改), 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")

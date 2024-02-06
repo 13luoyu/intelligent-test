@@ -1,4 +1,10 @@
-import json
+import time
+from hashlib import md5
+app_secret_key = "aitest"
 
-a = open("rules_cache/r3.mydsl", "r", encoding="utf-8").read()
-json.dump({"data":a}, open("rules_cache/consistency_checking_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+def get_timestamp_sign():
+    timestamp = str(int(time.time() * 1000))
+    sign = md5(f"{timestamp}{app_secret_key}".encode("utf-8")).hexdigest().upper()
+    return timestamp, sign
+
+print(get_timestamp_sign())
