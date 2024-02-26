@@ -232,7 +232,7 @@ focus: 订单连续性操作
 rule 3.3.10.3
 sourceId 3.3.10
 focus: 订单连续性操作
-	if 交易方式 is "其他交易方式" and 操作人 is "债券投资者" and 操作 is "申报" and 报价方发出报价的申报要素 is "匿名"
+	if 交易方式 is "其他交易方式" and 操作人 is "债券投资者" and 操作 is "申报" and 是否匿名 is "匿名"
 	then 结果 is "可以"
 
 rule 3.3.10.4
@@ -274,49 +274,49 @@ focus: 订单连续性操作
 rule 3.4.3.1
 sourceId 3.4.3
 focus: 订单连续性操作
-	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 报价方发出报价的申报要素 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "解除" and 操作部分 is "交易" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
+	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 做市方式 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "解除" and 操作部分 is "交易" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
 	then 结果 is "不得"
 
 rule 3.4.3.2
 sourceId 3.4.3
 focus: 订单连续性操作
-	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 报价方发出报价的申报要素 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "解除" and 操作部分 is "交易" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
+	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 做市方式 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "解除" and 操作部分 is "交易" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
 	then 结果 is "不得"
 
 rule 3.4.3.3
 sourceId 3.4.3
 focus: 订单连续性操作
-	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 报价方发出报价的申报要素 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "改变" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
+	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 做市方式 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "改变" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
 	then 结果 is "不得"
 
 rule 3.4.3.4
 sourceId 3.4.3
 focus: 订单连续性操作
-	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 报价方发出报价的申报要素 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "改变" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
+	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 做市方式 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "改变" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
 	then 结果 is "不得"
 
 rule 3.4.3.5
 sourceId 3.4.3
 focus: 订单连续性操作
-	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 报价方发出报价的申报要素 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "解除" and 操作部分 is "交易" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
+	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 做市方式 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "解除" and 操作部分 is "交易" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
 	then 结果 is "成功"
 
 rule 3.4.3.6
 sourceId 3.4.3
 focus: 订单连续性操作
-	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 报价方发出报价的申报要素 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "解除" and 操作部分 is "交易" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
+	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 做市方式 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "解除" and 操作部分 is "交易" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
 	then 结果 is "成功"
 
 rule 3.4.3.7
 sourceId 3.4.3
 focus: 订单连续性操作
-	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 报价方发出报价的申报要素 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "改变" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
+	if 交易品种 is "债券" and 交易方式 is "竞买成交" and 做市方式 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "改变" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
 	then 结果 is "成功"
 
 rule 3.4.3.8
 sourceId 3.4.3
 focus: 订单连续性操作
-	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 报价方发出报价的申报要素 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "改变" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
+	if 交易品种 is "债券" and 交易方式 is "其他交易方式" and 做市方式 is "方式" and 约束 is "多边净额结算方式" and 系统 is "交易系统" and 约束 is "多边净额结算方式" and 操作 is "改变" and 操作部分 is "交易结果" and 结合规则 is "本规则第8.1条" and 时间 is "确认成交后"
 	then 结果 is "成功"
 
 rule 4.1.2.1
@@ -412,7 +412,7 @@ focus: 价格
 rule 4.1.6.1
 sourceId 4.1.6
 focus: 订单连续性操作
-	if 申报要素 is "申报价格" and 操作 is "申报" and 价格 超过 "有效申报价格范围"
+	if 约束 is "申报价格" and 操作 is "申报" and 价格 超过 "有效申报价格范围"
 	then 结果 is "有效"
 
 rule 4.1.6.2
@@ -514,7 +514,7 @@ focus: 订单连续性操作
 rule 4.2.6.3
 sourceId 4.2.6
 focus: 订单连续性操作
-	if 交易方式 is "点击成交" and 约束 is "按受价方输入的数量" and 约束 is "报价方所报价格" and 报价方发出报价的申报要素 is "结算方式" and 申报要素 is "结算周期"
+	if 交易方式 is "点击成交" and 约束 is "按受价方输入的数量" and 约束 is "报价方所报价格" and 约束 is "结算方式" and 申报要素 is "结算周期"
 	then 结果 is "成交"
 
 rule 4.2.7.1
@@ -568,7 +568,7 @@ focus: 订单连续性操作
 rule 4.3.4.1
 sourceId 4.3.4
 focus: 订单连续性操作
-	if 事件 is "询价方选择询价回复并确认后" and 申报指令 is "数量" and 约束 is "询价方确认的数量、价格、结算方式与结算周期"
+	if 事件 is "询价方选择询价回复并确认后" and 约束 is "数量" and 约束 is "询价方确认的数量、价格、结算方式与结算周期"
 	then 结果 is "成交"
 
 rule 4.3.5.1

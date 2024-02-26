@@ -9,7 +9,7 @@ import z3
 
 
 def process_result_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys):
-    # TODO 这个地方存疑，1、是否冲突的时间、数量、价格必须是数值变量；2、如果存在两个或更多时间、数量、价格冲突，规则是否冲突。
+    # TODO 这个地方存疑，1、是否冲突的时间、数量、价格必须是数值变量（目前是）；2、如果存在两个或更多时间、数量、价格冲突，规则是否冲突（目前不冲突）。
     if cons1_value == cons2_value:
         return False, {}
     general_diff = False  # 是否是通用的key不同
@@ -18,15 +18,22 @@ def process_result_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, 
         v2 = cons2_value[vi]
         if v1 != v2: 
             # 时间、数量、价格不同，并且是数值型变量
-            if (is_time_key(cons1_keys[vi]) or is_num_key(cons1_keys[vi]) or is_price_key(cons1_keys[vi])) and (isinstance(v1, list) or len(re.findall(r"\d+", v1)) > 0) and (isinstance(v2, list) or len(re.findall(r"\d+", v2)) > 0):
+            if (is_time_key(cons1_keys[vi]) or is_num_key(cons1_keys[vi]) or is_price_key(cons1_keys[vi])):
+                if (isinstance(v1, list) or len(re.findall(r"\d+", v1)) > 0) and (isinstance(v2, list) or len(re.findall(r"\d+", v2)) > 0):
+                    other_diff_idx.append(vi)
+                    continue
+                else:
+                    general_diff = True
+                    break
+            elif cons1_keys[vi] not in general_keys:
                 other_diff_idx.append(vi)
                 continue
             # 枚举约束，通用key不同
             else:
                 general_diff = True
                 break
-        
-    if general_diff:
+    
+    if general_diff or len(other_diff_idx) >= 2:
         # 不冲突
         return False, {}
     else:
@@ -52,9 +59,17 @@ def process_result_not_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_val
         v2 = cons2_value[vi]
         if v1 != v2: 
             # 时间、数量、价格不同，并且是数值型变量，并且有交集
-            if (is_time_key(cons1_keys[vi]) or is_num_key(cons1_keys[vi]) or is_price_key(cons1_keys[vi])) and (isinstance(v1, list) or len(re.findall(r"\d+", v1)) > 0) and (isinstance(v2, list) or len(re.findall(r"\d+", v2)) > 0) and intersection(is_time_key(cons1_keys[vi]), is_num_key(cons1_keys[vi]), is_price_key(cons1_keys[vi]), v1, v2):
-                other_diff_idx.append(vi)
-                continue
+            if (is_time_key(cons1_keys[vi]) or is_num_key(cons1_keys[vi]) or is_price_key(cons1_keys[vi])):
+                if (isinstance(v1, list) or len(re.findall(r"\d+", v1)) > 0) and (isinstance(v2, list) or len(re.findall(r"\d+", v2)) > 0) and intersection(is_time_key(cons1_keys[vi]), is_num_key(cons1_keys[vi]), is_price_key(cons1_keys[vi]), v1, v2):
+                    other_diff_idx.append(vi)
+                    continue
+                else:
+                    general_diff = True
+                    break
+            # 一个匿名成功，一个显名失败，不冲突
+            # elif cons1_keys[vi] not in general_keys:
+            #     other_diff_idx.append(vi)
+            #     continue
             # 枚举约束，通用key不同
             else:
                 general_diff = True
@@ -423,7 +438,7 @@ def consistency_checking(data):
                             # 不冲突
                             continue
 
-                        process_result_not_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys)
+                        if_conflict, info = process_result_not_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys)
                         if if_conflict:
                             conflict_rules.append(info)
                     

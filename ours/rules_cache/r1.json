@@ -1453,7 +1453,7 @@
                 "operation": "is"
             },
             {
-                "key": "报价方发出报价的申报要素",
+                "key": "是否匿名",
                 "value": "匿名",
                 "operation": "is"
             }
@@ -1714,7 +1714,7 @@
                 "operation": "is"
             },
             {
-                "key": "报价方发出报价的申报要素",
+                "key": "做市方式",
                 "value": "方式",
                 "operation": "is"
             },
@@ -1777,7 +1777,7 @@
                 "operation": "is"
             },
             {
-                "key": "报价方发出报价的申报要素",
+                "key": "做市方式",
                 "value": "方式",
                 "operation": "is"
             },
@@ -1840,7 +1840,7 @@
                 "operation": "is"
             },
             {
-                "key": "报价方发出报价的申报要素",
+                "key": "做市方式",
                 "value": "方式",
                 "operation": "is"
             },
@@ -1903,7 +1903,7 @@
                 "operation": "is"
             },
             {
-                "key": "报价方发出报价的申报要素",
+                "key": "做市方式",
                 "value": "方式",
                 "operation": "is"
             },
@@ -1966,7 +1966,7 @@
                 "operation": "is"
             },
             {
-                "key": "报价方发出报价的申报要素",
+                "key": "做市方式",
                 "value": "方式",
                 "operation": "is"
             },
@@ -2029,7 +2029,7 @@
                 "operation": "is"
             },
             {
-                "key": "报价方发出报价的申报要素",
+                "key": "做市方式",
                 "value": "方式",
                 "operation": "is"
             },
@@ -2092,7 +2092,7 @@
                 "operation": "is"
             },
             {
-                "key": "报价方发出报价的申报要素",
+                "key": "做市方式",
                 "value": "方式",
                 "operation": "is"
             },
@@ -2155,7 +2155,7 @@
                 "operation": "is"
             },
             {
-                "key": "报价方发出报价的申报要素",
+                "key": "做市方式",
                 "value": "方式",
                 "operation": "is"
             },
@@ -2781,7 +2781,7 @@
         ],
         "constraints": [
             {
-                "key": "申报要素",
+                "key": "约束",
                 "value": "申报价格",
                 "operation": "is"
             },
@@ -3334,7 +3334,7 @@
                 "operation": "is"
             },
             {
-                "key": "报价方发出报价的申报要素",
+                "key": "约束",
                 "value": "结算方式",
                 "operation": "is"
             },
@@ -3696,7 +3696,7 @@
                 "operation": "is"
             },
             {
-                "key": "申报指令",
+                "key": "约束",
                 "value": "数量",
                 "operation": "is"
             },

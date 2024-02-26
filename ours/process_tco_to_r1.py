@@ -672,7 +672,7 @@ def get_clause_for_single_value(value_cache, op_cache, knowledge, key=None):
         for item in knowledge:
             knowledge_key = item['content'].split(":")[0]
             knowledge_value = item['content'].split(":")[-1]
-            if v_value in knowledge_value:
+            if v_value in knowledge_value and "要素" not in knowledge_key and "指令" not in knowledge_key:
                 clause = f"{knowledge_key} is \"{v_value}\""
                 find = True
                 break
