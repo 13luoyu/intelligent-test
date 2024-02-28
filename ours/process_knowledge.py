@@ -47,9 +47,26 @@ def process_knowledge(rules):
                         content = content[1:]
                     elif content[:2] == "是指":
                         content = content[2:]
-                elif ":" in text and "含义" in text:
-                    label = text.split(":")[-1].split("，")[0]
-                    content = text.split(":")[-1].split("，")[-1]
+                    if content[0] == "即":
+                        content = content[1:]
+                elif ":" in text:
+                    if "含义" in text:
+                        if text.count(":") >= 2:
+                            label = text.split(":")[-2]
+                            label = label[label.find(")") + 1:]
+                            content = text.split(":")[-1]
+                        else:
+                            label = text.split(":")[-1].split("，")[0]
+                            label = label[label.find(")") + 1:]
+                            content = text.split(":")[-1].split("，")[-1]
+                    else:
+                        label = text.split(":")[0]
+                        label = label[label.find(")") + 1:]
+                        content = text.split(":")[1]
+                    if content[0] == "指":
+                        content = content[1:]
+                    elif content[:2] == "是指":
+                        content = content[2:]
                     if content[0] == "即":
                         content = content[1:]
                 else:
