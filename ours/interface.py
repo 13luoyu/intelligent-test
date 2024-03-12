@@ -13,7 +13,7 @@ from ours.process_testcase_to_outputs import generate_dicts
 from ours.process_knowledge import process_knowledge
 from ours.consistency_checking import consistency_checking
 from ours.main import add_defines
-from transfer import mydsl_to_rules, rules_to_json_and_mydsl
+from transfer import mydsl_to_rules, rules_to_mydsl
 import time
 from hashlib import md5
 import wget
@@ -346,8 +346,8 @@ def r1_to_r2_interface():
         knowledge = json.load(open(classification_knowledge_file, 'r', encoding="utf-8"))
         rules, vars = preprocess(rules, vars)
         defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, knowledge)
-        r2_json = rules_to_json_and_mydsl.r2_to_json(rules)
-        r2 = rules_to_json_and_mydsl.to_mydsl(r2_json)
+        r2_json = rules_to_mydsl.r2_to_json(rules)
+        r2 = rules_to_mydsl.rules_to_mydsl(r2_json)
 
         timestamp, sign = get_timestamp_sign()
         return_data = {"code": code, "msg": "success", "data": Rrule_transfer(r2), "timeStamp": timestamp, "sign": sign}
@@ -383,8 +383,8 @@ def r2_to_r3_interface():
         defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r2)
         knowledge = json.load(open(knowledge_file, 'r', encoding="utf-8"))
         defines, vars, rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation = compose_rules_r2_r3(defines, vars, rules, knowledge)
-        r3_json = rules_to_json_and_mydsl.r3_to_json(rules)
-        r3 = rules_to_json_and_mydsl.to_mydsl(r3_json)
+        r3_json = rules_to_mydsl.r3_to_json(rules)
+        r3 = rules_to_mydsl.rules_to_mydsl(r3_json)
 
         timestamp, sign = get_timestamp_sign()
         return_data = {"code": code, "msg": "success", "data": Rrule_transfer(r3), "timeStamp": timestamp, "sign": sign}

@@ -9,7 +9,7 @@ from ours.process_r1_to_r2 import preprocess, compose_rules_r1_r2
 from ours.process_r2_to_r3 import compose_rules_r2_r3
 from ours.process_r3_to_testcase import testcase
 from ours.process_testcase_to_outputs import generate_dicts
-from transfer import mydsl_to_rules, rules_to_json_and_mydsl
+from transfer import mydsl_to_rules, rules_to_mydsl
 import json
 from pprint import pprint
 import time
@@ -78,8 +78,8 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
     defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, classification_knowledge)
     json.dump(rules, open(r2_json_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     r2_rules = rules
-    r2_json = rules_to_json_and_mydsl.r2_to_json(r2_rules)
-    r2 = rules_to_json_and_mydsl.to_mydsl(r2_json)
+    r2_json = rules_to_mydsl.r2_to_json(r2_rules)
+    r2 = rules_to_mydsl.rules_to_mydsl(r2_json)
     with open(r2_mydsl_file, "w", encoding="utf-8") as f:
         f.write(r2)
     print(f"R2规则生成，包含规则数：{len(rules)}")
@@ -88,8 +88,8 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
     defines, vars, rules, implicit_relation_count, explicit_relation_count, relation, implicit_relation, explicit_relation = compose_rules_r2_r3(defines, vars, rules, knowledge)
     json.dump(rules, open(r3_json_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     r3_rules = rules
-    r3_json = rules_to_json_and_mydsl.r3_to_json(r3_rules)
-    r3 = rules_to_json_and_mydsl.to_mydsl(r3_json)
+    r3_json = rules_to_mydsl.r3_to_json(r3_rules)
+    r3 = rules_to_mydsl.rules_to_mydsl(r3_json)
     with open(r3_mydsl_file, "w", encoding="utf-8") as f:
         f.write(r3)
     print(f"R3规则生成，包含规则数：{len(rules)}")

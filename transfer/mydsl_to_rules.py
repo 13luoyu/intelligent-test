@@ -120,9 +120,95 @@ def mydsl_to_rules(s):
 
 
 
-if __name__ == "__main__":
-    s = open("../ours/rules_cache/r1.mydsl").read()
-    defines, vars, rules = mydsl_to_rules(s)
-    print(defines)
-    print(vars)
-    print(rules)
+
+
+
+
+def mydsl_to_rules_v2(s):
+    defines, vars, rules = {}, {}, {}
+    lines = s.split("\n")
+    for line in lines:
+        l = line.strip().split()
+        if len(l) == 0:
+            continue
+        if l[0] == "define":
+            defines[l[1]] = [l[3]]
+        elif l[0] == "rule":
+            rule_id = l[1]
+            rules[rule_id] = {}
+            vars[rule_id] = {}
+        elif l[0] == "sourceId":
+            rules[rule_id]["rule_class"] = l[1].split(",")
+        elif l[0] == "focus:":
+            rules[rule_id]['focus'] = l[1].split(",")
+
+        elif l[0] == "if":
+            constraints = []
+            i = 1
+            while i < len(l):
+                # next_and为下一个and的位置
+                next_and = i + 1
+                while next_and < len(l) and l[next_and] != "and":
+                    next_and += 1
+                constraint = {}
+                # key
+                constraint['key'] = l[i]
+                if "最大" in l[i]:
+                    constraint['key'] = l[i].split("最大")[-1]
+                elif "最小" in l[i]:
+                    constraint['key'] = l[i].split("最小")[-1]
+                # operation, value
+                if l[i+1] == "is":  # 枚举约束/自然语言表达
+                    constraint['value'] = l[i+2][1:-1]
+                    constraint['operation'] = l[i+1]
+                elif l[i+1] == "in":  # 时间约束
+                    constraint['value'] = l[i+2]
+                    constraint['operation'] = l[i+1]
+                else:  # 数值型约束
+                    constraint['value'] = l[i+1:next_and]
+                    constraint["operation"] = "compute"
+                
+                constraints.append(constraint)
+                vars[rule_id][l[i]] = []
+                i = next_and + 1
+            rules[rule_id]['constraints'] = constraints
+
+        elif l[0] == "then":
+            constraints = []
+            i = 1
+            while i < len(l):
+                # next_and为下一个and的位置
+                next_and = i + 1
+                while next_and < len(l) and l[next_and] != "and":
+                    next_and += 1
+                constraint = {}
+                # key
+                constraint['key'] = l[i]
+                if "最大" in l[i]:
+                    constraint['key'] = l[i].split("最大")[-1]
+                elif "最小" in l[i]:
+                    constraint['key'] = l[i].split("最小")[-1]
+                # operation, value
+                if l[i+1] == "is":  # 枚举约束/自然语言表达
+                    constraint['value'] = l[i+2][1:-1]
+                    constraint['operation'] = l[i+1]
+                elif l[i+1] == "in":  # 时间约束
+                    constraint['value'] = l[i+2]
+                    constraint['operation'] = l[i+1]
+                else:  # 数值型约束
+                    constraint['value'] = l[i+1:next_and]
+                    constraint["operation"] = "compute"
+                
+                constraints.append(constraint)
+                vars[rule_id][l[i]] = []
+                i = next_and + 1
+            rules[rule_id]['results'] = constraints
+        
+        elif l[0] == "before":
+            rules[rule_id]['before'] = json.loads(" ".join(l[1:]).replace("\'", "\""))
+        elif l[0] == "after:":
+            rules[rule_id]['after'] = json.loads(" ".join(l[1:]).replace("\'", "\""))
+    
+    return defines, vars, rules
+
+

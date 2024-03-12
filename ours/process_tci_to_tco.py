@@ -383,6 +383,8 @@ def token_classification_with_algorithm(tco, knowledge):
         while i != -1:
             if i+1 < len(text) and (text[i+1] == "当" or text[i+1] == "该"):
                 label[i] = label[i+1] = "O"
+            elif i+1 < len(text) and text[i+1] == "价":
+                ...
             else:
                 label[i] = "O"
             i = text.find("应", i+1)

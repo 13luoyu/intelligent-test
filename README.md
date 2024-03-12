@@ -54,7 +54,7 @@ LLM4Fin is a prototype tool for automatically generating test cases from natural
 >   - *generate_dict_for_token_classification.py*. Read all the annotated data and get all the labels to generate *data/tc_data.dict*.
 > - **transfer/**.  Code for rule format transformation.
 >   - *mydsl_to_rules.py*. Code for transfering the rules in *mydsl* format to a data structure used in programs.
->   - *rules_to_json_and_mydsl.py*. Code for transfering the data structure used in programs to rules in *mydsl* format.
+>   - *rules_to_mydsl.py*. Code for transfering the data structure used in programs to rules in *mydsl* format.
 > - **utils/**.  Code for loading data and processing input parameters
 >   - *arguments.py*.  Code for inputting hyperparameters and their default value settings in fine-tuning models.
 >   - *data_loader.py*.  Code for loading data for model fine-tuning.

@@ -1523,7 +1523,7 @@ sourceId 第三十三条
 focus: 订单连续性操作
 before: []
 after: ['第三十七条.4.1.1.2.1', '第三十七条.4.1.1.2.2']
-	if 交易方式 is '竞价' and 委托指令 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 交易方式 is '竞价' and 约束 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第三十三条.1.2.1
@@ -1531,7 +1531,7 @@ sourceId 第三十三条
 focus: 订单连续性操作
 before: []
 after: ['第三十七条.4.1.1.2.1', '第三十七条.4.1.1.2.2']
-	if 交易方式 is '竞价' and 委托指令 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 交易方式 is '竞价' and 约束 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第三十三条.2.1.1.1
@@ -1539,7 +1539,7 @@ sourceId 第三十三条
 focus: 订单连续性操作
 before: []
 after: ['第三十七条.4.1.1.2.1', '第三十七条.4.1.1.2.2']
-	if 交易方式 is '大宗交易' and 委托指令 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方式 is '盘后定价大宗交易' and 价格类型 is '证券当日成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,证券账户价格类型号码' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 交易方式 is '大宗交易' and 约束 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方式 is '盘后定价大宗交易' and 价格类型 is '证券当日成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,证券账户价格类型号码' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第三十三条.2.1.2.1
@@ -1547,7 +1547,7 @@ sourceId 第三十三条
 focus: 订单连续性操作
 before: []
 after: ['第三十七条.4.1.1.2.1', '第三十七条.4.1.1.2.2']
-	if 交易方式 is '大宗交易' and 委托指令 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方式 is '盘后定价大宗交易' and 价格类型 is '证券当日成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,证券账户价格类型号码' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 交易方式 is '大宗交易' and 约束 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方式 is '盘后定价大宗交易' and 价格类型 is '证券当日成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,证券账户价格类型号码' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第三十三条.2.2.1.1
@@ -1555,7 +1555,7 @@ sourceId 第三十三条
 focus: 订单连续性操作
 before: []
 after: ['第三十七条.4.1.1.2.1', '第三十七条.4.1.1.2.2']
-	if 交易方式 is '大宗交易' and 委托指令 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方式 is '盘后定价大宗交易' and 价格类型 is '证券当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,证券账户价格类型号码' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 交易方式 is '大宗交易' and 约束 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方式 is '盘后定价大宗交易' and 价格类型 is '证券当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,证券账户价格类型号码' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第三十三条.2.2.2.1
@@ -1563,7 +1563,7 @@ sourceId 第三十三条
 focus: 订单连续性操作
 before: []
 after: ['第三十七条.4.1.1.2.1', '第三十七条.4.1.1.2.2']
-	if 交易方式 is '大宗交易' and 委托指令 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方式 is '盘后定价大宗交易' and 价格类型 is '证券当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,证券账户价格类型号码' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 交易方式 is '大宗交易' and 约束 is '委托' and 申报类型 is '申报' and 申报类型 is '申报' and 交易方式 is '成交' and 交易方式 is '成交' and 约束 is '交易时间' and 事宜 is '交易时间' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方式 is '盘后定价大宗交易' and 价格类型 is '证券当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,证券账户价格类型号码' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第三十四条.1.1.1

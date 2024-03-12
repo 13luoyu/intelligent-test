@@ -40,10 +40,10 @@ def process_result_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, 
         # 冲突
         reason = f"规则{id1}和{id2}的结果相同，但存在互相冲突的约束：对规则{id1}，"
         for idx in other_diff_idx:
-            reason += f"{cons1_keys[idx]}为{cons1_value[idx]}，"
+            reason += f"{cons1_keys[idx]}{' ' + ' '.join(cons1_value[idx]) if isinstance(cons1_value[idx], list) else '为' + cons1_value[idx]}，"
         reason += f"而对规则{id2}，"
         for idx in other_diff_idx:
-            reason += f"{cons2_keys[idx]}为{cons2_value[idx]}，"
+            reason += f"{cons2_keys[idx]}{' ' + ' '.join(cons2_value[idx]) if isinstance(cons2_value[idx], list) else '为' + cons2_value[idx]}，"
         reason = f"{reason[:-1]}。"
         return True, {"rule_ids":[id1, id2], "reason":reason}
 
@@ -80,12 +80,12 @@ def process_result_not_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_val
         return False, {}
     else:
         # 冲突
-        reason = f"规则{id1}和{id2}的结果相同，但存在互相冲突的约束：对规则{id1}，"
+        reason = f"规则{id1}和{id2}的结果不同，但存在互相冲突的约束：对规则{id1}，"
         for idx in other_diff_idx:
-            reason += f"{cons1_keys[idx]}为{cons1_value[idx]}，"
+            reason += f"{cons1_keys[idx]}{' ' + ' '.join(cons1_value[idx]) if isinstance(cons1_value[idx], list) else '为' + cons1_value[idx]}，"
         reason += f"而对规则{id2}，"
         for idx in other_diff_idx:
-            reason += f"{cons2_keys[idx]}为{cons2_value[idx]}，"
+            reason += f"{cons2_keys[idx]}{' ' + ' '.join(cons2_value[idx]) if isinstance(cons2_value[idx], list) else '为' + cons2_value[idx]}，"
         reason = f"{reason[:-1]}。"
         return True, {"rule_ids":[id1, id2], "reason":reason}
 
@@ -374,7 +374,7 @@ def consistency_checking(data):
                             conflict_rules.append(info)
                     
                     elif cons1_in_cons2 or cons2_in_cons1:
-                        
+
                         cons1_keys, cons1_value, cons2_keys, cons2_value = instantiate(cons1_keys, cons1_value, cons2_keys, cons2_value, then_same)
                         assert cons1_keys == cons2_keys and len(cons2_keys) == len(cons2_value) == len(cons1_keys) == len(cons1_value)
 
