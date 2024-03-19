@@ -540,7 +540,7 @@ def get_ori_id(rule_id, id_example):
             ids.append(id.split(".")[0])
         else:
             point_count = id_example.count(".")
-            ids.append(".".join(id.split(".")[:point_count]))
+            ids.append(".".join(id.split(".")[:point_count+1]))
     return ids
 
 
