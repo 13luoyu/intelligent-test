@@ -76,5 +76,5 @@ if __name__ == "__main__":
     model = training_args["model"]
     saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], model, training_args)
     eval_model(training_args["validate_dataset"], saved_path, training_args)
-    # saved_path = "../model/ours/best_1690658708"
+    # saved_path = "../model/ours/mengzi_rule_filtering"
     # eval_model("../data/sc_validate_data.json", saved_path, training_args)

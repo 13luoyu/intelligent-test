@@ -1,7 +1,8 @@
 # token classification任务
 
 import json
-from transformers import AutoModelForTokenClassification, AutoTokenizer
+from transformers import AutoModelForTokenClassification, AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from peft import PeftConfig, PeftModel
 import torch
 from utils.data_loader import read_dict
 import hanlp
@@ -584,8 +585,35 @@ def token_classification(tci: list, knowledge, model_path: str, dict_file: str, 
 
 
 
+
+def token_classification_v2(tci, model_name_or_path):
+    bnb_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_use_double_quant=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16)
+    device_map = "cuda:0" if torch.cuda.is_available() else "auto"
+
+    peft_config = PeftConfig.from_pretrained(model_name_or_path)
+    model = AutoModelForCausalLM.from_pretrained(peft_config.base_model_name_or_path, device_map=device_map, torch_dtype=torch.float16, load_in_8bit=False, trust_remote_code=True, use_flash_attention_2=True, quantization_config=bnb_config)
+    model = PeftModel.from_pretrained(model, model_name_or_path, device_map=device_map)
+    model.eval()
+    tokenizer = AutoTokenizer.from_pretrained(peft_config.base_model_name_or_path, use_fast=False)
+
+    tco = tci.copy()
+    for rule in tco:
+        input_ids = tokenizer([f"<s>Human: 给出一条规则，请你尽可能全面地将规则中的关键信息抽取出来。\n规则: {rule['text']}\n</s><s>Assistant: "], return_tensors="pt", add_special_tokens=False).input_ids
+        if torch.cuda.is_available():
+            input_ids = input_ids.to('cuda')
+        generate_input = {
+            "input_ids": input_ids
+        }
+        generate_ids = model.generate(**generate_input)
+        label = tokenizer.decode(generate_ids[0]).split("Assistant:")[-1].split("</s>")[0].strip()
+        rule['label'] = label
+    return tco
+
 if __name__ == "__main__":
     tci_data = json.load(open("rules_cache/tci.json", "r", encoding="utf-8"))
-    knowledge = json.load(open("../data/classification_knowledge.json", "r", encoding="utf-8"))
-    tco_data = token_classification(tci_data, knowledge, "../model/ours/best_1701809213", "../data/tc_data.dict")
-    json.dump(tco_data, open("rules_cache/tco.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    # knowledge = json.load(open("../data/classification_knowledge.json", "r", encoding="utf-8"))
+    # tco_data = token_classification(tci_data, knowledge, "../model/ours/mengzi_rule_element_extraction", "../data/tc_data.dict")
+    # json.dump(tco_data, open("rules_cache/tco.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+
+    tco_data = token_classification_v2(tci_data, "../lora/output/best_model_dev_dev_acc0_9792")
+    json.dump(tco_data, open("rules_cache/tco_llama.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

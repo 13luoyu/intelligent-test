@@ -105,22 +105,6 @@ def deal_with_event_precond(event):
         values.append(v)
     return keys, values
 
-    # if event[-1] != "。":
-    #     event = event + "。"
-    # tci = [
-    #     {
-    #         "id":"1.1.1",
-    #         "text":event,
-    #         "label":""
-    #     }
-    # ]
-    # knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
-    # tco = token_classification(tci, knowledge, "../model/ours/best_1701809213", "../data/tc_data.dict")
-    # # 当日额度在本所盘后定价交易阶段使用完毕的
-    # r1 = to_r1(tco, knowledge)
-    # print(r1)
-    # return [], []
-
 
 
 def deal_with_event(vars, rules):

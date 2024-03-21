@@ -48,10 +48,10 @@ def llm_to_excel():
             to_excel(data, f"excel/chatgpt_{file.split('_')[-1].split('.')[0]}.xlsx")
 
 def ours_to_excel():
-    for file in os.listdir("rules_and_testcases_part"):
+    for file in os.listdir("rules_and_testcases_for_experiment"):
         if "testcases" in file:
             print(f"处理文件{file}")
-            data = json.load(open(f"rules_and_testcases_part/{file}", "r", encoding="utf-8"))
+            data = json.load(open(f"rules_and_testcases_for_experiment/{file}", "r", encoding="utf-8"))
             data = [di for d in data for di in d]
             to_excel(data, f"excel/ours_{file.split('_')[0]}.xlsx")
 

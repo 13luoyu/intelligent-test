@@ -23,8 +23,8 @@ from transfer.knowledge_tree import decode_tree, encode_tree
 
 # nohup python interface.py >../log/run.log &
 
-sc_model_path = "../model/ours/best_1690658708"
-tc_model_path = "../model/ours/best_1701809213"
+sc_model_path = "../model/ours/mengzi_rule_filtering"
+tc_model_path = "../model/ours/mengzi_rule_element_extraction"
 classification_knowledge_file = "../data/classification_knowledge.json"
 knowledge_file = '../data/knowledge.json'
 terms_file = "../data/terms.txt"

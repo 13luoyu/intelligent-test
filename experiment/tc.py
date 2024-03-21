@@ -120,7 +120,7 @@ def evaluate(in_file, out_file, threshold=0.8):
 if __name__ == "__main__":
 
     for file in sorted(os.listdir('../model/ours/')):
-        if file == 'best_1690658708' or file == 'best_1690329462' or 'checkpoint' in file:
+        if file == 'mengzi_rule_filtering' or file == 'best_1690329462' or 'checkpoint' in file:
             continue
         print(file)
         # 执行信息抽取

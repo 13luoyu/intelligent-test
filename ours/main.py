@@ -2,8 +2,8 @@
 from ours.process_nl_to_sci import nl_to_sci
 from ours.process_sci_to_sco import sequence_classification
 from ours.process_sco_to_tci import sco_to_tci
-from ours.process_tci_to_tco import token_classification
-from ours.process_tco_to_r1 import to_r1
+from ours.process_tci_to_tco import token_classification, token_classification_v2
+from ours.process_tco_to_r1 import to_r1, to_r1_v2
 
 from ours.process_r1_to_r2 import preprocess, compose_rules_r1_r2
 from ours.process_r2_to_r3 import compose_rules_r2_r3
@@ -13,6 +13,7 @@ from transfer import mydsl_to_rules, rules_to_mydsl
 import json
 from pprint import pprint
 import time
+import argparse
 
 def add_defines(s, market_variety):
     s = f"define 交易市场 = {market_variety['market']}\ndefine 交易品种 = {market_variety['variety']}\n\n{s}"
@@ -51,11 +52,17 @@ def nlp_process(input_file: str,
     # 标注句子中每个字的类别
     knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
     terms = open(terms_file, "r", encoding="utf-8").read().split("\n")
-    tco = token_classification(tci, knowledge, tc_model, tc_dict, batch_size, sentence_max_length)
+    if "mengzi" in tc_model:
+        tco = token_classification(tci, knowledge, tc_model, tc_dict, batch_size, sentence_max_length)
+    else:
+        tco = token_classification_v2(tci, tc_model)
     json.dump(tco, open(tco_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     print("规则元素抽取任务完成")
     # 调用转R1
-    r1 = to_r1(tco, knowledge, terms)
+    if "mengzi" in tc_model:
+        r1 = to_r1(tco, knowledge, terms)
+    else:
+        r1 = to_r1_v2(tco, knowledge, terms)
     r1 = add_defines(r1, market_variety)
     with open(r1_file, "w", encoding="utf-8") as f:
         f.write(r1)
@@ -115,8 +122,21 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model", type=str, default="mengzi", choices=["mengzi", "finbert", "llama"])
+    parser.add_argument("--file", type=str, default="深圳证券交易所债券交易规则")
+    args = parser.parse_args()
+    if args.model == "mengzi":
+        tc_model_path = "../model/ours/mengzi_rule_element_extraction"
+    elif args.model == "finbert":
+        tc_model_path = "../model/ours/mengzi_rule_element_extraction"
+    elif args.model == "llama":
+        tc_model_path = "../lora/output/best_model_dev_dev_acc0_9792"
+    else:
+        raise ValueError(f"需要设置参数 --model 为 'mengzi', 'finbert', 'llama' 之一")
+    
     begin_time = time.time()
-    nlp_process("rules_cache/深圳证券交易所债券交易规则.pdf", "rules_cache/setting.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/classification_knowledge.json", "../data/terms.txt", "../model/ours/best_1690658708", "../model/ours/best_1701809213", "../data/tc_data.dict")
+    nlp_process(f"rules_cache/{args.file}.pdf", "rules_cache/setting.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/classification_knowledge.json", "../data/terms.txt", "../model/ours/mengzi_rule_filtering", tc_model_path, "../data/tc_data.dict")
     alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r2.mydsl", "rules_cache/r3.json", "rules_cache/r3.mydsl", "rules_cache/testcase.json", "../data/classification_knowledge.json", "../data/knowledge.json", "rules_cache/relation.json", "rules_cache/explicit_relation.json", "rules_cache/implicit_relation.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")

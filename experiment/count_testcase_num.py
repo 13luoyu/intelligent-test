@@ -23,8 +23,8 @@ if __name__ == "__main__":
             data = json.load(open("llm_result/" + file, "r", encoding="utf-8"))
             num = count_testcase_num(data)
             print(f"文件{file}测试用例数目: {num}")
-    for file in sorted(os.listdir("rules_and_testcases_part")):
+    for file in sorted(os.listdir("rules_and_testcases_for_experiment")):
         if ".json" in file:
-            data = json.load(open("rules_and_testcases_part/" + file, "r", encoding="utf-8"))
+            data = json.load(open("rules_and_testcases_for_experiment/" + file, "r", encoding="utf-8"))
             num = count_testcase_num(data)
             print(f"文件{file}测试用例数目: {num}")

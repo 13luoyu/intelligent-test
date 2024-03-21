@@ -541,7 +541,7 @@ def compute_bsc_ours(summary_f):
         # if "data2" not in file:
         #     continue
         f = open(f"log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
-        testcase_file = f"rules_and_testcases_part/{file.split('_')[0]}_testcases.json"
+        testcase_file = f"rules_and_testcases_for_experiment/{file.split('_')[0]}_testcases.json"
         scenario_file = f"business_scenario/{file}"
         testcases = json.load(open(testcase_file, "r", encoding="utf-8"))
         scenarios = open(scenario_file, "r", encoding="utf-8").read().strip().split("\n")

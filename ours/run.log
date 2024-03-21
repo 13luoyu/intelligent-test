@@ -1,10 +1,2 @@
-Traceback (most recent call last):
-  File "/home/asus/intelligent-test/ours/consistency_checking.py", line 444, in <module>
-    conflict_rules = consistency_checking(input_data['data'])
-  File "/home/asus/intelligent-test/ours/consistency_checking.py", line 423, in consistency_checking
-    process_result_not_same_key_same(id1, id2, cons1_keys, cons2_keys, cons1_value, cons2_value, general_keys)
-  File "/home/asus/intelligent-test/ours/consistency_checking.py", line 55, in process_result_not_same_key_same
-    if (is_time_key(cons1_keys[vi]) or is_num_key(cons1_keys[vi]) or is_price_key(cons1_keys[vi])) and (isinstance(v1, list) or len(re.findall(r"\d+", v1)) > 0) and (isinstance(v2, list) or len(re.findall(r"\d+", v2)) > 0) and intersection(is_time_key(cons1_keys[vi]), is_num_key(cons1_keys[vi]), is_price_key(cons1_keys[vi]), v1, v2):
-  File "/home/asus/intelligent-test/ours/consistency_checking.py", line 86, in intersection
-    v1, v2, v3, v4 = v1.split("-")[0], v1.split("-")[1], v2.split("-")[0], v2.split("-")[1]
-IndexError: list index out of range
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:04<00:08,  4.04s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:06<00:03,  3.25s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  2.90s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:09<00:00,  3.07s/it]

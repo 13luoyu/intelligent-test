@@ -8,5 +8,17 @@ focus: 价格
 rule 3.3.6.6
 sourceId 3.3.6
 focus: 价格
+	if 交易方式 is "匹配成交" and 交易品种 is "债券现券"
+	then 申报价格最小变动单位 is "0.002元"
+
+rule 3.3.6.7
+sourceId 3.3.6
+focus: 价格
 	if 交易方式 is "点击成交" and 交易品种 is "债券现券"
-	then 申报价格最小变动单位 is "0.002元" and 数量 is "100"
+	then 申报价格最小变动单位 is "0.002元"
+
+rule 3.3.6.8
+sourceId 3.3.6
+focus: 数量
+	if 交易方式 is "匹配成交"
+	then 申报数量 is "10万元面额或其整数倍"

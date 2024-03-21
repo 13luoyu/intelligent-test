@@ -53,5 +53,5 @@ def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sen
 
 if __name__ == "__main__":
     sci_data = json.load(open("rules_cache/sci.json", "r", encoding="utf-8"))
-    sco_data = sequence_classification(sci_data, "../model/ours/best_1690658708")
+    sco_data = sequence_classification(sci_data, "../model/ours/mengzi_rule_filtering")
     json.dump(sco_data, open("rules_cache/sco.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
