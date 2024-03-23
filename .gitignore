@@ -1,0 +1,12 @@
+model/
+decoder_fine_tuning/output/
+decoder_fine_tuning/__pycache__/
+decoder_lora/output/
+decoder_lora/__pycache__/
+encoder_fine_tuning/output/
+encoder_fine_tuning/__pycache__/
+experiment/__pycache__/
+Intelligent_Test.egg-info/
+ours/__pycache__/
+support/__pycache__/
+transfer/__pycache__/

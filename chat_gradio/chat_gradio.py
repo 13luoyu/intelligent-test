@@ -1,5 +1,5 @@
 import gradio as gr
-from transformers import AutoTokenizer, AutoModelForCausalLM, TextIteratorStreamer
+from transformers import AutoTokenizer, AutoModelForCausalLM, TextIteratorStreamer, BitsAndBytesConfig
 from threading import Thread
 import torch
 import time
@@ -100,7 +100,7 @@ def create_gradio_process(model, tokenizer, streamer):
 def get_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_name_or_path", type=str, help='要加载的模型名词或路径')
-    parser.add_argument("--is_4bit", action="store_true", help="使用4bit模型")
+    parser.add_argument("--mode", type=str, help="加载模型的模式", default="None", choices=["base", "8bit-base"])
     args = parser.parse_args()
     return args
 
@@ -110,13 +110,14 @@ def chat_gradio():
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False)
     tokenizer.pad_token = tokenizer.eos_token
     
-    if not args.is_4bit:
+    if args.mode == "8bit-base":
         model = AutoModelForCausalLM.from_pretrained(args.model_name_or_path, device_map='cuda:0' if torch.cuda.is_available() else 'auto', torch_dtype=torch.float16, load_in_8bit=True, trust_remote_code=True, use_flash_attention_2=True)
         model.eval()
+    elif args.mode == "base":
+        model = AutoModelForCausalLM.from_pretrained(args.model_name_or_path, device_map='cuda:0' if torch.cuda.is_available() else 'auto', torch_dtype=torch.float16, trust_remote_code=True, use_flash_attention_2=True)
+        model.eval()
     else:
-        # Untested
-        from auto_gptq import AutoGPTQForCausalLM
-        model = AutoGPTQForCausalLM.from_quantized(args.model_name_or_path,low_cpu_mem_usage=True, device="cuda:0", use_triton=False,inject_fused_attention=False,inject_fused_mlp=False)
+        raise ValueError(f"未指定加载模型的模式 --mode, 必须为 \"base\", \"8bit-base\" 之一")
     
     streamer = TextIteratorStreamer(tokenizer, skip_prompt=True)
     if torch.__version__ >= "2" and sys.platform != "win32":

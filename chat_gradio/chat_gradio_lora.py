@@ -10,7 +10,7 @@ import argparse
 
 
 
-# python chat_gradio_lora.py --model_name_or_path ../lora/output/best_model_dev_dev_acc0_9792
+# python chat_gradio_lora.py --model_name_or_path ../lora/output/best_model_dev_dev_acc0_9792 --mode 4bit-lora
 
 
 def create_gradio_process(model, tokenizer, streamer):
@@ -102,7 +102,7 @@ def create_gradio_process(model, tokenizer, streamer):
 def get_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_name_or_path", type=str, help='要加载的模型名词或路径')
-    parser.add_argument("--is_4bit", action="store_true", help="使用4bit模型")
+    parser.add_argument("--mode", type=str, help="加载base model的模式", default="None", choices=["4bit-lora", "8bit-lora", "lora"])
     args = parser.parse_args()
     return args
 
@@ -112,7 +112,7 @@ def chat_gradio_lora():
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False)
     tokenizer.pad_token = tokenizer.eos_token
     
-    if not args.is_4bit:
+    if args.mode == "4bit-lora":
         bnb_config = BitsAndBytesConfig(
             load_in_4bit=True,  # 4位量化
             bnb_4bit_use_double_quant=True,  # 此标志用于嵌套量化，其中第一次量化的量化常数再次量化
@@ -125,11 +125,26 @@ def chat_gradio_lora():
         model = AutoModelForCausalLM.from_pretrained(config.base_model_name_or_path, device_map='cuda:0' if torch.cuda.is_available() else "auto", torch_dtype=torch.float16, trust_remote_code=True, use_flash_attention_2=True, quantization_config=bnb_config)
         model = PeftModel.from_pretrained(model, args.model_name_or_path, device_map='cuda:0' if torch.cuda.is_available() else "auto")
         model.eval()
+        # from auto_gptq import AutoGPTQForCausalLM
+        # model = AutoGPTQForCausalLM.from_quantized(args.model_name_or_path,low_cpu_mem_usage=True, device="cuda:0", use_triton=False,inject_fused_attention=False,inject_fused_mlp=False)
+    elif args.mode == "8bit-lora":
+        config = PeftConfig.from_pretrained(args.model_name_or_path)
+        tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path, use_fast=False)
+        tokenizer.pad_token = tokenizer.eos_token
+        model = AutoModelForCausalLM.from_pretrained(config.base_model_name_or_path, device_map='cuda:0' if torch.cuda.is_available() else "auto", torch_dtype=torch.float16, trust_remote_code=True, use_flash_attention_2=True, load_in_8bit=True)
+        model = PeftModel.from_pretrained(model, args.model_name_or_path, device_map='cuda:0' if torch.cuda.is_available() else "auto")
+        model.eval()
+    elif args.mode == "lora":
+        config = PeftConfig.from_pretrained(args.model_name_or_path)
+        tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path, use_fast=False)
+        tokenizer.pad_token = tokenizer.eos_token
+        model = AutoModelForCausalLM.from_pretrained(config.base_model_name_or_path, device_map='cuda:0' if torch.cuda.is_available() else "auto", torch_dtype=torch.float16, trust_remote_code=True, use_flash_attention_2=True)
+        model = PeftModel.from_pretrained(model, args.model_name_or_path, device_map='cuda:0' if torch.cuda.is_available() else "auto")
+        model.eval()
     else:
-        # TODO Untested
-        from auto_gptq import AutoGPTQForCausalLM
-        model = AutoGPTQForCausalLM.from_quantized(args.model_name_or_path,low_cpu_mem_usage=True, device="cuda:0", use_triton=False,inject_fused_attention=False,inject_fused_mlp=False)
-    
+        raise ValueError(f"未指定加载base model的模式，必须为 \"4bit-lora\", \"8bit-lora\", \"lora\" 之一")
+
+
     streamer = TextIteratorStreamer(tokenizer, skip_prompt=True)
     if torch.__version__ >= "2" and sys.platform != "win32":
         model = torch.compile(model)
