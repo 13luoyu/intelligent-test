@@ -1,8 +1,8 @@
-from lora.arguments import get_arguments
-from lora.log import get_logger
-from lora.model import judge_and_get_last_checkpoint, load_model_and_tokenizer
-from lora.dataset import load_datasets
-from lora.train import train_model
+from decoder_lora.arguments import get_arguments
+from decoder_lora.log import get_logger
+from decoder_lora.model import judge_and_get_last_checkpoint, load_model_and_tokenizer
+from decoder_lora.dataset import load_datasets
+from decoder_lora.train import train_model
 from transformers import set_seed
 
 def main():

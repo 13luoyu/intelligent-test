@@ -3,14 +3,16 @@
 # nohup bash run.sh >../log/run_atom_lora.log &
 
 output_dir=./output
+
+
 # 需要修改到自己的输入目录
 if [ ! -d ${output_dir} ];then  
     mkdir ${output_dir}
 fi
 python train_lora_model.py \
     --model_name_or_path ../model/pretrained/Atom-7B \
-    --train_files ../data/train_ir.csv \
-    --validation_files  ../data/dev_ir.csv \
+    --train_files ../data/ir_train.csv \
+    --validation_files  ../data/ir_validate.csv \
     --per_device_train_batch_size 1 \
     --per_device_eval_batch_size 1 \
     --do_train \
@@ -58,14 +60,14 @@ python merge.py \
 #     --model_name_or_path ${output_dir}/best_model_4bit \
 #     --mode base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/dev_ir.csv \
+#     --eval_dataset ../data/ir_validate.csv \
 #     --prediction_file ./predict_data/predict_result_4bit_merge_normal_load.json
 
 # python predict.py \
 #     --model_name_or_path ${output_dir}/best_model_4bit \
 #     --mode 8bit-base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/dev_ir.csv \
+#     --eval_dataset ../data/ir_validate.csv \
 #     --prediction_file ./predict_data/predict_result_4bit_merge_8bit_load.json
 
 
@@ -78,14 +80,14 @@ python merge.py \
 #     --model_name_or_path ${output_dir}/best_model_8bit \
 #     --mode base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/dev_ir.csv \
+#     --eval_dataset ../data/ir_validate.csv \
 #     --prediction_file ./predict_data/predict_result_8bit_merge_normal_load.json
 
 # python predict.py \
 #     --model_name_or_path ${output_dir}/best_model_8bit \
 #     --mode 8bit-base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/dev_ir.csv \
+#     --eval_dataset ../data/ir_validate.csv \
 #     --prediction_file ./predict_data/predict_result_8bit_merge_8bit_load.json
 
 
@@ -97,36 +99,42 @@ python merge.py \
 #     --model_name_or_path ${output_dir}/best_model \
 #     --mode base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/dev_ir.csv \
+#     --eval_dataset ../data/ir_validate.csv \
 #     --prediction_file ./predict_data/predict_result_normal_merge_normal_load.json
 
 # python predict.py \
 #     --model_name_or_path ${output_dir}/best_model \
 #     --mode 8bit-base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/dev_ir.csv \
+#     --eval_dataset ../data/ir_validate.csv \
 #     --prediction_file ./predict_data/predict_result_normal_merge_8bit_load.json
 
 
 
 
-python predict.py \
-    --model_name_or_path ${output_dir}/best_lora_model \
-    --mode 8bit-lora \
-    --tokenizer_fast false \
-    --eval_dataset ../data/dev_ir.csv \
-    --prediction_file ./predict_data/predict_result_8bit_load_lora.json
+# python predict.py \
+#     --model_name_or_path ${output_dir}/best_lora_model \
+#     --mode 8bit-lora \
+#     --tokenizer_fast false \
+#     --eval_dataset ../data/ir_validate.csv \
+#     --prediction_file ./predict_data/predict_result_8bit_load_lora.json
 
 python predict.py \
     --model_name_or_path ${output_dir}/best_lora_model \
     --mode 4bit-lora \
     --tokenizer_fast false \
-    --eval_dataset ../data/dev_ir.csv \
+    --eval_dataset ../data/ir_validate.csv \
     --prediction_file ./predict_data/predict_result_4bit_load_lora.json
 
 python predict.py \
     --model_name_or_path ${output_dir}/best_lora_model \
     --mode lora \
     --tokenizer_fast false \
-    --eval_dataset ../data/dev_ir.csv \
+    --eval_dataset ../data/ir_validate.csv \
     --prediction_file ./predict_data/predict_result_normal_load_lora.json
+
+
+
+cd output
+rm -rf checkpoint-*
+cd ..

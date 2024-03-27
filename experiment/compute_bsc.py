@@ -541,14 +541,15 @@ def compute_bsc_ours(summary_f):
         # if "data2" not in file:
         #     continue
         f = open(f"log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
-        testcase_file = f"rules_and_testcases_for_experiment/{file.split('_')[0]}_testcases.json"
-        scenario_file = f"business_scenario/{file}"
-        testcases = json.load(open(testcase_file, "r", encoding="utf-8"))
-        scenarios = open(scenario_file, "r", encoding="utf-8").read().strip().split("\n")
-        bsc = compute_bsc_v2(testcases, scenarios, f, type="ours")
-        print(f"数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}")
-        f.write(f"数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
-        summary_f.write(f"ours在数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
+        for llm in ["mengzi", "finbert", "atom"]:
+            testcase_file = f"rules_and_testcases_for_experiment/{file.split('_')[0]}_testcases_{llm}.json"
+            scenario_file = f"business_scenario/{file}"
+            testcases = json.load(open(testcase_file, "r", encoding="utf-8"))
+            scenarios = open(scenario_file, "r", encoding="utf-8").read().strip().split("\n")
+            bsc = compute_bsc_v2(testcases, scenarios, f, type="ours")
+            print(f"使用{llm}，数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}")
+            f.write(f"使用{llm}，数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
+            summary_f.write(f"ours使用{llm}在数据集{file.split('_')[0]}的业务场景覆盖率为{round(bsc, 4)}\n")
         f.close()
 
 

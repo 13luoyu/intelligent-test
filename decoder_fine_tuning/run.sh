@@ -9,8 +9,8 @@ if [ ! -d ${output_dir} ];then
 fi
 python fine_tune_model.py \
     --model_name_or_path ../model/pretrained/Atom-7B \
-    --train_files ../data/train_ir.csv \
-    --validation_files  ../data/dev_ir.csv \
+    --train_files ../data/ir_train.csv \
+    --validation_files  ../data/ir_validate.csv \
     --per_device_train_batch_size 1 \
     --per_device_eval_batch_size 1 \
     --do_train \
@@ -50,7 +50,7 @@ python predict.py \
     --model_name_or_path ${output_dir}/best_model \
     --mode base \
     --tokenizer_fast false \
-    --eval_dataset ../data/dev_ir.csv \
+    --eval_dataset ../data/ir_validate.csv \
     --prediction_file ./predict_data/predict_result_base.json
 
 
@@ -58,5 +58,5 @@ python predict.py \
     --model_name_or_path ${output_dir}/best_model \
     --mode 8bit-base \
     --tokenizer_fast false \
-    --eval_dataset ../data/dev_ir.csv \
+    --eval_dataset ../data/ir_validate.csv \
     --prediction_file ./predict_data/predict_result_8bit-base.json

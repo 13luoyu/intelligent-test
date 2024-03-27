@@ -107,7 +107,7 @@ def get_parser():
 
 def chat_gradio():
     args = get_parser()
-    tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False)
+    tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False, trust_remote_code=True)
     tokenizer.pad_token = tokenizer.eos_token
     
     if args.mode == "8bit-base":

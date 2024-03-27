@@ -158,7 +158,7 @@ def mydsl_to_rules_v2(s):
                 elif "最小" in l[i]:
                     constraint['key'] = l[i].split("最小")[-1]
                 # operation, value
-                if l[i+1] == "is":  # 枚举约束/自然语言表达
+                if l[i+1] == "is" or l[i+1] == "canbe":  # 枚举约束/自然语言表达
                     constraint['value'] = l[i+2][1:-1]
                     constraint['operation'] = l[i+1]
                 elif l[i+1] == "in":  # 时间约束
@@ -189,7 +189,7 @@ def mydsl_to_rules_v2(s):
                 elif "最小" in l[i]:
                     constraint['key'] = l[i].split("最小")[-1]
                 # operation, value
-                if l[i+1] == "is":  # 枚举约束/自然语言表达
+                if l[i+1] == "is" or l[i+1] == "canbe":  # 枚举约束/自然语言表达
                     constraint['value'] = l[i+2][1:-1]
                     constraint['operation'] = l[i+1]
                 elif l[i+1] == "in":  # 时间约束
@@ -204,10 +204,12 @@ def mydsl_to_rules_v2(s):
                 i = next_and + 1
             rules[rule_id]['results'] = constraints
         
-        elif l[0] == "before":
+        elif l[0] == "before:":
             rules[rule_id]['before'] = json.loads(" ".join(l[1:]).replace("\'", "\""))
         elif l[0] == "after:":
             rules[rule_id]['after'] = json.loads(" ".join(l[1:]).replace("\'", "\""))
+        elif l[0] == "orId":
+            rules[rule_id]['orId'] = int(l[1])
     
     return defines, vars, rules
 

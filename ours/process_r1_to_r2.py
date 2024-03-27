@@ -893,11 +893,11 @@ def subrule_compose(vars, rules):
                             find_num_price = True
                             if c['value'] == c1['value']:
                                 find = True
-                    if not find_num_price or conflict:
+                    if conflict or not find_num_price:
                         break
                     if not find:
                         new_rule["constraints"].append(copy.deepcopy(c))
-                if not find_num_price or conflict:
+                if conflict or not find_num_price:
                     continue
                 # 合并results, focus
                 if "results" not in new_rule and "results" in rules[keys[j]]:

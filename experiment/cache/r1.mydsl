@@ -4,37 +4,25 @@ define 交易品种 = 向不特定对象发行的可转债
 rule 第二十七条.1
 sourceId 第二十七条
 focus: 时间
-	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 交易时间 is "每个交易日的9:15至11:30、13:00至15:30"
+	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 交易时间 is "每个交易日的9:15至11:30" and 时间 is "13:00至15:30"
 	then 结果 is "成功"
 
 rule 第二十七条.2
 sourceId 第二十七条
 focus: 订单连续性操作
-	if 状态 is "当天全天停牌、处于临时停牌期,停牌至收市"
-	then 结果 is "成功"
+	if 交易品种 is "当天全天停牌、处于临时停牌期间或者停牌至收市的可转债" and 系统 is "本所" and 交易方式 is "协商成交交易申报"
+	then 结果 is "不接受"
 
 rule 第二十七条.3
 sourceId 第二十七条
-focus: 订单连续性操作
-	if 交易品种 is "市的可转债" and 系统 is "本所" and 交易方式 is "其协商成交交易" and 操作 is "申报"
-	then 结果 is "不接受"
+focus: 时间
+	if 交易方式 is "盘后定价成交" and 交易时间 is "每个交易日的15:05至15:30"
+	then 结果 is "成功"
 
 rule 第二十七条.4
 sourceId 第二十七条
 focus: 订单连续性操作
-	if 交易品种 is "市的可转债" and 系统 is "本所" and 交易方式 is "其协商成交交易" and 操作 is "申报"
-	then 结果 is "不接受"
-
-rule 第二十七条.5
-sourceId 第二十七条
-focus: 时间
-	if 交易方式 is "盘后定价成交方式" and 交易时间 is "每个交易日的15:05至15:30"
-	then 结果 is "成功"
-
-rule 第二十七条.6
-sourceId 第二十七条
-focus: 订单连续性操作
-	if 状态 is "当天全天停牌或者停牌至" and 交易品种 is "收市的可转债" and 系统 is "本所" and 交易方式 is "其盘后定价成交" and 操作 is "申报"
+	if 交易品种 is "当天全天停牌或者停牌至收市的可转债" and 系统 is "本所" and 交易方式 is "盘后定价成交交易申报"
 	then 结果 is "不接受"
 
 rule 第二十八条.1
@@ -52,49 +40,25 @@ focus: 价格
 rule 第二十九条.1
 sourceId 第二十九条
 focus: 订单连续性操作
-	if 操作 is "申报" and 操作部分 is "意向申报" and 操作 is "撤销"
-	then 结果 is "可以"
+	if 交易方式 is "意向申报" and 操作 is "撤销" and 操作部分 is "意向申报指令"
+	then 结果 is "成功"
 
 rule 第二十九条.2
 sourceId 第二十九条
 focus: 订单连续性操作
-	if 系统 is "本所" and 约束 is "约定号" and 约束 is "证券代码" and 约束 is "买卖方向" and 价格类型 is "价格" and 操作 is "申报" and 约束 is "数量"
+	if 操作 is "撤销" and 系统 is "本所"
 	then 结果 is "成功"
 
 rule 第二十九条.3
 sourceId 第二十九条
 focus: 订单连续性操作
-	if 操作人 is "市场所有参与者" and 操作 is "提交" and 操作部分 is "成交申报" and 申报价格 is "指定的价格" and 系统 is "本所" and 申报类型 is "定价申报"
-	then 结果 is "可以"
+	if 操作部分 is "匹配成交申报" and 操作人 is "市场所有参与者" and 操作 is "提交" and 操作部分 is "成交申报" and 操作 is "按" and 操作部分 is "定价申报" and 操作 is "全部或者部分成交" and 系统 is "本所" and 申报价格 is "指定价格" and 操作 is "成交确认" and 操作部分 is "定价申报" and 时间 is "时间优先" and 价格 低于 "申报价格" and 申报数量 低于 "匹配成交申报数量" and 申报金额 低于 "匹配成交申报价格" and 价格 低于 "匹配成交申报价格" and 申报价格 is "匹配成交申报数量" and 申报价格 is "匹配成交申报数量" and 申报价格 is "匹配成交申报数量" and 价格 低于 "匹配成交申报数量" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额"
+	then 结果 is "成功"
 
 rule 第二十九条.4
 sourceId 第二十九条
 focus: 订单连续性操作
-	if 操作人 is "市场所有参与者" and 系统 is "本所"
-	then 结果 is "全部"
-
-rule 第二十九条.5
-sourceId 第二十九条
-focus: 订单连续性操作
-	if 操作人 is "市场所有参与者" and 操作 is "提交" and 操作部分 is "成交申报" and 系统 is "本所" and 申报价格 is "指定的价格" and 约束 is "时间优先"
-	then 结果 is "可以"
-
-rule 第二十九条.6
-sourceId 第二十九条
-focus: 订单连续性操作
-	if 操作人 is "市场所有参与者" and 系统 is "本所" and 约束 is "时间优先"
-	then 结果 is "全部或者部分成交"
-
-rule 第二十九条.7
-sourceId 第二十九条
-focus: 价格
-	if 申报类型 is "定价申报" and 申报数量 is "每笔成交的数量" and 交易方式 is "协商成交" and 价格 满足 "交易金额"
-	then 结果 is "成功"
-
-rule 第二十九条.8
-sourceId 第二十九条
-focus: 价格
-	if 申报类型 is "定价申报" and 交易方式 is "协商成交" and 价格 满足 "交易金额" and 约束 is "协商成交最低限额"
+	if 操作部分 is "匹配成交申报" and 操作人 is "市场所有参与者" and 操作 is "提交" and 操作部分 is "成交申报" and 操作 is "按" and 操作部分 is "定价申报" and 操作 is "全部或者部分成交" and 系统 is "本所" and 申报价格 is "指定价格" and 操作 is "成交确认" and 操作部分 is "定价申报" and 时间 低于 "时间优先" and 申报价格 is "匹配成交申报价格" and 申报价格 is "申报价格" and 申报价格 is "申报价格" and 申报数量 低于 "匹配成交申报数量" and 申报金额 低于 "匹配成交申报价格" and 申报价格 is "匹配成交申报价格" and 申报价格 is "匹配成交申报价格" and 价格 低于 "匹配成交申报价格" and 申报价格 is "匹配成交申报数量" and 申报价格 is "匹配成交申报数量" and 申报价格 is "匹配成交申报数量" and 申报价格 is "匹配成交申报数量" and 申报价格 is "匹配成交申报数量" and 申报价格 is "匹配成交申报数量" and 申报价格 is "匹配成交申报数量" and 价格 低于 "匹配成交申报数量" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额" and 申报价格 is "匹配成交申报金额"
 	then 结果 is "成功"
 
 rule 第三十一条.1
@@ -105,7 +69,7 @@ focus: 价格
 
 rule 第三十一条.2
 sourceId 第三十一条
-focus: 价格
-	if 交易方式 is "协商成交" and 时间 is "除上市首日外" and 申报价格 is "在当日涨跌幅限制价格范围内"
+focus: 订单连续性操作
+	if 操作 is "确定"
 	then 结果 is "成功"
 

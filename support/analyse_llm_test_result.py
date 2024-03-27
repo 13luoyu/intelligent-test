@@ -4,7 +4,7 @@ import evaluate
 import nltk
 
 
-def compute_acc(results, metric):
+def compute_acc(results):
     word_acc, pair_acc = 0, 0
     for index, result in enumerate(results):
         answer = result['answer'].replace(" ", "").replace("\n", "").split("</s>")[0]
@@ -43,12 +43,11 @@ def compute_acc(results, metric):
 
 
 if __name__ == "__main__":
-    metric = evaluate.load("../lora/accuracy.py")
-    for file in os.listdir("../lora/predict_data/"):
-        if "predict_result" in file:
+    for file in os.listdir("../decoder_lora/predict_data/"):
+        if "predict_result" in file and ".txt" not in file:
             # if "predict_result_runtime.json" not in file:
             #     continue
-            results = json.load(open("../lora/predict_data/" + file, "r", encoding="utf-8"))
-            acc = compute_acc(results, metric)
+            results = json.load(open("../decoder_lora/predict_data/" + file, "r", encoding="utf-8"))
+            acc = compute_acc(results)
             print(f"测试结果文件 {file} 的精确度为 {acc}")
             

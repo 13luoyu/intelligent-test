@@ -639,7 +639,6 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
 def get_clause_for_single_value(value_cache, op_cache, knowledge, key=None):
     v_key = list(value_cache.keys())[0]
     v_value = value_cache[v_key]
-
     if key is not None:
         if v_key == "时间" and is_time_key(key) or v_key == "数量" and is_num_key(key) or v_key == "价格" and is_price_key(key):
 
@@ -982,7 +981,9 @@ def read_model_output_to_rule(texts, labels):
     
     label = labels.replace(" ", "").replace("\n", "").replace("，", ",")
     for kv in label.split(","):
-        k, v = kv.split(":")[0], kv.split(":")[1]
+        if ":" not in kv:
+            continue
+        k, v = kv.split(":")[0], ":".join(kv.split(":")[1:])
         stack.append({k:v})
     operator_count = 0
     stack_index = 0
@@ -1066,7 +1067,7 @@ if __name__ == "__main__":
     # with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:
     #     f.write(r1)
     
-    rules = json.load(open("rules_cache/tco_llama.json", "r", encoding="utf-8"))
+    rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
     r1 = to_r1_v2(rules, knowledge, terms)
-    with open("rules_cache/r1_llama.mydsl", "w", encoding="utf-8") as f:
+    with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:
         f.write(r1)
