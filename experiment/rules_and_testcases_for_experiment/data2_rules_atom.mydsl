@@ -1,489 +1,141 @@
-rule 3.5.1.1.1.1
+rule 3.5.1.1.1.1.1
 sourceId 3.5.1
-focus: 订单连续性操作
+focus: 价格
 before: []
-after: []
-	if 交易品种 is '证券' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易品种 is '证券' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.10.1.1.1.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: ['3.5.8.1.1.1.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+after: ['3.5.6.1.1.1.1', '3.5.6.5.1.1.1', '3.5.8.1.1.1.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2', '3.5.6.2.1.1.3.1', '3.5.6.2.1.1.3.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
+	constraint 单笔交易数量 >= 300000 and 申报价格 == 200
 
-rule 3.5.1.10.1.1.2.1
+rule 3.5.1.1.1.2.1
 sourceId 3.5.1
-focus: 数量
+focus: 价格
 before: []
-after: ['3.5.8.1.1.2.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+after: ['3.5.6.1.1.2.1', '3.5.6.5.1.2.1', '3.5.8.1.1.2.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2', '3.5.6.2.1.2.3.1', '3.5.6.2.1.2.3.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.10.2.1.1.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: ['3.5.8.1.1.1.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '交易开放式基金(ETF)' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.10.2.1.2.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: ['3.5.8.1.1.2.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '交易开放式基金(ETF)' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.10.3.1.1.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: ['3.5.8.1.1.1.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金(LOF)' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.10.3.1.2.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: ['3.5.8.1.1.2.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金(LOF)' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.10.4.1.1.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: ['3.5.8.1.1.1.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.10.4.1.2.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: ['3.5.8.1.1.2.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.10.5.1.1.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: ['3.5.8.1.1.1.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.10.5.1.2.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: ['3.5.8.1.1.2.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.11.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.11.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.12.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元人民币' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.12.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元人民币' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.13.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元人民币' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.13.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元人民币' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.14.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.14.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.15.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.15.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.16.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元港币' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.16.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元港币' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.17.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元人民币' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.17.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元人民币' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.18.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.18.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.19.1.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: ['3.5.8.1.1.1.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.19.1.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: ['3.5.8.1.1.2.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '封闭式基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.19.2.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: ['3.5.8.1.1.1.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '交易开放式基金(ETF)' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.19.2.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: ['3.5.8.1.1.2.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '交易开放式基金(ETF)' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.19.3.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: ['3.5.8.1.1.1.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金(LOF)' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.19.3.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: ['3.5.8.1.1.2.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '上市开放式基金(LOF)' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.19.4.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: ['3.5.8.1.1.1.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.19.4.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: ['3.5.8.1.1.2.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '分级基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.19.5.1.1.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: ['3.5.8.1.1.1.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
-
-rule 3.5.1.19.5.1.2.1
-sourceId 3.5.1
-focus: 订单连续性操作
-before: []
-after: ['3.5.8.1.1.2.1']
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 基金品种 is '基础设施基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	constraint 单笔交易数量 >= 300000 and 申报价格 == 200
 
 rule 3.5.1.2.1.1.1
 sourceId 3.5.1
-focus: 数量
+focus: 价格
 before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+after: ['3.5.6.1.1.1.1', '3.5.6.5.1.1.1', '3.5.8.1.1.1.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2', '3.5.6.2.1.1.3.1', '3.5.6.2.1.1.3.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 300000
+	constraint 价格 >= 2000000
 
 rule 3.5.1.2.1.2.1
 sourceId 3.5.1
-focus: 数量
+focus: 价格
 before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+after: ['3.5.6.1.1.2.1', '3.5.6.5.1.2.1', '3.5.8.1.1.2.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2', '3.5.6.2.1.2.3.1', '3.5.6.2.1.2.3.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 300000
+	constraint 价格 >= 2000000
 
 rule 3.5.1.3.1.1.1
 sourceId 3.5.1
-focus: 订单连续性操作
+focus: 价格
 before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+after: ['3.5.6.1.1.1.1', '3.5.6.5.1.1.1', '3.5.8.1.1.1.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2', '3.5.6.2.1.1.3.1', '3.5.6.2.1.1.3.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 单笔交易数量 >= 30000 and 申报价格 == 20
 
 rule 3.5.1.3.1.2.1
 sourceId 3.5.1
-focus: 订单连续性操作
+focus: 价格
 before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+after: ['3.5.6.1.1.2.1', '3.5.6.5.1.2.1', '3.5.8.1.1.2.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2', '3.5.6.2.1.2.3.1', '3.5.6.2.1.2.3.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交' 
+	constraint 单笔交易数量 >= 30000 and 申报价格 == 20
 
 rule 3.5.1.4.1.1.1
 sourceId 3.5.1
-focus: 数量
+focus: 价格
 before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元人民币' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+after: ['3.5.6.1.1.1.1', '3.5.6.5.1.1.1', '3.5.8.1.1.1.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2', '3.5.6.2.1.1.3.1', '3.5.6.2.1.1.3.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 30000
+	constraint 价格 >= 200000
 
 rule 3.5.1.4.1.2.1
 sourceId 3.5.1
-focus: 数量
+focus: 价格
 before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元人民币' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+after: ['3.5.6.1.1.2.1', '3.5.6.5.1.2.1', '3.5.8.1.1.2.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2', '3.5.6.2.1.2.3.1', '3.5.6.2.1.2.3.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 30000
+	constraint 价格 >= 200000
 
 rule 3.5.1.5.1.1.1
 sourceId 3.5.1
-focus: 数量
+focus: 价格
 before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 30000
+	constraint 单笔交易数量 >= 2000000 and 申报价格 == 200
 
 rule 3.5.1.5.1.2.1
 sourceId 3.5.1
-focus: 数量
+focus: 价格
 before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 30000
+	constraint 单笔交易数量 >= 2000000 and 申报价格 == 200
 
 rule 3.5.1.6.1.1.1
 sourceId 3.5.1
-focus: 数量
+focus: 价格
 before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
+	constraint 价格 >= 2000000
 
 rule 3.5.1.6.1.2.1
 sourceId 3.5.1
-focus: 数量
+focus: 价格
 before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
+	if 交易方式 is '大宗交易' and 交易品种 is '基金' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.7.1.1.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元港币' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.7.1.2.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元港币' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.8.1.1.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元人民币' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.8.1.2.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '交易金额不低于200万元人民币' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.9.1.1.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
-
-rule 3.5.1.9.1.2.1
-sourceId 3.5.1
-focus: 数量
-before: []
-after: []
-	if 交易方式 is '大宗交易' and 满足 is '以下条件' and 满足 is '大宗交易方式' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
-	constraint 申报数量 >= 2000000
+	constraint 价格 >= 2000000
 
 rule 3.5.3.1.1.1
 sourceId 3.5.3
 focus: 订单连续性操作
 before: []
-after: []
-	if 交易方式 is '协议大宗交易' and 操作 is '申报' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 状态 is '未申报'
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
+	if 交易方式 is '协议大宗交易' and 操作 is '申报' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 3.5.3.1.2.1
 sourceId 3.5.3
 focus: 订单连续性操作
 before: []
-after: []
-	if 交易方式 is '协议大宗交易' and 操作 is '申报' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 状态 is '未申报'
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
+	if 交易方式 is '协议大宗交易' and 操作 is '申报' and 时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 3.5.3.2.1.1
 sourceId 3.5.3
 focus: 订单连续性操作
 before: []
-after: []
-	if 交易方式 is '盘后定价大宗交易' and 操作 is '申报' and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 状态 is '未申报'
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
+	if 交易方式 is '盘后定价大宗交易' and 操作 is '申报' and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '买入' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 3.5.3.2.2.1
 sourceId 3.5.3
 focus: 订单连续性操作
 before: []
-after: []
-	if 交易方式 is '盘后定价大宗交易' and 操作 is '申报' and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 状态 is '未申报'
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
+	if 交易方式 is '盘后定价大宗交易' and 操作 is '申报' and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方向 is '卖出' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 3.5.3.3.1.1
@@ -491,7 +143,7 @@ sourceId 3.5.3
 focus: 订单连续性操作
 before: []
 after: []
-	if 状态 is '全天停牌,处于临时停牌期间,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 操作 is '申报'
+	if 状态 is '全天停牌,处于临时停牌期间,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 操作 is '申报'
 	then 结果 = '成功'
 
 rule 3.5.3.3.1.2
@@ -499,7 +151,7 @@ sourceId 3.5.3
 focus: 订单连续性操作
 before: []
 after: []
-	if 状态 is '全天停牌,处于临时停牌期间,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 操作 is '申报'
+	if 状态 is '全天停牌,处于临时停牌期间,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 操作 is '申报'
 	then 结果 = '成功'
 
 rule 3.5.3.4.1
@@ -507,7 +159,7 @@ sourceId 3.5.3
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '证券' and 操作 is '协议大宗交易申报' and 状态 is '全天停牌' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
+	if 交易品种 is '证券' and 交易方式 is '协议大宗交易' and 操作 is '申报' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
 	then 结果 = '不成功'
 
 rule 3.5.3.4.2
@@ -515,30 +167,46 @@ sourceId 3.5.3
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易品种 is '证券' and 操作 is '协议大宗交易申报' and 状态 is '全天停牌' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出'
+	if 交易品种 is '证券' and 交易方式 is '协议大宗交易' and 操作 is '申报' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出'
 	then 结果 = '不成功'
 
-rule 3.5.3.5.1
+rule 3.5.3.5.1.1
 sourceId 3.5.3
 focus: 订单连续性操作
 before: []
 after: []
-	if or is '或' and 状态 is '停牌至收市' and 交易品种 is '证券' and 操作 is '盘后定价大宗交易申报' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	if 状态 is '全天停牌,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 操作 is '申报'
+	then 结果 = '成功'
 
-rule 3.5.3.5.2
+rule 3.5.3.5.1.2
 sourceId 3.5.3
 focus: 订单连续性操作
 before: []
 after: []
-	if or is '或' and 状态 is '停牌至收市' and 交易品种 is '证券' and 操作 is '盘后定价大宗交易申报' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出'
+	if 状态 is '全天停牌,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 操作 is '申报'
+	then 结果 = '成功'
+
+rule 3.5.3.6.1
+sourceId 3.5.3
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '证券' and 交易方式 is '盘后定价大宗交易' and 操作 is '申报' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入'
+	then 结果 = '不成功'
+
+rule 3.5.3.6.2
+sourceId 3.5.3
+focus: 订单连续性操作
+before: []
+after: []
+	if 交易品种 is '证券' and 交易方式 is '盘后定价大宗交易' and 操作 is '申报' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出'
 	then 结果 = '不成功'
 
 rule 3.5.4.1.1.1
 sourceId 3.5.4
 focus: 价格
 before: []
-after: []
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
 	if 交易品种 is '无价格涨跌幅限制证券' and 交易方式 is '协议大宗交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格 <= 120
@@ -547,7 +215,7 @@ rule 3.5.4.1.2.1
 sourceId 3.5.4
 focus: 价格
 before: []
-after: []
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
 	if 交易品种 is '无价格涨跌幅限制证券' and 交易方式 is '协议大宗交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格 <= 120
@@ -556,7 +224,7 @@ rule 3.5.4.2.1.1
 sourceId 3.5.4
 focus: 价格
 before: []
-after: []
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
 	if 交易品种 is '无价格涨跌幅限制证券' and 交易方式 is '协议大宗交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格 <= 80
@@ -565,48 +233,144 @@ rule 3.5.4.2.2.1
 sourceId 3.5.4
 focus: 价格
 before: []
-after: []
+after: ['3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2']
 	if 交易品种 is '无价格涨跌幅限制证券' and 交易方式 is '协议大宗交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交' 
 	constraint 申报价格 <= 80
 
-rule 3.5.6.1.1.1
+rule 3.5.6.1.1.1.1
 sourceId 3.5.6
 focus: 订单连续性操作
-before: []
+before: ['3.5.1.1.1.1.1', '3.5.1.2.1.1.1', '3.5.1.3.1.1.1', '3.5.1.4.1.1.1', '3.5.6.3.1.1.1']
 after: []
-	if 交易方式 is '意向申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	if 操作部分 is '意向申报' and 操作 is '撤销' and 申报类型 is '意向申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 状态 is '未成交'
+	then 结果 = '成功' and 状态 = '全部撤销'
 
-rule 3.5.6.1.2.1
+rule 3.5.6.1.1.2.1
 sourceId 3.5.6
 focus: 订单连续性操作
-before: []
+before: ['3.5.1.1.1.2.1', '3.5.1.2.1.2.1', '3.5.1.3.1.2.1', '3.5.1.4.1.2.1', '3.5.6.3.1.2.1']
 after: []
-	if 交易方式 is '意向申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	if 操作部分 is '意向申报' and 操作 is '撤销' and 申报类型 is '意向申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 状态 is '未成交'
+	then 结果 = '成功' and 状态 = '全部撤销'
 
-rule 3.5.6.2.1.1
+rule 3.5.6.2.1.1.1.1
 sourceId 3.5.6
 focus: 订单连续性操作
-before: []
-after: []
-	if 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易方向 is '买入'
+before: ['3.5.3.1.1.1', '3.5.3.1.2.1', '3.5.3.2.1.1', '3.5.3.2.2.1', '3.5.4.1.1.1', '3.5.4.1.2.1', '3.5.4.2.1.1', '3.5.4.2.2.1', '3.5.1.1.1.1.1', '3.5.1.1.1.2.1', '3.5.1.2.1.1.1', '3.5.1.2.1.2.1', '3.5.1.3.1.1.1', '3.5.1.3.1.2.1', '3.5.1.4.1.1.1', '3.5.1.4.1.2.1', '3.5.1.5.1.1.1', '3.5.1.5.1.2.1', '3.5.1.6.1.1.1', '3.5.1.6.1.2.1', '3.5.6.3.1.1.1', '3.5.6.3.1.2.1']
+after: ['3.5.6.2.1.1.2', '3.5.7.1.1.3', '3.5.7.1.2.3', '3.5.6.2.1.1.1.3', '3.5.6.2.1.1.3.3', '3.5.6.2.1.2.3.3']
+	if 操作 is '达成交易' and 状态 is '未成交'
+	then 结果 = '成功' and 状态 = '部分成交'
+
+rule 3.5.6.2.1.1.1.2
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.3.1.1.1', '3.5.3.1.2.1', '3.5.3.2.1.1', '3.5.3.2.2.1', '3.5.4.1.1.1', '3.5.4.1.2.1', '3.5.4.2.1.1', '3.5.4.2.2.1', '3.5.1.1.1.1.1', '3.5.1.1.1.2.1', '3.5.1.2.1.1.1', '3.5.1.2.1.2.1', '3.5.1.3.1.1.1', '3.5.1.3.1.2.1', '3.5.1.4.1.1.1', '3.5.1.4.1.2.1', '3.5.1.5.1.1.1', '3.5.1.5.1.2.1', '3.5.1.6.1.1.1', '3.5.1.6.1.2.1', '3.5.6.3.1.1.1', '3.5.6.3.1.2.1']
+after: ['3.5.6.2.1.1.2']
+	if 操作 is '达成交易' and 状态 is '未成交'
+	then 结果 = '成功' and 状态 = '全部成交'
+
+rule 3.5.6.2.1.1.1.3
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.7.1.1.1', '3.5.7.1.2.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.3.1', '3.5.6.2.1.2.3.1']
+after: ['3.5.6.2.1.1.2']
+	if 操作 is '达成交易' and 状态 is '部分成交'
+	then 结果 = '成功' and 状态 = '全部成交'
+
+rule 3.5.6.2.1.1.2
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.6.2.1.1.1']
+after: ['3.5.6.2.1.1.3']
+	if 操作 is '成交确认'
 	then 结果 = '成功'
 
-rule 3.5.6.2.1.2
+rule 3.5.6.2.1.1.3.1
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.6.2.1.1.2', '3.5.1.1.1.1.1', '3.5.1.2.1.1.1', '3.5.1.3.1.1.1', '3.5.1.4.1.1.1', '3.5.6.3.1.1.1']
+after: ['3.5.6.2.1.2.3', '3.5.6.2.1.1.1.3', '3.5.6.2.1.1.3.3']
+	if 操作 is '达成交易' and 事件 is '成交确认' and 操作部分 is '成交确认前申报' and 操作 is '达成交易' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 状态 is '未成交'
+	then 结果 = '成功' and 状态 = '部分成交'
+
+rule 3.5.6.2.1.1.3.2
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.6.2.1.1.2', '3.5.1.1.1.1.1', '3.5.1.2.1.1.1', '3.5.1.3.1.1.1', '3.5.1.4.1.1.1', '3.5.6.3.1.1.1']
+after: ['3.5.6.2.1.2.3']
+	if 操作 is '达成交易' and 事件 is '成交确认' and 操作部分 is '成交确认前申报' and 操作 is '达成交易' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 状态 is '未成交'
+	then 结果 = '成功' and 状态 = '全部成交'
+
+rule 3.5.6.2.1.1.3.3
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.6.2.1.1.2', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.3.1']
+after: ['3.5.6.2.1.2.3']
+	if 操作 is '达成交易' and 事件 is '成交确认' and 操作部分 is '成交确认前申报' and 操作 is '达成交易' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 状态 is '部分成交'
+	then 结果 = '成功' and 状态 = '全部成交'
+
+rule 3.5.6.2.1.2.3.1
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.6.2.1.1.3', '3.5.1.1.1.2.1', '3.5.1.2.1.2.1', '3.5.1.3.1.2.1', '3.5.1.4.1.2.1', '3.5.6.3.1.2.1']
+after: ['3.5.6.2.1.1.1.3', '3.5.6.2.1.2.3.3']
+	if 操作 is '达成交易' and 事件 is '成交确认' and 操作部分 is '成交确认前申报' and 操作 is '达成交易' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 状态 is '未成交'
+	then 结果 = '成功' and 状态 = '部分成交'
+
+rule 3.5.6.2.1.2.3.2
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.6.2.1.1.3', '3.5.1.1.1.2.1', '3.5.1.2.1.2.1', '3.5.1.3.1.2.1', '3.5.1.4.1.2.1', '3.5.6.3.1.2.1']
+after: []
+	if 操作 is '达成交易' and 事件 is '成交确认' and 操作部分 is '成交确认前申报' and 操作 is '达成交易' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 状态 is '未成交'
+	then 结果 = '成功' and 状态 = '全部成交'
+
+rule 3.5.6.2.1.2.3.3
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.6.2.1.1.3', '3.5.6.2.1.1.1.1', '3.5.6.2.1.2.3.1']
+after: []
+	if 操作 is '达成交易' and 事件 is '成交确认' and 操作部分 is '成交确认前申报' and 操作 is '达成交易' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 状态 is '部分成交'
+	then 结果 = '成功' and 状态 = '全部成交'
+
+rule 3.5.6.3.1.1.1
 sourceId 3.5.6
 focus: 订单连续性操作
 before: []
+after: ['3.5.6.1.1.1.1', '3.5.6.5.1.1.1', '3.5.8.1.1.1.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2', '3.5.6.2.1.1.3.1', '3.5.6.2.1.1.3.2']
+	if 操作 is '申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.5.6.3.1.2.1
+sourceId 3.5.6
+focus: 订单连续性操作
+before: []
+after: ['3.5.6.1.1.2.1', '3.5.6.5.1.2.1', '3.5.8.1.1.2.1', '3.5.6.2.1.1.1.1', '3.5.6.2.1.1.1.2', '3.5.6.2.1.2.3.1', '3.5.6.2.1.2.3.2']
+	if 操作 is '申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 状态 is '未申报'
+	then 结果 = '成功' and 状态 = '未成交'
+
+rule 3.5.6.5.1.1.1
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.1.1.1.1.1', '3.5.1.2.1.1.1', '3.5.1.3.1.1.1', '3.5.1.4.1.1.1', '3.5.6.3.1.1.1']
 after: []
-	if 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	if 操作部分 is '定价申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 状态 is '未成交'
+	then 结果 = '成功' and 状态 = '全部撤销'
+
+rule 3.5.6.5.1.2.1
+sourceId 3.5.6
+focus: 订单连续性操作
+before: ['3.5.1.1.1.2.1', '3.5.1.2.1.2.1', '3.5.1.3.1.2.1', '3.5.1.4.1.2.1', '3.5.6.3.1.2.1']
+after: []
+	if 操作部分 is '定价申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 状态 is '未成交'
+	then 结果 = '成功' and 状态 = '全部撤销'
 
 rule 3.5.7.1.1.1
 sourceId 3.5.7
 focus: 时间
 before: []
-after: ['3.5.7.1.1.3']
+after: ['3.5.7.1.1.3', '3.5.6.2.1.1.1.3']
 	if 交易品种 is '证券' and 交易方式 is '协议大宗交易' and 成交确认时间 in {[15:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '达成交易' and 状态 is '未成交'
 	then 结果 = '成功' and 状态 = '部分成交'
 
@@ -621,7 +385,7 @@ after: []
 rule 3.5.7.1.1.3
 sourceId 3.5.7
 focus: 时间
-before: ['3.5.7.1.1.1']
+before: ['3.5.7.1.1.1', '3.5.6.2.1.1.1.1']
 after: []
 	if 交易品种 is '证券' and 交易方式 is '协议大宗交易' and 成交确认时间 in {[15:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '达成交易' and 状态 is '部分成交'
 	then 结果 = '成功' and 状态 = '全部成交'
@@ -630,7 +394,7 @@ rule 3.5.7.1.2.1
 sourceId 3.5.7
 focus: 时间
 before: []
-after: ['3.5.7.1.2.3']
+after: ['3.5.7.1.2.3', '3.5.6.2.1.1.1.3']
 	if 交易品种 is '证券' and 交易方式 is '协议大宗交易' and 成交确认时间 in {[15:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '达成交易' and 状态 is '未成交'
 	then 结果 = '成功' and 状态 = '部分成交'
 
@@ -645,7 +409,7 @@ after: []
 rule 3.5.7.1.2.3
 sourceId 3.5.7
 focus: 时间
-before: ['3.5.7.1.2.1']
+before: ['3.5.7.1.2.1', '3.5.6.2.1.1.1.1']
 after: []
 	if 交易品种 is '证券' and 交易方式 is '协议大宗交易' and 成交确认时间 in {[15:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '达成交易' and 状态 is '部分成交'
 	then 结果 = '成功' and 状态 = '全部成交'
@@ -653,16 +417,16 @@ after: []
 rule 3.5.8.1.1.1.1
 sourceId 3.5.8
 focus: 订单连续性操作
-before: ['3.5.1.10.1.1.1.1', '3.5.1.10.2.1.1.1', '3.5.1.10.3.1.1.1', '3.5.1.10.4.1.1.1', '3.5.1.10.5.1.1.1', '3.5.1.19.1.1.1.1', '3.5.1.19.2.1.1.1', '3.5.1.19.3.1.1.1', '3.5.1.19.4.1.1.1', '3.5.1.19.5.1.1.1']
+before: ['3.5.1.1.1.1.1', '3.5.1.2.1.1.1', '3.5.1.3.1.1.1', '3.5.1.4.1.1.1', '3.5.6.3.1.1.1']
 after: []
-	if 操作部分 is '接受申报的时间内' and 操作部分 is '未成交申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 状态 is '未成交'
+	if 操作部分 is '未成交申报' and 操作 is '撤销' and 时间 is '在接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '买入' and 状态 is '未成交'
 	then 结果 = '成功' and 状态 = '全部撤销'
 
 rule 3.5.8.1.1.2.1
 sourceId 3.5.8
 focus: 订单连续性操作
-before: ['3.5.1.10.1.1.2.1', '3.5.1.10.2.1.2.1', '3.5.1.10.3.1.2.1', '3.5.1.10.4.1.2.1', '3.5.1.10.5.1.2.1', '3.5.1.19.1.1.2.1', '3.5.1.19.2.1.2.1', '3.5.1.19.3.1.2.1', '3.5.1.19.4.1.2.1', '3.5.1.19.5.1.2.1']
+before: ['3.5.1.1.1.2.1', '3.5.1.2.1.2.1', '3.5.1.3.1.2.1', '3.5.1.4.1.2.1', '3.5.6.3.1.2.1']
 after: []
-	if 操作部分 is '接受申报的时间内' and 操作部分 is '未成交申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '基金' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 状态 is '未成交'
+	if 操作部分 is '未成交申报' and 操作 is '撤销' and 时间 is '在接受申报的时间内' and 交易市场 is '深圳证券交易所' and 交易品种 is '股票' and 交易方式 is '大宗交易' and 交易方向 is '卖出' and 状态 is '未成交'
 	then 结果 = '成功' and 状态 = '全部撤销'
 

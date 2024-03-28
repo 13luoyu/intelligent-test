@@ -287,13 +287,14 @@ def token_classification_with_algorithm(tco, knowledge):
                     c=a-1
                     while c >= 0 and text[c] not in stopsignal:
                         c-=1
-                    if ("数量" in text[c:a] or "余额" in text[c:a]) and ":" not in text[a:b]:
+                    if (("数量" in text[c:a] or "余额" in text[c:a])) and ":" not in text[a:b]:
                         if "整数倍" in text[a:b]:
                             b = text[a:b].find("整数倍") + a + 3
                             label = change(a, b, label, "数量")
                         elif a-2 > 0 and "不足" == text[a-2:a] and "部分" in text[a:b]:
                             a = a-2
                             if a-2>0 and text[a-2:a] == "余额":
+                                label = change(a-2, a, label, "key")
                                 a = a-2
                             b = text[a:b].find("部分") + a + 2
                             label = change(a, b, label, "数量")
@@ -587,7 +588,7 @@ def token_classification(tci: list, knowledge, model_path: str, dict_file: str, 
 
 
 
-def token_classification_v2(tci, model_name_or_path):
+def token_classification_v2(tci, model_name_or_path, knowledge):
     bnb_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_use_double_quant=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16)
     device_map = "cuda:0" if torch.cuda.is_available() else "auto"
 
@@ -608,13 +609,28 @@ def token_classification_v2(tci, model_name_or_path):
         generate_ids = model.generate(**generate_input)
         label = tokenizer.decode(generate_ids[0]).split("Assistant:")[-1].split("</s>")[0].strip()
         rule['label'] = label
+    
+    for data in tco:
+        text, label = data['text'].replace("：", ":"), data['label'].replace("：", ":").replace(" ", "")
+        new_label = ["O"] * len(text)
+        p = -1
+        for lb in label.split(","):
+            a, b = lb.split(":")[0], ":".join(lb.split(":")[1:])
+            p = text.find(b, p+1)
+            if p == -1:
+                continue
+            new_label[p:p+len(b)] = ["B-" + a] + ["I-" + a] * (len(b)-1)
+        data['label'] = " ".join(new_label)
+
+    tco = token_classification_with_algorithm(tco, knowledge)
+
     return tco
 
 if __name__ == "__main__":
     tci_data = json.load(open("rules_cache/tci.json", "r", encoding="utf-8"))
-    # knowledge = json.load(open("../data/classification_knowledge.json", "r", encoding="utf-8"))
+    knowledge = json.load(open("../data/classification_knowledge.json", "r", encoding="utf-8"))
     # tco_data = token_classification(tci_data, knowledge, "../model/ours/mengzi_rule_element_extraction", "../data/tc_data.dict")
     # json.dump(tco_data, open("rules_cache/tco.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
-    tco_data = token_classification_v2(tci_data, "../lora/output/best_model_dev_dev_acc0_9792")
+    tco_data = token_classification_v2(tci_data, "../lora/output/best_model_dev_dev_acc0_9792", knowledge)
     json.dump(tco_data, open("rules_cache/tco.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

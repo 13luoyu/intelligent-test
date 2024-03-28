@@ -27,7 +27,7 @@ def get_market_variety(s, knowledge):
             market_num = value_count
             market = value
     for value in varieties:
-        value_count = "\n".join(s.split("\n")[:5]).count(value)
+        value_count = "\n".join(s.split("\n")[:2]).count(value)
         if value_count >= 1 and len(value) > len(variety):
             variety = value
             variety_num = value_count

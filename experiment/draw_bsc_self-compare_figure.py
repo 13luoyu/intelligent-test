@@ -30,8 +30,8 @@ def draw_figure(file, image):
     plt.ylabel("bsc (%)", fontsize=15)
     plt.xticks(x+bar_width, datasets, fontsize=15)
     plt.yticks(fontsize=15)
-    plt.ylim(60, 110)
-    plt.legend(fontsize=13, loc="upper right")
+    plt.ylim(40, 100)
+    plt.legend(fontsize=11.5, loc="upper right")
     plt.savefig(image)
 
 

@@ -40,6 +40,7 @@ def generate_rules_testcases_for_experiment():
                 add_trading_method(f"cache/r1.mydsl", "大宗交易")
             elif "竞价交易" in first_line:
                 add_trading_method(f"cache/r1.mydsl", "竞价交易")
+
             alg_process("cache/r1.mydsl", "cache/r1.json", "cache/r2.json", "cache/r2.mydsl", "cache/r3.json", f"rules_and_testcases_for_experiment/{filename}_rules_{args.model}.mydsl", f"rules_and_testcases_for_experiment/{filename}_testcases_{args.model}.json", "../data/classification_knowledge.json", "../data/knowledge.json", "cache/relation.json", "cache/explicit_relation.json", "cache/implicit_relation.json")
             time_consume = time.time() - begin_time
             print(f"《{filename}》总共消耗时间: {time_consume}")

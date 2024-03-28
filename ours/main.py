@@ -55,15 +55,16 @@ def nlp_process(input_file: str,
     if "mengzi" in tc_model or "finbert" in tc_model:
         tco = token_classification(tci, knowledge, tc_model, tc_dict, batch_size, sentence_max_length)
     else:
-        tco = token_classification_v2(tci, tc_model)
+        tco = token_classification_v2(tci, tc_model, knowledge)
     json.dump(tco, open(tco_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     print("规则元素抽取任务完成")
     # 调用转R1
     tco = json.load(open(tco_file, "r", encoding="utf-8"))
-    if "mengzi" in tc_model or "finbert" in tc_model:
-        r1 = to_r1(tco, knowledge, terms)
-    else:
-        r1 = to_r1_v2(tco, knowledge, terms)
+    r1 = to_r1(tco, knowledge, terms)
+    # if "mengzi" in tc_model or "finbert" in tc_model:
+    #     r1 = to_r1(tco, knowledge, terms)
+    # else:
+    #     r1 = to_r1_v2(tco, knowledge, terms)
     r1 = add_defines(r1, market_variety)
     with open(r1_file, "w", encoding="utf-8") as f:
         f.write(r1)

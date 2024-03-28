@@ -549,8 +549,6 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                 element = old_element
                 e = old_e
                 rule = rules[rule_id]
-                # if "第五十二条" in rule_id:
-                #     print(rule, element)
                 find = False
                 jypz = ""
                 for c in rule['constraints']:
@@ -582,6 +580,8 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                                 find = False
                         break
                 if not find:
+                    if e == "证券":
+                        e = get_constrainted_values(preliminaries, {}, f"{e}品种")
                     if isinstance(e, str):
                         rule['constraints'].append({"key":element, "operation":"is", "value":e})
                         vars[rule_id][element] = []
