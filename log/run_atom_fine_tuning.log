@@ -1,0 +1,319 @@
+03/31/2024 21:27:39 - WARNING - decoder_fine_tuning.log - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+03/31/2024 21:27:39 - INFO - decoder_fine_tuning.log - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=True,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=18000000,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=100,
+evaluation_strategy=steps,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=8,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=True,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=1e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./output/logs,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=20.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=./output,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=1,
+per_device_train_batch_size=1,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard'],
+resume_from_checkpoint=None,
+run_name=./output,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=100,
+save_strategy=steps,
+save_total_limit=10,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=400,
+weight_decay=0.0,
+)
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/models/auto/configuration_auto.py:1096: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+[INFO|configuration_utils.py:726] 2024-03-31 21:27:39,638 >> loading configuration file ../model/pretrained/Atom-7B/config.json
+[INFO|configuration_utils.py:791] 2024-03-31 21:27:39,638 >> Model config LlamaConfig {
+  "_name_or_path": "../model/pretrained/Atom-7B",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "auto_map": {
+    "AutoConfig": "configuration_atom.LlamaConfig",
+    "AutoModel": "model_atom.LlamaForCausalLM",
+    "AutoModelForCausalLM": "model_atom.LlamaForCausalLM",
+    "AutoModelForSequenceClassification": "model_atom.LlamaForSequenceClassification"
+  },
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pad_token_id": 2,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "type": "dynamic"
+  },
+  "rope_theta": 500000,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.38.2",
+  "use_cache": true,
+  "vocab_size": 65000
+}
+
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py:720: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+[INFO|tokenization_utils_base.py:2044] 2024-03-31 21:27:39,639 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2044] 2024-03-31 21:27:39,639 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2044] 2024-03-31 21:27:39,639 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2044] 2024-03-31 21:27:39,640 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2044] 2024-03-31 21:27:39,640 >> loading file tokenizer.json
+03/31/2024 21:27:39 - INFO - decoder_fine_tuning.log - torch_dtype: torch.float16
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:466: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+[INFO|modeling_utils.py:3254] 2024-03-31 21:27:39,726 >> loading weights file ../model/pretrained/Atom-7B/model.safetensors.index.json
+[INFO|modeling_utils.py:1400] 2024-03-31 21:27:39,727 >> Instantiating LlamaForCausalLM model under default dtype torch.float16.
+[WARNING|logging.py:329] 2024-03-31 21:27:39,727 >> The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+[INFO|configuration_utils.py:845] 2024-03-31 21:27:39,729 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 2
+}
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:03<00:07,  3.64s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:06<00:03,  3.42s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:10<00:00,  3.36s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:10<00:00,  3.40s/it]
+[INFO|modeling_utils.py:3992] 2024-03-31 21:27:50,043 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4000] 2024-03-31 21:27:50,043 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at ../model/pretrained/Atom-7B.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:798] 2024-03-31 21:27:50,045 >> loading configuration file ../model/pretrained/Atom-7B/generation_config.json
+[INFO|configuration_utils.py:845] 2024-03-31 21:27:50,045 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 2
+}
+
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/datasets/load.py:2516: FutureWarning: 'use_auth_token' was deprecated in favor of 'token' in version 2.14.0 and will be removed in 3.0.0.
+You can remove this warning by passing 'token=<use_auth_token>' instead.
+  warnings.warn(
+Using custom data configuration default-1bbdbeba4c26a656
+03/31/2024 21:27:51 - INFO - datasets.builder - Using custom data configuration default-1bbdbeba4c26a656
+Loading Dataset Infos from /home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/datasets/packaged_modules/csv
+03/31/2024 21:27:51 - INFO - datasets.info - Loading Dataset Infos from /home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/datasets/packaged_modules/csv
+Overwrite dataset info from restored data version if exists.
+03/31/2024 21:27:51 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from ./output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6
+03/31/2024 21:27:51 - INFO - datasets.info - Loading Dataset info from ./output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6
+Found cached dataset csv (/home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6)
+03/31/2024 21:27:51 - INFO - datasets.builder - Found cached dataset csv (/home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6)
+Loading Dataset info from /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6
+03/31/2024 21:27:51 - INFO - datasets.info - Loading Dataset info from /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6
+Process #0 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00000_of_00010.arrow
+数据集中是否输入输出在同一列: True
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #0 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00000_of_00010.arrow
+Process #1 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00001_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #1 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00001_of_00010.arrow
+Process #2 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00002_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #2 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00002_of_00010.arrow
+Process #3 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00003_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #3 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00003_of_00010.arrow
+Process #4 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00004_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #4 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00004_of_00010.arrow
+Process #5 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00005_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #5 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00005_of_00010.arrow
+Process #6 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00006_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #6 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00006_of_00010.arrow
+Process #7 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00007_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #7 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00007_of_00010.arrow
+Process #8 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00008_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #8 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00008_of_00010.arrow
+Process #9 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00009_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #9 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_00009_of_00010.arrow
+Loading cached processed dataset at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_*_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-57f0caf9bcba272e_*_of_00010.arrow
+Concatenating 10 shards
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Concatenating 10 shards
+Process #0 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00000_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #0 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00000_of_00010.arrow
+Process #1 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00001_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #1 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00001_of_00010.arrow
+Process #2 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00002_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #2 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00002_of_00010.arrow
+Process #3 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00003_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #3 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00003_of_00010.arrow
+Process #4 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00004_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #4 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00004_of_00010.arrow
+Process #5 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00005_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #5 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00005_of_00010.arrow
+Process #6 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00006_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #6 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00006_of_00010.arrow
+Process #7 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00007_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #7 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00007_of_00010.arrow
+Process #8 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00008_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #8 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00008_of_00010.arrow
+Process #9 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00009_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Process #9 will write at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_00009_of_00010.arrow
+Loading cached processed dataset at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_*_of_00010.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-a955a7aa9ae410e3_*_of_00010.arrow
+Concatenating 10 shards
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Concatenating 10 shards
+03/31/2024 21:27:51 - INFO - decoder_fine_tuning.log - 训练集的采样114: {'input_ids': [1, 12968, 29901, 29871, 38857, 32949, 33304, 30214, 40339, 38276, 32471, 53824, 33304, 32135, 33690, 32066, 52072, 32513, 30267, 13, 33304, 29901, 32917, 35917, 31436, 32005, 35917, 32835, 32537, 33390, 32555, 30330, 32875, 31361, 35447, 51714, 30214, 32110, 32835, 35917, 33390, 32555, 30330, 32875, 31361, 35447, 34026, 56868, 32026, 30214, 30505, 33712, 36065, 34353, 37654, 32009, 32193, 32198, 30214, 34042, 36065, 34353, 30909, 32198, 30325, 30936, 30287, 29950, 32555, 30015, 30753, 35453, 30024, 32473, 30325, 33472, 32473, 30267, 13, 2, 1, 4007, 22137, 29901, 29871, 32047, 29901, 32917, 35917, 29892, 29871, 32047, 29901, 32917, 35917, 32835, 29892, 29871, 32047, 29901, 46766, 35917, 29892, 39854, 29901, 29871, 33712, 36065, 34353, 37654, 29892, 29871, 32406, 29901, 35634, 31358, 32198, 29892, 29871, 32473, 33606, 29901, 29871, 34042, 36065, 34353, 29892, 39854, 29901, 29871, 32198, 30325, 30936, 30287, 29950, 32555, 30015, 30753, 35453, 30024, 32473, 30325, 29892, 29871, 32406, 29901, 29871, 33472, 32473, 13, 2], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [1, 12968, 29901, 29871, 38857, 32949, 33304, 30214, 40339, 38276, 32471, 53824, 33304, 32135, 33690, 32066, 52072, 32513, 30267, 13, 33304, 29901, 32917, 35917, 31436, 32005, 35917, 32835, 32537, 33390, 32555, 30330, 32875, 31361, 35447, 51714, 30214, 32110, 32835, 35917, 33390, 32555, 30330, 32875, 31361, 35447, 34026, 56868, 32026, 30214, 30505, 33712, 36065, 34353, 37654, 32009, 32193, 32198, 30214, 34042, 36065, 34353, 30909, 32198, 30325, 30936, 30287, 29950, 32555, 30015, 30753, 35453, 30024, 32473, 30325, 33472, 32473, 30267, 13, 2, 1, 4007, 22137, 29901, 29871, 32047, 29901, 32917, 35917, 29892, 29871, 32047, 29901, 32917, 35917, 32835, 29892, 29871, 32047, 29901, 46766, 35917, 29892, 39854, 29901, 29871, 33712, 36065, 34353, 37654, 29892, 29871, 32406, 29901, 35634, 31358, 32198, 29892, 29871, 32473, 33606, 29901, 29871, 34042, 36065, 34353, 29892, 39854, 29901, 29871, 32198, 30325, 30936, 30287, 29950, 32555, 30015, 30753, 35453, 30024, 32473, 30325, 29892, 29871, 32406, 29901, 29871, 33472, 32473, 13, 2]}
+03/31/2024 21:27:51 - INFO - decoder_fine_tuning.log - 训练集的采样25: {'input_ids': [1, 12968, 29901, 29871, 38857, 32949, 33304, 30214, 40339, 38276, 32471, 53824, 33304, 32135, 33690, 32066, 52072, 32513, 30267, 13, 33304, 29901, 29871, 34353, 32013, 29911, 29974, 29896, 30325, 32402, 35403, 31689, 48306, 30214, 31947, 56784, 30682, 30688, 29911, 29974, 29906, 35237, 36912, 32477, 31751, 34353, 32013, 42387, 32473, 33429, 30214, 31557, 32477, 32954, 34309, 30742, 33429, 31608, 34353, 32013, 30909, 29911, 29974, 29906, 30325, 32174, 32402, 35403, 31689, 30210, 30214, 29911, 29974, 29941, 30325, 32803, 32477, 31751, 31149, 42387, 32473, 33429, 31608, 29911, 29974, 29906, 30325, 37604, 32174, 32402, 35403, 31689, 30210, 30214, 31947, 56784, 30688, 29911, 29974, 29941, 35237, 38349, 31149, 35960, 40382, 32473, 39885, 30267, 13, 2, 1, 4007, 22137, 29901, 29871, 32406, 30313, 29901, 29871, 34353, 32013, 29892, 39854, 29901, 323, 29974, 29896, 30325, 29892, 29871, 32406, 29901, 29871, 32402, 35403, 31689, 29892, 50912, 29901, 29871, 34275, 29892, 29871, 32047, 29901, 29871, 31947, 56784, 29892, 39854, 29901, 323, 29974, 29906, 30325, 29892, 29871, 32406, 29901, 29871, 36912, 32477, 29892, 995, 29901, 39717, 34353, 32013, 42387, 32473, 33429, 29892, 29871, 32406, 29901, 29871, 31557, 32477, 29892, 29871, 32406, 32141, 29901, 29871, 32954, 34309, 30742, 33429, 29892, 29871, 32406, 30313, 29901, 29871, 34353, 32013, 29892, 39854, 29901, 323, 29974, 29906, 30325, 29892, 50912, 29901, 29871, 32174, 29892, 29871, 32406, 29901, 29871, 32402, 35403, 31689, 29892, 39854, 29901, 323, 29974, 29941, 30325, 29892, 29871, 32406, 29901, 29871, 32803, 32477, 29892, 29871, 32406, 32141, 29901, 39717, 31149, 42387, 32473, 33429, 29892, 39854, 29901, 323, 29974, 29906, 30325, 29892, 50912, 29901, 29871, 37604, 32174, 29892, 29871, 32406, 29901, 29871, 32402, 35403, 31689, 29892, 29871, 32406, 29901, 29871, 31947, 56784, 29892, 39854, 29901, 323, 29974, 29941, 30325, 29892, 29871, 32406, 29901, 29871, 38349, 29892, 29871, 32406, 32141, 29901, 29871, 31149, 35960, 40382, 32473, 39885, 13, 2], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [1, 12968, 29901, 29871, 38857, 32949, 33304, 30214, 40339, 38276, 32471, 53824, 33304, 32135, 33690, 32066, 52072, 32513, 30267, 13, 33304, 29901, 29871, 34353, 32013, 29911, 29974, 29896, 30325, 32402, 35403, 31689, 48306, 30214, 31947, 56784, 30682, 30688, 29911, 29974, 29906, 35237, 36912, 32477, 31751, 34353, 32013, 42387, 32473, 33429, 30214, 31557, 32477, 32954, 34309, 30742, 33429, 31608, 34353, 32013, 30909, 29911, 29974, 29906, 30325, 32174, 32402, 35403, 31689, 30210, 30214, 29911, 29974, 29941, 30325, 32803, 32477, 31751, 31149, 42387, 32473, 33429, 31608, 29911, 29974, 29906, 30325, 37604, 32174, 32402, 35403, 31689, 30210, 30214, 31947, 56784, 30688, 29911, 29974, 29941, 35237, 38349, 31149, 35960, 40382, 32473, 39885, 30267, 13, 2, 1, 4007, 22137, 29901, 29871, 32406, 30313, 29901, 29871, 34353, 32013, 29892, 39854, 29901, 323, 29974, 29896, 30325, 29892, 29871, 32406, 29901, 29871, 32402, 35403, 31689, 29892, 50912, 29901, 29871, 34275, 29892, 29871, 32047, 29901, 29871, 31947, 56784, 29892, 39854, 29901, 323, 29974, 29906, 30325, 29892, 29871, 32406, 29901, 29871, 36912, 32477, 29892, 995, 29901, 39717, 34353, 32013, 42387, 32473, 33429, 29892, 29871, 32406, 29901, 29871, 31557, 32477, 29892, 29871, 32406, 32141, 29901, 29871, 32954, 34309, 30742, 33429, 29892, 29871, 32406, 30313, 29901, 29871, 34353, 32013, 29892, 39854, 29901, 323, 29974, 29906, 30325, 29892, 50912, 29901, 29871, 32174, 29892, 29871, 32406, 29901, 29871, 32402, 35403, 31689, 29892, 39854, 29901, 323, 29974, 29941, 30325, 29892, 29871, 32406, 29901, 29871, 32803, 32477, 29892, 29871, 32406, 32141, 29901, 39717, 31149, 42387, 32473, 33429, 29892, 39854, 29901, 323, 29974, 29906, 30325, 29892, 50912, 29901, 29871, 37604, 32174, 29892, 29871, 32406, 29901, 29871, 32402, 35403, 31689, 29892, 29871, 32406, 29901, 29871, 31947, 56784, 29892, 39854, 29901, 323, 29974, 29941, 30325, 29892, 29871, 32406, 29901, 29871, 38349, 29892, 29871, 32406, 32141, 29901, 29871, 31149, 35960, 40382, 32473, 39885, 13, 2]}
+03/31/2024 21:27:51 - INFO - decoder_fine_tuning.log - 训练集的采样281: {'input_ids': [1, 12968, 29901, 29871, 38857, 32949, 33304, 30214, 40339, 38276, 32471, 53824, 33304, 32135, 33690, 32066, 52072, 32513, 30267, 13, 33304, 29901, 29871, 29953, 242, 191, 145, 32948, 34309, 30742, 32381, 30214, 31570, 34506, 31184, 33203, 43077, 31391, 37184, 32355, 30214, 32185, 33474, 31361, 34500, 62408, 30210, 30214, 31403, 35303, 34353, 33606, 30210, 51706, 36065, 32416, 45982, 30909, 53052, 34772, 34353, 34827, 30728, 30267, 13, 2, 1, 4007, 22137, 29901, 39854, 29901, 29871, 32948, 34309, 30742, 32381, 29892, 29871, 32406, 30313, 29901, 29871, 34506, 31184, 33203, 29892, 29871, 32406, 29901, 29871, 43077, 29892, 470, 29901, 29871, 31391, 29892, 29871, 32406, 29901, 29871, 37184, 32355, 29892, 29871, 32810, 29901, 29871, 32185, 33474, 31361, 34500, 62408, 29892, 29871, 32406, 32141, 29901, 29871, 35303, 34353, 33606, 30210, 51706, 36065, 29892, 29871, 32406, 29901, 29871, 45982, 30909, 53052, 34772, 34353, 34827, 13, 2], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [1, 12968, 29901, 29871, 38857, 32949, 33304, 30214, 40339, 38276, 32471, 53824, 33304, 32135, 33690, 32066, 52072, 32513, 30267, 13, 33304, 29901, 29871, 29953, 242, 191, 145, 32948, 34309, 30742, 32381, 30214, 31570, 34506, 31184, 33203, 43077, 31391, 37184, 32355, 30214, 32185, 33474, 31361, 34500, 62408, 30210, 30214, 31403, 35303, 34353, 33606, 30210, 51706, 36065, 32416, 45982, 30909, 53052, 34772, 34353, 34827, 30728, 30267, 13, 2, 1, 4007, 22137, 29901, 39854, 29901, 29871, 32948, 34309, 30742, 32381, 29892, 29871, 32406, 30313, 29901, 29871, 34506, 31184, 33203, 29892, 29871, 32406, 29901, 29871, 43077, 29892, 470, 29901, 29871, 31391, 29892, 29871, 32406, 29901, 29871, 37184, 32355, 29892, 29871, 32810, 29901, 29871, 32185, 33474, 31361, 34500, 62408, 29892, 29871, 32406, 32141, 29901, 29871, 35303, 34353, 33606, 30210, 51706, 36065, 29892, 29871, 32406, 29901, 29871, 45982, 30909, 53052, 34772, 34353, 34827, 13, 2]}
+Loading cached shuffled indices for dataset at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7af2c5ab848b0e1e.arrow
+03/31/2024 21:27:51 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /home/asus/intelligent-test/decoder_fine_tuning/output/dataset_cache/csv/default-1bbdbeba4c26a656/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7af2c5ab848b0e1e.arrow
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/accelerate/accelerator.py:432: FutureWarning: Passing the following arguments to `Accelerator` is deprecated and will be removed in version 1.0 of Accelerate: dict_keys(['dispatch_batches', 'split_batches', 'even_batches', 'use_seedable_sampler']). Please pass an `accelerate.DataLoaderConfiguration` instead: 
+dataloader_config = DataLoaderConfiguration(dispatch_batches=None, split_batches=False, even_batches=True, use_seedable_sampler=True)
+  warnings.warn(
+[INFO|trainer.py:601] 2024-03-31 21:27:51,483 >> Using auto half precision backend
+03/31/2024 21:27:51 - INFO - decoder_fine_tuning.log - 0 start train
+[INFO|trainer.py:1812] 2024-03-31 21:27:51,672 >> ***** Running training *****
+[INFO|trainer.py:1813] 2024-03-31 21:27:51,672 >>   Num examples = 574
+[INFO|trainer.py:1814] 2024-03-31 21:27:51,672 >>   Num Epochs = 20
+[INFO|trainer.py:1815] 2024-03-31 21:27:51,672 >>   Instantaneous batch size per device = 1
+[INFO|trainer.py:1818] 2024-03-31 21:27:51,672 >>   Total train batch size (w. parallel, distributed & accumulation) = 8
+[INFO|trainer.py:1819] 2024-03-31 21:27:51,672 >>   Gradient Accumulation steps = 8
+[INFO|trainer.py:1820] 2024-03-31 21:27:51,672 >>   Total optimization steps = 1,420
+[INFO|trainer.py:1821] 2024-03-31 21:27:51,673 >>   Number of trainable parameters = 7,008,751,616
+03/31/2024 21:27:51 - WARNING - transformers_modules.Atom-7B.model_atom - `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+[INFO|trainer.py:3376] 2024-03-31 22:48:50,917 >> ***** Running Evaluation *****
+[INFO|trainer.py:3378] 2024-03-31 22:48:50,917 >>   Num examples = 64
+[INFO|trainer.py:3381] 2024-03-31 22:48:50,917 >>   Batch size = 1
+[WARNING|trainer.py:2492] 2024-03-31 22:49:02,354 >> Checkpoint destination directory ./output/checkpoint-100 already exists and is non-empty. Saving will proceed but saved results may be invalid.
+[INFO|trainer.py:3067] 2024-03-31 22:49:02,354 >> Saving model checkpoint to ./output/checkpoint-100
+[WARNING|configuration_utils.py:449] 2024-03-31 22:49:02,355 >> Some non-default generation parameters are set in the model config. These should go into a GenerationConfig file (https://huggingface.co/docs/transformers/generation_strategies#save-a-custom-decoding-strategy-with-your-model) instead. This warning will be raised to an exception in v4.41.
+Non-default generation parameters: {'max_length': 4096}
+[INFO|configuration_utils.py:473] 2024-03-31 22:49:02,356 >> Configuration saved in ./output/checkpoint-100/config.json
+[INFO|configuration_utils.py:845] 2024-03-31 22:49:02,356 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 2
+}
+
+[INFO|configuration_utils.py:614] 2024-03-31 22:49:02,357 >> Configuration saved in ./output/checkpoint-100/generation_config.json
+[INFO|modeling_utils.py:2462] 2024-03-31 22:49:47,381 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 3 checkpoint shards. You can find where each parameters has been saved in the index located at ./output/checkpoint-100/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2459] 2024-03-31 22:49:47,382 >> tokenizer config file saved in ./output/checkpoint-100/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2468] 2024-03-31 22:49:47,382 >> Special tokens file saved in ./output/checkpoint-100/special_tokens_map.json
+[INFO|trainer.py:3376] 2024-04-01 00:10:48,747 >> ***** Running Evaluation *****
+[INFO|trainer.py:3378] 2024-04-01 00:10:48,747 >>   Num examples = 64
+[INFO|trainer.py:3381] 2024-04-01 00:10:48,747 >>   Batch size = 1
+[WARNING|trainer.py:2492] 2024-04-01 00:11:00,175 >> Checkpoint destination directory ./output/checkpoint-200 already exists and is non-empty. Saving will proceed but saved results may be invalid.
+[INFO|trainer.py:3067] 2024-04-01 00:11:00,175 >> Saving model checkpoint to ./output/checkpoint-200
+[WARNING|configuration_utils.py:449] 2024-04-01 00:11:00,177 >> Some non-default generation parameters are set in the model config. These should go into a GenerationConfig file (https://huggingface.co/docs/transformers/generation_strategies#save-a-custom-decoding-strategy-with-your-model) instead. This warning will be raised to an exception in v4.41.
+Non-default generation parameters: {'max_length': 4096}
+[INFO|configuration_utils.py:473] 2024-04-01 00:11:00,178 >> Configuration saved in ./output/checkpoint-200/config.json
+[INFO|configuration_utils.py:845] 2024-04-01 00:11:00,178 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 2
+}
+
+[INFO|configuration_utils.py:614] 2024-04-01 00:11:00,178 >> Configuration saved in ./output/checkpoint-200/generation_config.json
+[INFO|modeling_utils.py:2462] 2024-04-01 00:11:43,603 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 3 checkpoint shards. You can find where each parameters has been saved in the index located at ./output/checkpoint-200/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2459] 2024-04-01 00:11:43,604 >> tokenizer config file saved in ./output/checkpoint-200/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2468] 2024-04-01 00:11:43,604 >> Special tokens file saved in ./output/checkpoint-200/special_tokens_map.json

@@ -31,7 +31,7 @@ def draw_figure(file, image):
     plt.xticks(x+bar_width, datasets, fontsize=15)
     plt.yticks(fontsize=15)
     plt.ylim(40, 100)
-    plt.legend(fontsize=11.5, loc="upper right")
+    plt.legend(fontsize=11.5, loc="upper right", borderaxespad=0.1)
     plt.savefig(image)
 
 

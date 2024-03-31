@@ -19,9 +19,9 @@ python fine_tune_model.py \
     --output_dir ${output_dir} \
     --evaluation_strategy  steps \
     --max_eval_samples 800 \
-    --learning_rate 1e-4 \
+    --learning_rate 1e-5 \
     --gradient_accumulation_steps 8 \
-    --num_train_epochs 10 \
+    --num_train_epochs 20 \
     --warmup_steps 400 \
     --logging_dir ${output_dir}/logs \
     --logging_strategy steps \

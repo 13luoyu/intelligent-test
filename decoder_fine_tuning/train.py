@@ -5,7 +5,7 @@ import transformers
 import evaluate
 import torch
 import bitsandbytes as bnb
-from transformers import Trainer
+from transformers import Trainer, TrainerCallback
 
 
 def get_optimizer(model, training_args):
@@ -35,6 +35,21 @@ def compute_metrics(eval_preds):
     return metric.compute(predictions=preds, references=labels)
 
 
+class FineTuningCallback(TrainerCallback):
+    def on_epoch_end(self, args: transformers.TrainingArguments, state: transformers.TrainerState, control: transformers.TrainerControl, **kwargs):
+        if state.is_world_process_zero:
+            print('********************on epoch end call back********************')
+            print(f"Epoch {state.epoch} finish")
+        
+        return super().on_epoch_end(args, state, control, **kwargs)
+    
+    def on_step_end(self, args: transformers.TrainingArguments, state: transformers.TrainerState, control: transformers.TrainerControl, **kwargs):
+        if state.is_world_process_zero and state.global_step % 10 == 0:
+            print('********************on step end call back********************')
+            print(f"Step {state.global_step} finish")
+
+        return super().on_step_end(args, state, control, **kwargs)
+
 def train_model(model, last_checkpoint, tokenizer, train_dataset, eval_dataset, training_args, data_args, logger):
     optimizer = get_optimizer(model, training_args)
     trainer = Trainer(
@@ -48,7 +63,8 @@ def train_model(model, last_checkpoint, tokenizer, train_dataset, eval_dataset, 
             tokenizer, pad_to_multiple_of=8, return_tensors="pt", padding=True
         ),
         compute_metrics=compute_metrics if training_args.do_eval else None,
-        preprocess_logits_for_metrics=preprocess_logits_for_metrics if training_args.do_eval else None
+        preprocess_logits_for_metrics=preprocess_logits_for_metrics if training_args.do_eval else None,
+        callbacks=[FineTuningCallback]
     )
 
     if training_args.do_train:

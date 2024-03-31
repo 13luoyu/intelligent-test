@@ -74,6 +74,7 @@ def get_datas(file_path):
 def generate_prediction(model, tokenizer, inputs, targets):
     predictions = []
     for index in tqdm(range(len(inputs))):
+        print(f"### {index}")
         i = inputs[index]
         t = targets[index]
         input_ids = tokenizer([i], return_tensors="pt", add_special_tokens=False).input_ids
@@ -86,6 +87,8 @@ def generate_prediction(model, tokenizer, inputs, targets):
             "answer": t,
             "prediction": rs
         })
+        print(json.dumps({"prompt": i, "answer": t, "prediction": rs}, ensure_ascii=False, indent=4))
+        print("\n\n")
     return predictions
 
 
