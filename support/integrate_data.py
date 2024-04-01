@@ -92,3 +92,6 @@ if __name__ == "__main__":
     integrate_file("../data/rules.json", "../data/tc_train_data_rules_base.json", "../data/tc_validate_data_rules.json")
     # 将所有字分类、句分类数据整合在一起
     integrate_all("../data/sc_data.json", "../data/tc_data.json")
+
+    # 将ir_annotation_v2.json 9:1 分到对应文件
+    integrate_file("../data/ir_annotation_v2.json", "../data/ir_annotation_v2_for_train.json", "../data/ir_annotation_v2_for_validate.json")

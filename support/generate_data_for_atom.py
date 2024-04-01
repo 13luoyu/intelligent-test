@@ -38,7 +38,7 @@ def read_OBI_to_rule(texts, labels):
     return stack
 
 
-def generate_llm_chat_data(rules):
+def generate_llm_chat_data_v1(rules):
     s = "\"text\"\n"
     for rule in rules:
         s += "\"<s>Human: 给出一条规则，请你尽可能全面地将规则中的关键信息抽取出来。\n规则: "
@@ -51,14 +51,35 @@ def generate_llm_chat_data(rules):
     return s
 
 
+def generate_llm_chat_data_v2(datas):
+    s = "\"text\"\n"
+    for data in datas:
+        prompt, answer = data['prompt'], data['answer']
+        s += "\"" + prompt + answer
+        s = s.replace(" ", "")
+        s = s[:-1] + "\"\n"
+    return s
+
+
 if __name__ == "__main__":
     rules = json.load(open("../data/tc_train_data_rules_base.json", "r", encoding="utf-8"))
-    s = generate_llm_chat_data(rules)
-    with open("../data/ir_train.csv", "w", encoding="utf-8") as f:
+    s = generate_llm_chat_data_v1(rules)
+    with open("../data/ir_train_v1.csv", "w", encoding="utf-8") as f:
         f.write(s)
     rules = json.load(open("../data/tc_validate_data_rules.json", "r", encoding="utf-8"))
-    s = generate_llm_chat_data(rules)
-    with open("../data/ir_validate.csv", "w", encoding="utf-8") as f:
+    s = generate_llm_chat_data_v1(rules)
+    with open("../data/ir_validate_v1.csv", "w", encoding="utf-8") as f:
         f.write(s)
+    
+
+    datas = json.load(open("../data/ir_annotation_v2_for_train.json", "r", encoding="utf-8"))
+    s = generate_llm_chat_data_v2(datas)
+    with open("../data/ir_train_v2.csv", "w", encoding="utf-8") as f:
+        f.write(s)
+    datas = json.load(open("../data/ir_annotation_v2_for_validate.json", "r", encoding="utf-8"))
+    s = generate_llm_chat_data_v2(datas)
+    with open("../data/ir_validate_v2.csv", "w", encoding="utf-8") as f:
+        f.write(s)
+
 
 

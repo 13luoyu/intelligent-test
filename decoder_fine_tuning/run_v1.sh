@@ -9,8 +9,8 @@ if [ ! -d ${output_dir} ];then
 fi
 python fine_tune_model.py \
     --model_name_or_path ../model/pretrained/Atom-7B \
-    --train_files ../data/ir_train.csv \
-    --validation_files  ../data/ir_validate.csv \
+    --train_files ../data/ir_train_v1.csv \
+    --validation_files  ../data/ir_validate_v1.csv \
     --per_device_train_batch_size 1 \
     --per_device_eval_batch_size 1 \
     --do_train \
