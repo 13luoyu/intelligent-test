@@ -4,6 +4,7 @@ import copy
 import os
 import re
 from transfer.knowledge_tree import encode_tree
+import pprint
 
 # 做法是在分规则后进行一步处理，依据原文中的关键字处理两个操作人。两个操作人的情况总共以上三种，向（与、给）、作为与无关。在第一步处理模型结果时要找到这个关系，传给第二步。
 
@@ -671,7 +672,7 @@ def get_clause_for_single_value(value_cache, op_cache, knowledge, key=None):
         for item in knowledge:
             knowledge_key = item['content'].split(":")[0]
             knowledge_value = item['content'].split(":")[-1]
-            if v_value in knowledge_value and "要素" not in knowledge_key and "指令" not in knowledge_key:
+            if v_value == knowledge_value and "要素" not in knowledge_key and "指令" not in knowledge_key:
                 clause = f"{knowledge_key} is \"{v_value}\""
                 find = True
                 break
@@ -938,7 +939,6 @@ def to_r1(rules, knowledge, terms):
         stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation = read_OBI_to_rule(texts, labels)
 
         stack = fix_token(stack, rule['text'], terms)
-        
 
         ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation)
         
@@ -1060,14 +1060,14 @@ def to_r1_v2(rules, knowledge, terms):
 
 
 if __name__ == "__main__":
-    # rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
+    rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
     knowledge = json.load(open("../data/classification_knowledge.json", "r", encoding="utf-8"))
     terms = open("../data/terms.txt", "r", encoding="utf-8").read().split("\n")
-    # r1 = to_r1(rules, knowledge, terms)
-    # with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:
-    #     f.write(r1)
-    
-    rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
-    r1 = to_r1_v2(rules, knowledge, terms)
+    r1 = to_r1(rules, knowledge, terms)
     with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:
         f.write(r1)
+    
+    # rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
+    # r1 = to_r1_v2(rules, knowledge, terms)
+    # with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:
+    #     f.write(r1)

@@ -191,6 +191,200 @@ def check_ruleset(ruleset1, ruleset2):
 
 
 
+def check_rule(rule1, rule2):
+    s = z3.Solver()
+    variables = {}
+    if isinstance(rule1, tuple):
+        rulei_if_keys, rulei_if_values, rulei_then_keys, rulei_then_values = rule1[1:]
+    else:
+        rulei_if_keys, rulei_if_values, rulei_then_keys, rulei_then_values = rule1[0][1:]
+        for rule in rule1[1:]:
+            # 默认if中不存在or关系
+            # for i in range(len(rule[1])):
+            #     if rule[1][i] not in rulei_if_keys:
+            #         rulei_if_keys.append(rule[1][i])
+            #         rulei_if_values.append(rule[2][i])
+            #     else:
+            #         p = rulei_if_keys.index(rule[1][i])
+            #         rulei_if_values[p] = rulei_if_values[p] + "," + rule[2][i]
+            for i in range(len(rule[3])):
+                if rule[3][i] not in rulei_then_keys:
+                    rulei_then_keys.append(rule[3][i])
+                    rulei_then_values.append(rule[4][i])
+                else:
+                    p = rulei_then_keys.index(rule[3][i])
+                    rulei_then_values[p] = rulei_then_values[p] + "," + rule[4][i]
+
+    if isinstance(rule2, tuple):
+        rulej_if_keys, rulej_if_values, rulej_then_keys, rulej_then_values = rule2[1:]
+    else:
+        rulej_if_keys, rulej_if_values, rulej_then_keys, rulej_then_values = rule2[0][1:]
+        for rule in rule2[1:]:
+            # 默认if中不存在or关系
+            # for i in range(len(rule[1])):
+            #     if rule[1][i] not in rulej_if_keys:
+            #         rulej_if_keys.append(rule[1][i])
+            #         rulej_if_values.append(rule[2][i])
+            #     else:
+            #         p = rulej_if_keys.index(rule[1][i])
+            #         rulej_if_values[p] = rulej_if_values[p] + "," + rule[2][i]
+            for i in range(len(rule[3])):
+                if rule[3][i] not in rulej_then_keys:
+                    rulej_then_keys.append(rule[3][i])
+                    rulej_then_values.append(rule[4][i])
+                else:
+                    p = rulej_then_keys.index(rule[3][i])
+                    rulej_then_values[p] = rulej_then_values[p] + "," + rule[4][i]
+
+    # print(rulei_if_keys)
+    # print(rulei_if_values)
+    # print(rulei_then_keys)
+    # print(rulei_then_values)
+    # print(rulej_if_keys)
+    # print(rulej_if_values)
+    # print(rulej_then_keys)
+    # print(rulej_then_values)
+
+
+    # if情况0
+    for index, key in enumerate(rulei_if_keys):
+        if key not in variables:
+            v = z3.String(key)
+            variables[key] = v
+        else:
+            v = variables[key]
+        s.push()
+        s.add(v == rulei_if_values[index])
+    for index, key in enumerate(rulej_if_keys):
+        if key not in variables:
+            v = z3.String(key)
+            variables[key] = v
+        else:
+            v = variables[key]
+        s.push()
+        s.add(v == rulej_if_values[index])
+    if s.check() == z3.unsat:
+        # 规则 i, j 的条件部分，存在相同条件具有不同值的情况，不冲突
+        return False
+    
+    # 情况1、2、3、4
+    s.reset()
+    # s.check(~(R1.if ∩ ~R2.if)) == UNSAT
+    consi = ""
+    for index, key in enumerate(rulei_if_keys):
+        if key not in variables:
+            v = z3.String(key)
+            variables[key] = v
+        else:
+            v = variables[key]
+        if isinstance(consi, str):
+            consi = v == rulei_if_values[index]
+        else:
+            consi = z3.And(consi, v == rulei_if_values[index])
+    consj = ""
+    for index, key in enumerate(rulej_if_keys):
+        if key not in variables:
+            v = z3.String(key)
+            variables[key] = v
+        else:
+            v = variables[key]
+        if isinstance(consj, str):
+            consj = v == rulej_if_values[index]
+        else:
+            consj = z3.And(consj, v == rulej_if_values[index])
+    s.add(z3.And(consi, z3.Not(consj)))
+    # s.add(z3.Not(z3.Implies(consi, consj)))
+    if s.check() == z3.unsat:  # if情况1、2，继续判断then
+        s.reset()
+
+        if len(list(set(rulei_then_keys) & set(rulej_then_keys))) == 0:
+            # then部分没有key重叠，不冲突
+            return False
+
+        def get_cons(rule_then_keys, rule_then_values, ignore_key=None):
+            cons = []
+            cache = []
+            for index, key in enumerate(rule_then_keys):
+                if key == ignore_key:
+                    continue
+                if key not in variables:
+                    v = z3.String(key)
+                    variables[key] = v
+                else:
+                    v = variables[key]
+                if "," not in rule_then_values[index]:
+                    if "not" in rule_then_values[index]:
+                        cons.append(v != rule_then_values[index].split("not")[-1])
+                    else:
+                        cons.append(v == rule_then_values[index])
+                else:
+                    for idx, val in enumerate(rulej_then_values[index].split(",")):
+                        if index == 0:
+                            c = []
+                            c.append(v == val)
+                            cache.append(c)
+                        else:
+                            cache[idx].append(v == val)
+            if cache != []:
+                y = ""
+                for c in cache:
+                    x = ""
+                    for constraint in c:
+                        if isinstance(x, str):
+                            x = constraint
+                        else:
+                            x = z3.And(x, constraint)
+                    if isinstance(y, str):
+                        y = x
+                    else:
+                        y = z3.Or(y, x)
+                cons.append(y)
+            return cons
+
+        consi = get_cons(rulei_then_keys, rulei_then_values)
+        consj = get_cons(rulej_then_keys, rulej_then_values)
+        
+        # print(consi)
+        # print(consj)
+        def get_z3_expression(cons):
+            if len(cons) > 1:
+                x = ""
+                for con in cons:
+                    if isinstance(x, str):
+                        x = con
+                    else:
+                        x = z3.And(x, con)
+                z3_exp = x
+            else:
+                z3_exp = cons[0]
+            return z3_exp
+        z3_expi = get_z3_expression(consi)
+        z3_expj = get_z3_expression(consj)
+        s.add(z3.Or(z3.Not(z3.Implies(z3_expi, z3_expj)), z3.Not(z3.Implies(z3_expj, z3_expi))))
+        # 两个以上不冲突，假设：时间、数量这样的不会同时出现在then中
+        if s.check() == z3.sat:  # 存在冲突
+            keys = list(set(rulei_then_keys + rulej_then_keys))
+            for ignore_key in keys:
+                s.reset()
+                consi = get_cons(rulei_then_keys, rulei_then_values, ignore_key=ignore_key)
+                consj = get_cons(rulej_then_keys, rulej_then_values, ignore_key=ignore_key)
+                z3_expi = get_z3_expression(consi)
+                z3_expj = get_z3_expression(consj)
+
+                s.add(z3.Or(z3.Not(z3.Implies(z3_expi, z3_expj)), z3.Not(z3.Implies(z3_expj, z3_expi))))
+                if s.check() == z3.sat:  # 存在冲突
+                    # 规则 i,j 的条件部分相同，结论部分只有一个互相冲突的变量，冲突")
+                    return True
+            # 规则 i, j 的条件部分相同，结论部分存在两个或以上互相冲突的变量，不冲突
+            return False
+        else:
+            # print(s.model())
+            # 规则 i, j 的条件部分相同，结论部分可以并存，不冲突
+            return False
+
+    else:  # if情况3、4
+        # 规则 i, j 的条件部分，互相存在对方没有的条件，不冲突
+        return False
 
 
 
@@ -241,32 +435,47 @@ def consistency_checking_v2(rules):
             no_relation_rules.append((rule_id, rule_if_keys[-1], rule_if_values[-1], rule_then_keys[-1], rule_then_values[-1]))
     
     or_relation_rules = list(or_relation_map.values())
-    # pprint.pprint(or_relation_rules)
 
+
+
+    #method2
     
-    for i in range(len(no_relation_rules)):
-        for j in range(len(no_relation_rules)):
+    all_rules = no_relation_rules + or_relation_rules
+    # pprint.pprint(all_rules)
+    for i in range(len(all_rules)):
+        for j in range(len(all_rules)):
             if i >= j:
                 continue
-            conflict = check_single_rule(no_relation_rules[i][1], no_relation_rules[i][2], no_relation_rules[i][3], no_relation_rules[i][4], no_relation_rules[j][1], no_relation_rules[j][2], no_relation_rules[j][3], no_relation_rules[j][4])
+            conflict = check_rule(all_rules[i], all_rules[j])
             if conflict:
-                print(f"规则 {no_relation_rules[i][0]} 和 {no_relation_rules[j][0]} 冲突")
+                rule_id1 = all_rules[i][0] if isinstance(all_rules[i][0], str) else ", ".join([idi[0] for idi in all_rules[i]])
+                rule_id2 = all_rules[j][0] if isinstance(all_rules[j][0], str) else ", ".join([idi[0] for idi in all_rules[j]])
+                print(f"规则 {rule_id1} 和 {rule_id2} 冲突")
+
+
     
+    # method1: 
+    # for i in range(len(no_relation_rules)):
+    #     for j in range(len(no_relation_rules)):
+    #         if i >= j:
+    #             continue
+    #         conflict = check_single_rule(no_relation_rules[i][1], no_relation_rules[i][2], no_relation_rules[i][3], no_relation_rules[i][4], no_relation_rules[j][1], no_relation_rules[j][2], no_relation_rules[j][3], no_relation_rules[j][4])
+    #         if conflict:
+    #             print(f"规则 {no_relation_rules[i][0]} 和 {no_relation_rules[j][0]} 冲突")
+    
+    # for i in range(len(or_relation_rules)):
+    #     for j in range(len(no_relation_rules)):
+    #         conflict, _ = check_single_rule_and_ruleset(or_relation_rules[i], no_relation_rules[j])
+    #         if conflict:
+    #             print(f"规则 {no_relation_rules[j][0]} 和规则集 {','.join([r[0] for r in or_relation_rules[i]])} 冲突")
 
-    for i in range(len(or_relation_rules)):
-        for j in range(len(no_relation_rules)):
-            conflict, _ = check_single_rule_and_ruleset(or_relation_rules[i], no_relation_rules[j])
-            if conflict:
-                print(f"规则 {no_relation_rules[j][0]} 和规则集 {','.join([r[0] for r in or_relation_rules[i]])} 冲突")
-
-
-    for i in range(len(or_relation_rules)):
-        for j in range(len(or_relation_rules)):
-            if i >= j:
-                continue
-            conflict = check_ruleset(or_relation_rules[i], or_relation_rules[j])
-            if conflict:
-                print(f"规则集 {','.join([r[0] for r in or_relation_rules[i]])} 和规则集 {','.join([r[0] for r in or_relation_rules[j]])} 冲突")
+    # for i in range(len(or_relation_rules)):
+    #     for j in range(len(or_relation_rules)):
+    #         if i >= j:
+    #             continue
+    #         conflict = check_ruleset(or_relation_rules[i], or_relation_rules[j])
+    #         if conflict:
+    #             print(f"规则集 {','.join([r[0] for r in or_relation_rules[i]])} 和规则集 {','.join([r[0] for r in or_relation_rules[j]])} 冲突")
 
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# nohup bash run.sh >../log/run_atom_lora.log &
+# nohup bash run_v2.sh >../log/run_atom_lora.log &
 
 output_dir=./output
 
