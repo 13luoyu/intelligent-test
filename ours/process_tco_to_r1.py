@@ -897,23 +897,32 @@ def fix_token(stack, text, terms):
         stack[i] = {key:value}
     
     # 解决少字问题
+    p=0
     for i, si in enumerate(stack):
         key = list(si.keys())[0]
         value = si[key]
+        p = text.find(value, p)
         
-        if value not in terms:
-            l = 0
-            target_text = ""
-            for term in terms:
-                if value in term and term in text and len(term) > l:
-                    target_text = term
-                    l = len(term)
-            if target_text != "":
-                value = target_text
+        l = 0
+        target_text = ""
+        for term in terms:
+            if value in term and term in text and len(term) > l:
+                value_in_term_begin_index = term.find(value)
+                if p - value_in_term_begin_index < 0 or text[p-value_in_term_begin_index:p-value_in_term_begin_index+len(term)] != term:
+                    continue
+                target_text = term
+                l = len(term)
+        if target_text != "":
+            value = target_text
 
         stack[i] = {key:value}
     
-    return stack
+    new_stack = []
+    for s in stack:
+        if s not in new_stack:
+            new_stack.append(s)
+
+    return new_stack
 
 
 
@@ -938,9 +947,15 @@ def to_r1(rules, knowledge, terms):
         
         stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation = read_OBI_to_rule(texts, labels)
 
-        stack = fix_token(stack, rule['text'], terms)
-
+        # stack = fix_token(stack, rule['text'], terms)
+        
         ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation)
+        for i, s in enumerate(ss):
+            new_s = []
+            for si in s:
+                if si not in new_s:
+                    new_s.append(si)
+            ss[i] = new_s
         
         r1 = write_r1(r1, ss, knowledge, id)
 

@@ -105,25 +105,25 @@ sourceId 第十五条
 focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金份额' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报'
+	if 交易品种 is '基金份额' and 交易方式 is '用大宗交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报'
 	then 结果 = '不成功' 
-	constraint 单笔交易数量 < 2000000 and 交易金额 < 2000000
+	constraint 单笔交易数量 < 2000000 and 易金额 < 2000000
 
 rule 第十五条.1.2
 sourceId 第十五条
 focus: 价格
 before: []
 after: []
-	if 交易品种 is '基金份额' and 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报'
+	if 交易品种 is '基金份额' and 交易方式 is '用大宗交易' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报'
 	then 结果 = '不成功' 
-	constraint 单笔交易数量 < 2000000 and 交易金额 < 2000000
+	constraint 单笔交易数量 < 2000000 and 易金额 < 2000000
 
 rule 第十五条.2.1.1
 sourceId 第十五条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 交易品种 is '封闭式基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 交易方式 is '用大宗交易' and 交易市场 is '深圳证券交易所' and 交易品种 is '封闭式基金' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十五条.2.2.1
@@ -131,7 +131,7 @@ sourceId 第十五条
 focus: 订单连续性操作
 before: []
 after: []
-	if 交易方式 is '大宗交易' and 交易市场 is '深圳证券交易所' and 交易品种 is '封闭式基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 交易方式 is '用大宗交易' and 交易市场 is '深圳证券交易所' and 交易品种 is '封闭式基金' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十六条.1.1.1
@@ -182,20 +182,20 @@ after: []
 	if 交易品种 is '基金份额' and 交易方式 is '协议大宗交易' and 接受申报时间 in {[9:15-11:30],[13:00-15:30]} and 成交确认时间 in {[15:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '达成交易' and 状态 is '部分成交'
 	then 结果 = '成功' and 状态 = '全部成交'
 
-rule 第十六条.2.1.1
-sourceId 第十六条
-focus: 时间
+rule 第十六条.2,第八条.1.1.1
+sourceId 第十六条,第八条
+focus: 价格,时间
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '额采用盘后定价大宗交易' and 接受申报时间 is '时间' and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '额采用盘后定价大宗交易' and 时间 in 基金份额 and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
-rule 第十六条.2.2.1
-sourceId 第十六条
-focus: 时间
+rule 第十六条.2,第八条.1.2.1
+sourceId 第十六条,第八条
+focus: 价格,时间
 before: []
 after: []
-	if 交易品种 is '基金' and 交易方式 is '额采用盘后定价大宗交易' and 接受申报时间 is '时间' and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金' and 交易方式 is '额采用盘后定价大宗交易' and 时间 in 基金份额 and 时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十七条.1.1.1
@@ -203,7 +203,7 @@ sourceId 第十七条
 focus: 价格
 before: []
 after: ['第十六条.1.1.1', '第十六条.1.1.2']
-	if 交易品种 is '基金份额' and 交易方式 is '协议大宗交易' and 申报价格范围 is '前收盘价的上下10%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金份额' and 交易方式 is '协议大宗交易' and 申报价格范围 is '收盘价的上下10%' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 
 rule 第十七条.1.2.1
@@ -211,6 +211,6 @@ sourceId 第十七条
 focus: 价格
 before: []
 after: ['第十六条.1.2.1', '第十六条.1.2.2']
-	if 交易品种 is '基金份额' and 交易方式 is '协议大宗交易' and 申报价格范围 is '前收盘价的上下10%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
+	if 交易品种 is '基金份额' and 交易方式 is '协议大宗交易' and 申报价格范围 is '收盘价的上下10%' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
 	then 结果 = '成功' and 状态 = '未成交'
 

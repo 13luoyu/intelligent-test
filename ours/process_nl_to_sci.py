@@ -26,6 +26,7 @@ def get_market_variety(s, knowledge):
         if value_count > market_num:
             market_num = value_count
             market = value
+    s = s.strip()
     for value in varieties:
         value_count = "\n".join(s.split("\n")[:2]).count(value)
         if value_count >= 1 and len(value) > len(variety):
@@ -36,7 +37,6 @@ def get_market_variety(s, knowledge):
     #     if value_count > variety_num:
     #         variety_num = value_count
     #         variety = value
-    
 
     if market_num == 0:
         if "\n".join(s.split("\n")).count("深圳") > "\n".join(s.split("\n")).count("上海"):

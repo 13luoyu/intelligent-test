@@ -191,22 +191,22 @@ def check_ruleset(ruleset1, ruleset2):
 
 
 
+
+
+
+
 def check_rule(rule1, rule2):
     s = z3.Solver()
     variables = {}
+
+    # 首先提取if, then中的key和value，并对then中的or情况进行处理，写在一起
     if isinstance(rule1, tuple):
         rulei_if_keys, rulei_if_values, rulei_then_keys, rulei_then_values = rule1[1:]
     else:
         rulei_if_keys, rulei_if_values, rulei_then_keys, rulei_then_values = rule1[0][1:]
         for rule in rule1[1:]:
             # 默认if中不存在or关系
-            # for i in range(len(rule[1])):
-            #     if rule[1][i] not in rulei_if_keys:
-            #         rulei_if_keys.append(rule[1][i])
-            #         rulei_if_values.append(rule[2][i])
-            #     else:
-            #         p = rulei_if_keys.index(rule[1][i])
-            #         rulei_if_values[p] = rulei_if_values[p] + "," + rule[2][i]
+            # 将then中的or关系进行组装
             for i in range(len(rule[3])):
                 if rule[3][i] not in rulei_then_keys:
                     rulei_then_keys.append(rule[3][i])
@@ -221,13 +221,7 @@ def check_rule(rule1, rule2):
         rulej_if_keys, rulej_if_values, rulej_then_keys, rulej_then_values = rule2[0][1:]
         for rule in rule2[1:]:
             # 默认if中不存在or关系
-            # for i in range(len(rule[1])):
-            #     if rule[1][i] not in rulej_if_keys:
-            #         rulej_if_keys.append(rule[1][i])
-            #         rulej_if_values.append(rule[2][i])
-            #     else:
-            #         p = rulej_if_keys.index(rule[1][i])
-            #         rulej_if_values[p] = rulej_if_values[p] + "," + rule[2][i]
+            # 将then中的or关系进行组装
             for i in range(len(rule[3])):
                 if rule[3][i] not in rulej_then_keys:
                     rulej_then_keys.append(rule[3][i])
@@ -245,8 +239,18 @@ def check_rule(rule1, rule2):
     # print(rulej_then_keys)
     # print(rulej_then_values)
 
+    # Example: 
+    # ['时间']
+    # ['竞买日前']
+    # ['数量']
+    # ['10万元面额或者其整数倍']
+    # ['时间']
+    # ['竞买日前']
+    # ['操作主体', '操作', '操作部分']
+    # ['卖方,卖方', '修改,撤销', '竞买预约要素,竞买']
 
-    # if情况0
+
+    # 判断规则的if部分是否存在相同key的value不同，方法是将if部分所有key-value以and关联放入求解器，如果unsat则if部分存在上述情况
     for index, key in enumerate(rulei_if_keys):
         if key not in variables:
             v = z3.String(key)
@@ -267,7 +271,10 @@ def check_rule(rule1, rule2):
         # 规则 i, j 的条件部分，存在相同条件具有不同值的情况，不冲突
         return False
     
-    # 情况1、2、3、4
+    # 现在if部分要么没有共同的key，要么相同的key具有相同的value
+    # 需要判别这两种情况
+    # 方法是将一个规则所有约束取反，并和另一个规则以and相连
+    # 如果它们具有相同的key，并且相同的key有相同的value，那么求解器结果为unsat
     s.reset()
     # s.check(~(R1.if ∩ ~R2.if)) == UNSAT
     consi = ""
@@ -294,18 +301,42 @@ def check_rule(rule1, rule2):
             consj = z3.And(consj, v == rulej_if_values[index])
     s.add(z3.And(consi, z3.Not(consj)))
     # s.add(z3.Not(z3.Implies(consi, consj)))
-    if s.check() == z3.unsat:  # if情况1、2，继续判断then
+    if s.check() == z3.unsat:  
         s.reset()
 
-        if len(list(set(rulei_then_keys) & set(rulej_then_keys))) == 0:
+        # 现在两个规则的if部分可以相容，判断then部分
+        # 1、then部分首先判断是没有共同的key，还是有共同的key，没有则不冲突，如果有共同的key，进行后续判断
+        # 2、有共同的key分为三种情况：有交集、包含、相同
+        # （我们只需要判断交集的key对应value的情况）删掉
+        # 交集、包含判定为冲突
+        # 如果完全相同，或有两个以上不同，则不冲突
+        # 如果有且仅有一个不同，则冲突
+        # 3、取交集的方法是在构建z3表达式时，如果key不在交集中，则不将其考虑在z3表达式中
+        # 4、判断交集key对应value是否完全相同的方法是，若
+        # 任意x p(x)->q(x) and q(x)->p(x) == sat
+        # 则交集key对应value完全相同，将表达式"左右取反"可以输入z3求解
+        # 否则存在一至多个冲突
+        # 5、判断是否存在多个冲突的方法是，随机去掉其中一个key及其对应value，剩下的输入到求解器中判断是否冲突
+        # 如果存在一个key-value被去掉后求解器sat，说明仅有这一个key-value冲突
+        # 如果所有key遍历完成后都是unsat，则说明有两个以上的冲突
+
+
+        intersection_keys = list(set(rulei_then_keys) & set(rulej_then_keys))
+        if len(intersection_keys) == 0:
             # then部分没有key重叠，不冲突
             return False
 
-        def get_cons(rule_then_keys, rule_then_values, ignore_key=None):
+        # rulei_ignore_keys = [key for key in rulei_then_keys if key not in intersection_keys]
+        # rulej_ignore_keys = [key for key in rulej_then_keys if key not in intersection_keys]
+        rulei_ignore_keys = []
+        rulej_ignore_keys = []
+
+        def get_cons(rule_then_keys, rule_then_values, ignore_keys=[]):
             cons = []
             cache = []
+            cache_empty=True
             for index, key in enumerate(rule_then_keys):
-                if key == ignore_key:
+                if key in ignore_keys:
                     continue
                 if key not in variables:
                     v = z3.String(key)
@@ -318,13 +349,14 @@ def check_rule(rule1, rule2):
                     else:
                         cons.append(v == rule_then_values[index])
                 else:
-                    for idx, val in enumerate(rulej_then_values[index].split(",")):
-                        if index == 0:
+                    for idx, val in enumerate(rule_then_values[index].split(",")):
+                        if cache_empty:
                             c = []
                             c.append(v == val)
                             cache.append(c)
                         else:
                             cache[idx].append(v == val)
+                    cache_empty=False
             if cache != []:
                 y = ""
                 for c in cache:
@@ -341,8 +373,8 @@ def check_rule(rule1, rule2):
                 cons.append(y)
             return cons
 
-        consi = get_cons(rulei_then_keys, rulei_then_values)
-        consj = get_cons(rulej_then_keys, rulej_then_values)
+        consi = get_cons(rulei_then_keys, rulei_then_values, ignore_keys=rulei_ignore_keys)
+        consj = get_cons(rulej_then_keys, rulej_then_values, ignore_keys=rulej_ignore_keys)
         
         # print(consi)
         # print(consj)
@@ -360,14 +392,16 @@ def check_rule(rule1, rule2):
             return z3_exp
         z3_expi = get_z3_expression(consi)
         z3_expj = get_z3_expression(consj)
+        # print(z3_expi)
+        # print(z3_expj)
         s.add(z3.Or(z3.Not(z3.Implies(z3_expi, z3_expj)), z3.Not(z3.Implies(z3_expj, z3_expi))))
         # 两个以上不冲突，假设：时间、数量这样的不会同时出现在then中
         if s.check() == z3.sat:  # 存在冲突
             keys = list(set(rulei_then_keys + rulej_then_keys))
             for ignore_key in keys:
                 s.reset()
-                consi = get_cons(rulei_then_keys, rulei_then_values, ignore_key=ignore_key)
-                consj = get_cons(rulej_then_keys, rulej_then_values, ignore_key=ignore_key)
+                consi = get_cons(rulei_then_keys, rulei_then_values, ignore_keys= rulei_ignore_keys + [ignore_key])
+                consj = get_cons(rulej_then_keys, rulej_then_values, ignore_keys= rulej_ignore_keys + [ignore_key])
                 z3_expi = get_z3_expression(consi)
                 z3_expj = get_z3_expression(consj)
 
@@ -436,7 +470,7 @@ def consistency_checking_v2(rules):
     
     or_relation_rules = list(or_relation_map.values())
 
-
+    # pprint.pprint(no_relation_rules)
 
     #method2
     

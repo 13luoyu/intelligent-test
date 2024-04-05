@@ -60,14 +60,14 @@ python merge.py \
 #     --model_name_or_path ${output_dir}/best_model_4bit \
 #     --mode base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/ir_validate.csv \
+#     --eval_dataset ../data/ir_validate_v2.csv \
 #     --prediction_file ./predict_data/predict_result_4bit_merge_normal_load.json
 
 # python predict.py \
 #     --model_name_or_path ${output_dir}/best_model_4bit \
 #     --mode 8bit-base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/ir_validate.csv \
+#     --eval_dataset ../data/ir_validate_v2.csv \
 #     --prediction_file ./predict_data/predict_result_4bit_merge_8bit_load.json
 
 
@@ -80,14 +80,14 @@ python merge.py \
 #     --model_name_or_path ${output_dir}/best_model_8bit \
 #     --mode base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/ir_validate.csv \
+#     --eval_dataset ../data/ir_validate_v2.csv \
 #     --prediction_file ./predict_data/predict_result_8bit_merge_normal_load.json
 
 # python predict.py \
 #     --model_name_or_path ${output_dir}/best_model_8bit \
 #     --mode 8bit-base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/ir_validate.csv \
+#     --eval_dataset ../data/ir_validate_v2.csv \
 #     --prediction_file ./predict_data/predict_result_8bit_merge_8bit_load.json
 
 
@@ -99,14 +99,14 @@ python merge.py \
 #     --model_name_or_path ${output_dir}/best_model \
 #     --mode base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/ir_validate.csv \
+#     --eval_dataset ../data/ir_validate_v2.csv \
 #     --prediction_file ./predict_data/predict_result_normal_merge_normal_load.json
 
 # python predict.py \
 #     --model_name_or_path ${output_dir}/best_model \
 #     --mode 8bit-base \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/ir_validate.csv \
+#     --eval_dataset ../data/ir_validate_v2.csv \
 #     --prediction_file ./predict_data/predict_result_normal_merge_8bit_load.json
 
 
@@ -116,21 +116,21 @@ python merge.py \
 #     --model_name_or_path ${output_dir}/best_lora_model \
 #     --mode 8bit-lora \
 #     --tokenizer_fast false \
-#     --eval_dataset ../data/ir_validate.csv \
+#     --eval_dataset ../data/ir_validate_v2.csv \
 #     --prediction_file ./predict_data/predict_result_8bit_load_lora.json
 
 python predict.py \
     --model_name_or_path ${output_dir}/best_lora_model \
     --mode 4bit-lora \
     --tokenizer_fast false \
-    --eval_dataset ../data/ir_validate.csv \
+    --eval_dataset ../data/ir_validate_v2.csv \
     --prediction_file ./predict_data/predict_result_4bit_load_lora.json
 
 python predict.py \
     --model_name_or_path ${output_dir}/best_lora_model \
     --mode lora \
     --tokenizer_fast false \
-    --eval_dataset ../data/ir_validate.csv \
+    --eval_dataset ../data/ir_validate_v2.csv \
     --prediction_file ./predict_data/predict_result_normal_load_lora.json
 
 
