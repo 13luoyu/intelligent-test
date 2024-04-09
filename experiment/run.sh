@@ -1,4 +1,4 @@
-python generate_rules_and_testcases_for_experiment.py --model atom
+python generate_rules_and_testcases_for_experiment.py --model llama2
 python generate_rules_and_testcases_for_experiment.py --model mengzi
 python generate_rules_and_testcases_for_experiment.py --model finbert
 

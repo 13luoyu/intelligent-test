@@ -258,9 +258,9 @@ def process_knowledge(rules):
 if __name__ == "__main__":
     # 第一个参数为模型的输出文件，第二个为领域知识保存文件，第三个为算法无法自动处理，需要手动处理的领域知识原文保存文件。
     # 算法处理后，需要人工核对
-    # process_knowledge("rules_cache/sco.json", "rules_cache/knowledge.json", "rules_cache/todo_knowledge.json")
+    # process_knowledge("cache/sco.json", "cache/knowledge.json", "cache/todo_knowledge.json")
 
-    knowledge_file, todo_knowledge_file = "rules_cache/knowledge.json", "rules_cache/todo_knowledge.txt"
+    knowledge_file, todo_knowledge_file = "cache/knowledge.json", "cache/todo_knowledge.txt"
     all_knowledge = {}
     todo_fp = open(todo_knowledge_file, "w" ,encoding="utf-8")
     a, b = 0, 0

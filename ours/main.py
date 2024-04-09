@@ -34,11 +34,12 @@ def nlp_process(input_file: str,
                 batch_size: int = 8,
                 sentence_max_length: int = 512):
     # 获取输入，转换为句分类的输入格式
+    knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
     if ".txt" in input_file:
         input_data = open(input_file, "r", encoding="utf-8").read()
-        sci, market_variety = nl_to_sci(nl_data=input_data)
+        sci, market_variety = nl_to_sci(nl_data=input_data, knowledge=knowledge)
     else:
-        sci, market_variety = nl_to_sci(nl_file=input_file)
+        sci, market_variety = nl_to_sci(nl_file=input_file, knowledge=knowledge)
     json.dump(sci, open(sci_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     json.dump(market_variety, open(setting_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     # 句分类任务
@@ -50,7 +51,6 @@ def nlp_process(input_file: str,
     tci = sco_to_tci(sco)
     json.dump(tci, open(tci_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     # 标注句子中每个字的类别
-    knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
     terms = open(terms_file, "r", encoding="utf-8").read().split("\n")
     if "mengzi" in tc_model or "finbert" in tc_model:
         tco = token_classification(tci, knowledge, tc_model, tc_dict, batch_size, sentence_max_length)
@@ -125,20 +125,20 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", type=str, default="mengzi", choices=["mengzi", "finbert", "atom"])
+    parser.add_argument("--model", type=str, default="mengzi", choices=["mengzi", "finbert", "llama2"])
     parser.add_argument("--file", type=str, default="深圳证券交易所债券交易规则")
     args = parser.parse_args()
     if args.model == "mengzi":
         tc_model_path = "../model/trained/mengzi_rule_element_extraction"
     elif args.model == "finbert":
         tc_model_path = "../model/trained/finbert_rule_element_extraction"
-    elif args.model == "atom":
-        tc_model_path = "../model/trained/atom_rule_element_extraction"
+    elif args.model == "llama2":
+        tc_model_path = "../model/trained/llama2_rule_element_extraction"
     else:
-        raise ValueError(f"需要设置参数 --model 为 'mengzi', 'finbert', 'atom' 之一")
+        raise ValueError(f"需要设置参数 --model 为 'mengzi', 'finbert', 'llama2' 之一")
     
     begin_time = time.time()
-    nlp_process(f"rules_cache/{args.file}.pdf", "rules_cache/setting.json", "rules_cache/sci.json", "rules_cache/sco.json", "rules_cache/tci.json", "rules_cache/tco.json", "rules_cache/r1.mydsl", "../data/classification_knowledge.json", "../data/terms.txt", "../model/trained/mengzi_rule_filtering", tc_model_path, "../data/tc_data.dict")
-    alg_process("rules_cache/r1.mydsl", "rules_cache/r1.json", "rules_cache/r2.json", "rules_cache/r2.mydsl", "rules_cache/r3.json", "rules_cache/r3.mydsl", "rules_cache/testcase.json", "../data/classification_knowledge.json", "../data/knowledge.json", "rules_cache/relation.json", "rules_cache/explicit_relation.json", "rules_cache/implicit_relation.json")
+    nlp_process(f"cache/{args.file}.pdf", "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/terms.txt", "../model/trained/mengzi_rule_filtering", tc_model_path, "../data/tc_data.dict")
+    alg_process("cache/r1.mydsl", "cache/r1.json", "cache/r2.json", "cache/r2.mydsl", "cache/r3.json", "cache/r3.mydsl", "cache/testcase.json", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/knowledge.json", "cache/relation.json", "cache/explicit_relation.json", "cache/implicit_relation.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")

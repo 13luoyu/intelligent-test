@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# nohup bash run_v1.sh >../log/run_atom_fine_tuning.log &
+# nohup bash run_v1.sh >../log/run_llama2_fine_tuning.log &
 
 output_dir=./output
 # 需要修改到自己的输入目录

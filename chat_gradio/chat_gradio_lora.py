@@ -10,7 +10,7 @@ import argparse
 
 
 
-# python chat_gradio_lora.py --model_name_or_path ../lora/output/best_model_dev_dev_acc0_9792 --mode 4bit-lora
+# python chat_gradio_lora.py --model_name_or_path ../decoder_lora/output/v4/best_lora_model --mode 4bit-lora
 
 
 def create_gradio_process(model, tokenizer, streamer):
@@ -34,7 +34,7 @@ def create_gradio_process(model, tokenizer, streamer):
             slider_temperature = gr.Slider(minimum=0, maximum=5.0, label="temperature", value=1.0)
             slider_repetition_penalty = gr.Slider(minimum=1.0, maximum=5.0, label="repetition_penalty", value=1.0)
             # 上文轮次
-            slider_context_times = gr.Slider(minimum=0, maximum=5, label="lookback_rounds", value=0, step=2.0)
+            slider_context_times = gr.Slider(minimum=0, maximum=100, label="lookback_rounds", value=0, step=1.0)
         
         def user(user_message, history):
             return "", history + [[user_message, None]]
@@ -55,8 +55,8 @@ def create_gradio_process(model, tokenizer, streamer):
                     s += "<s>Assistant: " + one_chat[1].replace('<br>', '\n') + "\n</s>"
                     chat_his.append(s)
                 prompt += "\n".join(chat_his)
-            prompt += "<s>Human: " + history[-1][0].replace('<br>', '\n') + "\n</s><s>Assistant: "
-            input_ids = tokenizer([prompt], return_tensors="pt", add_special_tokens=False).input_ids[:,-512:]
+            prompt += "<s>Human: " + history[-1][0].replace('<br>', '\n') + "\n</s><s>Assistant:"
+            input_ids = tokenizer([prompt], return_tensors="pt", add_special_tokens=False).input_ids[:,-max_new_tokens:]
             if torch.cuda.is_available():
                 input_ids = input_ids.to('cuda')
             generate_input = {

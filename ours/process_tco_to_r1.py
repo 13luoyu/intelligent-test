@@ -147,7 +147,7 @@ def read_OBI_to_rule(texts, labels):
     #     if len(value) >= 4 and value[-2:] == "申报" and "性" not in value:
     #         stack[i] = {"申报类型":value}
 
-    # with open("rules_cache/r1_step1.txt", "a", encoding="utf-8") as f:
+    # with open("cache/r1_step1.txt", "a", encoding="utf-8") as f:
     #     f.write(f"输入：{texts}\n")
     #     f.write("输出:\n")
     #     f.write(pprint.pformat(stack) + "\n\n")
@@ -632,7 +632,7 @@ def separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, se
                         del si[key]
                         si["操作角色"] = value
                     use_index = True
-    # with open("rules_cache/r1_step2.txt", "a", encoding="utf-8") as f:
+    # with open("cache/r1_step2.txt", "a", encoding="utf-8") as f:
     #     f.write(pprint.pformat(ss) + "\n\n")
     return ss
 
@@ -930,10 +930,10 @@ def to_r1(rules, knowledge, terms):
     """
     将input_file文件的内容写成R1，存放在output_file文件中
     """
-    if os.path.exists("rules_cache/r1_step1.txt"):
-        os.remove("rules_cache/r1_step1.txt")
-    if os.path.exists("rules_cache/r1_step2.txt"):
-        os.remove("rules_cache/r1_step2.txt")
+    if os.path.exists("cache/r1_step1.txt"):
+        os.remove("cache/r1_step1.txt")
+    if os.path.exists("cache/r1_step2.txt"):
+        os.remove("cache/r1_step2.txt")
     unknown_id = 0
     r1 = ''
     for rule in rules:
@@ -947,7 +947,7 @@ def to_r1(rules, knowledge, terms):
         
         stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation = read_OBI_to_rule(texts, labels)
 
-        # stack = fix_token(stack, rule['text'], terms)
+        stack = fix_token(stack, rule['text'], terms)
         
         ss = separate_rule_to_subrule(stack, sentence_separate_1, sentence_separate_2, sentence_separate_3, sentence_and, operator_relation)
         for i, s in enumerate(ss):
@@ -1035,10 +1035,10 @@ def read_model_output_to_rule(texts, labels):
 
 
 def to_r1_v2(rules, knowledge, terms):
-    if os.path.exists("rules_cache/r1_step1.txt"):
-        os.remove("rules_cache/r1_step1.txt")
-    if os.path.exists("rules_cache/r1_step2.txt"):
-        os.remove("rules_cache/r1_step2.txt")
+    if os.path.exists("cache/r1_step1.txt"):
+        os.remove("cache/r1_step1.txt")
+    if os.path.exists("cache/r1_step2.txt"):
+        os.remove("cache/r1_step2.txt")
     unknown_id = 0
     r1 = ''
     for rule in rules:
@@ -1075,14 +1075,14 @@ def to_r1_v2(rules, knowledge, terms):
 
 
 if __name__ == "__main__":
-    rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
+    rules = json.load(open("cache/tco.json", "r", encoding="utf-8"))
     knowledge = json.load(open("../data/classification_knowledge.json", "r", encoding="utf-8"))
     terms = open("../data/terms.txt", "r", encoding="utf-8").read().split("\n")
     r1 = to_r1(rules, knowledge, terms)
-    with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:
+    with open("cache/r1.mydsl", "w", encoding="utf-8") as f:
         f.write(r1)
     
-    # rules = json.load(open("rules_cache/tco.json", "r", encoding="utf-8"))
+    # rules = json.load(open("cache/tco.json", "r", encoding="utf-8"))
     # r1 = to_r1_v2(rules, knowledge, terms)
-    # with open("rules_cache/r1.mydsl", "w", encoding="utf-8") as f:
+    # with open("cache/r1.mydsl", "w", encoding="utf-8") as f:
     #     f.write(r1)

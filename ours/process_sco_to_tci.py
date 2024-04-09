@@ -45,6 +45,6 @@ def sco_to_tci(sco: list):
 
 
 if __name__ == "__main__":
-    sco_data = json.load(open("rules_cache/sco.json", "r", encoding="utf-8"))
+    sco_data = json.load(open("cache/sco.json", "r", encoding="utf-8"))
     tci_data = sco_to_tci(sco_data)
-    json.dump(tci_data, open("rules_cache/tci.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    json.dump(tci_data, open("cache/tci.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

@@ -25,8 +25,8 @@ from transfer.knowledge_tree import decode_tree, encode_tree
 
 sc_model_path = "../model/ours/mengzi_rule_filtering"
 tc_model_path = "../model/ours/mengzi_rule_element_extraction"
-classification_knowledge_file = "../data/classification_knowledge.json"
-knowledge_file = '../data/knowledge.json'
+classification_knowledge_file = "../data/domain_knowledge/classification_knowledge.json"
+knowledge_file = '../data/domain_knowledge/knowledge.json'
 terms_file = "../data/terms.txt"
 dict_file = '../data/tc_data.dict'
 
@@ -188,7 +188,7 @@ def sequence_classification_interface():
 # @app.route('/rule_filter', methods=['PUT'])
 # def sequence_classification_interface_update():
 #     sco_data = request.json["data"]
-#     json.dump(sco_data, open('rules_cache/sco.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
+#     json.dump(sco_data, open('cache/sco.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
 #     return jsonify({'message': 'update success'})
 
 # 规则元素抽取
@@ -221,7 +221,7 @@ def token_classification_interface():
 # @app.route('/rule_element_extraction', methods=['PUT'])
 # def token_classification_interface_update():
 #     tco_data = request.json["data"]
-#     json.dump(tco_data, open('rules_cache/tco.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
+#     json.dump(tco_data, open('cache/tco.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
 #     return jsonify({'message': 'update success'})
 
 def Rrule_transfer(r):
@@ -325,7 +325,7 @@ def to_r1_interface():
 # @app.route('/rule_assembly', methods=["PUT"])
 # def to_r1_interface_update():
 #     r1_data = request.json['data']
-#     with open('rules_cache/r1.mydsl', 'w', encoding='utf-8') as f:
+#     with open('cache/r1.mydsl', 'w', encoding='utf-8') as f:
 #         f.write(r1_data)
 #     return jsonify({'message': 'update success'})
 
@@ -363,7 +363,7 @@ def r1_to_r2_interface():
 # @app.route('/r1_to_r2', methods=["PUT"])
 # def r1_to_r2_interface_update():
 #     r2_data = request.json['data']
-#     with open('rules_cache/r2.mydsl', 'w', encoding='utf-8') as f:
+#     with open('cache/r2.mydsl', 'w', encoding='utf-8') as f:
 #         f.write(r2_data)
 #     return jsonify({'message': 'update success'})
 
@@ -400,7 +400,7 @@ def r2_to_r3_interface():
 # @app.route('/r2_to_r3', methods=["PUT"])
 # def r2_to_r3_interface_update():
 #     r3_data = request.json['data']
-#     with open('rules_cache/r3.mydsl', 'w', encoding='utf-8') as f:
+#     with open('cache/r3.mydsl', 'w', encoding='utf-8') as f:
 #         f.write(r3_data)
 #     return jsonify({'message': 'update success'})
 
@@ -435,7 +435,7 @@ def test_case_interface():
 # @app.route('/testcase', methods=["PUT"])
 # def testcase_interface_update():
 #     testcase = request.json['data']
-#     json.dump(testcase, open('rules_cache/testcase.json', "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+#     json.dump(testcase, open('cache/testcase.json', "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 #     return jsonify({'message': 'update success'})
 
 # 处理领域知识

@@ -29,30 +29,31 @@ def read_pdf_to_txt(pdf_file):
             s += f"{page.extract_text()}\n"
     ts = ""
     for i, line in enumerate(s.split("\n")):
+        # 每个line是pdf文档中的一行，但是可能有多个句子
         # 什么时候换行呢？
         # 如果是标题、附件等，换行；如果是一个规则的开始（遇到id），则换行
-        line = line.strip().replace("：", ":").replace("︰", ":")
-        if line[0:2] == "附件":
+        line = line.strip()
+        if line[0:2] == "附件":  # 通常是一篇文档的开始
             if len(line) == 2:
                 ts += "\n" + line + "\n"
                 continue
-            elif line.replace(" ","")[2] == ":" or line.replace(" ","")[2].isdigit():
+            elif line.replace(" ","")[2] == "：" or line.replace(" ","")[2] == ":" or line.replace(" ","")[2].isdigit():  # 附件：、附件:、附件1...
                 ts += "\n" + line.replace(" ","") + "\n"
                 continue
-        if line == "":
+        if line == "" or line[0] == "—" and line[-1] == "—" or line.isdigit():  # 忽略空行和页码
             continue
-        if "修订）" == line[-3:]:
+        if "修订）" == line[-3:]:  # 可能出现在标题中
             ts += line + "\n"
             continue
         if line[0] == "第" and " " in line and ("章" in line or "节" in line):  # 章节标题
             ts += "\n" + line + "\n"
         elif is_id(line) and ts[-1] == "。":  # 遇到1.1.1这样的
             ts += "\n" + line
-        elif line[0] == "—" and line[-1] == "—":
-            continue
-        else:
+        else:  # 标题或未结束的一句正文
             ts += line
 
+    # with open("tmp.txt", "a+", encoding="utf-8") as f:
+    #     f.write(ts)
     return ts
 
 
@@ -64,8 +65,6 @@ def read_txt_to_json(txt_data):
     data: 返回的sci数据
     '''
     data = []
-    # with open(txt_file, "r", encoding="utf-8") as f:
-    #     lines = f.readlines()
     lines = txt_data.split("\n")
     for line in lines:
         if line.strip() == "":
@@ -101,13 +100,13 @@ if __name__ == "__main__":
     # sci = read_txt_to_json(txt_data)
     # json.dump(sci, open(f"../data/上海证券交易所债券交易规则.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     # exit(0)
-    for file in os.listdir("../data/business_rules/origin"):
+    for file in os.listdir("../data/data_for_LLM_v1/business_rules/origin"):
         if "pdf" in file:
-            txt_data = read_pdf_to_txt(f"../data/business_rules/origin/{file}")
-            with open(f"../data/business_rules/txt/{file[:-4]}.txt", "w", encoding="utf-8") as f:
+            txt_data = read_pdf_to_txt(f"../data/data_for_LLM_v1/business_rules/origin/{file}")
+            with open(f"../data/data_for_LLM_v1/business_rules/txt/{file[:-4]}.txt", "w", encoding="utf-8") as f:
                 f.write(txt_data)
     
-    for file in os.listdir("../data/business_rules/txt"):
-        txt_data = open(f"../data/business_rules/txt/{file[:-4]}.txt", "r", encoding="utf-8").read()
+    for file in os.listdir("../data/data_for_LLM_v1/business_rules/txt"):
+        txt_data = open(f"../data/data_for_LLM_v1/business_rules/txt/{file[:-4]}.txt", "r", encoding="utf-8").read()
         sci = read_txt_to_json(txt_data)
-        json.dump(sci, open(f"../data/business_rules/json_for_sequence_classification/{file[:-4]}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+        json.dump(sci, open(f"../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/{file[:-4]}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

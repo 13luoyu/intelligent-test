@@ -6,7 +6,7 @@ from typing import Optional
 
 
 # 合并base和lora模型并保存
-# python merge.py --adapter_model_name ./output/atom_lora_dev_dev_acc0_9792 --output_name ./output/atom_dev_dev_acc0_9792 --mode 4bit
+# python merge.py --adapter_model_name ./output/llama2_lora_dev_dev_acc0_9792 --output_name ./output/llama2_dev_dev_acc0_9792 --mode 4bit
 
 @dataclass
 class PredictionArguments:

@@ -72,12 +72,12 @@ def get_datas(file_path):
         line = line.replace("\"", "")
         if "<s>" in line:
             if "</s>" in line:
-                i += line.split("Assistant: ")[0] + "Assistant: "
-                t += line.split("Assistant: ")[1]
-                stage += 1
+                i += line.split("Assistant:")[0] + "Assistant:"
+                t += line.split("Assistant:")[1]
+                stage = 2
             else:
                 i += line
-                stage += 1
+                stage = 1
         elif "</s>" in line:
             t += line
             inputs.append(i)
@@ -86,6 +86,8 @@ def get_datas(file_path):
             stage = 0
         elif stage == 1:
             i += line
+        elif stage == 2:
+            t += line
     return inputs, targets
 
 def generate_prediction(model, tokenizer, inputs, targets):

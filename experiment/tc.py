@@ -126,7 +126,7 @@ if __name__ == "__main__":
         # 执行信息抽取
         rules = json.load(open("../data/rules.json", "r", encoding="utf-8"))
         json.dump(rules, open("cache/exp1_2_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-        knowledge = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
+        knowledge = json.load(open("../data/domain_knowledge/classification_knowledge.json", "r", encoding="utf-8"))
         tco = token_classification(rules, knowledge, "../model/ours/" + file, "../data/tc_data.dict")
         json.dump(tco, open("cache/exp1_2_output.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
         # 整合预测与真实值
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     # # 执行信息抽取
     # rules = json.load(open("../data/rules.json", "r", encoding="utf-8"))
     # json.dump(rules, open("cache/exp1_2_input.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-    # tco = token_classification(rules, "../data/knowledge.json", "../model/ours/best_1690329462", "../data/tc_data.dict")
+    # tco = token_classification(rules, "../data/domain_knowledge/classification_knowledge.json", "../model/ours/best_1690329462", "../data/tc_data.dict")
     # json.dump(rules, open("cache/exp1_2_output.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     # # 整合预测与真实值
     # integrate_tc("../data/rules.json", "cache/exp1_2_output.json", "cache/exp1_2_compare.log")

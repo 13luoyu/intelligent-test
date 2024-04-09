@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# nohup bash run_v2.sh >../log/run_atom_fine_tuning.log &
+# nohup bash run_v2.sh >../log/run_llama2_fine_tuning.log &
 
 output_dir=./output
 # 需要修改到自己的输入目录
@@ -50,7 +50,7 @@ python predict.py \
     --model_name_or_path ${output_dir}/best_model \
     --mode base \
     --tokenizer_fast false \
-    --eval_dataset ../data/ir_validate.csv \
+    --eval_dataset ../data/ir_validate_v2.csv \
     --prediction_file ./predict_data/predict_result_base.json
 
 
@@ -58,5 +58,5 @@ python predict.py \
     --model_name_or_path ${output_dir}/best_model \
     --mode 8bit-base \
     --tokenizer_fast false \
-    --eval_dataset ../data/ir_validate.csv \
+    --eval_dataset ../data/ir_validate_v2.csv \
     --prediction_file ./predict_data/predict_result_8bit-base.json

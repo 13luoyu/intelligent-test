@@ -458,7 +458,7 @@ def consistency_checking(data):
 
 
 if __name__ == "__main__":
-    input_data = json.load(open("rules_cache/consistency_checking_input.json", "r", encoding="utf-8"))
+    input_data = json.load(open("cache/consistency_checking_input.json", "r", encoding="utf-8"))
     conflict_rules = consistency_checking(input_data['data'])
     pprint.pprint(conflict_rules)
 

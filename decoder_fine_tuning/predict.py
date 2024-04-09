@@ -55,8 +55,8 @@ def get_datas(file_path):
         line = line.replace("\"", "")
         if "<s>" in line:
             if "</s>" in line:
-                i += line.split("Assistant: ")[0] + "Assistant: "
-                t += line.split("Assistant: ")[1]
+                i += line.split("Assistant:")[0] + "Assistant:"
+                t += line.split("Assistant:")[1]
                 stage += 1
             else:
                 i += line

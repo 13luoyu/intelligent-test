@@ -13,15 +13,15 @@ def check_length(file):
             print(file)
             print(text_length, label_length)
             print(f"{rule['text']}\n")
-    print("Done!")
+    print(f"{file} Done!")
 
 
 if __name__ == "__main__":
-    check_length("../data/rules.json")
-    for file in os.listdir("../data/business_rules/json_for_token_classification/"):
+    check_length("../data/data_for_LLM_v1/rules.json")
+    for file in os.listdir("../data/data_for_LLM_v1/business_rules/json_for_token_classification/"):
         if "finish" in file:
-            check_length("../data/business_rules/json_for_token_classification/" + file)
+            check_length("../data/data_for_LLM_v1/business_rules/json_for_token_classification/" + file)
     
-    for file in os.listdir("../data/"):
+    for file in os.listdir("../data/data_for_LLM_v1/"):
         if "tc" in file and ".json" in file:
-            check_length("../data/" + file)
+            check_length("../data/data_for_LLM_v1/" + file)

@@ -4,7 +4,7 @@ import json
 
 def count_annotate_num():
     print("规则过滤任务")
-    sc_data = json.load(open("../data/sc_data.json", "r", encoding="utf-8"))
+    sc_data = json.load(open("../data/data_for_LLM_v1/sc_data.json", "r", encoding="utf-8"))
     sc_rule, sc_know, sc_non_rule = 0, 0, 0
     for data in sc_data:
         if data['type'] == "0":
@@ -17,12 +17,12 @@ def count_annotate_num():
 
 
     print("规则元素抽取任务")
-    tc_data = json.load(open("../data/tc_data.json", "r", encoding="utf-8"))
+    tc_data = json.load(open("../data/data_for_LLM_v1/tc_data.json", "r", encoding="utf-8"))
     print(f"总共标注了 {len(tc_data)} 条数据")
 
 
 def count_know_num():
-    knows = json.load(open("../data/knowledge.json", "r", encoding="utf-8"))
+    knows = json.load(open("../data/domain_knowledge/knowledge.json", "r", encoding="utf-8"))
     is_a, has_a = 0, 0
     for key in list(knows.keys()):
         if key in ["authority", "stateMachine"]:

@@ -9,7 +9,7 @@ def generate_terms(datas):
     return terms
 
 if __name__ == "__main__":
-    datas = json.load(open("../data/ir_annotation_v2.json", "r", encoding="utf-8"))
+    datas = json.load(open("../data/data_for_LLM_v2/ir_annotation.json", "r", encoding="utf-8"))
     terms = generate_terms(datas)
-    with open("../data/terms.txt", "w", encoding="utf-8") as f:
+    with open("../data/domain_knowledge/terms.txt", "w", encoding="utf-8") as f:
         f.write("\n".join(terms))

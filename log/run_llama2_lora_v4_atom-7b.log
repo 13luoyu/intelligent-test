@@ -1,0 +1,492 @@
+04/09/2024 20:51:10 - WARNING - decoder_lora.log - Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+04/09/2024 20:51:10 - INFO - decoder_lora.log - Training/evaluation parameters TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=True,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=18000000,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=50,
+evaluation_strategy=steps,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=8,
+gradient_checkpointing=True,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=True,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0001,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./output/v4/logs,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=20.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=./output/v4,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=1,
+per_device_train_batch_size=1,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=['tensorboard'],
+resume_from_checkpoint=None,
+run_name=./output/v4,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=50,
+save_strategy=steps,
+save_total_limit=100,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=50,
+weight_decay=0.0,
+)
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/models/auto/configuration_auto.py:1096: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+[INFO|configuration_utils.py:726] 2024-04-09 20:51:10,752 >> loading configuration file ../model/pretrained/Atom-7B/config.json
+[INFO|configuration_utils.py:791] 2024-04-09 20:51:10,753 >> Model config LlamaConfig {
+  "_name_or_path": "../model/pretrained/Atom-7B",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "auto_map": {
+    "AutoConfig": "configuration_atom.LlamaConfig",
+    "AutoModel": "model_atom.LlamaForCausalLM",
+    "AutoModelForCausalLM": "model_atom.LlamaForCausalLM",
+    "AutoModelForSequenceClassification": "model_atom.LlamaForSequenceClassification"
+  },
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_length": 4096,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pad_token_id": 2,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "type": "dynamic"
+  },
+  "rope_theta": 500000,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.38.2",
+  "use_cache": true,
+  "vocab_size": 65000
+}
+
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/models/auto/tokenization_auto.py:720: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+[INFO|tokenization_utils_base.py:2044] 2024-04-09 20:51:10,753 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2044] 2024-04-09 20:51:10,753 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2044] 2024-04-09 20:51:10,754 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2044] 2024-04-09 20:51:10,754 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2044] 2024-04-09 20:51:10,754 >> loading file tokenizer.json
+</s>
+04/09/2024 20:51:10 - INFO - decoder_lora.log - lora配置: LoraConfig(peft_type=<PeftType.LORA: 'LORA'>, auto_mapping=None, base_model_name_or_path=None, revision=None, task_type='CAUSAL_LM', inference_mode=False, r=8, target_modules={'gate_proj', 'v_proj', 'up_proj', 'q_proj', 'down_proj', 'o_proj', 'k_proj'}, lora_alpha=16, lora_dropout=0.05, fan_in_fan_out=False, bias='none', use_rslora=False, modules_to_save=None, init_lora_weights=True, layers_to_transform=None, layers_pattern=None, rank_pattern={}, alpha_pattern={}, megatron_config=None, megatron_core='megatron.core', loftq_config={}, use_dora=False)
+04/09/2024 20:51:10 - INFO - decoder_lora.log - torch_dtype: torch.float16
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:466: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+[INFO|modeling_utils.py:3254] 2024-04-09 20:51:10,836 >> loading weights file ../model/pretrained/Atom-7B/model.safetensors.index.json
+[INFO|modeling_utils.py:1400] 2024-04-09 20:51:10,837 >> Instantiating LlamaForCausalLM model under default dtype torch.float16.
+[WARNING|logging.py:329] 2024-04-09 20:51:10,837 >> The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+[INFO|configuration_utils.py:845] 2024-04-09 20:51:10,839 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 2
+}
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.72s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.37s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.15s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.25s/it]
+[INFO|modeling_utils.py:3992] 2024-04-09 20:51:14,810 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4000] 2024-04-09 20:51:14,810 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at ../model/pretrained/Atom-7B.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:798] 2024-04-09 20:51:14,813 >> loading configuration file ../model/pretrained/Atom-7B/generation_config.json
+[INFO|configuration_utils.py:845] 2024-04-09 20:51:14,813 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 2
+}
+
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/datasets/load.py:2516: FutureWarning: 'use_auth_token' was deprecated in favor of 'token' in version 2.14.0 and will be removed in 3.0.0.
+You can remove this warning by passing 'token=<use_auth_token>' instead.
+  warnings.warn(
+Using custom data configuration default-39729096c1101ce5
+trainable params: 19,988,480 || all params: 7,028,740,096 || trainable%: 0.284382118658439
+04/09/2024 20:51:16 - INFO - datasets.builder - Using custom data configuration default-39729096c1101ce5
+Loading Dataset Infos from /home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/datasets/packaged_modules/csv
+04/09/2024 20:51:16 - INFO - datasets.info - Loading Dataset Infos from /home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/datasets/packaged_modules/csv
+Overwrite dataset info from restored data version if exists.
+04/09/2024 20:51:16 - INFO - datasets.builder - Overwrite dataset info from restored data version if exists.
+Loading Dataset info from ./output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6
+04/09/2024 20:51:16 - INFO - datasets.info - Loading Dataset info from ./output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6
+Found cached dataset csv (/home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6)
+04/09/2024 20:51:16 - INFO - datasets.builder - Found cached dataset csv (/home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6)
+Loading Dataset info from /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6
+04/09/2024 20:51:16 - INFO - datasets.info - Loading Dataset info from /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6
+Process #0 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00000_of_00010.arrow
+数据集中是否输入输出在同一列: True
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #0 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00000_of_00010.arrow
+Process #1 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00001_of_00010.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #1 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00001_of_00010.arrow
+Process #2 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00002_of_00010.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #2 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00002_of_00010.arrow
+Process #3 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00003_of_00010.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #3 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00003_of_00010.arrow
+Process #4 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00004_of_00010.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #4 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00004_of_00010.arrow
+Process #5 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00005_of_00010.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #5 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00005_of_00010.arrow
+Process #6 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00006_of_00010.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #6 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00006_of_00010.arrow
+Process #7 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00007_of_00010.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #7 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00007_of_00010.arrow
+Process #8 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00008_of_00010.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #8 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00008_of_00010.arrow
+Process #9 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00009_of_00010.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #9 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_00009_of_00010.arrow
+Loading cached processed dataset at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_*_of_00010.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-7907634c4e3421d5_*_of_00010.arrow
+Concatenating 10 shards
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Concatenating 10 shards
+num_proc must be <= 5. Reducing num_proc to 5 for dataset of size 5.
+04/09/2024 20:51:16 - WARNING - datasets.arrow_dataset - num_proc must be <= 5. Reducing num_proc to 5 for dataset of size 5.
+Process #0 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_00000_of_00005.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #0 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_00000_of_00005.arrow
+Process #1 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_00001_of_00005.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #1 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_00001_of_00005.arrow
+Process #2 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_00002_of_00005.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #2 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_00002_of_00005.arrow
+Process #3 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_00003_of_00005.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #3 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_00003_of_00005.arrow
+Process #4 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_00004_of_00005.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Process #4 will write at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_00004_of_00005.arrow
+Loading cached processed dataset at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_*_of_00005.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Loading cached processed dataset at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-98853f19e025d08c_*_of_00005.arrow
+Concatenating 5 shards
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Concatenating 5 shards
+04/09/2024 20:51:16 - INFO - decoder_lora.log - 训练集的采样40: {'input_ids': [1, 12968, 29901, 29871, 38857, 32949, 33304, 30214, 40339, 32476, 37759, 32397, 32332, 38276, 32471, 53824, 33304, 32135, 33690, 32066, 52072, 32513, 30214, 36928, 52072, 35828, 43177, 30494, 57157, 45301, 30267, 13, 33304, 29901, 29941, 29889, 29941, 29889, 29955, 29871, 36982, 31424, 35952, 32473, 32287, 33573, 32587, 32128, 32009, 33429, 30214, 30346, 30744, 39581, 32382, 32287, 30753, 32587, 32128, 32009, 33429, 55140, 30267, 13, 32397, 32332, 30383, 32473, 33606, 29901, 1839, 33826, 742, 525, 32846, 742, 525, 32459, 32542, 742, 525, 30946, 33099, 37783, 742, 525, 36982, 2033, 30214, 36982, 33606, 29901, 1839, 36982, 31424, 35952, 742, 525, 36982, 35051, 44856, 30607, 40382, 2033, 30214, 33429, 32128, 32728, 29901, 1839, 33573, 32587, 32128, 742, 525, 30753, 32587, 32128, 2033, 13, 2, 1, 4007, 22137, 29901, 5751, 29871, 29941, 29889, 29941, 29889, 29955, 29889, 29896, 13, 361, 29871, 32473, 33606, 338, 29871, 36982, 322, 29871, 36982, 33606, 338, 29871, 36982, 31424, 35952, 322, 29871, 32406, 338, 29871, 33429, 13, 6098, 29871, 33429, 32128, 32728, 338, 29871, 33573, 32587, 32128, 13, 2], 'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'labels': [1, 12968, 29901, 29871, 38857, 32949, 33304, 30214, 40339, 32476, 37759, 32397, 32332, 38276, 32471, 53824, 33304, 32135, 33690, 32066, 52072, 32513, 30214, 36928, 52072, 35828, 43177, 30494, 57157, 45301, 30267, 13, 33304, 29901, 29941, 29889, 29941, 29889, 29955, 29871, 36982, 31424, 35952, 32473, 32287, 33573, 32587, 32128, 32009, 33429, 30214, 30346, 30744, 39581, 32382, 32287, 30753, 32587, 32128, 32009, 33429, 55140, 30267, 13, 32397, 32332, 30383, 32473, 33606, 29901, 1839, 33826, 742, 525, 32846, 742, 525, 32459, 32542, 742, 525, 30946, 33099, 37783, 742, 525, 36982, 2033, 30214, 36982, 33606, 29901, 1839, 36982, 31424, 35952, 742, 525, 36982, 35051, 44856, 30607, 40382, 2033, 30214, 33429, 32128, 32728, 29901, 1839, 33573, 32587, 32128, 742, 525, 30753, 32587, 32128, 2033, 13, 2, 1, 4007, 22137, 29901, 5751, 29871, 29941, 29889, 29941, 29889, 29955, 29889, 29896, 13, 361, 29871, 32473, 33606, 338, 29871, 36982, 322, 29871, 36982, 33606, 338, 29871, 36982, 31424, 35952, 322, 29871, 32406, 338, 29871, 33429, 13, 6098, 29871, 33429, 32128, 32728, 338, 29871, 33573, 32587, 32128, 13, 2]}
+Loading cached shuffled indices for dataset at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-8cce74e5824d02ef.arrow
+04/09/2024 20:51:16 - INFO - datasets.arrow_dataset - Loading cached shuffled indices for dataset at /home/asus/intelligent-test/decoder_lora/output/v4/dataset_cache/csv/default-39729096c1101ce5/0.0.0/2c2bba169a7e870eb2bcc07f2c69b72b171db4933b1c2e2833d2b48aeaf2f6c6/cache-8cce74e5824d02ef.arrow
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/accelerate/accelerator.py:432: FutureWarning: Passing the following arguments to `Accelerator` is deprecated and will be removed in version 1.0 of Accelerate: dict_keys(['dispatch_batches', 'split_batches', 'even_batches', 'use_seedable_sampler']). Please pass an `accelerate.DataLoaderConfiguration` instead: 
+dataloader_config = DataLoaderConfiguration(dispatch_batches=None, split_batches=False, even_batches=True, use_seedable_sampler=True)
+  warnings.warn(
+[INFO|trainer.py:601] 2024-04-09 20:51:16,404 >> Using auto half precision backend
+[INFO|trainer.py:1812] 2024-04-09 20:51:16,631 >> ***** Running training *****
+[INFO|trainer.py:1813] 2024-04-09 20:51:16,632 >>   Num examples = 45
+[INFO|trainer.py:1814] 2024-04-09 20:51:16,632 >>   Num Epochs = 20
+[INFO|trainer.py:1815] 2024-04-09 20:51:16,632 >>   Instantaneous batch size per device = 1
+[INFO|trainer.py:1818] 2024-04-09 20:51:16,632 >>   Total train batch size (w. parallel, distributed & accumulation) = 8
+[INFO|trainer.py:1819] 2024-04-09 20:51:16,632 >>   Gradient Accumulation steps = 8
+[INFO|trainer.py:1820] 2024-04-09 20:51:16,632 >>   Total optimization steps = 100
+[INFO|trainer.py:1821] 2024-04-09 20:51:16,635 >>   Number of trainable parameters = 19,988,480
+04/09/2024 20:51:16 - WARNING - transformers_modules.Atom-7B.model_atom - `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`...
+04/09/2024 20:51:16 - WARNING - transformers_modules.Atom-7B.model_atom - The input hidden states seems to be silently casted in float32, this might be related to the fact you have upcasted embedding or layer norm layers in float32. We will cast back the input in torch.float16.
+[INFO|trainer.py:3376] 2024-04-09 20:56:59,057 >> ***** Running Evaluation *****
+[INFO|trainer.py:3378] 2024-04-09 20:56:59,057 >>   Num examples = 5
+[INFO|trainer.py:3381] 2024-04-09 20:56:59,057 >>   Batch size = 1
+[INFO|trainer.py:3067] 2024-04-09 20:57:00,145 >> Saving model checkpoint to ./output/v4/tmp-checkpoint-50
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in ../model/pretrained/Atom-7B - will assume that the vocabulary was not modified.
+  warnings.warn(
+[INFO|tokenization_utils_base.py:2459] 2024-04-09 20:57:00,330 >> tokenizer config file saved in ./output/v4/tmp-checkpoint-50/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2468] 2024-04-09 20:57:00,330 >> Special tokens file saved in ./output/v4/tmp-checkpoint-50/special_tokens_map.json
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in ../model/pretrained/Atom-7B - will assume that the vocabulary was not modified.
+  warnings.warn(
+[INFO|trainer.py:3376] 2024-04-09 21:01:00,453 >> ***** Running Evaluation *****
+[INFO|trainer.py:3378] 2024-04-09 21:01:00,454 >>   Num examples = 5
+[INFO|trainer.py:3381] 2024-04-09 21:01:00,454 >>   Batch size = 1
+[INFO|trainer.py:3067] 2024-04-09 21:01:01,536 >> Saving model checkpoint to ./output/v4/tmp-checkpoint-100
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in ../model/pretrained/Atom-7B - will assume that the vocabulary was not modified.
+  warnings.warn(
+[INFO|tokenization_utils_base.py:2459] 2024-04-09 21:01:01,692 >> tokenizer config file saved in ./output/v4/tmp-checkpoint-100/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2468] 2024-04-09 21:01:01,693 >> Special tokens file saved in ./output/v4/tmp-checkpoint-100/special_tokens_map.json
+/home/asus/miniconda3/envs/intelligent-test/lib/python3.9/site-packages/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in ../model/pretrained/Atom-7B - will assume that the vocabulary was not modified.
+  warnings.warn(
+[INFO|trainer.py:2067] 2024-04-09 21:01:02,074 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+[INFO|trainer.py:3067] 2024-04-09 21:01:02,076 >> Saving model checkpoint to ./output/v4/best_lora_model
+[INFO|tokenization_utils_base.py:2459] 2024-04-09 21:01:02,244 >> tokenizer config file saved in ./output/v4/best_lora_model/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2468] 2024-04-09 21:01:02,244 >> Special tokens file saved in ./output/v4/best_lora_model/special_tokens_map.json
+********************on epoch end call back********************
+Epoch 0.8888888888888888 finish
+********************on step end call back********************
+Step 10 finish
+{'loss': 2.4809, 'grad_norm': 1.8421132564544678, 'learning_rate': 2e-05, 'epoch': 1.78}
+********************on epoch end call back********************
+Epoch 1.9555555555555557 finish
+********************on epoch end call back********************
+Epoch 2.8444444444444446 finish
+********************on step end call back********************
+Step 20 finish
+{'loss': 2.1814, 'grad_norm': 1.2186393737792969, 'learning_rate': 4e-05, 'epoch': 3.56}
+********************on epoch end call back********************
+Epoch 3.911111111111111 finish
+********************on epoch end call back********************
+Epoch 4.977777777777778 finish
+********************on step end call back********************
+Step 30 finish
+{'loss': 1.4939, 'grad_norm': 1.6247011423110962, 'learning_rate': 6e-05, 'epoch': 5.33}
+********************on epoch end call back********************
+Epoch 5.866666666666667 finish
+********************on epoch end call back********************
+Epoch 6.933333333333334 finish
+********************on step end call back********************
+Step 40 finish
+{'loss': 0.8304, 'grad_norm': 1.6105791330337524, 'learning_rate': 8e-05, 'epoch': 7.11}
+********************on epoch end call back********************
+Epoch 8.0 finish
+********************on step end call back********************
+Step 50 finish
+{'loss': 0.4917, 'grad_norm': 1.2306793928146362, 'learning_rate': 0.0001, 'epoch': 8.89}
+{'eval_loss': 0.7369164228439331, 'eval_accuracy': 0.796875, 'eval_runtime': 1.0871, 'eval_samples_per_second': 4.599, 'eval_steps_per_second': 4.599, 'epoch': 8.89}
+********************save call back********************
+********************on epoch end call back********************
+Epoch 8.88888888888889 finish
+********************on epoch end call back********************
+Epoch 9.955555555555556 finish
+********************on step end call back********************
+Step 60 finish
+{'loss': 0.2615, 'grad_norm': 0.9296398162841797, 'learning_rate': 8e-05, 'epoch': 10.67}
+********************on epoch end call back********************
+Epoch 10.844444444444445 finish
+********************on epoch end call back********************
+Epoch 11.911111111111111 finish
+********************on step end call back********************
+Step 70 finish
+{'loss': 0.1428, 'grad_norm': 0.6156584024429321, 'learning_rate': 6e-05, 'epoch': 12.44}
+********************on epoch end call back********************
+Epoch 12.977777777777778 finish
+********************on epoch end call back********************
+Epoch 13.866666666666667 finish
+********************on step end call back********************
+Step 80 finish
+{'loss': 0.0842, 'grad_norm': 0.6986523270606995, 'learning_rate': 4e-05, 'epoch': 14.22}
+********************on epoch end call back********************
+Epoch 14.933333333333334 finish
+********************on step end call back********************
+Step 90 finish
+{'loss': 0.0641, 'grad_norm': 0.6994116902351379, 'learning_rate': 2e-05, 'epoch': 16.0}
+********************on epoch end call back********************
+Epoch 16.0 finish
+********************on epoch end call back********************
+Epoch 16.88888888888889 finish
+********************on step end call back********************
+Step 100 finish
+{'loss': 0.0523, 'grad_norm': 0.5233755707740784, 'learning_rate': 0.0, 'epoch': 17.78}
+{'eval_loss': 0.8637359738349915, 'eval_accuracy': 0.828125, 'eval_runtime': 1.0818, 'eval_samples_per_second': 4.622, 'eval_steps_per_second': 4.622, 'epoch': 17.78}
+********************save call back********************
+********************on epoch end call back********************
+Epoch 17.77777777777778 finish
+{'train_runtime': 585.4397, 'train_samples_per_second': 1.537, 'train_steps_per_second': 0.171, 'train_loss': 0.8083264255523681, 'epoch': 17.78}
+***** train metrics *****
+  epoch                    =      17.78
+  train_loss               =     0.8083
+  train_runtime            = 0:09:45.43
+  train_samples            =         45
+  train_samples_per_second =      1.537
+  train_steps_per_second   =      0.171
+04/09/2024 21:01:02 - INFO - decoder_lora.log - *** Evaluate ***
+[INFO|trainer.py:3376] 2024-04-09 21:01:02,271 >> ***** Running Evaluation *****
+[INFO|trainer.py:3378] 2024-04-09 21:01:02,272 >>   Num examples = 5
+[INFO|trainer.py:3381] 2024-04-09 21:01:02,272 >>   Batch size = 1
+{'eval_loss': 0.86176598072052, 'eval_accuracy': 0.8515625, 'eval_runtime': 1.049, 'eval_samples_per_second': 4.767, 'eval_steps_per_second': 4.767, 'epoch': 17.78}
+***** eval metrics *****
+  epoch                   =      17.78
+  eval_accuracy           =     0.8516
+  eval_loss               =     0.8618
+  eval_runtime            = 0:00:01.04
+  eval_samples            =          5
+  eval_samples_per_second =      4.767
+  eval_steps_per_second   =      4.767
+  perplexity              =     2.3673
+04/09/2024 21:01:03 - INFO - decoder_lora.log - *** Predict ***
+[INFO|trainer.py:3376] 2024-04-09 21:01:03,308 >> ***** Running Prediction *****
+[INFO|trainer.py:3378] 2024-04-09 21:01:03,308 >>   Num examples = 5
+[INFO|trainer.py:3381] 2024-04-09 21:01:03,308 >>   Batch size = 1
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.71s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.36s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.15s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.24s/it]
+### 0
+{
+    "prompt": "<s>Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:4.4.10 在应价方提交有效的应价申报前，卖方申请并经本所认可后，可以撤销竞买发起申报。\n领域知识：\n</s><s>Assistant:",
+    "answer": " rule 4.4.10.1\nif 时间 is 应价方提交有效的应价申报前 and 操作人 is 卖方 and 操作 is 申请\nthen 操作 canbe 撤销竞买发起申报\n</s>\n",
+    "prediction": "<s> Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:4.4.10 在应价方提交有效的应价申报前，卖方申请并经本所认可后，可以撤销竞买发起申报。\n领域知识：\n</s><s> Assistant: rule 4.4.10.1\nif 时间 is 应价方提交的有效应价申报前 and 操作人 is 卖方 and 操作 canbe 申请 and 操作部分 is 竞买发起申报 and 操作 canbe 撤销\nthen 操作 canbe 确认 and 操作部分 canbe 操作指令\n</s>"
+}
+
+
+
+### 1
+{
+    "prompt": "<s>Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:第三十一条 向不特定对象发行的可转债上市首日，协商成交申报价格在发行价的上下30%范围内确定。\n领域知识：向不特定对象发行的可转债交易方式:['匹配成交', '协商成交', '盘后定价成交']\n</s><s>Assistant:",
+    "answer": " rule 第三十一条.1\nif 交易品种 is 向不特定对象发行的可转债 and 向不特定对象发行的可转债交易方式 is 协商成交 and 时间 is 上市首日\nthen 申报价格范围 is 发行价的上下30%\n</s>\n",
+    "prediction": "<s> Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:第三十一条 向不特定对象发行的可转债上市首日，协商成交申报价格在发行价的上下30%范围内确定。\n领域知识：向不特定对象发行的可转债交易方式:['匹配成交', '协商成交', '盘后定价成交']\n</s><s> Assistant: rule 第三十一条.1\nif 交易品种 is 向不特定对象发行的可转债 and 向不特定对象发行的可转债交易方式 is 向不特定对象发行的可转债交易方式 is 向不特定对象发行的可转债交易方式 is 向不特定对象发行的可转债交易方式 is 向不特定对象发行的可转债交易方式 is 向不特定对象发行的可转债 and 向不特定对象发行的可转债交易方式 is 协商成交\nthen 协商成交申报价格 in 向不特定对象发行的可转债上市首日 and 向不特定对象发行的可转债交易方式 is 向不特定对象发行的可转债交易方式 is 协商成交\n</s>"
+}
+
+
+
+### 2
+{
+    "prompt": "<s>Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:3.3.12 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内，未成交的申报可以撤销；部分达成成交的，未成交的部分可以撤销。\n领域知识：\n</s><s>Assistant:",
+    "answer": " rule 3.3.12.1\nif 时间 is 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内 and 状态 is 未成交\nthen 操作 canbe 撤销申报\nrule 3.3.12.2\nif 时间 is 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内 and 状态 is 部分成交\nthen 操作 canbe 撤销 and 操作部分 canbe 未成交的部分\n</s>\n",
+    "prediction": "<s> Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:3.3.12 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内，未成交的申报可以撤销；部分达成成交的，未成交的部分可以撤销。\n领域知识：\n</s><s> Assistant: rule 3.3.12.1\nif 时间 is 不接受撤销申报的时间段 and 操作人 is 投资者\nthen 操作 canbe 撤销申报 and 操作部分 canbe 未成交的申报\nrule 3.3.12.2\nif 时间 is 其他接受申报的时间 and 操作人 is 投资者\nthen 操作 canbe 撤销申报 and 操作部分 canbe 部分达成成交的未成交部分\n</s>"
+}
+
+
+
+### 3
+{
+    "prompt": "<s>Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:第三十三条 LOF份额的申赎申报可以在当日15︰00前撤销。\n领域知识：基金品种:['封闭式基金', '交易开放式基金(ETF)', '上市开放式基金(LOF)', '分级基金']\n</s><s>Assistant:",
+    "answer": " rule 第三十三条.1\nif 基金品种 is LOF and 操作 is 申赎\nthen 时间 canbe 当日15:00前 and 操作 canbe 撤销申报\n</s>\n",
+    "prediction": "<s> Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:第三十三条 LOF份额的申赎申报可以在当日15︰00前撤销。\n领域知识：基金品种:['封闭式基金', '交易开放式基金(ETF)', '上市开放式基金(LOF)', '分级基金']\n</s><s> Assistant: rule 第三十三条.1\nif 基金品种 is LOF and 操作 is 申购赎回\nthen 操作时间 is 15:00:00前\n</s>"
+}
+
+
+
+### 4
+{
+    "prompt": "<s>Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:3.3.9 债券现券交易结算日和债券回购交易的首次结算日不得晚于交易当日后的第三个交易日（含）。\n领域知识：交易品种:['股票', '基金', '权证', '存托凭证', '债券']，债券品种:['债券现券', '债券通用质押式回购']\n</s><s>Assistant:",
+    "answer": " rule 3.3.9.1\nif 交易品种 is 债券 and 债券品种 is 债券现券\nthen 结算日 不晚于 交易当日后的第三个交易日（含）\nrule 3.3.9.2\nif 交易品种 is 债券 and 债券品种 is 债券通用质押式回购\nthen 首次结算日 不晚于 交易当日后的第三个交易日（含）\n</s>\n",
+    "prediction": "<s> Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:3.3.9 债券现券交易结算日和债券回购交易的首次结算日不得晚于交易当日后的第三个交易日（含）。\n领域知识：交易品种:['股票', '基金', '权证', '存托凭证', '债券']，债券品种:['债券现券', '债券通用质押式回购']\n</s><s> Assistant: rule 3.3.9.1\nif 交易品种 is 债券 and 债券品种 is 债券现券 and 操作 is 交易\nthen 结算日 is not later than 交易当日后的第三个交易日（含）\nrule 3.3.9.2\nif 交易品种 is 债券 and 债券品种 is 债券通用质押式回购 and 操作 is 首次结算\nthen 首次结算日 is not晚于交易当日后的第三个交易日（含）\n</s>"
+}
+
+
+
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:03,  1.72s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.35s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.12s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:03<00:00,  1.22s/it]
+### 0
+{
+    "prompt": "<s>Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:4.4.10 在应价方提交有效的应价申报前，卖方申请并经本所认可后，可以撤销竞买发起申报。\n领域知识：\n</s><s>Assistant:",
+    "answer": " rule 4.4.10.1\nif 时间 is 应价方提交有效的应价申报前 and 操作人 is 卖方 and 操作 is 申请\nthen 操作 canbe 撤销竞买发起申报\n</s>\n",
+    "prediction": "<s> Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:4.4.10 在应价方提交有效的应价申报前，卖方申请并经本所认可后，可以撤销竞买发起申报。\n领域知识：\n</s><s> Assistant: rule 4.4.10.1\nif 时间 is 应价方提交有效的应价申报前 and 操作人 is 卖方 and 操作 is 申请 and 操作对象 is 竞买发起申报 and 操作 canbe 撤销\nthen 操作 canbe 确认\n</s>"
+}
+
+
+
+### 1
+{
+    "prompt": "<s>Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:第三十一条 向不特定对象发行的可转债上市首日，协商成交申报价格在发行价的上下30%范围内确定。\n领域知识：向不特定对象发行的可转债交易方式:['匹配成交', '协商成交', '盘后定价成交']\n</s><s>Assistant:",
+    "answer": " rule 第三十一条.1\nif 交易品种 is 向不特定对象发行的可转债 and 向不特定对象发行的可转债交易方式 is 协商成交 and 时间 is 上市首日\nthen 申报价格范围 is 发行价的上下30%\n</s>\n",
+    "prediction": "<s> Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:第三十一条 向不特定对象发行的可转债上市首日，协商成交申报价格在发行价的上下30%范围内确定。\n领域知识：向不特定对象发行的可转债交易方式:['匹配成交', '协商成交', '盘后定价成交']\n</s><s> Assistant: rule 第三十一条.1\nif 交易品种 is 向不特定对象发行的可转债 and 交易方式 is 发行\nthen 协商成交申报价格 in (发行价的上下30%范围内)\n</s>"
+}
+
+
+
+### 2
+{
+    "prompt": "<s>Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:3.3.12 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内，未成交的申报可以撤销；部分达成成交的，未成交的部分可以撤销。\n领域知识：\n</s><s>Assistant:",
+    "answer": " rule 3.3.12.1\nif 时间 is 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内 and 状态 is 未成交\nthen 操作 canbe 撤销申报\nrule 3.3.12.2\nif 时间 is 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内 and 状态 is 部分成交\nthen 操作 canbe 撤销 and 操作部分 canbe 未成交的部分\n</s>\n",
+    "prediction": "<s> Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:3.3.12 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内，未成交的申报可以撤销；部分达成成交的，未成交的部分可以撤销。\n领域知识：\n</s><s> Assistant: rule 3.3.12.1\nif 时间 is 接受申报的时间段 and 操作 is 未成交的申报\nthen 操作部分 is 撤销\nrule 3.3.12.2\nif 时间 is 其他接受申报的时间段 and 操作 is 部分达成成交的 and 操作部分 is 未成交的部分\nthen 操作 is 撤销\n</s>"
+}
+
+
+
+### 3
+{
+    "prompt": "<s>Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:第三十三条 LOF份额的申赎申报可以在当日15︰00前撤销。\n领域知识：基金品种:['封闭式基金', '交易开放式基金(ETF)', '上市开放式基金(LOF)', '分级基金']\n</s><s>Assistant:",
+    "answer": " rule 第三十三条.1\nif 基金品种 is LOF and 操作 is 申赎\nthen 时间 canbe 当日15:00前 and 操作 canbe 撤销申报\n</s>\n",
+    "prediction": "<s> Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:第三十三条 LOF份额的申赎申报可以在当日15︰00前撤销。\n领域知识：基金品种:['封闭式基金', '交易开放式基金(ETF)', '上市开放式基金(LOF)', '分级基金']\n</s><s> Assistant: rule 第三十三条.3\nif 基金品种 is LOF and 时间 is 当日15:00前\nthen 操作 is 申赎申报 and 操作 canbe 撤销\n</s>"
+}
+
+
+
+### 4
+{
+    "prompt": "<s>Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:3.3.9 债券现券交易结算日和债券回购交易的首次结算日不得晚于交易当日后的第三个交易日（含）。\n领域知识：交易品种:['股票', '基金', '权证', '存托凭证', '债券']，债券品种:['债券现券', '债券通用质押式回购']\n</s><s>Assistant:",
+    "answer": " rule 3.3.9.1\nif 交易品种 is 债券 and 债券品种 is 债券现券\nthen 结算日 不晚于 交易当日后的第三个交易日（含）\nrule 3.3.9.2\nif 交易品种 is 债券 and 债券品种 is 债券通用质押式回购\nthen 首次结算日 不晚于 交易当日后的第三个交易日（含）\n</s>\n",
+    "prediction": "<s> Human: 给出一条规则，请你结合提供的领域知识尽可能全面地将规则中的关键信息抽取出来，并将抽取的信息组装成结构化语句。\n规则:3.3.9 债券现券交易结算日和债券回购交易的首次结算日不得晚于交易当日后的第三个交易日（含）。\n领域知识：交易品种:['股票', '基金', '权证', '存托凭证', '债券']，债券品种:['债券现券', '债券通用质押式回购']\n</s><s> Assistant: rule 3.3.9.1\nif 交易品种 is 债券 and 债券品种 is 债券现券 and 交易 is 交易首次结算日\nthen 首次结算日 is not晚于交易当日后的第三个交易日（含）\n</s>"
+}
+
+
+

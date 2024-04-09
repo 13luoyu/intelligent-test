@@ -1,4 +1,4 @@
-# python chat_gradio_qwen.py -c ../model/pretrained/Qwen-14B-Chat --server-port 7861 --server-name 0.0.0.0
+# python chat_gradio_qwen.py -c ../model/pretrained/Qwen-14B-Chat --server-port 7862 --server-name 0.0.0.0
 
 
 """A simple web interactive chat demo based on gradio."""

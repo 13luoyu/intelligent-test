@@ -4,7 +4,7 @@ import copy
 import pprint
 
 # 使用一个标识标记 "可以"、"必须"，标识在组装时实现，可以为canbe，必须为is
-# 将 "key canbe value" 改为 "key is value or key isn't value"
+# 将 "key canbe value" 改为 "key is value or key is notvalue"
 # 或关系规则判断是否冲突，1、单规则之间比较，不考虑or；2、单规则和一组or规则比较，如果或关系存在于if，分成多个规则照常判断；如果存在于then，冲突；3、两组or规则比较，如果或关系存在于if，分成多个规则并照常判断；如果或关系存在于then，要求比较的两组规则必须一一对应才不冲突
 
 
@@ -516,7 +516,7 @@ def consistency_checking_v2(rules):
 
 
 if __name__ == "__main__":
-    file = "rules_cache/consistency_checking_input_v2.mydsl"
+    file = "cache/consistency_checking_input_v2.mydsl"
     s = open(file, "r", encoding="utf-8").read()
     defines, vars, rules = mydsl_to_rules_v2(s)
     consistency_checking_v2(rules)

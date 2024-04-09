@@ -53,8 +53,8 @@ def create_gradio_process(model, tokenizer, streamer):
                     s += "<s>Assistant: " + one_chat[1].replace('<br>', '\n') + "\n</s>"
                     chat_his.append(s)
                 prompt += "\n".join(chat_his)
-            prompt += "<s>Human: " + history[-1][0].replace('<br>', '\n') + "\n</s><s>Assistant: "
-            input_ids = tokenizer([prompt], return_tensors="pt", add_special_tokens=False).input_ids[:,-512:]
+            prompt += "<s>Human: " + history[-1][0].replace('<br>', '\n') + "\n</s><s>Assistant:"
+            input_ids = tokenizer([prompt], return_tensors="pt", add_special_tokens=False).input_ids[:,-max_new_tokens:]
             if torch.cuda.is_available():
                 input_ids = input_ids.to('cuda')
             generate_input = {

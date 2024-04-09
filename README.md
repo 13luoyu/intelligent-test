@@ -24,7 +24,7 @@ LLM4Fin is a prototype tool for automatically generating test cases from natural
 > - **model/**. The model directory storage pre-trained models and fine-tuned models. Mengzi pre-trained models (mengzi-bert-base-fin) can be downloaded from [*https://github.com/Langboat/Mengzi*](https://github.com/Langboat/Mengzi). Our fine-tuned model can be downloaded from [https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin](https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin)
 > - **ours/**.  Code for our three-step framework and fine-tuning the LLMs.
 >   - *download_files/*. Save the business rule documents to be processed
->   - *rules_cache/*. Save the intermediate and final outputs of our approach.
+>   - *cache/*. Save the intermediate and final outputs of our approach.
 >   - *main.py*. Code for integrating and running the whole process.
 >   - *process_knowledge.py*. Code for processing the domain knowledge and write into the terminology base.
 >   - *process_nl_to_sci.py*. Code for Reading the business rule documents and dividing by sentence into the input of rule filtering sub-step.
@@ -78,7 +78,7 @@ Install step-by-step
         cd ours
         python main.py
     
-    The output file (textcase.json) and each intermediate outputs are saved under **ours/rules_cache/**.
+    The output file (textcase.json) and each intermediate outputs are saved under **ours/cache/**.
 
 2. To fune-tune the model for rule filtering task, run
 

@@ -13,7 +13,10 @@ def integrate_dir(in_dir: str, train_file: str, validate_file: str):
     random.shuffle(all_rules)
     rule_num = len(all_rules)
     train_data, validate_data = all_rules[:int(rule_num/10*9)], all_rules[int(rule_num/10*9):]
-    print(f"原始数据（规则筛选或信息抽取）：训练集有数据{len(train_data)}条，验证集有数据{len(validate_data)}条。")
+    if "sequence" in in_dir:
+        print(f"划分v1规则筛选数据：训练集有数据{len(train_data)}条，验证集有数据{len(validate_data)}条。")
+    else:
+        print(f"划分v1信息抽取数据：训练集有数据{len(train_data)}条，验证集有数据{len(validate_data)}条。")
     json.dump(train_data, open(train_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     json.dump(validate_data, open(validate_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
@@ -23,7 +26,10 @@ def integrate_file(in_file: str, train_file: str, validate_file: str):
     random.shuffle(all_rules)
     rule_num = len(all_rules)
     train_data, validate_data = all_rules[:int(rule_num/10*9)], all_rules[int(rule_num/10*9):]
-    print(f"规则：训练集有数据{len(train_data)}条，验证集有数据{len(validate_data)}条。")
+    if "v1" in in_file:
+        print(f"划分v1所有规则：训练集有数据{len(train_data)}条，验证集有数据{len(validate_data)}条。")
+    elif "v2" in in_file:
+        print(f"划分v2标注：训练集有数据{len(train_data)}条，验证集有数据{len(validate_data)}条。")
     json.dump(train_data, open(train_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     json.dump(validate_data, open(validate_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
@@ -65,33 +71,36 @@ def select_rule(seq_dir: str, tok_dir: str, rule_file: str):
     json.dump(rules, open(rule_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
 
-def integrate_all(sc_out_file: str, tc_out_file: str):
+def integrate_all(sc_in_dir: str, sc_out_file: str, tc_in_dir: str, tc_out_file: str):
     all = []
-    for file in os.listdir("../data/business_rules/json_for_sequence_classification/"):
+    for file in os.listdir(sc_in_dir):
         if "finish" in file:
-            data = json.load(open("../data/business_rules/json_for_sequence_classification/" + file, "r", encoding="utf-8"))
+            data = json.load(open(sc_in_dir + file, "r", encoding="utf-8"))
             all += data
     json.dump(all, open(sc_out_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
     all = []
-    for file in os.listdir("../data/business_rules/json_for_token_classification/"):
+    for file in os.listdir(tc_in_dir):
         if "finish" in file:
-            data = json.load(open("../data/business_rules/json_for_token_classification/" + file, "r", encoding="utf-8"))
+            data = json.load(open(tc_in_dir + file, "r", encoding="utf-8"))
             all += data
     json.dump(all, open(tc_out_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
 
 if __name__ == "__main__":
     # 将句分类标注好的数据9：1分到对应文件
-    integrate_dir("../data/business_rules/json_for_sequence_classification/", "../data/sc_train_data_base.json", "../data/sc_validate_data.json")
+    integrate_dir("../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/", "../data/data_for_LLM_v1/sc_train_data_raw.json", "../data/data_for_LLM_v1/sc_validate_data.json")
     # 将字分类标注好的数据9：1分到对应文件
-    integrate_dir("../data/business_rules/json_for_token_classification/", "../data/tc_train_data_all_base.json", "../data/tc_validate_data_all.json")
+    integrate_dir("../data/data_for_LLM_v1/business_rules/json_for_token_classification/", "../data/data_for_LLM_v1/tc_train_data_all_raw.json", "../data/data_for_LLM_v1/tc_validate_data_all.json")
     # 挑选所有的规则，并赋予它们每个字的标签，生成rules.json
-    select_rule("../data/business_rules/json_for_sequence_classification/", "../data/business_rules/json_for_token_classification/", "../data/rules.json")
+    select_rule("../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/", "../data/data_for_LLM_v1/business_rules/json_for_token_classification/", "../data/data_for_LLM_v1/rules.json")
     # 将rules.json9：1分到对应文件
-    integrate_file("../data/rules.json", "../data/tc_train_data_rules_base.json", "../data/tc_validate_data_rules.json")
+    integrate_file("../data/data_for_LLM_v1/rules.json", "../data/data_for_LLM_v1/tc_train_data_rules_raw.json", "../data/data_for_LLM_v1/tc_validate_data_rules.json")
     # 将所有字分类、句分类数据整合在一起
-    integrate_all("../data/sc_data.json", "../data/tc_data.json")
+    integrate_all("../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/", "../data/data_for_LLM_v1/sc_data.json", "../data/data_for_LLM_v1/business_rules/json_for_token_classification/", "../data/data_for_LLM_v1/tc_data.json")
 
     # 将ir_annotation_v2.json 9:1 分到对应文件
-    integrate_file("../data/ir_annotation_v2.json", "../data/ir_annotation_v2_for_train.json", "../data/ir_annotation_v2_for_validate.json")
+    integrate_file("../data/data_for_LLM_v2/ir_annotation_v2.json", "../data/data_for_LLM_v2/ir_train_v2.json", "../data/data_for_LLM_v2/ir_validate_v2.json")
+
+    # 将ir_annotation_v2.json 9:1 分到对应文件
+    integrate_file("../data/data_for_LLM_v4/annotation_v4.json", "../data/data_for_LLM_v4/train_v4.json", "../data/data_for_LLM_v4/validate_v4.json")
