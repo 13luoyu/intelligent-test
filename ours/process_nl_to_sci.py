@@ -1,4 +1,4 @@
-from support.generate_data_for_sequence_classification import read_pdf_to_txt, read_txt_to_json
+from support.generate_data_for_sequence_classification import read_pdf_to_txt, read_txt_to_json, is_id
 import json
 import os
 from transfer.knowledge_tree import encode_tree
@@ -28,7 +28,14 @@ def get_market_variety(s, knowledge):
             market = value
     s = s.strip()
     for value in varieties:
-        value_count = "\n".join(s.split("\n")[:2]).count(value)
+        paper = s.split("\n")
+        i = 0
+        while not is_id(paper[i]):
+            i += 1
+        if i == 0:
+            i = 2
+        paper = "\n".join(paper[:i])
+        value_count = paper.count(value)
         if value_count >= 1 and len(value) > len(variety):
             variety = value
             variety_num = value_count

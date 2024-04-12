@@ -636,3563 +636,3563 @@
     },
     {
         "id": 128,
+        "content": "价格类型:净价价格",
+        "father_id": 2
+    },
+    {
+        "id": 129,
+        "content": "价格类型:全价价格",
+        "father_id": 2
+    },
+    {
+        "id": 130,
         "content": "交易品种:股票",
         "father_id": 1
     },
     {
-        "id": 129,
-        "content": "股票品种:A股",
-        "father_id": 128
-    },
-    {
-        "id": 130,
-        "content": "股票品种:B股",
-        "father_id": 128
-    },
-    {
         "id": 131,
-        "content": "股票品种:创业板",
-        "father_id": 128
+        "content": "股票品种:A股",
+        "father_id": 130
     },
     {
         "id": 132,
-        "content": "交易方式:竞价交易",
-        "father_id": 131
+        "content": "股票品种:B股",
+        "father_id": 130
     },
     {
         "id": 133,
-        "content": "交易方式:盘后定价交易",
-        "father_id": 131
+        "content": "股票品种:创业板",
+        "father_id": 130
     },
     {
         "id": 134,
-        "content": "盘后固定价格委托指令:证券账户号码",
+        "content": "交易方式:竞价交易",
         "father_id": 133
     },
     {
         "id": 135,
-        "content": "盘后固定价格委托指令:证券代码",
+        "content": "交易方式:盘后定价交易",
         "father_id": 133
     },
     {
         "id": 136,
-        "content": "盘后固定价格委托指令:买卖方向",
-        "father_id": 133
+        "content": "盘后固定价格委托指令:证券账户号码",
+        "father_id": 135
     },
     {
         "id": 137,
-        "content": "盘后固定价格委托指令:限价",
-        "father_id": 133
+        "content": "盘后固定价格委托指令:证券代码",
+        "father_id": 135
     },
     {
         "id": 138,
-        "content": "盘后固定价格委托指令:委托数量",
-        "father_id": 133
+        "content": "盘后固定价格委托指令:买卖方向",
+        "father_id": 135
     },
     {
         "id": 139,
-        "content": "会员等交易参与人的盘后固定价格申报指令:证券账户号码",
-        "father_id": 133
+        "content": "盘后固定价格委托指令:限价",
+        "father_id": 135
     },
     {
         "id": 140,
-        "content": "会员等交易参与人的盘后固定价格申报指令:证券代码",
-        "father_id": 133
+        "content": "盘后固定价格委托指令:委托数量",
+        "father_id": 135
     },
     {
         "id": 141,
-        "content": "会员等交易参与人的盘后固定价格申报指令:交易单元代码",
-        "father_id": 133
+        "content": "会员等交易参与人的盘后固定价格申报指令:证券账户号码",
+        "father_id": 135
     },
     {
         "id": 142,
-        "content": "会员等交易参与人的盘后固定价格申报指令:证券营业部识别码",
-        "father_id": 133
+        "content": "会员等交易参与人的盘后固定价格申报指令:证券代码",
+        "father_id": 135
     },
     {
         "id": 143,
-        "content": "会员等交易参与人的盘后固定价格申报指令:买卖方向",
-        "father_id": 133
+        "content": "会员等交易参与人的盘后固定价格申报指令:交易单元代码",
+        "father_id": 135
     },
     {
         "id": 144,
-        "content": "会员等交易参与人的盘后固定价格申报指令:限价",
-        "father_id": 133
+        "content": "会员等交易参与人的盘后固定价格申报指令:证券营业部识别码",
+        "father_id": 135
     },
     {
         "id": 145,
-        "content": "会员等交易参与人的盘后固定价格申报指令:数量",
-        "father_id": 133
+        "content": "会员等交易参与人的盘后固定价格申报指令:买卖方向",
+        "father_id": 135
     },
     {
         "id": 146,
-        "content": "深股通盘后固定价格申报指令:券商客户编码",
-        "father_id": 133
+        "content": "会员等交易参与人的盘后固定价格申报指令:限价",
+        "father_id": 135
     },
     {
         "id": 147,
-        "content": "深股通盘后固定价格申报指令:证券代码",
-        "father_id": 133
+        "content": "会员等交易参与人的盘后固定价格申报指令:数量",
+        "father_id": 135
     },
     {
         "id": 148,
-        "content": "深股通盘后固定价格申报指令:经纪商代码",
-        "father_id": 133
+        "content": "交易方式:竞价交易",
+        "father_id": 130
     },
     {
         "id": 149,
-        "content": "深股通盘后固定价格申报指令:买卖方向",
-        "father_id": 133
+        "content": "交易方式:集合竞价",
+        "father_id": 148
     },
     {
         "id": 150,
-        "content": "深股通盘后固定价格申报指令:限价",
-        "father_id": 133
+        "content": "交易方式:连续竞价",
+        "father_id": 148
     },
     {
         "id": 151,
-        "content": "深股通盘后固定价格申报指令:数量",
-        "father_id": 133
+        "content": "申报方式:限价申报",
+        "father_id": 148
     },
     {
         "id": 152,
-        "content": "交易方式:竞价交易",
-        "father_id": 128
+        "content": "申报指令:证券账户号码",
+        "father_id": 151
     },
     {
         "id": 153,
-        "content": "交易方式:集合竞价",
-        "father_id": 152
+        "content": "申报指令:证券代码",
+        "father_id": 151
     },
     {
         "id": 154,
-        "content": "交易方式:连续竞价",
-        "father_id": 152
+        "content": "申报指令:交易单元代码",
+        "father_id": 151
     },
     {
         "id": 155,
-        "content": "申报方式:限价申报",
-        "father_id": 152
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 151
     },
     {
         "id": 156,
-        "content": "申报指令:证券账户号码",
-        "father_id": 155
+        "content": "申报指令:买卖方向",
+        "father_id": 151
     },
     {
         "id": 157,
-        "content": "申报指令:证券代码",
-        "father_id": 155
+        "content": "申报指令:数量",
+        "father_id": 151
     },
     {
         "id": 158,
-        "content": "申报指令:交易单元代码",
-        "father_id": 155
+        "content": "申报指令:价格",
+        "father_id": 151
     },
     {
         "id": 159,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 155
+        "content": "申报方式:市价申报",
+        "father_id": 148
     },
     {
         "id": 160,
-        "content": "申报指令:买卖方向",
-        "father_id": 155
+        "content": "申报类型:对手方最优价格申报",
+        "father_id": 159
     },
     {
         "id": 161,
-        "content": "申报指令:数量",
-        "father_id": 155
+        "content": "申报类型:本方最优价格申报",
+        "father_id": 159
     },
     {
         "id": 162,
-        "content": "申报指令:价格",
-        "father_id": 155
+        "content": "申报类型:最优五档即时成交剩余撤销申报",
+        "father_id": 159
     },
     {
         "id": 163,
-        "content": "申报方式:市价申报",
-        "father_id": 152
+        "content": "申报类型:即时成交剩余撤销申报",
+        "father_id": 159
     },
     {
         "id": 164,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 163
+        "content": "申报类型:全额成交或撤销申报",
+        "father_id": 159
     },
     {
         "id": 165,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 163
+        "content": "申报指令:申报类型",
+        "father_id": 159
     },
     {
         "id": 166,
-        "content": "申报类型:最优五档即时成交剩余撤销申报",
-        "father_id": 163
+        "content": "申报指令:证券账户号码",
+        "father_id": 159
     },
     {
         "id": 167,
-        "content": "申报类型:即时成交剩余撤销申报",
-        "father_id": 163
+        "content": "申报指令:证券代码",
+        "father_id": 159
     },
     {
         "id": 168,
-        "content": "申报类型:全额成交或撤销申报",
-        "father_id": 163
+        "content": "申报指令:交易单元代码",
+        "father_id": 159
     },
     {
         "id": 169,
-        "content": "申报指令:申报类型",
-        "father_id": 163
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 159
     },
     {
         "id": 170,
-        "content": "申报指令:证券账户号码",
-        "father_id": 163
+        "content": "申报指令:买卖方向",
+        "father_id": 159
     },
     {
         "id": 171,
-        "content": "申报指令:证券代码",
-        "father_id": 163
+        "content": "申报指令:数量",
+        "father_id": 159
     },
     {
         "id": 172,
-        "content": "申报指令:交易单元代码",
-        "father_id": 163
+        "content": "交易方式:大宗交易",
+        "father_id": 130
     },
     {
         "id": 173,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 163
+        "content": "交易方式:协议大宗交易",
+        "father_id": 172
     },
     {
         "id": 174,
-        "content": "申报指令:买卖方向",
-        "father_id": 163
+        "content": "申报类型:意向申报",
+        "father_id": 173
     },
     {
         "id": 175,
-        "content": "申报指令:数量",
-        "father_id": 163
+        "content": "申报指令:证券账户号码",
+        "father_id": 174
     },
     {
         "id": 176,
-        "content": "交易方式:大宗交易",
-        "father_id": 128
+        "content": "申报指令:证券代码",
+        "father_id": 174
     },
     {
         "id": 177,
-        "content": "交易方式:协议大宗交易",
-        "father_id": 176
+        "content": "申报指令:买卖方向和本方交易单元代码",
+        "father_id": 174
     },
     {
         "id": 178,
-        "content": "申报类型:意向申报",
-        "father_id": 177
+        "content": "申报要素:证券代码",
+        "father_id": 174
     },
     {
         "id": 179,
-        "content": "申报指令:证券账户号码",
-        "father_id": 178
+        "content": "申报要素:交易方向",
+        "father_id": 174
     },
     {
         "id": 180,
-        "content": "申报指令:证券代码",
-        "father_id": 178
+        "content": "申报要素:发送范围",
+        "father_id": 174
     },
     {
         "id": 181,
-        "content": "申报指令:买卖方向和本方交易单元代码",
-        "father_id": 178
+        "content": "申报要素:证券账户号码",
+        "father_id": 174
     },
     {
         "id": 182,
-        "content": "申报要素:证券代码",
-        "father_id": 178
+        "content": "申报要素:是否匿名",
+        "father_id": 174
     },
     {
         "id": 183,
-        "content": "申报要素:交易方向",
-        "father_id": 178
+        "content": "申报类型:成交申报",
+        "father_id": 173
     },
     {
         "id": 184,
-        "content": "申报要素:发送范围",
-        "father_id": 178
+        "content": "申报指令:证券账户号码",
+        "father_id": 183
     },
     {
         "id": 185,
-        "content": "申报要素:证券账户号码",
-        "father_id": 178
+        "content": "申报指令:证券代码",
+        "father_id": 183
     },
     {
         "id": 186,
-        "content": "申报要素:是否匿名",
-        "father_id": 178
+        "content": "申报指令:买卖方向",
+        "father_id": 183
     },
     {
         "id": 187,
-        "content": "申报类型:成交申报",
-        "father_id": 177
+        "content": "申报指令:价格",
+        "father_id": 183
     },
     {
         "id": 188,
-        "content": "申报指令:证券账户号码",
-        "father_id": 187
+        "content": "申报指令:数量",
+        "father_id": 183
     },
     {
         "id": 189,
-        "content": "申报指令:证券代码",
-        "father_id": 187
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 183
     },
     {
         "id": 190,
-        "content": "申报指令:买卖方向",
-        "father_id": 187
+        "content": "申报指令:约定号",
+        "father_id": 183
     },
     {
         "id": 191,
-        "content": "申报指令:价格",
-        "father_id": 187
+        "content": "申报类型:定价申报",
+        "father_id": 173
     },
     {
         "id": 192,
-        "content": "申报指令:数量",
-        "father_id": 187
+        "content": "申报指令:证券账户号码",
+        "father_id": 191
     },
     {
         "id": 193,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 187
+        "content": "申报指令:证券代码",
+        "father_id": 191
     },
     {
         "id": 194,
-        "content": "申报指令:约定号",
-        "father_id": 187
+        "content": "申报指令:买卖方向",
+        "father_id": 191
     },
     {
         "id": 195,
-        "content": "申报类型:定价申报",
-        "father_id": 177
+        "content": "申报指令:价格",
+        "father_id": 191
     },
     {
         "id": 196,
-        "content": "申报指令:证券账户号码",
-        "father_id": 195
+        "content": "申报指令:数量和本方交易单元代码",
+        "father_id": 191
     },
     {
         "id": 197,
-        "content": "申报指令:证券代码",
-        "father_id": 195
+        "content": "申报类型:其他申报",
+        "father_id": 173
     },
     {
         "id": 198,
-        "content": "申报指令:买卖方向",
-        "father_id": 195
+        "content": "交易方式:盘后定价大宗交易",
+        "father_id": 172
     },
     {
         "id": 199,
-        "content": "申报指令:价格",
-        "father_id": 195
+        "content": "价格类型:证券当日收盘价",
+        "father_id": 198
     },
     {
         "id": 200,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 195
+        "content": "价格类型:证券当日成交量加权平均价格",
+        "father_id": 198
     },
     {
         "id": 201,
-        "content": "申报类型:其他申报",
-        "father_id": 177
+        "content": "申报指令:证券账户号码",
+        "father_id": 198
     },
     {
         "id": 202,
-        "content": "交易方式:盘后定价大宗交易",
-        "father_id": 176
+        "content": "申报指令:证券代码",
+        "father_id": 198
     },
     {
         "id": 203,
-        "content": "价格类型:证券当日收盘价",
-        "father_id": 202
+        "content": "申报指令:交易单元代码",
+        "father_id": 198
     },
     {
         "id": 204,
-        "content": "价格类型:证券当日成交量加权平均价格",
-        "father_id": 202
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 198
     },
     {
         "id": 205,
-        "content": "申报指令:证券账户号码",
-        "father_id": 202
+        "content": "申报指令:买卖方向",
+        "father_id": 198
     },
     {
         "id": 206,
-        "content": "申报指令:证券代码",
-        "father_id": 202
+        "content": "申报指令:数量",
+        "father_id": 198
     },
     {
         "id": 207,
-        "content": "申报指令:交易单元代码",
-        "father_id": 202
+        "content": "申报指令:证券账户价格类型号码",
+        "father_id": 198
     },
     {
         "id": 208,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 202
-    },
-    {
-        "id": 209,
-        "content": "申报指令:买卖方向",
-        "father_id": 202
-    },
-    {
-        "id": 210,
-        "content": "申报指令:数量",
-        "father_id": 202
-    },
-    {
-        "id": 211,
-        "content": "申报指令:证券账户价格类型号码",
-        "father_id": 202
-    },
-    {
-        "id": 212,
         "content": "交易品种:基金",
         "father_id": 1
     },
     {
-        "id": 213,
+        "id": 209,
         "content": "基金品种:封闭式基金",
-        "father_id": 212
+        "father_id": 208
+    },
+    {
+        "id": 210,
+        "content": "基金品种:交易开放式基金(ETF)",
+        "father_id": 208
+    },
+    {
+        "id": 211,
+        "content": "申赎申报指令:证券帐号",
+        "father_id": 210
+    },
+    {
+        "id": 212,
+        "content": "申赎申报指令:证券代码",
+        "father_id": 210
+    },
+    {
+        "id": 213,
+        "content": "申赎申报指令:买卖方向",
+        "father_id": 210
     },
     {
         "id": 214,
-        "content": "基金品种:交易开放式基金(ETF)",
-        "father_id": 212
+        "content": "申赎申报指令:数量",
+        "father_id": 210
     },
     {
         "id": 215,
-        "content": "申赎申报指令:证券帐号",
-        "father_id": 214
+        "content": "基金品种:上市开放式基金(LOF)",
+        "father_id": 208
     },
     {
         "id": 216,
-        "content": "申赎申报指令:证券代码",
-        "father_id": 214
+        "content": "基金品种:分级基金",
+        "father_id": 208
     },
     {
         "id": 217,
-        "content": "申赎申报指令:买卖方向",
-        "father_id": 214
+        "content": "基金品种:基础设施基金",
+        "father_id": 208
     },
     {
         "id": 218,
-        "content": "申赎申报指令:数量",
-        "father_id": 214
+        "content": "交易方式:竞价交易",
+        "father_id": 217
     },
     {
         "id": 219,
-        "content": "基金品种:上市开放式基金(LOF)",
-        "father_id": 212
+        "content": "交易方式:集合竞价",
+        "father_id": 218
     },
     {
         "id": 220,
-        "content": "基金品种:分级基金",
-        "father_id": 212
+        "content": "交易方式:连续竞价",
+        "father_id": 218
     },
     {
         "id": 221,
-        "content": "基金品种:基础设施基金",
-        "father_id": 212
+        "content": "申报方式:限价申报",
+        "father_id": 218
     },
     {
         "id": 222,
-        "content": "交易方式:竞价交易",
+        "content": "申报指令:证券账户号码",
         "father_id": 221
     },
     {
         "id": 223,
-        "content": "交易方式:集合竞价",
-        "father_id": 222
+        "content": "申报指令:证券代码",
+        "father_id": 221
     },
     {
         "id": 224,
-        "content": "交易方式:连续竞价",
-        "father_id": 222
+        "content": "申报指令:交易单元代码",
+        "father_id": 221
     },
     {
         "id": 225,
-        "content": "申报方式:限价申报",
-        "father_id": 222
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 221
     },
     {
         "id": 226,
-        "content": "申报指令:证券账户号码",
-        "father_id": 225
+        "content": "申报指令:买卖方向",
+        "father_id": 221
     },
     {
         "id": 227,
-        "content": "申报指令:证券代码",
-        "father_id": 225
+        "content": "申报指令:数量",
+        "father_id": 221
     },
     {
         "id": 228,
-        "content": "申报指令:交易单元代码",
-        "father_id": 225
+        "content": "申报指令:价格",
+        "father_id": 221
     },
     {
         "id": 229,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 225
+        "content": "申报方式:市价申报",
+        "father_id": 218
     },
     {
         "id": 230,
-        "content": "申报指令:买卖方向",
-        "father_id": 225
+        "content": "申报类型:对手方最优价格申报",
+        "father_id": 229
     },
     {
         "id": 231,
-        "content": "申报指令:数量",
-        "father_id": 225
+        "content": "申报类型:本方最优价格申报",
+        "father_id": 229
     },
     {
         "id": 232,
-        "content": "申报指令:价格",
-        "father_id": 225
+        "content": "申报类型:最优五档即时成交剩余撤销申报",
+        "father_id": 229
     },
     {
         "id": 233,
-        "content": "申报方式:市价申报",
-        "father_id": 222
+        "content": "申报类型:即时成交剩余撤销申报",
+        "father_id": 229
     },
     {
         "id": 234,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 233
+        "content": "申报类型:全额成交或撤销申报",
+        "father_id": 229
     },
     {
         "id": 235,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 233
+        "content": "申报指令:申报类型",
+        "father_id": 229
     },
     {
         "id": 236,
-        "content": "申报类型:最优五档即时成交剩余撤销申报",
-        "father_id": 233
+        "content": "申报指令:证券账户号码",
+        "father_id": 229
     },
     {
         "id": 237,
-        "content": "申报类型:即时成交剩余撤销申报",
-        "father_id": 233
+        "content": "申报指令:证券代码",
+        "father_id": 229
     },
     {
         "id": 238,
-        "content": "申报类型:全额成交或撤销申报",
-        "father_id": 233
+        "content": "申报指令:交易单元代码",
+        "father_id": 229
     },
     {
         "id": 239,
-        "content": "申报指令:申报类型",
-        "father_id": 233
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 229
     },
     {
         "id": 240,
-        "content": "申报指令:证券账户号码",
-        "father_id": 233
+        "content": "申报指令:买卖方向",
+        "father_id": 229
     },
     {
         "id": 241,
-        "content": "申报指令:证券代码",
-        "father_id": 233
+        "content": "申报指令:数量",
+        "father_id": 229
     },
     {
         "id": 242,
-        "content": "申报指令:交易单元代码",
-        "father_id": 233
+        "content": "交易方式:大宗交易",
+        "father_id": 217
     },
     {
         "id": 243,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 233
+        "content": "交易方式:协议大宗交易",
+        "father_id": 242
     },
     {
         "id": 244,
-        "content": "申报指令:买卖方向",
-        "father_id": 233
+        "content": "申报类型:意向申报",
+        "father_id": 243
     },
     {
         "id": 245,
-        "content": "申报指令:数量",
-        "father_id": 233
+        "content": "申报指令:证券账户号码",
+        "father_id": 244
     },
     {
         "id": 246,
-        "content": "交易方式:大宗交易",
-        "father_id": 221
+        "content": "申报指令:证券代码",
+        "father_id": 244
     },
     {
         "id": 247,
-        "content": "交易方式:协议大宗交易",
-        "father_id": 246
+        "content": "申报指令:买卖方向和本方交易单元代码",
+        "father_id": 244
     },
     {
         "id": 248,
-        "content": "申报类型:意向申报",
-        "father_id": 247
+        "content": "申报要素:证券代码",
+        "father_id": 244
     },
     {
         "id": 249,
-        "content": "申报指令:证券账户号码",
-        "father_id": 248
+        "content": "申报要素:交易方向",
+        "father_id": 244
     },
     {
         "id": 250,
-        "content": "申报指令:证券代码",
-        "father_id": 248
+        "content": "申报要素:发送范围",
+        "father_id": 244
     },
     {
         "id": 251,
-        "content": "申报指令:买卖方向和本方交易单元代码",
-        "father_id": 248
+        "content": "申报要素:证券账户号码",
+        "father_id": 244
     },
     {
         "id": 252,
-        "content": "申报要素:证券代码",
-        "father_id": 248
+        "content": "申报要素:是否匿名",
+        "father_id": 244
     },
     {
         "id": 253,
-        "content": "申报要素:交易方向",
-        "father_id": 248
+        "content": "申报类型:成交申报",
+        "father_id": 243
     },
     {
         "id": 254,
-        "content": "申报要素:发送范围",
-        "father_id": 248
+        "content": "申报指令:证券账户号码",
+        "father_id": 253
     },
     {
         "id": 255,
-        "content": "申报要素:证券账户号码",
-        "father_id": 248
+        "content": "申报指令:证券代码",
+        "father_id": 253
     },
     {
         "id": 256,
-        "content": "申报要素:是否匿名",
-        "father_id": 248
+        "content": "申报指令:买卖方向",
+        "father_id": 253
     },
     {
         "id": 257,
-        "content": "申报类型:成交申报",
-        "father_id": 247
+        "content": "申报指令:价格",
+        "father_id": 253
     },
     {
         "id": 258,
-        "content": "申报指令:证券账户号码",
-        "father_id": 257
+        "content": "申报指令:数量",
+        "father_id": 253
     },
     {
         "id": 259,
-        "content": "申报指令:证券代码",
-        "father_id": 257
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 253
     },
     {
         "id": 260,
-        "content": "申报指令:买卖方向",
-        "father_id": 257
+        "content": "申报指令:约定号",
+        "father_id": 253
     },
     {
         "id": 261,
-        "content": "申报指令:价格",
-        "father_id": 257
+        "content": "申报类型:定价申报",
+        "father_id": 243
     },
     {
         "id": 262,
-        "content": "申报指令:数量",
-        "father_id": 257
+        "content": "申报指令:证券账户号码",
+        "father_id": 261
     },
     {
         "id": 263,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 257
+        "content": "申报指令:证券代码",
+        "father_id": 261
     },
     {
         "id": 264,
-        "content": "申报指令:约定号",
-        "father_id": 257
+        "content": "申报指令:买卖方向",
+        "father_id": 261
     },
     {
         "id": 265,
-        "content": "申报类型:定价申报",
-        "father_id": 247
+        "content": "申报指令:价格",
+        "father_id": 261
     },
     {
         "id": 266,
-        "content": "申报指令:证券账户号码",
-        "father_id": 265
+        "content": "申报指令:数量和本方交易单元代码",
+        "father_id": 261
     },
     {
         "id": 267,
-        "content": "申报指令:证券代码",
-        "father_id": 265
+        "content": "申报类型:其他申报",
+        "father_id": 243
     },
     {
         "id": 268,
-        "content": "申报指令:买卖方向",
-        "father_id": 265
+        "content": "交易方式:盘后定价大宗交易",
+        "father_id": 242
     },
     {
         "id": 269,
-        "content": "申报指令:价格",
-        "father_id": 265
+        "content": "价格类型:证券当日收盘价",
+        "father_id": 268
     },
     {
         "id": 270,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 265
+        "content": "价格类型:证券当日成交量加权平均价格",
+        "father_id": 268
     },
     {
         "id": 271,
-        "content": "申报类型:其他申报",
-        "father_id": 247
+        "content": "申报指令:证券账户号码",
+        "father_id": 268
     },
     {
         "id": 272,
-        "content": "交易方式:盘后定价大宗交易",
-        "father_id": 246
+        "content": "申报指令:证券代码",
+        "father_id": 268
     },
     {
         "id": 273,
-        "content": "价格类型:证券当日收盘价",
-        "father_id": 272
+        "content": "申报指令:交易单元代码",
+        "father_id": 268
     },
     {
         "id": 274,
-        "content": "价格类型:证券当日成交量加权平均价格",
-        "father_id": 272
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 268
     },
     {
         "id": 275,
-        "content": "申报指令:证券账户号码",
-        "father_id": 272
+        "content": "申报指令:买卖方向",
+        "father_id": 268
     },
     {
         "id": 276,
-        "content": "申报指令:证券代码",
-        "father_id": 272
+        "content": "申报指令:数量",
+        "father_id": 268
     },
     {
         "id": 277,
-        "content": "申报指令:交易单元代码",
-        "father_id": 272
+        "content": "申报指令:证券账户价格类型号码",
+        "father_id": 268
     },
     {
         "id": 278,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 272
+        "content": "交易方式:询价成交",
+        "father_id": 217
     },
     {
         "id": 279,
-        "content": "申报指令:买卖方向",
-        "father_id": 272
+        "content": "询价回复要素:价格",
+        "father_id": 278
     },
     {
         "id": 280,
-        "content": "申报指令:数量",
-        "father_id": 272
+        "content": "询价回复要素:数量",
+        "father_id": 278
     },
     {
         "id": 281,
-        "content": "申报指令:证券账户价格类型号码",
-        "father_id": 272
+        "content": "询价回复要素:证券账户号码",
+        "father_id": 278
     },
     {
         "id": 282,
-        "content": "交易方式:询价成交",
-        "father_id": 221
+        "content": "询价请求要素:证券代码",
+        "father_id": 278
     },
     {
         "id": 283,
-        "content": "询价回复要素:价格",
-        "father_id": 282
+        "content": "询价请求要素:交易方向",
+        "father_id": 278
     },
     {
         "id": 284,
-        "content": "询价回复要素:数量",
-        "father_id": 282
+        "content": "询价请求要素:数量",
+        "father_id": 278
     },
     {
         "id": 285,
-        "content": "询价回复要素:证券账户号码",
-        "father_id": 282
+        "content": "询价请求要素:发送范围",
+        "father_id": 278
     },
     {
         "id": 286,
-        "content": "询价请求要素:证券代码",
-        "father_id": 282
+        "content": "询价请求要素:证券账户号码",
+        "father_id": 278
     },
     {
         "id": 287,
-        "content": "询价请求要素:交易方向",
-        "father_id": 282
+        "content": "询价请求要素:结算方式",
+        "father_id": 278
     },
     {
         "id": 288,
-        "content": "询价请求要素:数量",
-        "father_id": 282
+        "content": "询价请求要素:结算周期",
+        "father_id": 278
     },
     {
         "id": 289,
-        "content": "询价请求要素:发送范围",
-        "father_id": 282
+        "content": "询价请求要素:是否匿名",
+        "father_id": 278
     },
     {
         "id": 290,
-        "content": "询价请求要素:证券账户号码",
-        "father_id": 282
+        "content": "交易方式:竞价交易",
+        "father_id": 208
     },
     {
         "id": 291,
-        "content": "询价请求要素:结算方式",
-        "father_id": 282
+        "content": "交易方式:集合竞价",
+        "father_id": 290
     },
     {
         "id": 292,
-        "content": "询价请求要素:结算周期",
-        "father_id": 282
+        "content": "交易方式:连续竞价",
+        "father_id": 290
     },
     {
         "id": 293,
-        "content": "询价请求要素:是否匿名",
-        "father_id": 282
+        "content": "申报方式:限价申报",
+        "father_id": 290
     },
     {
         "id": 294,
-        "content": "交易方式:竞价交易",
-        "father_id": 212
+        "content": "申报指令:证券账户号码",
+        "father_id": 293
     },
     {
         "id": 295,
-        "content": "交易方式:集合竞价",
-        "father_id": 294
+        "content": "申报指令:证券代码",
+        "father_id": 293
     },
     {
         "id": 296,
-        "content": "交易方式:连续竞价",
-        "father_id": 294
+        "content": "申报指令:交易单元代码",
+        "father_id": 293
     },
     {
         "id": 297,
-        "content": "申报方式:限价申报",
-        "father_id": 294
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 293
     },
     {
         "id": 298,
-        "content": "申报指令:证券账户号码",
-        "father_id": 297
+        "content": "申报指令:买卖方向",
+        "father_id": 293
     },
     {
         "id": 299,
-        "content": "申报指令:证券代码",
-        "father_id": 297
+        "content": "申报指令:数量",
+        "father_id": 293
     },
     {
         "id": 300,
-        "content": "申报指令:交易单元代码",
-        "father_id": 297
+        "content": "申报指令:价格",
+        "father_id": 293
     },
     {
         "id": 301,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 297
+        "content": "申报方式:市价申报",
+        "father_id": 290
     },
     {
         "id": 302,
-        "content": "申报指令:买卖方向",
-        "father_id": 297
+        "content": "申报类型:对手方最优价格申报",
+        "father_id": 301
     },
     {
         "id": 303,
-        "content": "申报指令:数量",
-        "father_id": 297
+        "content": "申报类型:本方最优价格申报",
+        "father_id": 301
     },
     {
         "id": 304,
-        "content": "申报指令:价格",
-        "father_id": 297
+        "content": "申报类型:最优五档即时成交剩余撤销申报",
+        "father_id": 301
     },
     {
         "id": 305,
-        "content": "申报方式:市价申报",
-        "father_id": 294
+        "content": "申报类型:即时成交剩余撤销申报",
+        "father_id": 301
     },
     {
         "id": 306,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 305
+        "content": "申报类型:全额成交或撤销申报",
+        "father_id": 301
     },
     {
         "id": 307,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 305
+        "content": "申报指令:申报类型",
+        "father_id": 301
     },
     {
         "id": 308,
-        "content": "申报类型:最优五档即时成交剩余撤销申报",
-        "father_id": 305
+        "content": "申报指令:证券账户号码",
+        "father_id": 301
     },
     {
         "id": 309,
-        "content": "申报类型:即时成交剩余撤销申报",
-        "father_id": 305
+        "content": "申报指令:证券代码",
+        "father_id": 301
     },
     {
         "id": 310,
-        "content": "申报类型:全额成交或撤销申报",
-        "father_id": 305
+        "content": "申报指令:交易单元代码",
+        "father_id": 301
     },
     {
         "id": 311,
-        "content": "申报指令:申报类型",
-        "father_id": 305
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 301
     },
     {
         "id": 312,
-        "content": "申报指令:证券账户号码",
-        "father_id": 305
+        "content": "申报指令:买卖方向",
+        "father_id": 301
     },
     {
         "id": 313,
-        "content": "申报指令:证券代码",
-        "father_id": 305
+        "content": "申报指令:数量",
+        "father_id": 301
     },
     {
         "id": 314,
-        "content": "申报指令:交易单元代码",
-        "father_id": 305
+        "content": "交易方式:大宗交易",
+        "father_id": 208
     },
     {
         "id": 315,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 305
+        "content": "交易方式:协议大宗交易",
+        "father_id": 314
     },
     {
         "id": 316,
-        "content": "申报指令:买卖方向",
-        "father_id": 305
+        "content": "申报类型:意向申报",
+        "father_id": 315
     },
     {
         "id": 317,
-        "content": "申报指令:数量",
-        "father_id": 305
+        "content": "申报指令:证券账户号码",
+        "father_id": 316
     },
     {
         "id": 318,
-        "content": "交易方式:大宗交易",
-        "father_id": 212
+        "content": "申报指令:证券代码",
+        "father_id": 316
     },
     {
         "id": 319,
-        "content": "交易方式:协议大宗交易",
-        "father_id": 318
+        "content": "申报指令:买卖方向和本方交易单元代码",
+        "father_id": 316
     },
     {
         "id": 320,
-        "content": "申报类型:意向申报",
-        "father_id": 319
+        "content": "申报要素:证券代码",
+        "father_id": 316
     },
     {
         "id": 321,
-        "content": "申报指令:证券账户号码",
-        "father_id": 320
+        "content": "申报要素:交易方向",
+        "father_id": 316
     },
     {
         "id": 322,
-        "content": "申报指令:证券代码",
-        "father_id": 320
+        "content": "申报要素:发送范围",
+        "father_id": 316
     },
     {
         "id": 323,
-        "content": "申报指令:买卖方向和本方交易单元代码",
-        "father_id": 320
+        "content": "申报要素:证券账户号码",
+        "father_id": 316
     },
     {
         "id": 324,
-        "content": "申报要素:证券代码",
-        "father_id": 320
+        "content": "申报要素:是否匿名",
+        "father_id": 316
     },
     {
         "id": 325,
-        "content": "申报要素:交易方向",
-        "father_id": 320
+        "content": "申报类型:成交申报",
+        "father_id": 315
     },
     {
         "id": 326,
-        "content": "申报要素:发送范围",
-        "father_id": 320
+        "content": "申报指令:证券账户号码",
+        "father_id": 325
     },
     {
         "id": 327,
-        "content": "申报要素:证券账户号码",
-        "father_id": 320
+        "content": "申报指令:证券代码",
+        "father_id": 325
     },
     {
         "id": 328,
-        "content": "申报要素:是否匿名",
-        "father_id": 320
+        "content": "申报指令:买卖方向",
+        "father_id": 325
     },
     {
         "id": 329,
-        "content": "申报类型:成交申报",
-        "father_id": 319
+        "content": "申报指令:价格",
+        "father_id": 325
     },
     {
         "id": 330,
-        "content": "申报指令:证券账户号码",
-        "father_id": 329
+        "content": "申报指令:数量",
+        "father_id": 325
     },
     {
         "id": 331,
-        "content": "申报指令:证券代码",
-        "father_id": 329
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 325
     },
     {
         "id": 332,
-        "content": "申报指令:买卖方向",
-        "father_id": 329
+        "content": "申报指令:约定号",
+        "father_id": 325
     },
     {
         "id": 333,
-        "content": "申报指令:价格",
-        "father_id": 329
+        "content": "申报类型:定价申报",
+        "father_id": 315
     },
     {
         "id": 334,
-        "content": "申报指令:数量",
-        "father_id": 329
+        "content": "申报指令:证券账户号码",
+        "father_id": 333
     },
     {
         "id": 335,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 329
+        "content": "申报指令:证券代码",
+        "father_id": 333
     },
     {
         "id": 336,
-        "content": "申报指令:约定号",
-        "father_id": 329
+        "content": "申报指令:买卖方向",
+        "father_id": 333
     },
     {
         "id": 337,
-        "content": "申报类型:定价申报",
-        "father_id": 319
+        "content": "申报指令:价格",
+        "father_id": 333
     },
     {
         "id": 338,
-        "content": "申报指令:证券账户号码",
-        "father_id": 337
+        "content": "申报指令:数量和本方交易单元代码",
+        "father_id": 333
     },
     {
         "id": 339,
-        "content": "申报指令:证券代码",
-        "father_id": 337
+        "content": "申报类型:其他申报",
+        "father_id": 315
     },
     {
         "id": 340,
-        "content": "申报指令:买卖方向",
-        "father_id": 337
+        "content": "交易方式:盘后定价大宗交易",
+        "father_id": 314
     },
     {
         "id": 341,
-        "content": "申报指令:价格",
-        "father_id": 337
+        "content": "价格类型:证券当日收盘价",
+        "father_id": 340
     },
     {
         "id": 342,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 337
+        "content": "价格类型:证券当日成交量加权平均价格",
+        "father_id": 340
     },
     {
         "id": 343,
-        "content": "申报类型:其他申报",
-        "father_id": 319
+        "content": "申报指令:证券账户号码",
+        "father_id": 340
     },
     {
         "id": 344,
-        "content": "交易方式:盘后定价大宗交易",
-        "father_id": 318
+        "content": "申报指令:证券代码",
+        "father_id": 340
     },
     {
         "id": 345,
-        "content": "价格类型:证券当日收盘价",
-        "father_id": 344
+        "content": "申报指令:交易单元代码",
+        "father_id": 340
     },
     {
         "id": 346,
-        "content": "价格类型:证券当日成交量加权平均价格",
-        "father_id": 344
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 340
     },
     {
         "id": 347,
-        "content": "申报指令:证券账户号码",
-        "father_id": 344
+        "content": "申报指令:买卖方向",
+        "father_id": 340
     },
     {
         "id": 348,
-        "content": "申报指令:证券代码",
-        "father_id": 344
+        "content": "申报指令:数量",
+        "father_id": 340
     },
     {
         "id": 349,
-        "content": "申报指令:交易单元代码",
-        "father_id": 344
+        "content": "申报指令:证券账户价格类型号码",
+        "father_id": 340
     },
     {
         "id": 350,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 344
-    },
-    {
-        "id": 351,
-        "content": "申报指令:买卖方向",
-        "father_id": 344
-    },
-    {
-        "id": 352,
-        "content": "申报指令:数量",
-        "father_id": 344
-    },
-    {
-        "id": 353,
-        "content": "申报指令:证券账户价格类型号码",
-        "father_id": 344
-    },
-    {
-        "id": 354,
         "content": "交易品种:权证",
         "father_id": 1
     },
     {
-        "id": 355,
+        "id": 351,
         "content": "交易方式:竞价交易",
+        "father_id": 350
+    },
+    {
+        "id": 352,
+        "content": "交易方式:集合竞价",
+        "father_id": 351
+    },
+    {
+        "id": 353,
+        "content": "交易方式:连续竞价",
+        "father_id": 351
+    },
+    {
+        "id": 354,
+        "content": "申报方式:限价申报",
+        "father_id": 351
+    },
+    {
+        "id": 355,
+        "content": "申报指令:证券账户号码",
         "father_id": 354
     },
     {
         "id": 356,
-        "content": "交易方式:集合竞价",
-        "father_id": 355
-    },
-    {
-        "id": 357,
-        "content": "交易方式:连续竞价",
-        "father_id": 355
-    },
-    {
-        "id": 358,
-        "content": "申报方式:限价申报",
-        "father_id": 355
-    },
-    {
-        "id": 359,
-        "content": "申报指令:证券账户号码",
-        "father_id": 358
-    },
-    {
-        "id": 360,
         "content": "申报指令:证券代码",
-        "father_id": 358
-    },
-    {
-        "id": 361,
-        "content": "申报指令:交易单元代码",
-        "father_id": 358
-    },
-    {
-        "id": 362,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 358
-    },
-    {
-        "id": 363,
-        "content": "申报指令:买卖方向",
-        "father_id": 358
-    },
-    {
-        "id": 364,
-        "content": "申报指令:数量",
-        "father_id": 358
-    },
-    {
-        "id": 365,
-        "content": "申报指令:价格",
-        "father_id": 358
-    },
-    {
-        "id": 366,
-        "content": "申报方式:市价申报",
-        "father_id": 355
-    },
-    {
-        "id": 367,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 366
-    },
-    {
-        "id": 368,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 366
-    },
-    {
-        "id": 369,
-        "content": "申报类型:最优五档即时成交剩余撤销申报",
-        "father_id": 366
-    },
-    {
-        "id": 370,
-        "content": "申报类型:即时成交剩余撤销申报",
-        "father_id": 366
-    },
-    {
-        "id": 371,
-        "content": "申报类型:全额成交或撤销申报",
-        "father_id": 366
-    },
-    {
-        "id": 372,
-        "content": "申报指令:申报类型",
-        "father_id": 366
-    },
-    {
-        "id": 373,
-        "content": "申报指令:证券账户号码",
-        "father_id": 366
-    },
-    {
-        "id": 374,
-        "content": "申报指令:证券代码",
-        "father_id": 366
-    },
-    {
-        "id": 375,
-        "content": "申报指令:交易单元代码",
-        "father_id": 366
-    },
-    {
-        "id": 376,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 366
-    },
-    {
-        "id": 377,
-        "content": "申报指令:买卖方向",
-        "father_id": 366
-    },
-    {
-        "id": 378,
-        "content": "申报指令:数量",
-        "father_id": 366
-    },
-    {
-        "id": 379,
-        "content": "交易方式:大宗交易",
         "father_id": 354
     },
     {
-        "id": 380,
+        "id": 357,
+        "content": "申报指令:交易单元代码",
+        "father_id": 354
+    },
+    {
+        "id": 358,
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 354
+    },
+    {
+        "id": 359,
+        "content": "申报指令:买卖方向",
+        "father_id": 354
+    },
+    {
+        "id": 360,
+        "content": "申报指令:数量",
+        "father_id": 354
+    },
+    {
+        "id": 361,
+        "content": "申报指令:价格",
+        "father_id": 354
+    },
+    {
+        "id": 362,
+        "content": "申报方式:市价申报",
+        "father_id": 351
+    },
+    {
+        "id": 363,
+        "content": "申报类型:对手方最优价格申报",
+        "father_id": 362
+    },
+    {
+        "id": 364,
+        "content": "申报类型:本方最优价格申报",
+        "father_id": 362
+    },
+    {
+        "id": 365,
+        "content": "申报类型:最优五档即时成交剩余撤销申报",
+        "father_id": 362
+    },
+    {
+        "id": 366,
+        "content": "申报类型:即时成交剩余撤销申报",
+        "father_id": 362
+    },
+    {
+        "id": 367,
+        "content": "申报类型:全额成交或撤销申报",
+        "father_id": 362
+    },
+    {
+        "id": 368,
+        "content": "申报指令:申报类型",
+        "father_id": 362
+    },
+    {
+        "id": 369,
+        "content": "申报指令:证券账户号码",
+        "father_id": 362
+    },
+    {
+        "id": 370,
+        "content": "申报指令:证券代码",
+        "father_id": 362
+    },
+    {
+        "id": 371,
+        "content": "申报指令:交易单元代码",
+        "father_id": 362
+    },
+    {
+        "id": 372,
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 362
+    },
+    {
+        "id": 373,
+        "content": "申报指令:买卖方向",
+        "father_id": 362
+    },
+    {
+        "id": 374,
+        "content": "申报指令:数量",
+        "father_id": 362
+    },
+    {
+        "id": 375,
+        "content": "交易方式:大宗交易",
+        "father_id": 350
+    },
+    {
+        "id": 376,
         "content": "交易方式:协议大宗交易",
-        "father_id": 379
+        "father_id": 375
+    },
+    {
+        "id": 377,
+        "content": "申报类型:意向申报",
+        "father_id": 376
+    },
+    {
+        "id": 378,
+        "content": "申报指令:证券账户号码",
+        "father_id": 377
+    },
+    {
+        "id": 379,
+        "content": "申报指令:证券代码",
+        "father_id": 377
+    },
+    {
+        "id": 380,
+        "content": "申报指令:买卖方向和本方交易单元代码",
+        "father_id": 377
     },
     {
         "id": 381,
-        "content": "申报类型:意向申报",
-        "father_id": 380
+        "content": "申报要素:证券代码",
+        "father_id": 377
     },
     {
         "id": 382,
-        "content": "申报指令:证券账户号码",
-        "father_id": 381
+        "content": "申报要素:交易方向",
+        "father_id": 377
     },
     {
         "id": 383,
-        "content": "申报指令:证券代码",
-        "father_id": 381
+        "content": "申报要素:发送范围",
+        "father_id": 377
     },
     {
         "id": 384,
-        "content": "申报指令:买卖方向和本方交易单元代码",
-        "father_id": 381
+        "content": "申报要素:证券账户号码",
+        "father_id": 377
     },
     {
         "id": 385,
-        "content": "申报要素:证券代码",
-        "father_id": 381
+        "content": "申报要素:是否匿名",
+        "father_id": 377
     },
     {
         "id": 386,
-        "content": "申报要素:交易方向",
-        "father_id": 381
+        "content": "申报类型:成交申报",
+        "father_id": 376
     },
     {
         "id": 387,
-        "content": "申报要素:发送范围",
-        "father_id": 381
+        "content": "申报指令:证券账户号码",
+        "father_id": 386
     },
     {
         "id": 388,
-        "content": "申报要素:证券账户号码",
-        "father_id": 381
+        "content": "申报指令:证券代码",
+        "father_id": 386
     },
     {
         "id": 389,
-        "content": "申报要素:是否匿名",
-        "father_id": 381
+        "content": "申报指令:买卖方向",
+        "father_id": 386
     },
     {
         "id": 390,
-        "content": "申报类型:成交申报",
-        "father_id": 380
+        "content": "申报指令:价格",
+        "father_id": 386
     },
     {
         "id": 391,
-        "content": "申报指令:证券账户号码",
-        "father_id": 390
+        "content": "申报指令:数量",
+        "father_id": 386
     },
     {
         "id": 392,
-        "content": "申报指令:证券代码",
-        "father_id": 390
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 386
     },
     {
         "id": 393,
-        "content": "申报指令:买卖方向",
-        "father_id": 390
+        "content": "申报指令:约定号",
+        "father_id": 386
     },
     {
         "id": 394,
-        "content": "申报指令:价格",
-        "father_id": 390
+        "content": "申报类型:定价申报",
+        "father_id": 376
     },
     {
         "id": 395,
-        "content": "申报指令:数量",
-        "father_id": 390
+        "content": "申报指令:证券账户号码",
+        "father_id": 394
     },
     {
         "id": 396,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 390
+        "content": "申报指令:证券代码",
+        "father_id": 394
     },
     {
         "id": 397,
-        "content": "申报指令:约定号",
-        "father_id": 390
+        "content": "申报指令:买卖方向",
+        "father_id": 394
     },
     {
         "id": 398,
-        "content": "申报类型:定价申报",
-        "father_id": 380
+        "content": "申报指令:价格",
+        "father_id": 394
     },
     {
         "id": 399,
-        "content": "申报指令:证券账户号码",
-        "father_id": 398
+        "content": "申报指令:数量和本方交易单元代码",
+        "father_id": 394
     },
     {
         "id": 400,
-        "content": "申报指令:证券代码",
-        "father_id": 398
+        "content": "申报类型:其他申报",
+        "father_id": 376
     },
     {
         "id": 401,
-        "content": "申报指令:买卖方向",
-        "father_id": 398
+        "content": "交易方式:盘后定价大宗交易",
+        "father_id": 375
     },
     {
         "id": 402,
-        "content": "申报指令:价格",
-        "father_id": 398
+        "content": "价格类型:证券当日收盘价",
+        "father_id": 401
     },
     {
         "id": 403,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 398
+        "content": "价格类型:证券当日成交量加权平均价格",
+        "father_id": 401
     },
     {
         "id": 404,
-        "content": "申报类型:其他申报",
-        "father_id": 380
+        "content": "申报指令:证券账户号码",
+        "father_id": 401
     },
     {
         "id": 405,
-        "content": "交易方式:盘后定价大宗交易",
-        "father_id": 379
+        "content": "申报指令:证券代码",
+        "father_id": 401
     },
     {
         "id": 406,
-        "content": "价格类型:证券当日收盘价",
-        "father_id": 405
+        "content": "申报指令:交易单元代码",
+        "father_id": 401
     },
     {
         "id": 407,
-        "content": "价格类型:证券当日成交量加权平均价格",
-        "father_id": 405
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 401
     },
     {
         "id": 408,
-        "content": "申报指令:证券账户号码",
-        "father_id": 405
+        "content": "申报指令:买卖方向",
+        "father_id": 401
     },
     {
         "id": 409,
-        "content": "申报指令:证券代码",
-        "father_id": 405
+        "content": "申报指令:数量",
+        "father_id": 401
     },
     {
         "id": 410,
-        "content": "申报指令:交易单元代码",
-        "father_id": 405
+        "content": "申报指令:证券账户价格类型号码",
+        "father_id": 401
     },
     {
         "id": 411,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 405
-    },
-    {
-        "id": 412,
-        "content": "申报指令:买卖方向",
-        "father_id": 405
-    },
-    {
-        "id": 413,
-        "content": "申报指令:数量",
-        "father_id": 405
-    },
-    {
-        "id": 414,
-        "content": "申报指令:证券账户价格类型号码",
-        "father_id": 405
-    },
-    {
-        "id": 415,
         "content": "交易品种:存托凭证",
         "father_id": 1
     },
     {
-        "id": 416,
+        "id": 412,
         "content": "交易方式:竞价交易",
+        "father_id": 411
+    },
+    {
+        "id": 413,
+        "content": "交易方式:集合竞价",
+        "father_id": 412
+    },
+    {
+        "id": 414,
+        "content": "交易方式:连续竞价",
+        "father_id": 412
+    },
+    {
+        "id": 415,
+        "content": "申报方式:限价申报",
+        "father_id": 412
+    },
+    {
+        "id": 416,
+        "content": "申报指令:证券账户号码",
         "father_id": 415
     },
     {
         "id": 417,
-        "content": "交易方式:集合竞价",
-        "father_id": 416
-    },
-    {
-        "id": 418,
-        "content": "交易方式:连续竞价",
-        "father_id": 416
-    },
-    {
-        "id": 419,
-        "content": "申报方式:限价申报",
-        "father_id": 416
-    },
-    {
-        "id": 420,
-        "content": "申报指令:证券账户号码",
-        "father_id": 419
-    },
-    {
-        "id": 421,
         "content": "申报指令:证券代码",
-        "father_id": 419
-    },
-    {
-        "id": 422,
-        "content": "申报指令:交易单元代码",
-        "father_id": 419
-    },
-    {
-        "id": 423,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 419
-    },
-    {
-        "id": 424,
-        "content": "申报指令:买卖方向",
-        "father_id": 419
-    },
-    {
-        "id": 425,
-        "content": "申报指令:数量",
-        "father_id": 419
-    },
-    {
-        "id": 426,
-        "content": "申报指令:价格",
-        "father_id": 419
-    },
-    {
-        "id": 427,
-        "content": "申报方式:市价申报",
-        "father_id": 416
-    },
-    {
-        "id": 428,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 427
-    },
-    {
-        "id": 429,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 427
-    },
-    {
-        "id": 430,
-        "content": "申报类型:最优五档即时成交剩余撤销申报",
-        "father_id": 427
-    },
-    {
-        "id": 431,
-        "content": "申报类型:即时成交剩余撤销申报",
-        "father_id": 427
-    },
-    {
-        "id": 432,
-        "content": "申报类型:全额成交或撤销申报",
-        "father_id": 427
-    },
-    {
-        "id": 433,
-        "content": "申报指令:申报类型",
-        "father_id": 427
-    },
-    {
-        "id": 434,
-        "content": "申报指令:证券账户号码",
-        "father_id": 427
-    },
-    {
-        "id": 435,
-        "content": "申报指令:证券代码",
-        "father_id": 427
-    },
-    {
-        "id": 436,
-        "content": "申报指令:交易单元代码",
-        "father_id": 427
-    },
-    {
-        "id": 437,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 427
-    },
-    {
-        "id": 438,
-        "content": "申报指令:买卖方向",
-        "father_id": 427
-    },
-    {
-        "id": 439,
-        "content": "申报指令:数量",
-        "father_id": 427
-    },
-    {
-        "id": 440,
-        "content": "交易方式:大宗交易",
         "father_id": 415
     },
     {
-        "id": 441,
+        "id": 418,
+        "content": "申报指令:交易单元代码",
+        "father_id": 415
+    },
+    {
+        "id": 419,
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 415
+    },
+    {
+        "id": 420,
+        "content": "申报指令:买卖方向",
+        "father_id": 415
+    },
+    {
+        "id": 421,
+        "content": "申报指令:数量",
+        "father_id": 415
+    },
+    {
+        "id": 422,
+        "content": "申报指令:价格",
+        "father_id": 415
+    },
+    {
+        "id": 423,
+        "content": "申报方式:市价申报",
+        "father_id": 412
+    },
+    {
+        "id": 424,
+        "content": "申报类型:对手方最优价格申报",
+        "father_id": 423
+    },
+    {
+        "id": 425,
+        "content": "申报类型:本方最优价格申报",
+        "father_id": 423
+    },
+    {
+        "id": 426,
+        "content": "申报类型:最优五档即时成交剩余撤销申报",
+        "father_id": 423
+    },
+    {
+        "id": 427,
+        "content": "申报类型:即时成交剩余撤销申报",
+        "father_id": 423
+    },
+    {
+        "id": 428,
+        "content": "申报类型:全额成交或撤销申报",
+        "father_id": 423
+    },
+    {
+        "id": 429,
+        "content": "申报指令:申报类型",
+        "father_id": 423
+    },
+    {
+        "id": 430,
+        "content": "申报指令:证券账户号码",
+        "father_id": 423
+    },
+    {
+        "id": 431,
+        "content": "申报指令:证券代码",
+        "father_id": 423
+    },
+    {
+        "id": 432,
+        "content": "申报指令:交易单元代码",
+        "father_id": 423
+    },
+    {
+        "id": 433,
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 423
+    },
+    {
+        "id": 434,
+        "content": "申报指令:买卖方向",
+        "father_id": 423
+    },
+    {
+        "id": 435,
+        "content": "申报指令:数量",
+        "father_id": 423
+    },
+    {
+        "id": 436,
+        "content": "交易方式:大宗交易",
+        "father_id": 411
+    },
+    {
+        "id": 437,
         "content": "交易方式:协议大宗交易",
-        "father_id": 440
+        "father_id": 436
+    },
+    {
+        "id": 438,
+        "content": "申报类型:意向申报",
+        "father_id": 437
+    },
+    {
+        "id": 439,
+        "content": "申报指令:证券账户号码",
+        "father_id": 438
+    },
+    {
+        "id": 440,
+        "content": "申报指令:证券代码",
+        "father_id": 438
+    },
+    {
+        "id": 441,
+        "content": "申报指令:买卖方向和本方交易单元代码",
+        "father_id": 438
     },
     {
         "id": 442,
-        "content": "申报类型:意向申报",
-        "father_id": 441
+        "content": "申报要素:证券代码",
+        "father_id": 438
     },
     {
         "id": 443,
-        "content": "申报指令:证券账户号码",
-        "father_id": 442
+        "content": "申报要素:交易方向",
+        "father_id": 438
     },
     {
         "id": 444,
-        "content": "申报指令:证券代码",
-        "father_id": 442
+        "content": "申报要素:发送范围",
+        "father_id": 438
     },
     {
         "id": 445,
-        "content": "申报指令:买卖方向和本方交易单元代码",
-        "father_id": 442
+        "content": "申报要素:证券账户号码",
+        "father_id": 438
     },
     {
         "id": 446,
-        "content": "申报要素:证券代码",
-        "father_id": 442
+        "content": "申报要素:是否匿名",
+        "father_id": 438
     },
     {
         "id": 447,
-        "content": "申报要素:交易方向",
-        "father_id": 442
+        "content": "申报类型:成交申报",
+        "father_id": 437
     },
     {
         "id": 448,
-        "content": "申报要素:发送范围",
-        "father_id": 442
+        "content": "申报指令:证券账户号码",
+        "father_id": 447
     },
     {
         "id": 449,
-        "content": "申报要素:证券账户号码",
-        "father_id": 442
+        "content": "申报指令:证券代码",
+        "father_id": 447
     },
     {
         "id": 450,
-        "content": "申报要素:是否匿名",
-        "father_id": 442
+        "content": "申报指令:买卖方向",
+        "father_id": 447
     },
     {
         "id": 451,
-        "content": "申报类型:成交申报",
-        "father_id": 441
+        "content": "申报指令:价格",
+        "father_id": 447
     },
     {
         "id": 452,
-        "content": "申报指令:证券账户号码",
-        "father_id": 451
+        "content": "申报指令:数量",
+        "father_id": 447
     },
     {
         "id": 453,
-        "content": "申报指令:证券代码",
-        "father_id": 451
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 447
     },
     {
         "id": 454,
-        "content": "申报指令:买卖方向",
-        "father_id": 451
+        "content": "申报指令:约定号",
+        "father_id": 447
     },
     {
         "id": 455,
-        "content": "申报指令:价格",
-        "father_id": 451
+        "content": "申报类型:定价申报",
+        "father_id": 437
     },
     {
         "id": 456,
-        "content": "申报指令:数量",
-        "father_id": 451
+        "content": "申报指令:证券账户号码",
+        "father_id": 455
     },
     {
         "id": 457,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 451
+        "content": "申报指令:证券代码",
+        "father_id": 455
     },
     {
         "id": 458,
-        "content": "申报指令:约定号",
-        "father_id": 451
+        "content": "申报指令:买卖方向",
+        "father_id": 455
     },
     {
         "id": 459,
-        "content": "申报类型:定价申报",
-        "father_id": 441
+        "content": "申报指令:价格",
+        "father_id": 455
     },
     {
         "id": 460,
-        "content": "申报指令:证券账户号码",
-        "father_id": 459
+        "content": "申报指令:数量和本方交易单元代码",
+        "father_id": 455
     },
     {
         "id": 461,
-        "content": "申报指令:证券代码",
-        "father_id": 459
+        "content": "申报类型:其他申报",
+        "father_id": 437
     },
     {
         "id": 462,
-        "content": "申报指令:买卖方向",
-        "father_id": 459
+        "content": "交易方式:盘后定价大宗交易",
+        "father_id": 436
     },
     {
         "id": 463,
-        "content": "申报指令:价格",
-        "father_id": 459
+        "content": "价格类型:证券当日收盘价",
+        "father_id": 462
     },
     {
         "id": 464,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 459
+        "content": "价格类型:证券当日成交量加权平均价格",
+        "father_id": 462
     },
     {
         "id": 465,
-        "content": "申报类型:其他申报",
-        "father_id": 441
+        "content": "申报指令:证券账户号码",
+        "father_id": 462
     },
     {
         "id": 466,
-        "content": "交易方式:盘后定价大宗交易",
-        "father_id": 440
+        "content": "申报指令:证券代码",
+        "father_id": 462
     },
     {
         "id": 467,
-        "content": "价格类型:证券当日收盘价",
-        "father_id": 466
+        "content": "申报指令:交易单元代码",
+        "father_id": 462
     },
     {
         "id": 468,
-        "content": "价格类型:证券当日成交量加权平均价格",
-        "father_id": 466
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 462
     },
     {
         "id": 469,
-        "content": "申报指令:证券账户号码",
-        "father_id": 466
+        "content": "申报指令:买卖方向",
+        "father_id": 462
     },
     {
         "id": 470,
-        "content": "申报指令:证券代码",
-        "father_id": 466
+        "content": "申报指令:数量",
+        "father_id": 462
     },
     {
         "id": 471,
-        "content": "申报指令:交易单元代码",
-        "father_id": 466
+        "content": "申报指令:证券账户价格类型号码",
+        "father_id": 462
     },
     {
         "id": 472,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 466
-    },
-    {
-        "id": 473,
-        "content": "申报指令:买卖方向",
-        "father_id": 466
-    },
-    {
-        "id": 474,
-        "content": "申报指令:数量",
-        "father_id": 466
-    },
-    {
-        "id": 475,
-        "content": "申报指令:证券账户价格类型号码",
-        "father_id": 466
-    },
-    {
-        "id": 476,
         "content": "业务:股票质押式回购交易",
         "father_id": 1
     },
     {
-        "id": 477,
+        "id": 473,
         "content": "融出方:证券公司",
+        "father_id": 472
+    },
+    {
+        "id": 474,
+        "content": "融出方:证券公司管理的集合资产管理计划或定向资产管理客户",
+        "father_id": 472
+    },
+    {
+        "id": 475,
+        "content": "融出方:证券公司资产管理子公司管理的集合资产管理计划或定向资产管理客户",
+        "father_id": 472
+    },
+    {
+        "id": 476,
+        "content": "申报类型:初始交易申报",
+        "father_id": 472
+    },
+    {
+        "id": 477,
+        "content": "申报要素:申报时间",
         "father_id": 476
     },
     {
         "id": 478,
-        "content": "融出方:证券公司管理的集合资产管理计划或定向资产管理客户",
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
         "father_id": 476
     },
     {
         "id": 479,
-        "content": "融出方:证券公司资产管理子公司管理的集合资产管理计划或定向资产管理客户",
+        "content": "申报要素:融入方营业部代码",
         "father_id": 476
     },
     {
         "id": 480,
-        "content": "申报类型:初始交易申报",
+        "content": "申报要素:融入方证券账户号码",
         "father_id": 476
     },
     {
         "id": 481,
-        "content": "申报要素:申报时间",
-        "father_id": 480
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 476
     },
     {
         "id": 482,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 480
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 476
     },
     {
         "id": 483,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 480
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 476
     },
     {
         "id": 484,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 480
+        "content": "申报要素:成交申报业务类别（初始交易）",
+        "father_id": 476
     },
     {
         "id": 485,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 480
+        "content": "申报要素:证券代码",
+        "father_id": 476
     },
     {
         "id": 486,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 480
+        "content": "申报要素:股份性质",
+        "father_id": 476
     },
     {
         "id": 487,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 480
+        "content": "申报要素:数量",
+        "father_id": 476
     },
     {
         "id": 488,
-        "content": "申报要素:成交申报业务类别（初始交易）",
-        "father_id": 480
+        "content": "申报要素:初始交易金额",
+        "father_id": 476
     },
     {
         "id": 489,
-        "content": "申报要素:证券代码",
-        "father_id": 480
+        "content": "申报要素:购回交易日",
+        "father_id": 476
     },
     {
         "id": 490,
-        "content": "申报要素:股份性质",
-        "father_id": 480
+        "content": "申报要素:预警线",
+        "father_id": 476
     },
     {
         "id": 491,
-        "content": "申报要素:数量",
-        "father_id": 480
+        "content": "申报要素:平仓线",
+        "father_id": 476
     },
     {
         "id": 492,
-        "content": "申报要素:初始交易金额",
-        "father_id": 480
+        "content": "申报要素:资金用途类型",
+        "father_id": 476
     },
     {
         "id": 493,
-        "content": "申报要素:购回交易日",
-        "father_id": 480
+        "content": "申报要素:利率",
+        "father_id": 476
     },
     {
         "id": 494,
-        "content": "申报要素:预警线",
-        "father_id": 480
+        "content": "申报类型:购回交易申报",
+        "father_id": 472
     },
     {
         "id": 495,
-        "content": "申报要素:平仓线",
-        "father_id": 480
+        "content": "申报要素:申报时间",
+        "father_id": 494
     },
     {
         "id": 496,
-        "content": "申报要素:资金用途类型",
-        "father_id": 480
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 494
     },
     {
         "id": 497,
-        "content": "申报要素:利率",
-        "father_id": 480
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 494
     },
     {
         "id": 498,
-        "content": "申报类型:购回交易申报",
-        "father_id": 476
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 494
     },
     {
         "id": 499,
-        "content": "申报要素:申报时间",
-        "father_id": 498
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 494
     },
     {
         "id": 500,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 498
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 494
     },
     {
         "id": 501,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 498
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 494
     },
     {
         "id": 502,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 498
+        "content": "申报要素:成交申报业务类别（提前购回、到期购回或延期购回）",
+        "father_id": 494
     },
     {
         "id": 503,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 498
+        "content": "申报要素:购回交易金额",
+        "father_id": 494
     },
     {
         "id": 504,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 498
+        "content": "申报要素:购回交易日",
+        "father_id": 494
     },
     {
         "id": 505,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 498
+        "content": "申报要素:初始交易合同序号",
+        "father_id": 494
     },
     {
         "id": 506,
-        "content": "申报要素:成交申报业务类别（提前购回、到期购回或延期购回）",
-        "father_id": 498
+        "content": "申报类型:补充质押申报",
+        "father_id": 472
     },
     {
         "id": 507,
-        "content": "申报要素:购回交易金额",
-        "father_id": 498
+        "content": "申报要素:申报时间",
+        "father_id": 506
     },
     {
         "id": 508,
-        "content": "申报要素:购回交易日",
-        "father_id": 498
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 506
     },
     {
         "id": 509,
-        "content": "申报要素:初始交易合同序号",
-        "father_id": 498
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 506
     },
     {
         "id": 510,
-        "content": "申报类型:补充质押申报",
-        "father_id": 476
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 506
     },
     {
         "id": 511,
-        "content": "申报要素:申报时间",
-        "father_id": 510
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 506
     },
     {
         "id": 512,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 510
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 506
     },
     {
         "id": 513,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 510
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 506
     },
     {
         "id": 514,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 510
+        "content": "申报要素:成交申报业务类别（补充质押）",
+        "father_id": 506
     },
     {
         "id": 515,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 510
+        "content": "申报要素:证券代码",
+        "father_id": 506
     },
     {
         "id": 516,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 510
+        "content": "申报要素:股份性质",
+        "father_id": 506
     },
     {
         "id": 517,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 510
+        "content": "申报要素:数量",
+        "father_id": 506
     },
     {
         "id": 518,
-        "content": "申报要素:成交申报业务类别（补充质押）",
-        "father_id": 510
+        "content": "申报要素:初始交易合同序号",
+        "father_id": 506
     },
     {
         "id": 519,
-        "content": "申报要素:证券代码",
-        "father_id": 510
+        "content": "申报类型:部分解除质押申报",
+        "father_id": 472
     },
     {
         "id": 520,
-        "content": "申报要素:股份性质",
-        "father_id": 510
+        "content": "申报要素:申报时间",
+        "father_id": 519
     },
     {
         "id": 521,
-        "content": "申报要素:数量",
-        "father_id": 510
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 519
     },
     {
         "id": 522,
-        "content": "申报要素:初始交易合同序号",
-        "father_id": 510
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 519
     },
     {
         "id": 523,
-        "content": "申报类型:部分解除质押申报",
-        "father_id": 476
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 519
     },
     {
         "id": 524,
-        "content": "申报要素:申报时间",
-        "father_id": 523
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 519
     },
     {
         "id": 525,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 523
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 519
     },
     {
         "id": 526,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 523
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 519
     },
     {
         "id": 527,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 523
+        "content": "申报要素:成交申报业务类别（部分解除质押）",
+        "father_id": 519
     },
     {
         "id": 528,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 523
+        "content": "申报要素:证券代码",
+        "father_id": 519
     },
     {
         "id": 529,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 523
+        "content": "申报要素:股份性质",
+        "father_id": 519
     },
     {
         "id": 530,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 523
+        "content": "申报要素:数量",
+        "father_id": 519
     },
     {
         "id": 531,
-        "content": "申报要素:成交申报业务类别（部分解除质押）",
-        "father_id": 523
+        "content": "申报要素:解除红利金额",
+        "father_id": 519
     },
     {
         "id": 532,
-        "content": "申报要素:证券代码",
-        "father_id": 523
+        "content": "申报要素:初始交易或补充质押合同序号",
+        "father_id": 519
     },
     {
         "id": 533,
-        "content": "申报要素:股份性质",
-        "father_id": 523
+        "content": "申报类型:终止购回申报",
+        "father_id": 472
     },
     {
         "id": 534,
-        "content": "申报要素:数量",
-        "father_id": 523
+        "content": "申报要素:申报时间",
+        "father_id": 533
     },
     {
         "id": 535,
-        "content": "申报要素:解除红利金额",
-        "father_id": 523
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 533
     },
     {
         "id": 536,
-        "content": "申报要素:初始交易或补充质押合同序号",
-        "father_id": 523
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 533
     },
     {
         "id": 537,
-        "content": "申报类型:终止购回申报",
-        "father_id": 476
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 533
     },
     {
         "id": 538,
-        "content": "申报要素:申报时间",
-        "father_id": 537
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 533
     },
     {
         "id": 539,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 537
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 533
     },
     {
         "id": 540,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 537
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 533
     },
     {
         "id": 541,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 537
+        "content": "申报要素:成交申报业务类别（终止购回）",
+        "father_id": 533
     },
     {
         "id": 542,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 537
+        "content": "申报要素:初始交易合同序号",
+        "father_id": 533
     },
     {
         "id": 543,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 537
+        "content": "申报类型:违约处置申报",
+        "father_id": 472
     },
     {
         "id": 544,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 537
+        "content": "申报要素:申报时间",
+        "father_id": 543
     },
     {
         "id": 545,
-        "content": "申报要素:成交申报业务类别（终止购回）",
-        "father_id": 537
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 543
     },
     {
         "id": 546,
-        "content": "申报要素:初始交易合同序号",
-        "father_id": 537
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 543
     },
     {
         "id": 547,
-        "content": "申报类型:违约处置申报",
-        "father_id": 476
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 543
     },
     {
         "id": 548,
-        "content": "申报要素:申报时间",
-        "father_id": 547
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 543
     },
     {
         "id": 549,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 547
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 543
     },
     {
         "id": 550,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 547
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 543
     },
     {
         "id": 551,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 547
+        "content": "申报要素:成交申报业务类别（违约处置）",
+        "father_id": 543
     },
     {
         "id": 552,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 547
+        "content": "申报要素:初始交易合同序号",
+        "father_id": 543
     },
     {
         "id": 553,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 547
-    },
-    {
-        "id": 554,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 547
-    },
-    {
-        "id": 555,
-        "content": "申报要素:成交申报业务类别（违约处置）",
-        "father_id": 547
-    },
-    {
-        "id": 556,
-        "content": "申报要素:初始交易合同序号",
-        "father_id": 547
-    },
-    {
-        "id": 557,
         "content": "业务:融资融券交易",
         "father_id": 1
     },
     {
-        "id": 558,
+        "id": 554,
         "content": "交易方式:竞价交易",
-        "father_id": 557
+        "father_id": 553
+    },
+    {
+        "id": 555,
+        "content": "交易方式:集合竞价",
+        "father_id": 554
+    },
+    {
+        "id": 556,
+        "content": "交易方式:连续竞价",
+        "father_id": 554
+    },
+    {
+        "id": 557,
+        "content": "申报方式:限价申报",
+        "father_id": 554
+    },
+    {
+        "id": 558,
+        "content": "申报方式:市价申报",
+        "father_id": 554
     },
     {
         "id": 559,
-        "content": "交易方式:集合竞价",
+        "content": "申报类型:对手方最优价格申报",
         "father_id": 558
     },
     {
         "id": 560,
-        "content": "交易方式:连续竞价",
+        "content": "申报类型:本方最优价格申报",
         "father_id": 558
     },
     {
         "id": 561,
-        "content": "申报方式:限价申报",
+        "content": "申报类型:最优五档即时成交剩余撤销申报",
         "father_id": 558
     },
     {
         "id": 562,
-        "content": "申报方式:市价申报",
+        "content": "申报类型:即时成交剩余撤销申报",
         "father_id": 558
     },
     {
         "id": 563,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 562
+        "content": "申报类型:全额成交或撤销申报",
+        "father_id": 558
     },
     {
         "id": 564,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 562
+        "content": "交易申报指令:客户的信用证券账户号码",
+        "father_id": 553
     },
     {
         "id": 565,
-        "content": "申报类型:最优五档即时成交剩余撤销申报",
-        "father_id": 562
+        "content": "交易申报指令:融资融券专用交易单元代码",
+        "father_id": 553
     },
     {
         "id": 566,
-        "content": "申报类型:即时成交剩余撤销申报",
-        "father_id": 562
+        "content": "交易申报指令:证券代码",
+        "father_id": 553
     },
     {
         "id": 567,
-        "content": "申报类型:全额成交或撤销申报",
-        "father_id": 562
+        "content": "交易申报指令:买卖方向",
+        "father_id": 553
     },
     {
         "id": 568,
-        "content": "交易申报指令:客户的信用证券账户号码",
-        "father_id": 557
+        "content": "交易申报指令:价格",
+        "father_id": 553
     },
     {
         "id": 569,
-        "content": "交易申报指令:融资融券专用交易单元代码",
-        "father_id": 557
+        "content": "交易申报指令:数量",
+        "father_id": 553
     },
     {
         "id": 570,
-        "content": "交易申报指令:证券代码",
-        "father_id": 557
+        "content": "交易申报指令:融资融券相关标识",
+        "father_id": 553
     },
     {
         "id": 571,
-        "content": "交易申报指令:买卖方向",
-        "father_id": 557
+        "content": "强制平仓申报指令:客户的信用证券账户号码",
+        "father_id": 553
     },
     {
         "id": 572,
-        "content": "交易申报指令:价格",
-        "father_id": 557
+        "content": "强制平仓申报指令:融资融券专用交易单元代码",
+        "father_id": 553
     },
     {
         "id": 573,
-        "content": "交易申报指令:数量",
-        "father_id": 557
+        "content": "强制平仓申报指令:证券代码",
+        "father_id": 553
     },
     {
         "id": 574,
-        "content": "交易申报指令:融资融券相关标识",
-        "father_id": 557
+        "content": "强制平仓申报指令:买卖方向",
+        "father_id": 553
     },
     {
         "id": 575,
-        "content": "强制平仓申报指令:客户的信用证券账户号码",
-        "father_id": 557
+        "content": "强制平仓申报指令:价格",
+        "father_id": 553
     },
     {
         "id": 576,
-        "content": "强制平仓申报指令:融资融券专用交易单元代码",
-        "father_id": 557
+        "content": "强制平仓申报指令:数量",
+        "father_id": 553
     },
     {
         "id": 577,
-        "content": "强制平仓申报指令:证券代码",
-        "father_id": 557
+        "content": "强制平仓申报指令:融资强制平仓或者融券强制平仓标识",
+        "father_id": 553
     },
     {
         "id": 578,
-        "content": "强制平仓申报指令:买卖方向",
-        "father_id": 557
-    },
-    {
-        "id": 579,
-        "content": "强制平仓申报指令:价格",
-        "father_id": 557
-    },
-    {
-        "id": 580,
-        "content": "强制平仓申报指令:数量",
-        "father_id": 557
-    },
-    {
-        "id": 581,
-        "content": "强制平仓申报指令:融资强制平仓或者融券强制平仓标识",
-        "father_id": 557
-    },
-    {
-        "id": 582,
         "content": "业务:资产管理计划份额转让",
         "father_id": 1
     },
     {
-        "id": 583,
+        "id": 579,
         "content": "转让申报指令:账户号码",
-        "father_id": 582
+        "father_id": 578
     },
     {
-        "id": 584,
+        "id": 580,
         "content": "转让申报指令:证券代码",
-        "father_id": 582
+        "father_id": 578
     },
     {
-        "id": 585,
+        "id": 581,
         "content": "转让申报指令:数量",
-        "father_id": 582
+        "father_id": 578
     },
     {
-        "id": 586,
+        "id": 582,
         "content": "转让申报指令:价格",
-        "father_id": 582
+        "father_id": 578
     },
     {
-        "id": 587,
+        "id": 583,
         "content": "业务:资产证券化",
         "father_id": 1
     },
     {
-        "id": 588,
+        "id": 584,
         "content": "转让申报类型:意向申报",
-        "father_id": 587
+        "father_id": 583
+    },
+    {
+        "id": 585,
+        "content": "意向申报指令:证券账户号码",
+        "father_id": 584
+    },
+    {
+        "id": 586,
+        "content": "意向申报指令:证券代码",
+        "father_id": 584
+    },
+    {
+        "id": 587,
+        "content": "意向申报指令:买卖方向",
+        "father_id": 584
+    },
+    {
+        "id": 588,
+        "content": "意向申报指令:本方交易单元代码",
+        "father_id": 584
     },
     {
         "id": 589,
-        "content": "意向申报指令:证券账户号码",
-        "father_id": 588
+        "content": "转让申报类型:定价申报",
+        "father_id": 583
     },
     {
         "id": 590,
-        "content": "意向申报指令:证券代码",
-        "father_id": 588
+        "content": "意向申报指令:证券账户号码",
+        "father_id": 589
     },
     {
         "id": 591,
-        "content": "意向申报指令:买卖方向",
-        "father_id": 588
+        "content": "意向申报指令:证券代码",
+        "father_id": 589
     },
     {
         "id": 592,
-        "content": "意向申报指令:本方交易单元代码",
-        "father_id": 588
+        "content": "意向申报指令:买卖方向",
+        "father_id": 589
     },
     {
         "id": 593,
-        "content": "转让申报类型:定价申报",
-        "father_id": 587
+        "content": "意向申报指令:价格",
+        "father_id": 589
     },
     {
         "id": 594,
-        "content": "意向申报指令:证券账户号码",
-        "father_id": 593
+        "content": "意向申报指令:数量",
+        "father_id": 589
     },
     {
         "id": 595,
-        "content": "意向申报指令:证券代码",
-        "father_id": 593
+        "content": "意向申报指令:本方交易单元代码",
+        "father_id": 589
     },
     {
         "id": 596,
-        "content": "意向申报指令:买卖方向",
-        "father_id": 593
+        "content": "转让申报类型:成交申报",
+        "father_id": 583
     },
     {
         "id": 597,
-        "content": "意向申报指令:价格",
-        "father_id": 593
+        "content": "意向申报指令:证券账户号码",
+        "father_id": 596
     },
     {
         "id": 598,
-        "content": "意向申报指令:数量",
-        "father_id": 593
+        "content": "意向申报指令:证券代码",
+        "father_id": 596
     },
     {
         "id": 599,
-        "content": "意向申报指令:本方交易单元代码",
-        "father_id": 593
+        "content": "意向申报指令:买卖方向",
+        "father_id": 596
     },
     {
         "id": 600,
-        "content": "转让申报类型:成交申报",
-        "father_id": 587
+        "content": "意向申报指令:价格",
+        "father_id": 596
     },
     {
         "id": 601,
-        "content": "意向申报指令:证券账户号码",
-        "father_id": 600
+        "content": "意向申报指令:数量",
+        "father_id": 596
     },
     {
         "id": 602,
-        "content": "意向申报指令:证券代码",
-        "father_id": 600
+        "content": "意向申报指令:对手方交易单元代码",
+        "father_id": 596
     },
     {
         "id": 603,
-        "content": "意向申报指令:买卖方向",
-        "father_id": 600
+        "content": "意向申报指令:约定号",
+        "father_id": 596
     },
     {
         "id": 604,
-        "content": "意向申报指令:价格",
-        "father_id": 600
+        "content": "转让申报类型:其他申报",
+        "father_id": 583
     },
     {
         "id": 605,
-        "content": "意向申报指令:数量",
-        "father_id": 600
-    },
-    {
-        "id": 606,
-        "content": "意向申报指令:对手方交易单元代码",
-        "father_id": 600
-    },
-    {
-        "id": 607,
-        "content": "意向申报指令:约定号",
-        "father_id": 600
-    },
-    {
-        "id": 608,
-        "content": "转让申报类型:其他申报",
-        "father_id": 587
-    },
-    {
-        "id": 609,
         "content": "业务:深港通",
         "father_id": 1
     },
     {
-        "id": 610,
+        "id": 606,
         "content": "深港通品种:深股通",
-        "father_id": 609
+        "father_id": 605
+    },
+    {
+        "id": 607,
+        "content": "深港通品种:港股通",
+        "father_id": 605
+    },
+    {
+        "id": 608,
+        "content": "交易方式:限价申报",
+        "father_id": 605
+    },
+    {
+        "id": 609,
+        "content": "申报指令:券商客户编码",
+        "father_id": 608
+    },
+    {
+        "id": 610,
+        "content": "申报指令:经纪商代码",
+        "father_id": 608
     },
     {
         "id": 611,
-        "content": "深港通品种:港股通",
-        "father_id": 609
+        "content": "申报指令:证券代码",
+        "father_id": 608
     },
     {
         "id": 612,
-        "content": "交易方式:限价申报",
-        "father_id": 609
+        "content": "申报指令:买卖方向",
+        "father_id": 608
     },
     {
         "id": 613,
-        "content": "申报指令:券商客户编码",
-        "father_id": 612
+        "content": "申报指令:数量",
+        "father_id": 608
     },
     {
         "id": 614,
-        "content": "申报指令:经纪商代码",
-        "father_id": 612
+        "content": "申报指令:价格",
+        "father_id": 608
     },
     {
         "id": 615,
-        "content": "申报指令:证券代码",
-        "father_id": 612
+        "content": "交易时间:开市前时段",
+        "father_id": 605
     },
     {
         "id": 616,
-        "content": "申报指令:买卖方向",
-        "father_id": 612
+        "content": "交易时间:持续交易时段",
+        "father_id": 605
     },
     {
         "id": 617,
-        "content": "申报指令:数量",
-        "father_id": 612
+        "content": "交易时间:收市竞价交易时段",
+        "father_id": 605
     },
     {
         "id": 618,
-        "content": "申报指令:价格",
-        "father_id": 612
-    },
-    {
-        "id": 619,
-        "content": "交易时间:开市前时段",
-        "father_id": 609
-    },
-    {
-        "id": 620,
-        "content": "交易时间:持续交易时段",
-        "father_id": 609
-    },
-    {
-        "id": 621,
-        "content": "交易时间:收市竞价交易时段",
-        "father_id": 609
-    },
-    {
-        "id": 622,
         "content": "业务:质押式报价回购交易",
         "father_id": 1
     },
     {
-        "id": 623,
+        "id": 619,
         "content": "委托指令:初始委托",
-        "father_id": 622
+        "father_id": 618
+    },
+    {
+        "id": 620,
+        "content": "委托指令:购回委托",
+        "father_id": 618
+    },
+    {
+        "id": 621,
+        "content": "交易类型:初始交易",
+        "father_id": 618
+    },
+    {
+        "id": 622,
+        "content": "申报要素:申报时间",
+        "father_id": 621
+    },
+    {
+        "id": 623,
+        "content": "申报要素:合同序号（含证券公司指定的交易单元代码、申报日期、客户所在营业部识别码、申报流水号）",
+        "father_id": 621
     },
     {
         "id": 624,
-        "content": "委托指令:购回委托",
-        "father_id": 622
+        "content": "申报要素:交易类型",
+        "father_id": 621
     },
     {
         "id": 625,
-        "content": "交易类型:初始交易",
-        "father_id": 622
+        "content": "申报要素:客户交易单元代码",
+        "father_id": 621
     },
     {
         "id": 626,
-        "content": "申报要素:申报时间",
-        "father_id": 625
+        "content": "申报要素:客户证券账户号码",
+        "father_id": 621
     },
     {
         "id": 627,
-        "content": "申报要素:合同序号（含证券公司指定的交易单元代码、申报日期、客户所在营业部识别码、申报流水号）",
-        "father_id": 625
+        "content": "申报要素:证券公司指定的自营证券账户号码",
+        "father_id": 621
     },
     {
         "id": 628,
-        "content": "申报要素:交易类型",
-        "father_id": 625
+        "content": "申报要素:证券代码",
+        "father_id": 621
     },
     {
         "id": 629,
-        "content": "申报要素:客户交易单元代码",
-        "father_id": 625
+        "content": "申报要素:品种期限",
+        "father_id": 621
     },
     {
         "id": 630,
-        "content": "申报要素:客户证券账户号码",
-        "father_id": 625
+        "content": "申报要素:到期购回日期",
+        "father_id": 621
     },
     {
         "id": 631,
-        "content": "申报要素:证券公司指定的自营证券账户号码",
-        "father_id": 625
+        "content": "申报要素:报价类型",
+        "father_id": 621
     },
     {
         "id": 632,
-        "content": "申报要素:证券代码",
-        "father_id": 625
+        "content": "申报要素:初始交易申报价格",
+        "father_id": 621
     },
     {
         "id": 633,
-        "content": "申报要素:品种期限",
-        "father_id": 625
+        "content": "申报要素:数量",
+        "father_id": 621
     },
     {
         "id": 634,
-        "content": "申报要素:到期购回日期",
-        "father_id": 625
+        "content": "申报要素:产品续做方式",
+        "father_id": 621
     },
     {
         "id": 635,
-        "content": "申报要素:报价类型",
-        "father_id": 625
+        "content": "交易类型:购回交易",
+        "father_id": 618
     },
     {
         "id": 636,
-        "content": "申报要素:初始交易申报价格",
-        "father_id": 625
+        "content": "申报要素:申报时间",
+        "father_id": 635
     },
     {
         "id": 637,
-        "content": "申报要素:数量",
-        "father_id": 625
+        "content": "申报要素:合同序号（含证券公司指定的交易单元代码、申报日期、客户所在营业部识别码、申报流水号）",
+        "father_id": 635
     },
     {
         "id": 638,
-        "content": "申报要素:产品续做方式",
-        "father_id": 625
+        "content": "申报要素:交易类型",
+        "father_id": 635
     },
     {
         "id": 639,
-        "content": "交易类型:购回交易",
-        "father_id": 622
+        "content": "申报要素:客户交易单元代码",
+        "father_id": 635
     },
     {
         "id": 640,
-        "content": "申报要素:申报时间",
-        "father_id": 639
+        "content": "申报要素:客户证券账户号码",
+        "father_id": 635
     },
     {
         "id": 641,
-        "content": "申报要素:合同序号（含证券公司指定的交易单元代码、申报日期、客户所在营业部识别码、申报流水号）",
-        "father_id": 639
+        "content": "申报要素:证券公司指定的自营证券账户号码",
+        "father_id": 635
     },
     {
         "id": 642,
-        "content": "申报要素:交易类型",
-        "father_id": 639
+        "content": "申报要素:证券代码",
+        "father_id": 635
     },
     {
         "id": 643,
-        "content": "申报要素:客户交易单元代码",
-        "father_id": 639
+        "content": "申报要素:品种期限",
+        "father_id": 635
     },
     {
         "id": 644,
-        "content": "申报要素:客户证券账户号码",
-        "father_id": 639
+        "content": "申报要素:到期购回日期",
+        "father_id": 635
     },
     {
         "id": 645,
-        "content": "申报要素:证券公司指定的自营证券账户号码",
-        "father_id": 639
+        "content": "申报要素:报价类型",
+        "father_id": 635
     },
     {
         "id": 646,
-        "content": "申报要素:证券代码",
-        "father_id": 639
+        "content": "申报要素:提前购回价格",
+        "father_id": 635
     },
     {
         "id": 647,
-        "content": "申报要素:品种期限",
-        "father_id": 639
+        "content": "申报要素:数量",
+        "father_id": 635
     },
     {
         "id": 648,
-        "content": "申报要素:到期购回日期",
-        "father_id": 639
+        "content": "申报要素:产品续做方式",
+        "father_id": 635
     },
     {
         "id": 649,
-        "content": "申报要素:报价类型",
-        "father_id": 639
+        "content": "申报要素:对应初始交易的申报合同序号",
+        "father_id": 635
     },
     {
         "id": 650,
-        "content": "申报要素:提前购回价格",
-        "father_id": 639
-    },
-    {
-        "id": 651,
-        "content": "申报要素:数量",
-        "father_id": 639
-    },
-    {
-        "id": 652,
-        "content": "申报要素:产品续做方式",
-        "father_id": 639
-    },
-    {
-        "id": 653,
-        "content": "申报要素:对应初始交易的申报合同序号",
-        "father_id": 639
-    },
-    {
-        "id": 654,
         "content": "交易市场:上海证券交易所",
         "father_id": null
     },
     {
-        "id": 655,
+        "id": 651,
         "content": "交易品种:债券",
-        "father_id": 654
+        "father_id": 650
+    },
+    {
+        "id": 652,
+        "content": "债券品种:债券现券",
+        "father_id": 651
+    },
+    {
+        "id": 653,
+        "content": "价格类型:净价价格",
+        "father_id": 652
+    },
+    {
+        "id": 654,
+        "content": "债券品种:债券通用质押式回购",
+        "father_id": 651
+    },
+    {
+        "id": 655,
+        "content": "债券品种:可转债",
+        "father_id": 651
     },
     {
         "id": 656,
-        "content": "债券品种:债券现券",
+        "content": "可转债品种:向不特定对象发行的可转债",
         "father_id": 655
     },
     {
         "id": 657,
-        "content": "价格类型:净价价格",
+        "content": "交易方式:匹配成交",
         "father_id": 656
     },
     {
         "id": 658,
-        "content": "债券品种:债券通用质押式回购",
-        "father_id": 655
+        "content": "交易方式:协商成交",
+        "father_id": 656
     },
     {
         "id": 659,
-        "content": "债券品种:可转债",
-        "father_id": 655
+        "content": "申报类型:定价申报",
+        "father_id": 658
     },
     {
         "id": 660,
-        "content": "可转债品种:向不特定对象发行的可转债",
+        "content": "申报指令:证券账户号码",
         "father_id": 659
     },
     {
         "id": 661,
-        "content": "交易方式:匹配成交",
-        "father_id": 660
+        "content": "申报指令:证券代码",
+        "father_id": 659
     },
     {
         "id": 662,
-        "content": "交易方式:协商成交",
-        "father_id": 660
+        "content": "申报指令:买卖方向",
+        "father_id": 659
     },
     {
         "id": 663,
-        "content": "申报类型:定价申报",
-        "father_id": 662
+        "content": "申报指令:价格",
+        "father_id": 659
     },
     {
         "id": 664,
-        "content": "申报指令:证券账户号码",
-        "father_id": 663
+        "content": "申报指令:数量和本方交易单元代码",
+        "father_id": 659
     },
     {
         "id": 665,
-        "content": "申报指令:证券代码",
-        "father_id": 663
+        "content": "申报类型:意向申报",
+        "father_id": 658
     },
     {
         "id": 666,
-        "content": "申报指令:买卖方向",
-        "father_id": 663
+        "content": "申报指令:证券账户号码",
+        "father_id": 665
     },
     {
         "id": 667,
-        "content": "申报指令:价格",
-        "father_id": 663
+        "content": "申报指令:证券代码",
+        "father_id": 665
     },
     {
         "id": 668,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 663
+        "content": "申报指令:买卖方向",
+        "father_id": 665
     },
     {
         "id": 669,
-        "content": "申报类型:意向申报",
-        "father_id": 662
+        "content": "申报指令:本方交易单元代码等内容",
+        "father_id": 665
     },
     {
         "id": 670,
-        "content": "申报指令:证券账户号码",
-        "father_id": 669
+        "content": "申报类型:成交申报",
+        "father_id": 658
     },
     {
         "id": 671,
-        "content": "申报指令:证券代码",
-        "father_id": 669
+        "content": "申报指令:证券账户号码",
+        "father_id": 670
     },
     {
         "id": 672,
-        "content": "申报指令:买卖方向",
-        "father_id": 669
+        "content": "申报指令:证券代码",
+        "father_id": 670
     },
     {
         "id": 673,
-        "content": "申报指令:本方交易单元代码等内容",
-        "father_id": 669
+        "content": "申报指令:买卖方向",
+        "father_id": 670
     },
     {
         "id": 674,
-        "content": "申报类型:成交申报",
-        "father_id": 662
+        "content": "申报指令:价格",
+        "father_id": 670
     },
     {
         "id": 675,
-        "content": "申报指令:证券账户号码",
-        "father_id": 674
+        "content": "申报指令:数量",
+        "father_id": 670
     },
     {
         "id": 676,
-        "content": "申报指令:证券代码",
-        "father_id": 674
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 670
     },
     {
         "id": 677,
-        "content": "申报指令:买卖方向",
-        "father_id": 674
+        "content": "申报指令:约定号",
+        "father_id": 670
     },
     {
         "id": 678,
-        "content": "申报指令:价格",
-        "father_id": 674
+        "content": "交易方式:盘后定价成交",
+        "father_id": 656
     },
     {
         "id": 679,
-        "content": "申报指令:数量",
-        "father_id": 674
+        "content": "价格类型:可转债当日收盘价",
+        "father_id": 678
     },
     {
         "id": 680,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 674
+        "content": "价格类型:当日匹配成交量加权平均价格",
+        "father_id": 678
     },
     {
         "id": 681,
-        "content": "申报指令:约定号",
-        "father_id": 674
+        "content": "申报指令:证券账户号码",
+        "father_id": 678
     },
     {
         "id": 682,
-        "content": "交易方式:盘后定价成交",
-        "father_id": 660
+        "content": "申报指令:证券代码",
+        "father_id": 678
     },
     {
         "id": 683,
-        "content": "价格类型:可转债当日收盘价",
-        "father_id": 682
+        "content": "申报指令:交易单元代码",
+        "father_id": 678
     },
     {
         "id": 684,
-        "content": "价格类型:当日匹配成交量加权平均价格",
-        "father_id": 682
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 678
     },
     {
         "id": 685,
-        "content": "申报指令:证券账户号码",
-        "father_id": 682
+        "content": "申报指令:买卖方向",
+        "father_id": 678
     },
     {
         "id": 686,
-        "content": "申报指令:证券代码",
-        "father_id": 682
+        "content": "申报指令:数量",
+        "father_id": 678
     },
     {
         "id": 687,
-        "content": "申报指令:交易单元代码",
-        "father_id": 682
+        "content": "申报指令:价格类型",
+        "father_id": 678
     },
     {
         "id": 688,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 682
+        "content": "可转债品种:向特定对象发行的可转债",
+        "father_id": 655
     },
     {
         "id": 689,
-        "content": "申报指令:买卖方向",
-        "father_id": 682
+        "content": "价格类型:净价价格",
+        "father_id": 655
     },
     {
         "id": 690,
-        "content": "申报指令:数量",
-        "father_id": 682
+        "content": "交易方式:匹配成交",
+        "father_id": 651
     },
     {
         "id": 691,
-        "content": "申报指令:价格类型",
-        "father_id": 682
+        "content": "成交方式:集合匹配",
+        "father_id": 690
     },
     {
         "id": 692,
-        "content": "可转债品种:向特定对象发行的可转债",
-        "father_id": 659
+        "content": "成交方式:连续匹配",
+        "father_id": 690
     },
     {
         "id": 693,
-        "content": "价格类型:净价价格",
-        "father_id": 659
+        "content": "申报方式:限价申报",
+        "father_id": 690
     },
     {
         "id": 694,
-        "content": "交易方式:匹配成交",
-        "father_id": 655
+        "content": "指令要素:证券账户号码",
+        "father_id": 693
     },
     {
         "id": 695,
-        "content": "成交方式:集合匹配",
-        "father_id": 694
+        "content": "指令要素:证券代码",
+        "father_id": 693
     },
     {
         "id": 696,
-        "content": "成交方式:连续匹配",
-        "father_id": 694
+        "content": "指令要素:交易方向",
+        "father_id": 693
     },
     {
         "id": 697,
-        "content": "申报方式:限价申报",
-        "father_id": 694
+        "content": "指令要素:数量",
+        "father_id": 693
     },
     {
         "id": 698,
-        "content": "指令要素:证券账户号码",
-        "father_id": 697
+        "content": "指令要素:价格",
+        "father_id": 693
     },
     {
         "id": 699,
-        "content": "指令要素:证券代码",
-        "father_id": 697
+        "content": "委托指令:证券账户号码",
+        "father_id": 690
     },
     {
         "id": 700,
-        "content": "指令要素:交易方向",
-        "father_id": 697
+        "content": "委托指令:证券代码",
+        "father_id": 690
     },
     {
         "id": 701,
-        "content": "指令要素:数量",
-        "father_id": 697
+        "content": "委托指令:交易方向",
+        "father_id": 690
     },
     {
         "id": 702,
-        "content": "指令要素:价格",
-        "father_id": 697
+        "content": "委托指令:委托数量",
+        "father_id": 690
     },
     {
         "id": 703,
-        "content": "委托指令:证券账户号码",
-        "father_id": 694
+        "content": "委托指令:委托价格",
+        "father_id": 690
     },
     {
         "id": 704,
-        "content": "委托指令:证券代码",
-        "father_id": 694
+        "content": "委托指令:本所及会员要求的其他内容",
+        "father_id": 690
     },
     {
         "id": 705,
-        "content": "委托指令:交易方向",
-        "father_id": 694
+        "content": "交易方式:点击成交",
+        "father_id": 651
     },
     {
         "id": 706,
-        "content": "委托指令:委托数量",
-        "father_id": 694
+        "content": "报价发送范围:全市场",
+        "father_id": 705
     },
     {
         "id": 707,
-        "content": "委托指令:委托价格",
-        "father_id": 694
+        "content": "报价发送范围:报价方自行选定的部分债券投资者",
+        "father_id": 705
     },
     {
         "id": 708,
-        "content": "委托指令:本所及会员要求的其他内容",
-        "father_id": 694
+        "content": "报价方发出报价的申报要素:证券代码",
+        "father_id": 705
     },
     {
         "id": 709,
-        "content": "交易方式:点击成交",
-        "father_id": 655
+        "content": "报价方发出报价的申报要素:交易方向",
+        "father_id": 705
     },
     {
         "id": 710,
-        "content": "报价发送范围:全市场",
-        "father_id": 709
+        "content": "报价方发出报价的申报要素:价格",
+        "father_id": 705
     },
     {
         "id": 711,
-        "content": "报价发送范围:报价方自行选定的部分债券投资者",
-        "father_id": 709
+        "content": "报价方发出报价的申报要素:数量",
+        "father_id": 705
     },
     {
         "id": 712,
-        "content": "报价方发出报价的申报要素:证券代码",
-        "father_id": 709
+        "content": "报价方发出报价的申报要素:发送范围",
+        "father_id": 705
     },
     {
         "id": 713,
-        "content": "报价方发出报价的申报要素:交易方向",
-        "father_id": 709
+        "content": "报价方发出报价的申报要素:证券账户号码",
+        "father_id": 705
     },
     {
         "id": 714,
-        "content": "报价方发出报价的申报要素:价格",
-        "father_id": 709
+        "content": "报价方发出报价的申报要素:结算方式",
+        "father_id": 705
     },
     {
         "id": 715,
-        "content": "报价方发出报价的申报要素:数量",
-        "father_id": 709
+        "content": "报价方发出报价的申报要素:结算周期",
+        "father_id": 705
     },
     {
         "id": 716,
-        "content": "报价方发出报价的申报要素:发送范围",
-        "father_id": 709
+        "content": "报价方发出报价的申报要素:是否匿名",
+        "father_id": 705
     },
     {
         "id": 717,
-        "content": "报价方发出报价的申报要素:证券账户号码",
-        "father_id": 709
+        "content": "交易方式:协商成交",
+        "father_id": 651
     },
     {
         "id": 718,
-        "content": "报价方发出报价的申报要素:结算方式",
-        "father_id": 709
+        "content": "申报要素:证券代码",
+        "father_id": 717
     },
     {
         "id": 719,
-        "content": "报价方发出报价的申报要素:结算周期",
-        "father_id": 709
+        "content": "申报要素:交易方向",
+        "father_id": 717
     },
     {
         "id": 720,
-        "content": "报价方发出报价的申报要素:是否匿名",
-        "father_id": 709
+        "content": "申报要素:价格",
+        "father_id": 717
     },
     {
         "id": 721,
-        "content": "交易方式:协商成交",
-        "father_id": 655
+        "content": "申报要素:数量",
+        "father_id": 717
     },
     {
         "id": 722,
-        "content": "申报要素:证券代码",
-        "father_id": 721
+        "content": "申报要素:证券账户号码",
+        "father_id": 717
     },
     {
         "id": 723,
-        "content": "申报要素:交易方向",
-        "father_id": 721
+        "content": "申报要素:本方及对手方信息",
+        "father_id": 717
     },
     {
         "id": 724,
-        "content": "申报要素:价格",
-        "father_id": 721
+        "content": "申报要素:结算方式",
+        "father_id": 717
     },
     {
         "id": 725,
-        "content": "申报要素:数量",
-        "father_id": 721
+        "content": "申报要素:结算周期",
+        "father_id": 717
     },
     {
         "id": 726,
-        "content": "申报要素:证券账户号码",
-        "father_id": 721
+        "content": "交易方式:询价成交",
+        "father_id": 651
     },
     {
         "id": 727,
-        "content": "申报要素:本方及对手方信息",
-        "father_id": 721
+        "content": "询价回复要素:价格",
+        "father_id": 726
     },
     {
         "id": 728,
-        "content": "申报要素:结算方式",
-        "father_id": 721
+        "content": "询价回复要素:数量",
+        "father_id": 726
     },
     {
         "id": 729,
-        "content": "申报要素:结算周期",
-        "father_id": 721
+        "content": "询价回复要素:证券账户号码",
+        "father_id": 726
     },
     {
         "id": 730,
-        "content": "交易方式:询价成交",
-        "father_id": 655
+        "content": "询价请求要素:证券代码",
+        "father_id": 726
     },
     {
         "id": 731,
-        "content": "询价回复要素:价格",
-        "father_id": 730
+        "content": "询价请求要素:交易方向",
+        "father_id": 726
     },
     {
         "id": 732,
-        "content": "询价回复要素:数量",
-        "father_id": 730
+        "content": "询价请求要素:数量",
+        "father_id": 726
     },
     {
         "id": 733,
-        "content": "询价回复要素:证券账户号码",
-        "father_id": 730
+        "content": "询价请求要素:发送范围",
+        "father_id": 726
     },
     {
         "id": 734,
-        "content": "询价请求要素:证券代码",
-        "father_id": 730
+        "content": "询价请求要素:证券账户号码",
+        "father_id": 726
     },
     {
         "id": 735,
-        "content": "询价请求要素:交易方向",
-        "father_id": 730
+        "content": "询价请求要素:结算方式",
+        "father_id": 726
     },
     {
         "id": 736,
-        "content": "询价请求要素:数量",
-        "father_id": 730
+        "content": "询价请求要素:结算周期",
+        "father_id": 726
     },
     {
         "id": 737,
-        "content": "询价请求要素:发送范围",
-        "father_id": 730
+        "content": "询价请求要素:是否匿名",
+        "father_id": 726
     },
     {
         "id": 738,
-        "content": "询价请求要素:证券账户号码",
-        "father_id": 730
+        "content": "交易方式:竞买成交",
+        "father_id": 651
     },
     {
         "id": 739,
-        "content": "询价请求要素:结算方式",
-        "father_id": 730
+        "content": "竞买方式:单一主体中标",
+        "father_id": 738
     },
     {
         "id": 740,
-        "content": "询价请求要素:结算周期",
-        "father_id": 730
+        "content": "竞买方式:多主体中标",
+        "father_id": 738
     },
     {
         "id": 741,
-        "content": "询价请求要素:是否匿名",
-        "father_id": 730
+        "content": "多主体中标方式:多主体单一价格中标",
+        "father_id": 740
     },
     {
         "id": 742,
-        "content": "交易方式:竞买成交",
-        "father_id": 655
+        "content": "多主体中标方式:多主体多重价格中标",
+        "father_id": 740
     },
     {
         "id": 743,
-        "content": "竞买方式:单一主体中标",
-        "father_id": 742
+        "content": "竞买预约要素:竞买方式",
+        "father_id": 738
     },
     {
         "id": 744,
-        "content": "竞买方式:多主体中标",
-        "father_id": 742
+        "content": "竞买预约要素:证券代码",
+        "father_id": 738
     },
     {
         "id": 745,
-        "content": "多主体中标方式:多主体单一价格中标",
-        "father_id": 744
+        "content": "竞买预约要素:价格区间",
+        "father_id": 738
     },
     {
         "id": 746,
-        "content": "多主体中标方式:多主体多重价格中标",
-        "father_id": 744
+        "content": "竞买预约要素:数量",
+        "father_id": 738
     },
     {
         "id": 747,
-        "content": "竞买预约要素:竞买方式",
-        "father_id": 742
+        "content": "竞买预约要素:竞买时间",
+        "father_id": 738
     },
     {
         "id": 748,
-        "content": "竞买预约要素:证券代码",
-        "father_id": 742
+        "content": "竞买发起申报要素:竞买方式",
+        "father_id": 738
     },
     {
         "id": 749,
-        "content": "竞买预约要素:价格区间",
-        "father_id": 742
+        "content": "竞买发起申报要素:证券代码",
+        "father_id": 738
     },
     {
         "id": 750,
-        "content": "竞买预约要素:数量",
-        "father_id": 742
+        "content": "竞买发起申报要素:价格区间",
+        "father_id": 738
     },
     {
         "id": 751,
-        "content": "竞买预约要素:竞买时间",
-        "father_id": 742
+        "content": "竞买发起申报要素:数量",
+        "father_id": 738
     },
     {
         "id": 752,
-        "content": "竞买发起申报要素:竞买方式",
-        "father_id": 742
+        "content": "竞买发起申报要素:最低成交总量(如有)",
+        "father_id": 738
     },
     {
         "id": 753,
-        "content": "竞买发起申报要素:证券代码",
-        "father_id": 742
+        "content": "竞买发起申报要素:证券账户号码",
+        "father_id": 738
     },
     {
         "id": 754,
-        "content": "竞买发起申报要素:价格区间",
-        "father_id": 742
+        "content": "竞买发起申报要素:结算方式",
+        "father_id": 738
     },
     {
         "id": 755,
-        "content": "竞买发起申报要素:数量",
-        "father_id": 742
+        "content": "竞买发起申报要素:结算周期",
+        "father_id": 738
     },
     {
         "id": 756,
-        "content": "竞买发起申报要素:最低成交总量(如有)",
-        "father_id": 742
+        "content": "竞买发起申报要素:是否匿名",
+        "father_id": 738
     },
     {
         "id": 757,
-        "content": "竞买发起申报要素:证券账户号码",
-        "father_id": 742
+        "content": "应价申报要素:证券代码",
+        "father_id": 738
     },
     {
         "id": 758,
-        "content": "竞买发起申报要素:结算方式",
-        "father_id": 742
+        "content": "应价申报要素:价格",
+        "father_id": 738
     },
     {
         "id": 759,
-        "content": "竞买发起申报要素:结算周期",
-        "father_id": 742
+        "content": "应价申报要素:数量",
+        "father_id": 738
     },
     {
         "id": 760,
-        "content": "竞买发起申报要素:是否匿名",
-        "father_id": 742
+        "content": "应价申报要素:证券账户号码",
+        "father_id": 738
     },
     {
         "id": 761,
-        "content": "应价申报要素:证券代码",
-        "father_id": 742
+        "content": "应价申报要素:是否匿名",
+        "father_id": 738
     },
     {
         "id": 762,
-        "content": "应价申报要素:价格",
-        "father_id": 742
+        "content": "结算方式:多边净额结算",
+        "father_id": 651
     },
     {
         "id": 763,
-        "content": "应价申报要素:数量",
-        "father_id": 742
+        "content": "结算方式:逐笔全额结算",
+        "father_id": 651
     },
     {
         "id": 764,
-        "content": "应价申报要素:证券账户号码",
-        "father_id": 742
+        "content": "交易类型:债券现券交易",
+        "father_id": 651
     },
     {
         "id": 765,
-        "content": "应价申报要素:是否匿名",
-        "father_id": 742
+        "content": "交易类型:债券回购交易",
+        "father_id": 651
     },
     {
         "id": 766,
-        "content": "结算方式:多边净额结算",
-        "father_id": 655
+        "content": "交易类型:债券预发行交易",
+        "father_id": 651
     },
     {
         "id": 767,
-        "content": "结算方式:逐笔全额结算",
-        "father_id": 655
+        "content": "交易类型:本所认可的其他交易类型",
+        "father_id": 651
     },
     {
         "id": 768,
-        "content": "交易类型:债券现券交易",
-        "father_id": 655
+        "content": "做市方式:持续提供双边买卖报价",
+        "father_id": 651
     },
     {
         "id": 769,
-        "content": "交易类型:债券回购交易",
-        "father_id": 655
+        "content": "做市方式:对债券投资者的询价请求进行回复",
+        "father_id": 651
     },
     {
         "id": 770,
-        "content": "交易类型:债券预发行交易",
-        "father_id": 655
+        "content": "做市方式:本所认可的其他债券做市方式",
+        "father_id": 651
     },
     {
         "id": 771,
-        "content": "交易类型:本所认可的其他交易类型",
-        "father_id": 655
+        "content": "债券类型:国债",
+        "father_id": 651
     },
     {
         "id": 772,
-        "content": "做市方式:持续提供双边买卖报价",
-        "father_id": 655
+        "content": "债券类型:地方政府债券",
+        "father_id": 651
     },
     {
         "id": 773,
-        "content": "做市方式:对债券投资者的询价请求进行回复",
-        "father_id": 655
+        "content": "债券类型:政府支持债券",
+        "father_id": 651
     },
     {
         "id": 774,
-        "content": "做市方式:本所认可的其他债券做市方式",
-        "father_id": 655
+        "content": "债券类型:政策性金融债",
+        "father_id": 651
     },
     {
         "id": 775,
-        "content": "债券类型:国债",
-        "father_id": 655
+        "content": "债券类型:公司债",
+        "father_id": 651
     },
     {
         "id": 776,
-        "content": "债券类型:地方政府债券",
-        "father_id": 655
+        "content": "债券类型:企业债",
+        "father_id": 651
     },
     {
         "id": 777,
-        "content": "债券类型:政府支持债券",
-        "father_id": 655
+        "content": "价格类型:净价价格",
+        "father_id": 651
     },
     {
         "id": 778,
-        "content": "债券类型:政策性金融债",
-        "father_id": 655
+        "content": "价格类型:全价价格",
+        "father_id": 651
     },
     {
         "id": 779,
-        "content": "债券类型:公司债",
-        "father_id": 655
+        "content": "交易品种:股票",
+        "father_id": 650
     },
     {
         "id": 780,
-        "content": "债券类型:企业债",
-        "father_id": 655
+        "content": "股票品种:A股",
+        "father_id": 779
     },
     {
         "id": 781,
-        "content": "交易品种:股票",
-        "father_id": 654
+        "content": "股票品种:B股",
+        "father_id": 779
     },
     {
         "id": 782,
-        "content": "股票品种:A股",
-        "father_id": 781
+        "content": "股票品种:创业板",
+        "father_id": 779
     },
     {
         "id": 783,
-        "content": "股票品种:B股",
-        "father_id": 781
+        "content": "交易方式:竞价交易",
+        "father_id": 782
     },
     {
         "id": 784,
-        "content": "股票品种:创业板",
-        "father_id": 781
+        "content": "交易方式:盘后定价交易",
+        "father_id": 782
     },
     {
         "id": 785,
-        "content": "交易方式:竞价交易",
+        "content": "盘后固定价格委托指令:证券账户号码",
         "father_id": 784
     },
     {
         "id": 786,
-        "content": "交易方式:盘后定价交易",
+        "content": "盘后固定价格委托指令:证券代码",
         "father_id": 784
     },
     {
         "id": 787,
-        "content": "盘后固定价格委托指令:证券账户号码",
-        "father_id": 786
+        "content": "盘后固定价格委托指令:买卖方向",
+        "father_id": 784
     },
     {
         "id": 788,
-        "content": "盘后固定价格委托指令:证券代码",
-        "father_id": 786
+        "content": "盘后固定价格委托指令:限价",
+        "father_id": 784
     },
     {
         "id": 789,
-        "content": "盘后固定价格委托指令:买卖方向",
-        "father_id": 786
+        "content": "盘后固定价格委托指令:委托数量",
+        "father_id": 784
     },
     {
         "id": 790,
-        "content": "盘后固定价格委托指令:限价",
-        "father_id": 786
+        "content": "会员等交易参与人的盘后固定价格申报指令:证券账户号码",
+        "father_id": 784
     },
     {
         "id": 791,
-        "content": "盘后固定价格委托指令:委托数量",
-        "father_id": 786
+        "content": "会员等交易参与人的盘后固定价格申报指令:证券代码",
+        "father_id": 784
     },
     {
         "id": 792,
-        "content": "会员等交易参与人的盘后固定价格申报指令:证券账户号码",
-        "father_id": 786
+        "content": "会员等交易参与人的盘后固定价格申报指令:交易单元代码",
+        "father_id": 784
     },
     {
         "id": 793,
-        "content": "会员等交易参与人的盘后固定价格申报指令:证券代码",
-        "father_id": 786
+        "content": "会员等交易参与人的盘后固定价格申报指令:证券营业部识别码",
+        "father_id": 784
     },
     {
         "id": 794,
-        "content": "会员等交易参与人的盘后固定价格申报指令:交易单元代码",
-        "father_id": 786
+        "content": "会员等交易参与人的盘后固定价格申报指令:买卖方向",
+        "father_id": 784
     },
     {
         "id": 795,
-        "content": "会员等交易参与人的盘后固定价格申报指令:证券营业部识别码",
-        "father_id": 786
+        "content": "会员等交易参与人的盘后固定价格申报指令:限价",
+        "father_id": 784
     },
     {
         "id": 796,
-        "content": "会员等交易参与人的盘后固定价格申报指令:买卖方向",
-        "father_id": 786
+        "content": "会员等交易参与人的盘后固定价格申报指令:数量",
+        "father_id": 784
     },
     {
         "id": 797,
-        "content": "会员等交易参与人的盘后固定价格申报指令:限价",
-        "father_id": 786
+        "content": "交易方式:竞价交易",
+        "father_id": 779
     },
     {
         "id": 798,
-        "content": "会员等交易参与人的盘后固定价格申报指令:数量",
-        "father_id": 786
+        "content": "交易方式:集合竞价",
+        "father_id": 797
     },
     {
         "id": 799,
-        "content": "深股通盘后固定价格申报指令:券商客户编码",
-        "father_id": 786
+        "content": "交易方式:连续竞价",
+        "father_id": 797
     },
     {
         "id": 800,
-        "content": "深股通盘后固定价格申报指令:证券代码",
-        "father_id": 786
+        "content": "申报方式:限价申报",
+        "father_id": 797
     },
     {
         "id": 801,
-        "content": "深股通盘后固定价格申报指令:经纪商代码",
-        "father_id": 786
+        "content": "申报指令:证券账户号码",
+        "father_id": 800
     },
     {
         "id": 802,
-        "content": "深股通盘后固定价格申报指令:买卖方向",
-        "father_id": 786
+        "content": "申报指令:证券代码",
+        "father_id": 800
     },
     {
         "id": 803,
-        "content": "深股通盘后固定价格申报指令:限价",
-        "father_id": 786
+        "content": "申报指令:交易单元代码",
+        "father_id": 800
     },
     {
         "id": 804,
-        "content": "深股通盘后固定价格申报指令:数量",
-        "father_id": 786
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 800
     },
     {
         "id": 805,
-        "content": "交易方式:竞价交易",
-        "father_id": 781
+        "content": "申报指令:买卖方向",
+        "father_id": 800
     },
     {
         "id": 806,
-        "content": "交易方式:集合竞价",
-        "father_id": 805
+        "content": "申报指令:数量",
+        "father_id": 800
     },
     {
         "id": 807,
-        "content": "交易方式:连续竞价",
-        "father_id": 805
+        "content": "申报指令:价格",
+        "father_id": 800
     },
     {
         "id": 808,
-        "content": "申报方式:限价申报",
-        "father_id": 805
+        "content": "申报方式:市价申报",
+        "father_id": 797
     },
     {
         "id": 809,
-        "content": "申报指令:证券账户号码",
+        "content": "申报类型:最优5档即时成交剩余撤销申报",
         "father_id": 808
     },
     {
         "id": 810,
-        "content": "申报指令:证券代码",
+        "content": "申报类型:最优5档即时成交剩余转限价申报",
         "father_id": 808
     },
     {
         "id": 811,
-        "content": "申报指令:交易单元代码",
+        "content": "申报类型:本方最优价格申报",
         "father_id": 808
     },
     {
         "id": 812,
-        "content": "申报指令:证券营业部识别码",
+        "content": "申报类型:对手方最优价格申报",
         "father_id": 808
     },
     {
         "id": 813,
-        "content": "申报指令:买卖方向",
+        "content": "申报指令:申报类型",
         "father_id": 808
     },
     {
         "id": 814,
-        "content": "申报指令:数量",
+        "content": "申报指令:证券账户号码",
         "father_id": 808
     },
     {
         "id": 815,
-        "content": "申报指令:价格",
+        "content": "申报指令:证券代码",
         "father_id": 808
     },
     {
         "id": 816,
-        "content": "申报方式:市价申报",
-        "father_id": 805
+        "content": "申报指令:交易单元代码",
+        "father_id": 808
     },
     {
         "id": 817,
-        "content": "申报类型:最优5档即时成交剩余撤销申报",
-        "father_id": 816
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 808
     },
     {
         "id": 818,
-        "content": "申报类型:最优5档即时成交剩余转限价申报",
-        "father_id": 816
+        "content": "申报指令:买卖方向",
+        "father_id": 808
     },
     {
         "id": 819,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 816
+        "content": "申报指令:数量",
+        "father_id": 808
     },
     {
         "id": 820,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 816
+        "content": "交易方式:大宗交易",
+        "father_id": 779
     },
     {
         "id": 821,
-        "content": "申报指令:申报类型",
-        "father_id": 816
+        "content": "交易方式:协议大宗交易",
+        "father_id": 820
     },
     {
         "id": 822,
-        "content": "申报指令:证券账户号码",
-        "father_id": 816
+        "content": "申报类型:意向申报",
+        "father_id": 821
     },
     {
         "id": 823,
-        "content": "申报指令:证券代码",
-        "father_id": 816
+        "content": "申报指令:证券账户号码",
+        "father_id": 822
     },
     {
         "id": 824,
-        "content": "申报指令:交易单元代码",
-        "father_id": 816
+        "content": "申报指令:证券代码",
+        "father_id": 822
     },
     {
         "id": 825,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 816
+        "content": "申报指令:买卖方向和本方交易单元代码",
+        "father_id": 822
     },
     {
         "id": 826,
-        "content": "申报指令:买卖方向",
-        "father_id": 816
+        "content": "申报要素:证券代码",
+        "father_id": 822
     },
     {
         "id": 827,
-        "content": "申报指令:数量",
-        "father_id": 816
+        "content": "申报要素:交易方向",
+        "father_id": 822
     },
     {
         "id": 828,
-        "content": "交易方式:大宗交易",
-        "father_id": 781
+        "content": "申报要素:发送范围",
+        "father_id": 822
     },
     {
         "id": 829,
-        "content": "交易方式:协议大宗交易",
-        "father_id": 828
+        "content": "申报要素:证券账户号码",
+        "father_id": 822
     },
     {
         "id": 830,
-        "content": "申报类型:意向申报",
-        "father_id": 829
+        "content": "申报要素:是否匿名",
+        "father_id": 822
     },
     {
         "id": 831,
-        "content": "申报指令:证券账户号码",
-        "father_id": 830
+        "content": "申报类型:成交申报",
+        "father_id": 821
     },
     {
         "id": 832,
-        "content": "申报指令:证券代码",
-        "father_id": 830
+        "content": "申报指令:证券账户号码",
+        "father_id": 831
     },
     {
         "id": 833,
-        "content": "申报指令:买卖方向和本方交易单元代码",
-        "father_id": 830
+        "content": "申报指令:证券代码",
+        "father_id": 831
     },
     {
         "id": 834,
-        "content": "申报要素:证券代码",
-        "father_id": 830
+        "content": "申报指令:买卖方向",
+        "father_id": 831
     },
     {
         "id": 835,
-        "content": "申报要素:交易方向",
-        "father_id": 830
+        "content": "申报指令:价格",
+        "father_id": 831
     },
     {
         "id": 836,
-        "content": "申报要素:发送范围",
-        "father_id": 830
+        "content": "申报指令:数量",
+        "father_id": 831
     },
     {
         "id": 837,
-        "content": "申报要素:证券账户号码",
-        "father_id": 830
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 831
     },
     {
         "id": 838,
-        "content": "申报要素:是否匿名",
-        "father_id": 830
+        "content": "申报指令:约定号",
+        "father_id": 831
     },
     {
         "id": 839,
-        "content": "申报类型:成交申报",
-        "father_id": 829
+        "content": "申报类型:定价申报",
+        "father_id": 821
     },
     {
         "id": 840,
@@ -4216,328 +4216,328 @@
     },
     {
         "id": 844,
-        "content": "申报指令:数量",
+        "content": "申报指令:数量和本方交易单元代码",
         "father_id": 839
     },
     {
         "id": 845,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 839
+        "content": "申报类型:其他申报",
+        "father_id": 821
     },
     {
         "id": 846,
-        "content": "申报指令:约定号",
-        "father_id": 839
+        "content": "交易方式:盘后定价大宗交易",
+        "father_id": 820
     },
     {
         "id": 847,
-        "content": "申报类型:定价申报",
-        "father_id": 829
+        "content": "价格类型:证券当日收盘价",
+        "father_id": 846
     },
     {
         "id": 848,
-        "content": "申报指令:证券账户号码",
-        "father_id": 847
+        "content": "价格类型:证券当日成交量加权平均价格",
+        "father_id": 846
     },
     {
         "id": 849,
-        "content": "申报指令:证券代码",
-        "father_id": 847
+        "content": "申报指令:证券账户号码",
+        "father_id": 846
     },
     {
         "id": 850,
-        "content": "申报指令:买卖方向",
-        "father_id": 847
+        "content": "申报指令:证券代码",
+        "father_id": 846
     },
     {
         "id": 851,
-        "content": "申报指令:价格",
-        "father_id": 847
+        "content": "申报指令:交易单元代码",
+        "father_id": 846
     },
     {
         "id": 852,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 847
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 846
     },
     {
         "id": 853,
-        "content": "申报类型:其他申报",
-        "father_id": 829
+        "content": "申报指令:买卖方向",
+        "father_id": 846
     },
     {
         "id": 854,
-        "content": "交易方式:盘后定价大宗交易",
-        "father_id": 828
+        "content": "申报指令:数量",
+        "father_id": 846
     },
     {
         "id": 855,
-        "content": "价格类型:证券当日收盘价",
-        "father_id": 854
+        "content": "申报指令:证券账户价格类型号码",
+        "father_id": 846
     },
     {
         "id": 856,
-        "content": "价格类型:证券当日成交量加权平均价格",
-        "father_id": 854
+        "content": "交易品种:基金",
+        "father_id": 650
     },
     {
         "id": 857,
-        "content": "申报指令:证券账户号码",
-        "father_id": 854
+        "content": "基金品种:封闭式基金",
+        "father_id": 856
     },
     {
         "id": 858,
-        "content": "申报指令:证券代码",
-        "father_id": 854
+        "content": "基金品种:交易开放式基金(ETF)",
+        "father_id": 856
     },
     {
         "id": 859,
-        "content": "申报指令:交易单元代码",
-        "father_id": 854
+        "content": "申赎申报指令:证券帐号",
+        "father_id": 858
     },
     {
         "id": 860,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 854
+        "content": "申赎申报指令:证券代码",
+        "father_id": 858
     },
     {
         "id": 861,
-        "content": "申报指令:买卖方向",
-        "father_id": 854
+        "content": "申赎申报指令:买卖方向",
+        "father_id": 858
     },
     {
         "id": 862,
-        "content": "申报指令:数量",
-        "father_id": 854
+        "content": "申赎申报指令:数量",
+        "father_id": 858
     },
     {
         "id": 863,
-        "content": "申报指令:证券账户价格类型号码",
-        "father_id": 854
+        "content": "基金品种:上市开放式基金(LOF)",
+        "father_id": 856
     },
     {
         "id": 864,
-        "content": "交易品种:基金",
-        "father_id": 654
+        "content": "基金品种:分级基金",
+        "father_id": 856
     },
     {
         "id": 865,
-        "content": "基金品种:封闭式基金",
-        "father_id": 864
+        "content": "基金品种:基础设施基金",
+        "father_id": 856
     },
     {
         "id": 866,
-        "content": "基金品种:交易开放式基金(ETF)",
-        "father_id": 864
+        "content": "交易方式:竞价交易",
+        "father_id": 865
     },
     {
         "id": 867,
-        "content": "申赎申报指令:证券帐号",
+        "content": "交易方式:集合竞价",
         "father_id": 866
     },
     {
         "id": 868,
-        "content": "申赎申报指令:证券代码",
+        "content": "交易方式:连续竞价",
         "father_id": 866
     },
     {
         "id": 869,
-        "content": "申赎申报指令:买卖方向",
+        "content": "申报方式:限价申报",
         "father_id": 866
     },
     {
         "id": 870,
-        "content": "申赎申报指令:数量",
-        "father_id": 866
+        "content": "申报指令:证券账户号码",
+        "father_id": 869
     },
     {
         "id": 871,
-        "content": "基金品种:上市开放式基金(LOF)",
-        "father_id": 864
+        "content": "申报指令:证券代码",
+        "father_id": 869
     },
     {
         "id": 872,
-        "content": "基金品种:分级基金",
-        "father_id": 864
+        "content": "申报指令:交易单元代码",
+        "father_id": 869
     },
     {
         "id": 873,
-        "content": "基金品种:基础设施基金",
-        "father_id": 864
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 869
     },
     {
         "id": 874,
-        "content": "交易方式:竞价交易",
-        "father_id": 873
+        "content": "申报指令:买卖方向",
+        "father_id": 869
     },
     {
         "id": 875,
-        "content": "交易方式:集合竞价",
-        "father_id": 874
+        "content": "申报指令:数量",
+        "father_id": 869
     },
     {
         "id": 876,
-        "content": "交易方式:连续竞价",
-        "father_id": 874
+        "content": "申报指令:价格",
+        "father_id": 869
     },
     {
         "id": 877,
-        "content": "申报方式:限价申报",
-        "father_id": 874
+        "content": "申报方式:市价申报",
+        "father_id": 866
     },
     {
         "id": 878,
-        "content": "申报指令:证券账户号码",
+        "content": "申报类型:最优5档即时成交剩余撤销申报",
         "father_id": 877
     },
     {
         "id": 879,
-        "content": "申报指令:证券代码",
+        "content": "申报类型:最优5档即时成交剩余转限价申报",
         "father_id": 877
     },
     {
         "id": 880,
-        "content": "申报指令:交易单元代码",
+        "content": "申报类型:本方最优价格申报",
         "father_id": 877
     },
     {
         "id": 881,
-        "content": "申报指令:证券营业部识别码",
+        "content": "申报类型:对手方最优价格申报",
         "father_id": 877
     },
     {
         "id": 882,
-        "content": "申报指令:买卖方向",
+        "content": "申报指令:申报类型",
         "father_id": 877
     },
     {
         "id": 883,
-        "content": "申报指令:数量",
+        "content": "申报指令:证券账户号码",
         "father_id": 877
     },
     {
         "id": 884,
-        "content": "申报指令:价格",
+        "content": "申报指令:证券代码",
         "father_id": 877
     },
     {
         "id": 885,
-        "content": "申报方式:市价申报",
-        "father_id": 874
+        "content": "申报指令:交易单元代码",
+        "father_id": 877
     },
     {
         "id": 886,
-        "content": "申报类型:最优5档即时成交剩余撤销申报",
-        "father_id": 885
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 877
     },
     {
         "id": 887,
-        "content": "申报类型:最优5档即时成交剩余转限价申报",
-        "father_id": 885
+        "content": "申报指令:买卖方向",
+        "father_id": 877
     },
     {
         "id": 888,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 885
+        "content": "申报指令:数量",
+        "father_id": 877
     },
     {
         "id": 889,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 885
+        "content": "交易方式:大宗交易",
+        "father_id": 865
     },
     {
         "id": 890,
-        "content": "申报指令:申报类型",
-        "father_id": 885
+        "content": "交易方式:协议大宗交易",
+        "father_id": 889
     },
     {
         "id": 891,
-        "content": "申报指令:证券账户号码",
-        "father_id": 885
+        "content": "申报类型:意向申报",
+        "father_id": 890
     },
     {
         "id": 892,
-        "content": "申报指令:证券代码",
-        "father_id": 885
+        "content": "申报指令:证券账户号码",
+        "father_id": 891
     },
     {
         "id": 893,
-        "content": "申报指令:交易单元代码",
-        "father_id": 885
+        "content": "申报指令:证券代码",
+        "father_id": 891
     },
     {
         "id": 894,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 885
+        "content": "申报指令:买卖方向和本方交易单元代码",
+        "father_id": 891
     },
     {
         "id": 895,
-        "content": "申报指令:买卖方向",
-        "father_id": 885
+        "content": "申报要素:证券代码",
+        "father_id": 891
     },
     {
         "id": 896,
-        "content": "申报指令:数量",
-        "father_id": 885
+        "content": "申报要素:交易方向",
+        "father_id": 891
     },
     {
         "id": 897,
-        "content": "交易方式:大宗交易",
-        "father_id": 873
+        "content": "申报要素:发送范围",
+        "father_id": 891
     },
     {
         "id": 898,
-        "content": "交易方式:协议大宗交易",
-        "father_id": 897
+        "content": "申报要素:证券账户号码",
+        "father_id": 891
     },
     {
         "id": 899,
-        "content": "申报类型:意向申报",
-        "father_id": 898
+        "content": "申报要素:是否匿名",
+        "father_id": 891
     },
     {
         "id": 900,
-        "content": "申报指令:证券账户号码",
-        "father_id": 899
+        "content": "申报类型:成交申报",
+        "father_id": 890
     },
     {
         "id": 901,
-        "content": "申报指令:证券代码",
-        "father_id": 899
+        "content": "申报指令:证券账户号码",
+        "father_id": 900
     },
     {
         "id": 902,
-        "content": "申报指令:买卖方向和本方交易单元代码",
-        "father_id": 899
+        "content": "申报指令:证券代码",
+        "father_id": 900
     },
     {
         "id": 903,
-        "content": "申报要素:证券代码",
-        "father_id": 899
+        "content": "申报指令:买卖方向",
+        "father_id": 900
     },
     {
         "id": 904,
-        "content": "申报要素:交易方向",
-        "father_id": 899
+        "content": "申报指令:价格",
+        "father_id": 900
     },
     {
         "id": 905,
-        "content": "申报要素:发送范围",
-        "father_id": 899
+        "content": "申报指令:数量",
+        "father_id": 900
     },
     {
         "id": 906,
-        "content": "申报要素:证券账户号码",
-        "father_id": 899
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 900
     },
     {
         "id": 907,
-        "content": "申报要素:是否匿名",
-        "father_id": 899
+        "content": "申报指令:约定号",
+        "father_id": 900
     },
     {
         "id": 908,
-        "content": "申报类型:成交申报",
-        "father_id": 898
+        "content": "申报类型:定价申报",
+        "father_id": 890
     },
     {
         "id": 909,
@@ -4561,338 +4561,338 @@
     },
     {
         "id": 913,
-        "content": "申报指令:数量",
+        "content": "申报指令:数量和本方交易单元代码",
         "father_id": 908
     },
     {
         "id": 914,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 908
+        "content": "申报类型:其他申报",
+        "father_id": 890
     },
     {
         "id": 915,
-        "content": "申报指令:约定号",
-        "father_id": 908
+        "content": "交易方式:盘后定价大宗交易",
+        "father_id": 889
     },
     {
         "id": 916,
-        "content": "申报类型:定价申报",
-        "father_id": 898
+        "content": "价格类型:证券当日收盘价",
+        "father_id": 915
     },
     {
         "id": 917,
-        "content": "申报指令:证券账户号码",
-        "father_id": 916
+        "content": "价格类型:证券当日成交量加权平均价格",
+        "father_id": 915
     },
     {
         "id": 918,
-        "content": "申报指令:证券代码",
-        "father_id": 916
+        "content": "申报指令:证券账户号码",
+        "father_id": 915
     },
     {
         "id": 919,
-        "content": "申报指令:买卖方向",
-        "father_id": 916
+        "content": "申报指令:证券代码",
+        "father_id": 915
     },
     {
         "id": 920,
-        "content": "申报指令:价格",
-        "father_id": 916
+        "content": "申报指令:交易单元代码",
+        "father_id": 915
     },
     {
         "id": 921,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 916
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 915
     },
     {
         "id": 922,
-        "content": "申报类型:其他申报",
-        "father_id": 898
+        "content": "申报指令:买卖方向",
+        "father_id": 915
     },
     {
         "id": 923,
-        "content": "交易方式:盘后定价大宗交易",
-        "father_id": 897
+        "content": "申报指令:数量",
+        "father_id": 915
     },
     {
         "id": 924,
-        "content": "价格类型:证券当日收盘价",
-        "father_id": 923
+        "content": "申报指令:证券账户价格类型号码",
+        "father_id": 915
     },
     {
         "id": 925,
-        "content": "价格类型:证券当日成交量加权平均价格",
-        "father_id": 923
+        "content": "交易方式:询价成交",
+        "father_id": 865
     },
     {
         "id": 926,
-        "content": "申报指令:证券账户号码",
-        "father_id": 923
+        "content": "询价回复要素:价格",
+        "father_id": 925
     },
     {
         "id": 927,
-        "content": "申报指令:证券代码",
-        "father_id": 923
+        "content": "询价回复要素:数量",
+        "father_id": 925
     },
     {
         "id": 928,
-        "content": "申报指令:交易单元代码",
-        "father_id": 923
+        "content": "询价回复要素:证券账户号码",
+        "father_id": 925
     },
     {
         "id": 929,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 923
+        "content": "询价请求要素:证券代码",
+        "father_id": 925
     },
     {
         "id": 930,
-        "content": "申报指令:买卖方向",
-        "father_id": 923
+        "content": "询价请求要素:交易方向",
+        "father_id": 925
     },
     {
         "id": 931,
-        "content": "申报指令:数量",
-        "father_id": 923
+        "content": "询价请求要素:数量",
+        "father_id": 925
     },
     {
         "id": 932,
-        "content": "申报指令:证券账户价格类型号码",
-        "father_id": 923
+        "content": "询价请求要素:发送范围",
+        "father_id": 925
     },
     {
         "id": 933,
-        "content": "交易方式:询价成交",
-        "father_id": 873
+        "content": "询价请求要素:证券账户号码",
+        "father_id": 925
     },
     {
         "id": 934,
-        "content": "询价回复要素:价格",
-        "father_id": 933
+        "content": "询价请求要素:结算方式",
+        "father_id": 925
     },
     {
         "id": 935,
-        "content": "询价回复要素:数量",
-        "father_id": 933
+        "content": "询价请求要素:结算周期",
+        "father_id": 925
     },
     {
         "id": 936,
-        "content": "询价回复要素:证券账户号码",
-        "father_id": 933
+        "content": "询价请求要素:是否匿名",
+        "father_id": 925
     },
     {
         "id": 937,
-        "content": "询价请求要素:证券代码",
-        "father_id": 933
+        "content": "交易方式:竞价交易",
+        "father_id": 856
     },
     {
         "id": 938,
-        "content": "询价请求要素:交易方向",
-        "father_id": 933
+        "content": "交易方式:集合竞价",
+        "father_id": 937
     },
     {
         "id": 939,
-        "content": "询价请求要素:数量",
-        "father_id": 933
+        "content": "交易方式:连续竞价",
+        "father_id": 937
     },
     {
         "id": 940,
-        "content": "询价请求要素:发送范围",
-        "father_id": 933
+        "content": "申报方式:限价申报",
+        "father_id": 937
     },
     {
         "id": 941,
-        "content": "询价请求要素:证券账户号码",
-        "father_id": 933
+        "content": "申报指令:证券账户号码",
+        "father_id": 940
     },
     {
         "id": 942,
-        "content": "询价请求要素:结算方式",
-        "father_id": 933
+        "content": "申报指令:证券代码",
+        "father_id": 940
     },
     {
         "id": 943,
-        "content": "询价请求要素:结算周期",
-        "father_id": 933
+        "content": "申报指令:交易单元代码",
+        "father_id": 940
     },
     {
         "id": 944,
-        "content": "询价请求要素:是否匿名",
-        "father_id": 933
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 940
     },
     {
         "id": 945,
-        "content": "交易方式:竞价交易",
-        "father_id": 864
+        "content": "申报指令:买卖方向",
+        "father_id": 940
     },
     {
         "id": 946,
-        "content": "交易方式:集合竞价",
-        "father_id": 945
+        "content": "申报指令:数量",
+        "father_id": 940
     },
     {
         "id": 947,
-        "content": "交易方式:连续竞价",
-        "father_id": 945
+        "content": "申报指令:价格",
+        "father_id": 940
     },
     {
         "id": 948,
-        "content": "申报方式:限价申报",
-        "father_id": 945
+        "content": "申报方式:市价申报",
+        "father_id": 937
     },
     {
         "id": 949,
-        "content": "申报指令:证券账户号码",
+        "content": "申报类型:最优5档即时成交剩余撤销申报",
         "father_id": 948
     },
     {
         "id": 950,
-        "content": "申报指令:证券代码",
+        "content": "申报类型:最优5档即时成交剩余转限价申报",
         "father_id": 948
     },
     {
         "id": 951,
-        "content": "申报指令:交易单元代码",
+        "content": "申报类型:本方最优价格申报",
         "father_id": 948
     },
     {
         "id": 952,
-        "content": "申报指令:证券营业部识别码",
+        "content": "申报类型:对手方最优价格申报",
         "father_id": 948
     },
     {
         "id": 953,
-        "content": "申报指令:买卖方向",
+        "content": "申报指令:申报类型",
         "father_id": 948
     },
     {
         "id": 954,
-        "content": "申报指令:数量",
+        "content": "申报指令:证券账户号码",
         "father_id": 948
     },
     {
         "id": 955,
-        "content": "申报指令:价格",
+        "content": "申报指令:证券代码",
         "father_id": 948
     },
     {
         "id": 956,
-        "content": "申报方式:市价申报",
-        "father_id": 945
+        "content": "申报指令:交易单元代码",
+        "father_id": 948
     },
     {
         "id": 957,
-        "content": "申报类型:最优5档即时成交剩余撤销申报",
-        "father_id": 956
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 948
     },
     {
         "id": 958,
-        "content": "申报类型:最优5档即时成交剩余转限价申报",
-        "father_id": 956
+        "content": "申报指令:买卖方向",
+        "father_id": 948
     },
     {
         "id": 959,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 956
+        "content": "申报指令:数量",
+        "father_id": 948
     },
     {
         "id": 960,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 956
+        "content": "交易方式:大宗交易",
+        "father_id": 856
     },
     {
         "id": 961,
-        "content": "申报指令:申报类型",
-        "father_id": 956
+        "content": "交易方式:协议大宗交易",
+        "father_id": 960
     },
     {
         "id": 962,
-        "content": "申报指令:证券账户号码",
-        "father_id": 956
+        "content": "申报类型:意向申报",
+        "father_id": 961
     },
     {
         "id": 963,
-        "content": "申报指令:证券代码",
-        "father_id": 956
+        "content": "申报指令:证券账户号码",
+        "father_id": 962
     },
     {
         "id": 964,
-        "content": "申报指令:交易单元代码",
-        "father_id": 956
+        "content": "申报指令:证券代码",
+        "father_id": 962
     },
     {
         "id": 965,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 956
+        "content": "申报指令:买卖方向和本方交易单元代码",
+        "father_id": 962
     },
     {
         "id": 966,
-        "content": "申报指令:买卖方向",
-        "father_id": 956
+        "content": "申报要素:证券代码",
+        "father_id": 962
     },
     {
         "id": 967,
-        "content": "申报指令:数量",
-        "father_id": 956
+        "content": "申报要素:交易方向",
+        "father_id": 962
     },
     {
         "id": 968,
-        "content": "交易方式:大宗交易",
-        "father_id": 864
+        "content": "申报要素:发送范围",
+        "father_id": 962
     },
     {
         "id": 969,
-        "content": "交易方式:协议大宗交易",
-        "father_id": 968
+        "content": "申报要素:证券账户号码",
+        "father_id": 962
     },
     {
         "id": 970,
-        "content": "申报类型:意向申报",
-        "father_id": 969
+        "content": "申报要素:是否匿名",
+        "father_id": 962
     },
     {
         "id": 971,
-        "content": "申报指令:证券账户号码",
-        "father_id": 970
+        "content": "申报类型:成交申报",
+        "father_id": 961
     },
     {
         "id": 972,
-        "content": "申报指令:证券代码",
-        "father_id": 970
+        "content": "申报指令:证券账户号码",
+        "father_id": 971
     },
     {
         "id": 973,
-        "content": "申报指令:买卖方向和本方交易单元代码",
-        "father_id": 970
+        "content": "申报指令:证券代码",
+        "father_id": 971
     },
     {
         "id": 974,
-        "content": "申报要素:证券代码",
-        "father_id": 970
+        "content": "申报指令:买卖方向",
+        "father_id": 971
     },
     {
         "id": 975,
-        "content": "申报要素:交易方向",
-        "father_id": 970
+        "content": "申报指令:价格",
+        "father_id": 971
     },
     {
         "id": 976,
-        "content": "申报要素:发送范围",
-        "father_id": 970
+        "content": "申报指令:数量",
+        "father_id": 971
     },
     {
         "id": 977,
-        "content": "申报要素:证券账户号码",
-        "father_id": 970
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 971
     },
     {
         "id": 978,
-        "content": "申报要素:是否匿名",
-        "father_id": 970
+        "content": "申报指令:约定号",
+        "father_id": 971
     },
     {
         "id": 979,
-        "content": "申报类型:成交申报",
-        "father_id": 969
+        "content": "申报类型:定价申报",
+        "father_id": 961
     },
     {
         "id": 980,
@@ -4916,283 +4916,283 @@
     },
     {
         "id": 984,
-        "content": "申报指令:数量",
+        "content": "申报指令:数量和本方交易单元代码",
         "father_id": 979
     },
     {
         "id": 985,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 979
+        "content": "申报类型:其他申报",
+        "father_id": 961
     },
     {
         "id": 986,
-        "content": "申报指令:约定号",
-        "father_id": 979
+        "content": "交易方式:盘后定价大宗交易",
+        "father_id": 960
     },
     {
         "id": 987,
-        "content": "申报类型:定价申报",
-        "father_id": 969
+        "content": "价格类型:证券当日收盘价",
+        "father_id": 986
     },
     {
         "id": 988,
-        "content": "申报指令:证券账户号码",
-        "father_id": 987
+        "content": "价格类型:证券当日成交量加权平均价格",
+        "father_id": 986
     },
     {
         "id": 989,
-        "content": "申报指令:证券代码",
-        "father_id": 987
+        "content": "申报指令:证券账户号码",
+        "father_id": 986
     },
     {
         "id": 990,
-        "content": "申报指令:买卖方向",
-        "father_id": 987
+        "content": "申报指令:证券代码",
+        "father_id": 986
     },
     {
         "id": 991,
-        "content": "申报指令:价格",
-        "father_id": 987
+        "content": "申报指令:交易单元代码",
+        "father_id": 986
     },
     {
         "id": 992,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 987
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 986
     },
     {
         "id": 993,
-        "content": "申报类型:其他申报",
-        "father_id": 969
+        "content": "申报指令:买卖方向",
+        "father_id": 986
     },
     {
         "id": 994,
-        "content": "交易方式:盘后定价大宗交易",
-        "father_id": 968
+        "content": "申报指令:数量",
+        "father_id": 986
     },
     {
         "id": 995,
-        "content": "价格类型:证券当日收盘价",
-        "father_id": 994
+        "content": "申报指令:证券账户价格类型号码",
+        "father_id": 986
     },
     {
         "id": 996,
-        "content": "价格类型:证券当日成交量加权平均价格",
-        "father_id": 994
+        "content": "交易品种:权证",
+        "father_id": 650
     },
     {
         "id": 997,
-        "content": "申报指令:证券账户号码",
-        "father_id": 994
+        "content": "交易方式:竞价交易",
+        "father_id": 996
     },
     {
         "id": 998,
-        "content": "申报指令:证券代码",
-        "father_id": 994
+        "content": "交易方式:集合竞价",
+        "father_id": 997
     },
     {
         "id": 999,
-        "content": "申报指令:交易单元代码",
-        "father_id": 994
+        "content": "交易方式:连续竞价",
+        "father_id": 997
     },
     {
         "id": 1000,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 994
+        "content": "申报方式:限价申报",
+        "father_id": 997
     },
     {
         "id": 1001,
-        "content": "申报指令:买卖方向",
-        "father_id": 994
+        "content": "申报指令:证券账户号码",
+        "father_id": 1000
     },
     {
         "id": 1002,
-        "content": "申报指令:数量",
-        "father_id": 994
+        "content": "申报指令:证券代码",
+        "father_id": 1000
     },
     {
         "id": 1003,
-        "content": "申报指令:证券账户价格类型号码",
-        "father_id": 994
+        "content": "申报指令:交易单元代码",
+        "father_id": 1000
     },
     {
         "id": 1004,
-        "content": "交易品种:权证",
-        "father_id": 654
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 1000
     },
     {
         "id": 1005,
-        "content": "交易方式:竞价交易",
-        "father_id": 1004
+        "content": "申报指令:买卖方向",
+        "father_id": 1000
     },
     {
         "id": 1006,
-        "content": "交易方式:集合竞价",
-        "father_id": 1005
+        "content": "申报指令:数量",
+        "father_id": 1000
     },
     {
         "id": 1007,
-        "content": "交易方式:连续竞价",
-        "father_id": 1005
+        "content": "申报指令:价格",
+        "father_id": 1000
     },
     {
         "id": 1008,
-        "content": "申报方式:限价申报",
-        "father_id": 1005
+        "content": "申报方式:市价申报",
+        "father_id": 997
     },
     {
         "id": 1009,
-        "content": "申报指令:证券账户号码",
+        "content": "申报类型:最优5档即时成交剩余撤销申报",
         "father_id": 1008
     },
     {
         "id": 1010,
-        "content": "申报指令:证券代码",
+        "content": "申报类型:最优5档即时成交剩余转限价申报",
         "father_id": 1008
     },
     {
         "id": 1011,
-        "content": "申报指令:交易单元代码",
+        "content": "申报类型:本方最优价格申报",
         "father_id": 1008
     },
     {
         "id": 1012,
-        "content": "申报指令:证券营业部识别码",
+        "content": "申报类型:对手方最优价格申报",
         "father_id": 1008
     },
     {
         "id": 1013,
-        "content": "申报指令:买卖方向",
+        "content": "申报指令:申报类型",
         "father_id": 1008
     },
     {
         "id": 1014,
-        "content": "申报指令:数量",
+        "content": "申报指令:证券账户号码",
         "father_id": 1008
     },
     {
         "id": 1015,
-        "content": "申报指令:价格",
+        "content": "申报指令:证券代码",
         "father_id": 1008
     },
     {
         "id": 1016,
-        "content": "申报方式:市价申报",
-        "father_id": 1005
+        "content": "申报指令:交易单元代码",
+        "father_id": 1008
     },
     {
         "id": 1017,
-        "content": "申报类型:最优5档即时成交剩余撤销申报",
-        "father_id": 1016
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 1008
     },
     {
         "id": 1018,
-        "content": "申报类型:最优5档即时成交剩余转限价申报",
-        "father_id": 1016
+        "content": "申报指令:买卖方向",
+        "father_id": 1008
     },
     {
         "id": 1019,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 1016
+        "content": "申报指令:数量",
+        "father_id": 1008
     },
     {
         "id": 1020,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 1016
+        "content": "交易方式:大宗交易",
+        "father_id": 996
     },
     {
         "id": 1021,
-        "content": "申报指令:申报类型",
-        "father_id": 1016
+        "content": "交易方式:协议大宗交易",
+        "father_id": 1020
     },
     {
         "id": 1022,
-        "content": "申报指令:证券账户号码",
-        "father_id": 1016
+        "content": "申报类型:意向申报",
+        "father_id": 1021
     },
     {
         "id": 1023,
-        "content": "申报指令:证券代码",
-        "father_id": 1016
+        "content": "申报指令:证券账户号码",
+        "father_id": 1022
     },
     {
         "id": 1024,
-        "content": "申报指令:交易单元代码",
-        "father_id": 1016
+        "content": "申报指令:证券代码",
+        "father_id": 1022
     },
     {
         "id": 1025,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 1016
+        "content": "申报指令:买卖方向和本方交易单元代码",
+        "father_id": 1022
     },
     {
         "id": 1026,
-        "content": "申报指令:买卖方向",
-        "father_id": 1016
+        "content": "申报要素:证券代码",
+        "father_id": 1022
     },
     {
         "id": 1027,
-        "content": "申报指令:数量",
-        "father_id": 1016
+        "content": "申报要素:交易方向",
+        "father_id": 1022
     },
     {
         "id": 1028,
-        "content": "交易方式:大宗交易",
-        "father_id": 1004
+        "content": "申报要素:发送范围",
+        "father_id": 1022
     },
     {
         "id": 1029,
-        "content": "交易方式:协议大宗交易",
-        "father_id": 1028
+        "content": "申报要素:证券账户号码",
+        "father_id": 1022
     },
     {
         "id": 1030,
-        "content": "申报类型:意向申报",
-        "father_id": 1029
+        "content": "申报要素:是否匿名",
+        "father_id": 1022
     },
     {
         "id": 1031,
-        "content": "申报指令:证券账户号码",
-        "father_id": 1030
+        "content": "申报类型:成交申报",
+        "father_id": 1021
     },
     {
         "id": 1032,
-        "content": "申报指令:证券代码",
-        "father_id": 1030
+        "content": "申报指令:证券账户号码",
+        "father_id": 1031
     },
     {
         "id": 1033,
-        "content": "申报指令:买卖方向和本方交易单元代码",
-        "father_id": 1030
+        "content": "申报指令:证券代码",
+        "father_id": 1031
     },
     {
         "id": 1034,
-        "content": "申报要素:证券代码",
-        "father_id": 1030
+        "content": "申报指令:买卖方向",
+        "father_id": 1031
     },
     {
         "id": 1035,
-        "content": "申报要素:交易方向",
-        "father_id": 1030
+        "content": "申报指令:价格",
+        "father_id": 1031
     },
     {
         "id": 1036,
-        "content": "申报要素:发送范围",
-        "father_id": 1030
+        "content": "申报指令:数量",
+        "father_id": 1031
     },
     {
         "id": 1037,
-        "content": "申报要素:证券账户号码",
-        "father_id": 1030
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 1031
     },
     {
         "id": 1038,
-        "content": "申报要素:是否匿名",
-        "father_id": 1030
+        "content": "申报指令:约定号",
+        "father_id": 1031
     },
     {
         "id": 1039,
-        "content": "申报类型:成交申报",
-        "father_id": 1029
+        "content": "申报类型:定价申报",
+        "father_id": 1021
     },
     {
         "id": 1040,
@@ -5216,283 +5216,283 @@
     },
     {
         "id": 1044,
-        "content": "申报指令:数量",
+        "content": "申报指令:数量和本方交易单元代码",
         "father_id": 1039
     },
     {
         "id": 1045,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 1039
+        "content": "申报类型:其他申报",
+        "father_id": 1021
     },
     {
         "id": 1046,
-        "content": "申报指令:约定号",
-        "father_id": 1039
+        "content": "交易方式:盘后定价大宗交易",
+        "father_id": 1020
     },
     {
         "id": 1047,
-        "content": "申报类型:定价申报",
-        "father_id": 1029
+        "content": "价格类型:证券当日收盘价",
+        "father_id": 1046
     },
     {
         "id": 1048,
-        "content": "申报指令:证券账户号码",
-        "father_id": 1047
+        "content": "价格类型:证券当日成交量加权平均价格",
+        "father_id": 1046
     },
     {
         "id": 1049,
-        "content": "申报指令:证券代码",
-        "father_id": 1047
+        "content": "申报指令:证券账户号码",
+        "father_id": 1046
     },
     {
         "id": 1050,
-        "content": "申报指令:买卖方向",
-        "father_id": 1047
+        "content": "申报指令:证券代码",
+        "father_id": 1046
     },
     {
         "id": 1051,
-        "content": "申报指令:价格",
-        "father_id": 1047
+        "content": "申报指令:交易单元代码",
+        "father_id": 1046
     },
     {
         "id": 1052,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 1047
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 1046
     },
     {
         "id": 1053,
-        "content": "申报类型:其他申报",
-        "father_id": 1029
+        "content": "申报指令:买卖方向",
+        "father_id": 1046
     },
     {
         "id": 1054,
-        "content": "交易方式:盘后定价大宗交易",
-        "father_id": 1028
+        "content": "申报指令:数量",
+        "father_id": 1046
     },
     {
         "id": 1055,
-        "content": "价格类型:证券当日收盘价",
-        "father_id": 1054
+        "content": "申报指令:证券账户价格类型号码",
+        "father_id": 1046
     },
     {
         "id": 1056,
-        "content": "价格类型:证券当日成交量加权平均价格",
-        "father_id": 1054
+        "content": "交易品种:存托凭证",
+        "father_id": 650
     },
     {
         "id": 1057,
-        "content": "申报指令:证券账户号码",
-        "father_id": 1054
+        "content": "交易方式:竞价交易",
+        "father_id": 1056
     },
     {
         "id": 1058,
-        "content": "申报指令:证券代码",
-        "father_id": 1054
+        "content": "交易方式:集合竞价",
+        "father_id": 1057
     },
     {
         "id": 1059,
-        "content": "申报指令:交易单元代码",
-        "father_id": 1054
+        "content": "交易方式:连续竞价",
+        "father_id": 1057
     },
     {
         "id": 1060,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 1054
+        "content": "申报方式:限价申报",
+        "father_id": 1057
     },
     {
         "id": 1061,
-        "content": "申报指令:买卖方向",
-        "father_id": 1054
+        "content": "申报指令:证券账户号码",
+        "father_id": 1060
     },
     {
         "id": 1062,
-        "content": "申报指令:数量",
-        "father_id": 1054
+        "content": "申报指令:证券代码",
+        "father_id": 1060
     },
     {
         "id": 1063,
-        "content": "申报指令:证券账户价格类型号码",
-        "father_id": 1054
+        "content": "申报指令:交易单元代码",
+        "father_id": 1060
     },
     {
         "id": 1064,
-        "content": "交易品种:存托凭证",
-        "father_id": 654
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 1060
     },
     {
         "id": 1065,
-        "content": "交易方式:竞价交易",
-        "father_id": 1064
+        "content": "申报指令:买卖方向",
+        "father_id": 1060
     },
     {
         "id": 1066,
-        "content": "交易方式:集合竞价",
-        "father_id": 1065
+        "content": "申报指令:数量",
+        "father_id": 1060
     },
     {
         "id": 1067,
-        "content": "交易方式:连续竞价",
-        "father_id": 1065
+        "content": "申报指令:价格",
+        "father_id": 1060
     },
     {
         "id": 1068,
-        "content": "申报方式:限价申报",
-        "father_id": 1065
+        "content": "申报方式:市价申报",
+        "father_id": 1057
     },
     {
         "id": 1069,
-        "content": "申报指令:证券账户号码",
+        "content": "申报类型:最优5档即时成交剩余撤销申报",
         "father_id": 1068
     },
     {
         "id": 1070,
-        "content": "申报指令:证券代码",
+        "content": "申报类型:最优5档即时成交剩余转限价申报",
         "father_id": 1068
     },
     {
         "id": 1071,
-        "content": "申报指令:交易单元代码",
+        "content": "申报类型:本方最优价格申报",
         "father_id": 1068
     },
     {
         "id": 1072,
-        "content": "申报指令:证券营业部识别码",
+        "content": "申报类型:对手方最优价格申报",
         "father_id": 1068
     },
     {
         "id": 1073,
-        "content": "申报指令:买卖方向",
+        "content": "申报指令:申报类型",
         "father_id": 1068
     },
     {
         "id": 1074,
-        "content": "申报指令:数量",
+        "content": "申报指令:证券账户号码",
         "father_id": 1068
     },
     {
         "id": 1075,
-        "content": "申报指令:价格",
+        "content": "申报指令:证券代码",
         "father_id": 1068
     },
     {
         "id": 1076,
-        "content": "申报方式:市价申报",
-        "father_id": 1065
+        "content": "申报指令:交易单元代码",
+        "father_id": 1068
     },
     {
         "id": 1077,
-        "content": "申报类型:最优5档即时成交剩余撤销申报",
-        "father_id": 1076
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 1068
     },
     {
         "id": 1078,
-        "content": "申报类型:最优5档即时成交剩余转限价申报",
-        "father_id": 1076
+        "content": "申报指令:买卖方向",
+        "father_id": 1068
     },
     {
         "id": 1079,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 1076
+        "content": "申报指令:数量",
+        "father_id": 1068
     },
     {
         "id": 1080,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 1076
+        "content": "交易方式:大宗交易",
+        "father_id": 1056
     },
     {
         "id": 1081,
-        "content": "申报指令:申报类型",
-        "father_id": 1076
+        "content": "交易方式:协议大宗交易",
+        "father_id": 1080
     },
     {
         "id": 1082,
-        "content": "申报指令:证券账户号码",
-        "father_id": 1076
+        "content": "申报类型:意向申报",
+        "father_id": 1081
     },
     {
         "id": 1083,
-        "content": "申报指令:证券代码",
-        "father_id": 1076
+        "content": "申报指令:证券账户号码",
+        "father_id": 1082
     },
     {
         "id": 1084,
-        "content": "申报指令:交易单元代码",
-        "father_id": 1076
+        "content": "申报指令:证券代码",
+        "father_id": 1082
     },
     {
         "id": 1085,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 1076
+        "content": "申报指令:买卖方向和本方交易单元代码",
+        "father_id": 1082
     },
     {
         "id": 1086,
-        "content": "申报指令:买卖方向",
-        "father_id": 1076
+        "content": "申报要素:证券代码",
+        "father_id": 1082
     },
     {
         "id": 1087,
-        "content": "申报指令:数量",
-        "father_id": 1076
+        "content": "申报要素:交易方向",
+        "father_id": 1082
     },
     {
         "id": 1088,
-        "content": "交易方式:大宗交易",
-        "father_id": 1064
+        "content": "申报要素:发送范围",
+        "father_id": 1082
     },
     {
         "id": 1089,
-        "content": "交易方式:协议大宗交易",
-        "father_id": 1088
+        "content": "申报要素:证券账户号码",
+        "father_id": 1082
     },
     {
         "id": 1090,
-        "content": "申报类型:意向申报",
-        "father_id": 1089
+        "content": "申报要素:是否匿名",
+        "father_id": 1082
     },
     {
         "id": 1091,
-        "content": "申报指令:证券账户号码",
-        "father_id": 1090
+        "content": "申报类型:成交申报",
+        "father_id": 1081
     },
     {
         "id": 1092,
-        "content": "申报指令:证券代码",
-        "father_id": 1090
+        "content": "申报指令:证券账户号码",
+        "father_id": 1091
     },
     {
         "id": 1093,
-        "content": "申报指令:买卖方向和本方交易单元代码",
-        "father_id": 1090
+        "content": "申报指令:证券代码",
+        "father_id": 1091
     },
     {
         "id": 1094,
-        "content": "申报要素:证券代码",
-        "father_id": 1090
+        "content": "申报指令:买卖方向",
+        "father_id": 1091
     },
     {
         "id": 1095,
-        "content": "申报要素:交易方向",
-        "father_id": 1090
+        "content": "申报指令:价格",
+        "father_id": 1091
     },
     {
         "id": 1096,
-        "content": "申报要素:发送范围",
-        "father_id": 1090
+        "content": "申报指令:数量",
+        "father_id": 1091
     },
     {
         "id": 1097,
-        "content": "申报要素:证券账户号码",
-        "father_id": 1090
+        "content": "申报指令:本方及对手方交易单元代码",
+        "father_id": 1091
     },
     {
         "id": 1098,
-        "content": "申报要素:是否匿名",
-        "father_id": 1090
+        "content": "申报指令:约定号",
+        "father_id": 1091
     },
     {
         "id": 1099,
-        "content": "申报类型:成交申报",
-        "father_id": 1089
+        "content": "申报类型:定价申报",
+        "father_id": 1081
     },
     {
         "id": 1100,
@@ -5516,1152 +5516,1137 @@
     },
     {
         "id": 1104,
-        "content": "申报指令:数量",
+        "content": "申报指令:数量和本方交易单元代码",
         "father_id": 1099
     },
     {
         "id": 1105,
-        "content": "申报指令:本方及对手方交易单元代码",
-        "father_id": 1099
+        "content": "申报类型:其他申报",
+        "father_id": 1081
     },
     {
         "id": 1106,
-        "content": "申报指令:约定号",
-        "father_id": 1099
+        "content": "交易方式:盘后定价大宗交易",
+        "father_id": 1080
     },
     {
         "id": 1107,
-        "content": "申报类型:定价申报",
-        "father_id": 1089
+        "content": "价格类型:证券当日收盘价",
+        "father_id": 1106
     },
     {
         "id": 1108,
-        "content": "申报指令:证券账户号码",
-        "father_id": 1107
+        "content": "价格类型:证券当日成交量加权平均价格",
+        "father_id": 1106
     },
     {
         "id": 1109,
-        "content": "申报指令:证券代码",
-        "father_id": 1107
+        "content": "申报指令:证券账户号码",
+        "father_id": 1106
     },
     {
         "id": 1110,
-        "content": "申报指令:买卖方向",
-        "father_id": 1107
+        "content": "申报指令:证券代码",
+        "father_id": 1106
     },
     {
         "id": 1111,
-        "content": "申报指令:价格",
-        "father_id": 1107
+        "content": "申报指令:交易单元代码",
+        "father_id": 1106
     },
     {
         "id": 1112,
-        "content": "申报指令:数量和本方交易单元代码",
-        "father_id": 1107
+        "content": "申报指令:证券营业部识别码",
+        "father_id": 1106
     },
     {
         "id": 1113,
-        "content": "申报类型:其他申报",
-        "father_id": 1089
+        "content": "申报指令:买卖方向",
+        "father_id": 1106
     },
     {
         "id": 1114,
-        "content": "交易方式:盘后定价大宗交易",
-        "father_id": 1088
+        "content": "申报指令:数量",
+        "father_id": 1106
     },
     {
         "id": 1115,
-        "content": "价格类型:证券当日收盘价",
-        "father_id": 1114
+        "content": "申报指令:证券账户价格类型号码",
+        "father_id": 1106
     },
     {
         "id": 1116,
-        "content": "价格类型:证券当日成交量加权平均价格",
-        "father_id": 1114
+        "content": "业务:股票质押式回购交易",
+        "father_id": 650
     },
     {
         "id": 1117,
-        "content": "申报指令:证券账户号码",
-        "father_id": 1114
+        "content": "融出方:证券公司",
+        "father_id": 1116
     },
     {
         "id": 1118,
-        "content": "申报指令:证券代码",
-        "father_id": 1114
+        "content": "融出方:证券公司管理的集合资产管理计划或定向资产管理客户",
+        "father_id": 1116
     },
     {
         "id": 1119,
-        "content": "申报指令:交易单元代码",
-        "father_id": 1114
+        "content": "融出方:证券公司资产管理子公司管理的集合资产管理计划或定向资产管理客户",
+        "father_id": 1116
     },
     {
         "id": 1120,
-        "content": "申报指令:证券营业部识别码",
-        "father_id": 1114
+        "content": "申报类型:初始交易申报",
+        "father_id": 1116
     },
     {
         "id": 1121,
-        "content": "申报指令:买卖方向",
-        "father_id": 1114
+        "content": "申报要素:申报时间",
+        "father_id": 1120
     },
     {
         "id": 1122,
-        "content": "申报指令:数量",
-        "father_id": 1114
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 1120
     },
     {
         "id": 1123,
-        "content": "申报指令:证券账户价格类型号码",
-        "father_id": 1114
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 1120
     },
     {
         "id": 1124,
-        "content": "业务:股票质押式回购交易",
-        "father_id": 654
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 1120
     },
     {
         "id": 1125,
-        "content": "融出方:证券公司",
-        "father_id": 1124
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 1120
     },
     {
         "id": 1126,
-        "content": "融出方:证券公司管理的集合资产管理计划或定向资产管理客户",
-        "father_id": 1124
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 1120
     },
     {
         "id": 1127,
-        "content": "融出方:证券公司资产管理子公司管理的集合资产管理计划或定向资产管理客户",
-        "father_id": 1124
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 1120
     },
     {
         "id": 1128,
-        "content": "申报类型:初始交易申报",
-        "father_id": 1124
+        "content": "申报要素:成交申报业务类别（初始交易）",
+        "father_id": 1120
     },
     {
         "id": 1129,
-        "content": "申报要素:申报时间",
-        "father_id": 1128
+        "content": "申报要素:证券代码",
+        "father_id": 1120
     },
     {
         "id": 1130,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 1128
+        "content": "申报要素:股份性质",
+        "father_id": 1120
     },
     {
         "id": 1131,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 1128
+        "content": "申报要素:数量",
+        "father_id": 1120
     },
     {
         "id": 1132,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 1128
+        "content": "申报要素:初始交易金额",
+        "father_id": 1120
     },
     {
         "id": 1133,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 1128
+        "content": "申报要素:购回交易日",
+        "father_id": 1120
     },
     {
         "id": 1134,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 1128
+        "content": "申报要素:预警线",
+        "father_id": 1120
     },
     {
         "id": 1135,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 1128
+        "content": "申报要素:平仓线",
+        "father_id": 1120
     },
     {
         "id": 1136,
-        "content": "申报要素:成交申报业务类别（初始交易）",
-        "father_id": 1128
+        "content": "申报要素:资金用途类型",
+        "father_id": 1120
     },
     {
         "id": 1137,
-        "content": "申报要素:证券代码",
-        "father_id": 1128
+        "content": "申报要素:利率",
+        "father_id": 1120
     },
     {
         "id": 1138,
-        "content": "申报要素:股份性质",
-        "father_id": 1128
+        "content": "申报类型:购回交易申报",
+        "father_id": 1116
     },
     {
         "id": 1139,
-        "content": "申报要素:数量",
-        "father_id": 1128
+        "content": "申报要素:申报时间",
+        "father_id": 1138
     },
     {
         "id": 1140,
-        "content": "申报要素:初始交易金额",
-        "father_id": 1128
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 1138
     },
     {
         "id": 1141,
-        "content": "申报要素:购回交易日",
-        "father_id": 1128
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 1138
     },
     {
         "id": 1142,
-        "content": "申报要素:预警线",
-        "father_id": 1128
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 1138
     },
     {
         "id": 1143,
-        "content": "申报要素:平仓线",
-        "father_id": 1128
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 1138
     },
     {
         "id": 1144,
-        "content": "申报要素:资金用途类型",
-        "father_id": 1128
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 1138
     },
     {
         "id": 1145,
-        "content": "申报要素:利率",
-        "father_id": 1128
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 1138
     },
     {
         "id": 1146,
-        "content": "申报类型:购回交易申报",
-        "father_id": 1124
+        "content": "申报要素:成交申报业务类别（提前购回、到期购回或延期购回）",
+        "father_id": 1138
     },
     {
         "id": 1147,
-        "content": "申报要素:申报时间",
-        "father_id": 1146
+        "content": "申报要素:购回交易金额",
+        "father_id": 1138
     },
     {
         "id": 1148,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 1146
+        "content": "申报要素:购回交易日",
+        "father_id": 1138
     },
     {
         "id": 1149,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 1146
+        "content": "申报要素:初始交易合同序号",
+        "father_id": 1138
     },
     {
         "id": 1150,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 1146
+        "content": "申报类型:补充质押申报",
+        "father_id": 1116
     },
     {
         "id": 1151,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 1146
+        "content": "申报要素:申报时间",
+        "father_id": 1150
     },
     {
         "id": 1152,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 1146
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 1150
     },
     {
         "id": 1153,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 1146
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 1150
     },
     {
         "id": 1154,
-        "content": "申报要素:成交申报业务类别（提前购回、到期购回或延期购回）",
-        "father_id": 1146
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 1150
     },
     {
         "id": 1155,
-        "content": "申报要素:购回交易金额",
-        "father_id": 1146
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 1150
     },
     {
         "id": 1156,
-        "content": "申报要素:购回交易日",
-        "father_id": 1146
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 1150
     },
     {
         "id": 1157,
-        "content": "申报要素:初始交易合同序号",
-        "father_id": 1146
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 1150
     },
     {
         "id": 1158,
-        "content": "申报类型:补充质押申报",
-        "father_id": 1124
+        "content": "申报要素:成交申报业务类别（补充质押）",
+        "father_id": 1150
     },
     {
         "id": 1159,
-        "content": "申报要素:申报时间",
-        "father_id": 1158
+        "content": "申报要素:证券代码",
+        "father_id": 1150
     },
     {
         "id": 1160,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 1158
+        "content": "申报要素:股份性质",
+        "father_id": 1150
     },
     {
         "id": 1161,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 1158
+        "content": "申报要素:数量",
+        "father_id": 1150
     },
     {
         "id": 1162,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 1158
+        "content": "申报要素:初始交易合同序号",
+        "father_id": 1150
     },
     {
         "id": 1163,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 1158
+        "content": "申报类型:部分解除质押申报",
+        "father_id": 1116
     },
     {
         "id": 1164,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 1158
+        "content": "申报要素:申报时间",
+        "father_id": 1163
     },
     {
         "id": 1165,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 1158
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 1163
     },
     {
         "id": 1166,
-        "content": "申报要素:成交申报业务类别（补充质押）",
-        "father_id": 1158
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 1163
     },
     {
         "id": 1167,
-        "content": "申报要素:证券代码",
-        "father_id": 1158
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 1163
     },
     {
         "id": 1168,
-        "content": "申报要素:股份性质",
-        "father_id": 1158
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 1163
     },
     {
         "id": 1169,
-        "content": "申报要素:数量",
-        "father_id": 1158
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 1163
     },
     {
         "id": 1170,
-        "content": "申报要素:初始交易合同序号",
-        "father_id": 1158
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 1163
     },
     {
         "id": 1171,
-        "content": "申报类型:部分解除质押申报",
-        "father_id": 1124
+        "content": "申报要素:成交申报业务类别（部分解除质押）",
+        "father_id": 1163
     },
     {
         "id": 1172,
-        "content": "申报要素:申报时间",
-        "father_id": 1171
+        "content": "申报要素:证券代码",
+        "father_id": 1163
     },
     {
         "id": 1173,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 1171
+        "content": "申报要素:股份性质",
+        "father_id": 1163
     },
     {
         "id": 1174,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 1171
+        "content": "申报要素:数量",
+        "father_id": 1163
     },
     {
         "id": 1175,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 1171
+        "content": "申报要素:解除红利金额",
+        "father_id": 1163
     },
     {
         "id": 1176,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 1171
+        "content": "申报要素:初始交易或补充质押合同序号",
+        "father_id": 1163
     },
     {
         "id": 1177,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 1171
+        "content": "申报类型:终止购回申报",
+        "father_id": 1116
     },
     {
         "id": 1178,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 1171
+        "content": "申报要素:申报时间",
+        "father_id": 1177
     },
     {
         "id": 1179,
-        "content": "申报要素:成交申报业务类别（部分解除质押）",
-        "father_id": 1171
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 1177
     },
     {
         "id": 1180,
-        "content": "申报要素:证券代码",
-        "father_id": 1171
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 1177
     },
     {
         "id": 1181,
-        "content": "申报要素:股份性质",
-        "father_id": 1171
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 1177
     },
     {
         "id": 1182,
-        "content": "申报要素:数量",
-        "father_id": 1171
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 1177
     },
     {
         "id": 1183,
-        "content": "申报要素:解除红利金额",
-        "father_id": 1171
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 1177
     },
     {
         "id": 1184,
-        "content": "申报要素:初始交易或补充质押合同序号",
-        "father_id": 1171
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 1177
     },
     {
         "id": 1185,
-        "content": "申报类型:终止购回申报",
-        "father_id": 1124
+        "content": "申报要素:成交申报业务类别（终止购回）",
+        "father_id": 1177
     },
     {
         "id": 1186,
-        "content": "申报要素:申报时间",
-        "father_id": 1185
+        "content": "申报要素:初始交易合同序号",
+        "father_id": 1177
     },
     {
         "id": 1187,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 1185
+        "content": "申报类型:违约处置申报",
+        "father_id": 1116
     },
     {
         "id": 1188,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 1185
+        "content": "申报要素:申报时间",
+        "father_id": 1187
     },
     {
         "id": 1189,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 1185
+        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
+        "father_id": 1187
     },
     {
         "id": 1190,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 1185
+        "content": "申报要素:融入方营业部代码",
+        "father_id": 1187
     },
     {
         "id": 1191,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 1185
+        "content": "申报要素:融入方证券账户号码",
+        "father_id": 1187
     },
     {
         "id": 1192,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 1185
+        "content": "申报要素:融入方交易单元代码",
+        "father_id": 1187
     },
     {
         "id": 1193,
-        "content": "申报要素:成交申报业务类别（终止购回）",
-        "father_id": 1185
+        "content": "申报要素:融出方证券账户号码",
+        "father_id": 1187
     },
     {
         "id": 1194,
-        "content": "申报要素:初始交易合同序号",
-        "father_id": 1185
+        "content": "申报要素:融出方交易单元代码",
+        "father_id": 1187
     },
     {
         "id": 1195,
-        "content": "申报类型:违约处置申报",
-        "father_id": 1124
+        "content": "申报要素:成交申报业务类别（违约处置）",
+        "father_id": 1187
     },
     {
         "id": 1196,
-        "content": "申报要素:申报时间",
-        "father_id": 1195
+        "content": "申报要素:初始交易合同序号",
+        "father_id": 1187
     },
     {
         "id": 1197,
-        "content": "申报要素:合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）",
-        "father_id": 1195
+        "content": "业务:融资融券交易",
+        "father_id": 650
     },
     {
         "id": 1198,
-        "content": "申报要素:融入方营业部代码",
-        "father_id": 1195
+        "content": "交易方式:竞价交易",
+        "father_id": 1197
     },
     {
         "id": 1199,
-        "content": "申报要素:融入方证券账户号码",
-        "father_id": 1195
+        "content": "交易方式:集合竞价",
+        "father_id": 1198
     },
     {
         "id": 1200,
-        "content": "申报要素:融入方交易单元代码",
-        "father_id": 1195
+        "content": "交易方式:连续竞价",
+        "father_id": 1198
     },
     {
         "id": 1201,
-        "content": "申报要素:融出方证券账户号码",
-        "father_id": 1195
+        "content": "申报方式:限价申报",
+        "father_id": 1198
     },
     {
         "id": 1202,
-        "content": "申报要素:融出方交易单元代码",
-        "father_id": 1195
+        "content": "申报方式:市价申报",
+        "father_id": 1198
     },
     {
         "id": 1203,
-        "content": "申报要素:成交申报业务类别（违约处置）",
-        "father_id": 1195
+        "content": "申报类型:最优5档即时成交剩余撤销申报",
+        "father_id": 1202
     },
     {
         "id": 1204,
-        "content": "申报要素:初始交易合同序号",
-        "father_id": 1195
+        "content": "申报类型:最优5档即时成交剩余转限价申报",
+        "father_id": 1202
     },
     {
         "id": 1205,
-        "content": "业务:融资融券交易",
-        "father_id": 654
+        "content": "申报类型:本方最优价格申报",
+        "father_id": 1202
     },
     {
         "id": 1206,
-        "content": "交易方式:竞价交易",
-        "father_id": 1205
+        "content": "申报类型:对手方最优价格申报",
+        "father_id": 1202
     },
     {
         "id": 1207,
-        "content": "交易方式:集合竞价",
-        "father_id": 1206
+        "content": "交易申报指令:客户的信用证券账户号码",
+        "father_id": 1197
     },
     {
         "id": 1208,
-        "content": "交易方式:连续竞价",
-        "father_id": 1206
+        "content": "交易申报指令:融资融券专用交易单元代码",
+        "father_id": 1197
     },
     {
         "id": 1209,
-        "content": "申报方式:限价申报",
-        "father_id": 1206
+        "content": "交易申报指令:证券代码",
+        "father_id": 1197
     },
     {
         "id": 1210,
-        "content": "申报方式:市价申报",
-        "father_id": 1206
+        "content": "交易申报指令:买卖方向",
+        "father_id": 1197
     },
     {
         "id": 1211,
-        "content": "申报类型:最优5档即时成交剩余撤销申报",
-        "father_id": 1210
+        "content": "交易申报指令:价格",
+        "father_id": 1197
     },
     {
         "id": 1212,
-        "content": "申报类型:最优5档即时成交剩余转限价申报",
-        "father_id": 1210
+        "content": "交易申报指令:数量",
+        "father_id": 1197
     },
     {
         "id": 1213,
-        "content": "申报类型:本方最优价格申报",
-        "father_id": 1210
+        "content": "交易申报指令:融资融券相关标识",
+        "father_id": 1197
     },
     {
         "id": 1214,
-        "content": "申报类型:对手方最优价格申报",
-        "father_id": 1210
+        "content": "强制平仓申报指令:客户的信用证券账户号码",
+        "father_id": 1197
     },
     {
         "id": 1215,
-        "content": "交易申报指令:客户的信用证券账户号码",
-        "father_id": 1205
+        "content": "强制平仓申报指令:融资融券专用交易单元代码",
+        "father_id": 1197
     },
     {
         "id": 1216,
-        "content": "交易申报指令:融资融券专用交易单元代码",
-        "father_id": 1205
+        "content": "强制平仓申报指令:证券代码",
+        "father_id": 1197
     },
     {
         "id": 1217,
-        "content": "交易申报指令:证券代码",
-        "father_id": 1205
+        "content": "强制平仓申报指令:买卖方向",
+        "father_id": 1197
     },
     {
         "id": 1218,
-        "content": "交易申报指令:买卖方向",
-        "father_id": 1205
+        "content": "强制平仓申报指令:价格",
+        "father_id": 1197
     },
     {
         "id": 1219,
-        "content": "交易申报指令:价格",
-        "father_id": 1205
+        "content": "强制平仓申报指令:数量",
+        "father_id": 1197
     },
     {
         "id": 1220,
-        "content": "交易申报指令:数量",
-        "father_id": 1205
+        "content": "强制平仓申报指令:融资强制平仓或者融券强制平仓标识",
+        "father_id": 1197
     },
     {
         "id": 1221,
-        "content": "交易申报指令:融资融券相关标识",
-        "father_id": 1205
+        "content": "业务:资产管理计划份额转让",
+        "father_id": 650
     },
     {
         "id": 1222,
-        "content": "强制平仓申报指令:客户的信用证券账户号码",
-        "father_id": 1205
+        "content": "转让申报指令:账户号码",
+        "father_id": 1221
     },
     {
         "id": 1223,
-        "content": "强制平仓申报指令:融资融券专用交易单元代码",
-        "father_id": 1205
+        "content": "转让申报指令:证券代码",
+        "father_id": 1221
     },
     {
         "id": 1224,
-        "content": "强制平仓申报指令:证券代码",
-        "father_id": 1205
+        "content": "转让申报指令:数量",
+        "father_id": 1221
     },
     {
         "id": 1225,
-        "content": "强制平仓申报指令:买卖方向",
-        "father_id": 1205
+        "content": "转让申报指令:价格",
+        "father_id": 1221
     },
     {
         "id": 1226,
-        "content": "强制平仓申报指令:价格",
-        "father_id": 1205
+        "content": "业务:资产证券化",
+        "father_id": 650
     },
     {
         "id": 1227,
-        "content": "强制平仓申报指令:数量",
-        "father_id": 1205
+        "content": "转让申报类型:意向申报",
+        "father_id": 1226
     },
     {
         "id": 1228,
-        "content": "强制平仓申报指令:融资强制平仓或者融券强制平仓标识",
-        "father_id": 1205
+        "content": "意向申报指令:证券账户号码",
+        "father_id": 1227
     },
     {
         "id": 1229,
-        "content": "业务:资产管理计划份额转让",
-        "father_id": 654
+        "content": "意向申报指令:证券代码",
+        "father_id": 1227
     },
     {
         "id": 1230,
-        "content": "转让申报指令:账户号码",
-        "father_id": 1229
+        "content": "意向申报指令:买卖方向",
+        "father_id": 1227
     },
     {
         "id": 1231,
-        "content": "转让申报指令:证券代码",
-        "father_id": 1229
+        "content": "意向申报指令:本方交易单元代码",
+        "father_id": 1227
     },
     {
         "id": 1232,
-        "content": "转让申报指令:数量",
-        "father_id": 1229
+        "content": "转让申报类型:定价申报",
+        "father_id": 1226
     },
     {
         "id": 1233,
-        "content": "转让申报指令:价格",
-        "father_id": 1229
+        "content": "意向申报指令:证券账户号码",
+        "father_id": 1232
     },
     {
         "id": 1234,
-        "content": "业务:资产证券化",
-        "father_id": 654
+        "content": "意向申报指令:证券代码",
+        "father_id": 1232
     },
     {
         "id": 1235,
-        "content": "转让申报类型:意向申报",
-        "father_id": 1234
+        "content": "意向申报指令:买卖方向",
+        "father_id": 1232
     },
     {
         "id": 1236,
-        "content": "意向申报指令:证券账户号码",
-        "father_id": 1235
+        "content": "意向申报指令:价格",
+        "father_id": 1232
     },
     {
         "id": 1237,
-        "content": "意向申报指令:证券代码",
-        "father_id": 1235
+        "content": "意向申报指令:数量",
+        "father_id": 1232
     },
     {
         "id": 1238,
-        "content": "意向申报指令:买卖方向",
-        "father_id": 1235
+        "content": "意向申报指令:本方交易单元代码",
+        "father_id": 1232
     },
     {
         "id": 1239,
-        "content": "意向申报指令:本方交易单元代码",
-        "father_id": 1235
+        "content": "转让申报类型:成交申报",
+        "father_id": 1226
     },
     {
         "id": 1240,
-        "content": "转让申报类型:定价申报",
-        "father_id": 1234
+        "content": "意向申报指令:证券账户号码",
+        "father_id": 1239
     },
     {
         "id": 1241,
-        "content": "意向申报指令:证券账户号码",
-        "father_id": 1240
+        "content": "意向申报指令:证券代码",
+        "father_id": 1239
     },
     {
         "id": 1242,
-        "content": "意向申报指令:证券代码",
-        "father_id": 1240
+        "content": "意向申报指令:买卖方向",
+        "father_id": 1239
     },
     {
         "id": 1243,
-        "content": "意向申报指令:买卖方向",
-        "father_id": 1240
+        "content": "意向申报指令:价格",
+        "father_id": 1239
     },
     {
         "id": 1244,
-        "content": "意向申报指令:价格",
-        "father_id": 1240
+        "content": "意向申报指令:数量",
+        "father_id": 1239
     },
     {
         "id": 1245,
-        "content": "意向申报指令:数量",
-        "father_id": 1240
+        "content": "意向申报指令:对手方交易单元代码",
+        "father_id": 1239
     },
     {
         "id": 1246,
-        "content": "意向申报指令:本方交易单元代码",
-        "father_id": 1240
+        "content": "意向申报指令:约定号",
+        "father_id": 1239
     },
     {
         "id": 1247,
-        "content": "转让申报类型:成交申报",
-        "father_id": 1234
+        "content": "转让申报类型:其他申报",
+        "father_id": 1226
     },
     {
         "id": 1248,
-        "content": "意向申报指令:证券账户号码",
-        "father_id": 1247
+        "content": "业务:深港通",
+        "father_id": 650
     },
     {
         "id": 1249,
-        "content": "意向申报指令:证券代码",
-        "father_id": 1247
+        "content": "深港通品种:深股通",
+        "father_id": 1248
     },
     {
         "id": 1250,
-        "content": "意向申报指令:买卖方向",
-        "father_id": 1247
+        "content": "深港通品种:港股通",
+        "father_id": 1248
     },
     {
         "id": 1251,
-        "content": "意向申报指令:价格",
-        "father_id": 1247
+        "content": "交易方式:限价申报",
+        "father_id": 1248
     },
     {
         "id": 1252,
-        "content": "意向申报指令:数量",
-        "father_id": 1247
+        "content": "申报指令:券商客户编码",
+        "father_id": 1251
     },
     {
         "id": 1253,
-        "content": "意向申报指令:对手方交易单元代码",
-        "father_id": 1247
+        "content": "申报指令:经纪商代码",
+        "father_id": 1251
     },
     {
         "id": 1254,
-        "content": "意向申报指令:约定号",
-        "father_id": 1247
+        "content": "申报指令:证券代码",
+        "father_id": 1251
     },
     {
         "id": 1255,
-        "content": "转让申报类型:其他申报",
-        "father_id": 1234
+        "content": "申报指令:买卖方向",
+        "father_id": 1251
     },
     {
         "id": 1256,
-        "content": "业务:深港通",
-        "father_id": 654
+        "content": "申报指令:数量",
+        "father_id": 1251
     },
     {
         "id": 1257,
-        "content": "深港通品种:深股通",
-        "father_id": 1256
+        "content": "申报指令:价格",
+        "father_id": 1251
     },
     {
         "id": 1258,
-        "content": "深港通品种:港股通",
-        "father_id": 1256
+        "content": "交易时间:开市前时段",
+        "father_id": 1248
     },
     {
         "id": 1259,
-        "content": "交易方式:限价申报",
-        "father_id": 1256
+        "content": "交易时间:持续交易时段",
+        "father_id": 1248
     },
     {
         "id": 1260,
-        "content": "申报指令:券商客户编码",
-        "father_id": 1259
+        "content": "交易时间:收市竞价交易时段",
+        "father_id": 1248
     },
     {
         "id": 1261,
-        "content": "申报指令:经纪商代码",
-        "father_id": 1259
+        "content": "业务:质押式报价回购交易",
+        "father_id": 650
     },
     {
         "id": 1262,
-        "content": "申报指令:证券代码",
-        "father_id": 1259
+        "content": "委托指令:初始委托",
+        "father_id": 1261
     },
     {
         "id": 1263,
-        "content": "申报指令:买卖方向",
-        "father_id": 1259
+        "content": "委托指令:购回委托",
+        "father_id": 1261
     },
     {
         "id": 1264,
-        "content": "申报指令:数量",
-        "father_id": 1259
+        "content": "交易类型:初始交易",
+        "father_id": 1261
     },
     {
         "id": 1265,
-        "content": "申报指令:价格",
-        "father_id": 1259
+        "content": "申报要素:申报时间",
+        "father_id": 1264
     },
     {
         "id": 1266,
-        "content": "交易时间:开市前时段",
-        "father_id": 1256
+        "content": "申报要素:合同序号（含证券公司指定的交易单元代码、申报日期、客户所在营业部识别码、申报流水号）",
+        "father_id": 1264
     },
     {
         "id": 1267,
-        "content": "交易时间:持续交易时段",
-        "father_id": 1256
+        "content": "申报要素:交易类型",
+        "father_id": 1264
     },
     {
         "id": 1268,
-        "content": "交易时间:收市竞价交易时段",
-        "father_id": 1256
+        "content": "申报要素:客户交易单元代码",
+        "father_id": 1264
     },
     {
         "id": 1269,
-        "content": "业务:质押式报价回购交易",
-        "father_id": 654
+        "content": "申报要素:客户证券账户号码",
+        "father_id": 1264
     },
     {
         "id": 1270,
-        "content": "委托指令:初始委托",
-        "father_id": 1269
+        "content": "申报要素:证券公司指定的自营证券账户号码",
+        "father_id": 1264
     },
     {
         "id": 1271,
-        "content": "委托指令:购回委托",
-        "father_id": 1269
+        "content": "申报要素:证券代码",
+        "father_id": 1264
     },
     {
         "id": 1272,
-        "content": "交易类型:初始交易",
-        "father_id": 1269
+        "content": "申报要素:品种期限",
+        "father_id": 1264
     },
     {
         "id": 1273,
-        "content": "申报要素:申报时间",
-        "father_id": 1272
+        "content": "申报要素:到期购回日期",
+        "father_id": 1264
     },
     {
         "id": 1274,
-        "content": "申报要素:合同序号（含证券公司指定的交易单元代码、申报日期、客户所在营业部识别码、申报流水号）",
-        "father_id": 1272
+        "content": "申报要素:报价类型",
+        "father_id": 1264
     },
     {
         "id": 1275,
-        "content": "申报要素:交易类型",
-        "father_id": 1272
+        "content": "申报要素:初始交易申报价格",
+        "father_id": 1264
     },
     {
         "id": 1276,
-        "content": "申报要素:客户交易单元代码",
-        "father_id": 1272
+        "content": "申报要素:数量",
+        "father_id": 1264
     },
     {
         "id": 1277,
-        "content": "申报要素:客户证券账户号码",
-        "father_id": 1272
+        "content": "申报要素:产品续做方式",
+        "father_id": 1264
     },
     {
         "id": 1278,
-        "content": "申报要素:证券公司指定的自营证券账户号码",
-        "father_id": 1272
+        "content": "交易类型:购回交易",
+        "father_id": 1261
     },
     {
         "id": 1279,
-        "content": "申报要素:证券代码",
-        "father_id": 1272
+        "content": "申报要素:申报时间",
+        "father_id": 1278
     },
     {
         "id": 1280,
-        "content": "申报要素:品种期限",
-        "father_id": 1272
+        "content": "申报要素:合同序号（含证券公司指定的交易单元代码、申报日期、客户所在营业部识别码、申报流水号）",
+        "father_id": 1278
     },
     {
         "id": 1281,
-        "content": "申报要素:到期购回日期",
-        "father_id": 1272
+        "content": "申报要素:交易类型",
+        "father_id": 1278
     },
     {
         "id": 1282,
-        "content": "申报要素:报价类型",
-        "father_id": 1272
+        "content": "申报要素:客户交易单元代码",
+        "father_id": 1278
     },
     {
         "id": 1283,
-        "content": "申报要素:初始交易申报价格",
-        "father_id": 1272
+        "content": "申报要素:客户证券账户号码",
+        "father_id": 1278
     },
     {
         "id": 1284,
-        "content": "申报要素:数量",
-        "father_id": 1272
+        "content": "申报要素:证券公司指定的自营证券账户号码",
+        "father_id": 1278
     },
     {
         "id": 1285,
-        "content": "申报要素:产品续做方式",
-        "father_id": 1272
+        "content": "申报要素:证券代码",
+        "father_id": 1278
     },
     {
         "id": 1286,
-        "content": "交易类型:购回交易",
-        "father_id": 1269
+        "content": "申报要素:品种期限",
+        "father_id": 1278
     },
     {
         "id": 1287,
-        "content": "申报要素:申报时间",
-        "father_id": 1286
+        "content": "申报要素:到期购回日期",
+        "father_id": 1278
     },
     {
         "id": 1288,
-        "content": "申报要素:合同序号（含证券公司指定的交易单元代码、申报日期、客户所在营业部识别码、申报流水号）",
-        "father_id": 1286
+        "content": "申报要素:报价类型",
+        "father_id": 1278
     },
     {
         "id": 1289,
-        "content": "申报要素:交易类型",
-        "father_id": 1286
+        "content": "申报要素:提前购回价格",
+        "father_id": 1278
     },
     {
         "id": 1290,
-        "content": "申报要素:客户交易单元代码",
-        "father_id": 1286
+        "content": "申报要素:数量",
+        "father_id": 1278
     },
     {
         "id": 1291,
-        "content": "申报要素:客户证券账户号码",
-        "father_id": 1286
+        "content": "申报要素:产品续做方式",
+        "father_id": 1278
     },
     {
         "id": 1292,
-        "content": "申报要素:证券公司指定的自营证券账户号码",
-        "father_id": 1286
+        "content": "申报要素:对应初始交易的申报合同序号",
+        "father_id": 1278
     },
     {
         "id": 1293,
-        "content": "申报要素:证券代码",
-        "father_id": 1286
-    },
-    {
-        "id": 1294,
-        "content": "申报要素:品种期限",
-        "father_id": 1286
-    },
-    {
-        "id": 1295,
-        "content": "申报要素:到期购回日期",
-        "father_id": 1286
-    },
-    {
-        "id": 1296,
-        "content": "申报要素:报价类型",
-        "father_id": 1286
-    },
-    {
-        "id": 1297,
-        "content": "申报要素:提前购回价格",
-        "father_id": 1286
-    },
-    {
-        "id": 1298,
-        "content": "申报要素:数量",
-        "father_id": 1286
-    },
-    {
-        "id": 1299,
-        "content": "申报要素:产品续做方式",
-        "father_id": 1286
-    },
-    {
-        "id": 1300,
-        "content": "申报要素:对应初始交易的申报合同序号",
-        "father_id": 1286
-    },
-    {
-        "id": 1301,
         "content": "交易方向:买入",
         "father_id": null
     },
     {
-        "id": 1302,
+        "id": 1294,
         "content": "交易方向:卖出",
         "father_id": null
     },
     {
-        "id": 1303,
+        "id": 1295,
         "content": "不含本数:超过",
         "father_id": null
     },
     {
-        "id": 1304,
+        "id": 1296,
         "content": "不含本数:高于",
         "father_id": null
     },
     {
-        "id": 1305,
+        "id": 1297,
         "content": "不含本数:低于",
         "father_id": null
     },
     {
-        "id": 1306,
+        "id": 1298,
         "content": "不含本数:优于",
         "father_id": null
     },
     {
-        "id": 1307,
+        "id": 1299,
         "content": "不含本数:不足",
         "father_id": null
     },
     {
-        "id": 1308,
+        "id": 1300,
         "content": "不含本数:大于",
         "father_id": null
     },
     {
-        "id": 1309,
+        "id": 1301,
         "content": "不含本数:少于",
         "father_id": null
     },
     {
-        "id": 1310,
+        "id": 1302,
         "content": "不含本数:未达到",
         "father_id": null
     },
     {
-        "id": 1311,
+        "id": 1303,
         "content": "含本数:达到",
         "father_id": null
     },
     {
-        "id": 1312,
+        "id": 1304,
         "content": "含本数:以上",
         "father_id": null
     },
     {
-        "id": 1313,
+        "id": 1305,
         "content": "含本数:上下",
         "father_id": null
     },
     {
-        "id": 1314,
+        "id": 1306,
         "content": "含本数:以内",
         "father_id": null
     },
     {
-        "id": 1315,
+        "id": 1307,
         "content": "含本数:不低于",
         "father_id": null
     },
     {
-        "id": 1316,
+        "id": 1308,
         "content": "含本数:不高于",
         "father_id": null
     },
     {
-        "id": 1317,
+        "id": 1309,
         "content": "含本数:等于",
         "father_id": null
     },
     {
-        "id": 1318,
+        "id": 1310,
         "content": "含本数:不超过",
         "father_id": null
     },
     {
-        "id": 1319,
+        "id": 1311,
         "content": "单独可测试规则要素:交易市场",
         "father_id": null
     },
     {
-        "id": 1320,
+        "id": 1312,
         "content": "单独可测试规则要素:交易品种",
         "father_id": null
     },
     {
-        "id": 1321,
+        "id": 1313,
         "content": "单独可测试规则要素:交易方式",
         "father_id": null
     },
     {
-        "id": 1322,
+        "id": 1314,
         "content": "单独可测试规则要素:交易方向",
         "father_id": null
     },
     {
-        "id": 1323,
+        "id": 1315,
         "content": "是否匿名:匿名方式",
         "father_id": null
     },
     {
-        "id": 1324,
+        "id": 1316,
         "content": "是否匿名:显名方式",
         "father_id": null
     },
     {
-        "id": 1325,
+        "id": 1317,
         "content": "是否匿名:匿名",
         "father_id": null
     },
     {
-        "id": 1326,
+        "id": 1318,
         "content": "是否匿名:显名",
         "father_id": null
     },
     {
-        "id": 1327,
+        "id": 1319,
         "content": "委托指令:证券账户号码",
         "father_id": null
     },
     {
-        "id": 1328,
+        "id": 1320,
         "content": "委托指令:证券代码",
         "father_id": null
     },
     {
-        "id": 1329,
+        "id": 1321,
         "content": "委托指令:买卖方向",
         "father_id": null
     },
     {
-        "id": 1330,
+        "id": 1322,
         "content": "委托指令:委托数量",
         "father_id": null
     },
     {
-        "id": 1331,
+        "id": 1323,
         "content": "委托指令:委托价格",
         "father_id": null
     },
     {
-        "id": 1332,
+        "id": 1324,
         "content": "委托指令:委托类型",
         "father_id": null
     },
     {
-        "id": 1333,
+        "id": 1325,
         "content": "委托指令:本所及会员要求的其他内容",
+        "father_id": null
+    },
+    {
+        "id": 1326,
+        "content": "证券品种:债券",
+        "father_id": null
+    },
+    {
+        "id": 1327,
+        "content": "证券品种:股票",
+        "father_id": null
+    },
+    {
+        "id": 1328,
+        "content": "证券品种:基金",
+        "father_id": null
+    },
+    {
+        "id": 1329,
+        "content": "证券品种:存托凭证",
+        "father_id": null
+    },
+    {
+        "id": 1330,
+        "content": "证券品种:权证",
         "father_id": null
     }
 ]

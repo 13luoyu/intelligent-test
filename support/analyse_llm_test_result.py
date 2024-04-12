@@ -35,7 +35,7 @@ def compute_acc(results):
         # if index >= 10:
         #     exit(0)
     
-    return round(word_acc / float(len(results)), 3), round(pair_acc / float(len(results)), 3)
+    return round(word_acc / float(len(results)), 4), round(pair_acc / float(len(results)), 4)
 
 
 
@@ -43,11 +43,11 @@ def compute_acc(results):
 
 
 if __name__ == "__main__":
-    for file in os.listdir("../decoder_lora/predict_data/"):
+    for file in os.listdir("../decoder_lora/predict_data/v1/"):
         if "predict_result" in file and ".txt" not in file:
             # if "predict_result_runtime.json" not in file:
             #     continue
-            results = json.load(open("../decoder_lora/predict_data/" + file, "r", encoding="utf-8"))
+            results = json.load(open("../decoder_lora/predict_data/v1/" + file, "r", encoding="utf-8"))
             acc = compute_acc(results)
             print(f"测试结果文件 {file} 的精确度为 {acc}")
             

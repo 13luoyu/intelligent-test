@@ -12,11 +12,34 @@ def compose_knowledge(tco, knowledge):
             key = item.split(":")[0]
             value = ":".join(item.split(":")[1:])
             # 借助领域知识，将value转换为对应的具体标签
+            # 并处理其他...
             if key == "value":
+                if "其他" in value and value.count("其他") == 1:
+                    value_part = value.split("其他")[1]
+                    find = False
+                    for know in knowledge:
+                        k, v = know["content"].split(":")[0], know["content"].split(":")[1]
+                        if value_part == v or value_part == k:
+                            new_label += f"{k}:{value},"
+                            find = True
+                            break
+                    if not find:
+                        new_label += f"{key}:{value},"
+                    continue
+                # elif "其他" not in value 没有“其他”，这里不考虑多个“其他”的情况
+                find = False
                 for know in knowledge:
                     k, v = know["content"].split(":")[0], know["content"].split(":")[1]
-                    if key == v:
-
+                    if value == v:
+                        new_label += f"{k}:{value},"
+                        find = True
+                        break
+                if not find:
+                    new_label += f"{key}:{value},"
+            
+            else:
+                new_label += f"{key}:{value},"
+        data["label"] = new_label[:-1]
 
     return tco
 

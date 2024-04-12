@@ -12,7 +12,7 @@ def generate_rules_testcases_for_all():
     elif args.model == "finbert":
         tc_model_path = "../model/trained/finbert_rule_element_extraction"
     elif args.model == "llama2":
-        tc_model_path = "../model/trained/llama2_rule_element_extraction"
+        tc_model_path = "../model/trained/llama2_rule_element_extraction_v1"
     else:
         raise ValueError(f"需要设置参数 --model 为 'mengzi', 'finbert', 'llama2' 之一")
     sc_model_path = "../model/trained/mengzi_rule_filtering"

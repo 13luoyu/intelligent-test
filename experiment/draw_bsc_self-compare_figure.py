@@ -4,6 +4,7 @@ import numpy as np
 def draw_figure(file, image):
     datasets = ["1", "2", "3", "4", "5"]
     models = ["mengzi", "finbert", "llama2"]
+    # acc = [86.84, 56.05, 94.76]
     mengzi_data, finbert_data, llama2_data = [], [], []
     lines = open(file, "r", encoding="utf-8").readlines()
     for line in lines:

@@ -2,9 +2,10 @@
 from ours.process_nl_to_sci import nl_to_sci
 from ours.process_sci_to_sco import sequence_classification
 from ours.process_sco_to_tci import sco_to_tci
-from ours.process_tci_to_tco import token_classification, token_classification_v2
-from ours.process_tco_to_r1 import to_r1, to_r1_v2
-
+from ours.process_tci_to_tco import token_classification as token_classification_v1
+from ours_v2.process_tci_to_tco import token_classification as token_classification_v2
+from ours.process_tco_to_r1 import to_r1 as to_r1_v1
+from ours.process_tco_to_r1 import to_r1_v2 as to_r1_v2
 from ours.process_r1_to_r2 import preprocess, compose_rules_r1_r2
 from ours.process_r2_to_r3 import compose_rules_r2_r3
 from ours.process_r3_to_testcase import testcase
@@ -53,16 +54,15 @@ def nlp_process(input_file: str,
     # 标注句子中每个字的类别
     terms = open(terms_file, "r", encoding="utf-8").read().split("\n")
     if "mengzi" in tc_model or "finbert" in tc_model:
-        tco = token_classification(tci, knowledge, tc_model, tc_dict, batch_size, sentence_max_length)
+        tco = token_classification_v1(tci, knowledge, tc_model, tc_dict, batch_size, sentence_max_length)
     else:
-        tco = token_classification_v2(tci, tc_model, knowledge)
+        tco = token_classification_v2(tci, tc_model, knowledge, use_algorithm=True)
     json.dump(tco, open(tco_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     print("规则元素抽取任务完成")
     # 调用转R1
-    tco = json.load(open(tco_file, "r", encoding="utf-8"))
-    r1 = to_r1(tco, knowledge, terms)
+    r1 = to_r1_v1(tco, knowledge, terms)
     # if "mengzi" in tc_model or "finbert" in tc_model:
-    #     r1 = to_r1(tco, knowledge, terms)
+    #     r1 = to_r1_v1(tco, knowledge, terms)
     # else:
     #     r1 = to_r1_v2(tco, knowledge, terms)
     r1 = add_defines(r1, market_variety)

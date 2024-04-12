@@ -3,12 +3,12 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from peft import PeftConfig, PeftModel
 import torch
 from transfer.knowledge_tree import encode_tree
+from ours.process_tci_to_tco import token_classification_with_algorithm
 
 
 
 
-
-def token_classification(tci, model_name_or_path, knowledge, print_log=False):
+def token_classification(tci, model_name_or_path, knowledge, print_log=False, use_algorithm=False):
     bnb_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_use_double_quant=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=torch.bfloat16)
     device_map = "cuda:0" if torch.cuda.is_available() else "auto"
 
@@ -32,18 +32,21 @@ def token_classification(tci, model_name_or_path, knowledge, print_log=False):
         label = tokenizer.decode(generate_ids[0]).split("Assistant:")[-1].split("</s>")[0].strip()
         rule['label'] = label
     
-    # 将label转换为BIO格式
-    # for data in tco:
-    #     text, label = data['text'].replace("：", ":"), data['label'].replace("：", ":").replace(" ", "")
-    #     new_label = ["O"] * len(text)
-    #     p = -1
-    #     for lb in label.split(","):
-    #         a, b = lb.split(":")[0], ":".join(lb.split(":")[1:])
-    #         p = text.find(b, p+1)
-    #         if p == -1:
-    #             continue
-    #         new_label[p:p+len(b)] = ["B-" + a] + ["I-" + a] * (len(b)-1)
-    #     data['label'] = " ".join(new_label)
+    if use_algorithm:
+        # 将label转换为BIO格式
+        for data in tco:
+            text, label = data['text'].replace("：", ":"), data['label'].replace("：", ":").replace(" ", "")
+            new_label = ["O"] * len(text)
+            p = -1
+            for lb in label.split(","):
+                a, b = lb.split(":")[0], ":".join(lb.split(":")[1:])
+                p = text.find(b, p+1)
+                if p == -1:
+                    continue
+                new_label[p:p+len(b)] = ["B-" + a] + ["I-" + a] * (len(b)-1)
+            data['label'] = " ".join(new_label)
+
+        tco = token_classification_with_algorithm(tco, knowledge)
 
     return tco
 

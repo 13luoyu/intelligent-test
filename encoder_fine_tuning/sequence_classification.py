@@ -87,4 +87,4 @@ if __name__ == "__main__":
     saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], model, training_args)
     eval_model(training_args["validate_dataset"], saved_path, training_args)
     # saved_path = "../model/trained/mengzi_rule_filtering"
-    # eval_model("../data/sc_validate_data.json", saved_path, training_args)
+    eval_model("../data/data_for_LLM_v1/sc_validate_data.json", saved_path, training_args)

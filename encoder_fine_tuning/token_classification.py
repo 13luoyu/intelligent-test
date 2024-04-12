@@ -1,10 +1,11 @@
 from transformers import AutoModelForTokenClassification, AutoTokenizer, Trainer
-from mengzi_fine_tuning.data_loader import DefaultDataset, DataCollatorForTokenClassification, read_json_for_token_classification, read_dict
-from mengzi_fine_tuning.training_arguments import get_training_arguments
-from mengzi_fine_tuning.arguments import arg_parser
+from encoder_fine_tuning.data_loader import DefaultDataset, DataCollatorForTokenClassification, read_json_for_token_classification, read_dict
+from encoder_fine_tuning.training_arguments import get_training_arguments
+from encoder_fine_tuning.arguments import arg_parser
 import torch
 import time
 from utils.try_gpu import try_gpu
+import os
 
 
 def printlog(s):
@@ -108,11 +109,16 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
         class_hats.append(class_hat)
     
     base_model = ""
-    if "mengzi" in training_args['model']:
+    if "mengzi" in training_args['model'].lower():
         base_model = "mengzi"
-    elif "finbert" in training_args['model']:
+    elif "finbert" in training_args['model'].lower():
         base_model = "finbert"
-    with open(f"./predict_data/{base_model}_tc_result_{model_path.split('_')[-1]}.log", "w+", encoding="utf-8") as f:
+    output_filename = f"./predict_data/{base_model}_tc_result_{model_path.split('_')[-1]}.log"
+    i = 1
+    while os.path.exists(output_filename):
+        output_filename = f"./predict_data/{base_model}_tc_result_{model_path.split('_')[-1]}_{i}.log"
+        i += 1
+    with open(output_filename, "w+", encoding="utf-8") as f:
         f.write("预测结果：\n")
         for i, data in enumerate(eval_dataset):
             f.write(f"id: {i}\ntext: {inputs[i]}\nir hat: {' '.join(class_hats[i])}\nir real: {labels[i]}\n")
@@ -124,6 +130,6 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], "../data/tc_data.dict", model, training_args)
-    # saved_path = "../model/trained/mengzi_rule_element_extraction"
-    eval_model(training_args["validate_dataset"], "../data/tc_data.dict", saved_path, training_args)
+    saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], "../data/data_for_LLM_v1/tc_data.dict", model, training_args)
+    # saved_path = "../model/trained/finbert_rule_element_extraction"
+    eval_model(training_args["validate_dataset"], "../data/data_for_LLM_v1/tc_data.dict", saved_path, training_args)

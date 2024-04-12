@@ -1,5 +1,5 @@
 define 交易市场 = 深圳证券交易所
-define 交易品种 = 向不特定对象发行的可转债
+define 交易品种 = 可转债
 
 rule 第二十七条.1
 sourceId 第二十七条
@@ -10,90 +10,96 @@ focus: 时间
 rule 第二十七条.2
 sourceId 第二十七条
 focus: 订单连续性操作
-	if 状态 is "当天全天停牌、处于临时停牌期,停牌至收市"
-	then 结果 is "成功"
+	if 状态 is "天停牌、处于临时停牌期间或者停牌至收" and 交易品种 is "可转债" and 系统 is "本所" and 交易方式 is "其协商成交" and 操作 is "交易申报" and 时间 is "当天全天停牌"
+	then 结果 is "不接受"
 
 rule 第二十七条.3
 sourceId 第二十七条
-focus: 订单连续性操作
-	if 交易品种 is "市的可转债" and 系统 is "本所" and 交易方式 is "其协商成交交易" and 操作 is "交易申报"
-	then 结果 is "不接受"
+focus: 时间
+	if 交易方式 is "采用盘后定价成交" and 交易时间 is "每个交易日的15:05至15:30"
+	then 结果 is "成功"
 
 rule 第二十七条.4
 sourceId 第二十七条
 focus: 订单连续性操作
-	if 交易品种 is "市的可转债" and 系统 is "本所" and 交易方式 is "其协商成交交易" and 操作 is "交易申报"
+	if 状态 is "当天全天停牌" and 交易品种 is "可转债" and 系统 is "本所" and 交易方式 is "其盘后定价成交" and 操作 is "交易申报"
 	then 结果 is "不接受"
 
 rule 第二十七条.5
 sourceId 第二十七条
-focus: 时间
-	if 交易方式 is "盘后定价成交方式" and 状态 is "当天全天停牌或者停牌至" and 时间 is "每个交易日的15:05至15:30"
-	then 结果 is "成功"
-
-rule 第二十七条.6
-sourceId 第二十七条
 focus: 订单连续性操作
-	if 交易品种 is "收市的可转债" and 交易方式 is "其盘后定价成交"
-	then 结果 is "成功"
+	if 交易品种 is "可转债" and 系统 is "本所" and 交易方式 is "其盘后定价成交" and 操作 is "交易申报"
+	then 结果 is "不接受"
 
 rule 第二十八条.1
 sourceId 第二十八条
 focus: 价格
-	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 单笔交易数量 不低于 "50万元面额" and 申报价格 is "50万元"
-	then 结果 is "成功"
+	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 单笔交易数量 低于 "50万元面额" and 交易金额 低于 "50万元"
+	then 结果 is "不成功"
 
 rule 第二十八条.2
 sourceId 第二十八条
 focus: 价格
-	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "盘后定价成交" and 单笔交易数量 不低于 "50万元面额" and 申报价格 is "50万元"
-	then 结果 is "成功"
-
-rule 第二十八条.3
-sourceId 第二十八条
-focus: 价格
-	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 交易金额 不低于 "50万元"
-	then 结果 is "成功"
-
-rule 第二十八条.4
-sourceId 第二十八条
-focus: 价格
-	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "盘后定价成交" and 交易金额 不低于 "50万元"
-	then 结果 is "成功"
+	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "盘后定价成交方式" and 单笔交易数量 低于 "50万元面额" and 交易金额 不低于 "50万元"
+	then 结果 is "不成功"
 
 rule 第二十九条.1
 sourceId 第二十九条
 focus: 订单连续性操作
-	if 操作 is "意向申报" and 操作部分 is "意向申报指令" and 操作 is "撤销"
+	if 操作 is "意向申报" and 操作部分 is "意向申报" and 操作 is "撤销"
 	then 结果 is "可以"
 
 rule 第二十九条.2
 sourceId 第二十九条
 focus: 订单连续性操作
-	if 系统 is "本所" and 操作 is "约定号、证券代码、买卖方向、价格、数量等各项要素均匹配的成交申报" and 操作人 is "市场所有参与者" and 操作 is "提交" and 操作部分 is "成交申报" and 约束 is "约定号、证券代码、买卖方向、价格、数量等各项要素均匹配的成交申报" and 申报价格 is "指定的价格"
+	if 系统 is "本所" and 约束 is "约定号" and 约束 is "证券代码" and 约束 is "买卖方向" and 约束 is "价格" and 各项要素均匹配的成交申报 is "数量" and 操作 is "各项要素均匹配的成交申报" and 操作 is "进行成交确认"
 	then 结果 is "成功"
 
 rule 第二十九条.3
 sourceId 第二十九条
-focus: 价格
-	if 申报类型 is "定价申报" and 申报数量 is "每笔成交的数量" and 交易方式 is "协商成交最低限额" and 价格 满足 "交易金额" and 约束 is "协商成交最低限额"
-	then 结果 is "申报全部"
+focus: 订单连续性操作
+	if 操作人 is "市场所有参与者" and 操作 is "提交成交申报" and 操作 is "申报全部" and 系统 is "本所" and 申报价格 is "指定的价格"
+	then 结果 is "可以"
 
 rule 第二十九条.4
 sourceId 第二十九条
-focus: 价格
-	if 申报类型 is "定价申报" and 约束 is "时间优先顺序" and 申报数量 is "每笔成交的数量" and 交易方式 is "协商成交最低限额" and 价格 满足 "交易金额" and 约束 is "协商成交最低限额"
-	then 结果 is "部分成交"
+focus: 订单连续性操作
+	if 操作人 is "市场所有参与者" and 系统 is "本所"
+	then 结果 is "全部或者部分成交"
+
+rule 第二十九条.5
+sourceId 第二十九条
+focus: 订单连续性操作
+	if 操作人 is "市场所有参与者" and 操作 is "提交成交申报" and 系统 is "本所" and 申报价格 is "指定的价格"
+	then 结果 is "可以"
+
+rule 第二十九条.6
+sourceId 第二十九条
+focus: 订单连续性操作
+	if 操作人 is "市场所有参与者" and 系统 is "本所"
+	then 结果 is "全部或者部分成交"
+
+rule 第二十九条.7
+sourceId 第二十九条
+focus: 订单连续性操作
+	if 申报类型 is "定价申报" and 约束 is "每笔成交的数量" and 交易方式 is "协商成交最低限额" and 约束 is "每笔成交的数量"
+	then 结果 is "成功"
+
+rule 第二十九条.8
+sourceId 第二十九条
+focus: 订单连续性操作
+	if 申报类型 is "定价申报" and 约束 is "每笔成交的数量" and 交易方式 is "协商成交最低限额" and 约束 is "交易金额"
+	then 结果 is "成功"
 
 rule 第三十一条.1
 sourceId 第三十一条
 focus: 价格
-	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 时间 is "上市首日" and 申报价格 is "发行价的上下30%范围内"
+	if 交易品种 is "向不特定对象发行的可转债" and 交易方式 is "协商成交" and 时间 is "上市首日" and 发行价的上下30%范围内 is "发行价的上下30%范围内"
 	then 结果 is "成功"
 
 rule 第三十一条.2
 sourceId 第三十一条
 focus: 价格
-	if 时间 is "除上市首日外" and 申报价格 is "在当日涨跌幅限制价格范围内"
+	if 交易方式 is "协商成交" and 时间 is "除上市首日外" and 申报价格 is "当日涨跌幅限制价格范围内"
 	then 结果 is "成功"
 

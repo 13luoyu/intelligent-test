@@ -23,12 +23,12 @@ from transfer.knowledge_tree import decode_tree, encode_tree
 
 # nohup python interface.py >../log/run.log &
 
-sc_model_path = "../model/ours/mengzi_rule_filtering"
-tc_model_path = "../model/ours/mengzi_rule_element_extraction"
+sc_model_path = "../model/trained/mengzi_rule_filtering"
+tc_model_path = "../model/trained/mengzi_rule_element_extraction"
 classification_knowledge_file = "../data/domain_knowledge/classification_knowledge.json"
 knowledge_file = '../data/domain_knowledge/knowledge.json'
-terms_file = "../data/terms.txt"
-dict_file = '../data/tc_data.dict'
+terms_file = "../data/domain_knowledge/terms.txt"
+dict_file = '../data/data_for_LLM_v1/tc_data.dict'
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)

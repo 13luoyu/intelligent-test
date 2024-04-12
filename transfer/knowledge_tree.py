@@ -1,4 +1,5 @@
 import json
+import copy
 
 
 def encode_tree(knowledge):
@@ -75,6 +76,7 @@ def get_constrainted_all_subvalues(knowledge, defines, base_key=None):
         return values
     if "交易市场" in defines and f"交易市场:{defines['交易市场'][0]}" in knowledge:
         knowledge = knowledge[f"交易市场:{defines['交易市场'][0]}"]
+    ori_knowledge = copy.deepcopy(knowledge)
     if "交易品种" in defines:
         if f"交易品种:{defines['交易品种'][0]}" in knowledge:
             knowledge = knowledge[f"交易品种:{defines['交易品种'][0]}"]
@@ -98,6 +100,7 @@ def get_constrainted_all_subvalues(knowledge, defines, base_key=None):
                 if find:
                     break
                 head += 1
+    
     if "交易方式" in defines:
         queen = [knowledge]
         head, tail = 0, 0
@@ -136,12 +139,16 @@ def get_constrainted_all_subvalues(knowledge, defines, base_key=None):
             head += 1
         if not find:
             knowledge = {}
-
     # 提取 *品种，交易方式，以及一些特殊的知识
     want_key = ["指令", "要素", "品种", "交易方式", "申报类型", "价格类型", "申报方式", "成交方式", "结算方式", "竞买方式", "多主体中标方式"]
     
     knowledge = remove_extro_type(knowledge)
 
+    # 限制，避免过久的运行
+    if knowledge == ori_knowledge:
+        return values
+
+    # 寻找所有内容
     values = dfs(knowledge, want_key)
 
     return values
@@ -307,17 +314,17 @@ def simplify(knowledge):
     return knowledge
 
 if __name__ == "__main__":
-    knowledge_file = "../data/classification_knowledge.json"
-    knowledge_tree_file = "../data/classification_knowledge_tree.json"
-    after_decode_file = "../data/classification_knowledge_decode.json"
+    knowledge_file = "../data/domain_knowledge/classification_knowledge.json"
+    knowledge_tree_file = "../data/domain_knowledge/classification_knowledge_tree.json"
+    after_decode_file = "../data/domain_knowledge/classification_knowledge_decode.json"
 
     knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
-    # knowledge_tree = encode_tree(knowledge)
-    # json.dump(knowledge_tree, open(knowledge_tree_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    knowledge_tree = encode_tree(knowledge)
+    json.dump(knowledge_tree, open(knowledge_tree_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
-    # knowledge = decode_tree(knowledge_tree)
-    # json.dump(knowledge, open(after_decode_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+    knowledge = decode_tree(knowledge_tree)
+    json.dump(knowledge, open(after_decode_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
     # values = get_constrainted_values(knowledge, {"交易市场":["深圳证券交易所"], "交易品种":["债券"]}, "交易方式")
-    values = get_constrainted_all_subvalues(knowledge, {"交易市场":["上海证券交易所"], "交易品种":["证券"]})
+    values = get_constrainted_all_subvalues(knowledge, {"交易市场":["深圳证券交易所"], "交易品种":["可转债"]})
     print(values)

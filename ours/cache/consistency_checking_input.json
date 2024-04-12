@@ -1,3 +1,0 @@
-{
-    "data":"rule 3.1.1\nif 交易方式 is \"匹配成交\" and 是否匿名 is \"匿名方式\"\nthen 结果 is \"成功\"\nconstraint 申报数量 >= 100000\n\nrule 3.1.2\nif 交易方式 is \"匹配成交\" and 是否匿名 is \"匿名方式\"\nthen 结果 is \"成功\"\nconstraint 申报数量 >= 200000\n\n"
-}

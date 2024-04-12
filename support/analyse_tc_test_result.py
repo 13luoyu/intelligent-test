@@ -36,10 +36,10 @@ def statistic(file):
 
 
 if __name__ == "__main__":
-    filelist = os.listdir("../log/")
+    filelist = os.listdir("../encoder_fine_tuning/predict_data/")
     filelist.sort()
     for file in filelist:
         if "run" in file or "sc" in file:
             continue
-        statistic(f"../log/{file}")
+        statistic(f"../encoder_fine_tuning/predict_data/{file}")
 
