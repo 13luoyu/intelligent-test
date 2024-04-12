@@ -55,8 +55,8 @@ fqdn==1.5.1
 frozenlist==1.4.1
 fsspec==2024.2.0
 gekko==1.0.7
-gradio==4.21.0
-gradio_client==0.12.0
+gradio==3.41.0
+gradio_client==0.5.0
 grpcio==1.62.1
 h11==0.14.0
 hanlp==2.1.0b56
@@ -92,12 +92,14 @@ jupyter_server_terminals==0.5.2
 jupyterlab_pygments==0.3.0
 jupyterlab-widgets==3.0.9
 kiwisolver==1.4.5
+latex2mathml==3.77.0
 lit==15.0.7
 Markdown==3.6
 markdown-it-py==3.0.0
 MarkupSafe==2.1.2
 matplotlib==3.5.1
 matplotlib-inline==0.1.6
+mdtex2html==1.3.0
 mdurl==0.1.2
 mistune==3.0.1
 mpmath==1.3.0
@@ -170,7 +172,7 @@ qtconsole==5.4.4
 QtPy==2.4.0
 referencing==0.30.2
 regex==2022.10.31
-requests==2.25.1
+requests==2.31.0
 responses==0.18.0
 rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
@@ -198,6 +200,7 @@ tensorboard-data-server==0.7.2
 termcolor==2.3.0
 terminado==0.17.1
 threadpoolctl==3.1.0
+tiktoken==0.6.0
 tinycss2==1.2.1
 tokenizers==0.15.2
 tomli==2.0.1
@@ -211,6 +214,7 @@ tornado==6.3.3
 tqdm==4.65.0
 traitlets==5.9.0
 transformers==4.38.2
+transformers-stream-generator==0.0.5
 triton==2.0.0
 typer==0.9.0
 typing_extensions==4.10.0
