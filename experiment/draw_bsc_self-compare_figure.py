@@ -49,4 +49,4 @@ def draw_figure(file, image):
 
 
 if __name__ == "__main__":
-    draw_figure("log/bsc.log", "log/bsc_self-compare.png")
+    draw_figure("log/bsc.log", "results/bsc_self-compare.png")

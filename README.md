@@ -42,10 +42,43 @@ LLM4Fin is a prototype tool for automatically generating test cases from natural
 ### Code for Fine-Tuning LLMs and Analyzing
 
 > - [**decoder_fine_tuning/**](./decoder_fine_tuning/). The code and results for load datasets, fine-tune the gpt-based deocder LLMs and use the fine-tuned LLMs to interface.
+>   - [**output/**](./decoder_fine_tuning/output/). The trained LLMs and logs.
+>   - [**predict_data/**](./decoder_fine_tuning/predict_data/). The result that predicted by the trained LLMs.
+>   - [*fine_tune_model.py*](./decoder_fine_tuning/fine_tune_model.py). Code for the overall fine-tune workflow.
+>   - [*arguments.py*](./decoder_fine_tuning/arguments.py). Code for defining the hyper-parameters.
+>   - [*dataset.py*](./decoder_fine_tuning/dataset.py). Code for load the train and validate datasets.
+>   - [*model.py*](./decoder_fine_tuning/model.py). Code for load the LLMs to train.
+>   - [*accuracy.py*](./decoder_fine_tuning/train.py). Define the metric.
+>   - [*train.py*](./decoder_fine_tuning/train.py). Code for fine-tuning LLMs.
+>   - [*predict.py*](./decoder_fine_tuning/predict.py). Code for using the trained LLMs to interface.
+>   - [*log.py*](./decoder_fine_tuning/log.py). Define the logger.
+>   - [*run_v1.sh*](./decoder_fine_tuning/run_v1.sh). Script for running fine-tuning process and prediction, using the data [*ir_train_v1.csv*](./data/data_for_LLM_v2/ir_train_v1.csv) to train and [*ir_validate_v1.csv*](./data/data_for_LLM_v2/ir_validate_v1.csv) to validate.
+>   - [*run_v2.sh*](./decoder_fine_tuning/run_v2.sh). Script for running fine-tuning process and prediction, using the data [*ir_train_v2.csv*](./data/data_for_LLM_v2/ir_train_v2.csv) to train and [*ir_validate_v2.csv*](./data/data_for_LLM_v2/ir_validate_v2.csv) to validate.
 
 > - [**decoder_lora/**](./decoder_lora/). The code and results for load datasets, use lora to train the gpt-based deocder LLMs and use the trained LLMs to interface.
+>   - [**output/**](./decoder_lora/output/). The trained LLMs and logs.
+>   - [**predict_data/**](./decoder_lora/predict_data/). The result that predicted by the trained LLMs.
+>   - [*train_lora_model.py*](./decoder_lora/train_lora_model.py). Code for the overall lora training workflow.
+>   - [*arguments.py*](./decoder_lora/arguments.py). Code for defining the hyper-parameters.
+>   - [*dataset.py*](./decoder_lora/dataset.py). Code for load the train and validate datasets.
+>   - [*model.py*](./decoder_lora/model.py). Code for load the LLMs to train.
+>   - [*accuracy.py*](./decoder_lora/train.py). Define the metric.
+>   - [*train.py*](./decoder_lora/train.py). Code for lora training LLMs.
+>   - [*predict.py*](./decoder_lora/predict.py). Code for using the trained LLMs to interface.
+>   - [*log.py*](./decoder_lora/log.py). Define the logger.
+>   - [*run_v1.sh*](./decoder_lora/run_v1.sh). Script for running lora training process and prediction, using the data [*ir_train_v1.csv*](./data/data_for_LLM_v2/ir_train_v1.csv) to train and [*ir_validate_v1.csv*](./data/data_for_LLM_v2/ir_validate_v1.csv) to validate.
+>   - [*run_v2.sh*](./decoder_lora/run_v2.sh). Script for running lora training process and prediction, using the data [*ir_train_v2.csv*](./data/data_for_LLM_v2/ir_train_v2.csv) to train and [*ir_validate_v2.csv*](./data/data_for_LLM_v2/ir_validate_v2.csv) to validate.
 
 > - [**encoder_fine_tuning/**](./encoder_fine_tuning/). The code and results for load datasets, fine-tune the bert-based encoder LLMs and use the fine-tuned LLMs to interface.
+>   - [**encoder_fine_tuning/output/**](./encoder_fine_tuning/output/). The trained LLMs and logs.
+>   - [**predict_data/**](./encoder_fine_tuning/predict_data/). The result that predicted by the trained LLMs.
+>   - [*arguments.py*](./encoder_fine_tuning/arguments.py). Code for defining the hyper-parameters.
+>   - [*dataset.py*](./encoder_fine_tuning/data_loader.py). Code for load the train and validate datasets.
+>   - [*sequence_classification.py*](./encoder_fine_tuning/sequence_classification.py). Code for fine-tuning and validate the LLMs for the rule filtering task.
+>   - [*token_classification.py*](./encoder_fine_tuning/token_classification.py). Code for fine-tuning and validate the LLMs for rule element extraction task.
+>   - [*run_sequence_classification.sh](./encoder_fine_tuning/run_sequence_classification.sh). Script for running training process with different hyper-parameters and predict for the rule filtering task.
+>   - [*run_token_classification.sh](./encoder_fine_tuning/run_token_classification.sh). Script for running training process with different hyper-parameters and predict for the rule element extraction task.
+
 
 > - [**support/**](./support/).  Code for corpus construction and analyze model performance.
 >   - [**stopwords/**](./support/stopwords/). Save the stopwords used in data augment.
@@ -58,7 +91,7 @@ LLM4Fin is a prototype tool for automatically generating test cases from natural
 >   - [*analyse_decoder_test_result.py*](./support/analyse_decoder_test_result.py). Compute the accuracy of the predicted output of trained decoder LLMs.
 >   - [*analyse_sc_test_result.py*](./support/analyse_sc_test_result.py). Compute the accuracy of the predicted output of fine-tuned encoder LLMs for rule filtering task.
 >   - [*analyse_tc_test_result.py*](./support/analyse_tc_test_result.py). Compute the accuracy of the predicted output of fine-tuned encoder LLMs for rule element extraction task.
->   - [*generate_dict_for_token_classification.py*](./support/generate_dict_for_token_classification.py). Read all the annotated data and get all the labels to generate [*data/data_for_LLM_v1/tc_data.dict*](./data/data_for_LLM_v1/tc_data.dict).
+>   - [*generate_dict_for_token_classification.py*](./support/generate_dict_for_token_classification.py). Read all the annotated data and get all the labels to generate [*./data/data_for_LLM_v1/tc_data.dict*](./data/data_for_LLM_v1/tc_data.dict).
 >   - [*generate_terms.py*](./support/generate_terms.py). Real all the annotated data and generate the terms base, saved at [*data/domain_knowledge/terms.py*](data/domain_knowledge/terms.txt).
 
 
@@ -66,7 +99,7 @@ LLM4Fin is a prototype tool for automatically generating test cases from natural
 
 > - [**ours/**](./ours/).  Code for our three-step workflow. ***Method 1***.
 >   - [*download_files/*](./ours/download_files/). The downloaded business rule documents to be processed.
->   - [*cache/*](./ours/cache/). The intermediate and final outputs of our approach.
+>   - [*cache/*](./ours/cache/). The intermediate and final outputs of LLM4Fin.
 >   - [*main.py*](./ours/main.py). Code for integrating and running the workflow.
 >   - [*process_nl_to_sci.py*](./ours/process_nl_to_sci.py). Code for Reading the business rule documents and dividing by sentence into the input of rule filtering sub-step.
 >   - [*process_sci_to_sco.py*](./ours/process_sci_to_sco.py). Code for rule filtering task.
@@ -80,23 +113,53 @@ LLM4Fin is a prototype tool for automatically generating test cases from natural
 >   - [*process_knowledge.py*](./ours/process_knowledge.py). Code for processing the domain knowledge and write into the terminology base.
 >   - [*consistency_checking.py*](./ours/consistency_checking.py). Code for consistency checking.
 >   - [*interface.py*](./ours/interface.py). We package each step of the approach as an interface for the front-end to call.
+
 > - [**transfer/**](./transfer/).  Code for rule format transformation.
 >   - [*mydsl_to_rules.py*](./transfer/mydsl_to_rules.py). Code for transfering the rules in *mydsl* format to a data structure used in programs.
 >   - [*rules_to_mydsl.py*](./transfer/rules_to_mydsl.py). Code for transfering the data structure used in programs to rules in *mydsl* format.
->   - [*knowledge_tree.py*](./transfer/knowledge_tree.py). Code for encode the has-a knowledge and decode it (Input: [*classification_knowledge*](./data/domain_knowledge/classification_knowledge.json), Output: [*classification_knowledge_tree*](./data/domain_knowledge/classification_knowledge_tree.json)), as well as select the domain knowledge desired.
+>   - [*knowledge_tree.py*](./transfer/knowledge_tree.py). Code for encode the has-a knowledge and decode it, as well as select the domain knowledge desired.
 
 ### Experiment Directory
 
-> - [**Experiment/**](./experiment/).
+> - [**Experiment/**](./experiment/). Data and code for generating the results in our paper.
+>   - [**business_scenario/**](./experiment/business_scenario/). Business scenarioes of the 5 evaluation datasets.
+>   - [**cache/**](./experiment/cache/). Save the intermediate outputs.
+>   - [**data/**](./experiment/data/). 5 evaluation datasets and 19 financial rule documents.
+>   - [**excel/**](./experiment/excel/). The generated test cases in excel format.
+>   - [**expert_result/**](./experiment/expert_result/). Test cases of 5 evaluation datasets generated by 3 domain experts.
+>   - [**llm_result/**](./experiment/llm_result/). Test cases of 5 evaluation datasets generated by ChatGPT (GPT-4) and ChatGLM (ChatGLM3).
+>   - [**non_expert_result/**](./experiment/non_expert_result/). Test cases of 5 evaluation datasets generated by 4 non-experts.
+>   - [**rules_and_testcases_for_all/**](./experiment/rules_and_testcases_for_all/). Rules and test cases of the 19 documents datasets generated by LLM4Fin.
+>   - [**rules_and_testcases_for_experiment/**](./experiment/rules_and_testcases_for_experiment/). Rules and test cases of the 5 evaluation datasets generated by LLM4Fin.
+>   - [**log/**](./experiment/log/). Results and logs of computing business scenario coverages.
+>   - [*compute_bsc.py*](./experiment/compute_bsc.py). Code for compute the business scenario coverages of generated test cases.
+>   - [*count_testcase_num.py*](./experiment/count_testcase_num.py). Code for count the number of test cases.
+>   - [*draw_bsc_self-compare_figure.py*](./experiment/draw_bsc_self-compare_figure.py). Code for draw the comparison of BSC of the generated test cases using FinBert, Mengzi, and llama2 in our workflow.
+>   - [*generate_rules_and_testcases_for_all.py*](./experiment/generate_rules_and_testcases_for_all.py). Code for generate the rules and test cases of the 19 documents datasets using LLM4Fin.
+>   - [*generate_rules_and_testcases_for_experiment.py*](./experiment/generate_rules_and_testcases_for_experiment.py). Code for generating the rules and test cases of the 5 evaluation datasets using LLM4Fin.
+>   - [*read_expert_result_to_testcase.py*](./experiment/read_expert_result_to_testcase.py). Transform the test cases written by domain experts to a json format.
+>   - [*read_llmchat_to_testcase.py*](./experiment/read_llmchat_to_testcase.py). Transform the test cases generated by ChatGPT and ChatGLM to a json format.
+>   - [*read_non_expert_result_to_testcase.py*](./experiment/read_non_expert_result_to_testcase.py). Transform the test cases written by non-experts to a json format.
+>   - [*run.sh*](./experiment/run_experiment.sh). Script to automatically generate test cases with LLM4Fin and compute the bsc, and then draw table and figure.
+>   - [*to_excel.py*](./experiment/to_excel.py). Code for transform the test cases to excel format.
+
 
 ### Others
 
-> - **requirements.txt**. Save the environmental dependence used in this project.
-> - **setup.py**. Code for install our project. 
-> - **model/**. The model directory storage pre-trained models and fine-tuned models. Mengzi pre-trained models (mengzi-bert-base-fin) can be downloaded from [*https://github.com/Langboat/Mengzi*](https://github.com/Langboat/Mengzi). Our fine-tuned model can be downloaded from [https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin](https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin)
+> - **model/**. The model directory storage pre-trained LLMs and fine-tuned LLMs. 
+>   - **pretrained/**. Directory to save the pretrained LLMs.
+>   - **trained/**. Directory to save the traind LLMs.
+> - [**chat_gradio/**](./chat_gradio/). Code for create webpages to chat with LLMs using gradio.
+>   - [*chat_gradio.py*](./chat_gradio/chat_gradio.py). Code for loading the fine-tuned llama2 to chat.
+>   - [*chat_gradio_lora.py*](./chat_gradio/chat_gradio.py). Code for loading the lora trained llama2 to chat.
+> - [*requirements.txt*](./requirements.txt). Save the environmental dependence used in this project.
+> - [*setup.py*](./setup.py). Code for install our project. 
+
+
+Mengzi pre-trained models (mengzi-bert-base-fin) can be downloaded from [*https://github.com/Langboat/Mengzi*](https://github.com/Langboat/Mengzi). Our fine-tuned model can be downloaded from [https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin](https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin)
 
 ## Installation
-Install step-by-step
+Install step-by-step:
 
     conda create -n intelligent-test python=3.9
     conda activate intelligent-test
@@ -104,23 +167,56 @@ Install step-by-step
     pip install -e .
 
 ## Running
-1. To fully run our tool, first download the fine-tuned model from [https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin](https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin) and saved the two models under **model/**, then run:
+1. To fully run our tool, first download the fine-tuned LLMs from [https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin](https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin) and saved the LLMs under **./model/trained/**, then run:
+
 
         cd ours
-        python main.py
+        python main.py --file {file} --model {model}
+
+    where {*file*} is the directory of the document to be analysis and {*model*} is the LLM to be used. For example, you can run:
     
-    The output file (textcase.json) and each intermediate outputs are saved under **ours/cache/**.
+        python main.py --file ./download_files/深圳证券交易所债券交易规则.pdf --model mengzi
 
-2. To fune-tune the model for rule filtering task, run
+    The output file (*textcase.json*) and each intermediate outputs are saved under **./ours/cache/**.
 
-        cd ours
+2. To fune-tune Mengzi for rule filtering task using Mengzi, first download Mengzi [here](https://github.com/Langboat/Mengzi) and save it under **./model/pretrained/**, then run
+
+        cd encoder_fine_tuning
         nohup ./run_sequence_classification.sh >../log/run_sequence_classification.log &
 
-    The training information such as loss are saved in **log/run_sequence_classification.log**. The verification results are saved in **sc_eval_{timestamp}.log**.
+    The training information such as loss are saved in *./log/run_sequence_classification.log*. The trained model are saved at **./encoder_fine_tuning/output/{pretrained_model}\_sc\_{timestamp}/**. The verification results are saved in *./encoder_fine_tuning/predict_data/{pretrained_model}\_sc\_result\_{timestamp}.log*.
 
-3. To fune-tune the model for rule element extraction task, run
+3. To fune-tune the Encoder LLMs for rule element extraction task, first download them and save under **./model/pretrained/**, then run
 
-        cd ours
+        cd encoder_fine_tuning
         nohup ./run_token_classification.sh >../log/run_token_classification.log &
     
-    The training information such as loss are saved in **log/run_token_classification.log**. The verification results are saved in **tc_eval_{timestamp}.log**.
+    The training information such as loss are saved in *./log/run_token_classification.log*. The trained model are saved at **./encoder_fine_tuning/output/{pretrained_model}\_tc\_{timestamp}/**. The verification results are saved in *./encoder_fine_tuning/predict_data/{pretrained_model}\_tc\_result\_{timestamp}.log*.
+
+4. To fine-tune Llama2 for rule element extraction task, first download them and save under **./model/pretrained**, then run
+
+        cd decoder_fine_tuning
+        nohup ./run_v1.sh >../log/run_llama2_fine_tuning_v1.log &
+    
+    The training information such as loss are saved in *./log/run_llama2_fine_tuning_v1.log*. The trained model are saved at **./decoder_fine_tuning/output/v1/best_model/**. The verification results are saved in *./encoder_fine_tuning/predict_data/v1/predict_result_\*.json*.
+
+
+5. To lora train Llama2 for rule element extraction task, first download them and save under **./model/pretrained**, then run
+
+        cd decoder_lora
+        nohup ./run_v1.sh >../log/run_llama2_lora_v1.log &
+    
+    The training information such as loss are saved in *./log/run_llama2_lora_v1.log*. The trained model are saved at **./decoder_lora/output/v1/best_model/**. The verification results are saved in *./decoder_lora/predict_data/v1/predict_result_\*.json*.
+
+
+
+6. To get the experimental results in our paper, first download the fine-tuned LLMs, then run:
+
+        cd experiment
+        nohup ./run_experiment.sh >../log/run_experiment.log &
+
+    The experimental results (Tables and Figures) are saved under **./experiment/results/**.
+
+
+
+
