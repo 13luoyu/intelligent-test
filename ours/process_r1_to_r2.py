@@ -392,7 +392,7 @@ def price_preprocess(value):
 
 
 
-def compose_rules_r1_r2(defines, vars, rules, preliminaries, concretize_securities):
+def compose_rules_r1_r2(defines, vars, rules, preliminaries, concretize_securities=False):
     """
     规则组合函数, 包含:
     1. 组合明显嵌套的规则
