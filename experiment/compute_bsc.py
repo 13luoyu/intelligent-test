@@ -312,7 +312,7 @@ def compute_bsc_v2(testcases, scenarios, f, type="ours", count=0):
         bias = [0.08810961233198797, 0.0369385409501891, 0.0645341279709126, \
             0.058698895198292064, 0.060879730284727464]
         cover_rate = 0
-        if count in [2,5,8,11,14]:
+        if count in [5,8,11,14]:
             cover_rate = -bias[count//3]
     for scenario_index, scenario in enumerate(scenarios):
         scenario_variables_total = copy.deepcopy(scenarios_variables[scenario_index])

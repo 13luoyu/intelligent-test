@@ -121,6 +121,7 @@ def nl_to_sci_interface():
             return jsonify(return_data)
 
         fileType, fileData = params['data']['fileType'], params['data']['fileData']
+        knowledge = json.load(open(classification_knowledge_file, "r", encoding="utf-8"))
         if fileType == "0":  # 文件
             if ".pdf" in fileData:
                 # 下载文件
@@ -130,7 +131,7 @@ def nl_to_sci_interface():
                 filepath = filepath.split("?")[0]
                 filepath = filepath.replace("//", "/")
                 # 处理
-                sci_data, market_variety = nl_to_sci(filepath)
+                sci_data, market_variety = nl_to_sci(nl_file=filepath,knowledge=knowledge)
                 timestamp, sign = get_timestamp_sign()
                 return_data = {"code": code, "msg": "success", "data": {"sci_data": sci_data, "setting": market_variety}, "timeStamp": timestamp, "sign": sign}
                 writelog(f"### 访问接口/preprocess, 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
@@ -139,7 +140,7 @@ def nl_to_sci_interface():
                 filepath = wget.download(fileData, app.config['UPLOAD_FOLDER'])
                 filepath = filepath.replace("//", "/")
                 nl_data = open(filepath, 'r', encoding="utf-8").read()
-                sci_data, market_variety = nl_to_sci(nl_data=nl_data)
+                sci_data, market_variety = nl_to_sci(nl_data=nl_data,knowledge=knowledge)
                 timestamp, sign = get_timestamp_sign()
                 return_data = {"code": code, "msg": "success", "data": {"sci_data": sci_data, "setting": market_variety}, "timeStamp": timestamp, "sign": sign}
                 writelog(f"### 访问接口/preprocess, 成todo_fp功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")

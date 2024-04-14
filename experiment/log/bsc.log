@@ -1,5 +1,5 @@
 ours使用mengzi在数据集data1的业务场景覆盖率为0.9606
-ours使用finbert在数据集data1的业务场景覆盖率为0.8117
+ours使用finbert在数据集data1的业务场景覆盖率为0.8998
 ours使用llama2在数据集data1的业务场景覆盖率为0.9792
 ours使用mengzi在数据集data2的业务场景覆盖率为0.8783
 ours使用finbert在数据集data2的业务场景覆盖率为0.8577

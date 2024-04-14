@@ -6,20 +6,24 @@ LLM4Fin is a prototype tool for automatically generating test cases from natural
 
 ## Project Structure 
 
-> - **data/**.  Save the annotated data, training and verification data for fine-tuning LLMs, and the terminology base.
->   - *business_rules*. Save the annotated data.
->      - *json_for_sequence_classification/*. Save the annotated data for rule filtering task.
->           - *\*.json*. The rules that are not annotated.
->           - *finish_\*.json*. The rules that are annotated.
->      - *json_for_token_classification/*. Save the annotated data for rule element extraction task.
->           - *\*.json*. The rules that are not annotated.
->           - *finish_\*.json*. The rules that are annotated.
->      - *origin/*. Save the business rule documents in pdf format.
->      - *txt/*. Save the business rules in txt format.
->   - *knowledge.json*. The terminology base.
->   - *sc_\*.json*. The training and verification data for rule filtering task.
->   - *tc_\*.json*. The training and verification data for rule element extraction task.
->   - *tc_data.dict*. All the label used in rule element extraction task.
+> - [**data/**](./data/).  The annotated data, training and validation dataset for fine-tuning LLMs, and the domain knowledge base.
+>   - [**data_for_LLM_v1/**](./data/data_for_LLM_v1/). Data of method version 1. These datas are used to train bert-based autoencoding LLMs.
+>       - [**business_rules/**](./data/data_for_LLM_v1/business_rules/). The annotated data.
+>           - [**json_for_sequence_classification/**](./data/data_for_LLM_v1/business_rules/json_for_sequence_classification/). Save the annotated data for rule filtering task.
+>               - *\*.json*. The rules that are not annotated.
+>               - *finish_\*.json*. The rules that are annotated.
+>           - [**json_for_token_classification/**](./data/data_for_LLM_v1/business_rules/json_for_token_classification/). Save the annotated data for rule element extraction task.
+>               - *\*.json*. The rules that are not annotated.
+>               - *finish_\*.json*. The rules that are annotated.
+>           - [**origin/**](./data/data_for_LLM_v1/business_rules/origin/). Save the business rule documents in pdf format.
+>           - [**txt/**](./data/data_for_LLM_v1/business_rules/txt/). Save the business rules in txt format.
+>       - *sc_\*.json*. The training and verification data for rule filtering task.
+>       - *tc_\*.json*. The training and verification data for rule element extraction task.
+>       - [*tc_data.dict*](./data/data_for_LLM_v1/tc_data.dict). All the label used in rule element extraction task.
+>   - [**data_for_LLM_v2/**](./data/data_for_LLM_v2/). Data of method version 2. These datas are used to train gpt-based autoregressive LLMs.
+>       - [*ir_all_v1.csv*](./data/data_for_LLM_v2/ir_all_v1.csv). All the data transformed from [*data/data_for_LLM_v1/rules.json*](./data/data_for_LLM_v1/rules.json)
+>       - [*ir_train_v1/csv*](./data/data_for_LLM_v2/ir_train_v1.csv). The training dataset separated from ir_all_v1.csv
+
 > - **log/**. Log directory.
 > - **model/**. The model directory storage pre-trained models and fine-tuned models. Mengzi pre-trained models (mengzi-bert-base-fin) can be downloaded from [*https://github.com/Langboat/Mengzi*](https://github.com/Langboat/Mengzi). Our fine-tuned model can be downloaded from [https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin](https://huggingface.co/AnonymousAuthorsForISSTA2024/LLM4Fin)
 > - **ours/**.  Code for our three-step framework and fine-tuning the LLMs.
