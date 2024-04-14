@@ -2,7 +2,6 @@
 import json
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch
-from utils.try_gpu import try_gpu
 
 
 def sequence_classification_with_algorithm(sco):
@@ -11,6 +10,11 @@ def sequence_classification_with_algorithm(sco):
             sc['type'] = "0"
     return sco
 
+
+def try_gpu(i=0):
+    if torch.cuda.device_count() >= i + 1:
+        return torch.device(f'cuda:{i}')
+    return torch.device('cpu')
 
 # def sequence_classification(in_file: str, out_file: str, model_path: str, batch_size: int = 8, sentence_max_length: int = 512):
 def sequence_classification(sci: list, model_path: str, batch_size: int = 8, sentence_max_length: int = 512):

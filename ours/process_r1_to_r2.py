@@ -392,7 +392,7 @@ def price_preprocess(value):
 
 
 
-def compose_rules_r1_r2(defines, vars, rules, preliminaries):
+def compose_rules_r1_r2(defines, vars, rules, preliminaries, concretize_securities):
     """
     规则组合函数, 包含:
     1. 组合明显嵌套的规则
@@ -415,7 +415,7 @@ def compose_rules_r1_r2(defines, vars, rules, preliminaries):
     vars, rules = subrule_compose(vars, rules)
     
     # 补全单规则相关的字段
-    vars, rules = supply_rules_on_prelim(defines, vars, rules, preliminaries)
+    vars, rules = supply_rules_on_prelim(defines, vars, rules, preliminaries, concretize_securities)
 
     # 除本规则规定的不接受撤销申报的时间段外，其他接受申报的时间内怎样怎样
     vars, rules = compute_other_time_in_rules(vars, rules, preliminaries)
@@ -498,7 +498,7 @@ def compose_nested_rules(vars, rules):
 
 
 
-def supply_rules_on_prelim(defines, vars, rules, preliminaries):
+def supply_rules_on_prelim(defines, vars, rules, preliminaries, concretize_securities):
     # 如果规则中没有"单独可测试规则要素"，添加
     elements = get_constrainted_values(preliminaries, {}, "单独可测试规则要素")
     tree = {}
@@ -580,7 +580,7 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries):
                                 find = False
                         break
                 if not find:
-                    if e == "证券":
+                    if concretize_securities and e == "证券":
                         e = get_constrainted_values(preliminaries, {}, f"{e}品种")
                     if isinstance(e, str):
                         rule['constraints'].append({"key":element, "operation":"is", "value":e})

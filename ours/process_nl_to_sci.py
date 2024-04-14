@@ -30,9 +30,9 @@ def get_market_variety(s, knowledge):
     for value in varieties:
         paper = s.split("\n")
         i = 0
-        while not is_id(paper[i]):
+        while i < len(paper) and not is_id(paper[i]):
             i += 1
-        if i == 0:
+        if i == 0 or i == len(paper):
             i = 2
         paper = "\n".join(paper[:i])
         value_count = paper.count(value)

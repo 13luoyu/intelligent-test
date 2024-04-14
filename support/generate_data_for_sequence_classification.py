@@ -6,7 +6,9 @@ import os
 
 def is_id(str):
     # 判断一句话是否是id开头
-    str = str.split(" ")[0]
+    str = str.split(" ")[0].strip()
+    if str == "":
+        return False
     if str[0]=="第" and "条" in str:
         return True
     if "." not in str:

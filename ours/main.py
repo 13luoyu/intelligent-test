@@ -71,7 +71,7 @@ def nlp_process(input_file: str,
     print("R规则生成")
     # exit(0)
 
-def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_json_file, r3_mydsl_file, testcase_file, classification_knowledge_file, knowledge_file, relation_file, e_relation_file, i_relation_file):
+def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_json_file, r3_mydsl_file, testcase_file, classification_knowledge_file, knowledge_file, relation_file, e_relation_file, i_relation_file, concretize_securities=False):
     # 读文件
     r1 = open(r1_mydsl_file, "r", encoding="utf-8").read()
     defines, vars, rules = mydsl_to_rules.mydsl_to_rules(r1)
@@ -84,7 +84,7 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
     print(f"R1包含规则数：{len(rules)}")
 
     # R1->R2
-    defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, classification_knowledge)
+    defines, vars, rules = compose_rules_r1_r2(defines, vars, rules, classification_knowledge, concretize_securities)
     json.dump(rules, open(r2_json_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     r2_rules = rules
     r2_json = rules_to_mydsl.r2_to_json(r2_rules)

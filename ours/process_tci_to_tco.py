@@ -8,7 +8,6 @@ import hanlp
 import re
 from ours.process_r1_to_r2 import is_num_key, is_price_key
 from transfer.knowledge_tree import encode_tree
-from utils.try_gpu import try_gpu
 
 
 def change(begin, end, label, tag):
@@ -516,13 +515,14 @@ def token_classification_with_algorithm(tco, knowledge):
                 else:
                     label[i] = "I-" + l
             last = l
-        
-        
-
-
 
         rule["text"], rule["label"] = text, " ".join(label)
     return tco
+
+def try_gpu(i=0):
+    if torch.cuda.device_count() >= i + 1:
+        return torch.device(f'cuda:{i}')
+    return torch.device('cpu')
 
 def token_classification(tci: list, knowledge, model_path: str, dict_file: str, batch_size: int = 8, sentence_max_length: int = 512):
     

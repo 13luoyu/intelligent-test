@@ -4,7 +4,6 @@ from encoder_fine_tuning.training_arguments import get_training_arguments
 from encoder_fine_tuning.arguments import arg_parser
 import torch
 import time
-from utils.try_gpu import try_gpu
 import os
 
 
@@ -13,6 +12,10 @@ def printlog(s):
         f.write(str(s))
         f.write("\n")
 
+def try_gpu(i=0):
+    if torch.cuda.device_count() >= i + 1:
+        return torch.device(f'cuda:{i}')
+    return torch.device('cpu')
 
 class CustomTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False):

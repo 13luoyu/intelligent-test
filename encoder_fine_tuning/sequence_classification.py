@@ -4,8 +4,11 @@ from mengzi_fine_tuning.training_arguments import get_training_arguments
 from mengzi_fine_tuning.arguments import arg_parser
 import torch
 import time
-from utils.try_gpu import try_gpu
 
+def try_gpu(i=0):
+    if torch.cuda.device_count() >= i + 1:
+        return torch.device(f'cuda:{i}')
+    return torch.device('cpu')
 
 def train_model(train_dataset: str, eval_dataset: str, model_path: str, training_args = {}):
 
