@@ -30,6 +30,8 @@ def integrate_file(in_file: str, train_file: str, validate_file: str):
         print(f"划分v1所有规则：训练集有数据{len(train_data)}条，验证集有数据{len(validate_data)}条。")
     elif "v2" in in_file:
         print(f"划分v2标注：训练集有数据{len(train_data)}条，验证集有数据{len(validate_data)}条。")
+    elif "v4" in in_file:
+        print(f"划分v4标注：训练集有数据{len(train_data)}条，验证集有数据{len(validate_data)}条。")
     json.dump(train_data, open(train_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     json.dump(validate_data, open(validate_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
 
@@ -102,5 +104,5 @@ if __name__ == "__main__":
     # 将ir_annotation_v2.json 9:1 分到对应文件
     integrate_file("../data/data_for_LLM_v2/ir_annotation_v2.json", "../data/data_for_LLM_v2/ir_train_v2.json", "../data/data_for_LLM_v2/ir_validate_v2.json")
 
-    # 将ir_annotation_v2.json 9:1 分到对应文件
+    # 将ir_annotation_v4.json 9:1 分到对应文件
     integrate_file("../data/data_for_LLM_v4/annotation_v4.json", "../data/data_for_LLM_v4/train_v4.json", "../data/data_for_LLM_v4/validate_v4.json")

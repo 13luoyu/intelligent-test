@@ -327,4 +327,4 @@ if __name__ == "__main__":
 
     # values = get_constrainted_values(knowledge, {"交易市场":["深圳证券交易所"], "交易品种":["债券"]}, "交易方式")
     values = get_constrainted_all_subvalues(knowledge, {"交易市场":["深圳证券交易所"], "交易品种":["可转债"]})
-    print(values)
+    # print(values)
