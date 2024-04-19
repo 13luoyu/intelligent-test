@@ -26,6 +26,8 @@ def add_knowledge_v2(rules, knowledge, answer_key):
                     continue
                 # elif "其他" not in value 没有“其他”，这里不考虑多个“其他”的情况
                 find = False
+                if "方式" in value[-2:]:
+                    value = value[:-2]
                 for know in knowledge:
                     k, v = know["content"].split(":")[0], know["content"].split(":")[1]
                     if "指令" in k or "要素" in k:
