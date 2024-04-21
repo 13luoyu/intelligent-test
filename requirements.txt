@@ -47,7 +47,6 @@ fastapi==0.110.0
 fastjsonschema==2.18.0
 ffmpy==0.3.2
 filelock==3.10.0
-flash-attn==2.5.6
 Flask==2.3.3
 Flask-Cors==4.0.0
 fonttools==4.42.1

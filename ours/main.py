@@ -127,7 +127,7 @@ def alg_process(r1_mydsl_file, r1_json_file, r2_json_file, r2_mydsl_file, r3_jso
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str, default="mengzi", choices=["mengzi", "finbert", "llama2"])
-    parser.add_argument("--file", type=str, default="./download_files/深圳证券交易所债券交易规则.py")
+    parser.add_argument("--file", type=str, default="./download_files/深圳证券交易所债券交易规则.pdf")
     args = parser.parse_args()
     if args.model == "mengzi":
         tc_model_path = "../model/trained/mengzi_rule_element_extraction"
@@ -141,7 +141,7 @@ if __name__ == "__main__":
         raise FileNotFoundError(f"文件 {args.file} 不存在")
     
     begin_time = time.time()
-    nlp_process(args.file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/terms.txt", "../model/trained/mengzi_rule_filtering", tc_model_path, "../data/tc_data.dict")
+    nlp_process(args.file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/terms.txt", "../model/trained/mengzi_rule_filtering", tc_model_path, "../data/data_for_LLM_v1/tc_data.dict")
     alg_process("cache/r1.mydsl", "cache/r1.json", "cache/r2.json", "cache/r2.mydsl", "cache/r3.json", "cache/r3.mydsl", "cache/testcase.json", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/knowledge.json", "cache/relation.json", "cache/explicit_relation.json", "cache/implicit_relation.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")

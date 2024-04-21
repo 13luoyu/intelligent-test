@@ -164,6 +164,8 @@ Install step-by-step:
     conda create -n intelligent-test python=3.9
     conda activate intelligent-test
     pip install -r requirements.txt
+    wget https://github.com/Dao-AILab/flash-attention/releases/download/v2.5.6/flash_attn-2.5.6+cu118torch2.0cxx11abiFALSE-cp39-cp39-linux_x86_64.whl
+    pip install flash_attn-2.5.6+cu118torch2.0cxx11abiFALSE-cp39-cp39-linux_x86_64.whl
     pip install -e .
 
 ## Running
