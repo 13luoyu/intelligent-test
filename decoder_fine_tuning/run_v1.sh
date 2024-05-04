@@ -46,17 +46,41 @@ python fine_tune_model.py \
     --disable_tqdm true
 
 
+# 初始化一个空数组来存储所有文件的整数部分
+file_numbers=()
+# 这里的目录需要替换成你实际的目录
+for file in $(find $model_dir -type d -name 'best_lora_model_*' | grep -oP 'best_lora_model_\K\d+'); do
+    file_numbers+=("$file")
+done
+# 如果没有找到任何文件，则退出脚本
+if [ ${#file_numbers[@]} -eq 0 ]; then
+    echo "没有找到匹配的文件。"
+    exit 1
+fi
+# 使用sort和tail找到最大的整数
+max_number=$(printf "%s\n" "${file_numbers[@]}" | sort -n | tail -1)
+# 构建最大的文件名
+filename="best_lora_model_$max_number"
+
+
 python predict.py \
-    --model_name_or_path ${output_dir}/best_model \
+    --model_name_or_path ${output_dir}/${filename} \
     --mode base \
     --tokenizer_fast false \
     --eval_dataset ../data/ir_validate.csv \
-    --prediction_file ./predict_data/predict_result_base.json
+    --prediction_file ./predict_data/predict_result_${filename}_base.json
 
 
 python predict.py \
-    --model_name_or_path ${output_dir}/best_model \
+    --model_name_or_path ${output_dir}/${filename} \
     --mode 8bit-base \
     --tokenizer_fast false \
     --eval_dataset ../data/ir_validate.csv \
-    --prediction_file ./predict_data/predict_result_8bit-base.json
+    --prediction_file ./predict_data/predict_result_${filename}_8bit-base.json
+
+
+
+
+cd output
+rm -rf checkpoint-*
+cd ..

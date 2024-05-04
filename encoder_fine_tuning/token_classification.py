@@ -1,6 +1,5 @@
 from transformers import AutoModelForTokenClassification, AutoTokenizer, Trainer, TrainingArguments
 from encoder_fine_tuning.data_loader import DefaultDataset, DataCollatorForTokenClassification, read_json_for_token_classification, read_dict
-from encoder_fine_tuning.training_arguments import get_training_arguments
 from encoder_fine_tuning.arguments import arg_parser
 import torch
 import time
@@ -53,12 +52,6 @@ def get_training_arguments(training_args):
 
 
 
-
-def printlog(s):
-    with open("run.log", "a+") as f:
-        f.write(str(s))
-        f.write("\n")
-
 def try_gpu(i=0):
     if torch.cuda.device_count() >= i + 1:
         return torch.device(f'cuda:{i}')
@@ -93,8 +86,8 @@ def train_model(train_dataset: str, eval_dataset: str, class_dict: str, model_pa
     collator = DataCollatorForTokenClassification(tokenizer, class_dict, max_length=training_args["sentence_max_length"], split = training_args["split"])
 
     saved_path = training_args["output_dir"]
-    training_args = get_training_arguments(training_args)
-    trainer = Trainer(model, training_args, collator, train_dataset, eval_dataset, tokenizer)
+    args = get_training_arguments(training_args)
+    trainer = Trainer(model, args, collator, train_dataset, eval_dataset, tokenizer)
     trainer.train()
 
     base_model = ""

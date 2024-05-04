@@ -59,99 +59,117 @@ python train_lora_model.py \
     --test_output_file ${predict_dir}/predict_result_framework.txt \
     --disable_tqdm true
 
+
+# 初始化一个空数组来存储所有文件的整数部分
+file_numbers=()
+# 这里的目录需要替换成你实际的目录
+for file in $(find $model_dir -type d -name 'best_lora_model_*' | grep -oP 'best_lora_model_\K\d+'); do
+    file_numbers+=("$file")
+done
+# 如果没有找到任何文件，则退出脚本
+if [ ${#file_numbers[@]} -eq 0 ]; then
+    echo "没有找到匹配的文件。"
+    exit 1
+fi
+# 使用sort和tail找到最大的整数
+max_number=$(printf "%s\n" "${file_numbers[@]}" | sort -n | tail -1)
+# 构建最大的文件名
+filename="best_lora_model_$max_number"
+
+
 # 合并lora模型和原始模型，原始模型4位量化
 python merge.py \
-    --adapter_model_name ${output_dir}/best_lora_model \
-    --output_name ${output_dir}/best_model_4bit \
+    --adapter_model_name ${output_dir}/${filename} \
+    --output_name ${output_dir}/${filename}_4bit \
     --mode 4bit
 
 # 使用4bit量化合并后的模型不量化加载预测
 # python predict.py \
-#     --model_name_or_path ${output_dir}/best_model_4bit \
+#     --model_name_or_path ${output_dir}/${filename}_4bit \
 #     --mode base \
 #     --tokenizer_fast false \
 #     --eval_dataset ${validation_files} \
-#     --prediction_file ${predict_dir}/predict_result_4bit_merge_normal_load.json
+#     --prediction_file ${predict_dir}/predict_result_${filename}_4bit_merge_normal_load.json
 
 # 使用4bit量化合并后的模型以8bit加载预测
 # python predict.py \
-#     --model_name_or_path ${output_dir}/best_model_4bit \
+#     --model_name_or_path ${output_dir}/${filename}_4bit \
 #     --mode 8bit-base \
 #     --tokenizer_fast false \
 #     --eval_dataset ${validation_files} \
-#     --prediction_file ${predict_dir}/predict_result_4bit_merge_8bit_load.json
+#     --prediction_file ${predict_dir}/predict_result_${filename}_4bit_merge_8bit_load.json
 
 
 # 合并lora模型和原始模型，原始模型8位量化
 # python merge.py \
-#     --adapter_model_name ${output_dir}/best_lora_model \
-#     --output_name ${output_dir}/best_model_8bit \
+#     --adapter_model_name ${output_dir}/${filename} \
+#     --output_name ${output_dir}/${filename}_8bit \
 #     --mode 8bit
 
 # 使用8bit量化合并后的模型不量化加载预测
 # python predict.py \
-#     --model_name_or_path ${output_dir}/best_model_8bit \
+#     --model_name_or_path ${output_dir}/${filename}_8bit \
 #     --mode base \
 #     --tokenizer_fast false \
 #     --eval_dataset ${validation_files} \
-#     --prediction_file ${predict_dir}/predict_result_8bit_merge_normal_load.json
+#     --prediction_file ${predict_dir}/predict_result_${filename}_8bit_merge_normal_load.json
 
 # 使用8bit量化合并后的模型8bit量化加载预测
 # python predict.py \
-#     --model_name_or_path ${output_dir}/best_model_8bit \
+#     --model_name_or_path ${output_dir}/${filename}_8bit \
 #     --mode 8bit-base \
 #     --tokenizer_fast false \
 #     --eval_dataset ${validation_files} \
-#     --prediction_file ${predict_dir}/predict_result_8bit_merge_8bit_load.json
+#     --prediction_file ${predict_dir}/predict_result_${filename}_8bit_merge_8bit_load.json
 
 
 # 合并lora模型和原始模型，原始模型不量化
 # python merge.py \
-#     --adapter_model_name ${output_dir}/best_lora_model \
-#     --output_name ${output_dir}/best_model
+#     --adapter_model_name ${output_dir}/${filename} \
+#     --output_name ${output_dir}/${filename}_no_quantization
 
 # 使用不量化合并后的模型不量化加载预测
 # python predict.py \
-#     --model_name_or_path ${output_dir}/best_model \
+#     --model_name_or_path ${output_dir}/${filename}_no_quantization \
 #     --mode base \
 #     --tokenizer_fast false \
 #     --eval_dataset ${validation_files} \
-#     --prediction_file ${predict_dir}/predict_result_normal_merge_normal_load.json
+#     --prediction_file ${predict_dir}/predict_result_${filename}_normal_merge_normal_load.json
 
 # 使用不量化合并后的模型8bit量化加载预测
 # python predict.py \
-#     --model_name_or_path ${output_dir}/best_model \
+#     --model_name_or_path ${output_dir}/${filename}_no_quantization \
 #     --mode 8bit-base \
 #     --tokenizer_fast false \
 #     --eval_dataset ${validation_files} \
-#     --prediction_file ${predict_dir}/predict_result_normal_merge_8bit_load.json
+#     --prediction_file ${predict_dir}/predict_result_${filename}_normal_merge_8bit_load.json
 
 
 
 # 使用8bit加载原始模型并与lora运行时合并预测
 # python predict.py \
-#     --model_name_or_path ${output_dir}/best_lora_model \
+#     --model_name_or_path ${output_dir}/${filename} \
 #     --mode 8bit-lora \
 #     --tokenizer_fast false \
 #     --eval_dataset ${validation_files} \
-#     --prediction_file ${predict_dir}/predict_result_8bit_load_lora.json
+#     --prediction_file ${predict_dir}/predict_result_${filename}_8bit_load_lora.json
 
 # 使用4bit加载原始模型并与lora运行时合并预测
 #*******注意：这是和训练时的加载模式相同的模式********
 python predict.py \
-    --model_name_or_path ${output_dir}/best_lora_model \
+    --model_name_or_path ${output_dir}/${filename} \
     --mode 4bit-lora \
     --tokenizer_fast false \
     --eval_dataset ${validation_files} \
-    --prediction_file ${predict_dir}/predict_result_4bit_load_lora.json
+    --prediction_file ${predict_dir}/predict_result_${filename}_4bit_load_lora.json
 
 # 使用不加载原始模型并与lora运行时合并预测
 python predict.py \
-    --model_name_or_path ${output_dir}/best_lora_model \
+    --model_name_or_path ${output_dir}/${filename} \
     --mode lora \
     --tokenizer_fast false \
     --eval_dataset ${validation_files} \
-    --prediction_file ${predict_dir}/predict_result_normal_load_lora.json
+    --prediction_file ${predict_dir}/predict_result_${filename}_normal_load_lora.json
 
 
 

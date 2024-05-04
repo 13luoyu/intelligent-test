@@ -45,7 +45,7 @@ def generate_llm_chat_data_for_ir_v1(rules):
         s += rule['text']
         s += "\n</s><s>Assistant: "
         stack = read_OBI_to_rule(rule['text'], rule['label'])
-        stack = str(stack).replace("[", "").replace("]", "").replace("{", "").replace("}", "").replace("'", "")
+        stack = str(stack).replace("[", "").replace("]", "").replace("{", "").replace("}", "").replace("'", "").replace(" ", "")
         s += stack
         s += "\n</s>\"\n"
     return s

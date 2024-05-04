@@ -472,23 +472,23 @@ def eda_sc(sentence, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug
     #同义词替换sr
     for _ in range(num_new_per_technique):
         a_words = synonym_replacement_sc(words, n_sr, stop_words)
-        augmented_sentences.append(' '.join(a_words))
+        augmented_sentences.append(''.join(a_words))
 
     #随机插入ri
     for _ in range(num_new_per_technique):
         a_words = random_insertion_sc(words, n_ri)
-        augmented_sentences.append(' '.join(a_words))
+        augmented_sentences.append(''.join(a_words))
     
     #随机交换rs
     for _ in range(num_new_per_technique):
         a_words = random_swap_sc(words, n_rs)
-        augmented_sentences.append(' '.join(a_words))
+        augmented_sentences.append(''.join(a_words))
 
    
     #随机删除rd
     for _ in range(num_new_per_technique):
         a_words = random_deletion_sc(words, p_rd)
-        augmented_sentences.append(' '.join(a_words))
+        augmented_sentences.append(''.join(a_words))
 
 
     if num_aug >= 1:
@@ -497,7 +497,7 @@ def eda_sc(sentence, alpha_sr=0.1, alpha_ri=0.1, alpha_rs=0.1, p_rd=0.1, num_aug
         keep_prob = num_aug / len(augmented_sentences)
         augmented_sentences = [s for s in augmented_sentences if random.uniform(0, 1) < keep_prob]
 
-    augmented_sentences.append(seg_list)
+    augmented_sentences.append(sentence)
 
     return augmented_sentences
 

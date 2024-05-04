@@ -1,7 +1,6 @@
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
-from mengzi_fine_tuning.data_loader import DefaultDataset, DataCollatorForSequenceClassification, read_json_for_sequence_classification
-from mengzi_fine_tuning.training_arguments import get_training_arguments
-from mengzi_fine_tuning.arguments import arg_parser
+from encoder_fine_tuning.data_loader import DefaultDataset, DataCollatorForSequenceClassification, read_json_for_sequence_classification
+from encoder_fine_tuning.arguments import arg_parser
 import torch
 import time
 

@@ -62,7 +62,7 @@ def read_dict(file: str):
 
 # 分类任务数据加载器，将一个batch的自然语言编码为向量
 class DataCollatorForTokenClassification:
-    def __init__(self, tokenizer, class_dict: str, max_length: int = 512, padding = "max_length", truncation: bool = True, split: str = "\x02"):
+    def __init__(self, tokenizer, class_dict: str, max_length: int = 512, padding = "max_length", truncation: bool = True, split: str = " "):
         self.tokenizer = tokenizer
         self.padding = padding
         self.truncation = truncation

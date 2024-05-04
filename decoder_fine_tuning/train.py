@@ -6,6 +6,7 @@ import evaluate
 import torch
 import bitsandbytes as bnb
 from transformers import Trainer, TrainerCallback
+import time
 
 
 def get_optimizer(model, training_args):
@@ -83,7 +84,7 @@ def train_model(model, last_checkpoint, tokenizer, train_dataset, eval_dataset, 
             model = torch.compile(model)  # torch.compile 通过 JIT 将 PyTorch 代码编译成优化的内核，使 PyTorch 代码运行得更快
         
         train_result = trainer.train(resume_from_checkpoint=checkpoint)
-        trainer.save_model(os.path.join(training_args.output_dir, "best_model"))
+        trainer.save_model(os.path.join(training_args.output_dir, f"best_model_{int(time.time())}"))
 
         metrics = train_result.metrics
         max_train_samples = (
