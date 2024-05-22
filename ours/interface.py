@@ -559,9 +559,37 @@ def consistency_checking_interface():
         writelog(f"### 访问接口/testcase, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
         return jsonify(return_data)
 
+from support.generate_data_for_sequence_classification import read_pdf_to_txt
+@app.route("/pdf_parse", methods=["POST"])
+def pdf_parse():
+    try:
+        params = request.json
+        code, msg = check_input_params(params)
+        if code != 200:
+            timestamp, sign = get_timestamp_sign()
+            return_data = {"code": code, "msg": msg, "data": None, "timeStamp": timestamp, "sign": sign}
+            writelog(f"### 访问接口/pdf_parse, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
+            return jsonify(return_data)
 
-
-
+        fileData = params['data']
+        # 下载文件
+        filepath = wget.download(fileData, app.config['UPLOAD_FOLDER'])
+        filepath = filepath.replace("//", "/")
+        os.rename(filepath, filepath.split("?")[0])
+        filepath = filepath.split("?")[0]
+        filepath = filepath.replace("//", "/")
+        # 处理
+        txt = read_pdf_to_txt(filepath)
+        timestamp, sign = get_timestamp_sign()
+        return_data = {"code": code, "msg": "success", "data": txt, "timeStamp": timestamp, "sign": sign}
+        writelog(f"### 访问接口/pdf_parse, 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
+        return jsonify(return_data)
+        
+    except Exception as e:
+        timestamp, sign = get_timestamp_sign()
+        return_data = {"code": 204, "msg": traceback.format_exc(), "data": None, "timeStamp": timestamp, "sign": sign}
+        writelog(f"### 访问接口/pdf_parse, 错误! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
+        return jsonify(return_data)
 
 
 

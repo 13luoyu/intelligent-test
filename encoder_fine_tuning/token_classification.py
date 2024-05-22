@@ -100,7 +100,7 @@ def train_model(train_dataset: str, eval_dataset: str, class_dict: str, model_pa
     return saved_path
 
 
-def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_args = {}):
+def eval_model(eval_dataset: str, class_dict: str, model_path: str, output_filename: str, training_args: dict):
 
     with open(class_dict, "r", encoding="utf-8") as f:
         lines = f.readlines()
@@ -151,16 +151,6 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, training_arg
             class_hat.append(index_to_class[h])
         class_hats.append(class_hat)
     
-    base_model = ""
-    if "mengzi" in training_args['model'].lower():
-        base_model = "mengzi"
-    elif "finbert" in training_args['model'].lower():
-        base_model = "finbert"
-    output_filename = f"./predict_data/{base_model}_tc_result_{model_path.split('_')[-1]}.log"
-    i = 1
-    while os.path.exists(output_filename):
-        output_filename = f"./predict_data/{base_model}_tc_result_{model_path.split('_')[-1]}_{i}.log"
-        i += 1
     with open(output_filename, "w+", encoding="utf-8") as f:
         f.write("预测结果：\n")
         for i, data in enumerate(eval_dataset):
@@ -175,4 +165,4 @@ if __name__ == "__main__":
     model = training_args["model"]
     saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], "../data/data_for_LLM_v1/tc_data.dict", model, training_args)
     # saved_path = "../model/trained/finbert_rule_element_extraction"
-    eval_model(training_args["validate_dataset"], "../data/data_for_LLM_v1/tc_data.dict", saved_path, training_args)
+    eval_model(training_args["validate_dataset"], "../data/data_for_LLM_v1/tc_data.dict", saved_path, "./predict_data/"+saved_path.split("/")[-1]+"_test_result.txt", training_args)

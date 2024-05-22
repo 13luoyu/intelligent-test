@@ -59,18 +59,22 @@ def generate_llm_chat_data_for_ir_v2(datas):
 
 
 
-if __name__ == "__main__":
-    # v1
-    # rules = json.load(open("../data/data_for_LLM_v1/tc_train_data_rules_raw.json", "r", encoding="utf-8"))
-    # s = generate_llm_chat_data_for_ir_v1(rules)
-    # with open("../data/data_for_LLM_v2/ir_train_v1.csv", "w", encoding="utf-8") as f:
-    #     f.write(s)
-    # rules = json.load(open("../data/data_for_LLM_v1/tc_validate_data_rules.json", "r", encoding="utf-8"))
-    # s = generate_llm_chat_data_for_ir_v1(rules)
-    # with open("../data/data_for_LLM_v2/ir_validate_v1.csv", "w", encoding="utf-8") as f:
-    #     f.write(s)
-    
-    # v2
+def main_v1():
+    rules = json.load(open("../data/data_for_LLM_v1/tc_train_data_rules_raw.json", "r", encoding="utf-8"))
+    s = generate_llm_chat_data_for_ir_v1(rules)
+    with open("../data/data_for_LLM_v2/ir_train_v1.csv", "w", encoding="utf-8") as f:
+        f.write(s)
+    rules = json.load(open("../data/data_for_LLM_v1/tc_validate_data_rules.json", "r", encoding="utf-8"))
+    s = generate_llm_chat_data_for_ir_v1(rules)
+    with open("../data/data_for_LLM_v2/ir_validate_v1.csv", "w", encoding="utf-8") as f:
+        f.write(s)
+    rules = json.load(open("../data/data_for_LLM_v1/rules.json", "r", encoding="utf-8"))
+    s = generate_llm_chat_data_for_ir_v1(rules)
+    with open("../data/data_for_LLM_v2/ir_all_v1.csv", "w", encoding="utf-8") as f:
+        f.write(s)
+
+
+def main_v2():
     datas = json.load(open("../data/data_for_LLM_v2/ir_annotation_v2.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
     with open("../data/data_for_LLM_v2/ir_all_v2.csv", "w", encoding="utf-8") as f:
@@ -84,12 +88,27 @@ if __name__ == "__main__":
     with open("../data/data_for_LLM_v2/ir_validate_v2.csv", "w", encoding="utf-8") as f:
         f.write(s)
 
+
+
+def main_v4():
+    datas = json.load(open("../data/data_for_LLM_v4/train_v4.json", "r", encoding="utf-8"))
+    s = generate_llm_chat_data_for_ir_v2(datas)
+    with open("../data/data_for_LLM_v4/train_v4.csv", "w", encoding="utf-8") as f:
+        f.write(s)
+    datas = json.load(open("../data/data_for_LLM_v4/validate_v4.json", "r", encoding="utf-8"))
+    s = generate_llm_chat_data_for_ir_v2(datas)
+    with open("../data/data_for_LLM_v4/validate_v4.csv", "w", encoding="utf-8") as f:
+        f.write(s)
+
+
+
+
+if __name__ == "__main__":
+    # v1
+    main_v1()
+    
+    # # v2
+    # main_v2()
+
     # # v4
-    # datas = json.load(open("../data/data_for_LLM_v4/train_v4.json", "r", encoding="utf-8"))
-    # s = generate_llm_chat_data_for_ir_v2(datas)
-    # with open("../data/data_for_LLM_v4/train_v4.csv", "w", encoding="utf-8") as f:
-    #     f.write(s)
-    # datas = json.load(open("../data/data_for_LLM_v4/validate_v4.json", "r", encoding="utf-8"))
-    # s = generate_llm_chat_data_for_ir_v2(datas)
-    # with open("../data/data_for_LLM_v4/validate_v4.csv", "w", encoding="utf-8") as f:
-    #     f.write(s)
+    # main_v4()

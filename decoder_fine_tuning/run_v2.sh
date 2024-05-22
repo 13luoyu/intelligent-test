@@ -3,14 +3,23 @@
 # nohup bash run_v2.sh >../log/run_llama2_fine_tuning.log &
 
 output_dir=./output
+predict_dir=./predict_data/v1
+train_files=../data/data_for_LLM_v2/ir_train_v1.csv
+validation_files=../data/data_for_LLM_v2/ir_validate_v1.csv
+all_files=../data/data_for_LLM_v2/ir_all_v1.csv
+
 # 需要修改到自己的输入目录
 if [ ! -d ${output_dir} ];then  
     mkdir ${output_dir}
 fi
+if [ ! -d ${predict_dir} ];then  
+    mkdir ${predict_dir}
+fi
+
 python fine_tune_model.py \
     --model_name_or_path ../model/pretrained/Atom-7B \
-    --train_files ../data/ir_train_v2.csv \
-    --validation_files  ../data/ir_validate_v2.csv \
+    --train_files ${train_files} \
+    --validation_files ${validation_files} \
     --per_device_train_batch_size 1 \
     --per_device_eval_batch_size 1 \
     --do_train \
@@ -42,19 +51,19 @@ python fine_tune_model.py \
     --bf16_full_eval \
     --ddp_timeout 18000000 \
     --torch_dtype float16 \
-    --test_output_file ./predict_data/test_result_framework.txt \
+    --test_output_file ${predict_dir}/test_result_framework.txt \
     --disable_tqdm true
 
 
 # 初始化一个空数组来存储所有文件的整数部分
 file_numbers=()
 # 这里的目录需要替换成你实际的目录
-for file in $(find $model_dir -type d -name 'best_lora_model_*' | grep -oP 'best_lora_model_\K\d+'); do
+for file in $(find $output_dir -type d -name 'best_lora_model_*' | grep -oP 'best_lora_model_\K\d+'); do
     file_numbers+=("$file")
 done
 # 如果没有找到任何文件，则退出脚本
 if [ ${#file_numbers[@]} -eq 0 ]; then
-    echo "没有找到匹配的文件。"
+    echo "Error 没有找到匹配的文件。"
     exit 1
 fi
 # 使用sort和tail找到最大的整数
@@ -67,20 +76,21 @@ python predict.py \
     --model_name_or_path ${output_dir}/${filename} \
     --mode base \
     --tokenizer_fast false \
-    --eval_dataset ../data/ir_validate.csv \
-    --prediction_file ./predict_data/predict_result_${filename}_base.json
+    --eval_dataset ${validation_files} \
+    --prediction_file ${predict_dir}/predict_result_${filename}_base.json
 
 
 python predict.py \
     --model_name_or_path ${output_dir}/${filename} \
-    --mode 8bit-base \
+    --mode base \
     --tokenizer_fast false \
-    --eval_dataset ../data/ir_validate.csv \
-    --prediction_file ./predict_data/predict_result_${filename}_8bit-base.json
+    --eval_dataset ${validation_files} \
+    --prediction_file ${predict_dir}/predict_result_${filename}_base_all.json
 
 
 
 
-cd output
+cd ${output_dir}
 rm -rf checkpoint-*
+cd ..
 cd ..

@@ -81,7 +81,7 @@ def train_model(train_dataset: str, eval_dataset: str, model_path: str, training
     return saved_path
 
 
-def eval_model(eval_dataset: str, model_path: str, training_args = {}):
+def eval_model(eval_dataset: str, model_path: str, output_filename: str, training_args: dict):
 
     model = AutoModelForSequenceClassification.from_pretrained(model_path, num_labels=3)
     tokenizer = AutoTokenizer.from_pretrained(model_path)
@@ -113,12 +113,8 @@ def eval_model(eval_dataset: str, model_path: str, training_args = {}):
 
     hats = predict(model, tokenizer, inputs)
     
-    base_model = ""
-    if "mengzi" in training_args['model']:
-        base_model = "mengzi"
-    elif "finbert" in training_args['model']:
-        base_model = "finbert"
-    with open(f"./predict_data/{base_model}_sc_result_{model_path.split('_')[-1]}.log", "w+", encoding="utf-8") as f:
+    
+    with open(output_filename, "w+", encoding="utf-8") as f:
         f.write("预测结果：\n")
         correct = 0
         for i, data in enumerate(eval_dataset):
@@ -135,6 +131,5 @@ if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
     saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], model, training_args)
-    eval_model(training_args["validate_dataset"], saved_path, training_args)
     # saved_path = "../model/trained/mengzi_rule_filtering"
-    eval_model("../data/data_for_LLM_v1/sc_validate_data.json", saved_path, training_args)
+    eval_model(training_args["validate_dataset"], saved_path, "./predict_data/"+saved_path.split("/")[-1]+"_test_result.txt", training_args)

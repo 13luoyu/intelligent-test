@@ -7,6 +7,7 @@ output_dir=./output/v4
 predict_dir=./predict_data/v4
 train_files=../data/data_for_LLM_v4/train_v4.csv
 validation_files=../data/data_for_LLM_v4/validate_v4.csv
+all_files=../data/data_for_LLM_v4/ir_all_v4.csv
 
 
 # 如果文件不存在，创建
@@ -66,7 +67,7 @@ python train_lora_model.py \
 # 初始化一个空数组来存储所有文件的整数部分
 file_numbers=()
 # 这里的目录需要替换成你实际的目录
-for file in $(find $model_dir -type d -name 'best_lora_model_*' | grep -oP 'best_lora_model_\K\d+'); do
+for file in $(find $output_dir -type d -name 'best_lora_model_*' | grep -oP 'best_lora_model_\K\d+'); do
     file_numbers+=("$file")
 done
 # 如果没有找到任何文件，则退出脚本
@@ -173,6 +174,21 @@ python predict.py \
     --tokenizer_fast false \
     --eval_dataset ${validation_files} \
     --prediction_file ${predict_dir}/predict_result_${filename}_normal_load_lora.json
+
+
+python predict.py \
+    --model_name_or_path ${output_dir}/${filename} \
+    --mode 4bit-lora \
+    --tokenizer_fast false \
+    --eval_dataset ${all_files} \
+    --prediction_file ${predict_dir}/predict_result_${filename}_4bit_load_lora_all.json
+
+python predict.py \
+    --model_name_or_path ${output_dir}/${filename} \
+    --mode lora \
+    --tokenizer_fast false \
+    --eval_dataset ${all_files} \
+    --prediction_file ${predict_dir}/predict_result_${filename}_normal_load_lora_all.json
 
 
 

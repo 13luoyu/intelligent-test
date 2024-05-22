@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# nohup bash run.sh >../log/run_llama2_lora.log &
+# nohup bash run_v1.sh >../log/run_llama2_lora.log &
 
 # 模型保存目录、预测数据目录、训练数据文件、验证数据文件
 output_dir=./output/v1
 predict_dir=./predict_data/v1
 train_files=../data/data_for_LLM_v2/ir_train_v1.csv
 validation_files=../data/data_for_LLM_v2/ir_validate_v1.csv
+all_files=../data/data_for_LLM_v2/ir_all_v1.csv
 
 # 如果文件不存在，创建
 if [ ! -d ${output_dir} ];then  
@@ -63,7 +64,7 @@ python train_lora_model.py \
 # 初始化一个空数组来存储所有文件的整数部分
 file_numbers=()
 # 这里的目录需要替换成你实际的目录
-for file in $(find $model_dir -type d -name 'best_lora_model_*' | grep -oP 'best_lora_model_\K\d+'); do
+for file in $(find $output_dir -type d -name 'best_lora_model_*' | grep -oP 'best_lora_model_\K\d+'); do
     file_numbers+=("$file")
 done
 # 如果没有找到任何文件，则退出脚本
@@ -78,10 +79,10 @@ filename="best_lora_model_$max_number"
 
 
 # 合并lora模型和原始模型，原始模型4位量化
-python merge.py \
-    --adapter_model_name ${output_dir}/${filename} \
-    --output_name ${output_dir}/${filename}_4bit \
-    --mode 4bit
+# python merge.py \
+#     --adapter_model_name ${output_dir}/${filename} \
+#     --output_name ${output_dir}/${filename}_4bit \
+#     --mode 4bit
 
 # 使用4bit量化合并后的模型不量化加载预测
 # python predict.py \
@@ -163,7 +164,7 @@ python predict.py \
     --eval_dataset ${validation_files} \
     --prediction_file ${predict_dir}/predict_result_${filename}_4bit_load_lora.json
 
-# 使用不加载原始模型并与lora运行时合并预测
+# 使用不量化加载原始模型并与lora运行时合并预测
 python predict.py \
     --model_name_or_path ${output_dir}/${filename} \
     --mode lora \
@@ -172,7 +173,23 @@ python predict.py \
     --prediction_file ${predict_dir}/predict_result_${filename}_normal_load_lora.json
 
 
+python predict.py \
+    --model_name_or_path ${output_dir}/${filename} \
+    --mode 4bit-lora \
+    --tokenizer_fast false \
+    --eval_dataset ${all_files} \
+    --prediction_file ${predict_dir}/predict_result_${filename}_4bit_load_lora_all.json
 
-cd output
+python predict.py \
+    --model_name_or_path ${output_dir}/${filename} \
+    --mode lora \
+    --tokenizer_fast false \
+    --eval_dataset ${all_files} \
+    --prediction_file ${predict_dir}/predict_result_${filename}_normal_load_lora_all.json
+
+
+
+cd ${output_dir}
 rm -rf checkpoint-*
+cd ..
 cd ..
