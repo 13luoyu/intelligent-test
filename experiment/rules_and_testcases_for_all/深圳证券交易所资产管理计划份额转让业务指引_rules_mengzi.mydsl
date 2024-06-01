@@ -4,7 +4,7 @@ focus: 时间
 before: []
 after: []
 	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十三条.1.1.2.1
 sourceId 第十三条
@@ -12,7 +12,7 @@ focus: 时间
 before: []
 after: []
 	if 资管计划份额的转让时间 in {[9:15-11:30]} and 时间 in {[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十四条.1.1.1.1
 sourceId 第十四条
@@ -20,7 +20,7 @@ focus: 数量
 before: []
 after: []
 	if 资管计划单笔申报最小数量 is '1000份' and 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十四条.1.1.2.1
 sourceId 第十四条
@@ -28,7 +28,7 @@ focus: 数量
 before: []
 after: []
 	if 资管计划单笔申报最小数量 is '1000份' and 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十四条.2.1.1.1
 sourceId 第十四条
@@ -36,7 +36,7 @@ focus: 数量
 before: []
 after: []
 	if 资管计划单笔申报最小数量 is '申报数量最小变动单位' and 申报数量最小变动单位 is '1份' and 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十四条.2.1.2.1
 sourceId 第十四条
@@ -44,7 +44,7 @@ focus: 数量
 before: []
 after: []
 	if 资管计划单笔申报最小数量 is '申报数量最小变动单位' and 申报数量最小变动单位 is '1份' and 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十四条.3.1.1.1
 sourceId 第十四条
@@ -52,7 +52,7 @@ focus: 价格
 before: []
 after: []
 	if 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
+	then 结果 is '成功' and 状态 is '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第十四条.3.1.2.1
@@ -61,7 +61,7 @@ focus: 价格
 before: []
 after: []
 	if 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交' 
+	then 结果 is '成功' and 状态 is '未成交' 
 	constraint 申报价格最小变动单位 == 0.001
 
 rule 第十七条.1.1.1
@@ -70,7 +70,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作部分 is '资管计划份额的转让' and 操作 is '资管计划份额的转让' and 操作 is '当日回转' and 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第十七条.1.1.2
 sourceId 第十七条
@@ -78,7 +78,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作部分 is '资管计划份额的转让' and 操作 is '资管计划份额的转让' and 操作 is '当日回转' and 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十三条.1.1.1
 sourceId 第二十三条
@@ -86,7 +86,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '收取' and 操作部分 is '转让经手费' and 收费标准 is '100万以下每笔0.1元人民币' and 价格 is '超过100万的每笔10元人民币超过100万的每笔10元人民币' and 约束 is '超过100万的每笔10元人民币' and 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十三条.1.1.2
 sourceId 第二十三条
@@ -94,5 +94,5 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '收取' and 操作部分 is '转让经手费' and 收费标准 is '100万以下每笔0.1元人民币' and 价格 is '超过100万的每笔10元人民币超过100万的每笔10元人民币' and 约束 is '超过100万的每笔10元人民币' and 交易市场 is '深圳证券交易所' and 交易品种 is '资产管理计划份额转让' and 转让申报指令 is '账户号码,证券代码,数量,价格' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 

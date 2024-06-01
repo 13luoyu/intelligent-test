@@ -4,7 +4,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.1.2.1
 sourceId 第十六条
@@ -12,7 +12,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.2.1.1.1
 sourceId 第十六条
@@ -20,7 +20,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.2.1.2.1
 sourceId 第十六条
@@ -28,7 +28,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.2.2.1.1
 sourceId 第十六条
@@ -36,7 +36,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.2.2.2.1
 sourceId 第十六条
@@ -44,7 +44,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.2.3.1.1
 sourceId 第十六条
@@ -52,7 +52,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '创业板' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.2.3.2.1
 sourceId 第十六条
@@ -60,7 +60,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '创业板' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.3.1.1.1
 sourceId 第十六条
@@ -68,7 +68,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.3.1.2.1
 sourceId 第十六条
@@ -76,7 +76,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.3.2.1.1
 sourceId 第十六条
@@ -84,7 +84,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.3.2.2.1
 sourceId 第十六条
@@ -92,7 +92,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.3.3.1.1
 sourceId 第十六条
@@ -100,7 +100,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '创业板' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第十六条.3.3.2.1
 sourceId 第十六条
@@ -108,7 +108,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '创业板' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.1.1
 sourceId 第三十一条
@@ -116,7 +116,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '股票' and 操作 is '报价' and 操作 is '交易' and 约束 is '人民币' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第三十一条.1.2
 sourceId 第三十一条
@@ -124,7 +124,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '股票' and 操作 is '报价' and 操作 is '交易' and 约束 is '人民币' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第三十三条.1.1.1
 sourceId 第三十三条
@@ -132,7 +132,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '股票' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十三条.1.2.1
 sourceId 第三十三条
@@ -140,7 +140,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '股票' and 交易方式 is '竞价交易' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十三条.2.1.1
 sourceId 第三十三条
@@ -148,7 +148,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 操作 is '交易申报' and 申报方式 is '限价申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十三条.2.2.1
 sourceId 第三十三条
@@ -156,7 +156,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 操作 is '交易申报' and 申报方式 is '限价申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十四条.1.1.1
 sourceId 第三十四条
@@ -164,7 +164,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '股票' and 交易方式 is '盘后固定价格申报' and 约束 is '盘后固定价格申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十四条.1.2.1
 sourceId 第三十四条
@@ -172,7 +172,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '股票' and 交易方式 is '盘后固定价格申报' and 约束 is '盘后固定价格申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十四条.2.1.1
 sourceId 第三十四条
@@ -180,7 +180,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '创业板' and 交易方式 is '盘后固定价格申报' and 约束 is '盘后固定价格申报' and 交易市场 is '深圳证券交易所' and 创业板品种 is '创业板股票' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十四条.2.2.1
 sourceId 第三十四条
@@ -188,7 +188,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '创业板' and 交易方式 is '盘后固定价格申报' and 约束 is '盘后固定价格申报' and 交易市场 is '深圳证券交易所' and 创业板品种 is '创业板股票' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十八条.3
 sourceId 第三十八条
@@ -196,7 +196,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '联交所证券交易服务公司' and 操作 is '促使' and 状态 is '在未归还为担保卖空而借入的标的证券前,在未归还为担保卖空而借入的标的证券前' and 操作 is '卖出' and 约束 is '联交所参与者' and 价格 is '超出委托价格' and 交易品种 is '未归还标的证券数量的部分' and 申报数量 is '未归还标的证券数量的部分' and 申报数量 is '未归还标的证券数量的部分' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第三十八条.2.1
 sourceId 第三十八条
@@ -204,7 +204,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '担保卖空' and 交易品种 is '标的证券' and 价格 is '不得低于申报价格' and 申报价格 is '最新成交价' and 状态 is '没有成交' and 时间 is '当天' and 申报价格 is '申报价格' and 价格 is '不得低于申报价格' and 申报价格 is '其前收盘价' and 申报价格 is '其前收盘价' and 申报价格 is '其前收盘价' and 申报价格 is '其前收盘价' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第三十八条.2.2
 sourceId 第三十八条
@@ -212,7 +212,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '担保卖空' and 交易品种 is '标的证券' and 价格 is '不得低于申报价格' and 申报价格 is '最新成交价' and 状态 is '没有成交' and 时间 is '当天' and 申报价格 is '申报价格' and 价格 is '不得低于申报价格' and 申报价格 is '其前收盘价' and 申报价格 is '其前收盘价' and 申报价格 is '其前收盘价' and 申报价格 is '其前收盘价' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第三十八条.1.1.1
 sourceId 第三十八条
@@ -220,7 +220,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '担保卖空' and 交易品种 is '标的证券' and 价格 is '不得低于申报价格' and 申报价格 is '最新成交价' and 交易市场 is '深圳证券交易所' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十八条.1.2.1
 sourceId 第三十八条
@@ -228,7 +228,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '担保卖空' and 交易品种 is '标的证券' and 价格 is '不得低于申报价格' and 申报价格 is '最新成交价' and 交易市场 is '深圳证券交易所' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十九条.1.1.1
 sourceId 第三十九条
@@ -236,7 +236,7 @@ focus: 时间
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 时间 is '单个深股通交易日' and 担保卖空比例 is '1%' and 交易市场 is '深圳证券交易所' and 股票品种 is '单个深股通交易日' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十九条.1.2.1
 sourceId 第三十九条
@@ -244,7 +244,7 @@ focus: 时间
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 时间 is '单个深股通交易日' and 担保卖空比例 is '1%' and 交易市场 is '深圳证券交易所' and 股票品种 is '单个深股通交易日' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十九条.2.1.1
 sourceId 第三十九条
@@ -252,7 +252,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 担保卖空比例 is '1%' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十九条.2.2.1
 sourceId 第三十九条
@@ -260,7 +260,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 担保卖空比例 is '1%' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十九条.3.1.1
 sourceId 第三十九条
@@ -268,7 +268,7 @@ focus: 时间
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 担保卖空比例 is '1%' and 时间 is '十个深股通交易日' and 交易品种 is '股票' and 时间 is '十个深股通交易日' and 担保卖空比例累计 is '5%' and 担保卖空比例累计 is '5%' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十九条.3.2.1
 sourceId 第三十九条
@@ -276,7 +276,7 @@ focus: 时间
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 担保卖空比例 is '1%' and 时间 is '十个深股通交易日' and 交易品种 is '股票' and 时间 is '十个深股通交易日' and 担保卖空比例累计 is '5%' and 担保卖空比例累计 is '5%' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十九条.4.1.1
 sourceId 第三十九条
@@ -284,7 +284,7 @@ focus: 时间
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 时间 is '十个深股通交易日' and 担保卖空比例累计 is '5%' and 担保卖空比例累计 is '5%' and 交易市场 is '深圳证券交易所' and 股票品种 is '十个深股通交易日' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十九条.4.2.1
 sourceId 第三十九条
@@ -292,7 +292,7 @@ focus: 时间
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 时间 is '十个深股通交易日' and 担保卖空比例累计 is '5%' and 担保卖空比例累计 is '5%' and 交易市场 is '深圳证券交易所' and 股票品种 is '十个深股通交易日' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第四十条.4
 sourceId 第四十条
@@ -300,7 +300,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 融资监控指标 is '规定比例' and 状态 is '恢复融资' and 操作 is '融资买入' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券保证金交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券保证金交易申报' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十条.5
 sourceId 第四十条
@@ -308,7 +308,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 融资监控指标 is '规定比例' and 状态 is '恢复融资' and 操作 is '融资买入' and 操作 is '提交' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券保证金交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券保证金交易申报' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十条.6
 sourceId 第四十条
@@ -316,7 +316,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 融券余量 is '规定比例' and 状态 is '暂停融券' and 操作 is '卖出' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券担保卖空交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券担保卖空交易申报' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十条.7
 sourceId 第四十条
@@ -324,7 +324,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 融券余量 is '规定比例' and 状态 is '暂停融券' and 操作 is '卖出' and 操作 is '提交' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券担保卖空交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券担保卖空交易申报' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十条.8
 sourceId 第四十条
@@ -332,7 +332,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 融券余量 is '定比例而' and 状态 is '恢复融券' and 操作 is '卖出' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券担保卖空交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券担保卖空交易申报' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十条.9
 sourceId 第四十条
@@ -340,7 +340,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 融券余量 is '定比例而' and 状态 is '恢复融券' and 操作 is '卖出' and 操作 is '提交' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券担保卖空交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券担保卖空交易申报' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十条.1.1.1
 sourceId 第四十条
@@ -348,7 +348,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '融资交易' and 融资监控指标 is '规定比例' and 操作人 is '联交所证券交易服务公司' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券保证金交易申报' and 操作 is '申报' and 交易方向 is '买入' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券保证金交易申报' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第四十条.1.2.1
 sourceId 第四十条
@@ -356,7 +356,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '融资交易' and 融资监控指标 is '规定比例' and 操作人 is '联交所证券交易服务公司' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券保证金交易申报' and 操作 is '申报' and 交易方向 is '买入' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券保证金交易申报' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第四十条.2.1.1
 sourceId 第四十条
@@ -364,7 +364,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '融资交易' and 融资监控指标 is '规定比例' and 操作人 is '联交所证券交易服务公司' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券保证金交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券保证金交易申报' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第四十条.2.2.1
 sourceId 第四十条
@@ -372,7 +372,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '融资交易' and 融资监控指标 is '规定比例' and 操作人 is '联交所证券交易服务公司' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券保证金交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券保证金交易申报' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第四十条.3.1.1
 sourceId 第四十条
@@ -380,7 +380,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '融资交易' and 融资监控指标 is '规定比例' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券保证金交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券保证金交易申报' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第四十条.3.2.1
 sourceId 第四十条
@@ -388,7 +388,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '融资交易' and 融资监控指标 is '规定比例' and 交易品种 is '股票' and 操作部分 is '该深股通标的证券保证金交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '该深股通标的证券保证金交易申报' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第四十二条.1.1
 sourceId 第四十二条
@@ -396,7 +396,7 @@ focus: 订单连续性操作
 before: []
 after: ['第四十二条.1.2']
 	if 操作人 is '联交所证券交易服务公司' and 操作部分 is '联交所参与者' and 操作 is '接受'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十二条.1.2
 sourceId 第四十二条
@@ -404,7 +404,7 @@ focus: 订单连续性操作
 before: ['第四十二条.1.1']
 after: ['第四十二条.1.3']
 	if 操作人 is '联交所证券交易服务公司' and 操作部分 is '客户深股'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十二条.1.3
 sourceId 第四十二条
@@ -412,7 +412,7 @@ focus: 订单连续性操作
 before: ['第四十二条.1.2']
 after: ['第四十二条.1.5']
 	if 操作人 is '联交所证券交易服务公司' and 操作部分 is '卖出委托'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十二条.1.5
 sourceId 第四十二条
@@ -420,7 +420,7 @@ focus: 订单连续性操作
 before: ['第四十二条.1.3']
 after: ['第五十三条.2.1.1']
 	if 操作人 is '联交所证券交易服务公司' and 事件 is '联交所参与者接受客户深股通卖出委托时' and 操作 is '确保' and 操作部分 is '客户账户内有足额的证券' and 操作 is '不得接受' and 操作部分 is '客户无足额证券' and 操作 is '卖出' and 操作部分 is '证券的委托' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十四条.1
 sourceId 第四十四条
@@ -428,7 +428,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作部分 is '通过深股通买入的标的证券' and 交易品种 is '股票' and 操作 is '不得卖出' and 时间 is '交收前' and 交易市场 is '深圳证券交易所' and 股票品种 is '通过深股通买入的标的证券' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.1
 sourceId 第四十九条
@@ -436,7 +436,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '权益分派' and 交易品种 is '股票' and 操作 is '卖出' and 操作 is '买入' and 约束 is '情形' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十九条.2
 sourceId 第四十九条
@@ -444,7 +444,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '转换' and 交易品种 is '股票' and 操作 is '卖出' and 操作 is '买入' and 约束 is '情形' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十九条.3
 sourceId 第四十九条
@@ -452,7 +452,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '收购' and 交易品种 is '股票' and 操作 is '卖出' and 操作 is '买入' and 约束 is '情形' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十九条.4
 sourceId 第四十九条
@@ -460,7 +460,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '权益分派' and 交易品种 is '股票' and 操作 is '卖出' and 操作 is '买入' and 约束 is '异常情况' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十九条.5
 sourceId 第四十九条
@@ -468,7 +468,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '转换' and 交易品种 is '股票' and 操作 is '卖出' and 操作 is '买入' and 约束 is '异常情况' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十九条.6
 sourceId 第四十九条
@@ -476,7 +476,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '收购' and 交易品种 is '股票' and 操作 is '卖出' and 操作 is '买入' and 约束 is '异常情况' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第四十九条.7
 sourceId 第四十九条
@@ -484,7 +484,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '权益分派' and 操作 is '买入' and 约束 is '情形' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.8
 sourceId 第四十九条
@@ -492,7 +492,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '转换' and 操作 is '买入' and 约束 is '情形' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.9
 sourceId 第四十九条
@@ -500,7 +500,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '收购' and 操作 is '买入' and 约束 is '情形' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.10
 sourceId 第四十九条
@@ -508,7 +508,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '权益分派' and 操作 is '买入' and 约束 is '异常情况' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.11
 sourceId 第四十九条
@@ -516,7 +516,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '转换' and 操作 is '买入' and 约束 is '异常情况' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.12
 sourceId 第四十九条
@@ -524,7 +524,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '收购' and 操作 is '买入' and 约束 is '异常情况' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.13
 sourceId 第四十九条
@@ -532,7 +532,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '权益分派' and 操作部分 is '非本所上市证券' and 交易品种 is '股票' and 操作 is '买入' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.14
 sourceId 第四十九条
@@ -540,7 +540,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '转换' and 操作部分 is '非本所上市证券' and 交易品种 is '股票' and 操作 is '买入' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.15
 sourceId 第四十九条
@@ -548,7 +548,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '收购' and 操作部分 is '非本所上市证券' and 交易品种 is '股票' and 操作 is '买入' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.16
 sourceId 第四十九条
@@ -556,7 +556,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '收购' and 操作部分 is '非本所上市证券' and 交易品种 is '股票' and 操作 is '买入' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.17
 sourceId 第四十九条
@@ -564,7 +564,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '权益分派' and 操作部分 is '非本所上市证券' and 交易品种 is '股票' and 操作 is '卖出' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.18
 sourceId 第四十九条
@@ -572,7 +572,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '转换' and 操作部分 is '非本所上市证券' and 交易品种 is '股票' and 操作 is '卖出' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.19
 sourceId 第四十九条
@@ -580,7 +580,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '收购' and 操作部分 is '非本所上市证券' and 交易品种 is '股票' and 操作 is '卖出' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第四十九条.20
 sourceId 第四十九条
@@ -588,7 +588,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '收购' and 操作部分 is '非本所上市证券' and 交易品种 is '股票' and 操作 is '卖出' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通标的证券' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第五十三条.1.1
 sourceId 第五十三条
@@ -596,7 +596,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '联交所证券交易服务公司' and 操作部分 is '接受该时段后续的买入申报' and 操作 is '暂停接受' and 操作部分 is '卖出申报' and 时间 is '开盘集合竞价阶段' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十三条.1.2
 sourceId 第五十三条
@@ -604,7 +604,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '联交所证券交易服务公司' and 操作部分 is '接受该时段后续的买入申报' and 操作 is '暂停接受' and 操作部分 is '卖出申报' and 时间 is '开盘集合竞价阶段' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十三条.3.1
 sourceId 第五十三条
@@ -612,7 +612,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '连续竞价阶段开始前' and 操作部分 is '因买入申报' and 时间 is '连续竞价阶段开始前' and 操作人 is '联交所证券交易服务公司' and 操作 is '恢复接受' and 操作部分 is '后续的买入申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十三条.3.2
 sourceId 第五十三条
@@ -620,7 +620,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易方式 is '连续竞价阶段开始前' and 操作部分 is '因买入申报' and 时间 is '连续竞价阶段开始前' and 操作人 is '联交所证券交易服务公司' and 操作 is '恢复接受' and 操作部分 is '后续的买入申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十三条.8.1
 sourceId 第五十三条
@@ -628,7 +628,7 @@ focus: 时间
 before: []
 after: []
 	if 状态 is '停止接受买入申报' and 时间 is '上述时段' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第五十三条.8.2
 sourceId 第五十三条
@@ -636,7 +636,7 @@ focus: 时间
 before: []
 after: []
 	if 状态 is '停止接受买入申报' and 时间 is '上述时段' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第五十三条.2.1.3
 sourceId 第五十三条
@@ -644,7 +644,7 @@ focus: 时间
 before: ['第五十三条.2.1.2']
 after: ['第五十三条.2.1.4']
 	if 交易方式 is '连续竞价阶段开始前' and 操作部分 is '因买入申报' and 操作 is '拒绝接受'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十三条.4.1.1
 sourceId 第五十三条
@@ -652,7 +652,7 @@ focus: 时间
 before: []
 after: []
 	if 交易方式 is '连续竞价阶段' and 时间 is '连续竞价阶段' and 操作人 is '联交所证券交易服务公司' and 时间 is '收盘集合竞价阶段' and 操作部分 is '后续的买入申报' and 操作部分 is '卖出申报' and 时间 is '当日后续' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十三条.4.2.1
 sourceId 第五十三条
@@ -660,7 +660,7 @@ focus: 时间
 before: []
 after: []
 	if 交易方式 is '连续竞价阶段' and 时间 is '连续竞价阶段' and 操作人 is '联交所证券交易服务公司' and 时间 is '收盘集合竞价阶段' and 操作部分 is '后续的买入申报' and 操作部分 is '卖出申报' and 时间 is '当日后续' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十三条.5.1.1
 sourceId 第五十三条
@@ -668,7 +668,7 @@ focus: 时间
 before: []
 after: []
 	if 交易方式 is '连续竞价阶段' and 时间 is '连续竞价阶段' and 操作人 is '联交所证券交易服务公司' and 时间 is '盘后固定价格交易阶段' and 操作部分 is '后续的买入申报' and 操作部分 is '卖出申报' and 时间 is '当日后续' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十三条.5.2.1
 sourceId 第五十三条
@@ -676,7 +676,7 @@ focus: 时间
 before: []
 after: []
 	if 交易方式 is '连续竞价阶段' and 时间 is '连续竞价阶段' and 操作人 is '联交所证券交易服务公司' and 时间 is '盘后固定价格交易阶段' and 操作部分 is '后续的买入申报' and 操作部分 is '卖出申报' and 时间 is '当日后续' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十三条.6.1.1
 sourceId 第五十三条
@@ -684,7 +684,7 @@ focus: 时间
 before: []
 after: []
 	if 交易方式 is '连续竞价阶段' and 时间 is '连续竞价阶段' and 操作人 is '联交所证券交易服务公司' and 操作部分 is '卖出申报' and 时间 is '收盘集合竞价阶段' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十三条.6.2.1
 sourceId 第五十三条
@@ -692,7 +692,7 @@ focus: 时间
 before: []
 after: []
 	if 交易方式 is '连续竞价阶段' and 时间 is '连续竞价阶段' and 操作人 is '联交所证券交易服务公司' and 操作部分 is '卖出申报' and 时间 is '收盘集合竞价阶段' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十三条.7.1.1
 sourceId 第五十三条
@@ -700,7 +700,7 @@ focus: 时间
 before: []
 after: []
 	if 交易方式 is '连续竞价阶段' and 时间 is '连续竞价阶段' and 操作人 is '联交所证券交易服务公司' and 操作部分 is '卖出申报' and 时间 is '盘后固定价格交易阶段' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十三条.7.2.1
 sourceId 第五十三条
@@ -708,7 +708,7 @@ focus: 时间
 before: []
 after: []
 	if 交易方式 is '连续竞价阶段' and 时间 is '连续竞价阶段' and 操作人 is '联交所证券交易服务公司' and 操作部分 is '卖出申报' and 时间 is '盘后固定价格交易阶段' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十三条.2.1.1.1
 sourceId 第五十三条
@@ -716,7 +716,7 @@ focus: 时间
 before: ['第四十二条.1.5', '第一百零二条.4.1', '第一百零二条.5.1', '第一百零二条.6.1', '第一百零二条.7.1', '第一百零二条.8.1', '第一百零二条.9.1', '第十六条.1.1.1', '第十六条.1.2.1', '第三十三条.2.1.1', '第三十三条.2.2.1', '第三十九条.1.1.1', '第三十九条.1.2.1', '第三十九条.2.1.1', '第三十九条.2.2.1', '第三十九条.3.1.1', '第三十九条.3.2.1', '第三十九条.4.1.1', '第三十九条.4.2.1', '第六十八条.1.1.1', '第六十八条.1.2.1', '第一百零二条.10.1.1', '第一百零二条.10.2.1', '第一百零二条.11.1.1', '第一百零二条.11.2.1', '第十六条.2.1.1.1', '第十六条.2.1.2.1', '第十六条.2.2.1.1', '第十六条.2.2.2.1', '第十六条.2.3.1.1', '第十六条.2.3.2.1', '第十六条.3.1.1.1', '第十六条.3.1.2.1', '第十六条.3.2.1.1', '第十六条.3.2.2.1', '第十六条.3.3.1.1', '第十六条.3.3.2.1', '第六十八条.2.1.1.1', '第六十八条.2.1.2.1', '第六十八条.2.2.1.1', '第六十八条.2.2.2.1', '第六十八条.2.3.1.1', '第六十八条.2.3.2.1', '第六十八条.3.1.1.1', '第六十八条.3.1.2.1', '第六十八条.3.2.1.1', '第六十八条.3.2.2.1', '第六十八条.3.3.1.1', '第六十八条.3.3.2.1', '第五十三条.2.1.4.1', '第五十三条.2.1.5.1', '第五十三条.2.2.5.1']
 after: ['第五十三条.2.1.2']
 	if 交易方式 is '连续竞价阶段开始前' and 操作部分 is '因买入申报' and 操作 is '撤销' and 状态 is '未成交'
-	then 结果 = '成功' and 状态 = '全部撤销'
+	then 结果 is '成功' and 状态 is '全部撤销'
 
 rule 第五十三条.2.1.2.1
 sourceId 第五十三条
@@ -724,7 +724,7 @@ focus: 时间
 before: ['第五十三条.2.1.1', '第一百零二条.4.1', '第一百零二条.5.1', '第一百零二条.6.1', '第一百零二条.7.1', '第一百零二条.8.1', '第一百零二条.9.1', '第十六条.1.1.1', '第十六条.1.2.1', '第三十三条.2.1.1', '第三十三条.2.2.1', '第三十九条.1.1.1', '第三十九条.1.2.1', '第三十九条.2.1.1', '第三十九条.2.2.1', '第三十九条.3.1.1', '第三十九条.3.2.1', '第三十九条.4.1.1', '第三十九条.4.2.1', '第六十八条.1.1.1', '第六十八条.1.2.1', '第一百零二条.10.1.1', '第一百零二条.10.2.1', '第一百零二条.11.1.1', '第一百零二条.11.2.1', '第十六条.2.1.1.1', '第十六条.2.1.2.1', '第十六条.2.2.1.1', '第十六条.2.2.2.1', '第十六条.2.3.1.1', '第十六条.2.3.2.1', '第十六条.3.1.1.1', '第十六条.3.1.2.1', '第十六条.3.2.1.1', '第十六条.3.2.2.1', '第十六条.3.3.1.1', '第十六条.3.3.2.1', '第六十八条.2.1.1.1', '第六十八条.2.1.2.1', '第六十八条.2.2.1.1', '第六十八条.2.2.2.1', '第六十八条.2.3.1.1', '第六十八条.2.3.2.1', '第六十八条.3.1.1.1', '第六十八条.3.1.2.1', '第六十八条.3.2.1.1', '第六十八条.3.2.2.1', '第六十八条.3.3.1.1', '第六十八条.3.3.2.1', '第五十三条.2.1.4.1', '第五十三条.2.1.5.1', '第五十三条.2.2.5.1']
 after: ['第五十三条.2.1.3']
 	if 交易方式 is '连续竞价阶段开始前' and 操作部分 is '买入申报' and 操作 is '撤销' and 状态 is '未成交'
-	then 结果 = '成功' and 状态 = '全部撤销'
+	then 结果 is '成功' and 状态 is '全部撤销'
 
 rule 第五十三条.2.1.4.1
 sourceId 第五十三条
@@ -732,7 +732,7 @@ focus: 时间
 before: ['第五十三条.2.1.3']
 after: ['第五十三条.2.1.5', '第九十二条.1.1', '第九十二条.1.2', '第九十二条.2.1', '第九十二条.2.2', '第九十二条.3.1', '第九十二条.3.2', '第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易方式 is '连续竞价阶段开始前' and 操作部分 is '因买入申报' and 操作 is '卖出申报成交' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十三条.2.1.5.1
 sourceId 第五十三条
@@ -740,7 +740,7 @@ focus: 时间
 before: ['第五十三条.2.1.4']
 after: ['第五十三条.2.2.5', '第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易方式 is '连续竞价阶段开始前' and 操作部分 is '因买入申报' and 事件 is '买入申报被撤销,被本所拒绝接受,卖出申报成交' and 时间 is '连续竞价阶段开始前' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十三条.2.2.5.1
 sourceId 第五十三条
@@ -748,7 +748,7 @@ focus: 时间
 before: ['第五十三条.2.1.5']
 after: ['第五十六条.1.1.1', '第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易方式 is '连续竞价阶段开始前' and 操作部分 is '因买入申报' and 事件 is '买入申报被撤销,被本所拒绝接受,卖出申报成交' and 时间 is '连续竞价阶段开始前' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第五十六条.1.1.1
 sourceId 第五十六条
@@ -756,7 +756,7 @@ focus: 订单连续性操作
 before: ['第五十三条.2.2.5']
 after: ['第五十六条.1.1.2']
 	if 操作人 is '联交所参与者' and 操作部分 is '投资者' and 操作 is '买卖'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十六条.1.1.2
 sourceId 第五十六条
@@ -764,7 +764,7 @@ focus: 订单连续性操作
 before: ['第五十六条.1.1.1']
 after: ['第五十六条.1.1.3']
 	if 操作人 is '联交所参与者' and 操作部分 is '股票' and 操作 is '违反'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十六条.1.1.3
 sourceId 第五十六条
@@ -772,7 +772,7 @@ focus: 订单连续性操作
 before: ['第五十六条.1.1.2']
 after: ['第五十六条.1.1.5']
 	if 操作人 is '联交所参与者' and 操作部分 is '比例限制'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十六条.1.1.5
 sourceId 第五十六条
@@ -780,7 +780,7 @@ focus: 订单连续性操作
 before: ['第五十六条.1.1.3']
 after: ['第五十六条.1.2.5']
 	if 操作人 is '联交所参与者' and 事件 is '在投资者买卖深股通股票违反有关持股比例限制时' and 操作 is '拒绝接受' and 操作部分 is '实施平仓' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第五十六条.1.2.5
 sourceId 第五十六条
@@ -788,7 +788,7 @@ focus: 订单连续性操作
 before: ['第五十六条.1.1.5']
 after: ['第五十六条.2.1.5']
 	if 操作人 is '联交所参与者' and 事件 is '在投资者买卖深股通股票违反有关持股比例限制时' and 操作 is '拒绝接受' and 操作部分 is '实施平仓' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第五十六条.2.1.5
 sourceId 第五十六条
@@ -796,7 +796,7 @@ focus: 订单连续性操作
 before: ['第五十六条.1.2.5']
 after: ['第五十六条.2.2.5']
 	if 操作人 is '联交所参与者' and 事件 is '在投资者买卖深股通股票违反有关持股比例限制时' and 操作 is '拒绝接受' and 操作部分 is '其他制止和纠正措施' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第五十六条.2.2.5
 sourceId 第五十六条
@@ -804,7 +804,7 @@ focus: 订单连续性操作
 before: ['第五十六条.2.1.5']
 after: ['第九十三条.1.1.1']
 	if 操作人 is '联交所参与者' and 事件 is '在投资者买卖深股通股票违反有关持股比例限制时' and 操作 is '拒绝接受' and 操作部分 is '其他制止和纠正措施' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第五十九条.1.1
 sourceId 第五十九条
@@ -812,7 +812,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '所有境外投资者' and 操作部分 is '通过深股通与其他方式持有同一上市公司股票' and 操作部分 is '通过深股通与其他方式持有同一上市公司股票' and 交易品种 is '股票' and 操作 is '合并计算' and 时间 is '超过当日交易结束后' and 约束 is '限定比例' and 原则 is '后买先卖' and 操作 is '平仓' and 交易市场 is '深圳证券交易所' and 股票品种 is '通过深股通与其他方式持有同一上市公司股票' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十九条.1.2
 sourceId 第五十九条
@@ -820,7 +820,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '所有境外投资者' and 操作部分 is '通过深股通与其他方式持有同一上市公司股票' and 操作部分 is '通过深股通与其他方式持有同一上市公司股票' and 交易品种 is '股票' and 操作 is '合并计算' and 时间 is '超过当日交易结束后' and 约束 is '限定比例' and 原则 is '后买先卖' and 操作 is '平仓' and 交易市场 is '深圳证券交易所' and 股票品种 is '通过深股通与其他方式持有同一上市公司股票' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十九条.2.1
 sourceId 第五十九条
@@ -828,7 +828,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '投资者' and 操作部分 is '超出部分' and 操作 is '平仓' and 时间 is '自接到通知之日起的五个深股通交易日内' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第五十九条.2.2
 sourceId 第五十九条
@@ -836,7 +836,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '投资者' and 操作部分 is '超出部分' and 操作 is '平仓' and 时间 is '自接到通知之日起的五个深股通交易日内' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第六十八条.1.1.1
 sourceId 第六十八条
@@ -844,7 +844,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.1.2.1
 sourceId 第六十八条
@@ -852,7 +852,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.2.1.1.1
 sourceId 第六十八条
@@ -860,7 +860,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.2.1.2.1
 sourceId 第六十八条
@@ -868,7 +868,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.2.2.1.1
 sourceId 第六十八条
@@ -876,7 +876,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.2.2.2.1
 sourceId 第六十八条
@@ -884,7 +884,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.2.3.1.1
 sourceId 第六十八条
@@ -892,7 +892,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '创业板' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.2.3.2.1
 sourceId 第六十八条
@@ -900,7 +900,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '创业板' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.3.1.1.1
 sourceId 第六十八条
@@ -908,7 +908,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.3.1.2.1
 sourceId 第六十八条
@@ -916,7 +916,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.3.2.1.1
 sourceId 第六十八条
@@ -924,7 +924,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.3.2.2.1
 sourceId 第六十八条
@@ -932,7 +932,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.3.3.1.1
 sourceId 第六十八条
@@ -940,7 +940,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '创业板' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第六十八条.3.3.2.1
 sourceId 第六十八条
@@ -948,7 +948,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '创业板' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第八十三条.1.1
 sourceId 第八十三条
@@ -956,7 +956,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '股票' and 交易方式 is '港股通交易' and 操作人 is '投资者' and 约束 is '港币' and 操作 is '交收' and 约束 is '人民币' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通交易' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第八十三条.1.2
 sourceId 第八十三条
@@ -964,7 +964,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '股票' and 交易方式 is '港股通交易' and 操作人 is '投资者' and 约束 is '港币' and 操作 is '交收' and 约束 is '人民币' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通交易' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第八十五条.1
 sourceId 第八十五条
@@ -972,7 +972,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '股票' and 交易方式 is '港股通交易' and 操作部分 is '投资者持有的碎股' and 约束 is '通过联交所自动对盘系统' and 操作 is '卖出' and 约束 is '通过联交所半自动对盘碎股交易系统' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通交易' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第八十五条.2.1
 sourceId 第八十五条
@@ -980,7 +980,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '投资者' and 操作 is '参与' and 操作部分 is '联交所自动对盘系统交易' and 时间 is '在联交所开市前时段和收市竞价交易时段' and 操作 is '委托' and 约束 is '竞价限价盘' and 时间 is '在联交所持续交易时段' and 约束 is '增强限价盘委托' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第八十五条.2.2
 sourceId 第八十五条
@@ -988,7 +988,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '投资者' and 操作 is '参与' and 操作部分 is '联交所自动对盘系统交易' and 时间 is '在联交所开市前时段和收市竞价交易时段' and 操作 is '委托' and 约束 is '竞价限价盘' and 时间 is '在联交所持续交易时段' and 约束 is '增强限价盘委托' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第八十八条.1
 sourceId 第八十八条
@@ -996,7 +996,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '投资者' and 操作 is '买入' and 交易品种 is '股票' and 时间 is '当日' and 时间 is '经确认成交后' and 操作 is '卖出' and 时间 is '交收前' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通标的证券' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第九十条.2
 sourceId 第九十条
@@ -1004,7 +1004,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '会员' and 操作 is '不得接受' and 操作部分 is '客户无足额可用的资金、证券' and 操作 is '买入' and 操作 is '卖出' and 操作部分 is '证券的委托' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第九十条.1.1
 sourceId 第九十条
@@ -1012,7 +1012,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '会员' and 操作 is '接受' and 交易品种 is '股票' and 操作部分 is '客户港股通交易委托' and 操作部分 is '客户有足额可用的人民币资金或者证券' and 交易市场 is '深圳证券交易所' and 股票品种 is '客户港股通交易委托' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第九十条.1.2
 sourceId 第九十条
@@ -1020,7 +1020,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '会员' and 操作 is '接受' and 交易品种 is '股票' and 操作部分 is '客户港股通交易委托' and 操作部分 is '客户有足额可用的人民币资金或者证券' and 交易市场 is '深圳证券交易所' and 股票品种 is '客户港股通交易委托' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第九十二条.1.1
 sourceId 第九十二条
@@ -1028,7 +1028,7 @@ focus: 订单连续性操作
 before: ['第五十三条.2.1.4.1']
 after: []
 	if 交易品种 is '股票' and 状态 is '已经申报,未成交申报' and 操作 is '更改' and 约束 is '港股通订单' and 约束 is '申报价格' and 时间 is '在联交所允许撤销申报的时段内' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通订单' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第九十二条.1.2
 sourceId 第九十二条
@@ -1036,7 +1036,7 @@ focus: 订单连续性操作
 before: ['第五十三条.2.1.4.1']
 after: []
 	if 交易品种 is '股票' and 状态 is '已经申报,未成交申报' and 操作 is '更改' and 约束 is '港股通订单' and 约束 is '申报价格' and 时间 is '在联交所允许撤销申报的时段内' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通订单' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第九十二条.2.1
 sourceId 第九十二条
@@ -1044,7 +1044,7 @@ focus: 订单连续性操作
 before: ['第五十三条.2.1.4.1']
 after: []
 	if 交易品种 is '股票' and 状态 is '已经申报,未成交申报' and 操作 is '更改' and 约束 is '港股通订单' and 约束 is '申报数量' and 操作 is '撤销' and 时间 is '在联交所允许撤销申报的时段内' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通订单' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第九十二条.2.2
 sourceId 第九十二条
@@ -1052,7 +1052,7 @@ focus: 订单连续性操作
 before: ['第五十三条.2.1.4.1']
 after: []
 	if 交易品种 is '股票' and 状态 is '已经申报,未成交申报' and 操作 is '更改' and 约束 is '港股通订单' and 约束 is '申报数量' and 操作 is '撤销' and 时间 is '在联交所允许撤销申报的时段内' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通订单' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第九十二条.3.1
 sourceId 第九十二条
@@ -1060,7 +1060,7 @@ focus: 订单连续性操作
 before: ['第五十三条.2.1.4.1']
 after: []
 	if 交易品种 is '股票' and 状态 is '已经申报,未成交申报' and 操作 is '撤销' and 约束 is '港股通订单' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通订单' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第九十二条.3.2
 sourceId 第九十二条
@@ -1068,7 +1068,7 @@ focus: 订单连续性操作
 before: ['第五十三条.2.1.4.1']
 after: []
 	if 交易品种 is '股票' and 状态 is '已经申报,未成交申报' and 操作 is '撤销' and 约束 is '港股通订单' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通订单' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第九十三条.1.1.1
 sourceId 第九十三条
@@ -1076,7 +1076,7 @@ focus: 订单连续性操作
 before: ['第五十六条.2.2.5']
 after: ['第九十三条.1.1.2']
 	if 操作人 is '本所证券交易服务公司' and 操作 is '接收' and 操作部分 is '联交所'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第九十三条.1.1.2
 sourceId 第九十三条
@@ -1084,7 +1084,7 @@ focus: 订单连续性操作
 before: ['第九十三条.1.1.1']
 after: ['第九十三条.1.1.3']
 	if 操作人 is '本所证券交易服务公司' and 操作 is '接收' and 操作部分 is '交易结果'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第九十三条.1.1.3
 sourceId 第九十三条
@@ -1092,7 +1092,7 @@ focus: 订单连续性操作
 before: ['第九十三条.1.1.2']
 after: ['第九十三条.1.1.5']
 	if 操作人 is '本所证券交易服务公司' and 操作 is '接收' and 操作部分 is '其他交易记录'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第九十三条.1.1.5
 sourceId 第九十三条
@@ -1100,7 +1100,7 @@ focus: 订单连续性操作
 before: ['第九十三条.1.1.3']
 after: ['第九十三条.1.2.5']
 	if 操作人 is '本所证券交易服务公司' and 事件 is '接收联交所发送的交易结果及其他交易记录后' and 操作人 is '会员' and 操作人 is '会员' and 操作 is '接收联交所发送的交易结果及其他交易记录后' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第九十三条.1.2.5
 sourceId 第九十三条
@@ -1108,7 +1108,7 @@ focus: 订单连续性操作
 before: ['第九十三条.1.1.5']
 after: ['第一百一十九条.1.1.1']
 	if 操作人 is '本所证券交易服务公司' and 事件 is '接收联交所发送的交易结果及其他交易记录后' and 操作人 is '会员' and 操作人 is '会员' and 操作 is '接收联交所发送的交易结果及其他交易记录后' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百零二条.1
 sourceId 第一百零二条
@@ -1116,7 +1116,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '使用完毕' and 操作人 is '本所证券交易服务公司' and 时间 is '在联交所开市前时段' and 操作 is '后续的买入申报' and 时间 is '相应时段后续' and 操作 is '卖出申报' and 时间 is '在该时段结束前' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百零二条.2
 sourceId 第一百零二条
@@ -1124,7 +1124,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '使用完毕' and 操作人 is '本所证券交易服务公司' and 操作 is '卖出申报' and 时间 is '在联交所开市前时段' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第一百零二条.3
 sourceId 第一百零二条
@@ -1132,7 +1132,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '使用完毕' and 操作人 is '本所证券交易服务公司' and 操作 is '卖出申报' and 时间 is '在联交所开市前时段' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百零二条.12.1
 sourceId 第一百零二条
@@ -1140,7 +1140,7 @@ focus: 时间
 before: []
 after: []
 	if 状态 is '停止接受买入申报' and 时间 is '上述时段' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第一百零二条.12.2
 sourceId 第一百零二条
@@ -1148,7 +1148,7 @@ focus: 时间
 before: []
 after: []
 	if 状态 is '停止接受买入申报' and 时间 is '上述时段' and 时间 is '当日' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第一百零二条.4.1
 sourceId 第一百零二条
@@ -1156,7 +1156,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 操作部分 is '因买入申报' and 操作 is '卖出申报成交' and 操作人 is '本所证券交易服务公司' and 时间 is '大于在联交所持续交易时段开始时' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第一百零二条.5.1
 sourceId 第一百零二条
@@ -1164,7 +1164,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 操作部分 is '因买入申报' and 操作 is '卖出申报成交' and 操作人 is '本所证券交易服务公司' and 时间 is '大于在联交所持续交易时段开始时' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第一百零二条.6.1
 sourceId 第一百零二条
@@ -1172,7 +1172,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 操作部分 is '因买入申报' and 操作 is '卖出申报成交' and 操作人 is '本所证券交易服务公司' and 时间 is '大于在联交所持续交易时段开始时' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第一百零二条.7.1
 sourceId 第一百零二条
@@ -1180,7 +1180,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 操作部分 is '因买入申报' and 操作 is '卖出申报成交' and 操作人 is '本所证券交易服务公司' and 操作 is '后续的买入申报' and 时间 is '大于在联交所持续交易时段开始时' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第一百零二条.8.1
 sourceId 第一百零二条
@@ -1188,7 +1188,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 操作部分 is '因买入申报' and 操作 is '后续的买入申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第一百零二条.9.1
 sourceId 第一百零二条
@@ -1196,7 +1196,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 操作部分 is '因买入申报' and 操作 is '卖出申报成交' and 操作 is '后续的买入申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第一百零二条.10.1.1
 sourceId 第一百零二条
@@ -1204,7 +1204,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 操作人 is '本所证券交易服务公司' and 时间 is '联交所持续交易时段或者收市竞价交易时段' and 操作 is '申报' and 交易方向 is '卖出' and 时间 is '当日后续' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第一百零二条.10.2.1
 sourceId 第一百零二条
@@ -1212,7 +1212,7 @@ focus: 订单连续性操作
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 操作人 is '本所证券交易服务公司' and 时间 is '联交所持续交易时段或者收市竞价交易时段' and 操作 is '申报' and 交易方向 is '卖出' and 时间 is '当日后续' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第一百零二条.11.1.1
 sourceId 第一百零二条
@@ -1220,7 +1220,7 @@ focus: 时间
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 操作人 is '本所证券交易服务公司' and 时间 is '联交所持续交易时段或者收市竞价交易时段' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第一百零二条.11.2.1
 sourceId 第一百零二条
@@ -1228,7 +1228,7 @@ focus: 时间
 before: []
 after: ['第五十三条.2.1.1.1', '第五十三条.2.1.2.1']
 	if 操作人 is '本所证券交易服务公司' and 时间 is '联交所持续交易时段或者收市竞价交易时段' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第一百一十九条.1.1.1
 sourceId 第一百一十九条
@@ -1236,7 +1236,7 @@ focus: 订单连续性操作
 before: ['第九十三条.1.2.5']
 after: ['第一百一十九条.1.1.2']
 	if 交易品种 is '股票' and 操作 is '出现' and 操作部分 is '交易行为'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.1.1.2
 sourceId 第一百一十九条
@@ -1244,7 +1244,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.1.1.1']
 after: ['第一百一十九条.1.1.5']
 	if 交易品种 is '股票' and 操作 is '出现' and 操作部分 is '情形'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.1.1.5
 sourceId 第一百一十九条
@@ -1252,7 +1252,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.1.1.2']
 after: ['第一百一十九条.1.1.6']
 	if 交易品种 is '股票' and 操作 is '扰乱' and 操作部分 is '本所市场秩序'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.1.1.6
 sourceId 第一百一十九条
@@ -1260,7 +1260,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.1.1.5']
 after: ['第一百一十九条.1.2.6']
 	if 交易品种 is '股票' and 事件 is '出现异常交易行为或者情形,出现异常交易行为或者情形,严重扰乱本所市场秩序的' and 操作 is '暂停' and 操作部分 is '联交所证券交易服务公司交易权限' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 操作人 is '涉及相关投资者' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.1.2.6
 sourceId 第一百一十九条
@@ -1268,7 +1268,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.1.1.6']
 after: ['第一百一十九条.2.1.6']
 	if 交易品种 is '股票' and 事件 is '出现异常交易行为或者情形,出现异常交易行为或者情形,严重扰乱本所市场秩序的' and 操作 is '暂停' and 操作部分 is '联交所证券交易服务公司交易权限' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 操作人 is '涉及相关投资者' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.2.1.6
 sourceId 第一百一十九条
@@ -1276,7 +1276,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.1.2.6']
 after: ['第一百一十九条.2.2.6']
 	if 交易品种 is '股票' and 事件 is '出现异常交易行为或者情形,出现异常交易行为或者情形,严重扰乱本所市场秩序的' and 操作 is '限制' and 操作部分 is '联交所证券交易服务公司交易权限' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 操作人 is '涉及相关投资者' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.2.2.6
 sourceId 第一百一十九条
@@ -1284,7 +1284,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.2.1.6']
 after: ['第一百一十九条.3.1.6']
 	if 交易品种 is '股票' and 事件 is '出现异常交易行为或者情形,出现异常交易行为或者情形,严重扰乱本所市场秩序的' and 操作 is '限制' and 操作部分 is '联交所证券交易服务公司交易权限' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 操作人 is '涉及相关投资者' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.3.1.6
 sourceId 第一百一十九条
@@ -1292,7 +1292,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.2.2.6']
 after: ['第一百一十九条.3.2.6']
 	if 交易品种 is '股票' and 事件 is '出现异常交易行为或者情形,出现异常交易行为或者情形,严重扰乱本所市场秩序的' and 操作 is '暂停' and 操作 is '不予接受' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 操作人 is '涉及相关投资者' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.3.2.6
 sourceId 第一百一十九条
@@ -1300,7 +1300,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.3.1.6']
 after: ['第一百一十九条.4.1.6']
 	if 交易品种 is '股票' and 事件 is '出现异常交易行为或者情形,出现异常交易行为或者情形,严重扰乱本所市场秩序的' and 操作 is '暂停' and 操作 is '不予接受' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 操作人 is '涉及相关投资者' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.4.1.6
 sourceId 第一百一十九条
@@ -1308,7 +1308,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.3.2.6']
 after: ['第一百一十九条.4.2.6']
 	if 交易品种 is '股票' and 事件 is '出现异常交易行为或者情形,出现异常交易行为或者情形,严重扰乱本所市场秩序的' and 操作 is '限制' and 操作 is '不予接受' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 操作人 is '涉及相关投资者' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.4.2.6
 sourceId 第一百一十九条
@@ -1316,7 +1316,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.4.1.6']
 after: ['第一百一十九条.5.1.1']
 	if 交易品种 is '股票' and 事件 is '出现异常交易行为或者情形,出现异常交易行为或者情形,严重扰乱本所市场秩序的' and 操作 is '限制' and 操作 is '不予接受' and 操作人 is '联交所证券交易服务公司' and 操作 is '提交' and 操作人 is '涉及相关投资者' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 股票品种 is '深股通' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.5.1.1
 sourceId 第一百一十九条
@@ -1324,7 +1324,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.4.2.6']
 after: ['第一百一十九条.5.1.2']
 	if 操作部分 is '交易行为' and 操作 is '消除'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.5.1.2
 sourceId 第一百一十九条
@@ -1332,7 +1332,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.5.1.1']
 after: ['第一百一十九条.5.1.5']
 	if 操作部分 is '情形影响' and 操作 is '消除'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.5.1.5
 sourceId 第一百一十九条
@@ -1340,7 +1340,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.5.1.2']
 after: ['第一百一十九条.5.2.5']
 	if 事件 is '异常交易行为或者情形影响消除后,异常交易行为或者情形影响消除后' and 操作 is '恢复' and 操作部分 is '联交所证券交易服务公司交易权限' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.5.2.5
 sourceId 第一百一十九条
@@ -1348,7 +1348,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.5.1.5']
 after: ['第一百一十九条.6.1.5']
 	if 事件 is '异常交易行为或者情形影响消除后,异常交易行为或者情形影响消除后' and 操作 is '恢复' and 操作部分 is '联交所证券交易服务公司交易权限' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.6.1.5
 sourceId 第一百一十九条
@@ -1356,7 +1356,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.5.2.5']
 after: ['第一百一十九条.6.2.5']
 	if 事件 is '异常交易行为或者情形影响消除后,异常交易行为或者情形影响消除后' and 操作 is '恢复接受' and 操作部分 is '相关交易申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百一十九条.6.2.5
 sourceId 第一百一十九条
@@ -1364,7 +1364,7 @@ focus: 订单连续性操作
 before: ['第一百一十九条.6.1.5']
 after: []
 	if 事件 is '异常交易行为或者情形影响消除后,异常交易行为或者情形影响消除后' and 操作 is '恢复接受' and 操作部分 is '相关交易申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百二十二条.1.1
 sourceId 第一百二十二条
@@ -1372,7 +1372,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '本所会员' and 操作 is '发现' and 交易品种 is '股票' and 操作部分 is '市场失当行为' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通交易' and 交易方向 is '买入'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百二十二条.1.2
 sourceId 第一百二十二条
@@ -1380,7 +1380,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '本所会员' and 操作 is '发现' and 交易品种 is '股票' and 操作部分 is '市场失当行为' and 交易市场 is '深圳证券交易所' and 股票品种 is '港股通交易' and 交易方向 is '卖出'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第一百二十二条.2.1
 sourceId 第一百二十二条
@@ -1388,7 +1388,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '本所会员' and 操作 is '发现' and 操作部分 is '市场失当行为' and 操作部分 is '其委托' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第一百二十二条.2.2
 sourceId 第一百二十二条
@@ -1396,7 +1396,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '本所会员' and 操作 is '发现' and 操作部分 is '市场失当行为' and 操作部分 is '其委托' and 交易市场 is '深圳证券交易所' and 交易品种 is '标的证券' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第一百二十二条.3.1.1
 sourceId 第一百二十二条
@@ -1404,7 +1404,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '本所会员' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第一百二十二条.3.1.2
 sourceId 第一百二十二条
@@ -1412,7 +1412,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '本所会员' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'A股' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第一百二十二条.3.2.1
 sourceId 第一百二十二条
@@ -1420,7 +1420,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '本所会员' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第一百二十二条.3.2.2
 sourceId 第一百二十二条
@@ -1428,7 +1428,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '本所会员' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is 'B股' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第一百二十二条.3.3.1
 sourceId 第一百二十二条
@@ -1436,7 +1436,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '本所会员' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '创业板' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第一百二十二条.3.3.2
 sourceId 第一百二十二条
@@ -1444,5 +1444,5 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '本所会员' and 交易品种 is '股票' and 交易市场 is '深圳证券交易所' and 股票品种 is '创业板' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 

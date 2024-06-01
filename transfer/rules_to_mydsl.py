@@ -63,7 +63,7 @@ def r3_to_json(rules):
         if 'results' in rule and len(rule['results']) > 0:
             xtext_str += '\nthen '
             for r in rule['results']:
-                xtext_str += f"{r['key']} = '{r['value']}' and "
+                xtext_str += f"{r['key']} is '{r['value']}' and "
             xtext_str = xtext_str[:-4]
         has_constraint = False
         for c in rule['constraints']:
