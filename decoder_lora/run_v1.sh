@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# nohup bash run_v1.sh >../log/run_llama2_lora.log &
+# nohup bash run_v1.sh >../log/run_llama2_lora_v1.log &
 
 # 模型保存目录、预测数据目录、训练数据文件、验证数据文件
 output_dir=./output/v1

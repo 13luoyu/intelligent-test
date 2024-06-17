@@ -1,6 +1,8 @@
 import json
 from transfer.knowledge_tree import encode_tree
 
+# 为../data/data_for_LLM_v2/ir_annotation_v2.json添加领域知识，生成../data/data_for_LLM_v2/ir_annotation_v2_with_knowledge.json
+
 def add_knowledge_v2(rules, knowledge, answer_key):
     knowledge = encode_tree(knowledge)
     for data in rules:

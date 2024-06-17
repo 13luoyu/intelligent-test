@@ -90,19 +90,26 @@ def integrate_all(sc_in_dir: str, sc_out_file: str, tc_in_dir: str, tc_out_file:
 
 
 if __name__ == "__main__":
-    # 将句分类标注好的数据9：1分到对应文件
-    integrate_dir("../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/", "../data/data_for_LLM_v1/sc_train_data_raw.json", "../data/data_for_LLM_v1/sc_validate_data.json")
-    # 将字分类标注好的数据9：1分到对应文件
-    integrate_dir("../data/data_for_LLM_v1/business_rules/json_for_token_classification/", "../data/data_for_LLM_v1/tc_train_data_all_raw.json", "../data/data_for_LLM_v1/tc_validate_data_all.json")
-    # 挑选所有的规则，并赋予它们每个字的标签，生成rules.json
-    select_rule("../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/", "../data/data_for_LLM_v1/business_rules/json_for_token_classification/", "../data/data_for_LLM_v1/rules.json")
-    # 将rules.json9：1分到对应文件
-    integrate_file("../data/data_for_LLM_v1/rules.json", "../data/data_for_LLM_v1/tc_train_data_rules_raw.json", "../data/data_for_LLM_v1/tc_validate_data_rules.json")
-    # 将所有字分类、句分类数据整合在一起
-    integrate_all("../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/", "../data/data_for_LLM_v1/sc_data.json", "../data/data_for_LLM_v1/business_rules/json_for_token_classification/", "../data/data_for_LLM_v1/tc_data.json")
+    # # 将句分类标注好的数据9：1分到对应文件
+    # integrate_dir("../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/", "../data/data_for_LLM_v1/sc_train_data_raw.json", "../data/data_for_LLM_v1/sc_validate_data.json")
+    # # 将字分类标注好的数据9：1分到对应文件
+    # integrate_dir("../data/data_for_LLM_v1/business_rules/json_for_token_classification/", "../data/data_for_LLM_v1/tc_train_data_all_raw.json", "../data/data_for_LLM_v1/tc_validate_data_all.json")
+    # # 挑选所有的规则，并赋予它们每个字的标签，生成rules.json
+    # select_rule("../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/", "../data/data_for_LLM_v1/business_rules/json_for_token_classification/", "../data/data_for_LLM_v1/rules.json")
+    # # 将rules.json9：1分到对应文件
+    # integrate_file("../data/data_for_LLM_v1/rules.json", "../data/data_for_LLM_v1/tc_train_data_rules_raw.json", "../data/data_for_LLM_v1/tc_validate_data_rules.json")
+    # # 将所有字分类、句分类数据整合在一起
+    # integrate_all("../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/", "../data/data_for_LLM_v1/sc_data.json", "../data/data_for_LLM_v1/business_rules/json_for_token_classification/", "../data/data_for_LLM_v1/tc_data.json")
 
-    # 将ir_annotation_v2.json 9:1 分到对应文件
-    integrate_file("../data/data_for_LLM_v2/ir_annotation_v2.json", "../data/data_for_LLM_v2/ir_train_v2.json", "../data/data_for_LLM_v2/ir_validate_v2.json")
+    # # 将ir_annotation_v2.json 9:1 分到对应文件
+    # integrate_file("../data/data_for_LLM_v2/ir_annotation_v2.json", "../data/data_for_LLM_v2/ir_train_v2.json", "../data/data_for_LLM_v2/ir_validate_v2.json")
 
-    # 将ir_annotation_v4.json 9:1 分到对应文件
-    integrate_file("../data/data_for_LLM_v4/annotation_v4.json", "../data/data_for_LLM_v4/train_v4.json", "../data/data_for_LLM_v4/validate_v4.json")
+    # # 将assemble_annotation_v2.json和assemble_annotation_v2.1.json 9:1 分到对应文件
+    # integrate_file("../data/data_for_LLM_v2/assemble_annotation_v2.json", "../data/data_for_LLM_v2/assemble_train_v2.json", "../data/data_for_LLM_v2/assemble_validate_v2.json")
+    # integrate_file("../data/data_for_LLM_v2/assemble_annotation_v2.1.json", "../data/data_for_LLM_v2/assemble_train_v2.1.json", "../data/data_for_LLM_v2/assemble_validate_v2.1.json")
+
+    # 将ir_assemble_annotation_v3.json 9:1 分到对应文件
+    integrate_file("../data/data_for_LLM_v3/ir_assemble_annotation_v3.json", "../data/data_for_LLM_v3/ir_assemble_train_v3.json", "../data/data_for_LLM_v3/ir_assemble_validate_v3.json")
+
+    # 将ir_assemble_nnotation_v4.json 9:1 分到对应文件
+    # integrate_file("../data/data_for_LLM_v4/ir_assemble_annotation_v4.json", "../data/data_for_LLM_v4/ir_assemble_train_v4.json", "../data/data_for_LLM_v4/ir_assemble_validate_v4.json")
