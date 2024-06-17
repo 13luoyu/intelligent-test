@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# nohup bash run_v1.sh >../log/run_llama2_fine_tuning_v1.log &
+# nohup bash run_v3.sh >../log/run_llama2_fine_tuning_v3.log &
 
-output_dir=./output/v1
-predict_dir=./predict_data/v1
-train_files=../data/data_for_LLM_v2/ir_train_v1.csv
-validation_files=../data/data_for_LLM_v2/ir_validate_v1.csv
-all_files=../data/data_for_LLM_v2/ir_all_v1.csv
+output_dir=./output/v3
+predict_dir=./predict_data/v3
+train_files=../data/data_for_LLM_v3/ir_train_v3.csv
+validation_files=../data/data_for_LLM_v3/ir_validate_v3.csv
+all_files=../data/data_for_LLM_v3/ir_all_v3.csv
 
 # 需要修改到自己的输入目录
 if [ ! -d ${output_dir} ];then  
@@ -58,18 +58,18 @@ python fine_tune_model.py \
 # 初始化一个空数组来存储所有文件的整数部分
 file_numbers=()
 # 这里的目录需要替换成你实际的目录
-for file in $(find $output_dir -type d -name 'best_model_*' | grep -oP 'best_model_\K\d+'); do
+for file in $(find $output_dir -type d -name 'best_lora_model_*' | grep -oP 'best_lora_model_\K\d+'); do
     file_numbers+=("$file")
 done
 # 如果没有找到任何文件，则退出脚本
 if [ ${#file_numbers[@]} -eq 0 ]; then
-    echo "Error  没有找到匹配的文件。"
+    echo "Error 没有找到匹配的文件。"
     exit 1
 fi
 # 使用sort和tail找到最大的整数
 max_number=$(printf "%s\n" "${file_numbers[@]}" | sort -n | tail -1)
 # 构建最大的文件名
-filename="best_model_$max_number"
+filename="best_lora_model_$max_number"
 
 
 python predict.py \
@@ -84,9 +84,8 @@ python predict.py \
     --model_name_or_path ${output_dir}/${filename} \
     --mode base \
     --tokenizer_fast false \
-    --eval_dataset ${all_files} \
+    --eval_dataset ${validation_files} \
     --prediction_file ${predict_dir}/predict_result_${filename}_base_all.json
-
 
 
 

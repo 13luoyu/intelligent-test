@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# nohup bash run_v2.sh >../log/run_llama2_fine_tuning.log &
+# nohup bash run_v2.sh >../log/run_llama2_fine_tuning_v2.log &
 
-output_dir=./output
-predict_dir=./predict_data/v1
-train_files=../data/data_for_LLM_v2/ir_train_v1.csv
-validation_files=../data/data_for_LLM_v2/ir_validate_v1.csv
-all_files=../data/data_for_LLM_v2/ir_all_v1.csv
+output_dir=./output/v2
+predict_dir=./predict_data/v2
+train_files=../data/data_for_LLM_v2/ir_train_v2.csv
+validation_files=../data/data_for_LLM_v2/ir_validate_v2.csv
+all_files=../data/data_for_LLM_v2/ir_all_v2.csv
 
 # 需要修改到自己的输入目录
 if [ ! -d ${output_dir} ];then  
