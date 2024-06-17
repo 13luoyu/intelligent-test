@@ -28,14 +28,17 @@ def add_knowledge_v2(rules, knowledge, answer_key):
                 find = False
                 if "方式" in value[-2:] and len(value) > 4:
                     value = value[:-2]
+                to_add_label = ""
                 for know in knowledge:
                     k, v = know["content"].split(":")[0], know["content"].split(":")[1]
                     if "指令" in k or "要素" in k:
                         continue
                     if value == v or v in value and value.index(v) == 0 and len(value) - len(v) <= 2:
-                        new_label += f"{k}:{value},"
+                        if k == "证券品种" and to_add_label != "":
+                            continue
+                        to_add_label = f"{k}:{value},"
                         find = True
-                        break
+                new_label += to_add_label
                 if not find:
                     new_label += f"{key}:{value},"
             
