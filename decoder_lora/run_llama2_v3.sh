@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# nohup bash run_v3.sh >../log/run_llama2_lora_v3.log &
+# nohup bash run_llama2_v3.sh >../log/run_llama2_lora_v3.log &
 
 # 模型保存目录、预测数据目录、训练数据文件、验证数据文件
-output_dir=./output/v3
-predict_dir=./predict_data/v3
-train_files=../data/data_for_LLM_v3/ir_train_v3.csv
-validation_files=../data/data_for_LLM_v3/ir_validate_v3.csv
-all_files=../data/data_for_LLM_v3/ir_all_v3.csv
+output_dir=./output/v3/llama2
+predict_dir=./predict_data/v3/llama2
+train_files=../data/data_for_LLM_v3/llama2/ir_assemble_train_v3.csv
+validation_files=../data/data_for_LLM_v3/llama2/ir_assemble_validate_v3.csv
+all_files=../data/data_for_LLM_v3/llama2/ir_assemble_all_v3.csv
 
 # 如果文件不存在，创建
 if [ ! -d ${output_dir} ];then  
@@ -18,47 +18,47 @@ if [ ! -d ${predict_dir} ];then
 fi
 
 # 训练模型
-python train_lora_model.py \
-    --model_name_or_path ../model/pretrained/Atom-7B \
-    --train_files ${train_files} \
-    --validation_files ${validation_files} \
-    --per_device_train_batch_size 1 \
-    --per_device_eval_batch_size 1 \
-    --do_train \
-    --do_eval \
-    --use_fast_tokenizer false \
-    --output_dir ${output_dir} \
-    --evaluation_strategy  steps \
-    --max_eval_samples 800 \
-    --learning_rate 1e-4 \
-    --gradient_accumulation_steps 8 \
-    --num_train_epochs 10 \
-    --warmup_steps 400 \
-    --load_in_bits 4 \
-    --lora_r 8 \
-    --lora_alpha 16 \
-    --target_modules q_proj,k_proj,v_proj,o_proj,down_proj,gate_proj,up_proj \
-    --logging_dir ${output_dir}/logs \
-    --logging_strategy steps \
-    --logging_steps 10 \
-    --save_strategy steps \
-    --preprocessing_num_workers 10 \
-    --save_steps 100 \
-    --eval_steps 100 \
-    --save_total_limit 100 \
-    --seed 42 \
-    --ddp_find_unused_parameters false \
-    --block_size 2048 \
-    --report_to tensorboard \
-    --overwrite_output_dir \
-    --ignore_data_skip true \
-    --bf16 \
-    --gradient_checkpointing \
-    --bf16_full_eval \
-    --ddp_timeout 18000000 \
-    --torch_dtype float16 \
-    --test_output_file ${predict_dir}/predict_result_framework.txt \
-    --disable_tqdm true
+# python train_lora_model.py \
+#     --model_name_or_path ../model/pretrained/Atom-7B \
+#     --train_files ${train_files} \
+#     --validation_files ${validation_files} \
+#     --per_device_train_batch_size 1 \
+#     --per_device_eval_batch_size 1 \
+#     --do_train \
+#     --do_eval \
+#     --use_fast_tokenizer false \
+#     --output_dir ${output_dir} \
+#     --evaluation_strategy  steps \
+#     --max_eval_samples 800 \
+#     --learning_rate 1e-4 \
+#     --gradient_accumulation_steps 8 \
+#     --num_train_epochs 10 \
+#     --warmup_steps 400 \
+#     --load_in_bits 4 \
+#     --lora_r 8 \
+#     --lora_alpha 16 \
+#     --target_modules q_proj,k_proj,v_proj,o_proj,down_proj,gate_proj,up_proj \
+#     --logging_dir ${output_dir}/logs \
+#     --logging_strategy steps \
+#     --logging_steps 10 \
+#     --save_strategy steps \
+#     --preprocessing_num_workers 10 \
+#     --save_steps 100 \
+#     --eval_steps 100 \
+#     --save_total_limit 100 \
+#     --seed 42 \
+#     --ddp_find_unused_parameters false \
+#     --block_size 2048 \
+#     --report_to tensorboard \
+#     --overwrite_output_dir \
+#     --ignore_data_skip true \
+#     --bf16 \
+#     --gradient_checkpointing \
+#     --bf16_full_eval \
+#     --ddp_timeout 18000000 \
+#     --torch_dtype float16 \
+#     --test_output_file ${predict_dir}/predict_result_framework.txt \
+#     --disable_tqdm true
 
 # 初始化一个空数组来存储所有文件的整数部分
 file_numbers=()
@@ -78,10 +78,10 @@ filename="best_lora_model_$max_number"
 
 
 # 合并lora模型和原始模型，原始模型4位量化
-python merge.py \
-    --adapter_model_name ${output_dir}/${filename} \
-    --output_name ${output_dir}/${filename}_4bit \
-    --mode 4bit
+# python merge.py \
+#     --adapter_model_name ${output_dir}/${filename} \
+#     --output_name ${output_dir}/${filename}_4bit \
+#     --mode 4bit
 
 # 使用4bit量化合并后的模型不量化加载预测
 # python predict.py \

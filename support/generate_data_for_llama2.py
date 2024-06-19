@@ -62,15 +62,15 @@ def generate_llm_chat_data_for_ir_v2(datas):
 def main_v1():
     rules = json.load(open("../data/data_for_LLM_v1/tc_train_data_rules_raw.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v1(rules)
-    with open("../data/data_for_LLM_v2/ir_train_v1.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v2/llama2/ir_train_v1.csv", "w", encoding="utf-8") as f:
         f.write(s)
     rules = json.load(open("../data/data_for_LLM_v1/tc_validate_data_rules.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v1(rules)
-    with open("../data/data_for_LLM_v2/ir_validate_v1.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v2/llama2/ir_validate_v1.csv", "w", encoding="utf-8") as f:
         f.write(s)
     rules = json.load(open("../data/data_for_LLM_v1/rules.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v1(rules)
-    with open("../data/data_for_LLM_v2/ir_all_v1.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v2/llama2/ir_all_v1.csv", "w", encoding="utf-8") as f:
         f.write(s)
 
 
@@ -78,28 +78,28 @@ def main_v2():
     # 读取标注好的信息抽取数据，生成训练集和验证集
     datas = json.load(open("../data/data_for_LLM_v2/ir_annotation_v2.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v2/ir_all_v2.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v2/llama2/ir_all_v2.csv", "w", encoding="utf-8") as f:
         f.write(s)
     datas = json.load(open("../data/data_for_LLM_v2/ir_train_v2.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v2/ir_train_v2.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v2/llama2/ir_train_v2.csv", "w", encoding="utf-8") as f:
         f.write(s)
     datas = json.load(open("../data/data_for_LLM_v2/ir_validate_v2.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v2/ir_validate_v2.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v2/llama2/ir_validate_v2.csv", "w", encoding="utf-8") as f:
         f.write(s)
     
     datas = json.load(open("../data/data_for_LLM_v2/assemble_annotation_v2.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v2/assemble_all_v2.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v2/llama2/assemble_all_v2.csv", "w", encoding="utf-8") as f:
         f.write(s)
     datas = json.load(open("../data/data_for_LLM_v2/assemble_train_v2.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v2/assemble_train_v2.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v2/llama2/assemble_train_v2.csv", "w", encoding="utf-8") as f:
         f.write(s)
     datas = json.load(open("../data/data_for_LLM_v2/assemble_validate_v2.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v2/assemble_validate_v2.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v2/llama2/assemble_validate_v2.csv", "w", encoding="utf-8") as f:
         f.write(s)
     
 
@@ -108,26 +108,26 @@ def main_v2():
 def main_v3():
     datas = json.load(open("../data/data_for_LLM_v3/ir_assemble_annotation_v3.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v3/ir_all_v3.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v3/llama2/ir_assemble_all_v3.csv", "w", encoding="utf-8") as f:
         f.write(s)
     datas = json.load(open("../data/data_for_LLM_v3/ir_assemble_train_v3.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v3/ir_train_v3.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v3/llama2/ir_assemble_train_v3.csv", "w", encoding="utf-8") as f:
         f.write(s)
     datas = json.load(open("../data/data_for_LLM_v3/ir_assemble_validate_v3.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v3/ir_validate_v3.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v3/llama2/ir_assemble_validate_v3.csv", "w", encoding="utf-8") as f:
         f.write(s)
 
 
 def main_v4():
     datas = json.load(open("../data/data_for_LLM_v4/train_v4.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v4/train_v4.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v4/llama2/train_v4.csv", "w", encoding="utf-8") as f:
         f.write(s)
     datas = json.load(open("../data/data_for_LLM_v4/validate_v4.json", "r", encoding="utf-8"))
     s = generate_llm_chat_data_for_ir_v2(datas)
-    with open("../data/data_for_LLM_v4/validate_v4.csv", "w", encoding="utf-8") as f:
+    with open("../data/data_for_LLM_v4/llama2/validate_v4.csv", "w", encoding="utf-8") as f:
         f.write(s)
 
 

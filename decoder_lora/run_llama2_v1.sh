@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# nohup bash run_v1.sh >../log/run_llama2_lora_v1.log &
+# nohup bash run_llama2_v1.sh >../log/run_llama2_lora_v1.log &
 
 # 模型保存目录、预测数据目录、训练数据文件、验证数据文件
-output_dir=./output/v1
-predict_dir=./predict_data/v1
-train_files=../data/data_for_LLM_v2/ir_train_v1.csv
-validation_files=../data/data_for_LLM_v2/ir_validate_v1.csv
-all_files=../data/data_for_LLM_v2/ir_all_v1.csv
+output_dir=./output/v1/llama2
+predict_dir=./predict_data/v1/llama2
+train_files=../data/data_for_LLM_v2/llama2/ir_train_v1.csv
+validation_files=../data/data_for_LLM_v2/llama2/ir_validate_v1.csv
+all_files=../data/data_for_LLM_v2/llama2/ir_all_v1.csv
 
 # 如果文件不存在，创建
 if [ ! -d ${output_dir} ];then  

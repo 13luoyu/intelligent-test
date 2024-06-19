@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# nohup bash run_v4.sh >../log/run_llama2_lora_v4.log &
+# nohup bash run_llama2_v2.sh >../log/run_llama2_lora_v2.log &
 
 # 模型保存目录、预测数据目录、训练数据文件、验证数据文件
-output_dir=./output/v4
-predict_dir=./predict_data/v4
-train_files=../data/data_for_LLM_v4/train_v4.csv
-validation_files=../data/data_for_LLM_v4/validate_v4.csv
-all_files=../data/data_for_LLM_v4/ir_all_v4.csv
-
+output_dir=./output/v2/llama2
+predict_dir=./predict_data/v2/llama2
+train_files=../data/data_for_LLM_v2/llama2/ir_train_v2.csv
+validation_files=../data/data_for_LLM_v2/llama2/ir_validate_v2.csv
+all_files=../data/data_for_LLM_v2/llama2/ir_all_v2.csv
 
 # 如果文件不存在，创建
 if [ ! -d ${output_dir} ];then  
@@ -20,7 +19,7 @@ fi
 
 # 训练模型
 python train_lora_model.py \
-    --model_name_or_path ../model/pretrained/Atom-7B-Chat \
+    --model_name_or_path ../model/pretrained/Atom-7B \
     --train_files ${train_files} \
     --validation_files ${validation_files} \
     --per_device_train_batch_size 1 \
@@ -33,8 +32,8 @@ python train_lora_model.py \
     --max_eval_samples 800 \
     --learning_rate 1e-4 \
     --gradient_accumulation_steps 8 \
-    --num_train_epochs 20 \
-    --warmup_steps 50 \
+    --num_train_epochs 10 \
+    --warmup_steps 400 \
     --load_in_bits 4 \
     --lora_r 8 \
     --lora_alpha 16 \
@@ -44,8 +43,8 @@ python train_lora_model.py \
     --logging_steps 10 \
     --save_strategy steps \
     --preprocessing_num_workers 10 \
-    --save_steps 50 \
-    --eval_steps 50 \
+    --save_steps 100 \
+    --eval_steps 100 \
     --save_total_limit 100 \
     --seed 42 \
     --ddp_find_unused_parameters false \
@@ -60,9 +59,6 @@ python train_lora_model.py \
     --torch_dtype float16 \
     --test_output_file ${predict_dir}/predict_result_framework.txt \
     --disable_tqdm true
-
-
-
 
 # 初始化一个空数组来存储所有文件的整数部分
 file_numbers=()
@@ -167,7 +163,7 @@ python predict.py \
     --eval_dataset ${validation_files} \
     --prediction_file ${predict_dir}/predict_result_${filename}_4bit_load_lora.json
 
-# 使用不加载原始模型并与lora运行时合并预测
+# 使用不量化加载原始模型并与lora运行时合并预测
 python predict.py \
     --model_name_or_path ${output_dir}/${filename} \
     --mode lora \
@@ -191,9 +187,7 @@ python predict.py \
     --prediction_file ${predict_dir}/predict_result_${filename}_normal_load_lora_all.json
 
 
-
 cd ${output_dir}
 rm -rf checkpoint-*
 cd ..
 cd ..
-
