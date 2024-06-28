@@ -2,10 +2,8 @@
 from ours.process_nl_to_sci import nl_to_sci
 from ours.process_sci_to_sco import sequence_classification
 from ours.process_sco_to_tci import sco_to_tci
-from ours.process_tci_to_tco import token_classification as token_classification_v1
-from ours_v2.process_tci_to_tco import token_classification as token_classification_v2
-from ours.process_tco_to_r1 import to_r1 as to_r1_v1
-from ours.process_tco_to_r1 import to_r1_v2 as to_r1_v2
+from ours.process_tci_to_tco import token_classification_encoder, token_classification_decoder
+from ours.process_tco_to_r1 import to_r1
 from ours.process_r1_to_r2 import preprocess, compose_rules_r1_r2
 from ours.process_r2_to_r3 import compose_rules_r2_r3
 from ours.process_r3_to_testcase import testcase
@@ -55,17 +53,13 @@ def nlp_process(input_file: str,
     # 标注句子中每个字的类别
     terms = open(terms_file, "r", encoding="utf-8").read().split("\n")
     if "mengzi" in tc_model or "finbert" in tc_model:
-        tco = token_classification_v1(tci, knowledge, tc_model, tc_dict, batch_size, sentence_max_length)
-    else:
-        tco = token_classification_v2(tci, tc_model, knowledge, use_algorithm=True)
+        tco = token_classification_encoder(tci, knowledge, tc_model, tc_dict, batch_size, sentence_max_length)
+    else:  # llama2
+        tco = token_classification_decoder(tci, tc_model, knowledge, use_algorithm=True)
     json.dump(tco, open(tco_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)
     print("规则元素抽取任务完成")
     # 调用转R1
-    r1 = to_r1_v1(tco, knowledge, terms)
-    # if "mengzi" in tc_model or "finbert" in tc_model:
-    #     r1 = to_r1_v1(tco, knowledge, terms)
-    # else:
-    #     r1 = to_r1_v2(tco, knowledge, terms)
+    r1 = to_r1(tco, knowledge, terms)
     r1 = add_defines(r1, market_variety)
     with open(r1_file, "w", encoding="utf-8") as f:
         f.write(r1)
@@ -141,7 +135,7 @@ if __name__ == "__main__":
         raise FileNotFoundError(f"文件 {args.file} 不存在")
     
     begin_time = time.time()
-    nlp_process(args.file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/terms.txt", "../model/trained/mengzi_rule_filtering", tc_model_path, "../data/data_for_LLM_v1/tc_data.dict")
+    nlp_process(args.file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/terms.txt", "../model/trained/mengzi_rule_filtering", tc_model_path, "../data/data_for_LLM_encoder/tc_data.dict")
     alg_process("cache/r1.mydsl", "cache/r1.json", "cache/r2.json", "cache/r2.mydsl", "cache/r3.json", "cache/r3.mydsl", "cache/testcase.json", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/knowledge.json", "cache/relation.json", "cache/explicit_relation.json", "cache/implicit_relation.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")

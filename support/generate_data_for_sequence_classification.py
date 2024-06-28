@@ -96,19 +96,13 @@ def read_txt_to_json(txt_data):
 
 
 if __name__ == "__main__":
-    # txt_data = read_pdf_to_txt(f"../data/上海证券交易所债券交易规则.pdf")
-    # with open(f"../data/上海证券交易所债券交易规则.txt", "w", encoding="utf-8") as f:
-    #     f.write(txt_data)
-    # sci = read_txt_to_json(txt_data)
-    # json.dump(sci, open(f"../data/上海证券交易所债券交易规则.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
-    # exit(0)
-    for file in os.listdir("../data/data_for_LLM_v1/business_rules/origin"):
+    for file in os.listdir("../data/business_rules/origin"):
         if "pdf" in file:
-            txt_data = read_pdf_to_txt(f"../data/data_for_LLM_v1/business_rules/origin/{file}")
-            with open(f"../data/data_for_LLM_v1/business_rules/txt/{file[:-4]}.txt", "w", encoding="utf-8") as f:
+            txt_data = read_pdf_to_txt(f"../data/business_rules/origin/{file}")
+            with open(f"../data/business_rules/txt/{file[:-4]}.txt", "w", encoding="utf-8") as f:
                 f.write(txt_data)
     
-    for file in os.listdir("../data/data_for_LLM_v1/business_rules/txt"):
-        txt_data = open(f"../data/data_for_LLM_v1/business_rules/txt/{file[:-4]}.txt", "r", encoding="utf-8").read()
+    for file in os.listdir("../data/business_rules/txt"):
+        txt_data = open(f"../data/business_rules/txt/{file[:-4]}.txt", "r", encoding="utf-8").read()
         sci = read_txt_to_json(txt_data)
-        json.dump(sci, open(f"../data/data_for_LLM_v1/business_rules/json_for_sequence_classification/{file[:-4]}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+        json.dump(sci, open(f"../data/business_rules/annotation_for_sequence_classification/{file[:-4]}.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

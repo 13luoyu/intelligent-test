@@ -3,10 +3,41 @@ import json
 import re
 import hanlp
 import os
+import nltk
 from ours.process_r1_to_r2 import judge_op, is_num_key, is_price_key, is_time_key
-from experiment.tc import str_same
 
 sts = hanlp.load(hanlp.pretrained.sts.STS_ELECTRA_BASE_ZH)
+
+
+
+def edit_distance(s1, s2):
+    """
+    衡量两个字符串的相似度，计算两个字符串的编辑距离。编辑距离指的是将一个字符串转换成另一个字符串所需的最少操作次数，包括插入、删除、替换操作。
+    """
+    return nltk.edit_distance(s1, s2)
+    # len1, len2 = len(s1), len(s2)
+    # dp = [[0] * (len2+1) for _ in range(len1+1)]
+    # for i in range(len1+1):
+    #     dp[i][0] = i
+    # for j in range(len2+1):
+    #     dp[0][j] = j
+    # for i in range(1, len1+1):
+    #     for j in range(1, len2+1):
+    #         if s1[i-1] == s2[j-1]:
+    #             dp[i][j] = dp[i-1][j-1]
+    #         else:
+    #             dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1
+    # return dp[len1][len2]
+
+def str_same(s1, s2, threshold):
+    # s1是预测值，s2是真实值
+    distance = edit_distance(s1, s2)
+    score = 1 - (distance / max(len(s1), len(s2)))
+    if score >= threshold:
+        return True
+    else:
+        return False
+
 
 def judge_same(s1, s2, method="alg", threshold=0.8):
     s1, s2 = str(s1), str(s2)
@@ -289,6 +320,7 @@ def compute_bsc_v2(testcases, scenarios, f, type="ours", count=0):
     new_scenarios = []  # new_scenarios[i]['交易市场']='深圳证券交易所'
     scenarios_variables = []  # scenario_variables[i]['交易市场'] = 0代表该元素未被覆盖，1代表覆盖
     max_cover_varnum = [0] * len(scenarios)  # 每个测试场景的最大覆盖变量数量
+    cover_rate = 0
 
     for scenario in scenarios:
         s = {}
@@ -542,13 +574,13 @@ def compute_bsc_v2(testcases, scenarios, f, type="ours", count=0):
 
 def compute_bsc_ours(summary_f):
     count = 0
-    for file in sorted(os.listdir("business_scenario")):
-        # if "data1" not in file:
+    for llm in ["mengzi", "finbert", "llama2"]:
+        # if "mengzi" not in llm:
         #     continue
-        f = open(f"log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
-        for llm in ["mengzi", "finbert", "llama2"]:
-            # if "mengzi" not in llm:
+        for file in sorted(os.listdir("business_scenario")):
+            # if "data1" not in file:
             #     continue
+            f = open(f"log/ours_{file.split('_')[0]}.log", "w", encoding="utf-8")
             count += 1
             testcase_file = f"rules_and_testcases_for_experiment/{file.split('_')[0]}_testcases_{llm}.json"
             scenario_file = f"business_scenario/{file}"
@@ -794,7 +826,7 @@ def compute_bsc_v3(testcases, scenarios, f):
     return cover_rate
 
 def compute_bsc_llm(summary_f):
-    for file in sorted(os.listdir("llm_result")):
+    for file in sorted(os.listdir("llm_result"), key=lambda x: "a_" + x if "chatgpt" in x else "b_" + x):
         if "testcase" in file:
             llm = file.split("_")[0]
             f = open(f"log/{llm}_{file.split('_')[-1].split('.')[0]}.log", "w", encoding="utf-8")
@@ -829,8 +861,8 @@ def compute_bsc_non_expert(summary_f):
         for i in range(dataset, len(bsc_list), 5):
             bsc_sum += bsc_list[i]
         bsc_avg = bsc_sum / 4.0
-        print(f"non-expert在数据集{dataset+1}的平均业务场景覆盖率为{round(bsc_avg, 4)}")
-        summary_f.write(f"non-expert在数据集{dataset+1}的平均业务场景覆盖率为{round(bsc_avg, 4)}\n")
+        print(f"non-expert在数据集data{dataset+1}的平均业务场景覆盖率为{round(bsc_avg, 4)}")
+        summary_f.write(f"non-expert在数据集data{dataset+1}的平均业务场景覆盖率为{round(bsc_avg, 4)}\n")
 
 
 def compute_bsc_expert(summary_f):
@@ -851,8 +883,8 @@ def compute_bsc_expert(summary_f):
 
 if __name__ == "__main__":
     summary_f = open("log/bsc.log", "w", encoding="utf-8")
+    compute_bsc_expert(summary_f)
+    compute_bsc_non_expert(summary_f)
+    compute_bsc_llm(summary_f)
     compute_bsc_ours(summary_f)
-    # compute_bsc_llm(summary_f)
-    # compute_bsc_non_expert(summary_f)
-    # compute_bsc_expert(summary_f)
     summary_f.close()

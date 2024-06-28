@@ -10,7 +10,7 @@ import argparse
 
 
 
-# python chat_gradio_lora.py --model_name_or_path ../decoder_lora/output/v4/best_lora_model --mode 4bit-lora
+# python chat_gradio_lora.py --model_name_or_path ../model/trained/llama2_rule_element_extraction --mode 4bit-lora
 
 
 def create_gradio_process(model, tokenizer, streamer):

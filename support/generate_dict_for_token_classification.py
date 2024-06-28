@@ -19,4 +19,4 @@ def generate_dict(data_file, data_dict):
 
 
 if __name__ == "__main__":
-    generate_dict("../data/data_for_LLM_v1/tc_data.json", "../data/data_for_LLM_v1/tc_data.dict")
+    generate_dict("../data/data_for_LLM_encoder/tc_data.json", "../data/data_for_LLM_encoder/tc_data.dict")

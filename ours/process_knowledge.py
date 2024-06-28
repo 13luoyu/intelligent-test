@@ -264,9 +264,9 @@ if __name__ == "__main__":
     all_knowledge = {}
     todo_fp = open(todo_knowledge_file, "w" ,encoding="utf-8")
     a, b = 0, 0
-    for file in os.listdir("../data/business_rules/json_for_sequence_classification/"):
+    for file in os.listdir("../data/business_rules/annotation_for_sequence_classification/"):
         if "finish" in file:
-            rules = json.load(open("../data/business_rules/json_for_sequence_classification/" + file, "r", encoding="utf-8"))
+            rules = json.load(open("../data/business_rules/annotation_for_sequence_classification/" + file, "r", encoding="utf-8"))
             knowledge, todo_text, knowledge_count, cannot_process = process_knowledge(rules)
             a += knowledge_count
             b += cannot_process

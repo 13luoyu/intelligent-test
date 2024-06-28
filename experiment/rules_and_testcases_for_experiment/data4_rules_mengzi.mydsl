@@ -4,7 +4,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.1.2
 sourceId 第二十七条
@@ -12,7 +12,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.2.1
 sourceId 第二十七条
@@ -20,7 +20,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.2.2
 sourceId 第二十七条
@@ -28,7 +28,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.3.1
 sourceId 第二十七条
@@ -36,7 +36,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.3.2
 sourceId 第二十七条
@@ -44,7 +44,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.4.1
 sourceId 第二十七条
@@ -52,7 +52,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.4.2
 sourceId 第二十七条
@@ -60,7 +60,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.5.1
 sourceId 第二十七条
@@ -68,7 +68,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.5.2
 sourceId 第二十七条
@@ -76,7 +76,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.6.1
 sourceId 第二十七条
@@ -84,7 +84,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.6.2
 sourceId 第二十七条
@@ -92,7 +92,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.7.1
 sourceId 第二十七条
@@ -100,7 +100,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.2.7.2
 sourceId 第二十七条
@@ -108,7 +108,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌、处于临时停牌期,停牌至收市' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '成功'
+	then 结果 is '成功'
 
 rule 第二十七条.3.1.1
 sourceId 第二十七条
@@ -116,7 +116,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '其协商成交交易' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 债券品种 is '市的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第二十七条.3.1.2
 sourceId 第二十七条
@@ -124,7 +124,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '其协商成交交易' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 债券品种 is '市的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第二十七条.4.1.1
 sourceId 第二十七条
@@ -132,7 +132,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '其协商成交交易' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 债券品种 is '市的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第二十七条.4.1.2
 sourceId 第二十七条
@@ -140,7 +140,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '其协商成交交易' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 债券品种 is '市的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第二十七条.6.1.1
 sourceId 第二十七条
@@ -148,7 +148,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌或者停牌至' and 交易品种 is '债券' and 交易方式 is '其盘后定价成交' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 债券品种 is '收市的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第二十七条.6.1.2
 sourceId 第二十七条
@@ -156,7 +156,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 状态 is '当天全天停牌或者停牌至' and 交易品种 is '债券' and 交易方式 is '其盘后定价成交' and 操作 is '交易申报' and 交易市场 is '深圳证券交易所' and 债券品种 is '收市的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出'
-	then 结果 = '不成功'
+	then 结果 is '不成功'
 
 rule 第二十七条.1.1.1.1
 sourceId 第二十七条
@@ -164,7 +164,7 @@ focus: 时间
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十七条.1.1.2.1
 sourceId 第二十七条
@@ -172,7 +172,7 @@ focus: 时间
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十七条.1.2.1.1
 sourceId 第二十七条
@@ -180,7 +180,7 @@ focus: 时间
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十七条.1.2.2.1
 sourceId 第二十七条
@@ -188,7 +188,7 @@ focus: 时间
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十七条.1.3.1.1
 sourceId 第二十七条
@@ -196,7 +196,7 @@ focus: 时间
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十七条.1.3.2.1
 sourceId 第二十七条
@@ -204,7 +204,7 @@ focus: 时间
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十七条.1.4.1.1
 sourceId 第二十七条
@@ -212,7 +212,7 @@ focus: 时间
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 债券品种 is '向不特定对象发行的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十七条.1.4.2.1
 sourceId 第二十七条
@@ -220,7 +220,7 @@ focus: 时间
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易时间 in {[9:15-11:30],[13:00-15:30]} and 交易市场 is '深圳证券交易所' and 债券品种 is '向不特定对象发行的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十七条.5.1.1.1
 sourceId 第二十七条
@@ -228,7 +228,7 @@ focus: 时间
 before: []
 after: []
 	if 交易方式 is '盘后定价成交方式' and 交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十七条.5.1.2.1
 sourceId 第二十七条
@@ -236,7 +236,7 @@ focus: 时间
 before: []
 after: []
 	if 交易方式 is '盘后定价成交方式' and 交易时间 in {[15:05-15:30]} and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十八条.1.1.1
 sourceId 第二十八条
@@ -244,7 +244,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '不成功' 
+	then 结果 is '不成功' 
 	constraint 单笔交易数量 < 500000 and 交易金额 < 500000
 
 rule 第二十八条.1.1.2
@@ -253,7 +253,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '不成功' 
+	then 结果 is '不成功' 
 	constraint 单笔交易数量 < 500000 and 交易金额 < 500000
 
 rule 第二十八条.1.2.1
@@ -262,7 +262,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '不成功' 
+	then 结果 is '不成功' 
 	constraint 单笔交易数量 < 500000 and 交易金额 < 500000
 
 rule 第二十八条.1.2.2
@@ -271,7 +271,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '不成功' 
+	then 结果 is '不成功' 
 	constraint 单笔交易数量 < 500000 and 交易金额 < 500000
 
 rule 第二十八条.1.3.1
@@ -280,7 +280,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '不成功' 
+	then 结果 is '不成功' 
 	constraint 单笔交易数量 < 500000 and 交易金额 < 500000
 
 rule 第二十八条.1.3.2
@@ -289,7 +289,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '不成功' 
+	then 结果 is '不成功' 
 	constraint 单笔交易数量 < 500000 and 交易金额 < 500000
 
 rule 第二十八条.1.4.1
@@ -298,7 +298,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易市场 is '深圳证券交易所' and 债券品种 is '向不特定对象发行的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '不成功' 
+	then 结果 is '不成功' 
 	constraint 单笔交易数量 < 500000 and 交易金额 < 500000
 
 rule 第二十八条.1.4.2
@@ -307,7 +307,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 交易市场 is '深圳证券交易所' and 债券品种 is '向不特定对象发行的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '不成功' 
+	then 结果 is '不成功' 
 	constraint 单笔交易数量 < 500000 and 交易金额 < 500000
 
 rule 第二十八条.2.1.1
@@ -316,7 +316,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '盘后定价成交方式' and 交易市场 is '深圳证券交易所' and 债券品种 is '向不特定对象发行的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报'
-	then 结果 = '不成功' 
+	then 结果 is '不成功' 
 	constraint 单笔交易数量 < 500000 and 交易金额 >= 500000
 
 rule 第二十八条.2.1.2
@@ -325,7 +325,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '盘后定价成交方式' and 交易市场 is '深圳证券交易所' and 债券品种 is '向不特定对象发行的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报'
-	then 结果 = '不成功' 
+	then 结果 is '不成功' 
 	constraint 单笔交易数量 < 500000 and 交易金额 >= 500000
 
 rule 第二十九条.1.1.1.1
@@ -334,7 +334,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.1.2.1
 sourceId 第二十九条
@@ -342,7 +342,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.2.1.1
 sourceId 第二十九条
@@ -350,7 +350,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.2.2.1
 sourceId 第二十九条
@@ -358,7 +358,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.3.1.1
 sourceId 第二十九条
@@ -366,7 +366,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.3.2.1
 sourceId 第二十九条
@@ -374,7 +374,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.4.1.1
 sourceId 第二十九条
@@ -382,7 +382,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.4.2.1
 sourceId 第二十九条
@@ -390,7 +390,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.5.1.1
 sourceId 第二十九条
@@ -398,7 +398,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.5.2.1
 sourceId 第二十九条
@@ -406,7 +406,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.6.1.1
 sourceId 第二十九条
@@ -414,7 +414,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.6.2.1
 sourceId 第二十九条
@@ -422,7 +422,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.7.1.1
 sourceId 第二十九条
@@ -430,7 +430,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.1.7.2.1
 sourceId 第二十九条
@@ -438,7 +438,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作 is '意向申报' and 操作部分 is '意向申报' and 操作 is '撤销' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.1.1.1
 sourceId 第二十九条
@@ -446,7 +446,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.1.2.1
 sourceId 第二十九条
@@ -454,7 +454,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.2.1.1
 sourceId 第二十九条
@@ -462,7 +462,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.2.2.1
 sourceId 第二十九条
@@ -470,7 +470,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.3.1.1
 sourceId 第二十九条
@@ -478,7 +478,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.3.2.1
 sourceId 第二十九条
@@ -486,7 +486,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.4.1.1
 sourceId 第二十九条
@@ -494,7 +494,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.4.2.1
 sourceId 第二十九条
@@ -502,7 +502,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.5.1.1
 sourceId 第二十九条
@@ -510,7 +510,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.5.2.1
 sourceId 第二十九条
@@ -518,7 +518,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.6.1.1
 sourceId 第二十九条
@@ -526,7 +526,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.6.2.1
 sourceId 第二十九条
@@ -534,7 +534,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.7.1.1
 sourceId 第二十九条
@@ -542,7 +542,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.2.7.2.1
 sourceId 第二十九条
@@ -550,7 +550,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 约束 is '约定号' and 约束 is '证券代码' and 约束 is '买卖方向' and 约束 is '价格' and 操作 is '各项要素均匹配的成交申报' and 约束 is '数量' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.3.1.1.1
 sourceId 第二十九条
@@ -558,7 +558,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 申报类型 is '定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.3.1.2.1
 sourceId 第二十九条
@@ -566,7 +566,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 申报类型 is '定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.3.2.1.1
 sourceId 第二十九条
@@ -574,7 +574,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 申报类型 is '定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.3.2.2.1
 sourceId 第二十九条
@@ -582,7 +582,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 申报类型 is '定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.3.3.1.1
 sourceId 第二十九条
@@ -590,7 +590,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 申报类型 is '定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.3.3.2.1
 sourceId 第二十九条
@@ -598,7 +598,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 申报类型 is '定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.3.4.1.1
 sourceId 第二十九条
@@ -606,7 +606,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 申报类型 is '定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.3.4.2.1
 sourceId 第二十九条
@@ -614,7 +614,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 申报类型 is '定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.3.5.1.1
 sourceId 第二十九条
@@ -622,7 +622,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 申报类型 is '定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.3.5.2.1
 sourceId 第二十九条
@@ -630,7 +630,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 申报类型 is '定价申报' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.1.1.1
 sourceId 第二十九条
@@ -638,7 +638,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.1.2.1
 sourceId 第二十九条
@@ -646,7 +646,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.2.1.1
 sourceId 第二十九条
@@ -654,7 +654,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.2.2.1
 sourceId 第二十九条
@@ -662,7 +662,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.3.1.1
 sourceId 第二十九条
@@ -670,7 +670,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.3.2.1
 sourceId 第二十九条
@@ -678,7 +678,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.4.1.1
 sourceId 第二十九条
@@ -686,7 +686,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.4.2.1
 sourceId 第二十九条
@@ -694,7 +694,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.5.1.1
 sourceId 第二十九条
@@ -702,7 +702,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.5.2.1
 sourceId 第二十九条
@@ -710,7 +710,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.6.1.1
 sourceId 第二十九条
@@ -718,7 +718,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.6.2.1
 sourceId 第二十九条
@@ -726,7 +726,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.7.1.1
 sourceId 第二十九条
@@ -734,7 +734,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.4.7.2.1
 sourceId 第二十九条
@@ -742,7 +742,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.1.1.1
 sourceId 第二十九条
@@ -750,7 +750,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.1.2.1
 sourceId 第二十九条
@@ -758,7 +758,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.2.1.1
 sourceId 第二十九条
@@ -766,7 +766,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.2.2.1
 sourceId 第二十九条
@@ -774,7 +774,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.3.1.1
 sourceId 第二十九条
@@ -782,7 +782,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.3.2.1
 sourceId 第二十九条
@@ -790,7 +790,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.4.1.1
 sourceId 第二十九条
@@ -798,7 +798,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.4.2.1
 sourceId 第二十九条
@@ -806,7 +806,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.5.1.1
 sourceId 第二十九条
@@ -814,7 +814,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.5.2.1
 sourceId 第二十九条
@@ -822,7 +822,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.6.1.1
 sourceId 第二十九条
@@ -830,7 +830,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.6.2.1
 sourceId 第二十九条
@@ -838,7 +838,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.7.1.1
 sourceId 第二十九条
@@ -846,7 +846,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.5.7.2.1
 sourceId 第二十九条
@@ -854,7 +854,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 操作 is '提交成交申报' and 操作部分 is '提交成交申报' and 申报价格 is '指定的价格' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.1.1.1
 sourceId 第二十九条
@@ -862,7 +862,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.1.2.1
 sourceId 第二十九条
@@ -870,7 +870,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.2.1.1
 sourceId 第二十九条
@@ -878,7 +878,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.2.2.1
 sourceId 第二十九条
@@ -886,7 +886,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.3.1.1
 sourceId 第二十九条
@@ -894,7 +894,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.3.2.1
 sourceId 第二十九条
@@ -902,7 +902,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '协商成交' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.4.1.1
 sourceId 第二十九条
@@ -910,7 +910,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.4.2.1
 sourceId 第二十九条
@@ -918,7 +918,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '当日匹配成交量加权平均价格' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.5.1.1
 sourceId 第二十九条
@@ -926,7 +926,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.5.2.1
 sourceId 第二十九条
@@ -934,7 +934,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '盘后定价成交' and 价格类型 is '可转债当日收盘价' and 申报指令 is '证券账户号码,证券代码,交易单元代码,证券营业部识别码,买卖方向,数量,价格类型' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.6.1.1
 sourceId 第二十九条
@@ -942,7 +942,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.6.2.1
 sourceId 第二十九条
@@ -950,7 +950,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 交易方式 is '匹配成交' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.7.1.1
 sourceId 第二十九条
@@ -958,7 +958,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.6.7.2.1
 sourceId 第二十九条
@@ -966,7 +966,7 @@ focus: 订单连续性操作
 before: []
 after: []
 	if 操作人 is '市场所有参与者' and 约束 is '时间优先顺序' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.7.1.1.1
 sourceId 第二十九条
@@ -974,7 +974,7 @@ focus: 价格
 before: []
 after: []
 	if 申报类型 is '定价申报' and 申报数量 is '每笔成交的数量' and 交易方式 is '协商成交最低限额' and 价格 is '满足交易金额' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.7.1.2.1
 sourceId 第二十九条
@@ -982,7 +982,7 @@ focus: 价格
 before: []
 after: []
 	if 申报类型 is '定价申报' and 申报数量 is '每笔成交的数量' and 交易方式 is '协商成交最低限额' and 价格 is '满足交易金额' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.8.1.1.1
 sourceId 第二十九条
@@ -990,7 +990,7 @@ focus: 价格
 before: []
 after: []
 	if 申报类型 is '定价申报' and 交易方式 is '协商成交最低限额' and 价格 is '满足交易金额' and 约束 is '协商成交最低限额' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第二十九条.8.1.2.1
 sourceId 第二十九条
@@ -998,7 +998,7 @@ focus: 价格
 before: []
 after: []
 	if 申报类型 is '定价申报' and 交易方式 is '协商成交最低限额' and 价格 is '满足交易金额' and 约束 is '协商成交最低限额' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.1.1.1.1
 sourceId 第三十一条
@@ -1006,7 +1006,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 时间 is '上市首日' and 申报价格 is '发行价的上下30%范围内' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.1.1.2.1
 sourceId 第三十一条
@@ -1014,7 +1014,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 时间 is '上市首日' and 申报价格 is '发行价的上下30%范围内' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.1.2.1.1
 sourceId 第三十一条
@@ -1022,7 +1022,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 时间 is '上市首日' and 申报价格 is '发行价的上下30%范围内' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.1.2.2.1
 sourceId 第三十一条
@@ -1030,7 +1030,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 时间 is '上市首日' and 申报价格 is '发行价的上下30%范围内' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.1.3.1.1
 sourceId 第三十一条
@@ -1038,7 +1038,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 时间 is '上市首日' and 申报价格 is '发行价的上下30%范围内' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.1.3.2.1
 sourceId 第三十一条
@@ -1046,7 +1046,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 时间 is '上市首日' and 申报价格 is '发行价的上下30%范围内' and 交易市场 is '深圳证券交易所' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.1.4.1.1
 sourceId 第三十一条
@@ -1054,7 +1054,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 时间 is '上市首日' and 申报价格 is '发行价的上下30%范围内' and 交易市场 is '深圳证券交易所' and 债券品种 is '向不特定对象发行的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.1.4.2.1
 sourceId 第三十一条
@@ -1062,7 +1062,7 @@ focus: 价格
 before: []
 after: []
 	if 交易品种 is '债券' and 交易方式 is '协商成交' and 时间 is '上市首日' and 申报价格 is '发行价的上下30%范围内' and 交易市场 is '深圳证券交易所' and 债券品种 is '向不特定对象发行的可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.2.1.1.1
 sourceId 第三十一条
@@ -1070,7 +1070,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '协商成交' and 时间 is '除上市首日外' and 申报价格 is '在当日涨跌幅限制价格范围内' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.2.1.2.1
 sourceId 第三十一条
@@ -1078,7 +1078,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '协商成交' and 时间 is '除上市首日外' and 申报价格 is '在当日涨跌幅限制价格范围内' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '成交申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量,本方及对手方交易单元代码,约定号' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.2.2.1.1
 sourceId 第三十一条
@@ -1086,7 +1086,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '协商成交' and 时间 is '除上市首日外' and 申报价格 is '在当日涨跌幅限制价格范围内' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.2.2.2.1
 sourceId 第三十一条
@@ -1094,7 +1094,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '协商成交' and 时间 is '除上市首日外' and 申报价格 is '在当日涨跌幅限制价格范围内' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '意向申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,本方交易单元代码等内容' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.2.3.1.1
 sourceId 第三十一条
@@ -1102,7 +1102,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '协商成交' and 时间 is '除上市首日外' and 申报价格 is '在当日涨跌幅限制价格范围内' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.2.3.2.1
 sourceId 第三十一条
@@ -1110,7 +1110,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '协商成交' and 时间 is '除上市首日外' and 申报价格 is '在当日涨跌幅限制价格范围内' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向不特定对象发行的可转债' and 申报类型 is '定价申报' and 申报指令 is '证券账户号码,证券代码,买卖方向,价格,数量和本方交易单元代码' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.2.4.1.1
 sourceId 第三十一条
@@ -1118,7 +1118,7 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '协商成交' and 时间 is '除上市首日外' and 申报价格 is '在当日涨跌幅限制价格范围内' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '买入' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 
 rule 第三十一条.2.4.2.1
 sourceId 第三十一条
@@ -1126,5 +1126,5 @@ focus: 价格
 before: []
 after: []
 	if 交易方式 is '协商成交' and 时间 is '除上市首日外' and 申报价格 is '在当日涨跌幅限制价格范围内' and 交易市场 is '深圳证券交易所' and 交易品种 is '可转债' and 可转债品种 is '向特定对象发行的可转债' and 价格类型 is '净价价格' and 交易方向 is '卖出' and 操作 is '申报' and 状态 is '未申报'
-	then 结果 = '成功' and 状态 = '未成交'
+	then 结果 is '成功' and 状态 is '未成交'
 

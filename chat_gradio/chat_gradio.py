@@ -8,7 +8,7 @@ import pandas
 import argparse
 
 
-# python chat_gradio.py --model_name_or_path ../my_lora/output/best_model_full_dev_dev_acc0_9792
+# python chat_gradio.py --model_name_or_path ...
 
 
 def create_gradio_process(model, tokenizer, streamer):

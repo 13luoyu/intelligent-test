@@ -4,7 +4,7 @@ import json
 from ours.process_nl_to_sci import nl_to_sci
 from ours.process_sci_to_sco import sequence_classification
 from ours.process_sco_to_tci import sco_to_tci
-from ours.process_tci_to_tco import token_classification
+from ours.process_tci_to_tco import token_classification_encoder
 from ours.process_tco_to_r1 import to_r1
 from ours.process_r1_to_r2 import preprocess, compose_rules_r1_r2
 from ours.process_r2_to_r3 import compose_rules_r2_r3
@@ -28,7 +28,7 @@ tc_model_path = "../model/trained/mengzi_rule_element_extraction"
 classification_knowledge_file = "../data/domain_knowledge/classification_knowledge.json"
 knowledge_file = '../data/domain_knowledge/knowledge.json'
 terms_file = "../data/domain_knowledge/terms.txt"
-dict_file = '../data/data_for_LLM_v1/tc_data.dict'
+dict_file = '../data/data_for_LLM_encoder/tc_data.dict'
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -207,7 +207,7 @@ def token_classification_interface():
         sco_data = params["data"]
         tci_data = sco_to_tci(sco_data)
         knowledge = json.load(open(classification_knowledge_file, "r", encoding="utf-8"))
-        tco_data = token_classification(tci_data, knowledge, tc_model_path, dict_file)
+        tco_data = token_classification_encoder(tci_data, knowledge, tc_model_path, dict_file)
         timestamp, sign = get_timestamp_sign()
         return_data = {"code": code, "msg": "success", "data": tco_data, "timeStamp": timestamp, "sign": sign}
         writelog(f"### 访问接口/rule_element_extraction, 成功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")

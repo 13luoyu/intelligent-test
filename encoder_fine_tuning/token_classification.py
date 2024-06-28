@@ -163,6 +163,6 @@ def eval_model(eval_dataset: str, class_dict: str, model_path: str, output_filen
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], "../data/data_for_LLM_v1/tc_data.dict", model, training_args)
-    # saved_path = "../model/trained/finbert_rule_element_extraction"
-    eval_model(training_args["validate_dataset"], "../data/data_for_LLM_v1/tc_data.dict", saved_path, "./predict_data/"+saved_path.split("/")[-1]+"_test_result.txt", training_args)
+    saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], "../data/data_for_LLM_encoder/tc_data.dict", model, training_args)
+    # saved_path = "../model/trained/mengzi_rule_element_extraction"
+    eval_model(training_args["validate_dataset"], "../data/data_for_LLM_encoder/tc_data.dict", saved_path, "./predict_data/"+saved_path.split("/")[-1]+"_test_result.txt", training_args)

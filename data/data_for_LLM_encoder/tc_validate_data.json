@@ -1,0 +1,672 @@
+[
+    {
+        "id": "第二十二条",
+        "text": "向不特定对象发行的可转债匹配成交出现下列情形之一的，属于严重异常波动，本所公布严重异常波动期间的投资者分类交易统计等信息：（一）连续十个交易日内三次出现第二十一条规定的同向异常波动情形；（二）连续十个交易日内日收盘价涨跌幅偏离值累计达到+100%（-50%）；（三）连续三十个交易日内日收盘价涨跌幅偏离值累计达到+200%（-70%）；（四）证监会或者本所认定属于严重异常波动的其他情形。向不特定对象发行的可转债匹配成交出现两种以上严重异常波动情形的，本所一并予以公布。向不特定对象发行的可转债交易出现严重异常波动情形的，本所可根据市场情况，加强异常交易监控，并要求会员采取有效措施向客户提示风险。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O O O O O B-结果 I-结果 I-结果 I-结果 O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O O O O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 O O O O O O O B-操作人 I-操作人 O O O O O"
+    },
+    {
+        "id": "第十五条",
+        "text": "转让申报指令应当包括账户号码、证券代码、数量、价格等。",
+        "label": "B-key I-key I-key I-key I-key I-key O O O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value O O"
+    },
+    {
+        "id": "第七十九条",
+        "text": "已在境外上市红筹公司在境外上市地被要求停牌或者被暂停上市、终止上市的，应当及时通知本所，并进行披露，本所视情况予以处理。为保证信息披露的及时、公平，本所可以根据公司申请或者实际情况，决定公司境内股票或者存托凭证的停牌与复牌事宜。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O B-系统 I-系统 O O O B-操作 I-操作 I-操作 I-操作 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第七十七条",
+        "text": "已在境外上市红筹公司发生本节规定的重大交易、关联交易",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分"
+    },
+    {
+        "id": "第八十二条",
+        "text": "已在境外上市红筹公司及相关信息披露义务人等主体违反本办法或其作出的声明与承诺的，本所可以视情节轻重，给予下列一项或者多项纪律处分：（一）对公司、相关信息披露义务人、存托人给予通报批评、公开谴责；（二）对公司董监高人员给予通报批评、公开谴责、公开认定其不适合担任上市公司董监高人员；（三）对公司信息披露境内代表给予通报批评、公开谴责、公开认定其不适合担任红筹公司信息披露境内代表；（四）对保荐人及其保荐代表人、证券服务机构及其相关人员、破产管理人和相关人员给予通报批评、公开谴责、暂不受理其出具的文件等纪律处分。前款规定的主体违反本办法或其作出的声明与承诺，情节严重的，本所依法报中国证监会查处。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 B-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第十九条",
+        "text": "基础设施基金份额的发售，分为战略配售、网下询价并定价、网下配售、公众投资者认购等活动。基金管理人应当按照《基础设施基金指引》及本所基础设施基金发售业务的有关规定办理基础设施基金份额发售的相关业务活动。",
+        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第七十条",
+        "text": "已在境外上市红筹公司可以根据境外上市地规则要求，决定是否披露业绩预告、业绩快报和盈利预测。公司在境外上市地披露上述信息的，应当在境内市场同步披露。公司披露业绩预告、业绩快报和盈利预测的，应当谨慎、客观，不得使用夸大、模糊或者误导性陈述，不得利用该等信息不当影响公司股票、存托凭证及其衍生品种交易价格。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O B-操作 I-操作 I-操作 I-操作 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第五十八条",
+        "text": "本办法下列用语的涵义：初始交易：指客户以约定价格向托管其证券的证券公司卖出标的证券融入资金的交易。购回交易：指客户以约定价格从证券公司购回标的证券的交易，包括到期购回、提前购回和延期购回。终止购回：是指初始交易成交后，发生规定或约定情形须终止交易的，客户与证券公司不再进行购回交易，由双方按照规定和约定的程序了结债权债务关系的行为。",
+        "label": "O O O O O O O O O O O B-key I-key I-key I-key O O B-操作人 I-操作人 O B-value I-value I-value I-value B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-key I-key I-key I-key O O B-操作人 I-操作人 O B-value I-value I-value I-value B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O B-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 I-操作 I-操作 O B-key I-key I-key I-key O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-结果 I-结果 I-结果 I-结果 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O B-操作人 I-操作人 O O B-value I-value O B-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O"
+    },
+    {
+        "id": "3.6.9",
+        "text": "盘后固定价格交易成交量、成交金额在盘后固定价格交易结束后计入该股票当日总成交量、总成交金额。",
+        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O B-交易品种 I-交易品种 O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第七十五条",
+        "text": "已在境外上市红筹公司发生本办法第七十四条规定的关联交易，其定价符合下列公允情形之一的，可以仅在年度报告和中期报告中汇总披露：（一）根据政府定价或者在政府指导价范围内合理定价的；（二）根据公开市场价格定价的；（三）根据公开招标、公开拍卖等方式定价的。相关关联交易不符合前款规定的公允情形的，公司应当及时予以披露。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O O O O O O O O B-操作 I-操作 I-操作 I-操作 O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "第十八条",
+        "text": "客户协议应载明通知与送达的有关事项，包括但不限于:（一）甲乙双方的详细联络方式，例如通信地址、邮政编码、指定联络人、固定电话号码、传真号码、移动电话号码、电子信箱等。协议还应约定一方联络方式变更时，通知另一方的方式和时间。（二）乙方履行各项通知义务的方式，如自行签领书面通知、电子邮件通知、短信通知、邮寄书面通知、电话通知、公告通知等，并应约定乙方发出上述通知后视为送达的期限。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O O O O O O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-操作 I-操作 I-操作 I-操作 I-操作 O B-value I-value O B-value I-value O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O O O O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-时间 I-时间 I-时间 I-时间 I-时间 O"
+    },
+    {
+        "id": "第三十七条",
+        "text": "深股通标的证券保证金交易和担保卖空的标的证券，应当属于本所融资融券标的证券范围。",
+        "label": "B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-系统 I-系统 B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-key I-key O O O"
+    },
+    {
+        "id": "第六十九条",
+        "text": "因质押物价值波动、折算率调整、司法冻结或扣划等原因导致质押物不足时，深交所可自次一交易日起暂停接受该证券公司初始交易申报，只接受提前购回申报。证券公司报价回购可用额度不小于零后，深交所可恢复接受其初始交易申报。证券公司于质押物不足之日起次两个交易日内未采取有效措施使其报价回购可用额度不小于零的，自次三个交易日起深交所可终止其报价回购交易权限。",
+        "label": "O B-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-key I-key O O B-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 I-系统 O O B-时间 I-时间 I-时间 I-时间 I-时间 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key B-op I-op I-op B-value O O B-系统 I-系统 I-系统 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-key I-key I-key I-key I-key I-key I-key I-key I-key B-op I-op I-op B-value O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-系统 I-系统 I-系统 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "4.5",
+        "text": "异常波动和严重异常波动指标自本所公布之日起重新计算。本所可以根据市场情况，调整异常波动和严重异常波动的认定标准。无价格涨跌幅限制股票不纳入异常波动和严重异常波动指标的计算。",
+        "label": "B-状态 I-状态 I-状态 I-状态 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O B-系统 I-系统 O O O O O O O O O O B-系统 I-系统 O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 B-交易品种 I-交易品种 B-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "3.1.3",
+        "text": "本所根据债券信用资质、发行方式和投资者适当性等不同特点安排差异化的交易方式。本所可以对债券交易方式实施动态调整并及时向市场公布。",
+        "label": "B-系统 I-系统 O O B-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 B-结果 I-结果 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O O O O O O B-操作 I-操作 O"
+    },
+    {
+        "id": "3.4.1",
+        "text": "债券交易申报依照法律、行政法规、部门规章、规范性文件和本规则的相关规定以及债券投资者的风险控制要求和交易需求，按照价格竞争性、数量匹配性、时间优先性等原则达成交易。",
+        "label": "B-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O B-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value O B-key I-key O O O O O"
+    },
+    {
+        "id": "第三十八条",
+        "text": "红筹公司存托凭证交易实行价格涨跌幅限制，涨跌幅限制比例为10%。存托凭证上市首日不实行价格涨跌幅限制，具体交易安排参照本所关于首次公开发行股票上市首日的相关规定执行。红筹公司发生权益分派、公积金转增股本、配股等情况的，本所根据公司的申请，参照《交易规则》关于股票除权除息的有关规定，对该公司在本所上市的存托凭证作除权除息处理，本所另有规定的除外。",
+        "label": "O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value O B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 B-value I-value I-value I-value I-value I-value I-value O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-系统 I-系统 O O O O O O O O"
+    },
+    {
+        "id": "第十四条",
+        "text": "会员或相关人员违反本办法的，本所将依据《深圳证券交易所会员管理规则》等有关业务规则，采取自律监管措施或纪律处分。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-or B-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第三十四条",
+        "text": "证券公司自营或客户资金交收账户应付资金不足，或者证券公司专用证券账户或客户证券账户应付证券不足的，中国结算深圳分公司不办理相关的证券和资金划付，相关责任方依据约定协商解决后续处理事宜，中国结算及其深圳分公司不承担任何法律责任。中国结算深圳分公司对单笔交易不进行部分划付处理。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "2.1",
+        "text": "本所对创业板股票竞价交易实行价格涨跌幅限制，涨跌幅限制比例为20%。超过涨跌幅限制的申报为无效申报。创业板首次公开发行上市的股票，上市后的前五个交易日不设价格涨跌幅限制。本所可以通过适当方式作出相应标识。",
+        "label": "B-系统 I-系统 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value O B-op I-op B-value I-value I-value I-value I-value O B-操作 I-操作 O B-结果 I-结果 I-结果 I-结果 O O O O O O O O O O O O O B-交易品种 I-交易品种 O B-事件 I-事件 I-事件 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-系统 I-系统 O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第八条",
+        "text": "会员应当通过严格的内部制度及系统前端控制等手段，确保参与创业板交易的投资者符合适当性管理要求。",
+        "label": "B-操作人 I-操作人 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-操作人 I-操作人 I-操作人 O O O O O O O O O O"
+    },
+    {
+        "id": "9.1",
+        "text": "投资者买卖证券成交的，应当按规定向会员交纳佣金。",
+        "label": "B-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 B-状态 I-状态 O O O O O O O O B-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "2.12",
+        "text": "投资者融资买入证券后，可以通过直接还款或者卖券还款的方式向会员偿还融入资金。以直接还款方式偿还融入资金的，按照会员与客户之间的约定办理。",
+        "label": "B-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-结果 I-结果 O O B-操作 I-操作 I-操作 I-操作 B-or I-or B-操作 I-操作 I-操作 I-操作 O O O O B-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O B-操作人 I-操作人 O B-操作人 I-操作人 O O O O O O O O O"
+    },
+    {
+        "id": "第四条",
+        "text": "投资者应当充分知悉和了解创业板的风险事项、法律法规和本所业务规则，客观评估自身的风险认知和承受能力，审慎决定是否参与创业板交易。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第一百一十二条",
+        "text": "境外跨境转换机构应当严格按照国家关于跨境资金管理的有关规定和中国证监会规定的投资范围、资产余额上限，依法合规开展跨境交易，不得利用从事跨境转换业务的机会，进行内幕交易、市场操纵等违法违规行为，或者谋取其他不正当利益。境外跨境转换机构在境内市场进行投资，超出中国证监会规定的投资范围、资产余额上限，或者存在其他异常交易行为的，会员应当拒绝接受其相应委托，并及时向本所报告。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-or I-or B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O B-操作 I-操作 I-操作 I-操作 O B-op I-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-or I-or B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-系统 I-系统 B-操作 I-操作 O"
+    },
+    {
+        "id": "第八十六条",
+        "text": "港股通交易申报的申报数量按照联交所的规定执行。",
+        "label": "O O O O O B-操作 I-操作 O B-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value O O O"
+    },
+    {
+        "id": "5.2.1",
+        "text": "开盘、收盘集合竞价期间，即时行情内容包括：证券代码、证券简称、集合竞价参考价、匹配量和未匹配量等。",
+        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value O B-value I-value I-value I-value O O"
+    },
+    {
+        "id": "10.7",
+        "text": "本规则经本所理事会通过，报证监会批准后生效。修改时亦同。",
+        "label": "O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "4.2.7",
+        "text": "报价方发出报价后，未成交部分，可以修改价格和数量等报价要素。",
+        "label": "B-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第五十九条",
+        "text": "当日交易结束后，所有境外投资者通过深股通与其他方式持有同一上市公司股票合并计算超过限定比例的，本所将按照后买先卖的原则，向联交所证券交易服务公司及其他境外投资者发出平仓通知。联交所证券交易服务公司应当及时通知联交所参与者，并要求其通知投资者。投资者应当自接到通知之日起的五个深股通交易日内，对超出部分予以平仓。其他境外投资者在五个深股通交易日内自行减持导致上述持股总数降至限定比例以下的，联交所证券交易服务公司可以主动或者根据被通知减持的深股通投资者通过联交所参与者向其提出的请求，向本所申请由原持有人继续持有原股份。",
+        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 B-op I-op B-value I-value I-value I-value O O O O O O O B-value I-value I-value I-value O B-key I-key O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O O B-操作 I-操作 O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 O O O O B-key I-key I-key I-key B-op I-op B-value I-value I-value I-value O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O B-or I-or O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第一百三十一条",
+        "text": "本办法下列用语含义：（一）深港通：即深港股票市场交易互联互通机制，指两地投资者委托本所会员或者联交所参与者，通过本所或者联交所在对方所在地设立的证券交易服务公司，买卖规定范围内的对方交易所上市股票和股票ETF。深港通包括深股通和港股通两部分。（二）深股通：指投资者委托联交所参与者，通过联交所证券交易服务公司，向本所进行申报，买卖规定范围内的本所上市股票和股票ETF。（三）港股通：即深港通下的港股通，指投资者委托本所会员，通过本所证券交易服务公司，向联交所进行申报，买卖规定范围内的联交所上市股票和股票ETF。（四）沪股通：指投资者委托联交所参与者，通过联交所证券交易服务公司，向上交所进行申报，买卖规定范围内的上交所上市股票和股票ETF。（五）深股通标的证券：指投资者可以通过深股通买卖的规定范围内的在本所上市的股票和股票ETF。（六）港股通标的证券：指投资者可以通过港股通买卖的规定范围内的在联交所上市的股票和股票ETF。（七）ETF：就内地而言，指交易型开放式基金；就香港而言，指交易所买卖基金。（八）深股通股票：指投资者可以通过深股通买卖的规定范围内的在本所上市的股票。（九）港股通股票：指投资者可以通过港股通买卖的规定范围内的在联交所上市的股票。（十）深股通ETF：指投资者可以通过深股通买卖的规定范围内的在本所上市的股票ETF。（十一）港股通ETF：指投资者可以通过港股通买卖的规定范围内的在联交所上市的股票ETF。（十二）深股通投资者：指委托联交所参与者或者直接通过深股通买卖深股通标的证券的投资者。（十三）港股通投资者：指委托本所会员或者直接通过港股通买卖港股通标的证券的投资者。（十四）内地投资者：指持有中国内地身份证明文件的中国公民和在中国内地注册的法人及非法人组织，不包括取得境外永久居留身份证明文件的中国公民。内地身份证明文件包括境内居民户口簿、居民身份证、中华人民共和国护照、往来港澳通行证。境外永久居留身份证明文件包括但不限于境外国家和地区颁发的永久居民卡、永久居民签证等。（十五）交易日：指本所市场的交易日。（十六）深股通交易日：指联交所证券交易服务公司公布的深股通交易日。（十七）港股通交易日：指本所证券交易服务公司公布的港股通交易日。（十八）会员：指取得本所会员资格的证券经营机构。（十九）联交所参与者：指符合联交所《交易所规则》定义的交易所参与者。（二十）股票调整考察日：对于深股通股票，指股票半年度定期调整考察日（每年5月31日和11月30日）、股票月度定期调整考察日（每月最后一日）以及具有表决权差异安排的公司股票首次纳入考察日；对于港股通股票，指恒生综合指数编算细则中定期检讨所使用的数据截止日。（二十一）具有表决权差异安排的公司股票首次纳入考察日：指具有表决权差异安排的公司股票在本所上市满六个月后的第十九个交易日；如具有表决权差异安排的公司股票未能在本办法第十八条第一项规定的最后一个交易日满足纳入条件，则指其后的股票半年度定期调整考察日。（二十二）具有不同投票权架构的公司股票首次纳入考察日：指具有不同投票权架构的公司股票在联交所上市满六个月后的第十九个港股交易日；如具有不同投票权架构的公司股票未能在本办法第七十条第一项规定的最后一个港股交易日满足纳入条件，则指其后的恒生综合指数成份股定期调整生效日前的第二个港股交易日。（二十三）深股通股票定期调整生效日：指深股通股票定期调入调出安排公布后的下一个星期五的下一个深股通交易日。（二十四）ETF定期调整考察日：对于深股通ETF，指深证成份指数定期调整生效日；对于港股通ETF，指恒生指数半年度定期调整生效月份的最后一个港股交易日。（二十五）A股：指在本所或者上交所上市的人民币普通股票。（二十六）H股：指境内注册的公司发行并在联交所主板上市的股票。（二十七）A+H股上市公司：指在境内注册，其股票同时在联交所主板和本所或者同时在联交所主板和上交所上市的公司。（二十八）宽基股票指数：指选样范围不限于特定行业或者投资主题，反映某个市场或者某种规模股票表现的指数。（二十九）合成ETF：指采用合成模拟策略的ETF，即运用交易对手发行的掉期及表现挂钩结构性产品等金融衍生工具，来模拟相关指数的表现。（三十）杠杆及反向产品：指采用杠杆投资策略，目标为日收益率达到基础市场指数收益率的正向或反向倍数的ETF，旨在提供短期投资回报或风险对冲。（三十一）竞价限价盘委托：指委托本所会员申报符合联交所规则规定的竞价限价盘的港股通交易委托。（三十二）增强限价盘委托：指委托本所会员申报符合联交所规则规定的增强限价盘的港股通交易委托。（三十三）券商客户编码：指联交所参与者分配给其客户的唯一的、可据以识别投资者身份的数字编码。（三十四）碎股：指不足一个买卖单位的证券。（三十五）价格稳定期：指在招股文件中载明的适用于该股票的稳定价格期间。（三十六）深股通标的证券保证金交易：指深股通投资者在香港市场通过证券保证金融资获得资金买入深股通标的证券。（三十七）深股通标的证券担保卖空：指深股通投资者在香港市场通过证券借贷借入深股通标的证券后，通过深股通将其卖出。（三十八）深股通标的证券借贷：指在香港市场，联交所参与者向其交易客户或者其他联交所参与者出借深股通标的证券，或者符合条件的机构向联交所参与者出借深股通标的证券的行为。（三十九）深股通标的证券担保卖空比例：指单个深股通交易日单只深股通标的证券的担保卖空量，占前一深股通交易日香港结算作为名义持有人持有的该只深股通标的证券总量的比例。（四十）深股通标的证券非交易过户：指在本所市场交易之外，对深股通标的证券的实际权益拥有人进行变更。（四十一）供股：指联交所上市公司向现有股票持有人作出供股要约，使其可以按持有股票的比例认购该公司股票，且认购权利凭证可以通过二级市场进行转让。（四十二）公开配售：指联交所上市公司向现有股票持有人作出要约，使其可以认购该公司股票，但公开配售权益不能转让。（四十三）市场失当行为：指香港地区法律及香港证券及期货事务监察委员会、联交所等规定的内幕交易、虚假交易、操控价格、披露关于受禁交易的资料、披露虚假或具误导性的资料以诱使进行交易、操纵证券市场及其他市场失当行为。",
+        "label": "O O O O O O O O O O O O O B-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-系统 I-系统 O O B-系统 I-系统 I-系统 O O O O O O B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-key I-key I-key O O B-value I-value I-value O B-value I-value I-value O O O O O O O B-key I-key I-key O O B-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-系统 I-系统 O O B-操作 I-操作 O B-操作 I-操作 O O O O O O B-系统 I-系统 B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-key I-key I-key O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-系统 I-系统 I-系统 O O B-操作 I-操作 O B-操作 I-操作 O O O O O O B-系统 I-系统 I-系统 B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-key I-key I-key O O B-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-系统 I-系统 I-系统 O O B-操作 I-操作 O B-操作 I-操作 O O O O O O B-系统 I-系统 I-系统 B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-key I-key I-key I-key I-key I-key I-key O O B-操作人 I-操作人 I-操作人 O O O O O O O B-操作 I-操作 O O O O O O O O B-系统 I-系统 O O O B-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-key I-key I-key I-key I-key I-key I-key O O B-操作人 I-操作人 I-操作人 O O O O O O O B-操作 I-操作 O O O O O O O O O O O O O O B-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-key I-key I-key O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-key I-key I-key I-key I-key O O B-操作人 I-操作人 I-操作人 O O O O O O O B-操作 I-操作 O O O O O O O O B-系统 I-系统 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-key I-key I-key I-key I-key O O B-操作人 I-操作人 I-操作人 O O O O O O O B-操作 I-操作 O O O O O O O O B-系统 I-系统 I-系统 O O O B-交易品种 I-交易品种 O O O O B-key I-key I-key I-key I-key I-key O O B-操作人 I-操作人 I-操作人 O O O O O O O B-操作 I-操作 O O O O O O O O B-系统 I-系统 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O B-key I-key I-key I-key I-key I-key O O O O O O O O O O O O B-操作 I-操作 O O O O O O O O B-系统 I-系统 I-系统 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O B-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-key I-key I-key I-key I-key I-key O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O O O O O O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op I-op I-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O O O O O O B-key I-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-key I-key I-key I-key I-key I-key O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-key I-key I-key I-key I-key I-key I-key O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O O O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O O O O O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O B-key I-key O O O B-系统 I-系统 O O B-系统 I-系统 I-系统 O O O B-value I-value I-value I-value I-value I-value I-value O O O O O O B-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key O O O B-操作 I-操作 I-操作 I-操作 O O B-交易品种 I-交易品种 O O O B-系统 I-系统 I-系统 O O O B-系统 I-系统 O O O O O B-系统 I-系统 I-系统 O O O B-系统 I-系统 I-系统 B-操作 I-操作 O O O O O O O O O B-key I-key I-key I-key I-key I-key O O O O O O O O O O O O O O O O O O O O O O B-value I-value I-value I-value O O B-value I-value I-value I-value B-交易品种 I-交易品种 O O O B-value I-value O O O O O O B-key I-key I-key I-key I-key O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-key I-key I-key I-key I-key I-key I-key O O O O B-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key B-op I-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O O O O O O B-key I-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O B-key I-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O B-key I-key I-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O B-key I-key O O O O O O O O O O O B-交易品种 I-交易品种 O O O O O O B-key I-key I-key I-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 B-操作部分 I-操作部分 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value O O B-操作 I-操作 O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 O O O O O O B-key I-key O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-结果 I-结果 O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value O O B-操作 I-操作 O O O O O O B-key I-key I-key I-key O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 O O O B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-结果 I-结果 B-操作 I-操作 O O O O O O B-key I-key I-key I-key I-key I-key O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-系统 I-系统 I-系统 O O O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "第二十二条",
+        "text": "业务协议应当约定终止购回的适用情形、处理方式及法律后果。",
+        "label": "O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "3.4.7",
+        "text": "证券交易的清算交收业务，应当按照证券登记结算机构的规定办理。",
+        "label": "B-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第六十条",
+        "text": "本办法自发布之日起施行。附件：1．约定购回式证券交易客户协议必备条款2．约定购回式证券交易风险揭示书必备条款附件1：约定购回式证券交易客户协议必备条款证券公司应当在其与客户签订客户协议中载明必备条款所要求的内容，并不得擅自修改或删除必备条款所要求的内容。证券公司可以根据具体情况，在其与客户签订的客户协议中规定必备条款要求载明以外的、适合本公司实际需要的其他内容，也可以在不改变必备条款规定涵义的前提下，对必备条款作文字和条文顺序的变动。",
+        "label": "B-操作部分 I-操作部分 I-操作部分 O B-时间 I-时间 I-时间 I-时间 O B-操作 I-操作 O B-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-结果 I-结果 O O B-操作 I-操作 B-or B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 O O O O B-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作 I-操作 O O O O O O O O O O O O O O O O O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 O"
+    },
+    {
+        "id": "第五十九条",
+        "text": "本所对中国存托凭证交易情况开展实时监控，及时发现和处理违反《交易规则》、本办法及其他相关业务规则的异常交易行为。中国存托凭证交易出现本所认定的异常波动，或者涉嫌违法违规交易的，本所可以对其实施特别停牌并予以公告，相关当事人应当按照本所的要求提交书面报告。特别停牌及复牌的时间和方式由本所决定。",
+        "label": "B-系统 I-系统 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O B-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O B-系统 I-系统 O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-系统 I-系统 B-操作 I-操作 O"
+    },
+    {
+        "id": "第三十三条",
+        "text": "会员应当制定创新企业股票或存托凭证投资者适当性管理的相关工作制度，全面了解参与创新企业股票或存托凭证业务的客户情况，提出明确的适当性匹配意见。会员应当通过适当方式，向投资者充分提示创新企业股票、存托凭证各类风险事项，并提醒投资者关注投资风险，引导其理性、规范地参与网上发行申购、交易。",
+        "label": "B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第二十四条",
+        "text": "因不可抗力、意外事件、技术故障、非法入侵等原因造成严重后果的认购、申购和赎回，本所可以采取适当措施或认定无效。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 O B-操作 I-操作 O B-操作 I-操作 O O O O O O O O O O O O O O B-结果 I-结果 O"
+    },
+    {
+        "id": "3.3.12",
+        "text": "本所可以根据市场需要调整证券单笔买卖申，报数量和申报价格的最小变动单位。",
+        "label": "B-系统 I-系统 O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第四十四条",
+        "text": "结算参与人在办理证券和资金清算交收等业务过程中违反本细则的，中国结算可以参照结算参与人管理及自律管理相关规定，对其采取相应的自律措施。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 I-系统 I-系统 O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第十条",
+        "text": "融出方是集合资产管理计划的，业务协议应当约定质权人登记为乙方；融出方是定向资产管理客户的，业务协议应当约定质权人登记为定向资产管理客户或乙方。",
+        "label": "B-操作人 I-操作人 I-操作人 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O O O O B-key I-key I-key I-key I-key O O O B-value I-value O B-操作人 I-操作人 I-操作人 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O O O O B-key I-key I-key I-key I-key O O O O O B-value I-value I-value I-value I-value I-value B-or B-value I-value O"
+    },
+    {
+        "id": "第十六条",
+        "text": "投资者因继承、离婚、法人资格丧失、捐赠等情形涉及的非交易过户业务、质押登记业务以及协助执行，参照中国结算相关业务规则办理。因以上非交易过户或司法扣划业务获得H股“全流通”股票且非该标的原股东的投资者，只能卖出该标的股票，不能买入该标的股票。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第七十四条",
+        "text": "本办法第六十九条第一款第三项和第七十三条中的港股市值标准仅在恒生综合小型股指数成份股定期调整时执行，相关股票在恒生综合指数成份股定期调整生效日调入或者调出港股通股票。",
+        "label": "B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O B-key I-key I-key I-key I-key I-key O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 B-操作 I-操作 O O O B-交易品种 I-交易品种 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-结果 I-结果 B-or I-or B-结果 I-结果 B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O"
+    },
+    {
+        "id": "5.3.1",
+        "text": "本所编制综合指数、成份指数、分类指数等证券指数，以反映证券交易总体价格或某类证券价格的变动和走势，随即时行情发布。",
+        "label": "B-系统 I-系统 O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-key I-key I-key I-key O O O O B-交易品种 I-交易品种 O O O O O O O O O B-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第八十条",
+        "text": "因中国存托凭证跨境转换异常情况及采取的相应措施造成的损失和相应法律后果，由相关当事方依法承担，不得损害存托凭证持有人合法权益。",
+        "label": "O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第三十七条",
+        "text": "初始交易的申报要素包括：申报时间、合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）、融入方营业部代码、融入方证券账户号码、融入方交易单元代码、融出方证券账户号码、融出方交易单元代码、成交申报业务类别（初始交易）、证券代码、股份性质、数量、初始交易金额、购回交易日、预警线、平仓线、资金用途类型、利率等。",
+        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value O B-value I-value I-value I-value O O O O O O O O O O O O O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value O B-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value O O"
+    },
+    {
+        "id": "第四十一条",
+        "text": "投资者交易、以上海黄金交易所现货实盘合约为对价申赎黄金ETF时，应当遵守下列规定：（一）当日买入的ETF份额，次一交易日可以赎回；（二）当日申购的ETF份额，当日可以赎回或者竞价卖出，次一交易日可以大宗卖出。以上海黄金交易所现货实盘合约为对价申赎黄金ETF通过上海黄金交易所办理。",
+        "label": "B-操作人 I-操作人 I-操作人 B-操作 I-操作 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key B-操作 I-操作 B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O B-时间 I-时间 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 O O O O B-时间 I-时间 B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-时间 I-时间 O O B-操作 I-操作 B-or I-or B-操作 I-操作 I-操作 I-操作 O B-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 I-操作 I-操作 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key B-操作 I-操作 B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O"
+    },
+    {
+        "id": "第九十七条",
+        "text": "本所根据本办法第九十六条对中国存托凭证实施停牌的，自停牌之日起5个交易日内，向境外发行人发出拟终止其中国存托凭证上市的事先告知书，境外发行人应当在收到本所事先告知书后及时披露。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "第十二条",
+        "text": "客户协议应约定甲乙双方进行提前购回和延期购回的适用条件以及上述情形下购回交易成交金额的调整方式等内容，包括但不限于：（一）甲方可以提前购回。（二）乙方不得主动要求甲方提前购回，但发生标的证券涉及吸收合并、要约收购、权证发行、债转股、公司缩股或分立等事件以及客户协议约定的其他情形的除外。（三）发生提前购回或延期购回的，购回交易成交金额应根据实际购回期限进行调整，延期后总购回期限应符合深交所和中国结算的相关规定。",
+        "label": "O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 I-操作 I-操作 O B-value I-value I-value I-value O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O B-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 O O O O B-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O B-事件 I-事件 I-事件 I-事件 B-or B-事件 I-事件 I-事件 I-事件 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 O B-事件 I-事件 I-事件 B-时间 I-时间 I-时间 I-时间 I-时间 O O O B-系统 I-系统 I-系统 O B-系统 I-系统 I-系统 I-系统 O O O O O O"
+    },
+    {
+        "id": "第七条",
+        "text": "境内创新公司申请其首次公开发行的股票在本所上市，应当符合《上市规则》规定的首次公开发行股票上市条件。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "3.7",
+        "text": "本所按照从严到宽、从少到多、逐步扩大的原则，从满足本细则规定的证券范围内，审核、选取并确定可以作为标的证券的名单，并向市场公布。本所可以根据市场情况调整标的证券的选择标准和名单。",
+        "label": "B-系统 I-系统 O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-key I-key O O O O O O O O O O O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O B-操作部分 I-操作部分 O B-系统 I-系统 O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "7.5",
+        "text": "会员通过客户信用交易担保证券账户持有的股票不计入其自有股票，会员无须因该账户内股票数量的变动而履行相应的信息报告、披露或者要约收购义务。投资者及其一致行动人通过普通证券账户和信用证券账户合计持有一家上市公司股票及其权益的数量或者其增减变动达到规定的比例时，应当依法履行相应的信息报告、披露或者要约收购义务。",
+        "label": "B-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 B-or I-or B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第二条",
+        "text": "本办法所称互联互通存托凭证业务，是指符合条件的在境外证券交易所上市的境外基础证券发行人在境内公开发行存托凭证（以下简称中国存托凭证）并在本所主板上市，以及符合条件的在本所上市的境内上市公司在境外发行存托凭证（以下简称全球存托凭证）并在境外证券交易所上市。前款规定的境外基础证券发行人（以下简称境外发行人）须为中国证券监督管理委员会（以下简称中国证监会）认可范围内的境外证券交易所上市公司。中国存托凭证的上市、交易、跨境转换和信息披露等事宜，适用本办法。本办法对交易事宜未作规定的，适用《深圳证券交易所交易规则》（以下简称《交易规则》）及本所其他相关规定。全球存托凭证在本所市场进行的跨境转换、基础股票上市和信息披露等事宜，适用本办法。本办法未作规定的，适用《深圳证券交易所股票上市规则》（以下简称《股票上市规则》）、《交易规则》及本所其他相关规定。本办法所称跨境转换，包括将基础股票转换为存托凭证（以下简称生成），以及将存托凭证转换为基础股票（以下简称兑回）。",
+        "label": "O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-value I-value O B-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-key I-key O O O O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O B-系统 I-系统 O O O O O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-key I-key O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O B-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "第五十二条",
+        "text": "红筹公司及相关信息披露义务人适用本所相关信息披露要求和持续监管规定，可能导致其难以符合公司注册地、境外上市地有关规定的，可以向本所申请调整适用，但应当说明原因和替代方案，并聘请律师事务所出具法律意见。本所认为依法不应调整适用的，红筹公司及相关各方应当执行本所相关规定。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第五十七条",
+        "text": "境外发行人发生权益分派、公积金转增股本、配股等情况的，本所根据境外发行人的申请，参照《交易规则》关于股票除权的有关规定，对其在本所上市的中国存托凭证作除权处理，本所另有规定的除外。境外发行人发放现金红利的，本所不对其在本所上市的中国存托凭证作除息处理，本所另有规定的除外。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 O B-系统 I-系统 O O O O O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 O B-系统 I-系统 O O O O O O O O"
+    },
+    {
+        "id": "第七十五条",
+        "text": "管理人应当在资产管理计划设计与运作中采取必要措施，使资产管理计划的流动性、存续期限与股票质押回购期限相匹配。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value B-结果 I-结果 I-结果 O"
+    },
+    {
+        "id": "第五十条",
+        "text": "基金管理人、资产支持证券管理人以外的其他业务参与机构和信息披露义务人应当按照规定及约定及时向基金管理人、资产支持证券管理人提供有关材料。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第八十六条",
+        "text": "境外发行人向本所提出中国存托凭证主动终止上市申请的，至少应当提交下列文件：（一）主动终止上市申请书；（二）股东大会决议及独立董事意见；（三）主动终止上市的方案；（四）财务顾问出具的关于中国存托凭证主动终止上市的专项意见；（五）律师出具的关于中国存托凭证主动终止上市的专项法律意见；（六）本所要求的其他材料。主动终止上市方案应详细说明退市原因、对中国存托凭证投资者的安排及保护措施、回购或者现金选择权等定价依据、退市后对投资者转让中国存托凭证的安排。财务顾问和律师应对中国存托凭证投资者的安排是否符合中国存托凭证投资者的最大利益出具专业意见。境外发行人还应当聘请境外律师对中国存托凭证退市方案是否遵守了境外上市地法律法规出具专业意见。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-系统 I-系统 B-value I-value I-value I-value I-value I-value I-value O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-操作人 I-操作人 I-操作人 O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-操作人 I-操作人 I-操作人 O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "6.3",
+        "text": "本所对市场融资融券交易进行监控。融资融券交易出现异常或者市场持续大幅波动时，本所可以视情况采取下列措施并向市场公布：（一）调整标的证券标准或者范围；（二）调整可充抵保证金证券的折算率；（三）调整融资、融券保证金比例；（四）调整维持担保比例；（五）暂停特定标的证券的融资买入或者融券卖出交易；（六）暂停整个市场的融资买入或者融券卖出交易；（七）本所认为必要的其他措施。",
+        "label": "B-系统 I-系统 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-or I-or O O O O O O O O O O B-系统 I-系统 O O O O O B-操作 I-操作 B-key I-key I-key I-key O O O O B-操作 I-操作 O O O O B-value I-value I-value I-value I-value I-value I-value I-value B-or I-or B-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-or I-or B-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-or I-or B-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "第一百四十条",
+        "text": "投资者买入的港股通标的证券可以进行转托管。具体事宜按照中国结算的相关规定执行。",
+        "label": "B-操作人 I-操作人 I-操作人 B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-操作 I-操作 I-操作 O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第十四条",
+        "text": "红筹公司向本所申请其境内首次公开发行的股票上市，应当按照《上市规则》等规定提交上市申请文件（有关股票托管、聘任董事会秘书及首次公开发行前股份已锁定等文件除外）,还应当向本所提交本次境内发行股票已经中国结算存管的证明文件、公司在境内设立的证券事务机构及其聘任的信息披露境内代表等有关资料。根据境外注册地公司法等法律法规和公司章程或者章程性文件（以下简称公司章程）规定，红筹公司无需就本次境内发行上市事宜提交股东大会审议的，其申请上市时可不提交股东大会决议,但应当提交相关董事会决议。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O B-事件 I-事件 I-事件 I-事件 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第四十九条",
+        "text": "会员应当对投资者是否符合中国存托凭证投资者适当性条件进行核查，并对个人投资者的资产状况、知识水平、风险承受能力和诚信状况等进行综合评估。会员应当重点评估个人投资者是否了解中国存托凭证交易的业务规则与流程，以及是否充分知晓中国存托凭证投资风险。会员应当动态跟踪和持续了解个人投资者交易情况，至少每两年进行一次风险承受能力的后续评估。",
+        "label": "B-操作人 I-操作人 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-操作人 I-操作人 O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "2.2.7",
+        "text": "做市商开展做市业务可以按照本所规定享有回购融资、债券业务创新、交易信息、债券交易费用减免等方面的支持。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O B-结果 I-结果 O O B-系统 I-系统 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "5.3.2",
+        "text": "证券指数的设置和编制方法，由本所另行制定。",
+        "label": "B-value I-value I-value I-value O O O O O O O O O O B-系统 I-系统 O O O O O"
+    },
+    {
+        "id": "10.3",
+        "text": "其他证券、交易品种使用交易系统、采用本规则规定的交易方式进行交易的，参照适用本规则相关规定。本所另有规定的除外。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-系统 I-系统 I-系统 I-系统 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第一百一十三条",
+        "text": "全球存托凭证的存托人应当在全球存托凭证上市前，委托会员向本所备案，具体备案材料由本所另行规定。存托人未向本所备案的，不得在本所市场开展全球存托凭证跨境转换业务。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作 I-操作 B-操作部分 I-操作部分 O B-系统 I-系统 B-操作 I-操作 O O O O O O O O B-系统 I-系统 O O O O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "4.4.4",
+        "text": "竞买日前，卖方可以修改竞买预约要素或者取消预约。",
+        "label": "B-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-or I-or B-操作 I-操作 B-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第九条",
+        "text": "出现下列情况之一的，本所可以暂停提供转让服务。相关情形消除后，本所可以视情况恢复提供转让服务：（一）资管计划出现重大异常情况；（二）违反法律法规、中国证监会或者本所相关规定；（三）本所认定的其他情形。",
+        "label": "O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O"
+    },
+    {
+        "id": "5.2.4",
+        "text": "即时行情通过本所许可的通信系统传输，交易参与人应在本所许可的范围内使用。",
+        "label": "O O O O O O B-系统 I-系统 O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-系统 I-系统 O O O O O O O O O"
+    },
+    {
+        "id": "第一条",
+        "text": "为了规范深圳证券交易所（以下简称本所）与境外证券交易所互联互通存托凭证（以下简称互联互通存托凭证）上市、交易、跨境转换和信息披露等行为，维护市场秩序，保护投资者合法权益，根据《中华人民共和国证券法》（以下简称《证券法》）、《关于开展创新企业境内发行股票或存托凭证试点的若干意见》《存托凭证发行与交易管理办法（试行）》（以下简称《存托凭证管理办法》）、《上市公司信息披露管理办法》（以下简称《信息披露管理办法》）、《境内外证券交易所互联互通存托凭证业务监管规定》（以下简称《监管规定》）等法律、行政法规、部门规章、规范性文件（以下统称境内法律）以及本所相关业务规则，制定本办法。",
+        "label": "O O O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-value I-value O B-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-key I-key O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O O O"
+    },
+    {
+        "id": "第六十八条",
+        "text": "证券公司应当依据标的证券资质、融入方资信、回购期限、第三方担保等因素确定和调整标的证券的质押率上限，其中股票质押率上限不得超过60%。质押率是指初始交易金额与质押标的证券市值的比率。以有限售条件股份作为标的证券的，质押率的确定应根据该上市公司的各项风险因素全面认定并原则上低于同等条件下无限售条件股份的质押率。深交所可以根据市场情况，对质押率上限进行调整，并向市场公布。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-value I-value O B-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value O O O B-操作 I-操作 I-操作 I-操作 I-操作 B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-key I-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-value I-value I-value O B-key I-key I-key O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value I-value O O B-key I-key I-key I-key O O B-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 I-操作 I-操作 O O O O B-op I-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-系统 I-系统 I-系统 O O O O B-value I-value I-value I-value O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O O O B-操作部分 I-操作部分 B-操作 I-操作 O"
+    },
+    {
+        "id": "第八十七条",
+        "text": "根据本办法第七十二条、第七十三条、第七十七条和第八十条规定被调出港股通标的证券且仍属于联交所上市证券的，不得通过港股通买入，但可以卖出。",
+        "label": "O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O B-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O B-结果 I-结果 B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-结果 I-结果 O O O O O B-操作 I-操作 O O O O B-操作 I-操作 O"
+    },
+    {
+        "id": "3.11",
+        "text": "盘后定价交易纳入深股通额度控制，当日额度在本所盘后定价交易阶段使用完毕的，联交所证券交易服务公司停止接受当日后续的买入申报，但仍接受卖出申报。停止接受买入申报的，当日不再恢复，本所另有规定的除外。",
+        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 B-结果 I-结果 I-结果 I-结果 B-时间 I-时间 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-结果 I-结果 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-时间 I-时间 B-结果 I-结果 I-结果 I-结果 O B-系统 I-系统 O O O O O O O O"
+    },
+    {
+        "id": "10.3",
+        "text": "本规则中所述时间，以本所交易主机的时间为准。",
+        "label": "O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O"
+    },
+    {
+        "id": "第十三条",
+        "text": "资管计划份额的转让时间为每个交易日的9︰15至11︰30，13︰00至15︰30。",
+        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O"
+    },
+    {
+        "id": "4.1.1",
+        "text": "投资者可以以同一证券账户在单个或多个会员的不同证券营业部买入证券。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "3.10",
+        "text": "标的股票交易被实行风险警示的，本所自该股票被实行风险警示当日起将其调整出标的证券范围。注册制下首次公开发行的股票被撤销风险警示的，本所自该股票被撤销风险警示当日起将其调入标的证券范围。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-系统 I-系统 B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "5.2.7",
+        "text": "本所可以根据市场发展情况和投资者需求，通过交易系统提供其他相关服务。",
+        "label": "B-系统 I-系统 B-结果 I-结果 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-系统 I-系统 I-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第十六条",
+        "text": "管理人及相关机构应当合理、审慎地预测基础资产现金流状况，结合影响未来现金流变化的各种因素，充分揭示相关风险。管理人及相关机构应当在专项计划法律文件中对现金流预测的假设、依据、各期预测结果及存续期间现金流跟踪监测机制进行说明，定期监测预测结果与实际情况的差异，并分析其原因。",
+        "label": "B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第十六条",
+        "text": "向不特定对象发行的可转债上市首日匹配成交出现下列情形的，本所可以对其实施盘中临时停牌：（一）盘中成交价较发行价首次上涨或者下跌达到或者超过20%的，临时停牌时间为30分钟；（二）盘中成交价较发行价首次上涨或者下跌达到或者超过30%的，临时停牌至14:57。盘中临时停牌的具体时间以本所公告为准，临时停牌时间跨越14:57的，于当日14:57复牌，并对已接受的申报进行复牌集合匹配，再进行收盘集合匹配。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-时间 I-时间 I-时间 I-时间 B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O B-系统 I-系统 O O O O O O B-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 B-时间 I-时间 B-op I-op B-or I-or B-op I-op B-op I-op B-or I-or B-op I-op B-价格 I-价格 I-价格 O O B-key I-key I-key I-key I-key I-key O B-时间 I-时间 I-时间 I-时间 O O O O B-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 B-时间 I-时间 B-op I-op B-or I-or B-op I-op B-op I-op B-or I-or B-op I-op B-价格 I-价格 I-价格 O O B-key I-key I-key I-key B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-value I-value I-value I-value I-value I-value O O O O O O B-系统 I-系统 O O O O O B-key I-key I-key I-key I-key I-key B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "第二十八条",
+        "text": "深股通ETF终止上市的，在摘牌日调出深股通ETF。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-结果 I-结果 O O O O O B-时间 I-时间 I-时间 B-结果 I-结果 B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O"
+    },
+    {
+        "id": "第十四条",
+        "text": "发行承销完成后或者初始生成期结束后，中国存托凭证的数量和对应市值符合本办法第六条第一款第四项规定的条件的，境外发行人应当及时向本所提出上市申请。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O B-系统 I-系统 B-事件 I-事件 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "5.1.7",
+        "text": "债券挂牌、摘牌、停牌与复牌的其他规定，按照本所债券上市规则、挂牌规则及其他有关规定执行。",
+        "label": "B-交易品种 I-交易品种 B-操作 I-操作 O B-操作 I-操作 O B-操作 I-操作 O B-操作 I-操作 O O O O O O O O B-系统 I-系统 B-交易品种 I-交易品种 O O O O O B-操作 I-操作 O O O O O O O O O O O O"
+    },
+    {
+        "id": "第十六条",
+        "text": "终止购回后，双方不再进行购回交易，乙方可根据客户协议的约定和深交所、中国结算的有关规定申请将相应证券划转至用于处置的自营账户进行处置，但发生司法等机关冻结或强制执行的除外。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 O B-操作人 I-操作人 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-操作人 I-操作人 O O O B-value I-value I-value I-value I-value I-value I-value O B-系统 I-系统 I-系统 O B-系统 I-系统 I-系统 I-系统 O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O"
+    },
+    {
+        "id": "第四十八条",
+        "text": "T日16:00,中国结算深圳分公司依据清算结果，按照货银对付原则及成交先后顺序逐笔办理资金交收及证券质押登记或解除质押登记。对于初始交易，若证券公司作为融出方，证券公司须于T日16:00前将相应资金划入自营资金交收账户；若融出方为证券公司或其资产管理子公司管理的集合资产管理计划或定向资产管理客户（托管机构清算模式），其托管机构须于T日16:00前将相应资金划入托管机构的资金交收账户；若融出方为证券公司或其资产管理子公司管理的定向资产管理客户（证券公司清算模式），证券公司须于T日16：00前将相应资金划入客户资金交收账户。对于购回交易，证券公司须于T日16:00前将相应资金划入客户资金交收账户。",
+        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-value I-value I-value I-value O O B-key I-key I-key I-key O O B-value I-value I-value O B-操作人 I-操作人 I-操作人 I-操作人 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O B-key I-key I-key O B-value I-value I-value I-value B-or B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-or B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O B-key I-key I-key O B-value I-value I-value I-value B-or B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作人 I-操作人 I-操作人 I-操作人 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-操作人 I-操作人 I-操作人 I-操作人 O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "5.2",
+        "text": "按照《创业板首次公开发行股票注册管理办法（试行）》发行上市的股票，自上市首日起可以作为融资融券标的。被实施风险警示的，本所自该股票被实施风险警示当日起将其调整出标的证券范围。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 O O B-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O B-交易品种 I-交易品种 O O O O O O O B-时间 I-时间 I-时间 O O O O O O O O O O O O"
+    },
+    {
+        "id": "第七十四条",
+        "text": "已在境外上市红筹公司与关联人发生以下关联交易之一的，应当及时履行临时信息披露义务：（一）与关联自然人发生的金额在1000万元以上的交易；（二）与关联法人发生的金额在5000万元以上，且占上市公司最近一期经审计总资产的0.1%以上的交易；（三）本所或者公司认为可能引发公司与关联人之间利益倾斜的其他情形。已在境外上市红筹公司的关联方和关联关系认定应当参照红筹公司首次申请境内公开发行股票或存托凭证时的披露标准执行。",
+        "label": "B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 O"
+    },
+    {
+        "id": "第十四条",
+        "text": "资产支持证券出现下列情况之一的，本所可以终止其挂牌：（一）资产支持证券到期的；（二）资产支持证券未到期，但根据计划说明书约定终止的；（三）发生对投资者利益重大不利影响的情形，本所认为需要终止挂牌的。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O B-key I-key I-key I-key O O O O B-系统 I-系统 O O B-操作 I-操作 I-操作 I-操作 I-操作 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "第十八条",
+        "text": "本所出具无异议函后至基础设施基金上市前，发生可能对基础设施基金投资价值及投资决策判断有重大影响的事项的，基金管理人、资产支持证券管理人等相关业务参与机构应当及时向本所报告，必要时应当聘请专业机构进行核查，本所依相关程序处理，并视情况向中国证监会报6告。",
+        "label": "B-系统 I-系统 B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O B-系统 I-系统 B-操作 I-操作 O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 O B-系统 I-系统 O O O O O B-操作 I-操作 O O O O O O O O O O O B-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "第八十条",
+        "text": "本所对本办法第三条规定的主体实施监管，可以采取下列措施：（一）要求创新企业及其他监管对象对有关问题作出解释和说明，并予以披露；（二）要求创新企业聘请相关证券服务机构对所存在的问题进行核查并发表意见；（三）发出各种通知和函件等；（四）约见有关人员；（五）要求整改；（六）对创新企业开展现场检查；（七）向中国证监会报告有关违法违规行为；（八）向相关主管部门出具监管建议函；（九）其他监管措施。前款规定的主体应当接受并积极配合本所的日常监管，在规定期限内如实回答本所问询，按要求提交说明，并根据需要披露相应更正或者补充公告。除本办法另有规定外，公司及相关信息披露义务人不得以相关事项存在不确定性或需要保密为由不履行信息披露义务。",
+        "label": "B-系统 I-系统 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O B-操作 I-操作 I-操作 I-操作 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作 I-操作 I-操作 I-操作 O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作 I-操作 B-操作部分 I-操作部分 O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第三十七条",
+        "text": "中国结算及中国结算香港办理强制性公司收购业务，根据香港结算收购信息，注销相应股份并派发支付对价；办理非强制性公司收购业务，根据H股“全流通”投资者申报意愿，注销相应股份并派发支付对价。",
+        "label": "B-系统 I-系统 I-系统 I-系统 O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O O O O O O O O O O B-系统 I-系统 I-系统 I-系统 O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第二条",
+        "text": "基金份额在本所的交易、认购和申赎适用本细则。本细则未作规定的，适用《交易规则》及本所其他有关业务规则的规定。",
+        "label": "B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O B-操作 I-操作 O B-操作 I-操作 O B-操作 I-操作 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第九十三条",
+        "text": "本办法由本所负责解释。",
+        "label": "O O O O B-系统 I-系统 O O O O O"
+    },
+    {
+        "id": "第七十六条",
+        "text": "融出方为集合资产管理计划的，可通过证券公司或其他第三方的信用增级措施保障融出方权益。",
+        "label": "B-key I-key I-key O B-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第一条",
+        "text": "为规范公开募集基础设施证券投资基金（以下简称基础设施基金）业务，保护投资者合法权益，根据《证券法》《证券投资基金法》《公开募集基础设施证券投资基金指引（试行）》（以下简称《基础设施基金指引》）、《证券公司及基金管理公司子公司资产证券化业务管理规定》（以下简称《资产证券化业务管理规定》）等有关法律、行政法规、部门规章、规范性文件以及深圳证券交易所（以下简称本所）相关业务规则，制定本办法。",
+        "label": "O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-value I-value I-value I-value I-value B-value I-value I-value I-value I-value I-value I-value I-value I-value B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 O O O O O B-系统 I-系统 O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第四十八条",
+        "text": "联交所证券交易服务公司应当按照本所市场收费标准交纳深股通交易经手费等相关费用。联交所证券交易服务公司应当与香港结算签订协议，委托香港结算就深股通交易进行清算交收、交纳交易经手费及其他相关费用。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O B-系统 I-系统 B-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 O B-操作 I-操作 O O O O O O O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第八十八条",
+        "text": "投资者当日买入的港股通标的证券，经确认成交后，在交收前即可卖出。",
+        "label": "B-操作人 I-操作人 I-操作人 B-时间 I-时间 B-操作 I-操作 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-时间 I-时间 I-时间 O O B-操作 I-操作 O"
+    },
+    {
+        "id": "4.3.4",
+        "text": "询价方选择询价回复并确认后，交易按询价方确认的数量、价格、结算方式与结算周期成交。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-结果 I-结果 O"
+    },
+    {
+        "id": "第二十七条",
+        "text": "本指引自发布之日起施行。本所于2013年8月20日发布的《深圳证券交易所资产管理计划份额转让业务指引》（深证会〔2013〕78号）同时废止。",
+        "label": "O O O O O O O O O O O O B-系统 I-系统 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第四十二条",
+        "text": "终止购回的申报要素包括：申报时间、合同序号（含指定申报交易单元代码、申报日期、客户成交申报编号）、融入方营业部代码、融入方证券账户号码、融入方交易单元代码、融出方证券账户号码、融出方交易单元代码、成交申报业务类别（终止购回）、初始交易合同序号等。",
+        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value O B-value I-value I-value I-value O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O B-value I-value I-value I-value I-value I-value I-value I-value O O"
+    },
+    {
+        "id": "第二十一条",
+        "text": "具有表决权差异安排的公司股票首次纳入深股通股票时，在本办法第十八条第一项规定的最后一个交易日属于第十八条规定范围的，于其后调入深股通股票；如未能在本办法第十八条第一项规定的最后一个交易日符合纳入条件，但在其后的股票半年度定期调整考察日属于本办法第十八条规定范围的，在深股通股票定期调整生效日调入深股通股票。",
+        "label": "O O O O O O O O O O O O B-交易品种 I-交易品种 O O B-结果 I-结果 B-value I-value I-value I-value I-value O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O O O O O O O B-结果 I-结果 O O O O O O O O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 B-结果 I-结果 O O O O O O"
+    },
+    {
+        "id": "第二十三条",
+        "text": "本所可以根据异常波动程度和监管需要，采取下列措施：（一）要求上市公司披露可转债异常波动公告；（二）要求上市公司停牌核查并披露核查公告；（三）向市场提示异常波动可转债投资风险；（四）对可转债实施盘中强制停牌；（五）本所认为必要的其他措施。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-交易品种 I-交易品种 I-交易品种 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "4.3",
+        "text": "本所遵循审慎原则，审核、选取并确定可充抵保证金证券的名单，并向市场公布。本所可以根据市场情况调整可充抵保证金证券的名单和折算率。",
+        "label": "B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-操作 I-操作 O B-系统 I-系统 O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第四十条",
+        "text": "境外发行人可以披露业绩预告、业绩快报和盈利预测。境外发行人在境外市场披露上述信息的，应当在本所市场同时披露。境外发行人披露业绩预告、业绩快报和盈利预测的，应当谨慎、客观，不得利用该等信息不当影响其基础股票、中国存托凭证及其衍生品种交易价格。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O B-系统 I-系统 O O O O B-操作 I-操作 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O"
+    },
+    {
+        "id": "第十五条",
+        "text": "业务协议应当约定丙方的权利义务。（一）丙方权利包括：1.甲乙双方账户内没有足够资金或证券达成双方交易，或达成交易可能导致协议各方违反任何法律、法规或规则的，丙方有权拒绝甲乙双方交易委托，丙方无需就此向甲乙双方承担任何责任；2.丙方有权采取措施对甲方资金使用情况进行跟踪，甲方违反本协议约定使用融入资金的，丙方有权督促甲方按照协议约定采取改正措施；未按照协议约定采取改正措施的，丙方有权要求甲方提前购回。（二）丙方义务包括：1.根据甲乙双方委托申报交易指令；2.负责盯市管理，在履约保障比例达到或低于约定数值时，按照协议约定通知甲乙双方；3.甲方违约时，根据协议约定处置相应质押标的证券；4.甲方违约时，对于处置相应质押标的证券所得价款，优先偿还乙方，剩余资金返还甲方。",
+        "label": "O O O O O O O O O O O B-value I-value I-value I-value O O O O B-key I-key I-key I-key O O O O O B-操作人 I-操作人 I-操作人 I-操作人 B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作人 I-操作人 I-操作人 O O O O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-key I-key I-key I-key O O O O O O O B-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O B-value I-value I-value I-value O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O B-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-事件 I-事件 I-事件 I-事件 I-事件 O O O B-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-事件 I-事件 I-事件 I-事件 I-事件 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作 I-操作 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 O O O"
+    },
+    {
+        "id": "第二十三条",
+        "text": "公众投资者可以通过场内证券经营机构或者基金管理人及其委托的场外基金销售机构认购基础设施基金。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O B-value I-value I-value I-value I-value I-value I-value I-value B-or I-or B-value I-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第十五条",
+        "text": "红筹公司向本所申请其境内首次公开发行的存托凭证上市，应当提交下列文件：（一）上市申请书；（二）中国证监会核准本次公开发行文件；（三）申请存托凭证上市的董事会决议和股东大会决议（如适用）;（四）营业执照或公司注册文件复印件；（五）公司章程；（六）经具有证券期货相关业务资格的会计师事务所按照中国审计准则审计的发行人最近三年的财务报告及相关财务信息；（七）经签署的存托协议、托管协议文本；（八）托管人出具的存托凭证所代表基础证券的托管凭证；（九）保荐协议和保荐人出具的上市保荐书；（十）律师事务所出具的法律意见书；（十一）本次发行结束后，具有证券期货相关业务资格的会计师事务所出具的验资报告；（十二）公司本次发行的存托凭证已经中国结算存管的证明文件；（十三）董事（监事、高级管理人员）声明及承诺书；（十四）公司在境内设立的证券事务机构及信息披露境内代表的相关资料；（十五）本次发行后至上市前，按规定新增的财务资料和有关重大事项的说明（如适用）;（十六）最近一次的招股说明书和经中国证监会审核的全套发行申报材料；（十七）上市公告书；（十八）本所要求的其他文件。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "3.7.3",
+        "text": "投资者进行融资融券交易，应当按照规定开立信用证券账户。信用证券账户的开立和注销，根据会员和证券登记结算机构的有关规定办理。",
+        "label": "B-操作人 I-操作人 I-操作人 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作人 I-操作人 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O"
+    },
+    {
+        "id": "第三十九条",
+        "text": "红筹公司存托凭证单笔交易数量不低于30万份,或者交易金额不低于200万元的，可以采用大宗交易方式。红筹公司存托凭证协议转让业务，参照本所股票协议转让相关业务规则的规定办理。",
+        "label": "O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 B-op I-op I-op B-数量 I-数量 I-数量 I-数量 O B-or I-or B-key I-key I-key I-key B-op I-op I-op B-价格 I-价格 I-价格 I-价格 I-价格 O O B-结果 I-结果 O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O B-操作 I-操作 B-系统 I-系统 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第一百二十条",
+        "text": "深股通投资者买卖深股通股票，违反《深圳证券交易所股票上市规则》《深圳证券交易所创业板股票上市规则》等业务规则规定的信息披露要求的，本所可以根据相关规则对其实施监管措施或者纪律处分。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-系统 I-系统 O O O O B-value I-value I-value I-value O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "7.4",
+        "text": "本所根据市场需要，可以联合其他证券、期货交易所等机构，对出现第7.2条第（七）项、第（九）项等情形进行调查。",
+        "label": "B-系统 I-系统 O O O O O O O B-结果 I-结果 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O O O B-操作 I-操作 O"
+    },
+    {
+        "id": "4.12",
+        "text": "仅计算现金及信用证券账户内证券市值总和的维持担保比例超过300%时，客户可以提取保证金可用余额中的现金或者充抵保证金的证券，但提取后仅计算现金及信用证券账户内证券市值总和的维持担保比例不得低于300%。维持担保比例超过会员与客户约定的数值时，客户可以解除其他担保物的担保，但解除担保后的维持担保比例不得低于会员与客户约定的数值。本所对提取现金、充抵保证金的证券，或者解除其他担保物的担保另有规定的除外。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O O O O O O B-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-value I-value I-value I-value O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O O B-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O B-key I-key I-key I-key I-key I-key B-op I-op I-op I-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-系统 I-系统 O O O O O O O O O O O O O O O B-or I-or O O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "2.3.3",
+        "text": "交易时间内因故停市，交易时间不作顺延。",
+        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 O O B-状态 I-状态 O O O O O O O O O O"
+    },
+    {
+        "id": "3.3.8",
+        "text": "通过竞价交易买入证券的，申报数量应当为100股（份）或其整数倍。卖出证券时，余额不足100股（份）部分，应当一次性申报卖出。",
+        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 B-操作 I-操作 B-操作部分 I-操作部分 O O B-key I-key I-key I-key O O O B-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 I-数量 O B-操作 I-操作 B-操作部分 I-操作部分 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O"
+    },
+    {
+        "id": "第五十五条",
+        "text": "部分解除质押日日终，中国结算深圳分公司根据深交所确认的成交数据，在进行逐笔全额结算时，部分解除质押标的证券或其孳息。",
+        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第三十六条",
+        "text": "境外发行人与关联人发生关联交易，达到下列标准之一的，应当及时披露：（一）与关联自然人发生的金额在人民币1000万元以上的交易；（二）与关联法人发生的金额在人民币5000万元以上，且占境外发行人最近一期经审计总资产的0.1%以上的交易；（三）境外发行人或者本所认为可能引发境外发行人与关联人之间利益倾斜的交易。境外发行人关联方和关联关系的认定，应当参照境外发行人首次申请境内公开发行中国存托凭证时的披露标准执行。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O O O O O O O O O O B-操作 I-操作 I-操作 I-操作 O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第三十条",
+        "text": "意向申报指令应当包括证券账户号码、证券代码、买卖方向和本方交易单元代码等内容。意向申报不承担成交义务，意向申报指令可以撤销。",
+        "label": "B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O O O B-value I-value I-value I-value O O O O B-操作 I-操作 O"
+    },
+    {
+        "id": "第九十四条",
+        "text": "本办法第九十三条第二项规定的信息披露方面存在重大缺陷，具体包括下列情形：（一）本所失去境外发行人有效信息来源；（二）境外发行人拒不披露应当披露的重大信息；（三）境外发行人严重扰乱信息披露秩序，并造成恶劣影响；（四）本所认为境外发行人存在信息披露重大缺陷的其他情形。境外发行人是否存在信息披露重大缺陷，及前述重大缺陷是否改正，由本所上市委员会予以认定。上市委员会认定期间不计入公司改正期限。",
+        "label": "B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O O O O B-value I-value I-value I-value I-value I-value I-value I-value O O B-value I-value I-value I-value I-value I-value O O O O O O B-系统 I-系统 O O O O O B-操作 I-操作 I-操作 I-操作 O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O O O O O O O O"
+    },
+    {
+        "id": "7.1",
+        "text": "因下列突发性事件，导致部分或全部交易不能正常进行的，为维护证券交易正常秩序和市场公平，本所可以决定采取技术性停牌、临时停市等措施：（一）不可抗力；（二）意外事件；（三）重大技术故障；（四）重大人为差错；（五）本所认定的其他异常情况。因前款规定的突发性事件导致证券交易结果出现重大异常，按交易结果进行交收将对证券交易正常秩序和市场公平造成重大影响的，本所可以采取取消交易、通知证券登记结算机构暂缓交收等措施。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O B-操作 I-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 I-操作 I-操作 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O B-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O O O"
+    },
+    {
+        "id": "第一条",
+        "text": "为了规范试点创新企业（以下简称创新企业）股票、存托凭证在深圳证券交易所（以下简称本所）上市和交易，保护投资者合法权益，维护证券市场秩序，根据《中华人民共和国证券法》《关于开展创新企业境内发行股票或存托凭证试点的若干意见》（以下简称《若干意见》）、《存托凭证发行与交易管理办法（试行）》（以下简称《存托凭证管理办法》）、《试点创新企业境内发行股票或存托凭证并上市监管工作实施办法》《创新企业境内发行股票或存托凭证上市后持续监管实施办法（试行）》（以下简称《持续监管实施办法》）等法律、行政法规、部门规章、规范性文件（以下统称境内法律）以及《深圳证券交易所股票上市规则》《深圳证券交易所创业板股票上市规则》（以下统称《上市规则》）、《深圳证券交易所交易规则》（以下简称《交易规则》）等业务规则，制定本办法。",
+        "label": "O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第七十条",
+        "text": "证券公司T+1日资金划付失败的，深交所可自T+2日起暂停接受该证券公司初始交易申报，只接受提前购回申报；证券公司于T+2日完成资金划付的，T+3日恢复接受该其初始交易申报；T+2日未能完成资金划付的，深交所自T+3日起终止其报价回购交易权限。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 B-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 B-结果 I-结果 O O B-系统 I-系统 I-系统 O O B-时间 I-时间 I-时间 I-时间 O B-操作 I-操作 I-操作 I-操作 B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 O B-时间 I-时间 I-时间 I-时间 B-结果 I-结果 B-操作 I-操作 I-操作 I-操作 O O B-时间 I-时间 I-时间 I-时间 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-时间 I-时间 I-时间 I-时间 B-结果 I-结果 I-结果 I-结果 B-操作 I-操作 I-操作 I-操作 O O B-操作 I-操作 I-操作 O B-时间 I-时间 I-时间 I-时间 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "3.5.8",
+        "text": "盘后定价大宗交易的申报指令应当包括证券账户号码、证券代码、交易单元代码、证券营业部识别码、买卖方向、数量、价格类型等内容。盘后定价大宗交易的价格类型包括：（一）证券当日收盘价；（二）证券当日成交量加权平均价格。在接受申报的时间内，未成交申报可以撤销。",
+        "label": "B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value O B-value I-value I-value I-value O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O O B-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 O"
+    },
+    {
+        "id": "3.4.2",
+        "text": "证券竞价交易按价格优先、时间优先的原则撮合成交。价格优先的原则为：较高价格买入申报优先于较低价格买入申报，较低价格卖出申报优先于较高价格卖出申报。时间优先的原则为：买卖方向、价格相同的，先申报者优先于后申报者。先后顺序按交易主机接受申报的时间确定。",
+        "label": "B-交易品种 I-交易品种 B-交易方式 I-交易方式 I-交易方式 I-交易方式 O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-结果 I-结果 O B-key I-key I-key I-key I-key I-key I-key O O B-价格 I-价格 I-价格 I-价格 B-操作 I-操作 I-操作 I-操作 B-op I-op I-op B-价格 I-价格 I-价格 I-价格 B-操作 I-操作 I-操作 I-操作 O B-价格 I-价格 I-价格 I-价格 B-操作 I-操作 I-操作 I-操作 B-op I-op I-op B-价格 I-价格 I-价格 I-价格 B-操作 I-操作 I-操作 I-操作 O B-key I-key I-key I-key I-key I-key I-key O O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O B-操作人 I-操作人 I-操作人 I-操作人 B-op I-op I-op B-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O O O O B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O O O"
+    },
+    {
+        "id": "第三十五条",
+        "text": "投资者应当充分知悉和了解创新企业股票和存托凭证的性质、境内外股东和存托凭证持有人的权利差异、创新企业特定经营风险、投票权差异安排、协议控制架构或者类似特殊安排等风险事项以及境内法律和本所业务规则，结合自身风险认知和承受能力，审慎判断是否参与交易。投资者持有存托凭证即成为存托协议当事人，视为同意并遵守存托协议的约定。",
+        "label": "B-操作人 I-操作人 I-操作人 O O B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O B-操作 I-操作 I-操作 I-操作 O B-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作 I-操作 I-操作 I-操作 I-操作 O O O O O O O O"
+    },
+    {
+        "id": "3.3.6",
+        "text": "采用匹配成交方式的，债券现券的申报价格最小变动单位为0.001元，债券通用质押式回购的申报价格最小变动单位为0.005元；采用其他交易方式的，债券交易的申报价格最小变动单位为0.0001元。本所另有规定的除外。本所可以根据市场发展需要调整申报价格最小变动单位。",
+        "label": "O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O B-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 I-交易方式 O O B-交易品种 I-交易品种 O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-系统 I-系统 O O O O O O O O B-系统 I-系统 B-结果 I-结果 O O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "第十二条",
+        "text": "基金管理人拟申请基础设施基金上市，应当向本所提交以下文件：（一）上市申请；（二）基金合同草案；（三）基金托管协议草案；（四）招募说明书草案；（五）律师事务所对基金出具的法律意见书；（六）基金管理人及资产支持证券管理人相关说明材料，包括但不限于：投资管理、项目运营、风险控制制度和流程，部门设置与人员配备，同类产品与业务管理情况等；（七）拟投资基础设施资产支持证券认购协议；（八）基金管理人与主要参与机构签订的协议文件；（九）本所要求的其他材料。资产支持证券管理人申请基础设施资产支持证券挂牌条件确认，应当向本所提交以下文件：（一）挂牌条件确认申请；（二）资产支持证券管理人合规审查意见；4（三）基础设施资产支持专项计划（以下简称专项计划）说明书、标准条款（如有）；（四）基础资产买卖协议、托管协议、监管协议（如有）、资产服务协议（如有）等主要交易合同文本；（五）律师事务所对专项计划出具的法律意见书；（六）基础设施项目最近3年及一期的财务报告及审计报告，如无法提供，应当提供最近1年及一期的财务报告及审计报告，相关材料仍无法提供的，应当至少提供最近1年及一期经审计的备考财务报表；（七）基础设施项目评估报告；（八）专项计划尽职调查报告；（九）关于专项计划相关会计处理意见的说明（如有）；（十）法律法规或原始权益人公司章程规定的有权机构作出的关于开展资产证券化融资相关事宜的决议；（十一）本所要求的其他材料。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O O O O O O B-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O B-key I-key I-key I-key I-key I-key I-key I-key O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-操作 I-操作 O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "5.4.1",
+        "text": "有价格涨跌幅限制的股票、封闭式基金竞价交易出现下列情形之一的，本所分别公布相关证券当日买入、卖出金额最大五家会员证券营业部或交易单元的名称及其各自的买入、卖出金额：（一）当日收盘价涨跌幅偏离值达到±7%的各前五只主板股票和封闭式基金，当日收盘价涨跌幅达到±15%的前五只创业板股票。收盘价涨跌幅偏离值的计算公式为：收盘价涨跌幅偏离值=单只证券涨跌幅-对应分类指数涨跌幅证券价格达到涨跌幅限制的，取对应的涨跌幅限制比例进行计算。（二）当日价格振幅达到15%的各前五只主板股票和封闭式基金，当日价格振幅达到30%的前五只创业板股票。价格振幅的计算公式为：价格振幅=（当日最高价-当日最低价）/当日最低价×100%（三）当日换手率达到20%的各前五只主板股票和封闭式基金，当日换手率达到30%的前五只创业板股票。换手率的计算公式为：换手率=成交股数（份额）/无限售流通股数（份额）×100%收盘价涨跌幅偏离值、收盘价涨跌幅、价格振幅或换手率相同的，依次按成交金额和成交量选取。主板A股股票、创业板股票、B股股票、封闭式基金的对应分类指数分别是本所编制的深证A股指数、创业板综合指数、深证B股指数和深证乐富基金指数。",
+        "label": "O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-时间 I-时间 B-key I-key I-key I-key I-key I-key I-key I-key I-key B-op I-op B-价格 I-价格 I-价格 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-时间 I-时间 B-key I-key I-key I-key I-key I-key B-op I-op B-价格 I-价格 I-价格 I-价格 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O B-key I-key I-key I-key I-key I-key I-key I-key I-key B-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 B-key I-key I-key I-key B-op I-op B-价格 I-价格 I-价格 I-价格 I-价格 O O O O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O B-操作 I-操作 O O O O B-时间 I-时间 B-key I-key I-key I-key B-op I-op B-价格 I-价格 I-价格 O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-时间 I-时间 B-key I-key I-key I-key B-op I-op B-价格 I-价格 I-价格 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O O B-key I-key I-key I-key B-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O B-时间 I-时间 B-key I-key I-key B-op I-op B-value I-value I-value O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-时间 I-时间 B-key I-key I-key B-op I-op B-value I-value I-value O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O O O O O O O B-key I-key I-key B-op B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O B-key I-key I-key I-key O O O O O O O O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value O B-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "5.1.2",
+        "text": "本所及时编制反映市场成交情况的各类日报表、周报表、月报表和年报表，并通过本所网站或其他媒体予以公布。",
+        "label": "B-系统 I-系统 O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O O O O O O"
+    },
+    {
+        "id": "第四十六条",
+        "text": "证券公司应当对约定购回式证券交易进行盯市管理，监控标的证券的市场风险。交易履约保障比例低于约定数值的，证券公司可以按《客户协议》的约定要求该客户提前购回；或者与该客户达成新的约定购回式证券交易，并对该客户多笔交易的交易履约保障比例进行合并管理。前款所述交易履约保障比例，是指单笔交易或合并管理的多笔交易的标的证券市值与初始交易成交金额的比值。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O B-操作 I-操作 B-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-key I-key I-key I-key I-key I-key I-key I-key B-op I-op B-value I-value I-value I-value O O B-操作人 I-操作人 I-操作人 I-操作人 O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 O B-or I-or O B-操作人 I-操作人 I-操作人 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O B-操作 I-操作 I-操作 I-操作 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value O"
+    },
+    {
+        "id": "第五十一条",
+        "text": "会员违反登记结算机构相关规定的，根据登记结算机构的提请，本所可以限制其参与相关基金业务。",
+        "label": "B-操作人 I-操作人 O O B-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 I-结合规则 O O O O B-操作人 I-操作人 I-操作人 I-操作人 I-操作人 I-操作人 O B-操作 I-操作 O O O O O O O O O O O O O O O O O"
+    },
+    {
+        "id": "第八十条",
+        "text": "融入方违约，根据《业务协议》的约定须处置质押标的证券的，对于无限售条件股份，通过交易系统进行处置的，交易各方应当遵守中国证监会部门规章、规范性文件及深交所业务规则等关于股份减持的相关规定，按以下程序处理：（一）证券公司应及时通知交易双方并报告深交所；（二）T日证券公司根据《业务协议》约定，向深交所交易系统提交违约处置申报；（三）T日违约处置申报处理成功后，T+1日起证券公司即可根据《业务协议》的约定，通过质押特别交易单元进行处置，处置所得资金划入证券公司自营资金交收账户，卖出成交后，证券公司应当在当日根据中国结算深圳分公司的要求提交申报数据；（四）处置所得资金由证券公司优先偿还融出方，如有剩余的返还融入方，如不足偿还的由融入方继续承担偿付责任；（五）违约处置后，质押标的证券及相应孳息如有剩余的，证券公司应向中国结算深圳分公司申请解除其质押登记；（六）违约处置完成后，证券公司向深交所和中国结算深圳分公司提交违约处置结果报告。对于仍处于限售期的有限售条件股份，证券公司应当按照《业务协议》的约定处理。",
+        "label": "B-事件 I-事件 I-事件 I-事件 I-事件 O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value B-操作 I-操作 I-操作 I-操作 O O B-操作人 I-操作人 I-操作人 I-操作人 O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O O O O O O O B-操作人 I-操作人 I-操作人 I-操作人 O B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-系统 I-系统 I-系统 O O O O B-时间 I-时间 B-操作人 I-操作人 I-操作人 I-操作人 O O B-value I-value I-value I-value I-value I-value I-value I-value O O B-系统 I-系统 I-系统 I-系统 I-系统 I-系统 I-系统 B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-时间 I-时间 I-时间 I-时间 I-时间 B-操作人 I-操作人 I-操作人 I-操作人 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value O O O B-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 I-操作 I-操作 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O B-事件 I-事件 I-事件 I-事件 I-事件 O B-操作人 I-操作人 I-操作人 I-操作人 O O O B-时间 I-时间 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 I-操作 I-操作 I-操作 O O B-操作部分 I-操作部分 I-操作部分 I-操作部分 B-操作 I-操作 I-操作 I-操作 I-操作 O B-状态 I-状态 I-状态 I-状态 I-状态 I-状态 O B-操作人 I-操作人 I-操作人 B-操作 I-操作 I-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-事件 I-事件 I-事件 I-事件 I-事件 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 B-状态 I-状态 I-状态 I-状态 I-状态 O B-操作人 I-操作人 I-操作人 I-操作人 O O B-value I-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O B-事件 I-事件 I-事件 I-事件 I-事件 I-事件 I-事件 O B-操作人 I-操作人 I-操作人 I-操作人 O B-系统 I-系统 I-系统 O B-value I-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O O O O O O B-时间 I-时间 I-时间 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作人 I-操作人 I-操作人 I-操作人 O O O O B-value I-value I-value I-value I-value I-value I-value I-value I-value B-操作 I-操作 O"
+    },
+    {
+        "id": "第十五条",
+        "text": "除上市首日外，向不特定对象发行的可转债的价格涨跌幅限制比例为20%。涨跌幅限制价格的计算公式为：涨跌幅限制价格=前收盘价×（1±涨跌幅限制比例）。计算结果按照四舍五入原则取至价格最小变动单位。涨跌幅限制价格与前收盘价之差的绝对值低于申报价格最小变动单位的，以前收盘价增减一个申报价格最小变动单位计算相应价格。涨跌幅限制价格低于申报价格最小变动单位的，以申报价格最小变动单位作为相应价格。",
+        "label": "B-时间 I-时间 I-时间 I-时间 I-时间 I-时间 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 I-交易品种 O B-key I-key I-key I-key I-key I-key I-key I-key I-key O B-value I-value I-value O O O O O O O O O O O O O O O B-key I-key I-key I-key I-key I-key I-key B-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key I-key O O B-value I-value I-value I-value I-value I-value O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O B-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key I-key B-op I-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O B-key I-key I-key I-key O B-key I-key I-key I-key I-key I-key I-key B-op I-op B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O O B-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 I-价格 O O B-key I-key I-key I-key O"
+    },
+    {
+        "id": "第六十四条",
+        "text": "本所会员应当向客户充分揭示港股通投资风险，督促客户遵守内地和香港相关法律、行政法规、部门规章、规范性文件和业务规则，接受本所监管。",
+        "label": "B-操作人 I-操作人 I-操作人 I-操作人 O O O O O O O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作 I-操作 B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O"
+    },
+    {
+        "id": "1.2",
+        "text": "在本所创业板上市的股票和存托凭证，以及相关基金的交易，适用本规定。本规定未作规定的，适用《交易规则》及本所其他有关规定。",
+        "label": "O B-系统 I-系统 O O O O O O B-交易品种 I-交易品种 O B-交易品种 I-交易品种 I-交易品种 I-交易品种 O O O O O B-交易品种 I-交易品种 O O O O O O O O O O O O O O O O O O O O O O O O O O O O B-系统 I-系统 O O O O O O O"
+    },
+    {
+        "id": "4.14",
+        "text": "会员公布的融资、融券保证金比例及维持担保比例，不得低于本所规定的标准。",
+        "label": "B-操作人 I-操作人 B-操作 I-操作 O B-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 I-操作部分 O B-op I-op I-op I-op B-value I-value I-value I-value I-value I-value I-value O"
+    }
+]

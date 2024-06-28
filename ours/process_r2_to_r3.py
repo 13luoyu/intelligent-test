@@ -445,31 +445,6 @@ def add_relation(rules, id_example):
                             rules[rule_id2]['before'].append(rule_id1)
                             rules[rule_id1]['after'].append(rule_id2)
     
-    # for rule_id in keys:
-    #     rule = rules[rule_id]
-    #     if len(rule['after']) > 0:
-    #         restart = True
-    #         while restart:
-    #             restart = False
-    #             for i, t in enumerate(rule['after']):
-    #                 if t not in keys:
-    #                     to_add = [id1 for id1 in keys if t in id1]
-    #                     del rule['after'][i]
-    #                     rule['after'] += to_add
-    #                     restart = True
-    #                     break
-    #     if len(rule['before']) > 0:
-    #         restart = True
-    #         while restart:
-    #             restart = False
-    #             for i, t in enumerate(rule['before']):
-    #                 if t not in keys:
-    #                     to_add = [id1 for id1 in keys if t in id1]
-    #                     del rule['before'][i]
-    #                     rule['before'] += to_add
-    #                     restart = True
-    #                     break
-    
     # 统计rules和rules_copy之间的差距，从而算出隐式关联的数目
     explicit_relation, implicit_relation, relation = {}, {}, {}
 

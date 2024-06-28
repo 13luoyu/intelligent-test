@@ -28,6 +28,7 @@ def get_market_variety(s, knowledge):
             market = value
     s = s.strip()
     for value in varieties:
+        # 统计时首先去掉开头两行，避免误导
         paper = s.split("\n")
         i = 0
         while i < len(paper) and not is_id(paper[i]):
@@ -39,12 +40,6 @@ def get_market_variety(s, knowledge):
         if value_count >= 1 and len(value) > len(variety):
             variety = value
             variety_num = value_count
-    # 曾想过使用下面的方法，但不行，因为有些品种的名字是其他品种的子串，比如“股票”和“股票质押式回购交易”
-    # for value in varieties:
-    #     value_count = "\n".join(s.split("\n")[:5]).count(value)
-    #     if value_count > variety_num:
-    #         variety_num = value_count
-    #         variety = value
 
     if market_num == 0:
         if "\n".join(s.split("\n")).count("深圳") > "\n".join(s.split("\n")).count("上海"):
@@ -86,8 +81,8 @@ def nl_to_sci(nl_file = None, nl_data = None, knowledge=None):
 
 if __name__ == "__main__":
     knowledge = json.load(open("../data/domain_knowledge/classification_knowledge.json", "r", encoding="utf-8"))
-    for file in os.listdir("../data/data_for_LLM_v1/business_rules/origin/"):
-        filepath = "../data/data_for_LLM_v1/business_rules/origin/" + file
+    for file in os.listdir("../data/business_rules/origin/"):
+        filepath = "../data/business_rules/origin/" + file
         sci, market_variety = nl_to_sci(nl_file=filepath, nl_data=None, knowledge=knowledge)
         print(file, market_variety)
     

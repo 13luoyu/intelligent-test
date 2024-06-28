@@ -130,6 +130,6 @@ def eval_model(eval_dataset: str, model_path: str, output_filename: str, trainin
 if __name__ == "__main__":
     training_args = arg_parser()
     model = training_args["model"]
-    saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], model, training_args)
-    # saved_path = "../model/trained/mengzi_rule_filtering"
+    # saved_path = train_model(training_args["train_dataset"], training_args["validate_dataset"], model, training_args)
+    saved_path = "../model/trained/mengzi_rule_filtering"
     eval_model(training_args["validate_dataset"], saved_path, "./predict_data/"+saved_path.split("/")[-1]+"_test_result.txt", training_args)

@@ -1,4 +1,3 @@
-from transfer.mydsl_to_rules import mydsl_to_rules_v2
 import cn2an
 
 # 本文件的作用是，将内部数据格式rules写成json格式的R
@@ -106,50 +105,6 @@ def rules_to_mydsl(json_rules):
             s += f"after: {rule['after']}\n"
         rule['context'] = rule['context'].replace("\n", "\n\t")
         s += f"\t{rule['context']}\n\n"
-    return s
-
-
-
-
-
-def rules_to_mydsl_v2(rules):
-    s = ""
-    for rule_id in list(rules.keys()):
-        rule = rules[rule_id]
-        s += f"rule {rule_id}\n"
-        s += f"sourceId {','.join(rule['rule_class'])}\n"
-        s += f"focus: {','.join(rule['focus'])}\n"
-        if "before" in rule:
-            s += f"before: {rule['before']}\n"
-        if "after" in rule:
-            s += f"after: {rule['after']}\n"
-        s += "\tif "
-        for c in rule['constraints']:
-            if c['operation'] == "is":
-                s += f"{c['key']} is \"{c['value']}\" and "
-            elif c['operation'] == "in":
-                s += f"{c['key']} in {c['value']} and "
-            elif c['operation'] == "compute":
-                s += f"{c['key']} "
-                for element in c['value']:
-                    s += f"{element} "
-                s += "and "
-            else:
-                raise ValueError(f"未定义的规则操作符: {c['operation']} !")
-        s = s[:-5] + "\n\tthen "
-        for c in rule['results']:
-            if c['operation'] == "is":
-                s += f"{c['key']} is \"{c['value']}\" and "
-            elif c['operation'] == "in":
-                s += f"{c['key']} in {c['value']} and "
-            elif c['operation'] == "compute":
-                s += f"{c['key']} "
-                for element in c['value']:
-                    s += f"{element} "
-                s += "and "
-            else:
-                raise ValueError(f"未定义的规则操作符: {c['operation']} !")
-        s = s[:-5] + "\n\n"
     return s
 
 
