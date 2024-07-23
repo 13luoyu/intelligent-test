@@ -139,13 +139,8 @@ def read_OBI_to_rule(texts, labels):
             sentence_separate_3.append(len(stack))  # 记录，之后的下一个{label:text}在stack中的位置
         elif texts[i] == "且" or texts[i] == "但":
             sentence_and.append(len(stack))
-    sentence_separate_2.pop()  # 句子的结尾一定是。而这个。无用
-    
-    # 将stack中的申报类型显式点出 TODO
-    # for i, s in enumerate(stack):
-    #     key, value = list(s.keys())[0], s[list(s.keys())[0]]
-    #     if len(value) >= 4 and value[-2:] == "申报" and "性" not in value:
-    #         stack[i] = {"申报类型":value}
+    if len(sentence_separate_2) > 0:
+        sentence_separate_2.pop()  # 句子的结尾一定是。而这个。无用
 
     # with open("cache/r1_step1.txt", "a", encoding="utf-8") as f:
     #     f.write(f"输入：{texts}\n")

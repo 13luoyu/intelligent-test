@@ -633,5 +633,5 @@ def token_classification_decoder(tci, model_name_or_path, knowledge, print_log=F
 if __name__ == "__main__":
     tci_data = json.load(open("cache/tci.json", "r", encoding="utf-8"))
     knowledge = json.load(open("../data/domain_knowledge/classification_knowledge.json", "r", encoding="utf-8"))
-    tco_data = token_classification_encoder(tci_data, knowledge, "../model/trained/mengzi_rule_element_extraction", "../data/tc_data.dict")
+    tco_data = token_classification_encoder(tci_data, knowledge, "../model/trained/mengzi_rule_element_extraction", "../data/data_for_LLM_encoder/tc_data.dict")
     json.dump(tco_data, open("cache/tco.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)

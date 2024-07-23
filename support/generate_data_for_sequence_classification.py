@@ -47,7 +47,7 @@ def read_pdf_to_txt(pdf_file):
         if "修订）" == line[-3:]:  # 可能出现在标题中
             ts += line + "\n"
             continue
-        if line[0] == "第" and " " in line and ("章" in line or "节" in line):  # 章节标题
+        if line[0] == "第" and " " in line and ("章" in line or "节" in line) and line.find(" ") > max(line.find("章"), line.find("节")):  # 章节标题
             ts += "\n" + line + "\n"
         elif is_id(line) and ts[-1] == "。":  # 遇到1.1.1这样的
             ts += "\n" + line

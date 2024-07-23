@@ -30,7 +30,7 @@ def statistic(file):
                             acc += 1
 
         # print(acc, total)
-        print(f"{file} acc: {float(acc) / float(total)}")
+        print(f"{file} 统计结果：\n正确率：{float(acc) / float(total)}\n")
 
 
 
