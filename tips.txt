@@ -1,6 +1,0 @@
-导出requirements.txt
-pip list --format=freeze >requirements.txt
-
-安装：
-删掉requirements.txt中的Intelligent-Test==1.0
-删掉flash-attn==2.5.6
