@@ -8,3 +8,4 @@ python compute_bsc.py
 python count_testcase_num.py
 python draw_bsc_compare_table.py
 python draw_bsc_self-compare_figure.py
+python draw_boxplot.py

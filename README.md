@@ -145,6 +145,11 @@ The experimental results (Tables and Figures) are saved under **./experiment/res
     </tr>
 </table>
 
+
+**Figure 6:**
+
+![Figure 6](./experiment/results/figure6.png)
+
 **Figure 7:**
 
 ![Figure 7](./experiment/results/figure7.png)
