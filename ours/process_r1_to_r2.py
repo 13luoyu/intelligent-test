@@ -513,7 +513,7 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries, concretize_secur
                 rule = rules[rule_id]
                 find = False
                 for c in rule['constraints']:
-                    if c['key'] == '操作':  # 认购(买)、申购(买)、赎回(卖)、申购(买卖)、竞买(卖)、应价(买)
+                    if c['key'] == '操作':  # 认购(买)、申购(买)、赎回(卖)、竞买(卖)、应价(买)
                         if '买入' in c['value'] or "认购" in c['value'] or "申购" in c['value'] or "应价" in c['value']:
                             rule['constraints'].append({"key":"交易方向","operation":"is","value":"买入"})
                             vars[rule_id]['交易方向'] = []
