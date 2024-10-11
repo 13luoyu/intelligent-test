@@ -963,8 +963,8 @@ def to_r1(rules, knowledge, terms):
 
 if __name__ == "__main__":
     rules = json.load(open("cache/tco.json", "r", encoding="utf-8"))
-    knowledge = json.load(open("../data/classification_knowledge.json", "r", encoding="utf-8"))
-    terms = open("../data/terms.txt", "r", encoding="utf-8").read().split("\n")
+    knowledge = json.load(open("../data/domain_knowledge/classification_knowledge.json", "r", encoding="utf-8"))
+    terms = open("../data/domain_knowledge/terms.txt", "r", encoding="utf-8").read().split("\n")
     r1 = to_r1(rules, knowledge, terms)
     with open("cache/r1.mydsl", "w", encoding="utf-8") as f:
         f.write(r1)
