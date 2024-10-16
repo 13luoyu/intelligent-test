@@ -90,7 +90,7 @@ def compose_kv(text, keys, values, knowledge):
         elif key == "op":
             op_cache = value.replace("得", "")
         else:  # 普通的键值对，直接组合
-            while tok[tok_index] in value:
+            while tok_index < len(tok) and tok[tok_index] in value:
                 tok_index += 1
             r1_kvs.append((key, value))
     # print(key_cache, value_cache)
