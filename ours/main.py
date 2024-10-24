@@ -64,7 +64,7 @@ def nlp_process(input_file: str,
     if not use_sdp:
         r1 = to_r1(tco, knowledge, terms)
     else:
-        r1 = to_r1_sdp(tco, knowledge)
+        r1 = to_r1_sdp(tco, knowledge, terms)
     r1 = add_defines(r1, market_variety)
     with open(r1_file, "w", encoding="utf-8") as f:
         f.write(r1)
@@ -141,7 +141,7 @@ if __name__ == "__main__":
         raise FileNotFoundError(f"文件 {args.file} 不存在")
     
     begin_time = time.time()
-    nlp_process(args.file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/terms.txt", "../model/trained/mengzi_rule_filtering", tc_model_path, "../data/data_for_LLM_encoder/tc_data.dict", args.use_sdp)
+    nlp_process(args.file, "cache/setting.json", "cache/sci.json", "cache/sco.json", "cache/tci.json", "cache/tco.json", "cache/r1.mydsl", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/terms.txt", "../model/trained/mengzi_rule_filtering", tc_model_path, "../data/data_for_LLM_encoder/tc_data.dict", use_sdp=args.use_sdp)
     alg_process("cache/r1.mydsl", "cache/r1.json", "cache/r2.json", "cache/r2.mydsl", "cache/r3.json", "cache/r3.mydsl", "cache/testcase.json", "../data/domain_knowledge/classification_knowledge.json", "../data/domain_knowledge/knowledge.json", "cache/relation.json", "cache/explicit_relation.json", "cache/implicit_relation.json")
     time_consume = time.time() - begin_time
     print(f"总共消耗时间: {time_consume}")

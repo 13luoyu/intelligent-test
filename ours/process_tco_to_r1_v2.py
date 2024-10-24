@@ -2,6 +2,7 @@ import hanlp
 import json
 from transfer.knowledge_tree import encode_tree
 from tqdm import tqdm
+import cn2an
 
 HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
 
@@ -34,6 +35,72 @@ def read_OBI_to_rule(text, label):
             else:  # B->I, I->I
                 ...  # 什么也不用做
     return keys, values
+
+
+def is_number(s):
+    try:
+        s = cn2an.cn2an(s)
+        return True
+    except ValueError:
+        return False
+    
+
+def fix_token(keys, values, text, terms):
+    # 解决多字问题
+    for i, (key, value) in enumerate(zip(keys, values)):
+        if key.find("的") == 0 or key.find(")") == 0 or key.find("）") == 0:
+            key = key[1:]
+        if value.find("的") == 0 or value.find("于") == 0 or value.find("以") == 0 or value.find("用") == 0 or value.find(")") == 0 or value.find("）")==0:
+            value = value[1:]
+        if value.find("的") == len(value)-1 and key != "状态" and key != "事件":
+            value = value[:-1]
+        if key.find("（") == len(key)-1 or key.find("(") == len(key)-1:
+            key = key[:-1]
+        if value.find("(") == len(value)-1 or value.find("（") == len(value)-1:
+            value = value[:-1]
+        
+        if "(" in value and ")" in value:
+            if value.find("(") < value.find(")"):
+                cnt = value[value.find("(")+1:value.find(")")]
+                if is_number(cnt):
+                    value = value[value.find(")")+1:]
+            else:
+                value = value[value.find(")")+1:value.find("(")]
+        if "（" in value and "）" in value:
+            if value.find("（") < value.find("）"):
+                cnt = value[value.find("（")+1:value.find("）")]
+                if is_number(cnt):
+                    value = value[value.find("）")+1:]
+            else:
+                value = value[value.find("）")+1:value.find("（")]
+
+        keys[i] = key
+        values[i] = value
+    
+    # 解决少字问题
+    p=0
+    for i, (key, value) in enumerate(zip(keys, values)):
+        p = text.find(value, p)
+        
+        l = 0
+        target_text = ""
+        for term in terms:
+            if value in term and term in text and len(term) > l:
+                value_in_term_begin_index = term.find(value)
+                if p - value_in_term_begin_index < 0 or text[p-value_in_term_begin_index:p-value_in_term_begin_index+len(term)] != term:
+                    continue
+                target_text = term
+                l = len(term)
+        if target_text != "":
+            value = target_text
+
+        if "交易方式" == value[-4:]:
+            value = value[:-2]
+        keys[i] = key
+        values[i] = value
+    
+    return keys, values
+
 
 
 
@@ -393,7 +460,8 @@ def compose_kv(text, keys, values, knowledge):
 
 def compose_r1(id, kvs):
     r1 = ""
-    for i, rule in enumerate(kvs):
+    index = 1
+    for rule in kvs:
         focus = "订单连续性操作"
         for key, value in rule:
             if "时间" in key and ":" in value:
@@ -403,10 +471,10 @@ def compose_r1(id, kvs):
             elif "价格" in key and any(c.isdigit() for c in value):
                 key = "价格"
 
-        r1 += f"rule {id}.{i+1}\n"
-        r1 += f"sourceId {id}\n"
-        r1 += f"focus: {focus}\n"
-        r1 += "\tif "
+        tr = f"rule {id}.{index+1}\n"
+        tr += f"sourceId {id}\n"
+        tr += f"focus: {focus}\n"
+        tr += "\tif "
         result = "成功"
         for key, value in rule:
             if key == "结果":
@@ -416,15 +484,22 @@ def compose_r1(id, kvs):
                     op, value = value.split("&")
                 else:
                     op, value = "is", value
-                r1 += f"{key} {op} \"{value}\" and "
-        r1 = r1[:-5] + "\n"
-        r1 += f"\tthen 结果 is \"{result}\"\n"
-        r1 += "\n"
+                tr += f"{key} {op} \"{value}\" and "
+        tr = tr[:-5] + "\n"
+        tr += f"\tthen 结果 is \"{result}\"\n"
+        tr += "\n"
+        cond = tr.split("if")[-1].split("then")[0].strip()
+        if cond not in r1:
+            r1 += tr
+            index += 1
     return r1
 
 
 
-def to_r1(rules, knowledge):
+
+
+
+def to_r1(rules, knowledge, terms):
     unknown_id = 0
     r1 = ""
     for rule in tqdm(rules):
@@ -436,6 +511,9 @@ def to_r1(rules, knowledge):
         text = rule["text"]
         label = rule["label"]
         keys, values = read_OBI_to_rule(text, label)
+
+        keys, values = fix_token(keys, values, text, terms)
+
         kvs = compose_kv(text, keys, values, knowledge)
         r1_local = compose_r1(id, kvs)
         r1 += r1_local
@@ -445,7 +523,8 @@ def to_r1(rules, knowledge):
 if __name__ == "__main__":
     rules = json.load(open("cache/tco.json", "r", encoding="utf-8"))
     knowledge = json.load(open("../data/domain_knowledge/classification_knowledge.json", "r", encoding="utf-8"))
-    r1 = to_r1(rules, knowledge)
+    terms = open("../data/domain_knowledge/terms.txt", "r", encoding="utf-8").read().split("\n")
+    r1 = to_r1(rules, knowledge, terms)
     with open("cache/r1.mydsl", "w", encoding="utf-8") as f:
         f.write(r1)
 

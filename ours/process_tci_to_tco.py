@@ -10,6 +10,7 @@ import re
 from ours.process_r1_to_r2 import is_num_key, is_price_key
 from transfer.knowledge_tree import encode_tree
 
+HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
 
 def change(begin, end, label, tag):
     index = begin
@@ -44,7 +45,6 @@ def token_classification_with_algorithm(tco, knowledge):
     # 交易品种、交易方式、结合规则、结果、系统、or、时间、价格、数量、op
     # 还需要将标签修复完整
     punctuation = [",", ";", "!", "?", "，", "。", "；", "！", "？", "为"]
-    HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
     for ri, rule in enumerate(tco):
         text, label = rule["text"], rule["label"].split(" ")
         

@@ -573,7 +573,7 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries, concretize_secur
                             vars[rule_id][f"{new_jypz}品种"] = []
                         find = True
 
-                        if (jypz == new_jypz or jypz == "基金份额"):
+                        if (jypz == new_jypz or jypz == "基金份额") and concretize_securities:
                             e = get_constrainted_values(preliminaries, defines, f"{new_jypz}品种")
                             if e != []:
                                 element = f"{new_jypz}品种"
@@ -659,11 +659,16 @@ def supply_rules_on_prelim(defines, vars, rules, preliminaries, concretize_secur
                                             nc['key'] = tii.split(":")[0]
                                     new_var[nc['key']] = []
                                     break
-                            
+                            continue
                         # 将value加入规则中
-                        new_rule['constraints'].append({"key": ti[i].split(":")[0], "operation": "is", "value": ti[i].split(":")[-1]})
-                        new_var[ti[i].split(":")[0]] = []
-                        
+                        if "交易方式" in ti[i] or concretize_securities:
+                            new_rule['constraints'].append({"key": ti[i].split(":")[0], "operation": "is", "value": ti[i].split(":")[-1]})
+                            new_var[ti[i].split(":")[0]] = []
+                    # 防止重复
+                    for tmp in rules.values():
+                        if tmp == new_rule:
+                            conflict = True
+                            break
                     if not conflict:
                         new_id = f"{rule_id}.{index}"
                         index += 1
