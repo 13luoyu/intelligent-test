@@ -7,6 +7,7 @@ import cn2an
 HanLP = hanlp.load(hanlp.pretrained.mtl.CLOSE_TOK_POS_NER_SRL_DEP_SDP_CON_ELECTRA_BASE_ZH)
 
 
+
 # doc = HanLP('2021年HanLPv2.1为生产环境带来次世代最先进的多语种NLP技术。', tasks='sdp')
 # print(doc)
 # doc['sdp']字段代表语义依存图的数组格式，数组中第i个子数组代表第i个单词的语义依存关系，子数组中每个二元组的格式为[中心词的下标, 与中心词的语义依存关系]。每个单词的语义依存关系可能有零个、一个或多个（任意数量）。
@@ -457,6 +458,12 @@ def compose_kv(text, keys, values, knowledge):
     
     return r1_kvs
 
+def digit_is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
 
 def compose_r1(id, kvs):
     r1 = ""
@@ -466,9 +473,9 @@ def compose_r1(id, kvs):
         for key, value in rule:
             if "时间" in key and ":" in value:
                 key = "时间"
-            elif "数量" in key and any(c.isdigit() for c in value):
+            elif "数量" in key and any(digit_is_number(c) for c in value):
                 key = "数量"
-            elif "价格" in key and any(c.isdigit() for c in value):
+            elif "价格" in key and any(digit_is_number(c) for c in value):
                 key = "价格"
 
         tr = f"rule {id}.{index+1}\n"

@@ -1,4 +1,5 @@
 import copy
+import json
 import pprint
 import re
 from ours.process_tco_to_r1 import is_num_key, is_price_key, is_time_key
@@ -250,6 +251,19 @@ def preprocess(rules, vars):
         del rules[rule_id]
         del vars[rule_id]
 
+    # 将操作为买入/卖出改为申报并增加交易方向
+    for rule_id in rules:
+        rule = rules[rule_id]
+        for c in rule["constraints"]:
+            if c["key"] == "操作":
+                if c["value"] == "买入":
+                    c["value"] = "申报"
+                    rule["constraints"].append({"key":"交易方向", "operation":"is", "value":"买入"})
+                elif c["value"] == "卖出":
+                    c["value"] = "申报"
+                    rule["constraints"].append({"key":"交易方向", "operation":"is", "value":"卖出"})
+        vars[rule_id]["交易方向"] = []
+
     return rules, vars
 
 
@@ -413,7 +427,7 @@ def compose_rules_r1_r2(defines, vars, rules, preliminaries, concretize_securiti
 
     # 统一规则下的子规则组合，申报数量<100...0和其他规则的组合
     vars, rules = subrule_compose(vars, rules)
-    
+
     # 补全单规则相关的字段
     vars, rules = supply_rules_on_prelim(defines, vars, rules, preliminaries, concretize_securities)
 
@@ -831,164 +845,163 @@ def same_fatherid(id1, id2, id_example):
 def subrule_compose(vars, rules):
     # 同一rule下的subrule组合
     # 多组合
-    to_delete = []
-    while(1):
-        keys = list(rules.keys())
-        for i in range(len(keys)):
-            for j in range(len(keys)):
-                # 避免重复，并且要求属于同一个rule
-                if j <= i:
+    keys = list(rules.keys())
+    new_rules = {}
+    new_vars = {}
+    for i in range(len(keys)):
+        new_rule = copy.deepcopy(rules[keys[i]])
+        new_var = copy.deepcopy(vars[keys[i]])
+        new_id = keys[i]
+        # 将所有与规则i相关的规则添加到new_rule中
+        for j in range(len(keys)):
+            # 避免重复，并且要求属于同一个rule
+            if j <= i:
+                continue
+            if "数量" in new_rule['focus'] and "价格" in rules[keys[j]]['focus'] or "价格" in new_rule['focus'] and "数量" in rules[keys[j]]['focus']:  # 禁止价格和数量规则组合
+                continue
+
+            if rules[keys[i]]["rule_class"] != rules[keys[j]]["rule_class"]:
+                # 如果是数量，则不跳过
+                find_num=False
+                for c in rules[keys[i]]['constraints']:
+                    if is_num_key(c['key']):
+                        find_num = True
+                        break
+                if not find_num:
                     continue
-                if rules[keys[i]]["rule_class"] != rules[keys[j]]["rule_class"]:
-                    # 如果是数量，则不跳过
-                    find_num=False
-                    for c in rules[keys[i]]['constraints']:
-                        if is_num_key(c['key']):
-                            find_num = True
-                            break
-                    if not find_num:
-                        continue
-                    find_num = False
-                    for c in rules[keys[j]]['constraints']:
-                        if is_num_key(c['key']):
-                            find_num = True
-                            break
-                    if not find_num:
-                        continue
-                # 避免冲突
-                new_rule = copy.deepcopy(rules[keys[i]])
-                conflict = False
-                for c in rules[keys[j]]["constraints"]:
-                    # 时间
-                    if c['operation'] == "in":
+                find_num = False
+                for c in rules[keys[j]]['constraints']:
+                    if is_num_key(c['key']):
+                        find_num = True
+                        break
+                if not find_num:
+                    continue
+            
+            # 避免冲突
+            conflict = False
+            find_num_price = False  # 新规定，只组合数量、价格相关数值约束规则
+            constraints_to_add = []
+            for c in rules[keys[j]]["constraints"]:
+                # 时间
+                if c['operation'] == "in":
+                    conflict = True
+                    break
+                # 少于...一次性申报
+                # if c['key'] == "操作" and "一次性" in c['value']:
+                #     conflict = True
+                #     break
+                find = False
+                for c1 in new_rule["constraints"]:
+                    if c1['operation'] == "in":
                         conflict = True
                         break
-                    # 少于...一次性申报
-                    # if c['key'] == "操作" and "一次性" in c['value']:
+                    # if(c1['key'] == "操作" and "一次性" in c1['value']):
                     #     conflict = True
                     #     break
-                    find = False
-                    find_num_price = False  # 新规定，只组合数量、价格相关数值约束规则
-                    for c1 in new_rule["constraints"]:
-                        if c1['operation'] == "in":
-                            conflict = True
-                            break
-                        # if(c1['key'] == "操作" and "一次性" in c1['value']):
-                        #     conflict = True
-                        #     break
-                        if c['key'] == c1['key'] and c['operation'] == "is" and c1['operation'] == "is":
-                            if c['key'] == "交易品种":
-                                find = True
-                                variety_same, small_variety= judge_variety_same(c['value'], c1['value'])
-                                if not variety_same:
-                                    conflict = True
-                                else:
-                                    if c1['value'] != small_variety:
-                                        c1['value'] = small_variety
-                                break
-                            if is_num_key(c['key']) and is_num_key(c1['key']) or is_price_key(c['key']) and is_price_key(c1['key']):
-                                if c['value'] == c1['value']:
-                                    find = True
+                    if c['key'] == c1['key'] and c['operation'] == "is" and c1['operation'] == "is":
+                        if c['key'] == "交易品种":
+                            find = True
+                            variety_same, small_variety= judge_variety_same(c['value'], c1['value'])
+                            if not variety_same:
+                                conflict = True
                             else:
-                                find = True
-                                if c['value'] != c1['value'] and not (c['key'] == "操作" and c1['key'] == "操作" and (c['value'] in ["买入", "申报"] and c1['value'] in ["买入", "申报"] or c['value'] in ["卖出","申报"] and c1['value'] in ["卖出","申报"])):
-                                    conflict = True
-                            break
-                        if c['key'] == c1['key'] and c['operation'] == 'compute' and c1['operation'] == "compute":
-                            find_num_price = True
+                                if c1['value'] != small_variety:
+                                    c1['value'] = small_variety
+                            break  # 理由同下break
+                        if is_num_key(c['key']) and is_num_key(c1['key']) or is_price_key(c['key']) and is_price_key(c1['key']):
                             if c['value'] == c1['value']:
                                 find = True
-                    if conflict or not find_num_price:
-                        break
-                    if not find:
-                        new_rule["constraints"].append(copy.deepcopy(c))
-                if conflict or not find_num_price:
-                    continue
-                # 合并results, focus
-                if "results" not in new_rule and "results" in rules[keys[j]]:
-                    new_rule["results"] = copy.deepcopy(rules[keys[j]]["results"])
-                elif "results" in new_rule and "results" in rules[keys[j]]:
-                    for r in rules[keys[j]]['results']:
-                        find = False
-                        for r1 in new_rule['results']:
-                            if r['key'] == r1['key']:
-                                find = True
-                                break
-                        if not find:
-                            new_rule['results'].append(copy.deepcopy(r))
-                for f in rules[keys[j]]['focus']:
-                    if f not in new_rule['focus']:
-                        new_rule['focus'].append(f)
-                if "数量" in new_rule['focus'] and "价格" in new_rule['focus']:  # 禁止价格和数量规则组合
-                    continue
-                if keys[i] not in to_delete:
-                    to_delete.append(keys[i])
-                if keys[j] not in to_delete:
-                    to_delete.append(keys[j])
-                keyi_list = keys[i].split(",")
-                keyj_list = keys[j].split(",")
-                for kj in keyj_list:
-                    if kj not in keyi_list:
-                        keyi_list.append(kj)
-                keyi_list = sorted(keyi_list)
+                        else:
+                            find = True
+                            if c['value'] != c1['value'] and not (c['key'] == "操作" and c1['key'] == "操作" and (c['value'] in ["买入", "申报"] and c1['value'] in ["买入", "申报"] or c['value'] in ["卖出","申报"] and c1['value'] in ["卖出","申报"])):
+                                conflict = True
+                        break # break的理由是在new_rule中找到了对应的constraint，不用添加
+                    if c['key'] == c1['key'] and c['operation'] == 'compute' and c1['operation'] == "compute":
+                        find_num_price = True
+                        if c['value'] == c1['value']:
+                            find = True
+                if conflict:
+                    break
+                if not find:
+                    constraints_to_add.append(copy.deepcopy(c))
 
-                del_index = []
-                for pi, xi in enumerate(keyi_list):  # 3.1.5.1, 3.1.5
+            if conflict or not find_num_price:
+                continue
+            new_rule['constraints'].extend(constraints_to_add)
+            # 合并results, focus
+            if "results" not in new_rule and "results" in rules[keys[j]]:
+                new_rule["results"] = copy.deepcopy(rules[keys[j]]["results"])
+            elif "results" in new_rule and "results" in rules[keys[j]]:
+                for r in rules[keys[j]]['results']:
+                    find = False
+                    for r1 in new_rule['results']:
+                        if r['key'] == r1['key']:
+                            find = True
+                            break
+                    if not find:
+                        new_rule['results'].append(copy.deepcopy(r))
+            for f in rules[keys[j]]['focus']:
+                if f not in new_rule['focus']:
+                    new_rule['focus'].append(f)
+            
+            # 新的id
+            keyi_list = new_id.split(",")
+            keyj_list = keys[j].split(",")
+            for kj in keyj_list:
+                if kj not in keyi_list:
+                    keyi_list.append(kj)
+            keyi_list = sorted(keyi_list)
+
+            del_index = []
+            for pi, xi in enumerate(keyi_list):  # 3.1.5.1, 3.1.5
+                point_num=0
+                start = 0
+                pl = xi.find(".", start)
+                while(pl!=-1 and point_num <= 2):
+                    point_num += 1
+                    start = pl+1
+                    pl = xi.find(".", start)
+                if pl == -1:
+                    rule_class1 = xi
+                else:
+                    rule_class1 = xi[:pl]
+                
+                for pj, xj in enumerate(keyi_list):
+                    if pj <= pi:
+                        continue
                     point_num=0
                     start = 0
-                    pl = xi.find(".", start)
+                    pl = xj.find(".", start)
                     while(pl!=-1 and point_num <= 2):
                         point_num += 1
                         start = pl+1
-                        pl = xi.find(".", start)
-                    if pl == -1:
-                        rule_class1 = xi
-                    else:
-                        rule_class1 = xi[:pl]
-                    
-                    for pj, xj in enumerate(keyi_list):
-                        if pj <= pi:
-                            continue
-                        point_num=0
-                        start = 0
                         pl = xj.find(".", start)
-                        while(pl!=-1 and point_num <= 2):
-                            point_num += 1
-                            start = pl+1
-                            pl = xj.find(".", start)
-                        if pl == -1:
-                            rule_class2 = xj
+                    if pl == -1:
+                        rule_class2 = xj
+                    else:
+                        rule_class2 = xj[:pl]
+                    if rule_class1 == rule_class2:
+                        if len(xi) > len(xj):
+                            del_index.append(pi)
                         else:
-                            rule_class2 = xj[:pl]
-                        if rule_class1 == rule_class2:
-                            if len(xi) > len(xj):
-                                del_index.append(pi)
-                            else:
-                                del_index.append(pj)
-                key_list = []
-                for pi, xi in enumerate(keyi_list):
-                    if pi not in del_index:
-                        key_list.append(xi)
+                            del_index.append(pj)
+            key_list = []
+            for pi, xi in enumerate(keyi_list):
+                if pi not in del_index:
+                    key_list.append(xi)
 
-                    
-                new_id = ",".join(key_list)
-                rules[new_id] = new_rule
+                
+            new_id = ",".join(key_list)
 
 
-                # 更新vars
-                new_var = copy.deepcopy(vars[keys[i]])
-                for v in list(vars[keys[j]].keys()):
-                    if v not in list(new_var.keys()):
-                        new_var[v] = []
-                vars[new_id] = new_var
+            # 更新vars
+            for v in list(vars[keys[j]].keys()):
+                if v not in list(new_var.keys()):
+                    new_var[v] = []
 
-        if len(to_delete) == 0:
-            break
-        for id in to_delete:
-            del vars[id]
-            del rules[id]
-        to_delete = []
-    return vars, rules
+        new_rules[new_id] = new_rule
+        new_vars[new_id] = new_var
+    return new_vars, new_rules
 
 
 

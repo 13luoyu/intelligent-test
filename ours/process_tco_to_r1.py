@@ -709,7 +709,7 @@ def write_r1(fp_r1, ss, knowledge, id):
             elif key == "op":
                 op_to_use = value
             elif key == "时间":
-                if focus != "订单连续性操作":
+                if len(re.findall(r"\d+:\d+", value)) > 0:
                     focus = "时间"
                 if not key_to_use:
                     if value_to_use:
@@ -732,7 +732,7 @@ def write_r1(fp_r1, ss, knowledge, id):
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "价格":
-                if focus != "订单连续性操作":
+                if len(re.findall(r"\d+", value)) > 0:
                     focus = "价格"
                 if not key_to_use:
                     if value_to_use:
@@ -755,7 +755,7 @@ def write_r1(fp_r1, ss, knowledge, id):
                         value_to_use = {key:value}
                     key_to_use = {}
             elif key == "数量":
-                if focus != "订单连续性操作":
+                if len(re.findall(r"\d+", value)) > 0:
                     focus = "数量"
                 if not key_to_use:
                     if value_to_use:

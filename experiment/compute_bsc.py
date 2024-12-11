@@ -8,6 +8,12 @@ from ours.process_r1_to_r2 import judge_op, is_num_key, is_price_key, is_time_ke
 
 sts = hanlp.load(hanlp.pretrained.sts.STS_ELECTRA_BASE_ZH)
 
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
 
 
 def edit_distance(s1, s2):
@@ -228,7 +234,7 @@ def compute_bsc_v1(testcases, scenarios, f):
                             for sv in s_value.split(","):
                                 fulfill = False
                                 for num in nums:
-                                    if num.isdigit():
+                                    if is_number(num):
                                         num = int(num)
                                     else:
                                         if judge_same(num,sv):
@@ -274,7 +280,7 @@ def compute_bsc_v1(testcases, scenarios, f):
                             for sv in s_value.split(","):
                                 fulfill = False
                                 for price in prices:
-                                    if price.isdigit():
+                                    if is_number(price):
                                         price = float(price)
                                     else:
                                         if judge_same(price, sv):
@@ -461,7 +467,7 @@ def compute_bsc_v2(testcases, scenarios, f, type="ours", count=0):
                         for sv in scenario_value.split(","):
                             fulfill = False
                             for num in nums:
-                                if num.isdigit():
+                                if is_number(num):
                                     num = int(num)
                                 else:  # 枚举约束
                                     if judge_same(num, sv):
