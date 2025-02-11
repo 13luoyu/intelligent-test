@@ -3,7 +3,7 @@ import json
 import os
 from transfer.knowledge_tree import encode_tree
 
-def get_market_variety(s, knowledge):
+def get_market_variety(s, knowledge, hybrid=False):
     market, market_num, variety, variety_num = "", 0, "", 0
     tree = encode_tree(knowledge)
 
@@ -53,12 +53,12 @@ def get_market_variety(s, knowledge):
                 market = "上海证券交易所"
             else:
                 market = "证券交易所"
-    if variety_num == 0:
+    if hybrid or variety_num == 0:
         variety = "证券"
     return {"market": market, "variety": variety}
 
 
-def nl_to_sci(nl_file = None, nl_data = None, knowledge=None):
+def nl_to_sci(nl_file = None, nl_data = None, knowledge=None, hybrid=False):
     '''
     将自然语言文档（pdf格式）或自然语言输入转化为sequence classification input的格式
     nl_file: pdf格式的自然语言文档
@@ -72,7 +72,7 @@ def nl_to_sci(nl_file = None, nl_data = None, knowledge=None):
         market_variety = get_market_variety(txt_data, knowledge)
     elif nl_data is not None:
         sci = read_txt_to_json(nl_data)
-        market_variety = get_market_variety(nl_data, knowledge)
+        market_variety = get_market_variety(nl_data, knowledge, hybrid)
     else:
         return [], {}
 

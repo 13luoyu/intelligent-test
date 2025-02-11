@@ -118,3 +118,74 @@ def mydsl_to_rules(s):
     return defines, vars, rules
 
 
+def mydsl_to_rules_v2(s):
+    """读文件并解析, 将环境常量写入defines, 规则写入rules"""
+
+    rules = {}
+    # rules = [
+    #     {
+    #         "rule": "3.3.8.1",
+    #         "sourceId": 1.1.1, 1.1.2,
+    #         "conditions": [["交易方式", "is", "竞买成交"], ...],
+    #         "consequences": [["交易结果", "is", "已申报"], ...],
+    #         "before": 1.1.1, 1.1.2, ...
+    #         "after": 1.1.1, 1.1.2, ...
+    #     },...
+    # ]
+
+
+    lines = s.split("\n")
+    for line in lines:
+        l = line.strip().split(" ")
+        
+        # 跳过空行
+        if len(l) == 0:
+            continue
+        
+        if l[0] == "rule":
+            rule_id = l[1]
+            rule = {}
+            # rule["rule"] = rule_id
+        
+        elif l[0] == 'sourceId':
+            sourceId = l[1].split(',')
+            rule['sourceId'] = sourceId
+        
+        elif l[0] == "before:":
+            rule['before'] = l[1].split(',')
+        elif l[0] == "after:":
+            rule['after'] = l[1].split(',')
+        
+        elif l[0] == "if":
+            conditions = []
+            i = 1
+            while i < len(l):
+                next_and = i + 1
+                while next_and < len(l) and l[next_and] != "and":
+                    next_and += 1
+                condition = l[i:next_and]
+                c = {"key": condition[0], "operation": condition[1], "value": condition[2]}
+                conditions.append(c)
+                i = next_and + 1
+            rule['constraints'] = conditions
+        
+        elif l[0] == "then":
+            i = 1
+            consequences = []
+            while i < len(l):
+                next_and = i + 1
+                while next_and < len(l) and l[next_and] != "and":
+                    next_and += 1
+                consequence = l[i:next_and]
+                c = {"key": consequence[0], "operation": consequence[1], "value": consequence[2]}
+                consequences.append(c)
+                i = next_and + 1
+            rule['results'] = consequences
+            # rules.append(rule)
+            rules[rule_id] = rule
+        
+        elif "or relation" in line:
+            # rules[-1]['or relation'] = line.split(":")[-1].split(",")
+            rules[rule_id]['or relation'] = line.split(":")[-1].split(",")
+
+    return rules

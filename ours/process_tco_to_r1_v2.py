@@ -100,7 +100,15 @@ def fix_token(keys, values, text, terms):
         keys[i] = key
         values[i] = value
     
-    return keys, values
+    # 去重
+    new_keys, new_values = [], []
+    for i in range(len(keys)):
+        if keys[i] in new_keys and values[i] in new_values:
+            continue
+        new_keys.append(keys[i])
+        new_values.append(values[i])
+
+    return new_keys, new_values
 
 
 
@@ -116,6 +124,8 @@ def get_key_based_on_value(value, knowledge):
 
 def compose_kv(text, keys, values, knowledge):
     """使用语义依存分析结合算法进行key-value组合以及规则分割"""
+    # print(text, keys, values)
+    # 采用匹配成交方式的，债券现券的申报数量应当为10万元面额或者其整数倍。 ['交易方式', '交易品种', 'key', '数量'] ['匹配成交', '债券现券', '申报数量', '10万元面额或者其整数倍']
     r1_kvs = []
     doc = HanLP(text, tasks='sdp')
     # print(doc)
@@ -124,6 +134,15 @@ def compose_kv(text, keys, values, knowledge):
     # for i, (t, s) in enumerate(zip(tok, sdp)):
     #     words = [tok[si[0]-1] for si in s]
     #     print(i, t, s, words)
+    #     0 采用 [(5, 'rAgt')] ['的']
+    #     1 匹配 [(3, 'Desc')] ['成交']
+    #     2 成交 [(4, 'Desc')] ['方式']
+    #     3 方式 [(1, 'Cont')] ['采用']
+    #     4 的 [(14, 'Exp')] ['为']
+    #     5 ， [(5, 'mPunc')] ['的']
+    #     6 债券 [(9, 'eCoo')] ['券']
+
+
     # 1、一般，谓词是一个根节点，如果key-value最终以同一个谓词连接（具有相同的根节点），key-value组合
     # 2、如果有并列关系，将规则分割为子规则
 
@@ -509,7 +528,8 @@ def compose_r1(id, kvs):
 def to_r1(rules, knowledge, terms):
     unknown_id = 0
     r1 = ""
-    for rule in tqdm(rules):
+    # for rule in tqdm(rules):
+    for rule in rules:
         if "id" in rule:
             id = rule["id"]
         else:

@@ -11,6 +11,8 @@ def is_id(str):
         return False
     if str[0]=="第" and "条" in str:
         return True
+    if str.isdigit():
+        return True
     if "." not in str:
         return False
     ids = str.split(".")

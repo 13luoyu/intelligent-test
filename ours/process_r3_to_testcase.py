@@ -57,22 +57,18 @@ def list_conditions(defines, vars, rules):
             # part 1 连接词是 is
             # 规则是仅将这个值加入vars，不考虑其他值
             # 如果该key已经存在，则序号递增，如操作，操作2，操作3...
-            opposite_tnp = True
             if op == "is":
                 real_key = key
                 if len(vars[rule_id][key]) > 0:
                     index = 2
                     while f"{key}{index}" in vars[rule_id]:
                         index += 1
-                    if opposite_tnp and index > 3:
-                        conflict_to_delete.append(rule_id)
-                        break
                     vars[rule_id][f"{key}{index}"] = [value]
                     real_key = f"{key}{index}"
                 else:
                     vars[rule_id][key].append(value)
                 # 这个地方用于生成时间、数量、价格的枚举变量的反，但如果不注释掉，生成测试用例非常多
-                if opposite_tnp and (is_time_key(key) or is_num_key(key) or is_price_key(key)):
+                if is_time_key(key) or is_num_key(key) or is_price_key(key):
                     if "不" in value:
                         value = value[value.find("不")+1:]
                     else:

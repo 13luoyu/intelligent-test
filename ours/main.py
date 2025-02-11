@@ -10,6 +10,7 @@ from ours.process_r2_to_r3 import compose_rules_r2_r3
 from ours.process_r3_to_testcase import testcase
 from ours.process_testcase_to_outputs import generate_dicts
 from transfer import mydsl_to_rules, rules_to_mydsl
+from support.generate_data_for_sequence_classification import is_id
 import json
 from pprint import pprint
 import time
@@ -39,7 +40,9 @@ def nlp_process(input_file: str,
     knowledge = json.load(open(knowledge_file, "r", encoding="utf-8"))
     if ".txt" in input_file:
         input_data = open(input_file, "r", encoding="utf-8").read()
-        sci, market_variety = nl_to_sci(nl_data=input_data, knowledge=knowledge)
+        first_line = input_data.strip().split("\n")[0]
+        hybrid = is_id(first_line)
+        sci, market_variety = nl_to_sci(nl_data=input_data, knowledge=knowledge, hybrid=hybrid)
     else:
         sci, market_variety = nl_to_sci(nl_file=input_file, knowledge=knowledge)
     json.dump(sci, open(sci_file, "w", encoding="utf-8"), ensure_ascii=False, indent=4)

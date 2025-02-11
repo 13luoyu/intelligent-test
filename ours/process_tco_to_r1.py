@@ -914,6 +914,19 @@ def fix_token(stack, text, terms):
             value = value[:-2]
         stack[i] = {key:value}
     
+    # 去重
+    keys, values = [], []
+    for si in stack:
+        key = list(si.keys())[0]
+        value = si[key]
+        if key in keys and value in values:
+            continue
+        keys.append(key)
+        values.append(value)
+    stack = []
+    for i in range(len(keys)):
+        stack.append({keys[i]:values[i]})
+
     return stack
 
 

@@ -1,21 +1,9 @@
 import pdfplumber
 import json
 import os
+from support.generate_data_for_sequence_classification import is_id
 
 # 读取一个目录，按照id分割，生成token_classification文件
-
-def is_id(str):
-    # 判断一句话是否是id开头
-    str = str.split(" ")[0]
-    if str[0]=="第" and "条" in str:
-        return True
-    if "." not in str:
-        return False
-    ids = str.split(".")
-    for id in ids:
-        if not id.isdigit():
-            return False
-    return True
 
 def read_pdf_to_txt(pdf_file):
     """

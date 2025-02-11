@@ -14,6 +14,7 @@ from ours.process_knowledge import process_knowledge
 from ours.consistency_checking import consistency_checking
 from ours.main import add_defines
 from transfer import mydsl_to_rules, rules_to_mydsl
+from support.generate_data_for_sequence_classification import is_id
 import time
 from hashlib import md5
 import wget
@@ -140,7 +141,9 @@ def nl_to_sci_interface():
                 filepath = wget.download(fileData, app.config['UPLOAD_FOLDER'])
                 filepath = filepath.replace("//", "/")
                 nl_data = open(filepath, 'r', encoding="utf-8").read()
-                sci_data, market_variety = nl_to_sci(nl_data=nl_data,knowledge=knowledge)
+                first_line = nl_data.strip().split("\n")[0]
+                hybrid = is_id(first_line)
+                sci_data, market_variety = nl_to_sci(nl_data=nl_data,knowledge=knowledge,hybrid=hybrid)
                 timestamp, sign = get_timestamp_sign()
                 return_data = {"code": code, "msg": "success", "data": {"sci_data": sci_data, "setting": market_variety}, "timeStamp": timestamp, "sign": sign}
                 writelog(f"### 访问接口/preprocess, 成todo_fp功! 输入数据:\n{params},\n返回数据:\n{return_data}\n\n")
