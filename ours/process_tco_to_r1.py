@@ -969,6 +969,26 @@ def to_r1(rules, knowledge, terms):
                 elif d == "价格":
                     r1_data[i] = "申报价格"
         r1 = " ".join(r1_data)
+    
+
+        
+    # 去重
+    r1_lines = r1.split("\n")
+    new_lines = []
+    for line in r1_lines:
+        if "if" in line or "then" in line:
+            firstword = line.split(" ")[0]
+            words = line.split(" ")[1:]
+            triplet = []
+            for i in range(0, len(words), 4):
+                if " ".join(words[i:i+3]) not in triplet:
+                    triplet.append(" ".join(words[i:i+3]))
+            new_line = firstword + " " + " and ".join(triplet)
+            new_lines.append(new_line)
+        else:
+            new_lines.append(line)
+    r1 = "\n".join(new_lines)
+    
     return r1
 
 
